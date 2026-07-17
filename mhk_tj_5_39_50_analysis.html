@@ -1,4 +1,4 @@
-<title>MHK/TJ 5.39–50 — 唯識における解脱論批判・心と心所</title>
+<title>MHK/TJ 5.39–50 — Eckel・斎藤に基づく唯識批判の分析</title>
 <style>
   :root {
     --bg: #f5f1ea;
@@ -9,8 +9,12 @@
     --skt-bg: #faf5f0;
     --tib: #1b4868;
     --tib-bg: #f0f4f8;
-    --comm: #2e5443;
-    --comm-bg: #f2f6f3;
+    --eng: #4a3070;
+    --eng-bg: #f4f0f8;
+    --jpn: #2e5443;
+    --jpn-bg: #f2f6f3;
+    --comm: #3a3020;
+    --comm-bg: #f8f5ee;
     --accent: #6b3a1a;
     --accent-light: #c4946a;
     --border: #d4cabb;
@@ -19,921 +23,614 @@
     --header-bg: #2a2218;
     --header-text: #ede6d8;
     --verse-num: #a0622e;
-    --tag-bhv: #2e5443;
-    --tag-bhv-bg: #dde8e0;
-    --tag-yog: #6a3580;
-    --tag-yog-bg: #ece0f2;
-    --tag-gen: #5a4a30;
-    --tag-gen-bg: #e8e0d0;
   }
-
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #1a1814;
-      --bg-alt: #242018;
-      --text: #ddd6c8;
-      --text-muted: #908880;
-      --skt: #d4845a;
-      --skt-bg: #2a2018;
-      --tib: #7ab4d8;
-      --tib-bg: #1a2430;
-      --comm: #7cc4a0;
-      --comm-bg: #1a2820;
-      --accent: #d4945a;
-      --accent-light: #8a6040;
-      --border: #3a342a;
-      --border-light: #2e2822;
-      --divider: #4a4238;
-      --header-bg: #14120e;
-      --header-text: #d8d0c0;
-      --verse-num: #d4945a;
-      --tag-bhv: #7cc4a0;
-      --tag-bhv-bg: #1e3028;
-      --tag-yog: #c49ae0;
-      --tag-yog-bg: #2a1e34;
-      --tag-gen: #c4b890;
-      --tag-gen-bg: #2e2818;
+      --bg: #1a1814; --bg-alt: #242018; --text: #ddd6c8; --text-muted: #908880;
+      --skt: #d4845a; --skt-bg: #2a2018; --tib: #7ab4d8; --tib-bg: #1a2430;
+      --eng: #b8a0d8; --eng-bg: #221a30; --jpn: #7cc4a0; --jpn-bg: #1a2820;
+      --comm: #c8c0a8; --comm-bg: #222018; --accent: #d4945a; --accent-light: #8a6040;
+      --border: #3a342a; --border-light: #2e2822; --divider: #4a4238;
+      --header-bg: #14120e; --header-text: #d8d0c0; --verse-num: #d4945a;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #1a1814;
-    --bg-alt: #242018;
-    --text: #ddd6c8;
-    --text-muted: #908880;
-    --skt: #d4845a;
-    --skt-bg: #2a2018;
-    --tib: #7ab4d8;
-    --tib-bg: #1a2430;
-    --comm: #7cc4a0;
-    --comm-bg: #1a2820;
-    --accent: #d4945a;
-    --accent-light: #8a6040;
-    --border: #3a342a;
-    --border-light: #2e2822;
-    --divider: #4a4238;
-    --header-bg: #14120e;
-    --header-text: #d8d0c0;
-    --verse-num: #d4945a;
-    --tag-bhv: #7cc4a0;
-    --tag-bhv-bg: #1e3028;
-    --tag-yog: #c49ae0;
-    --tag-yog-bg: #2a1e34;
-    --tag-gen: #c4b890;
-    --tag-gen-bg: #2e2818;
+    --bg: #1a1814; --bg-alt: #242018; --text: #ddd6c8; --text-muted: #908880;
+    --skt: #d4845a; --skt-bg: #2a2018; --tib: #7ab4d8; --tib-bg: #1a2430;
+    --eng: #b8a0d8; --eng-bg: #221a30; --jpn: #7cc4a0; --jpn-bg: #1a2820;
+    --comm: #c8c0a8; --comm-bg: #222018; --accent: #d4945a; --accent-light: #8a6040;
+    --border: #3a342a; --border-light: #2e2822; --divider: #4a4238;
+    --header-bg: #14120e; --header-text: #d8d0c0; --verse-num: #d4945a;
   }
   :root[data-theme="light"] {
-    --bg: #f5f1ea;
-    --bg-alt: #ece7dd;
-    --text: #2c2620;
-    --text-muted: #7a7168;
-    --skt: #8e3518;
-    --skt-bg: #faf5f0;
-    --tib: #1b4868;
-    --tib-bg: #f0f4f8;
-    --comm: #2e5443;
-    --comm-bg: #f2f6f3;
-    --accent: #6b3a1a;
-    --accent-light: #c4946a;
-    --border: #d4cabb;
-    --border-light: #e4ddd0;
-    --divider: #b8ad9c;
-    --header-bg: #2a2218;
-    --header-text: #ede6d8;
-    --verse-num: #a0622e;
-    --tag-bhv: #2e5443;
-    --tag-bhv-bg: #dde8e0;
-    --tag-yog: #6a3580;
-    --tag-yog-bg: #ece0f2;
-    --tag-gen: #5a4a30;
-    --tag-gen-bg: #e8e0d0;
+    --bg: #f5f1ea; --bg-alt: #ece7dd; --text: #2c2620; --text-muted: #7a7168;
+    --skt: #8e3518; --skt-bg: #faf5f0; --tib: #1b4868; --tib-bg: #f0f4f8;
+    --eng: #4a3070; --eng-bg: #f4f0f8; --jpn: #2e5443; --jpn-bg: #f2f6f3;
+    --comm: #3a3020; --comm-bg: #f8f5ee; --accent: #6b3a1a; --accent-light: #c4946a;
+    --border: #d4cabb; --border-light: #e4ddd0; --divider: #b8ad9c;
+    --header-bg: #2a2218; --header-text: #ede6d8; --verse-num: #a0622e;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'YuMincho', serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+  .container { max-width: 900px; margin: 0 auto; padding: 20px; }
 
-  body {
-    font-family: Georgia, 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.85;
-    padding: 0;
-  }
+  header { background: var(--header-bg); color: var(--header-text); padding: 40px 20px; text-align: center; }
+  header h1 { font-size: 1.6em; margin-bottom: 10px; letter-spacing: 0.05em; }
+  header p { font-size: 0.9em; opacity: 0.8; line-height: 1.6; }
 
-  .page {
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
-  }
+  nav.toc { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin: 30px 0; }
+  nav.toc h2 { font-size: 1.1em; margin-bottom: 12px; color: var(--accent); }
+  nav.toc ul { list-style: none; padding-left: 0; }
+  nav.toc li { margin: 4px 0; }
+  nav.toc a { color: var(--text); text-decoration: none; font-size: 0.95em; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc .sub { padding-left: 20px; font-size: 0.9em; }
 
-  /* Header */
-  .doc-header {
-    background: var(--header-bg);
-    color: var(--header-text);
-    padding: 2.5rem 2rem 2rem;
-    margin-bottom: 2.5rem;
-    position: relative;
-  }
-  .doc-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-light), var(--accent), var(--accent-light));
-  }
-  .doc-header h1 {
-    font-size: 1.5rem;
-    font-weight: normal;
-    letter-spacing: 0.06em;
-    margin-bottom: 0.4rem;
-  }
-  .doc-header .subtitle {
-    font-size: 1.05rem;
-    font-style: italic;
-    color: #c4a880;
-    margin-bottom: 0.2rem;
-  }
-  .doc-header .subtitle-tib {
-    font-size: 0.88rem;
-    color: #90b0a0;
-    margin-bottom: 1rem;
-  }
-  .doc-header .meta {
-    font-size: 0.78rem;
-    color: #a09888;
-    line-height: 1.6;
-  }
-  .doc-header .meta em { color: #b8a888; }
+  .section { margin: 40px 0; padding-top: 20px; border-top: 2px solid var(--divider); }
+  .section h2 { font-size: 1.3em; color: var(--accent); margin-bottom: 20px; }
+  .section h3 { font-size: 1.1em; color: var(--text); margin: 25px 0 15px; border-left: 4px solid var(--accent-light); padding-left: 12px; }
 
-  /* Intro */
-  .intro {
-    border-left: 3px solid var(--accent-light);
-    padding: 1.2rem 1.5rem;
-    margin-bottom: 2.5rem;
-    background: var(--bg-alt);
-    font-size: 0.92rem;
-    line-height: 1.9;
-  }
-  .intro p { margin-bottom: 0.6rem; }
-  .intro p:last-child { margin-bottom: 0; }
+  .verse-block { margin: 20px 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .verse-header { background: var(--bg-alt); padding: 10px 16px; font-weight: bold; color: var(--verse-num); font-size: 1.05em; border-bottom: 1px solid var(--border); }
 
-  /* Section headers */
-  .section-head {
-    display: flex;
-    align-items: baseline;
-    gap: 0.8rem;
-    padding: 0.8rem 1rem;
-    background: var(--bg-alt);
-    border-left: 4px solid var(--accent);
-    margin: 2.5rem 0 1.5rem;
-  }
-  .section-head .label {
-    font-size: 0.7rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--accent);
-    white-space: nowrap;
-    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
-  }
-  .section-head .ja {
-    font-size: 1.1rem;
-  }
-  .section-head .skt-label {
-    font-style: italic;
-    color: var(--skt);
-    font-size: 0.92rem;
-  }
+  .skt-text { background: var(--skt-bg); padding: 14px 18px; color: var(--skt); font-size: 1.05em; line-height: 2; border-left: 4px solid var(--skt); }
+  .skt-text .label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 4px; }
 
-  /* Verse block */
-  .verse-block {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border-light);
-  }
-  .verse-block:last-child {
-    border-bottom: none;
-  }
+  .tib-text { background: var(--tib-bg); padding: 14px 18px; color: var(--tib); font-size: 0.95em; line-height: 2; border-left: 4px solid var(--tib); }
+  .tib-text .label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 4px; }
 
-  .verse-head {
-    display: flex;
-    align-items: baseline;
-    gap: 0.7rem;
-    margin-bottom: 1rem;
-  }
-  .verse-head .num {
-    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--verse-num);
-    white-space: nowrap;
-    min-width: 3.5em;
-  }
-  .verse-head .topic {
-    font-size: 1rem;
-  }
-  .verse-head .topic-en {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-style: italic;
-  }
-  .tag {
-    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 0.12rem 0.4rem;
-    border-radius: 2px;
-    display: inline-block;
-    vertical-align: baseline;
-    margin-right: 0.3rem;
-  }
-  .tag-bhv { background: var(--tag-bhv-bg); color: var(--tag-bhv); }
-  .tag-yog { background: var(--tag-yog-bg); color: var(--tag-yog); }
-  .tag-gen { background: var(--tag-gen-bg); color: var(--tag-gen); }
+  .eng-text { background: var(--eng-bg); padding: 14px 18px; color: var(--eng); font-size: 0.95em; line-height: 1.8; border-left: 4px solid var(--eng); }
+  .eng-text .label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 4px; }
 
-  /* Text blocks */
-  .text-label {
-    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
-    font-size: 0.68rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 0.3rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .text-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border-light);
-  }
-  .text-label.skt-l { color: var(--skt); }
-  .text-label.tib-l { color: var(--tib); }
-  .text-label.jpn-l { color: var(--text-muted); }
-  .text-label.comm-l { color: var(--comm); }
+  .jpn-text { background: var(--jpn-bg); padding: 14px 18px; color: var(--jpn); font-size: 0.95em; line-height: 1.9; border-left: 4px solid var(--jpn); }
+  .jpn-text .label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 4px; }
 
-  .skt-block {
-    background: var(--skt-bg);
-    border-left: 3px solid var(--skt);
-    padding: 0.8rem 1.2rem;
-    margin: 0.3rem 0 1rem;
-    font-style: italic;
-    color: var(--skt);
-    line-height: 2;
-    font-size: 0.95rem;
-  }
+  .commentary { background: var(--comm-bg); padding: 16px 18px; color: var(--comm); font-size: 0.92em; line-height: 1.9; margin: 16px 0; border-radius: 6px; border: 1px solid var(--border-light); }
+  .commentary .label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 6px; font-weight: bold; }
 
-  .tib-block {
-    background: var(--tib-bg);
-    border-left: 3px solid var(--tib);
-    padding: 0.8rem 1.2rem;
-    margin: 0.3rem 0 1rem;
-    color: var(--tib);
-    line-height: 2;
-    font-size: 0.92rem;
-  }
+  .tj-comm { background: var(--tib-bg); padding: 14px 18px; color: var(--text); font-size: 0.9em; line-height: 1.9; margin: 10px 0; border-radius: 6px; border: 1px solid var(--border-light); }
+  .tj-comm .label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.1em; color: var(--tib); display: block; margin-bottom: 6px; font-weight: bold; }
 
-  .jpn-block {
-    padding: 0.5rem 0 0.8rem;
-    margin: 0.3rem 0 1rem;
-    line-height: 2;
-    font-size: 0.95rem;
-  }
+  .apparatus { font-size: 0.82em; color: var(--text-muted); padding: 8px 18px; background: var(--bg-alt); border-top: 1px dashed var(--border-light); }
 
-  .comm-block {
-    background: var(--comm-bg);
-    border-left: 3px solid var(--comm);
-    padding: 0.8rem 1.2rem;
-    margin: 0.3rem 0 1rem;
-    font-size: 0.9rem;
-    line-height: 1.9;
-    color: var(--text);
-  }
-  .comm-block p { margin-bottom: 0.5rem; }
-  .comm-block p:last-child { margin-bottom: 0; }
-  .comm-block .ref {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-  }
+  .note { font-size: 0.88em; color: var(--text-muted); margin: 8px 0; padding: 8px 14px; background: var(--bg-alt); border-radius: 4px; }
 
-  .folio {
-    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
-    font-size: 0.72rem;
-    color: var(--text-muted);
-  }
+  .refs { font-size: 0.85em; color: var(--text-muted); margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .refs h3 { font-size: 1em; color: var(--text); margin-bottom: 10px; border: none; padding: 0; }
+  .refs p { margin: 4px 0; }
 
-  .note {
-    font-size: 0.84rem;
-    color: var(--text-muted);
-    margin-top: 0.3rem;
-  }
-
-  .skt-inline {
-    font-style: italic;
-    color: var(--skt);
-  }
-
-  .tib-inline {
-    color: var(--tib);
-  }
-
-  /* Footer */
-  .doc-footer {
-    margin-top: 3rem;
-    padding-top: 1.2rem;
-    border-top: 2px solid var(--divider);
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-  }
-  .doc-footer p { margin-bottom: 0.4rem; }
-
-  @media (max-width: 600px) {
-    .page { padding: 1rem 0.8rem 2rem; }
-    .doc-header { padding: 1.5rem 1rem 1.2rem; }
-    .doc-header h1 { font-size: 1.2rem; }
-    .skt-block, .tib-block, .comm-block { padding: 0.6rem 0.8rem; }
-    .section-head { flex-direction: column; gap: 0.2rem; }
+  @media (max-width: 700px) {
+    header h1 { font-size: 1.2em; }
+    .container { padding: 12px; }
+    .skt-text, .tib-text, .eng-text, .jpn-text { padding: 10px 12px; font-size: 0.9em; }
   }
 </style>
 
-<div class="page">
+<header>
+  <h1>Madhyamakahṛdayakārikā / Tarkajvālā 5.39–50</h1>
+  <p>瑜伽行派の唯識説における解脱論批判・心と心所の問題<br>
+  Eckel, <em>Bhāviveka and His Buddhist Opponents</em> (HOS 70, 2008) を中心に<br>
+  斎藤明「MHK/TJ 第5章試訳研究」(2007) と対照</p>
+</header>
 
-<div class="doc-header">
-  <h1>MHK / TJ 5.39–50　テキスト分析</h1>
-  <div class="subtitle">Madhyamakahṛdayakārikāḥ V &amp; Tarkajvālā</div>
-  <div class="subtitle-tib">dBu ma'i snying po'i tshig le'ur byas pa / rTog ge 'bar ba</div>
-  <div class="meta">
-    Bhāviveka (Bhavya), 6th c. &nbsp;|&nbsp; Tib. tr. Atiśa &amp; Tshul khrims rgyal ba<br>
-    Ed.: M. D. Eckel, <em>Bhāviveka and His Buddhist Opponents</em>, HOS 70 (2008)<br>
-    Skt. kārikā: Patan MS &amp; Eckel rec. &nbsp;|&nbsp; TJ Tib.: D 3856, dBu ma, <em>dza</em>, 211a–213a<br>
-    Eng. tr.: Eckel pp. 258–270
-  </div>
+<div class="container">
+
+<nav class="toc">
+  <h2>目次</h2>
+  <ul>
+    <li><a href="#intro">序論：テキストと研究の概要</a></li>
+    <li><a href="#c3">C-3. 唯識と解脱の不可能性 (5.39–44)</a>
+      <ul class="sub">
+        <li><a href="#v39">5.39 — 種子の相互因果と止滅の不可能性</a></li>
+        <li><a href="#v40">5.40 — 無分別知と解脱</a></li>
+        <li><a href="#v41">5.41 — 世界の顕現と種子</a></li>
+        <li><a href="#v42">5.42 — 能力の投入とアートマン批判</a></li>
+        <li><a href="#v43-44">5.43–44 — 輪廻と解脱の無区別</a></li>
+      </ul>
+    </li>
+    <li><a href="#c4">C-4. 心と心所 (5.45–50)</a>
+      <ul class="sub">
+        <li><a href="#v45">5.45 — 唯心と心所の矛盾</a></li>
+        <li><a href="#v46">5.46 — 心の集合説</a></li>
+        <li><a href="#v47">5.47 — 雑染・清浄と実体性</a></li>
+        <li><a href="#v48">5.48 — 蓮根の喩え</a></li>
+        <li><a href="#v49">5.49 — 対治と生起</a></li>
+        <li><a href="#v50">5.50 — 唯心の把捉と解脱</a></li>
+      </ul>
+    </li>
+    <li><a href="#refs">参考文献</a></li>
+  </ul>
+</nav>
+
+<!-- ============================================================ -->
+<div class="section" id="intro">
+  <h2>序論：テキストと研究の概要</h2>
+  <p>本分析は、バーヴィヴェーカ（清弁、6世紀）の『中観心論頌』（Madhyamakahṛdayakārikā, MHK）第5章「瑜伽行派の真実決択」（Yogācāratattvaviniścaya）の偈頌5.39–50とその自注『思択炎』（Tarkajvālā, TJ）を対象とする。</p>
+  <p>MHKのサンスクリット原文は、パタン（ネパール）シャル僧院写本（Ms）に基づく校訂テキストを用いる。主たる校訂テキストは Eckel (HOS 70, 2008) と Saito (2007) であり、Lindtner (L), Ejima (E), Hoornaert (H) の読みも参照する。TJはチベット語訳のみ現存し（デルゲ版 D 3856, 北京版 P 5256）、Eckel と斎藤の英訳・和訳をそれぞれ参照する。</p>
+  <p>5.39–44は「唯識説（vijñaptimātratā）の下での解脱の不可能性」を論じ、5.45–50は「心（citta）と心所（caitta）」の問題を扱う。バーヴィヴェーカは一貫して、瑜伽行派の唯識説が（1）解脱を不可能にし、（2）アートマン論に帰着し、（3）経量部的な心の集合説（samūha）こそが正しいと論じる。</p>
 </div>
 
-<div class="intro">
-  <p>MHK第五章「瑜伽行派に従った真実の考察」(<span class="skt-inline">Yogācāratattvaviniścaya</span>) の5.39–50は、バーヴィヴェーカ（清弁）による唯識批判の核心部分を構成する。5.39–44はC-3「唯識における解脱論批判」(<span class="skt-inline">vijñaptimātratā / mokṣa</span>)、5.45–50はC-4「心と心所」(<span class="skt-inline">citta-caitta</span>) に属する。</p>
-  <p>以下、各偈頌について、MHKのサンスクリット偈頌（Eckelのテキストに基づく）とTarkajvālāのチベット語訳テキスト（デルゲ版タンジュル所収）を提示し、和訳および解説を付す。</p>
+<!-- ============================================================ -->
+<div class="section" id="c3">
+  <h2>C-3. 唯識と解脱の不可能性 (vijñaptimātratā / mokṣa 批判, 5.39–44)</h2>
+
+  <!-- VERSE 5.39 -->
+  <div id="v39">
+    <h3>MHK 5.39 — 種子の相互因果と止滅の不可能性</h3>
+    <div class="verse-block">
+      <div class="verse-header">MHK 5.39</div>
+      <div class="skt-text">
+        <span class="label">Sanskrit (Eckel / Saito)</span>
+        asaty api ca bāhye 'rthe dvayam anyonyahetukam /<br>
+        śaktir viṣayarūpaṃ ca tannivṛttiḥ kuto matā //
+      </div>
+      <div class="tib-text">
+        <span class="label">Tibetan (TJ, D210b / P232b–233a)</span>
+        phyi rol don ni med par yang // nus pa dang ni yul gyi dngos //<br>
+        gnyis po phan tshun rgyur 'gyur bas //<br>
+        ji ltar de ni ldog par 'dod //
+      </div>
+      <div class="eng-text">
+        <span class="label">English (Eckel 2008: 252–253)</span>
+        [5.39abc] Even without external objects, the potential (<em>śakti</em>) and the material form of the object (<em>viṣaya</em>) cause each other,<br>
+        [5.39d] Then what do you think causes their cessation?
+      </div>
+      <div class="jpn-text">
+        <span class="label">和訳（斎藤 2007: 229 参照、Eckel に基づく）</span>
+        [5.39abc：瑜伽行派の立場] 外界の対象がないとしても、能力（śakti）と対象の形象（viṣayarūpa）との二つは相互に原因となる（anyonyahetuka）。<br>
+        [5.39d：論主の応答] それならば、それら〔二つ〕の止滅（nivṛtti）がどうして考えられようか。
+      </div>
+      <div class="apparatus">
+        Eckel: bāhye 'rthe; Saito: bāhyārthe — 意味の相違なし。TJ導入部にディグナーガ『観所縁縁論』(Ālambanaparīkṣā, AP) 8bcd が引用される。
+      </div>
+    </div>
+
+    <div class="commentary">
+      <span class="label">TJ注釈の和訳（Eckel 253, 斎藤 229 参照）</span>
+      <p>〔反論（瑜伽行派）：〕『観所縁縁論』において、「対象の本質と能力は相互に原因となり、無始の時からはたらいている」と確立した。</p>
+      <p>〔論主の応答：〕この点は次のように分析すべきである。外界の対象（bāhyārtha）が存在するならば、対象の像（viṣaya）から意識を浄化しようとする瑜伽行者が、対象は空であると理解し、能取・所取の双方を止滅させることにより、出世間の無分別智（alaukika nirvikalpajñāna）が生じることは道理にかなう。しかし、もしそのような対象が存在しないと言うなら、外界の対象の非存在に入り、さらに主観と客観の非存在に入ることで、それら〔能取・所取〕を止滅させることなどできようか。出世間の無分別智が生じる方便（upāya）はない。意識が能力と対象の形象から成り、無始の時から継続しているのであるならば、それがどうして止滅しうるかを説明せよ。</p>
+    </div>
+
+    <div class="note">
+      <strong>Eckel注62:</strong> 5.39でバーヴィヴェーカは、5.37–38で論じた瑜伽行派のテーゼ（「認識は対象なしに生じる」）を帰謬（prasaṅga）の主題とする。意識が外界の対象なしに展開し、無始以来そうであるなら、瑜伽行者はどのようにして出世間的・無分別的認識を発展させうるのか。このテーゼはディグナーガのAP 8bcdに由来する。バーヴィヴェーカはここで唯識説が解脱への「導入の方便」（praveśopāya）として機能しうるかを問う。この術語はヴァスバンドゥのMAV 1.6への注釈に由来する。
+    </div>
+  </div>
+
+  <!-- VERSE 5.40 -->
+  <div id="v40">
+    <h3>MHK 5.40 — 無分別知と解脱</h3>
+    <div class="verse-block">
+      <div class="verse-header">MHK 5.40</div>
+      <div class="skt-text">
+        <span class="label">Sanskrit</span>
+        āryatvād avikalpatvād aheyā nirvikalpadhīḥ /<br>
+        tadutpādāt kuto mokṣas tadbījānupaghātataḥ //
+      </div>
+      <div class="tib-text">
+        <span class="label">Tibetan (TJ)</span>
+        mi rtog blo ni spang min te // 'phags phyir rnam par mi rtog phyir //<br>
+        de skye thar pa ga la yod // de yi sa bon ma bcom phyir //
+      </div>
+      <div class="eng-text">
+        <span class="label">English (Eckel 2008: 253)</span>
+        [5.40ab] Non-conceptual cognition should not be abandoned, because it is noble and because it is free from concepts.<br>
+        [5.40cd] As long as [consciousness] arises and the seeds of [consciousness] are not destroyed, how can there be any liberation?
+      </div>
+      <div class="jpn-text">
+        <span class="label">和訳（斎藤 229–230 参照）</span>
+        [5.40ab：瑜伽行派の主張] 無分別の知（nirvikalpadhī）は、聖なるもの（ārya）であるから、無分別であるから、排斥されるべきでない（aheyā）。<br>
+        [5.40cd：論主] それ〔の知〕が生じるのであるから、それの種子（bīja）が断たれていないのであるから、どうして解脱（mokṣa）があろうか。
+      </div>
+    </div>
+
+    <div class="commentary">
+      <span class="label">TJ注釈の和訳（Eckel 253, 斎藤 230 参照）</span>
+      <p>〔反論（瑜伽行派）：〕輪廻の活動の原因である能取・所取の二つの分別を排斥したとしても、無分別の知そのものは排斥されるべきでない。聖なるものであり、無分別であるから、生じるにほかならず、止滅しない。</p>
+      <p>〔論主：〕輪廻は識の種子のはたらきによるものであり、解脱はそれら〔種子〕の克服から来ると〔瑜伽行派は〕考える。しかし、有分別であれ無分別であれ、識が生じるかぎり、どうして解脱がありえようか。唯心論者（cittamātravādin）である汝にとって、解脱は妥当しない。</p>
+    </div>
+
+    <div class="note">
+      <strong>論点：</strong> バーヴィヴェーカの論法は次の通り。瑜伽行派は、解脱は種子の断滅（bījānupaghāta → bījopaghāta）によると認める。しかし、無分別知すら「生じる」（utpāda）以上、それは識の種子の活動であり、種子は断たれていない。したがって、唯心の立場では解脱は原理的に不可能である。
+    </div>
+  </div>
+
+  <!-- VERSE 5.41 -->
+  <div id="v41">
+    <h3>MHK 5.41 — 世界の顕現と種子</h3>
+    <div class="verse-block">
+      <div class="verse-header">MHK 5.41</div>
+      <div class="skt-text">
+        <span class="label">Sanskrit</span>
+        dvayapravṛttau saṃjñāyā viśvābhāsaḥ prajāyate /<br>
+        viśvaṃ tadābhatā yāsya tadutpādaḥ svabījataḥ //
+      </div>
+      <div class="tib-text">
+        <span class="label">Tibetan (TJ, D211a)</span>
+        gnyis kyi 'du shes 'jug pa na // sna tshogs snang ba rab tu skye //<br>
+        de yi sna tshogs snang gang dang // de rang sa bon las skye'i phyir //
+      </div>
+      <div class="eng-text">
+        <span class="label">English (Eckel 2008: 253–254)</span>
+        The image of the world (<em>viśvābhāsa</em>) is born when an idea (<em>saṃjñā</em>) becomes active in a dualistic way, because that [idea], which has the image of the world, arises along with [the self-image of consciousness] from its own seeds.
+      </div>
+      <div class="jpn-text">
+        <span class="label">和訳（斎藤 230 参照）</span>
+        心的表象（想, saṃjñā）が二つからなるもの〔能取・所取〕として展開する（dvayapravṛtti）ときには、あらゆるものの顕現（viśvābhāsa）が生じる。それ〔二元的な識〕にとって、あらゆるばあいにそれ〔対象〕として顕現すること（tadābhatā）と、その〔識自体の〕生起（tadutpāda）は、自己の種子（svabīja）に基づいている。
+      </div>
+      <div class="apparatus">
+        Saito/Ms/SG/L: viśvaṃ tadabhatā yāsya tadutpādaḥ; Eckel/E/H: viśvaṃ tadābhatā yāsyāḥ tadutpādāt — 読みの差異は格語尾に関わる。
+      </div>
+    </div>
+
+    <div class="commentary">
+      <span class="label">TJ注釈の和訳（Eckel 254, 斎藤 230 参照）</span>
+      <p>色形（rūpa）などの対象たる世界（viśva）の形象（ābhāsa/ākāra）としての顕現は、能取・所取という二元の意識が展開するときに生じる。世界の形象とは何かといえば、識が対象の形象へ転変すること（pariṇāma）である。この〔対象の顕現〕は、識自体の顕現（svābhāsa）とともに、自己の種子――すなわち対象として顕現する形象――から生じる。</p>
+    </div>
+
+    <div class="note">
+      <strong>Eckel注64:</strong> この偈頌で記述される過程は『唯識二十論』（Viṃśatikā）9と密接に並行する。そこでは vijñapti が自己の種子（svabīja）から特定の変容を経て生じるとされる。saṃjñā（想）は vijñapti に並行し、偈頌の論理的主語として機能する。「世界」（viśva）は5種の転識（pravṛttivijñāna）の同義語として扱われる（『荘厳経論』AM 46, 48参照）。
+    </div>
+  </div>
+
+  <!-- VERSE 5.42 -->
+  <div id="v42">
+    <h3>MHK 5.42 — 能力の投入とアートマン批判</h3>
+    <div class="verse-block">
+      <div class="verse-header">MHK 5.42</div>
+      <div class="skt-text">
+        <span class="label">Sanskrit</span>
+        layaḥ śaktyarpaṇāt tasya svātmany evānyato 'pi vā /<br>
+        nanu vijñānaparyāyād ātmaivāyaṃ nirūpitaḥ //
+      </div>
+      <div class="tib-text">
+        <span class="label">Tibetan (TJ)</span>
+        zha ba de la nus phul dang // rang bdag nyid dang gzhan las so //<br>
+        rnam par shes pa'i ming gis ni // de la bdag tu btags par 'gyur //
+      </div>
+      <div class="eng-text">
+        <span class="label">English (Eckel 2008: 254–255)</span>
+        [5.42ab] This [world] is dissolved (<em>laya</em>) through a transfer (<em>arpaṇa</em>) of potentiality (<em>śakti</em>) with respect to itself and with respect to the other.<br>
+        [5.42cd] Surely the word "consciousness" represents nothing more than a self.
+      </div>
+      <div class="jpn-text">
+        <span class="label">和訳（斎藤 231 参照）</span>
+        [5.42ab：瑜伽行派の主張] それ〔世界＝転識〕が、自己の本質（svātman）においても、また他の〔対象の形象〕としても〔根本識に〕能力を投げ入れる（śaktyarpaṇa）ことによって〔転識の〕滅失（laya）がある。<br>
+        [5.42cd：論主の応答] 識（vijñāna）という同義語（paryāya）によって、他ならぬかのアートマンが説かれているのではないか。
+      </div>
+    </div>
+
+    <div class="commentary">
+      <span class="label">TJ注釈の和訳（Eckel 254–255, 斎藤 231 参照）</span>
+      <p>〔瑜伽行派の説明：〕転識（pravṛttivijñāna）が滅し消失するとき、根本識（mūlavijñāna）に入り、自己の能力を投入すること（svaśaktyarpaṇa）によってそこに継続する。〔世界＝転識は〕自己に関して――すなわち主観的部分（svāṃśa）の認識に関して――、そして他に関して――すなわち対象の顕現（viṣayābhāsa）をもつ識に関して――滅する。</p>
+      <p>〔論主の応答：〕これは素朴な水準では真かもしれないが、問題がある。アートマン論者もまた、あらゆる対象を生む一つの「我」（ātman）に、すべての能力が集積されると考える。汝もまた「識」という言い換え（paryāya）により、欺瞞的に（rgyu thabs kyis / vyājena）他ならぬアートマンを説いているのであり、こうして無我説をも損なうのである。</p>
+    </div>
+
+    <div class="note">
+      <strong>核心論点：</strong> バーヴィヴェーカの最も鋭い批判の一つ。アーラヤ識に全ての能力（śakti）が集積され、そこから世界が展開し、またそこに回帰するという瑜伽行派の構図は、構造的にアートマン論と変わらない。「識」は「アートマン」の言い換えにすぎない。Eckelが注66で指摘するように、バーヴィヴェーカは『般若灯論』でもこの類似性に言及している（Eckel 1985: 57–58）。5.50でもこの論点に回帰する。
+    </div>
+  </div>
+
+  <!-- VERSES 5.43-44 -->
+  <div id="v43-44">
+    <h3>MHK 5.43–44 — 輪廻と解脱の無区別</h3>
+    <div class="verse-block">
+      <div class="verse-header">MHK 5.43</div>
+      <div class="skt-text">
+        <span class="label">Sanskrit</span>
+        dvaitaṃ māyopamaṃ matvā kṣuṇṇam aśānty anātma ca /<br>
+        advaitaṃ cākṣayaṃ bhūtam amṛtaṃ paramaṃ padam //
+      </div>
+      <div class="tib-text">
+        <span class="label">Tibetan (TJ)</span>
+        gnyis yod sgyu ma lta bu dang // zad can ma zhi bdag med dang //<br>
+        gnyis med mi zad yang dag dang // 'chi med go 'phang mchog rtogs nas //
+      </div>
+      <div class="apparatus">
+        Eckel: kṣuṇṇam aśānty anātma ca; Ms/SG: kṛtsnasyādvaitāśāntatā; Saito: kṣayyaṃ aśāntam anātmā ca; L: kṣuṇṇāṃ cāśānty anātma tad — 読みに大きな差異あり。Eckelの読みに従う。
+      </div>
+    </div>
+
+    <div class="verse-block">
+      <div class="verse-header">MHK 5.44</div>
+      <div class="skt-text">
+        <span class="label">Sanskrit</span>
+        sāmānyābhāvatas tatra kalpanāvinivṛttitaḥ /<br>
+        nirvikalpadhiyālambya muktyabhedo 'pi vidyate //
+      </div>
+      <div class="tib-text">
+        <span class="label">Tibetan (TJ, D211b)</span>
+        de la 'dra bar med pa'i phyir // rnam par rtog pa rnam ldog pas //<br>
+        mi rtog blos ni dmigs byas pa'i // grol ba khyad par med par 'gyur //
+      </div>
+      <div class="eng-text">
+        <span class="label">English (Eckel 2008: 255–256)</span>
+        [5.43] When someone understands that a dualistic, illusory, fragmented, disturbed, and selfless [mind] is non-dualistic, imperishable, true, immortal, and the ultimate state,<br>
+        [5.44] then [subject and object] are equally absent and concepts cease. Therefore, liberation (<em>mukti</em>) is not different [from saṃsāra], when it is understood by non-conceptual cognition.
+      </div>
+      <div class="jpn-text">
+        <span class="label">和訳（斎藤 231–232 参照）</span>
+        [5.43] 〔捉えられるものと捉えるものとの〕二元性（dvaita）は幻のようなものであり、断片的であり（kṣuṇṇa）、寂静ではなく（aśānti）、無我（anātman）であるが、不二性（advaita）は不滅で（akṣaya）、真実で（bhūta）、不死で（amṛta）、最高の境地（paramaṃ padam）であると考えて（matvā）、<br>
+        [5.44] そこにおいて、〔主観と客観の〕非存在が等しいのであるから（sāmānyābhāvatas）、分別が滅しているのであるから、無分別の知によって対象認識する者にとって、解脱（mukti）は〔輪廻と〕無区別（abheda）なのである。
+      </div>
+      <div class="apparatus">
+        Saito/Ms/SG: nirvikalpadhiyālambye mokṣābhedo 'pi; Eckel/L: nirvikalpadhiyālambya muktyabhedo 'pi — Eckelは muktyabheda を読む。
+      </div>
+    </div>
+
+    <div class="commentary">
+      <span class="label">TJ注釈の和訳（Eckel 255–256, 斎藤 231–232 参照）</span>
+      <p>「二元性」とは、能取・所取という二種のものとしてある〔心〕のことである。これは、幻のようなものであり（偽りの分別により生じるから）、断片的であり（衰滅するから）、寂静ではなく（生・滅等の作用に引かれるから）、無我である（外道が構想する「我」は存在せず、また〔心〕自体も無自性であるから）。</p>
+      <p>「不二性」とは、色形（rūpa）等の対象的根拠（ālambana）が心の外からは顕現しないときに、自心の法性（dharmatā）に確立している心であり、これが不滅・真実・不死・最高の境地であると理解される。</p>
+      <p>「そこにおいて、非存在が等しい」とは、不二の観点から、能取と所取は輪廻の状態においても解脱の状態においても等しく非存在であるということ。「分別が滅する」とは、二つのものが等しく非存在であるから。「無分別の知によって対象認識する者」とは、直接知覚（pratyakṣajñāna）によって言語の本質でないものを、また無分別の知によって円成実性（pariniṣpannasvabhāva）を対象認識する瑜伽行者のことである。</p>
+      <p>この〔瑜伽行者〕にとって「解脱は〔輪廻と〕無区別である」というのは過失である。この〔解脱の認識〕が以前の――生じ、対象をもつ――認識と同じであるなら、解脱した認識は以前の分別的認識と無区別であり、繫縛と解脱に差異はなくなる。</p>
+    </div>
+
+    <div class="note">
+      <strong>論理構造：</strong> 5.43–44は一つの複合論証を構成する。瑜伽行派は二元性（輪廻）と不二性（解脱）の対比を説くが、バーヴィヴェーカは、不二の立場に立てば能取・所取は輪廻においても解脱においても等しく非存在であり、両者の間に差異がない以上、解脱と輪廻は区別できないと論じる。5.39–40の種子論に基づく論証と合わせ、唯識説の下では解脱が構造的に不可能であることを二方面から示す。
+    </div>
+  </div>
+
 </div>
 
-<!-- ======================= C-3 ======================= -->
-<div class="section-head">
-  <span class="label">C-3</span>
-  <span class="ja">唯識における解脱論批判</span>
-  <span class="skt-label">vijñaptimātratā / mokṣa</span>
+<!-- ============================================================ -->
+<div class="section" id="c4">
+  <h2>C-4. 心と心所 (citta-caitta, 5.45–50)</h2>
+
+  <!-- VERSE 5.45 -->
+  <div id="v45">
+    <h3>MHK 5.45 — 唯心と心所の矛盾</h3>
+    <div class="verse-block">
+      <div class="verse-header">MHK 5.45</div>
+      <div class="skt-text">
+        <span class="label">Sanskrit</span>
+        cittamātraprasiddhyarthaṃ na cittād vyatirekiṇaḥ /<br>
+        caittā vābhyupagantavyā na vā vijñaptimātratā //
+      </div>
+      <div class="tib-text">
+        <span class="label">Tibetan (TJ)</span>
+        yang na sems tsam bsgrub pa'i phyir // sems las byung rnams sems las ni //<br>
+        tha dad med par khas blang bya // yang na rnam rig tsam mi 'grub //
+      </div>
+      <div class="eng-text">
+        <span class="label">English (Eckel 2008: 256)</span>
+        To prove that there is mind-only, you have to accept that there is no difference between mind (<em>citta</em>) and mental phenomena (<em>caitta</em>), or you have to accept that there is not ideation-only (<em>vijñaptimātra</em>).
+      </div>
+      <div class="jpn-text">
+        <span class="label">和訳（斎藤 232 参照）</span>
+        あるいはまた、唯心であること（cittamātra）を立証するためには、心（citta）とは別なものとして〔種々の〕心所（caitta）が認められてはならない。あるいはまた〔別であると認めるなら〕、唯識性（vijñaptimātratā）が〔成立し〕ないことになる。
+      </div>
+    </div>
+
+    <div class="commentary">
+      <span class="label">TJ注釈の和訳（Eckel 256, 斎藤 232 参照）</span>
+      <p>唯心であることを主張するならば、唯心であることを立証するために、種々別々の対象（ālambana）と形象（ākāra）をもつ心所を、心とは別のものとしては認めてはならない。あるいは、心所が心とは別であると考えるなら、心所は多数あるのであるから、唯識性（vijñaptimātratā）は成立しないのである。</p>
+    </div>
+
+    <div class="note">
+      <strong>Eckel注68:</strong> 5.45は唯識批判の新たな論証を導入するようにみえるが、5.43–44の輪廻と解脱の無区別についての議論の延長として読むのが最善である。瑜伽行派の不二の見解を採用すれば、輪廻と解脱に差異がないだけでなく、心と心所にも差異がないことになる。バーヴィヴェーカはこの議論を展開しつつ、5.46以降で心の本質についての自説を明らかにする。
+    </div>
+  </div>
+
+  <!-- VERSE 5.46 -->
+  <div id="v46">
+    <h3>MHK 5.46 — 心の集合説</h3>
+    <div class="verse-block">
+      <div class="verse-header">MHK 5.46</div>
+      <div class="skt-text">
+        <span class="label">Sanskrit</span>
+        vedanādisamūhe vā cittaprajñaptir iṣyatām /<br>
+        tathā parānuvādaḥ syāt svanītityāgitāpi ca //
+      </div>
+      <div class="tib-text">
+        <span class="label">Tibetan (TJ, D212a)</span>
+        yang na tshor sogs 'dus pa la // sems su gdags par 'dod par gyis //<br>
+        des na gzhan gyi rjes smra dang // rang gi gzhung yang btang bar 'gyur //
+      </div>
+      <div class="eng-text">
+        <span class="label">English (Eckel 2008: 256)</span>
+        Or if [you] think that the word "mind" refers to the collection (<em>samūha</em>) of feeling and so forth, [you] agree with [your] opponent and abandon your own approach.
+      </div>
+      <div class="jpn-text">
+        <span class="label">和訳（斎藤 232–233 参照）</span>
+        あるいはまた、感受（vedanā）などの集合（samūha）に対して「心」（citta）という仮設（prajñapti）が認められるべきである〔とするなら〕。そうであるなら、他者〔中観論者〕に随順する論者となり、自己の学説をも捨てる者となるであろう。
+      </div>
+    </div>
+
+    <div class="commentary">
+      <span class="label">TJ注釈の和訳（Eckel 256–257, 斎藤 233 参照）</span>
+      <p>感受（vedanā）、意思（cetanā）、接触（sparśa）、専心（作意, manasikāra）などの集合――束蘆（naḍakalāpa）のように、地・水・火・風の集合のように、色形・香り・味・触を伴った瓶のようなもの――に対して「心」と仮設するなら、対論者である中道論者（madhyamavādin）に同意し、自己の学説を放棄することになる。なぜなら、〔瑜伽行派の〕立場は、唯一のアーラヤ識から縁に応じて（yathāpratyayam）五識が生じ、心所は心の転変（pariṇāma）であるという立場を取っていたからである。</p>
+    </div>
+
+    <div class="note">
+      <strong>Eckel注68続き：</strong> バーヴィヴェーカは5.46とその注釈で、心の本質についての自説を明らかにする。「心」という語は感受（vedanā）等の心所の集合（samūha）を指す仮設（prajñapti）であるという立場は、経量部（Sautrāntika）と明確に結びつく（Cox 1988: 42, n.51参照）。バーヴィヴェーカの経量部的立場がここに顕れている。
+    </div>
+  </div>
+
+  <!-- VERSE 5.47 -->
+  <div id="v47">
+    <h3>MHK 5.47 — 雑染・清浄と実体性</h3>
+    <div class="verse-block">
+      <div class="verse-header">MHK 5.47</div>
+      <div class="skt-text">
+        <span class="label">Sanskrit</span>
+        saṃkleśavyavadānāc ced dravyasac cittam iṣyate /<br>
+        vedanādeḥ tathotpādāt tatprasiddher na bādhakam //
+      </div>
+      <div class="tib-text">
+        <span class="label">Tibetan (TJ, D212b)</span>
+        kun nas nyon mongs rnam byang las // gal te sems ni rdzas 'dod na //<br>
+        tshor sogs de bzhin skye ba'i phyir // de grub pas na gnod pa med //
+      </div>
+      <div class="eng-text">
+        <span class="label">English (Eckel 2008: 257)</span>
+        [You] may think that the mind is substantially real because there is defilement and purification, but this is not a refutation, because [we] accept that they come from the arising of mental phenomena in a certain way.
+      </div>
+      <div class="jpn-text">
+        <span class="label">和訳（斎藤 234 参照）</span>
+        もしも雑染（saṃkleśa）と清浄（vyavadāna）〔があること〕に基づいて心が実体として（dravyasat）あると考えるなら、感受（vedanā）などはその通りに〔心が心所と別な実体としてなくとも〕生じるのであるから、それは成立しているのであるから、〔汝の考えはわれわれを〕否定するものでない。
+      </div>
+    </div>
+
+    <div class="commentary">
+      <span class="label">TJ注釈の和訳（Eckel 257, 斎藤 234 参照）</span>
+      <p>〔反論（瑜伽行派）：〕感受等の集合に対して「心」と仮設されるなら、心は実体（dravya）として存在せず、雑染と清浄の基体（āśraya）がないことになる。〔瑜伽行派は引用する：〕「はじまりのない時をもつ界（dhātu）がすべての種子の拠り所となっている。それがあるとき、すべての輪廻的行路があり、涅槃の証得もある」。</p>
+      <p>〔論主の応答：〕我々は、専心（作意）を伴った煩悩と随煩悩が心と一緒に生じるとき繫縛であり、煩悩を離れたとき智慧（prajñā）と相応した心が解脱であると考える。心所は心のさまざまな状態（avasthā）に対する仮設にすぎず、心と心所は互いに離れて存在しない。したがって、感受等は繫縛や解脱の形をもって生じるのであり、〔心と心所の〕集合として存在するのであるから、汝の「心は実体として存在する」という考えはわれわれを否定するものではない。</p>
+    </div>
+
+    <div class="note">
+      <strong>Eckel注70:</strong> 5.47を導入する反論は5.6の議論を繰り返す。引用される「無始の界（dhātu）」の偈は、『摂大乗論』(MS 1:12)、『唯識三十頌釈』(Trimśikābhāṣya 37) に見出される（anādikāliko dhātuḥ sarvadharmasamāśrayaḥ / tasmin sati gatiḥ sarvā nirvāṇādhigamo 'pi vā）。ただしTJのチベット訳には dharma でなく bīja（sa bon）とある。バーヴィヴェーカは『般若灯論』でもこの偈を引用している（Eckel 1985: 55）。
+    </div>
+  </div>
+
+  <!-- VERSE 5.48 -->
+  <div id="v48">
+    <h3>MHK 5.48 — 蓮根の喩え</h3>
+    <div class="verse-block">
+      <div class="verse-header">MHK 5.48</div>
+      <div class="skt-text">
+        <span class="label">Sanskrit (Eckel)</span>
+        yathā parṇādisantānaḥ śālūkabahuśaktitaḥ /<br>
+        tathādravyasataś cittāc citrāḥ saṃtativṛttayaḥ //
+      </div>
+      <div class="skt-text">
+        <span class="label">Sanskrit (Saito / Ms)</span>
+        yathā paṇmādisaṃtānāṃ śāluke bahuśaktikāt /<br>
+        tathādravyasataś cittāc citrasaṃtativṛttayaḥ //
+      </div>
+      <div class="tib-text">
+        <span class="label">Tibetan (TJ)</span>
+        u tpal rtsa ba nus mang las // lo ma la sogs rgyun 'byung ltar //<br>
+        de bzhin sems rdzas med pa las // rgyun rnams sna tshogs 'byung bar 'gyur //
+      </div>
+      <div class="eng-text">
+        <span class="label">English (Eckel 2008: 258)</span>
+        Just as a stream of leaves and flowers comes from a powerful lotus root, the different streams of [rebirth] come from the mind, even though it is not substantially real.
+      </div>
+      <div class="jpn-text">
+        <span class="label">和訳（斎藤 234 参照）</span>
+        蓮の根（śālūka）には多くの能力があることから、葉〔や花〕などの持続があるように、それと同様に、実体としてあるのでない（adravyasat）心に基づいて、さまざまな〔輪廻的生存の〕相続が生じることになる。
+      </div>
+      <div class="apparatus">
+        Eckel: parṇādisantānaḥ; Saito/Ms: paṇmādisaṃtānāṃ — 読みの差異あり。Eckelの読みがチベット訳 lo ma la sogs rgyun（葉など相続）に適合。
+      </div>
+    </div>
+
+    <div class="commentary">
+      <span class="label">TJ注釈の和訳（Eckel 258, 斎藤 234 参照）</span>
+      <p>śālūka とは青蓮華（utpala）の根である。根は他の何ものとも結合していないが、十分な能力をもって広大な池を葉と花の相続で覆い尽くす。同様に、心は実体として存在しない（adravyasat）けれども、有情の三界（dhātu）と諸趣（gati）におけるさまざまな輪廻の相続が生じるのである。</p>
+    </div>
+
+    <div class="note">
+      <strong>論点：</strong> この偈頌は、バーヴィヴェーカ自身のポジティブな立場を示す重要な箇所。心は実体としては存在しない（集合にすぎない）が、それでも蓮根が葉や花を生み出すように、輪廻の相続を生み出す能力をもつ。アーラヤ識という実体を想定する必要はない。
+    </div>
+  </div>
+
+  <!-- VERSE 5.49 -->
+  <div id="v49">
+    <h3>MHK 5.49 — 対治と生起</h3>
+    <div class="verse-block">
+      <div class="verse-header">MHK 5.49</div>
+      <div class="skt-text">
+        <span class="label">Sanskrit (Eckel)</span>
+        pratipakṣād anutpattir utpattiḥ kāraṇe sati /<br>
+        adravyavān na cātreṣṭā citrotpādādikalpanā //
+      </div>
+      <div class="skt-text">
+        <span class="label">Sanskrit (Saito / Ms)</span>
+        pratipakṣād anutpattir utpattiḥ kāraṇe sati /<br>
+        adravyatvān na cātreṣṭā viśvotpādādikalpanā //
+      </div>
+      <div class="tib-text">
+        <span class="label">Tibetan (TJ, D213a)</span>
+        gnyen pos skye bar mi 'gyur zhing // byed rgyu yod na skye bar 'gyur //<br>
+        'di las sna tshogs skyes la sogs // btags pa mi 'dod rdzas med phyir //
+      </div>
+      <div class="eng-text">
+        <span class="label">English (Eckel 2008: 258)</span>
+        [5.49ab] [These streams of rebirth] do not arise if there is an antidote; but they do arise if there is a cause.<br>
+        [5.49cd] Here [we] do not accept the idea that diversity comes [from the mind], because [the mind] is not a real thing.
+      </div>
+      <div class="jpn-text">
+        <span class="label">和訳（斎藤 234–235 参照）</span>
+        [5.49ab] 対治するもの（pratipakṣa）〔＝八支聖道〕に基づくなら生じることはなく、原因（kāraṇa）〔＝漏, āsrava〕があるときに生じることがある。<br>
+        [5.49cd] また、このばあい〔実体として存在する心から〕多様な（citra/viśva）生起などを構想分別する（kalpanā）ことは、認められない。〔心は〕実体をもたないのであるから（adravyavat/adravyatva）。
+      </div>
+      <div class="apparatus">
+        Eckel: adravyavān ... citrotpādādi; Saito: adravyatvān ... viśvotpādādi — 読みの差異あり。Eckelは citrā（多彩な）、Saitoは viśva（一切の）を読む。
+      </div>
+    </div>
+
+    <div class="commentary">
+      <span class="label">TJ注釈の和訳（Eckel 258, 斎藤 234–235 参照）</span>
+      <p>対治するもの（pratipakṣa）とは八支聖道であり、それが生じるとき〔輪廻の〕諸相続は生じない。漏（āsrava）すなわち原因があるときに生じる。</p>
+      <p>また、〔瑜伽行派に対して：〕「五つ〔の識〕は根本識から縁に応じて生じる」（『唯識三十頌』15参照）と汝は語ったが、根本識が存在しなくとも、集合の性質をもつ心の縁のなかに対治するものがあるときには〔五識は〕生じず、色形・光・空間・作意等の縁があるときに生じる。</p>
+      <p>〔5.49cd：〕汝が、この識の転変（vijñānapariṇāma）から「異熟」（vipāka）、「思量」（manana）、「了別識」（vijñapti）の三つが多様に生じるなどと構想分別するようなことはわれわれには認められない。心は実体ではないからである。心の特殊な段階（cittāvasthāviśeṣa）にもとづいてそれらを〔三種の転変として〕構想分別することは認められない。</p>
+    </div>
+
+    <div class="note">
+      <strong>Eckel注71 / Hoornaert-Yamaguchi:</strong> 「心の特殊な状態」（cittāvasthāviśeṣa）という用語は、バーヴィヴェーカ自身の経量部的な心の見方を反映する。ここでの主張は、瑜伽行派の「識の三転変」（vipāka, manana, vijñapti; 『唯識三十頌』2参照）のカテゴリーは、瑜伽行派自身の立場からも正当化できないということ。
+    </div>
+  </div>
+
+  <!-- VERSE 5.50 -->
+  <div id="v50">
+    <h3>MHK 5.50 — 唯心の把捉と解脱</h3>
+    <div class="verse-block">
+      <div class="verse-header">MHK 5.50</div>
+      <div class="skt-text">
+        <span class="label">Sanskrit</span>
+        na tad ālambya nirmokṣo nāpi noparatir dhiyaḥ /<br>
+        saṃvṛtyā tattvato vāpi nātmavattulyatāsty ataḥ //
+      </div>
+      <div class="tib-text">
+        <span class="label">Tibetan (TJ, D213a–b)</span>
+        de la dmigs pas mi 'grol te // blo 'gag med pa'ang ma yin pas //<br>
+        de phyir kun rdzob don dam du'ang // bdag tu smra dang 'dra mi 'gyur //
+      </div>
+      <div class="eng-text">
+        <span class="label">English (Eckel 2008: 259)</span>
+        There is no liberation for someone who apprehends this [mind], but there is for someone for whom cognition ceases; he is not like someone who holds the doctrine of a self in either a relative or a real sense.
+      </div>
+      <div class="jpn-text">
+        <span class="label">和訳（斎藤 235 参照）</span>
+        それ〔唯心性〕を認識する（ālambya）ことで解脱する（nirmokṣa）のでもなく、知が滅しない（noparatir dhiyaḥ）ようなこともない。それゆえ、世俗によっても（saṃvṛtyā）、また真実からも（tattvatas）、アートマン論者と等しいことはない（nātmavattulyatā）のである。
+      </div>
+      <div class="apparatus">
+        Eckel/H/L: nātmavattulyatāsty; Saito: nātmavittulyatāsty — vat（〜を持つ者）か vit（〜を知る者）かの差異。チベット訳 bdag tu smra dang 'dra はアートマン論者との類似を否定する文脈。
+      </div>
+    </div>
+
+    <div class="commentary">
+      <span class="label">TJ注釈の和訳（Eckel 259, 斎藤 235 参照）</span>
+      <p>「それを認識して」（tad ālambya）とは、自己の心が顕現したにすぎない（*svacittadṛśyamātra, 唯自心所現）と理解することである。「解脱するのでない」とは、輪廻的生存からの解脱である。「知が滅しないようなこともない」ということについて――では〔われわれの立場は〕どうなのかというなら、知が滅することもまさにあるのである。事物の本質が〔いわゆる〕円成実性でないこと（apariṇiṣpannatva）を認識するからであり、またアーラヤ識を構想分別しないからである。</p>
+      <p>それゆえ、心は実体として存在するのではなく集合を性質としていると語るわれわれは、世俗および勝義においてもアートマン論者と等しいことにはならない。それとは反対に、唯心論者（cittamātravādin）である汝たちには、それらの過失がまさに起こるのである。汝が「認識に基づいて非認識が生じ、非認識に基づいて非認識が生じる」（＝MAV 1.6）と語ったことについても、われわれは非認識（anupalabdhi）を〔汝のように間接的に〕修習することを別様には認めない。</p>
+    </div>
+
+    <div class="note">
+      <strong>Eckel注72:</strong> 5.50でバーヴィヴェーカは、唯心の「把捉」（ālambana）の問題に立ち戻る（5.4, 5.17の注釈参照）。偈頌の第一句はバーヴィヴェーカの瑜伽行派批判を提示し（「この〔心〕を把捉する者には解脱はない」）、残りの三句は自らの立場を示す（「知が滅する者にはある……」）。注釈の末尾で再引用される瑜伽行派の偈「認識に基づいて非認識が〔生じる〕」はMAV 1.6であり、バーヴィヴェーカは5.4でこの偈を引き、5.17から唯識批判の焦点としてきた。5.50はこの議論の帰結点にある。
+    </div>
+
+    <div class="commentary">
+      <span class="label">5.39–50全体の総括</span>
+      <p><strong>C-3（5.39–44）の論証構造：</strong> バーヴィヴェーカは三つの方向から唯識説の下での解脱の不可能性を論じる。（1）種子論に基づく論証（5.39–40）：識が無始以来の種子の相互因果から成るなら、種子は決して断たれず、解脱は不可能。（2）アートマン論への帰着（5.42）：アーラヤ識は構造的にアートマンと等価であり、唯識は無我説を損なう。（3）輪廻と解脱の無区別（5.43–44）：不二の見解に立てば、能取・所取は両状態で等しく非存在であり、輪廻と解脱に差異はない。</p>
+      <p><strong>C-4（5.45–50）の論証構造：</strong> バーヴィヴェーカは心と心所の関係を問うことで唯識説の内的矛盾を突き、同時に自身の立場（経量部的な心の集合説）を提示する。（1）心所の二律背反（5.45）：心所が心と同一なら多様性がなく、別なら唯心ではない。（2）集合説の提示（5.46–47）：心は感受等の集合に対する仮設であり、実体ではないが、雑染・清浄の基体たりうる。（3）蓮根の喩え（5.48）：実体でなくとも輪廻の相続を生む力がある。（4）三転変の否定（5.49）：心の状態の差異は「転変」（pariṇāma）ではなく、条件に応じた集合の変化として説明可能。（5）帰結（5.50）：唯心を把捉するかぎり解脱はなく、知が滅する者にこそ解脱がある。バーヴィヴェーカの立場は、世俗・勝義のいずれにおいてもアートマン論に帰着しない。</p>
+    </div>
+  </div>
+
 </div>
 
-<!-- 5.39 -->
-<div class="verse-block">
-  <div class="verse-head">
-    <span class="num">k. 5.39</span>
-    <span class="topic"><span class="tag tag-bhv">BHV</span> 功能と対象形相の相互因果——何が止滅を引き起こすか</span>
-  </div>
-  <div class="folio">D 211a &nbsp;|&nbsp; Eckel p. 258</div>
-
-  <div class="text-label skt-l">Sanskrit kārikā</div>
-  <div class="skt-block">
-    yady artharūpaṃ ca mateś ca śaktiḥ<br>
-    parasparaṃ hetukam ādikālam |<br>
-    nivṛttihetuḥ ka ihopadiṣṭo<br>
-    vijñaptimātre purāṇam etat ||5.39||
-  </div>
-
-  <div class="text-label tib-l">Tibetan (MHK kārikā / TJ所引)</div>
-  <div class="tib-block">
-    gal te don rnam blo yi stobs dang ni ||<br>
-    phan tshun rgyu yin thog ma'i dus nas na ||<br>
-    rnam par rig tsam 'dir ni ldog pa yi ||<br>
-    rgyu gang bstan pa yin zhes 'di rnying ngo ||
-  </div>
-
-  <div class="text-label jpn-l">和訳</div>
-  <div class="jpn-block">
-    もし対象の形相（<span class="skt-inline">artharūpa</span>）と認識の功能（<span class="skt-inline">śakti</span>）とが<br>
-    相互に原因であり、〔それが〕太初の時から〔そうである〕ならば、<br>
-    唯了別（<span class="skt-inline">vijñaptimātra</span>）において、ここに止滅の原因として<br>
-    何が教示されたというのか。これは古くからの〔問題〕である。
-  </div>
-
-  <div class="text-label tib-l">TJ 注釈 (Tibetan)</div>
-  <div class="tib-block">
-    'dir smras pa | gal te phyi rol gyi don med pa na don gyi rnam pa dang | blo la yod pa'i nus pa 'am sa bon dang | 'di gnyis phan tshun gyi rgyu yin la | thog ma med pa'i dus nas 'byung ba yin na | rnam par rig pa tsam gyi lta ba la ldog pa'i rgyu gang zhig bstan pa yin | 'di lta ste | rnam par mi rtog pa'i ye shes 'jig rten las 'das pa thob par bya ba'i thabs su ji ltar 'gyur zhes bya ba'i don to ||
-  </div>
-
-  <div class="text-label jpn-l">TJ 注釈 和訳</div>
-  <div class="jpn-block">
-    ここで〔バーヴィヴェーカは〕言う。もし外界の対象がない場合に、対象の形相と、認識に存在する功能すなわち種子と、この二つが相互の原因であり、無始の時から生じるものであるならば、唯了別の見解において止滅の原因として何が教示されたのか。すなわち、出世間の無分別智を獲得するための方便（<span class="skt-inline">praveśopāya</span>）としてどのように〔唯識が〕なりうるのかという意味である。
-  </div>
-
-  <div class="text-label comm-l">解説</div>
-  <div class="comm-block">
-    <p>バーヴィヴェーカは唯識の種子（<span class="skt-inline">bīja</span>）理論の根本的な問題を指摘する。瑜伽行派によれば、外界の対象は存在せず、対象の形相（<span class="skt-inline">artharūpa</span>）は阿頼耶識の種子（<span class="skt-inline">śakti</span>）から生じ、同時にその識の活動が新たな種子を薫習する。この相互因果関係が無始であるならば、この循環を断ち切る契機がどこにあるのか。</p>
-    <p>TJはこの問題を「出世間の無分別智への入り口」（<span class="skt-inline">praveśopāya</span>）の問題として位置づける。唯識が修道の出発点たりえないという批判は、『所縁縁論』（<span class="skt-inline">Ālambanaparīkṣā</span>）8bcdへの応答でもある。</p>
-    <p class="ref">Cf. Ālambanaparīkṣā 8bcd; Viṃśatikā 9; Eckel pp. 258–259</p>
-  </div>
-</div>
-
-<!-- 5.40 -->
-<div class="verse-block">
-  <div class="verse-head">
-    <span class="num">k. 5.40</span>
-    <span class="topic"><span class="tag tag-bhv">BHV</span> 識の生起と種子の不滅——解脱の不可能性</span>
-  </div>
-  <div class="folio">D 211a &nbsp;|&nbsp; Eckel p. 260</div>
-
-  <div class="text-label skt-l">Sanskrit kārikā</div>
-  <div class="skt-block">
-    yady apy aviparyāsajñānam āryaṃ<br>
-    na heyam iṣṭaṃ paramārthadarśi |<br>
-    vijñānasyotpattau bījānāṃ<br>
-    kṣaye cāsati na syān mokṣaḥ ||5.40||
-  </div>
-
-  <div class="text-label tib-l">Tibetan (MHK kārikā / TJ所引)</div>
-  <div class="tib-block">
-    phyin ci ma log shes pa 'phags pa ste ||<br>
-    don dam gzigs pa spang bya min mod kyi ||<br>
-    rnam shes skye dang sa bon rnams mi zad ||<br>
-    par ni thar pa yod pa ma yin no ||
-  </div>
-
-  <div class="text-label jpn-l">和訳</div>
-  <div class="jpn-block">
-    顚倒なき認識は聖なるものであり、<br>
-    勝義を見るものとして捨てるべきでないと認められるとしても、<br>
-    識が生じ、種子が<br>
-    滅しない限り、解脱は存在しないであろう。
-  </div>
-
-  <div class="text-label tib-l">TJ 注釈 (Tibetan)</div>
-  <div class="tib-block">
-    phyin ci ma log pa'i shes pa 'phags pa yin gyi spang bar bya ba ma yin te | de ni don dam pa mthong ba yin pa'i phyir ro || 'on kyang rnam par shes pa skye ba dang | sa bon rnams zad pa med pa de'i tshe na ni thar pa yod pa ma yin no || de ci'i phyir zhe na | sa bon yod na rnam par shes pa skye ba'i phyir dang | rnam par shes pa skye na sa bon gsar du 'debs pa'i phyir ro ||
-  </div>
-
-  <div class="text-label jpn-l">TJ 注釈 和訳</div>
-  <div class="jpn-block">
-    顚倒なき認識は聖なるものであって捨てるべきでない。それは勝義を見るものであるからである。しかし、識が生じ、種子が滅しないその時には、解脱は存在しない。それは何故か。種子が存在すれば識が生じるからであり、識が生じれば新たな種子を植えるからである。
-  </div>
-
-  <div class="text-label comm-l">解説</div>
-  <div class="comm-block">
-    <p>前偈の論点を発展させ、唯識派の認める無分別智（<span class="skt-inline">nirvikalpajñāna</span>）すら種子の循環構造の中にある限り解脱をもたらさないと論じる。無分別智は確かに聖なる認識であり捨てるべきでないが、識の生起そのものが種子を薫習し続ける以上、解脱＝識の止滅は実現しない。</p>
-    <p>TJの注釈は循環論法を明確にする：種子→識の生起→新たな種子の薫習→識の生起…という無限連鎖を断ち切る契機が唯識体系の内部にない、という批判である。</p>
-  </div>
-</div>
-
-<!-- 5.41–42ab -->
-<div class="verse-block">
-  <div class="verse-head">
-    <span class="num">k. 5.41–42ab</span>
-    <span class="topic"><span class="tag tag-gen">GEN</span> 世界の顕現——種子からの生起と功能の移転</span>
-  </div>
-  <div class="folio">D 211a–b &nbsp;|&nbsp; Eckel p. 261</div>
-
-  <div class="text-label skt-l">Sanskrit kārikā</div>
-  <div class="skt-block">
-    dvayena vartamānāyāḥ saṃjñāyāḥ prabhavaṃ gataḥ |<br>
-    lokābhāso 'tha bījebhyaḥ śaktyarpaṇavaśād gataḥ ||5.41||<br>
-    pravṛttivijñānānāṃ tu mūlavijñānam āśritam |<br>
-  </div>
-
-  <div class="text-label tib-l">Tibetan (MHK kārikā / TJ所引)</div>
-  <div class="tib-block">
-    gnyis su spyod pa'i 'du shes las byung ba'i ||<br>
-    'jig rten snang ba sa bon dag las skyes ||<br>
-    nus pa 'phos pas de ni 'gag par 'gyur ||<br>
-    'jug pa'i rnam shes rnams kyi rtsa ba'i rnam shes la brten pa yin no ||
-  </div>
-
-  <div class="text-label jpn-l">和訳</div>
-  <div class="jpn-block">
-    二元的に活動する想（<span class="skt-inline">saṃjñā</span>）から生じた<br>
-    世界の顕現は、種子から〔生じたものであり〕、<br>
-    功能の移転（<span class="skt-inline">śaktyarpaṇa</span>）によって消滅する。<br>
-    転識（<span class="skt-inline">pravṛttivijñāna</span>）は本識（<span class="skt-inline">mūlavijñāna</span>）に依止する。
-  </div>
-
-  <div class="text-label tib-l">TJ 注釈 (Tibetan)</div>
-  <div class="tib-block">
-    gzung ba dang 'dzin par spyod pa'i 'du shes las byung ba'i 'jig rten gyi snang ba ni sa bon dag las skyes pa yin no || de yang nus pa 'phos pa'i dbang gis 'gag par 'gyur te | 'jug pa'i rnam par shes pa rnams ni rtsa ba'i rnam par shes pa la brten pa yin no zhes rnam par rig pa tsam du smra ba dag smra'o ||
-  </div>
-
-  <div class="text-label jpn-l">TJ 注釈 和訳</div>
-  <div class="jpn-block">
-    所取と能取として活動する想から生じた世界の顕現は、種子から生じたものである。またそれは功能が移転することによって消滅する。転識は根本識（本識）に依止するのである、と唯了別論者たちは言う。
-  </div>
-
-  <div class="text-label comm-l">解説</div>
-  <div class="comm-block">
-    <p>ここでバーヴィヴェーカは唯識派の世界観を要約的に提示する。主客二元の分別（<span class="skt-inline">grāhya-grāhaka</span>）としての想が種子から世界の顕現を生じさせ、功能の移転（<span class="skt-inline">śaktyarpaṇa</span>、ある種子の功能が別の識系列に移ること）によってその顕現が消滅する、という構造である。</p>
-    <p>転識（前五識・第六意識・末那識）は根本識（阿頼耶識）に依止するという点は、『唯識三十頌』（<span class="skt-inline">Triṃśikā</span>）の枠組みに対応する。TJの「唯了別論者たちは言う」（<span class="tib-inline">rnam par rig pa tsam du smra ba dag smra'o</span>）という表現は、これが瑜伽行派の主張の引用であることを示す。</p>
-    <p class="ref">Cf. Viṃśatikā 9; Triṃśikā 1–4</p>
-  </div>
-</div>
-
-<!-- 5.42cd -->
-<div class="verse-block">
-  <div class="verse-head">
-    <span class="num">k. 5.42cd</span>
-    <span class="topic"><span class="tag tag-bhv">BHV</span>「識」は結局「我」にほかならない</span>
-  </div>
-  <div class="folio">D 211b &nbsp;|&nbsp; Eckel p. 262</div>
-
-  <div class="text-label skt-l">Sanskrit kārikā</div>
-  <div class="skt-block">
-    vijñānam ity ayaṃ śabdaḥ<br>
-    svātmany evāvatisṭhate ||5.42cd||
-  </div>
-
-  <div class="text-label tib-l">Tibetan (MHK kārikā / TJ所引)</div>
-  <div class="tib-block">
-    rnam par shes zhes bya ba'i sgra 'di ni ||<br>
-    bdag nyid kho na la ni gnas pa yin ||
-  </div>
-
-  <div class="text-label jpn-l">和訳</div>
-  <div class="jpn-block">
-    「識」（<span class="skt-inline">vijñāna</span>）というこの語は、<br>
-    結局、我（<span class="skt-inline">ātman</span>）そのものに立脚するのである。
-  </div>
-
-  <div class="text-label tib-l">TJ 注釈 (Tibetan)</div>
-  <div class="tib-block">
-    rnam par shes pa zhes bya ba'i sgra 'di ni bdag la gnas pa yin te | bdag gi don du rnam par shes pa'i sgra 'jug pa'i phyir ro || de lta bas na rnam par shes pa la brten nas srid pa 'jug pa na | bdag la brten nas srid pa 'jug pa dang khyad par ci yod ||
-  </div>
-
-  <div class="text-label jpn-l">TJ 注釈 和訳</div>
-  <div class="jpn-block">
-    「識」というこの語は我に立脚するのである。我の意味で「識」の語が使用されるからである。したがって、識に依って輪廻が行われるならば、我に依って輪廻が行われることと何の違いがあるのか。
-  </div>
-
-  <div class="text-label comm-l">解説</div>
-  <div class="comm-block">
-    <p>バーヴィヴェーカによる痛烈な批判。唯識派が「識」（<span class="skt-inline">vijñāna</span>）を輪廻の基体として措定することは、実質的にヴァイシェーシカやサーンキヤが「我」（<span class="skt-inline">ātman</span>）を措定することと変わらないという指摘である。</p>
-    <p>TJの注釈は論点を鮮明にする。もし識が輪廻の主体として機能するなら、その識は事実上「我」と同じ役割を果たしている。外道の我論と唯識の識論の間に実質的な差異がないという批判は、中観派による唯識批判の中でも最も鋭い論点の一つであり、後にチャンドラキールティも同様の批判を展開する。</p>
-    <p class="ref">Cf. Candrakīrti, Madhyamakāvatāra 6.45; Prasannapadā ad MMK 27</p>
-  </div>
-</div>
-
-<!-- 5.43–44 -->
-<div class="verse-block">
-  <div class="verse-head">
-    <span class="num">k. 5.43–44</span>
-    <span class="topic"><span class="tag tag-bhv">BHV</span> 解脱と輪廻の無差別——唯識の帰結</span>
-  </div>
-  <div class="folio">D 211b &nbsp;|&nbsp; Eckel p. 264</div>
-
-  <div class="text-label skt-l">Sanskrit kārikā</div>
-  <div class="skt-block">
-    dvayād advayabodhena grāhyaṃ grāhyaṃ ca tulyataḥ |<br>
-    nāsti vikalpaś ca nirudhyate tasmāt ||5.43||<br>
-    mokṣo na saṃsārād bhidyate<br>
-    tad evaṃ vijñaptimātravādinām ||5.44||
-  </div>
-
-  <div class="text-label tib-l">Tibetan (MHK kārikā / TJ所引)</div>
-  <div class="tib-block">
-    gnyis las gnyis med rtogs pa'i tshe na ni ||<br>
-    gzung dang 'dzin pa mtshungs par med pa ste ||<br>
-    rnam par rtog pa 'gag par 'gyur bas na ||<br>
-    thar pa 'khor ba las ni tha dad min ||<br>
-    rnam par rig pa tsam du smra rnams la ||<br>
-    de ltar 'gyur ba yin no ||
-  </div>
-
-  <div class="text-label jpn-l">和訳</div>
-  <div class="jpn-block">
-    二〔元〕から非二〔元〕を覚知する時に、<br>
-    所取と能取とは等しく存在しない。<br>
-    そして分別は止滅する。それゆえに、<br>
-    解脱は輪廻と異ならない。<br>
-    唯了別論者たちにおいては、そのようになる〔のである〕。
-  </div>
-
-  <div class="text-label tib-l">TJ 注釈 (Tibetan)</div>
-  <div class="tib-block">
-    gnyis las gnyis su med par rtogs pa'i tshe na ni gzung ba dang 'dzin pa gnyis ka mtshungs par yod pa ma yin te | des na rnam par rtog pa 'gag par 'gyur ro || de lta yin na thar pa dang 'khor ba la khyad par med par 'gyur te | 'khor ba'i tshe na yang rnam par rtog pa yod pa ma yin la | thar pa'i tshe na yang yod pa ma yin pa'i phyir ro ||
-  </div>
-
-  <div class="text-label jpn-l">TJ 注釈 和訳</div>
-  <div class="jpn-block">
-    二〔元〕から非二元を覚知する時には、所取と能取の両者が等しく存在しない。したがって分別は止滅する。もしそうであるならば、解脱と輪廻に差異がなくなる。輪廻の時にも分別が存在せず、解脱の時にも存在しないからである。
-  </div>
-
-  <div class="text-label comm-l">解説</div>
-  <div class="comm-block">
-    <p>唯識派の体系に対する帰謬論証（<span class="skt-inline">prasaṅga</span>）の結論部分。唯識派は、主客二元（<span class="skt-inline">grāhya-grāhaka</span>）の止滅が解脱であると主張する。しかしバーヴィヴェーカは、もし二元から非二元への移行において所取と能取が等しく不在になり分別が止滅するならば、そもそも輪廻の状態と解脱の状態に区別がなくなると論じる。</p>
-    <p>TJの注釈は核心を突く。輪廻においても解脱においても分別が不在であるならば、両者の差異は何に基づくのか。唯識派の枠組みでは、輪廻の中にある衆生にも（真如のレベルでは）分別は存在せず、解脱した者にも分別は存在しない。この帰結は唯識派にとって望ましくないものである。</p>
-    <p>この論証は、5.39–40の種子論批判と合わせて、唯識の解脱論が内部的に整合しないことを示す一連の議論の結論をなす。</p>
-  </div>
-</div>
-
-<!-- ======================= C-4 ======================= -->
-<div class="section-head">
-  <span class="label">C-4</span>
-  <span class="ja">心と心所</span>
-  <span class="skt-label">citta-caitta</span>
-</div>
-
-<!-- 5.45 -->
-<div class="verse-block">
-  <div class="verse-head">
-    <span class="num">k. 5.45</span>
-    <span class="topic"><span class="tag tag-bhv">BHV</span> 唯心の証明——心と心所の同異というジレンマ</span>
-  </div>
-  <div class="folio">D 212a &nbsp;|&nbsp; Eckel p. 265</div>
-
-  <div class="text-label skt-l">Sanskrit kārikā</div>
-  <div class="skt-block">
-    yadi cittamātraṃ sādhyaṃ syāc<br>
-    cittacaittāviśeṣataḥ |<br>
-    anyathā vijñaptimātratvam<br>
-    eva parityajyate tvayā ||5.45||
-  </div>
-
-  <div class="text-label tib-l">Tibetan (MHK kārikā / TJ所引)</div>
-  <div class="tib-block">
-    sems tsam bsgrub par 'dod na sems dang ni ||<br>
-    sems byung tha dad med par khas blang ngam ||<br>
-    de lta min na rnam par rig pa tsam ||<br>
-    nyid ni yongs su btang bar 'gyur ba yin ||
-  </div>
-
-  <div class="text-label jpn-l">和訳</div>
-  <div class="jpn-block">
-    もし唯心（<span class="skt-inline">cittamātra</span>）を証明しようとするならば、<br>
-    心と心所の無差別を認めるべきであるか、<br>
-    あるいは、唯了別性（<span class="skt-inline">vijñaptimātratva</span>）を<br>
-    まさしく放棄すべきであるか〔のいずれかである〕。
-  </div>
-
-  <div class="text-label tib-l">TJ 注釈 (Tibetan)</div>
-  <div class="tib-block">
-    gal te sems tsam bsgrub par 'dod na ni | sems dang sems las byung ba la khyad par med par khas blang dgos te | tshor ba la sogs pa yang sems nyid yin no zhes bya ba'o || gal te de ltar khas mi len na ni | rnam par rig pa tsam gyi dam bca' yongs su gtong bar 'gyur te | sems las byung ba ni sems ma yin pa'i phyir ro ||
-  </div>
-
-  <div class="text-label jpn-l">TJ 注釈 和訳</div>
-  <div class="jpn-block">
-    もし唯心を証明しようとするならば、心と心所に差異がないと認めなければならない。すなわち、受等もまた心そのものであると〔認めなければならない〕。もしそのように認めないならば、唯了別の立論（<span class="skt-inline">pratijñā</span>）を放棄することになる。心所は心ではないからである。
-  </div>
-
-  <div class="text-label comm-l">解説</div>
-  <div class="comm-block">
-    <p>C-4「心と心所」セクションの導入偈。バーヴィヴェーカは唯識派にジレンマを突きつける。</p>
-    <p>第一角：心所（受・想・行等）が心と無差別であると認めるならば、「唯心」は成立するが、唯識派自身の心心所別体説（<span class="skt-inline">Triṃśikā</span> 15参照）と矛盾する。第二角：心所が心と異なると認めるならば、「唯心」（すべては心のみ）という主張は成立しない。受や想は心ではないのだから。</p>
-    <p>これは唯識派の教理体系における「唯」（<span class="skt-inline">mātra</span>）の解釈に対する根本的な挑戦である。</p>
-    <p class="ref">Cf. Triṃśikā 15; AKBh ad AK 2.23</p>
-  </div>
-</div>
-
-<!-- 5.46 -->
-<div class="verse-block">
-  <div class="verse-head">
-    <span class="num">k. 5.46</span>
-    <span class="topic"><span class="tag tag-bhv">BHV</span>「心」が受等の集合を指すならば自説を捨てている</span>
-  </div>
-  <div class="folio">D 212a &nbsp;|&nbsp; Eckel p. 266</div>
-
-  <div class="text-label skt-l">Sanskrit kārikā</div>
-  <div class="skt-block">
-    cittaṃ vedanādisamūhe<br>
-    vartate ced ihābhidhānam |<br>
-    svapakṣaṃ jahāsi parapakṣam<br>
-    anumodase kiṃ bhoḥ ||5.46||
-  </div>
-
-  <div class="text-label tib-l">Tibetan (MHK kārikā / TJ所引)</div>
-  <div class="tib-block">
-    sems zhes bya ba tshor sogs tshogs pa la ||<br>
-    'jug par 'dod na rang gi phyogs bsal nas ||<br>
-    gzhan gyi phyogs ni khas blangs pa yin te ||<br>
-    kye ma ci phyir de ltar byed ||
-  </div>
-
-  <div class="text-label jpn-l">和訳</div>
-  <div class="jpn-block">
-    「心」という〔語〕が受等の集合（<span class="skt-inline">samūha</span>）に対して<br>
-    ここで用いられると認めるならば、<br>
-    自らの立場を捨てて<br>
-    他方の立場を承認するのか。ああ、何と。
-  </div>
-
-  <div class="text-label tib-l">TJ 注釈 (Tibetan)</div>
-  <div class="tib-block">
-    gal te sems zhes bya ba'i sgra ni tshor ba la sogs pa tshogs pa la 'jug go zhes bya na ni | rang gi phyogs bsal te gzhan gyi phyogs khas blangs pa yin no || gang gi phyir sems dang sems las byung ba tha dad du 'dod pa ni rang gi phyogs yin la | tha dad med par 'dod pa ni gzhan gyi phyogs yin pa'i phyir ro ||
-  </div>
-
-  <div class="text-label jpn-l">TJ 注釈 和訳</div>
-  <div class="jpn-block">
-    もし「心」という語が受等の集合に対して適用されると言うならば、自らの立場を捨てて他方の立場を認めたことになる。というのは、心と心所が異なると認めるのが自らの立場であり、異ならないと認めるのが他方の立場であるからである。
-  </div>
-
-  <div class="text-label comm-l">解説</div>
-  <div class="comm-block">
-    <p>前偈のジレンマの第一角を展開する。もし「唯心」の「心」が実は受・想・行等の心所を含む集合体を指すのだと唯識派が主張するならば、それは経量部的な心の理解（心は心所の集合にすぎない）と同じことになり、唯識派独自の心心所別体説（<span class="skt-inline">Triṃśikā</span> 15で説く五遍行等の心所体系）を放棄することになる。</p>
-    <p>ここでの「他方の立場」（<span class="skt-inline">parapakṣa</span>）は中観派、特にバーヴィヴェーカ自身の立場を指す。中観派は心心所を含むすべての法を世俗的な仮設として認めるが、実体としての区別は否定する。</p>
-  </div>
-</div>
-
-<!-- 5.47 -->
-<div class="verse-block">
-  <div class="verse-head">
-    <span class="num">k. 5.47</span>
-    <span class="topic"><span class="tag tag-bhv">BHV</span> 染浄は心の実体性からではなく心所の生起の仕方から</span>
-  </div>
-  <div class="folio">D 212b &nbsp;|&nbsp; Eckel p. 267</div>
-
-  <div class="text-label skt-l">Sanskrit kārikā</div>
-  <div class="skt-block">
-    dravyataḥ sato 'pi cittasya<br>
-    saṃkleśavyavadānatā |<br>
-    na yuktā caittānām utpatteḥ<br>
-    saṃkleśavyavadānataḥ ||5.47||
-  </div>
-
-  <div class="text-label tib-l">Tibetan (MHK kārikā / TJ所引)</div>
-  <div class="tib-block">
-    sems ni rdzas su yod na yang ||<br>
-    kun nyon rnam byang 'thad ma yin ||<br>
-    sems byung skye ba ji ltar yin ||<br>
-    de las kun nyon rnam byang yin ||
-  </div>
-
-  <div class="text-label jpn-l">和訳</div>
-  <div class="jpn-block">
-    心が実体として（<span class="skt-inline">dravyataḥ</span>）存在するとしても、<br>
-    〔心そのものの〕染浄は合理的ではない。<br>
-    心所がいかに生起するかということから<br>
-    染浄〔が説かれるべき〕である。
-  </div>
-
-  <div class="text-label tib-l">TJ 注釈 (Tibetan)</div>
-  <div class="tib-block">
-    sems rdzas su yod pa nyid kyis ni kun nas nyon mongs pa dang rnam par byang ba 'thad pa ma yin te | sems la rang bzhin yod pa'i phyir ro || 'on kyang sems las byung ba ji ltar skye ba las kun nas nyon mongs pa dang rnam par byang ba yin par khas len to || 'di lta ste | nyon mongs pa dang lhan cig skye na kun nas nyon mongs pa yin la | dge ba dang lhan cig skye na rnam par byang ba yin no ||
-  </div>
-
-  <div class="text-label jpn-l">TJ 注釈 和訳</div>
-  <div class="jpn-block">
-    心が実体として存在すること自体によっては、染汚と清浄は合理的ではない。心には自性があるからである。しかし、心所がいかに生起するかに基づいて染汚と清浄を認める。すなわち、煩悩とともに生じるならば染汚であり、善とともに生じるならば清浄である。
-  </div>
-
-  <div class="text-label comm-l">解説</div>
-  <div class="comm-block">
-    <p>バーヴィヴェーカは、染浄（<span class="skt-inline">saṃkleśa-vyavadāna</span>）、すなわち輪廻と涅槃の根拠を心の実体性に求めることを批判する。もし心が実体（<span class="skt-inline">dravya</span>）として恒常的に存在するならば、その心が染まったり浄まったりすることは不合理である（実体は変化しないから）。</p>
-    <p>代わりにバーヴィヴェーカは、心所（<span class="skt-inline">caitta</span>）の生起様態から染浄を説明する。煩悩（貪・瞋・痴等）と同時に生じる心は染汚であり、善法（信・慚・愧等）と同時に生じる心は清浄である。これは心が実体として存在しなくても染浄が成立することを示す。</p>
-  </div>
-</div>
-
-<!-- 5.48 -->
-<div class="verse-block">
-  <div class="verse-head">
-    <span class="num">k. 5.48</span>
-    <span class="topic"><span class="tag tag-bhv">BHV</span> 蓮根の喩え——実体なくとも相続は生じる</span>
-  </div>
-  <div class="folio">D 213a &nbsp;|&nbsp; Eckel p. 268</div>
-
-  <div class="text-label skt-l">Sanskrit kārikā</div>
-  <div class="skt-block">
-    bisavad dravyato 'saty api<br>
-    sattvāḥ saṃtānato bhavāḥ |
-  </div>
-
-  <div class="text-label tib-l">Tibetan (MHK kārikā / TJ所引)</div>
-  <div class="tib-block">
-    padma'i rtsa ba bzhin du rdzas med kyang ||<br>
-    sems can rgyud ni skye bar 'gyur ba yin ||
-  </div>
-
-  <div class="text-label jpn-l">和訳</div>
-  <div class="jpn-block">
-    蓮根（<span class="skt-inline">bisa</span>）のように、実体として〔心が〕存在しなくても、<br>
-    有情の相続（<span class="skt-inline">saṃtāna</span>）として〔諸〕有は生じる。
-  </div>
-
-  <div class="text-label tib-l">TJ 注釈 (Tibetan)</div>
-  <div class="tib-block">
-    dper na padma'i rtsa ba la rdzas su grub pa'i bdag med kyang | rtsa ba'i rgyud las myu gu dang 'dab ma dang me tog la sogs pa 'byung ba de bzhin du | sems la yang rdzas su grub pa'i bdag med kyang | sems kyi rgyud las sems can gyi skye ba 'byung bar 'gyur ro ||
-  </div>
-
-  <div class="text-label jpn-l">TJ 注釈 和訳</div>
-  <div class="jpn-block">
-    たとえば蓮根には実体として成立する自我は存在しないが、根の相続から芽や葉や花などが生じるのと同じように、心にも実体として成立する自我は存在しないが、心の相続から有情の生（誕生）が生じるのである。
-  </div>
-
-  <div class="text-label comm-l">解説</div>
-  <div class="comm-block">
-    <p>蓮根（<span class="skt-inline">bisa</span>）の喩えは、中観派の立場を積極的に示す。蓮根は実体的な自我を持たないが、その相続（根→芽→葉→花という連続）は途切れない。同様に、心が実体（<span class="skt-inline">dravya</span>）として存在しなくても、刹那刹那の心の相続として輪廻は成立する。</p>
-    <p>これは唯識派が阿頼耶識という実体的な相続の基体を必要とするのに対し、中観派は実体なき相続（<span class="skt-inline">saṃtāna</span>）によって輪廻を説明できるという主張である。</p>
-  </div>
-</div>
-
-<!-- 5.49 -->
-<div class="verse-block">
-  <div class="verse-head">
-    <span class="num">k. 5.49</span>
-    <span class="topic"><span class="tag tag-bhv">BHV</span> 対治があれば生じず、因があれば生じる——多様性は実体的心からではない</span>
-  </div>
-  <div class="folio">D 213a &nbsp;|&nbsp; Eckel p. 269</div>
-
-  <div class="text-label skt-l">Sanskrit kārikā</div>
-  <div class="skt-block">
-    pratipakṣeṇa notpattir<br>
-    hetusāmagrī sati bhavaḥ |<br>
-    na vaicitryaṃ mateḥ prāptaṃ<br>
-    dravyabhūtāt tu cetasaḥ ||5.49||
-  </div>
-
-  <div class="text-label tib-l">Tibetan (MHK kārikā / TJ所引)</div>
-  <div class="tib-block">
-    gnyen pos zil gnon skye ba med 'gyur zhing ||<br>
-    rgyu tshogs yod na skye bar 'gyur ba yin ||<br>
-    sna tshogs sems las yin zhes mi len te ||<br>
-    rdzas su gyur pa'i sems las ma yin no ||
-  </div>
-
-  <div class="text-label jpn-l">和訳</div>
-  <div class="jpn-block">
-    対治（<span class="skt-inline">pratipakṣa</span>）によって〔煩悩は〕生じない。<br>
-    因の集合（<span class="skt-inline">hetusāmagrī</span>）が存在すれば生起する。<br>
-    多様性は認識から来ると認めない——<br>
-    実体としての心（<span class="skt-inline">dravyabhūta cetas</span>）からではないのである。
-  </div>
-
-  <div class="text-label tib-l">TJ 注釈 (Tibetan)</div>
-  <div class="tib-block">
-    gnyen po yod na ni skye ba med par 'gyur te | dper na zhe sdang gi gnyen po byams pa bsgom na zhe sdang mi skye ba bzhin no || rgyu'i tshogs yod na ni skye bar 'gyur te | yul dang dbang po dang yid la byed pa'i tshogs pa las rnam par shes pa skye ba bzhin no || sna tshogs ni sems las 'ong ba ma yin te | rdzas su yod pa'i sems las ma yin no ||
-  </div>
-
-  <div class="text-label jpn-l">TJ 注釈 和訳</div>
-  <div class="jpn-block">
-    対治がある時には〔煩悩は〕生じない。たとえば瞋恚の対治である慈を修習すれば瞋恚は生じないようにである。因の集合がある時には生起する。対象と感官と作意の集合から識が生じるようにである。多様性は心から来るのではない。実体として存在する心からではないのである。
-  </div>
-
-  <div class="text-label comm-l">解説</div>
-  <div class="comm-block">
-    <p>バーヴィヴェーカは中観派の立場から、煩悩の止滅と生起のメカニズムを説明する。対治（<span class="skt-inline">pratipakṣa</span>）の修習によって煩悩は生じなくなる（例：慈の修習→瞋恚の不生起）。一方、因の集合（対象＋感官＋作意）が揃えば識は生じる。</p>
-    <p>ここで重要なのは、世界の多様性（<span class="skt-inline">vaicitrya</span>）の根拠を実体的な心に求めないという点である。唯識派は「三界唯心」に基づいて世界の多様性を心の実体的作用に帰するが、バーヴィヴェーカはこれを否定する。多様性は因縁の和合から生じるのであって、実体としての心から生じるのではない。</p>
-  </div>
-</div>
-
-<!-- 5.50 -->
-<div class="verse-block">
-  <div class="verse-head">
-    <span class="num">k. 5.50</span>
-    <span class="topic"><span class="tag tag-bhv">BHV</span> 心を所取する者に解脱なし——C-3/C-4の結論</span>
-  </div>
-  <div class="folio">D 213a &nbsp;|&nbsp; Eckel p. 270</div>
-
-  <div class="text-label skt-l">Sanskrit kārikā</div>
-  <div class="skt-block">
-    cittam udgṛhṇato yasya<br>
-    na tasya mokṣa iṣyate |<br>
-    jñānanirodhe tu yasyāsti<br>
-    so 'smadādibhir anyathā ||5.50||
-  </div>
-
-  <div class="text-label tib-l">Tibetan (MHK kārikā / TJ所引)</div>
-  <div class="tib-block">
-    sems la 'dzin pa gang la thar pa med ||<br>
-    shes pa 'gags pa gang la thar pa yin ||<br>
-    bdag tu smra ba la sogs pa dag ||<br>
-    las ni gzhan du gyur pa yin ||
-  </div>
-
-  <div class="text-label jpn-l">和訳</div>
-  <div class="jpn-block">
-    心を把捉する者に、<br>
-    解脱は認められない。<br>
-    しかし、認識が止滅した者には〔解脱があり〕——<br>
-    その者は我論者等とは異なるのである。
-  </div>
-
-  <div class="text-label tib-l">TJ 注釈 (Tibetan)</div>
-  <div class="tib-block">
-    sems la 'dzin pa gang yin pa de la ni thar pa yod pa ma yin te | gzung ba yod pa'i phyir ro || shes pa 'gags pa gang yin pa de la ni thar pa yin te | gzung bar bya ba med pa'i phyir ro || de ni bdag tu smra ba rnams las gzhan te | bdag tu smra ba rnams ni rtag pa'i bdag la 'dzin la | rnam par rig pa tsam du smra ba rnams ni rnam par shes pa la 'dzin pa'i phyir ro || bdag dang rnam par shes pa gnyis ka 'dzin pa can la ni thar pa yod pa ma yin no ||
-  </div>
-
-  <div class="text-label jpn-l">TJ 注釈 和訳</div>
-  <div class="jpn-block">
-    心を把捉するその者には解脱は存在しない。所取が存在するからである。認識が止滅したその者には解脱がある。把捉すべきものが存在しないからである。その者は我論者たちとは異なる。我論者たちは恒常の我を把捉し、唯了別論者たちは識を把捉するからである。我と識の両方を把捉する者には解脱は存在しない。
-  </div>
-
-  <div class="text-label comm-l">解説</div>
-  <div class="comm-block">
-    <p>C-3「唯識における解脱論批判」とC-4「心と心所」の全体を締めくくる結論偈。バーヴィヴェーカの中観的立場が最も明確に表明される。</p>
-    <p>論理は明快である。（1）心を把捉する者＝唯識派には解脱がない。なぜなら何かを所取として認めている限り、二元的分別の構造の中にあるからである。（2）認識そのものが止滅した者にのみ解脱がある。把捉すべきものが何もないからである。</p>
-    <p>TJの注釈は、唯識派と外道の我論者を並列する。外道は恒常の我（<span class="skt-inline">ātman</span>）を把捉し、唯識派は識（<span class="skt-inline">vijñāna</span>）を把捉する。5.42cdの「識は我にほかならない」という批判がここで回帰する。どちらも何かを実体として把捉する限り、解脱には至れない。</p>
-    <p>「認識の止滅」（<span class="skt-inline">jñānanirodha</span>）とは、一切の認識作用（分別）の止滅を意味し、これこそが中観派の説く解脱＝涅槃である。これは『中辺分別論』（MAV）1.6の再引用でもあり、唯識派自身のテキストを用いて唯識批判を完結させる巧みな論法である。</p>
-    <p class="ref">Cf. MAV 1.6; MHK 5.16; Eckel pp. 270–271</p>
-  </div>
-</div>
-
-<!-- Footer -->
-<div class="doc-footer">
-  <p><strong>テキスト底本</strong>：MHK kārikā Skt. = Eckel (2008) critical ed. (Patan MS); TJ Tib. = D (sDe dge) 3856, dBu ma, <em>dza</em>.</p>
-  <p><strong>略号</strong>：MHK = Madhyamakahṛdayakārikā; TJ = Tarkajvālā; D = sDe dge Tanjur; MAV = Madhyāntavibhāga; AK(Bh) = Abhidharmakośa(bhāṣya); PS = Pramāṇasamuccaya; MMK = Mūlamadhyamakakārikā</p>
-  <p><strong>参考文献</strong>：Eckel, M. D. (2008). <em>Bhāviveka and His Buddhist Opponents: Chapters 4 and 5 of Bhāviveka's Madhyamakahṛdayakārikāḥ with Tarkajvālā Commentary.</em> Harvard Oriental Series 70. Cambridge, MA: Harvard University Press.</p>
+<!-- ============================================================ -->
+<div class="section refs" id="refs">
+  <h3>参考文献</h3>
+  <p><strong>Eckel, Malcolm David</strong> (2008). <em>Bhāviveka and His Buddhist Opponents: Chapters 4 and 5 of Bhāviveka's Madhyamakahṛdayakārikāḥ with Tarkajvālā Commentary</em>. Harvard Oriental Series 70. Cambridge, MA: Harvard University Press.</p>
+  <p><strong>斎藤明</strong> (2007). 「Madhyamakahṛdayakārikā / Tarkajvālā 第5章試訳研究」.</p>
+  <p><strong>Lindtner, Christian</strong>. MHK校訂テキスト（L / L2として参照）.</p>
+  <p><strong>Ejima, Yasunori（恵尾祐典）</strong>. MHK校訂テキスト（Eとして参照）.</p>
+  <p><strong>Hoornaert, Paul</strong>. MHK/TJ校訂テキスト（Hとして参照）.</p>
+  <p><strong>Cox, Collett</strong> (1988). 経量部における心の理論について（5.46注参照）.</p>
+  <p>チベット語テキスト: デルゲ版 (D 3856), 北京版 (P 5256), ゴールデン・テンジュル (G).</p>
+  <p>サンスクリット写本: パタン（ネパール）シャル僧院写本 (Ms); National Archives, Kathmandu.</p>
 </div>
 
 </div>
