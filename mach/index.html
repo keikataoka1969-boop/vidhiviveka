@@ -1,338 +1,110 @@
-<title>感覚の分析 · Die Analyse der Empfindungen</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<p style="text-align:center; font-size:1.6em; font-weight:bold; letter-spacing:0.1em; margin-bottom:0.1em;">感覚の分析</p>
+<p style="text-align:center; font-size:1.3em; font-style:italic; color:#8b7332; margin-bottom:0.1em;">Die Analyse der Empfindungen</p>
+<p style="text-align:center; font-size:0.95em; color:#666; margin-bottom:0.3em;">und das Verhältnis des Physischen zum Psychischen</p>
+<p style="text-align:center; font-size:0.9em; color:#888; margin-bottom:2em;">Ernst Mach · エルンスト・マッハ ｜ 第9版 (1922) ｜ 独日対訳</p>
 
-<style>
-  :root {
-    --bg: #fefcf8;
-    --fg: #1a1a1a;
-    --de-bg: #f5f0e8;
-    --de-border: #c8b89a;
-    --jp-bg: #f0f4f8;
-    --jp-border: #8ba4c0;
-    --section-color: #6b4c3b;
-    --marker-ho: #c0392b;
-    --marker-i: #2980b9;
-    --anm-bg: #f8f5f0;
-    --header-bg: #3e2f1e;
-    --header-fg: #f5f0e8;
-    --link-color: #6b4c3b;
-    --nav-bg: #eee8dc;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #1a1a1a;
-      --fg: #e0dcd4;
-      --de-bg: #2a2520;
-      --de-border: #6b5c48;
-      --jp-bg: #1e2530;
-      --jp-border: #4a6080;
-      --section-color: #d4a574;
-      --marker-ho: #e74c3c;
-      --marker-i: #3498db;
-      --anm-bg: #252220;
-      --header-bg: #2a2010;
-      --header-fg: #e0dcd4;
-      --link-color: #d4a574;
-      --nav-bg: #2a2520;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #1a1a1a;
-    --fg: #e0dcd4;
-    --de-bg: #2a2520;
-    --de-border: #6b5c48;
-    --jp-bg: #1e2530;
-    --jp-border: #4a6080;
-    --section-color: #d4a574;
-    --marker-ho: #e74c3c;
-    --marker-i: #3498db;
-    --anm-bg: #252220;
-    --header-bg: #2a2010;
-    --header-fg: #e0dcd4;
-    --link-color: #d4a574;
-    --nav-bg: #2a2520;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "Times New Roman", serif;
-    line-height: 1.85;
-    max-width: 52em;
-    margin: 0 auto;
-    padding: 1em;
-  }
-  .chapter-header {
-    background: var(--header-bg);
-    color: var(--header-fg);
-    padding: 2em 1.5em;
-    margin: -1em -1em 2em -1em;
-    text-align: center;
-  }
-  .chapter-header h1 { font-size: 1.6em; margin-bottom: 0.3em; letter-spacing: 0.1em; }
-  .chapter-header .subtitle-de { font-size: 1.05em; margin-bottom: 0.2em; font-style: italic; }
-  .chapter-header .subtitle-jp { font-size: 1.05em; }
-  .section-marker {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: var(--section-color);
-    margin: 2em 0 0.8em 0;
-    padding-bottom: 0.3em;
-    border-bottom: 2px solid var(--section-color);
-    display: inline-block;
-  }
-  .de-block {
-    background: var(--de-bg);
-    border-left: 4px solid var(--de-border);
-    padding: 0.8em 1em;
-    margin: 0.6em 0;
-    font-family: "Times New Roman", "Noto Serif", Georgia, serif;
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    lang: de;
-  }
-  .jp-block {
-    background: var(--jp-bg);
-    border-left: 4px solid var(--jp-border);
-    padding: 0.8em 1em;
-    margin: 0.6em 0;
-    text-align: justify;
-  }
-  .marker-ho {
-    color: var(--marker-ho);
-    font-weight: bold;
-    font-size: 0.9em;
-  }
-  .marker-i {
-    color: var(--marker-i);
-    font-weight: bold;
-    font-size: 0.9em;
-  }
-  .anm-section {
-    background: var(--anm-bg);
-    margin-top: 2.5em;
-    padding: 1em;
-    border-top: 2px dashed var(--de-border);
-  }
-  .anm-section h2 {
-    font-size: 1.1em;
-    color: var(--section-color);
-    margin-bottom: 0.8em;
-  }
-  .anm-title {
-    font-weight: bold;
-    color: var(--section-color);
-    margin-top: 1em;
-  }
-  .nav-bar {
-    background: var(--nav-bg);
-    padding: 0.6em 1em;
-    margin: -1em -1em 0 -1em;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.3em;
-    font-size: 0.9em;
-  }
-  .nav-bar a {
-    color: var(--link-color);
-    text-decoration: none;
-  }
-  .nav-bar a:hover { text-decoration: underline; }
-  .footer-nav {
-    margin-top: 3em;
-    padding-top: 1em;
-    border-top: 1px solid var(--de-border);
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.95em;
-  }
-  .footer-nav a {
-    color: var(--link-color);
-    text-decoration: none;
-  }
-  .footer-nav a:hover { text-decoration: underline; }
-</style>
-
-<style>
-  .book-header {
-    text-align: center;
-    padding: 3em 1em;
-    background: var(--header-bg);
-    color: var(--header-fg);
-    margin: -1em -1em 2em -1em;
-  }
-  .book-header h1 { font-size: 1.8em; margin-bottom: 0.2em; }
-  .book-header .author { font-size: 1.1em; margin-top: 0.5em; opacity: 0.9; }
-  .book-header .edition { font-size: 0.9em; margin-top: 0.3em; opacity: 0.7; }
-  .toc { list-style: none; padding: 0; }
-  .toc li { margin: 0.5em 0; }
-  .toc a {
-    display: block;
-    padding: 0.8em 1em;
-    background: var(--de-bg);
-    border-left: 4px solid var(--de-border);
-    text-decoration: none;
-    color: var(--fg);
-    transition: border-color 0.2s;
-  }
-  .toc a:hover {
-    border-left-color: var(--section-color);
-    background: var(--jp-bg);
-  }
-  .ch-num {
-    font-weight: bold;
-    color: var(--section-color);
-    display: block;
-    font-size: 0.9em;
-  }
-  .ch-title-jp { display: block; font-size: 1.05em; margin: 0.1em 0; }
-  .ch-title-de { display: block; font-size: 0.9em; font-style: italic; opacity: 0.7; }
-  .zusatz-link {
-    margin-top: 1.5em;
-    text-align: center;
-  }
-  .zusatz-link a {
-    display: inline-block;
-    padding: 0.8em 2em;
-    background: var(--anm-bg);
-    border: 1px solid var(--de-border);
-    text-decoration: none;
-    color: var(--section-color);
-    font-weight: bold;
-  }
-</style>
-<div class="book-header">
-  <h1>Die Analyse der Empfindungen</h1>
-  <h1>感覚の分析</h1>
-  <div class="author">Ernst Mach · エルンスト・マッハ</div>
-  <div class="edition">Neunte Auflage (1922) · 第9版 · 独日対訳</div>
-</div>
-<h2 style="text-align:center; color:var(--section-color); margin-bottom:1em;">目次 · Inhaltsverzeichnis</h2>
-<ul class="toc">
-
-    <li>
-      <a href="kapitel_01.html">
-        <span class="ch-num">第Ⅰ章</span>
-        <span class="ch-title-jp">反形而上学的予備考察</span>
-        <span class="ch-title-de">Antimetaphysische Vorbemerkungen</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_02.html">
-        <span class="ch-num">第Ⅱ章</span>
-        <span class="ch-title-jp">感覚の探究のための主要な視点</span>
-        <span class="ch-title-de">Die Hauptgesichtspunkte für die Untersuchung der Sinne</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_03.html">
-        <span class="ch-num">第Ⅲ章</span>
-        <span class="ch-title-jp">記憶、連合、そして習慣</span>
-        <span class="ch-title-de">Die Erinnerungen, die Assoziationen und die Gewohnheit</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_04.html">
-        <span class="ch-num">第Ⅳ章</span>
-        <span class="ch-title-jp">感覚と現実の要素</span>
-        <span class="ch-title-de">Die Empfindungen und die Elemente der Wirklichkeit</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_05.html">
-        <span class="ch-num">第Ⅴ章</span>
-        <span class="ch-title-jp">生物学に奉仕する感覚</span>
-        <span class="ch-title-de">Die Empfindungen im Dienste der Biologie</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_06.html">
-        <span class="ch-num">第Ⅵ章</span>
-        <span class="ch-title-jp">諸要素の相互影響</span>
-        <span class="ch-title-de">Der Einfluß der verschiedenen Elemente aufeinander</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_07.html">
-        <span class="ch-num">第Ⅶ章</span>
-        <span class="ch-title-jp">空間感覚</span>
-        <span class="ch-title-de">Raumempfindungen</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_08.html">
-        <span class="ch-num">第Ⅷ章</span>
-        <span class="ch-title-jp">時間感覚</span>
-        <span class="ch-title-de">Zeitempfindungen</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_09.html">
-        <span class="ch-num">第Ⅸ章</span>
-        <span class="ch-title-jp">空間感覚のさらなる研究</span>
-        <span class="ch-title-de">Weitere Untersuchung der Raumempfindungen</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_10.html">
-        <span class="ch-num">第Ⅹ章</span>
-        <span class="ch-title-jp">感覚、直観、空想</span>
-        <span class="ch-title-de">Empfindungen, Anschauung und Phantasie</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_11.html">
-        <span class="ch-num">第ⅩⅠ章</span>
-        <span class="ch-title-jp">物理学の基本概念とその生理学的基礎</span>
-        <span class="ch-title-de">Die Grundbegriffe der Physik und die physiologische Grundlage derselben</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_12.html">
-        <span class="ch-num">第ⅩⅡ章</span>
-        <span class="ch-title-jp">研究者の道について</span>
-        <span class="ch-title-de">Von dem Wege des Forschers</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_13.html">
-        <span class="ch-num">第ⅩⅢ章</span>
-        <span class="ch-title-jp">自然法則の意味と価値</span>
-        <span class="ch-title-de">Sinn und Wert der Naturgesetze</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_14.html">
-        <span class="ch-num">第ⅩⅣ章</span>
-        <span class="ch-title-jp">以上の研究が物理学の把握に及ぼす影響</span>
-        <span class="ch-title-de">Einfluß der vorausgehenden Untersuchungen auf die Auffassung der Physik</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="kapitel_15.html">
-        <span class="ch-num">第ⅩⅤ章</span>
-        <span class="ch-title-jp">ここで述べた見解の受容</span>
-        <span class="ch-title-de">Die Aufnahme der hier dargelegten Ansichten</span>
-      </a>
-    </li>
+<div style="background:#f5f0e6; border:1px solid #c4b07a; padding:1em 1.5em; margin-bottom:2em;">
+<p style="font-size:0.85em; font-weight:bold; color:#8b7332; letter-spacing:0.1em; border-bottom:1px solid #c4b07a; padding-bottom:0.4em; margin-bottom:0.6em;">目次 INHALTSVERZEICHNIS</p>
+<ul style="list-style:none; padding:0;">
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_01.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第Ⅰ章</strong> 反形而上学的予備考察<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Antimetaphysische Vorbemerkungen</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_02.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第Ⅱ章</strong> 感覚の探究のための主要な視点<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Die Hauptgesichtspunkte für die Untersuchung der Sinne</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_03.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第Ⅲ章</strong> 記憶、連合、そして習慣<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Die Erinnerungen, die Assoziationen und die Gewohnheit</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_04.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第Ⅳ章</strong> 感覚と現実の要素<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Die Empfindungen und die Elemente der Wirklichkeit</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_05.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第Ⅴ章</strong> 生物学に奉仕する感覚<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Die Empfindungen im Dienste der Biologie</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_06.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第Ⅵ章</strong> 諸要素の相互影響<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Der Einfluß der verschiedenen Elemente aufeinander</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_07.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第Ⅶ章</strong> 空間感覚<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Raumempfindungen</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_08.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第Ⅷ章</strong> 時間感覚<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Zeitempfindungen</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_09.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第Ⅸ章</strong> 空間感覚のさらなる研究<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Weitere Untersuchung der Raumempfindungen</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_10.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第Ⅹ章</strong> 感覚、直観、空想<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Empfindungen, Anschauung und Phantasie</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_11.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第ⅩⅠ章</strong> 物理学の基本概念とその生理学的基礎<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Die Grundbegriffe der Physik und die physiologische Grundlage derselben</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_12.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第ⅩⅡ章</strong> 研究者の道について<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Von dem Wege des Forschers</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_13.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第ⅩⅢ章</strong> 自然法則の意味と価値<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Sinn und Wert der Naturgesetze</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_14.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第ⅩⅣ章</strong> 以上の研究が物理学の把握に及ぼす影響<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Einfluß der vorausgehenden Untersuchungen auf die Auffassung der Physik</span>
+  </a>
+</li>
+<li style="margin:0.8em 0; padding:0.5em; background:#f5f0e6; border-left:3px solid #8b7332;">
+  <a href="kapitel_15.html" style="color:#8b7332; text-decoration:none;">
+    <strong>第ⅩⅤ章</strong> ここで述べた見解の受容<br/>
+    <span style="font-size:0.85em; font-style:italic; color:#888;">Die Aufnahme der hier dargelegten Ansichten</span>
+  </a>
+</li>
+<li style="margin:1.2em 0 0.8em; padding:0.5em; background:#f8f5f0; border-left:3px solid #c4b07a;">
+  <a href="zusaetze.html" style="color:#8b7332; text-decoration:none;">
+    <strong>補遺</strong> Zusätze（各章への追加注記 · 全21項目）
+  </a>
+</li>
 </ul>
-<div class="zusatz-link">
-  <a href="zusaetze.html">補遺 · Zusätze</a>
+</div>
+
+<div style="font-size:0.82em; color:#888; border-top:1px solid #c4b07a; padding-top:0.8em; line-height:1.7;">
+<p>本対訳版はエルンスト・マッハ『感覚の分析——物理的なものと心理的なものの関係』（第9版、イェーナ：グスタフ・フィッシャー、1922年）の全15章および補遺の対訳である。</p>
+<p style="font-style:italic; margin-top:0.3em;">Diese zweisprachige Ausgabe umfaßt alle 15 Kapitel und die Zusätze von Ernst Machs <em>Die Analyse der Empfindungen und das Verhältnis des Physischen zum Psychischen</em> (9. Aufl., Jena: Gustav Fischer, 1922).</p>
 </div>
