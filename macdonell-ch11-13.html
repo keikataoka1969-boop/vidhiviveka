@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宮廷詩・抒情詩・演劇</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&family=Shippori+Mincho:wght@500;700;800&display=swap">
+<style>
+/* Layout: a single reading column of manuscript-like prose, broken by full-width figures (timelines, maps, stage plans) and tables. */
+:root{
+  --paper:#f5f4ef; --panel:#ebe9e1; --ink:#22202c; --muted:#6a6675; --rule:#d7d3c8;
+  --indigo:#34427a; --indigo-soft:#dfe3f2; --lac:#9c2f3c; --lac-soft:#f3e0e0; --haldi:#a8731a; --haldi-soft:#f4e9d2;
+  --latin:"EB Garamond", "Noto Serif JP", Georgia, serif;
+  --body:"EB Garamond", "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --display:"EB Garamond", "Shippori Mincho", "Noto Serif JP", serif;
+  --label:"Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#16151c; --panel:#211f29; --ink:#e9e6dd; --muted:#a39eab; --rule:#393640;
+  --indigo:#a3b2ee; --indigo-soft:#262c45; --lac:#e3848d; --lac-soft:#3a2328; --haldi:#e2b65b; --haldi-soft:#3a3020; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --paper:#16151c; --panel:#211f29; --ink:#e9e6dd; --muted:#a39eab; --rule:#393640;
+  --indigo:#a3b2ee; --indigo-soft:#262c45; --lac:#e3848d; --lac-soft:#3a2328; --haldi:#e2b65b; --haldi-soft:#3a3020; color-scheme:dark }
+
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.95;padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:780px;margin:0 auto}
+p{margin:0 0 1.1em}
+i,.t{font-family:var(--latin);font-style:italic;font-size:1.06em;color:var(--indigo)}
+.t.plain{font-style:normal}
+b{font-weight:600}
+a{color:var(--indigo)}
+a:focus-visible{outline:2px solid var(--lac);outline-offset:2px}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;line-height:1.35;margin:0}
+
+/* hero */
+.hero{padding-block:56px 28px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--label);font-size:12px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.hero h1{font-size:clamp(30px,6vw,46px);font-weight:800;margin-top:10px;letter-spacing:.02em}
+.hero .sub{font-family:var(--latin);font-style:italic;color:var(--muted);font-size:19px;margin-top:6px}
+.hero .lead{margin-top:20px;max-width:40em}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-family:var(--label);font-size:13px;color:var(--muted)}
+.legend span b{font-weight:500;color:var(--ink)}
+
+/* toc */
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-block:28px 8px}
+.toc a{display:block;text-decoration:none;color:inherit;border:1px solid var(--rule);border-radius:6px;padding:14px 16px;background:var(--panel)}
+.toc a:hover{border-color:var(--indigo)}
+.toc .n{font-family:var(--latin);font-size:28px;color:var(--lac);line-height:1}
+.toc .jt{font-family:var(--display);font-weight:700;font-size:18px;margin-top:6px}
+.toc .et{font-family:var(--latin);font-style:italic;color:var(--muted);font-size:15px}
+.toc ul{margin:8px 0 0;padding-left:1.1em;font-size:13.5px;line-height:1.7;font-family:var(--label);color:var(--muted)}
+
+/* chapter */
+.chapter{padding-top:48px}
+.ch-head{display:grid;grid-template-columns:auto 1fr;gap:4px 20px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:28px}
+.ch-num{font-family:var(--latin);font-size:clamp(56px,12vw,88px);line-height:.85;color:var(--lac);grid-row:span 2}
+.ch-head h2{font-size:clamp(24px,4.6vw,34px);font-weight:800}
+.ch-head .meta{font-family:var(--label);font-size:13px;color:var(--muted)}
+.ch-head .meta .t{font-size:15px}
+h3{font-size:21px;font-weight:700;margin:40px 0 14px;display:flex;gap:10px;align-items:baseline}
+h3 .sec{font-family:var(--label);font-size:12px;font-weight:500;color:var(--lac);letter-spacing:.08em;flex:none}
+h4{font-size:17px;font-weight:700;margin:26px 0 10px}
+
+/* verse */
+.verse{margin:18px 0 22px;padding:14px 18px 14px 22px;border-left:3px solid var(--haldi);background:var(--haldi-soft);border-radius:0 6px 6px 0}
+.verse p{margin:0;line-height:1.9}
+.verse .src{font-family:var(--label);font-size:12px;color:var(--muted);margin-top:8px}
+/* translator's note */
+.note{font-family:var(--label);font-size:13.5px;line-height:1.75;color:var(--muted);border:1px dashed var(--rule);border-radius:6px;padding:10px 14px;margin:14px 0 20px}
+.note b{color:var(--ink);font-weight:500}
+.note .t{font-size:15px}
+
+/* figures & tables */
+figure{margin:26px 0 30px}
+figcaption{font-family:var(--label);font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.6}
+figcaption b{color:var(--ink);font-weight:700;margin-right:6px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.65}
+th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--rule)}
+thead th{font-family:var(--label);font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.06em;border-bottom:2px solid var(--ink);white-space:nowrap}
+td .t{font-size:15.5px}
+td.num,th.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.hl td{background:var(--indigo-soft)}
+.tag{display:inline-block;font-family:var(--label);font-size:11px;font-weight:500;padding:1px 7px;border-radius:3px;background:var(--panel);color:var(--muted);border:1px solid var(--rule);white-space:nowrap}
+.tag.lac{background:var(--lac-soft);color:var(--lac);border-color:transparent}
+.tag.ind{background:var(--indigo-soft);color:var(--indigo);border-color:transparent}
+.tag.hal{background:var(--haldi-soft);color:var(--haldi);border-color:transparent}
+
+/* vertical timeline */
+.tl{position:relative;padding-left:0;margin:0;list-style:none}
+.tl li{display:grid;grid-template-columns:92px 16px 1fr;gap:0 10px;align-items:start;padding-block:6px}
+.tl .yr{font-family:var(--label);font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--muted);text-align:right;padding-top:3px}
+.tl .dot{position:relative;height:100%}
+.tl .dot::before{content:"";position:absolute;left:7px;top:0;bottom:-12px;width:2px;background:var(--rule)}
+.tl li:last-child .dot::before{bottom:auto;height:14px}
+.tl .dot::after{content:"";position:absolute;left:3px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--paper);border:2px solid var(--indigo)}
+.tl li.key .dot::after{background:var(--lac);border-color:var(--lac)}
+.tl .ev{font-size:15px;line-height:1.65}
+.tl .ev small{display:block;font-family:var(--label);font-size:12px;color:var(--muted)}
+.tl li.era{padding-block:10px 4px}
+.tl li.era .ev{font-family:var(--label);font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--haldi)}
+.tl li.era .dot::after{display:none}
+
+/* two-column compare */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vs>div{min-width:0;border-radius:6px;padding:14px 16px;border:1px solid var(--rule)}
+.vs .claim{background:var(--panel)}
+.vs .refute{background:var(--indigo-soft);border-color:transparent}
+.vs h5{margin:0 0 8px;font-family:var(--label);font-size:12px;letter-spacing:.08em;color:var(--muted)}
+.vs ol,.vs ul{margin:0;padding-left:1.2em;font-size:14.5px;line-height:1.7}
+.vs li+li{margin-top:6px}
+@media (max-width:620px){.vs{grid-template-columns:1fr}}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px}
+.flow .st{flex:1 1 130px;min-width:0;border:1px solid var(--rule);border-radius:6px;padding:10px 12px;background:var(--panel);font-size:14px;line-height:1.6}
+.flow .st .k{font-family:var(--label);font-size:11px;color:var(--muted);letter-spacing:.06em}
+.flow .st .h{font-family:var(--display);font-weight:700;font-size:16px}
+.flow .st.acc{background:var(--lac-soft);border-color:transparent}
+.flow .ar{flex:0 0 auto;align-self:center;color:var(--muted);font-family:var(--label)}
+@media (max-width:620px){.flow{flex-direction:column}.flow .ar{transform:rotate(90deg);align-self:center}}
+
+/* mapping (A → B) */
+.map{display:grid;grid-template-columns:1fr auto 1fr;gap:6px 12px;align-items:center;font-size:15px}
+.map .l{text-align:right}
+.map .m{color:var(--haldi);font-family:var(--label)}
+.map .hd{font-family:var(--label);font-size:11.5px;color:var(--muted);letter-spacing:.06em}
+
+/* cards grid */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.card{min-width:0;border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.card .h{font-family:var(--display);font-weight:700;font-size:17px}
+.card .t{font-size:15px}
+.card p{font-size:14px;line-height:1.7;margin:6px 0 0}
+
+svg text{font-family:var(--label)}
+.svgbox{max-width:100%}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-family:var(--label);font-size:13px;padding:3px 10px;border-radius:99px;background:var(--lac-soft);color:var(--lac)}
+
+.palin{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;font-family:var(--latin);font-size:22px}
+.palin span{padding:2px 8px;border-radius:4px;background:var(--panel)}
+.palin span.c{background:var(--haldi-soft);color:var(--haldi)}
+
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--label);font-size:12.5px;color:var(--muted);line-height:1.8}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">マクドネル『サンスクリット文学史』（1900）第XI〜XIII章 和訳</div>
+  <h1>宮廷詩・抒情詩・演劇</h1>
+  <div class="sub">A. A. Macdonell, <span class="t plain">A History of Sanskrit Literature</span>, ch. XI–XIII</div>
+  <p class="lead">原書318〜367頁の三章を、日本語で読みやすいように訳しました。原語は、原書独特の表記（<span class="t">ç, ri, ch, sh</span>）を IAST に改めています。見出しや図表は訳者が加えたもので、原書にはありません。本文の外に補った情報は「訳注」と明記しています。</p>
+  <div class="legend">
+    <span><b>黄色の枠</b>　詩の引用（マクドネルの英訳からの重訳）</span>
+    <span><b>点線の枠</b>　訳注（原書にない補足）</span>
+    <span><b>［329］</b>　原書の頁</span>
+  </div>
+  <nav class="toc" aria-label="目次">
+    <a href="#ch11"><div class="n">XI</div><div class="jt">カーヴィヤ（宮廷叙事詩）</div><div class="et">Kāvya or Court Epic</div>
+      <ul><li>年代の問題と碑文</li><li>「6世紀復興説」への反論</li><li>カーリダーサの二大詩</li><li>六大詩と後期の技巧詩</li><li>散文ロマンス</li></ul></a>
+    <a href="#ch12"><div class="n">XII</div><div class="jt">抒情詩</div><div class="et">Lyric Poetry</div>
+      <ul><li>『メーガドゥータ』</li><li>『リトゥサンハーラ』</li><li>バルトリハリと小詩集</li><li>自然と鳥の詩的象徴</li><li>『ギータゴーヴィンダ』</li></ul></a>
+    <a href="#ch13"><div class="n">XIII</div><div class="jt">演劇</div><div class="et">The Drama</div>
+      <ul><li>起源と特徴</li><li>言語の使い分け・構成・舞台</li><li>カーリダーサの三作</li><li>『土の小車』とハルシャ王</li><li>バヴァブーティと後代の劇</li></ul></a>
+  </nav>
+  <div class="note"><b>表記について。</b>原書の <span class="t">ç</span> → <span class="t">ś</span>、<span class="t">ṛi</span> → <span class="t">ṛ</span>、<span class="t">ch</span> → <span class="t">c</span>、<span class="t">chh</span> → <span class="t">ch</span>、<span class="t">sh</span> → <span class="t">ṣ</span>（例：<span class="t">Çakuntalā</span> → <span class="t">Śakuntalā</span>、<span class="t">Bṛihatsaṃhitā</span> → <span class="t">Bṛhatsaṃhitā</span>、<span class="t">Harsha-charita</span> → <span class="t">Harṣacarita</span>）。カタカナは慣用に従っています。</div>
+</header>
+
+<!-- ======================= CHAPTER XI ======================= -->
+<section class="chapter" id="ch11">
+<div class="ch-head">
+  <div class="ch-num">XI</div>
+  <h2>カーヴィヤ（宮廷叙事詩）</h2>
+  <div class="meta"><span class="t">Kāvya</span> or Court Epic ／ 前200年頃〜後1100年頃 ／ 原書 318–335頁</div>
+</div>
+
+<h3><span class="sec">1</span>年代の問題：確かな手がかりは7世紀から</h3>
+<p>インドの人工的な叙事詩、すなわち<b>カーヴィヤ</b>（<span class="t">kāvya</span>）の歴史が確かな形で始まるのは、紀元後7世紀前半になってからです。起点は、スターニーシュヴァラ（<span class="t">Sthāṇvīśvara</span>、現ターネーサル）とカーニャクブジャ（<span class="t">Kānyakubja</span>、現カナウジ）の王<b>ハルシャヴァルダナ</b>（<span class="t">Harṣavardhana</span>、在位606–648年）の治世です。この王は北インド全土を支配し、その庇護のもとで<b>バーナ</b>（<span class="t">Bāṇa</span>）が歴史物語『ハルシャチャリタ』（<span class="t">Harṣacarita</span>）などを書きました。</p>
+<p>これより前のカーヴィヤで、年代が確定したものはまだ一つもありません。ただ、カーヴィヤ様式が色濃い天文学者<b>ヴァラーハミヒラ</b>（<span class="t">Varāhamihira</span>）の『ブリハットサンヒター』（<span class="t">Bṛhatsaṃhitā</span>）は、迷わず6世紀半ばに置くことができます。</p>
+<p>一方、最も有名な古典詩人たち、<b>カーリダーサ</b>（<span class="t">Kālidāsa</span>）、<b>スバンドゥ</b>（<span class="t">Subandhu</span>）、<b>バーラヴィ</b>（<span class="t">Bhāravi</span>）、<b>グナーディヤ</b>（<span class="t">Guṇāḍhya</span>）らの年代を示す歴史的典拠はありません。確実に言えるのは、600年頃には彼らの名声が広く知れ渡っていたことだけです。バーナの著作や634年の碑文での名の挙げられ方がその証拠です。さらに、スバンドゥが何度も言及しているグナーディヤのように、はるかに古い時代の人もいたはずです。詩人自身が残したわずかな手がかりも使いにくいのが実情です。紀元後最初の5世紀間のインドの政治史・社会史が、まだ闇に包まれているからです。［319］</p>
+
+<h3><span class="sec">2</span>宮廷詩は紀元前から存在した</h3>
+<p>宮廷詩そのものの古さについては、重要な文献上の証拠があります。<b>パタンジャリ</b>（<span class="t">Patañjali</span>）の文法注釈書『マハーバーシャ』（<span class="t">Mahābhāṣya</span>）に引用された詩句です。これを見ると、パタンジャリの時代にはカーヴィヤが栄えていて、紀元前には発達を終えていたはずだとわかります。引用句のいくつかは古典詩の技巧的な韻律で書かれています。英雄を歌うアヌシュトゥブ（<span class="t">anuṣṭubh</span>）韻律のシュローカ（<span class="t">śloka</span>）も、内容・形式ともに民衆叙事詩ではなく宮廷叙事詩に一致しています。</p>
+<p>また、<b>アシュヴァゴーシャ</b>（<span class="t">Aśvaghoṣa</span>）の『ブッダチャリタ』（<span class="t">Buddhacarita</span>、「仏陀の生涯」）が414〜421年に漢訳されたこともわかっています。この作品は自らをマハーカーヴィヤ（<span class="t">mahākāvya</span>、「大宮廷叙事詩」）と呼び、実際にカーヴィヤ様式で書かれています。仏教の伝承では、アシュヴァゴーシャはカニシカ王（<span class="t">Kaniṣka</span>）と同時代の人なので、紀元1世紀に属することになります。いずれにしても、この詩が350〜400年より後に作られたことはありえません。仏教僧がこれほど早い時期に、古典サンスクリット叙事詩の規則に従って仏伝を書こうと考えたこと自体、バラモンの技巧詩が遅くとも4世紀には、おそらくはるか以前から、広く好まれていたことを示しています。</p>
+<div class="note"><b>訳注：</b>この漢訳は曇無讖（どんむしん）訳とされる『仏所行讃』です。</div>
+
+<h3><span class="sec">3</span>碑文が照らした「暗黒時代」</h3>
+<p>過去25年ほどの碑文研究の進展により、紀元後最初の5世紀という「暗黒時代」の宮廷詩の歴史がかなり見えてきました。フリート（Fleet）氏の『インド碑文集成』（<i>Corpus Inscriptionum Indicarum</i>）第3巻には、この点で重要な碑文が18点も収められています。［320］大部分は韻文で、一部は格調の高い散文です。対象はおよそ350年から550年までの200年間です。</p>
+<p>ほとんどは<b>グプタ紀元</b>（319年起算）で年が記されています。この紀元を最初に用いたのは、ヴィクラマーディティヤ（<span class="t">Vikramāditya</span>）と名乗ったチャンドラグプタ2世（<span class="t">Candragupta</span> II）です。その碑文と貨幣は400年から413年にわたります。少数の碑文は<b>マーラヴァ紀元</b>（前57年起算）を用いています。これはヴィクラマ紀元の古い呼び名です。いくつかは王をたたえる頌詞、プラシャスティ（<span class="t">praśasti</span>）です。これらを調べると、4〜6世紀の詩の文体は、現存する古典カーヴィヤのものと変わらないことがわかります。</p>
+
+<figure>
+<div class="scroll">
+<table>
+<thead><tr><th>碑文・資料</th><th class="num">年代</th><th>わかること</th></tr></thead>
+<tbody>
+<tr><td>パタンジャリ『マハーバーシャ』の引用詩句</td><td class="num">前2世紀</td><td>技巧的な韻律の宮廷詩がすでに存在した</td></tr>
+<tr><td>ギルナール碑文・ナーシク碑文（散文）</td><td class="num">2世紀</td><td>長い複合語や頭韻を使う散文カーヴィヤ様式、詩学理論、ヴィダルバ様式の韻文カーヴィヤがあった</td></tr>
+<tr class="hl"><td>ハリシェーナ（<span class="t">Hariṣeṇa</span>）のサムドラグプタ頌詞</td><td class="num">4世紀後半</td><td>カーリダーサやダンディンに匹敵する文体。散文には120音節を超える複合語がある</td></tr>
+<tr><td>ヴィーラセーナ（<span class="t">Vīrasena</span>）の碑文</td><td class="num">5世紀初頭</td><td>チャンドラグプタ2世の大臣によるもの。ヴィダルバ様式で書かれている</td></tr>
+<tr class="hl"><td>ヴァトサバッティ（<span class="t">Vatsabhaṭṭi</span>）のダシャプラ太陽神殿碑文</td><td class="num">473年</td><td>44詩節150行。カーリダーサの作品との類似が多い</td></tr>
+</tbody></table>
+</div>
+<figcaption><b>表 XI-1</b>碑文と文献が示す、7世紀以前の宮廷詩</figcaption>
+</figure>
+
+<p>グプタ朝第2代の王<b>サムドラグプタ</b>（<span class="t">Samudragupta</span>、4世紀後半）は、自ら詩を作り、詩人を保護もしました。その庇護を受けた詩人の一人が<b>ハリシェーナ</b>です。彼が主君をたたえて書いた頌詞は約30行（9詩節）の韻文と、ほぼ同じ量の散文からなり、カーリダーサやダンディン（<span class="t">Daṇḍin</span>）に匹敵する文体の熟練を見せています。サンスクリット詩学書の規則どおり、散文には途方もなく長い複合語があふれ、120音節を超えるものまであります。一方、韻文ではカーリダーサらと同じ<b>ヴィダルバ様式</b>（<span class="t">vaidarbhī rīti</span>）に従っています。この様式の大きな特徴は長い複合語を避けることで、300年までには完全に確立していたはずです。チャンドラグプタ2世の大臣ヴィーラセーナの碑文も、この様式で書かれています。</p>
+<p>とりわけ重要なのが、マーラヴァ（ヴィクラマ）紀元529年、つまり473年の碑文です。これは詩人<b>ヴァトサバッティ</b>が、ダシャプラ（<span class="t">Daśapura</span>、現マンダソール）の太陽神殿［321］の奉献を記念して作った、44詩節（150行）にもなる詩です。詳しく調べると、5世紀には豊かなカーヴィヤ文学があったに違いないことがわかります。そのうえ、この詩はカーリダーサの作品といくつも共通点を持っています。ヴァトサバッティは詩才に劣り、自分でも苦労して作ったと述べています。そのような詩人がカーリダーサの詩を知っていて、それを利用した可能性が高いでしょう。したがって、インド最大の詩人カーリダーサの年代としては、<b>5世紀初頭のチャンドラグプタ2世ヴィクラマーディティヤの治世</b>が、現時点では最も有力と思われます。</p>
+<p>グプタ期の碑文のほかに、かなり長い文学的な散文碑文が二つあります。ギルナール（<span class="t">Girnār</span>）とナーシク（<span class="t">Nāsik</span>）のもので、どちらも2世紀のものです。これらを見ると、当時すでに散文のカーヴィヤ様式があり、全体の性格も多くの細部も古典の物語やロマンスに似ていたことがわかります。長い複合語を頻繁に使うだけでなく、頭韻やさまざまな直喩・隠喩も用いているからです。ただ、修辞を使う回数はずっと少なく、手も込んでおらず、ときには民衆叙事詩並みに素朴です。全体として、ハリシェーナの散文部分より技巧が少なく、ダンディン、スバンドゥ、バーナの作品に比べればなおさらです。</p>
+<p>ギルナール碑文からは、作者が詩学の理論を知っていたこと、当時ヴィダルバ様式の規則に従う韻文カーヴィヤが作られていたこと、そしてこの種の詩が後の時代と同じく王侯の宮廷で育まれていたことが読み取れます。カーヴィヤ文学が2世紀に突然生まれたとは考えられません。［322］それ以前に長い発展の過程を経ていたはずです。つまり碑文学は、技巧的な宮廷詩が紀元前に始まったという『マハーバーシャ』の証言を裏づけるだけでなく、その後の数世紀にわたってこの詩が絶えず作られ続けたことも示しているのです。</p>
+
+<h3><span class="sec">4</span>マックス・ミュラーの「6世紀文芸復興説」を退ける</h3>
+<p>故ビューラー（Bühler）教授とフリート氏によるこれらの研究成果によって、マックス・ミュラー（Max Müller）教授の有名な「6世紀にサンスクリット文学が復興した」という説は成り立たなくなりました。この説は、教授が『インドは我々に何を教えうるか』（<i>India, what can it Teach us?</i>）で、いつもながらの鮮やかさで展開したもので、数年にわたって学界の定説となっていました。</p>
+
+<figure>
+<div class="vs">
+  <div class="claim"><h5>マックス・ミュラーの主張</h5>
+    <ol>
+      <li><b>前提：</b>シャカ族（<span class="t">Śaka</span>、スキタイ人）などの侵入のせいで、紀元後1〜2世紀のインドでは文学活動が途絶えた。</li>
+      <li><b>主命題：</b>6世紀半ば、ウッジャインのヴィクラマーディティヤ王の治世が宮廷詩の黄金時代だった。カーリダーサらはその宮廷にいた。</li>
+      <li><b>根拠（ファーガソン説）：</b>ヴィクラマ王がスキタイ人を追放し、544年に勝利を記念してヴィクラマ紀元を創始した。その起点は600年さかのぼらせて前57年とされた。</li>
+    </ol></div>
+  <div class="refute"><h5>碑文による反証</h5>
+    <ol>
+      <li>2世紀のギルナール碑文・ナーシク碑文が、この時期にも散文カーヴィヤがあったことを示す。</li>
+      <li>前57年起算の紀元は、544年より1世紀以上前から「マーラヴァ紀元」として使われていた。ヴィクラマ紀元と呼ばれるのは800年頃からである。</li>
+      <li>西インドはその100年以上前にグプタ朝が征服していた。6世紀半ばにシャカ族を追放することはありえない。</li>
+      <li>6世紀前半に西インドから追放されたのはフーナ族（<span class="t">Hūṇa</span>）で、追放したのはヤショーダルマン・ヴィシュヌヴァルダナ（<span class="t">Yaśodharman Viṣṇuvardhana</span>）王だった。</li>
+    </ol></div>
+</div>
+<figcaption><b>図 XI-1</b>「6世紀文芸復興説」と、それを覆した証拠</figcaption>
+</figure>
+
+<h4>（1）「1〜2世紀に文学活動が途絶えた」という前提について</h4>
+<p>この前提は、先に挙げた二つの碑文（ギルナールとナーシク）の証拠で否定されます。碑文がなくても、この時期に知的活動が途絶えたとはまず考えられません。</p>
+<ul>
+  <li>第一に、スキタイ人が長く支配したのはインドの約5分の1にすぎません。その支配はマトゥラー（<span class="t">Mathurā</span>）より東へは及ばなかったようで、パンジャーブ、シンド、グジャラート、ラージプーターナー、中央インドの一部に限られていました。</li>
+  <li>第二に、征服者たちは急速にヒンドゥー化しました。ほとんどが2代目にはインド風の名を持っていました。その一人ウシャヴァダータ（<span class="t">Uṣavadāta</span>、サンスクリット名 <span class="t">Ṛṣabhadatta</span>）は、自らの功績をサンスクリットとプラークリットの混じった碑文に記しています。</li>
+  <li>カニシカ王（78年）とその後継者たちは仏教を保護し、［323］彼らの治下でマトゥラーのインド固有の建築と彫刻は高度に発達しました。</li>
+</ul>
+<p>侵入者たちが征服した比較的小さな地域の文明をこれほど速く身につけたのなら、その地域で、ましてインド全体で、文学活動が抑えつけられたと考える理由はありません。</p>
+
+<h4>（2）「6世紀のヴィクラマーディティヤ王の宮廷が黄金時代だった」という主命題について</h4>
+<p>こうして大王ヴィクラマーディティヤは、6世紀の歴史の舞台から［324］神話の世界へ消えていきます。16世紀の作品に出てくる、よく引用されるものの信頼性の低い詩句は、ダンヴァンタリ（<span class="t">Dhanvantari</span>）、クシャパナカ（<span class="t">Kṣapaṇaka</span>）、アマラシンハ（<span class="t">Amarasiṃha</span>）、ヴァラーハミヒラ、ヴァラルチ（<span class="t">Vararuci</span>）らを、この王の宮廷の「<b>九つの宝石</b>」（<span class="t">navaratna</span>）に数えています。しかしヴィクラマが6世紀から消えた以上、この詩句は、挙げられた作家たちの年代を示す証拠にはなりません。このような伝説的な証言から、彼らが同じ時代の人だったと結論づけることさえできません。そのうちヴァラーハミヒラは実際に6世紀の人ですが、それぞれを6世紀に置くには、個別に別の論拠が必要です。</p>
+<p>神話上のヴィクラマーディティヤを除けば、6世紀に宮廷詩が特に発達したと考える理由はもうありません。ハリシェーナの頌詞をはじめとするグプタ期の碑文詩が、少なくとも200年前に宮廷詩が大いに栄えていたことを示しているからです。</p>
+<div class="note"><b>訳注：</b>「九つの宝石」の詩句（<span class="t">Jyotirvidābharaṇa</span> 所収）は、上の5人にカーリダーサ、ガタカルパラ（<span class="t">Ghaṭakarpara</span>）、ヴェーターラバッタ（<span class="t">Vetālabhaṭṭa</span>）、シャンク（<span class="t">Śaṅku</span>）を加えた9人を挙げています。</div>
+
+<h3><span class="sec">5</span>カーリダーサを6世紀に置く、ほかの論拠も弱い</h3>
+<p>カーリダーサだけを個別に6世紀に置こうとする論拠は、ほかにもあります。しかし説得力のあるものは一つもありません。</p>
+<figure>
+<div class="scroll"><table>
+<thead><tr><th>論拠</th><th>内容</th><th>マクドネルの反論</th></tr></thead>
+<tbody>
+<tr><td><span class="tag ind">A</span><br>ディグナーガ説</td>
+<td>14世紀の注釈家マッリナータ（<span class="t">Mallinātha</span>）は、『メーガドゥータ』第14詩節の <span class="t">diṅnāga</span>（「方角を守る象」）という語を、詩人の憎い競争相手<b>ディグナーガ</b>（<span class="t">Dignāga</span>）への掛詞と解釈する。ディグナーガはヴァスバンドゥ（<span class="t">Vasubandhu</span>）の弟子とされ、ヴァスバンドゥは6世紀の人とされる。</td>
+<td>① この解釈自体がきわめて疑わしい。<br>② マッリナータが仏教の師ディグナーガを指しているかどうかも不明。<br>③ 「ディグナーガはヴァスバンドゥの弟子」という仏教伝承は16世紀まで現れず、［325］重視できない。<br>④ ヴァスバンドゥを6世紀に置く説は主にヴィクラマーディティヤ説に頼っており、404年にヴァスバンドゥの著作が漢訳されたことを示す中国の証拠と矛盾する。<br>→ 論証の鎖は<b>どの環もきわめて弱い</b>。</td></tr>
+<tr><td><span class="tag ind">B</span><br>天文学説</td>
+<td>カーリダーサはギリシアから取り入れた科学的天文学の知識を示しているので、アーリヤバタ（<span class="t">Āryabhaṭa</span>、499年）より後の人に違いない。</td>
+<td>ティボー（Thibaut）博士によれば、明らかにギリシアの影響下で書かれた天文書『ローマカ・シッダーンタ』（<span class="t">Romaka Siddhānta</span>）は、アーリヤバタより古く、400年より後には置けない。また、月食が地球の影で起こることを示すとして引かれてきた『ラグヴァンシャ』14章40節は、実はプラーナの教えどおり、月の斑点を地球が映ったものと述べているにすぎない。</td></tr>
+</tbody></table></div>
+<figcaption><b>表 XI-2</b>カーリダーサ6世紀説の二つの論拠と反論</figcaption>
+</figure>
+<p>以上から、現在の知識では、カーリダーサは6世紀ではなく<b>5世紀初め</b>に生きたと考える十分な理由があります。ただし、この問題が最終的に決着するのは、彼の各作品の言語・文体・詩の技法を、年代のわかる碑文資料や最古のサンスクリット詩学書の規則と比べて、細かく調べ尽くしたときでしょう。</p>
+
+<h3><span class="sec">6</span>カーヴィヤとはどんな詩か</h3>
+<p>マハーバーラタの民衆叙事詩がプラーナの主な源となったように、最初の技巧的叙事詩であるラーマーヤナの後には、［326］長い間をおいて、5世紀から12世紀にわたる一連のカーヴィヤが続きました。</p>
+<figure>
+<div class="flow">
+  <div class="st"><div class="k">古い叙事詩</div><div class="h">内容 ＞ 形式</div>形式は内容に従う</div>
+  <div class="ar">→</div>
+  <div class="st"><div class="k">初期のカーヴィヤ</div><div class="h">形式が第一</div>内容は文体を見せる手段になっていく</div>
+  <div class="ar">→</div>
+  <div class="st acc"><div class="k">後期のカーヴィヤ</div><div class="h">奇想と言葉遊び</div>心より頭に訴え、最後は誇張と曲芸だけが残る</div>
+</div>
+<figcaption><b>図 XI-2</b>叙事詩からカーヴィヤへ：形式がしだいに内容を圧倒していく</figcaption>
+</figure>
+<p>古い叙事詩では、形式は内容に従っていました。しかしカーヴィヤでは形式が何より重要で、内容はしだいに文体の妙技を披露するための手段にすぎなくなります。後の時代の作者ほど、奇抜な発想と巧みな言い回しで聴き手を感心させようとし、いつも心より頭に訴えかけます。最良のカーヴィヤでさえ、他のどの国の詩よりも厳格な規則に縛られていました。言語は<b>パーニニ</b>（<span class="t">Pāṇini</span>）の文法規則に支配され、文体は詩学書が定める頭韻や修辞のこまかな決まりに統制されていたからです。</p>
+
+<h3><span class="sec">7</span>カーリダーサの二大カーヴィヤ</h3>
+<p>最も重要なカーヴィヤは、カーリダーサの『<b>ラグヴァンシャ</b>』（<span class="t">Raghuvaṃśa</span>）と『<b>クマーラサンバヴァ</b>』（<span class="t">Kumārasambhava</span>）の二つです。どちらも独創的な扱い方とかなりの詩的な美しさで際立っています。二つの詩には共通する詩節がいくつもあり、わずかな違いしかない詩節も多く、表現は違っても考えが驚くほど似た箇所がたくさんあります。同じ場面を描くのに同じ韻律を使ってもいます。どちらも、原則として一つの章（<span class="t">sarga</span>）は一つの韻律で書かれ、章が変わると韻律も変わります。主な韻律は、古典形のアヌシュトゥブと、ヴェーダのトリシュトゥブ（<span class="t">triṣṭubh</span>）から発達したウパジャーティ（<span class="t">upajāti</span>）です。</p>
+
+<h4>『ラグヴァンシャ』（「ラグ王の家系」）</h4>
+<p>全19章。ラーマの生涯を、その祖先と子孫の物語とあわせて描きます。</p>
+<figure>
+<svg class="svgbox" viewBox="0 0 720 150" role="img" aria-label="ラグヴァンシャ19章の構成">
+  <g font-size="12">
+    <rect x="10" y="30" width="324" height="44" rx="4" fill="var(--indigo-soft)"/>
+    <rect x="336" y="30" width="214" height="44" rx="4" fill="var(--lac-soft)"/>
+    <rect x="552" y="30" width="70" height="44" rx="4" fill="var(--haldi-soft)"/>
+    <rect x="624" y="30" width="86" height="44" rx="4" fill="var(--panel)" stroke="var(--rule)"/>
+    <text x="172" y="57" text-anchor="middle" fill="var(--indigo)" font-weight="700">1–9章　祖先4代</text>
+    <text x="443" y="57" text-anchor="middle" fill="var(--lac)" font-weight="700">10–15章　ラーマ</text>
+    <text x="587" y="57" text-anchor="middle" fill="var(--haldi)" font-weight="700">16–17</text>
+    <text x="667" y="57" text-anchor="middle" fill="var(--muted)" font-weight="700">18–19</text>
+    <text x="172" y="20" text-anchor="middle" fill="var(--muted)">ディリーパとその子ラグから</text>
+    <text x="443" y="20" text-anchor="middle" fill="var(--muted)">ヴァールミーキにほぼ沿う</text>
+    <text x="587" y="20" text-anchor="middle" fill="var(--muted)">子孫3代</text>
+    <text x="667" y="20" text-anchor="middle" fill="var(--muted)">残りの王たち</text>
+    <text x="10" y="100" fill="var(--ink)" font-size="12.5">Dilīpa → Raghu → Aja → Daśaratha → <tspan fill="var(--lac)" font-weight="700">Rāma</tspan> → Kuśa → Atithi → … → Agnivarṇa</text>
+    <text x="10" y="126" fill="var(--muted)" font-size="11.5">（アヨーディヤーの24王の系譜。好色なアグニヴァルナ王の死でやや唐突に終わる）</text>
+  </g>
+</svg>
+<figcaption><b>図 XI-3</b>『ラグヴァンシャ』の構成（章の幅は章数に比例）。系譜の王名は訳者が補ったもの。</figcaption>
+</figure>
+<p>最初の9章はラーマの直近の祖先4代を扱い、［327］ディリーパ（<span class="t">Dilīpa</span>）とその子ラグ（<span class="t">Raghu</span>）から始まります。続く6章（10〜15章）がラーマの物語で、ヴァールミーキ（<span class="t">Vālmīki</span>）のラーマーヤナにかなり忠実です。カーリダーサはここ（15章41節）でヴァールミーキを「最初の詩人」（<span class="t">ādikavi</span>）と呼んでいます。次の2章はラーマの直近の子孫3代を、最後の2章はアヨーディヤー（<span class="t">Ayodhyā</span>）を治めたラーマの子孫、計24人の王の残りを駆け足でたどり、好色なアグニヴァルナ王（<span class="t">Agnivarṇa</span>）の死でやや唐突に終わります。ラーマの後継者たちの名は、『ヴィシュヌ・プラーナ』（<span class="t">Viṣṇupurāṇa</span>）の王名表とよく一致します。</p>
+<p>物語は長い描写に妨げられすぎず、かなり速く進みます。的確で印象的な直喩が多く、本物の詩情があふれています。文体もカーヴィヤとしては素朴ですが、ヨーロッパ人の好みからすると技巧的すぎる箇所が多いのも確かです。例として、朝に王を起こす役目の吟唱詩人が歌う詩節（5章75節）を挙げます。</p>
+<div class="verse">
+<p>君に捧げた花々は　うなだれてしおれ、</p>
+<p>灯火は　放っていた光の輪を失った。</p>
+<p>籠に閉じこめられた　声うるわしい君のオウムが、</p>
+<p>君を目覚めさせようと　われらが唱える呼び声をくり返している。</p>
+<div class="src">『ラグヴァンシャ』5.75</div>
+</div>
+<p>『ラグヴァンシャ』の注釈は20以上知られています。最も有名なのはマッリナータの『サンジーヴィニー』（<span class="t">Sañjīvinī</span>）です。マッリナータは本文の一語一語を説明し、詩人自身の読みを突き止めて保存しようと努めたという大きな功績があります。彼は多くの先行注釈を知っていて、そのうちダクシナーヴァルタ（<span class="t">Dakṣiṇāvarta</span>）とナータ（<span class="t">Nātha</span>）の注釈を評価していますが、どちらも今は残っていません。ほかに現存する注釈には、1385年にディナカラ・ミシュラ（<span class="t">Dinakara Miśra</span>）が書いた『スボーディニー』（<span class="t">Subodhinī</span>）［328］や、ジャイナ教徒チャーリトラヴァルダナ（<span class="t">Cāritravardhana</span>）の『シシュヒタイシニー』（<span class="t">Śiśuhitaiṣiṇī</span>）があります。ディナカラの注釈は後者の要約らしく見えます。</p>
+
+<h4>『クマーラサンバヴァ』（「軍神の誕生」）</h4>
+<p>完全な形では17章からなります。最初の7章は、若き軍神の両親となる<b>シヴァ</b>（<span class="t">Śiva</span>）と、ヒマーラヤの娘<b>パールヴァティー</b>（<span class="t">Pārvatī</span>）の求愛と婚礼だけを描いています。このこと自体、描写がこの詩の主な特徴であることを示しています。この詩には、インド文学の最大の強みである「詩による細密画」があふれています。詩人は豊かで独創的な想像力を存分に発揮し、比喩の豊かさで際立っています。</p>
+<p>例として、ヴィヨーギニー（<span class="t">viyoginī</span>）韻律（10音節と11音節の行が交互に並び、どちらも短長の弱強調で終わる）の一詩節を訳します。夫の死に妻が従うという務めが、夫婦に見立てた自然の事物にさえ現れている、と詩人は示します。</p>
+<div class="verse">
+<p>夜の主（月）の後を追って　月光は去り、</p>
+<p>雲とともに　稲妻も消えていく。</p>
+<p>妻はつねに　夫の道に従う。</p>
+<p>心を持たぬものさえ　この掟に従うのだ。</p>
+</div>
+<p>印刷された版には、たいてい最初の7章しか載っていません。残る10章があまりにも官能的だからです。詩は、軍神誕生の目的であった悪魔ターラカ（<span class="t">Tāraka</span>）の討伐で終わります。この詩の注釈も20以上残っていて、そのいくつかは『ラグヴァンシャ』の注釈と同じ作者、特にマッリナータによるものです。［329］</p>
+
+<h3><span class="sec">8</span>後期のカーヴィヤ：六大詩とその後</h3>
+<p>後期のカーヴィヤは二大叙事詩から題材をとっていますが、そこに抒情・官能・教訓の要素がますます混ざっていきます。題材はしだいに手の込んだ奇想を見せるための手段とみなされ、最後には誇張と言葉の曲芸しか残らなくなります。</p>
+<p>マッリナータがすべてに注釈をつけた次の六作が「<b>大詩</b>」（<span class="t">mahākāvya</span>）として認められています。</p>
+<figure>
+<div class="scroll"><table>
+<thead><tr><th>作品</th><th>作者</th><th class="num">年代</th><th class="num">章数</th><th>題材・特徴</th></tr></thead>
+<tbody>
+<tr><td>『ラグヴァンシャ』<br><span class="t">Raghuvaṃśa</span></td><td>カーリダーサ</td><td class="num">5世紀初頭</td><td class="num">19</td><td>ラーマとその家系</td></tr>
+<tr><td>『クマーラサンバヴァ』<br><span class="t">Kumārasambhava</span></td><td>カーリダーサ</td><td class="num">5世紀初頭</td><td class="num">17</td><td>シヴァとパールヴァティーの結婚、軍神の誕生</td></tr>
+<tr><td>『バッティカーヴィヤ』<br><span class="t">Bhaṭṭikāvya</span></td><td>バッティ（注釈家らはバルトリハリ <span class="t">Bhartṛhari</span>、651年没とする）</td><td class="num">7世紀?</td><td class="num">22</td><td>ラーマの物語を借りて<b>サンスクリット文法の諸形を例示</b>する。ヴァラビー（<span class="t">Valabhī</span>）のシュリーダラセーナ王（<span class="t">Śrīdharasena</span>）の治下で成立</td></tr>
+<tr><td>『キラータールジュニーヤ』<br><span class="t">Kirātārjunīya</span></td><td>バーラヴィ</td><td class="num">6世紀以前</td><td class="num">18</td><td>山の民キラータ（<span class="t">Kirāta</span>）に扮したシヴァとアルジュナの戦い（マハーバーラタ由来）。15章は言葉遊びの見本市</td></tr>
+<tr><td>『シシュパーラヴァダ』<br><span class="t">Śiśupālavadha</span></td><td>マーガ（<span class="t">Māgha</span>）</td><td class="num">9世紀?</td><td class="num">20</td><td>チェーディ（<span class="t">Cedi</span>）王の子でクリシュナの従兄弟シシュパーラが、ヴィシュヌに討たれる。『マーガカーヴィヤ』とも。19章は韻律パズルだらけ</td></tr>
+<tr><td>『ナイシャディーヤ』<br><span class="t">Naiṣadhīya(carita)</span></td><td>シュリーハルシャ（<span class="t">Śrīharṣa</span>）</td><td class="num">12世紀後半</td><td class="num">22</td><td>ニシャダ（<span class="t">Niṣadha</span>）の王ナラ（<span class="t">Nala</span>）の物語（マハーバーラタの有名な挿話）</td></tr>
+</tbody></table></div>
+<figcaption><b>表 XI-3</b>六大詩（<span class="t">mahākāvya</span>）</figcaption>
+</figure>
+<p>『キラータールジュニーヤ』の作者バーラヴィは634年の碑文に名が出てくるので、この詩は6世紀より後には作られていないはずです。15章には、ダンディンの『カーヴィヤーダルシャ』（<span class="t">Kāvyādarśa</span>）が説くような言葉の曲芸がたくさん詰まっています。たとえば14節は、末尾の t 一つを除けば、子音が n しかありません。25節では、各半行の音節を逆から読むと、残りの半分と同じになります。</p>
+<figure>
+<div class="verse" style="margin:0">
+<p><span class="t">na nonanunno nunnono nānā nānānanā nanu /</span></p>
+<p><span class="t">nunno 'nunno nanunneno nānenā nunnanunnanut //</span></p>
+<div class="src">『キラータールジュニーヤ』15.14　子音は n だけ（最後の t を除く）</div>
+</div>
+<div style="margin-top:14px">
+<div class="palin"><span>de</span><span>vā</span><span>kā</span><span class="c">ni</span><span class="c">ni</span><span>kā</span><span>vā</span><span>de</span></div>
+<p style="text-align:center;font-family:var(--label);font-size:12.5px;color:var(--muted);margin:8px 0 0">15.25 の冒頭 <span class="t">devākānini kāvāde</span>：de-vā-kā-ni ｜ ni-kā-vā-de　前半を逆から読むと後半になる</p>
+</div>
+<figcaption><b>図 XI-4</b>バーラヴィの言葉遊び（原書の脚注より）</figcaption>
+</figure>
+<p>マーガの『シシュパーラヴァダ』は、おそらく9世紀の作で、10世紀末より前にできたことは間違いありません。19章は韻律上のパズルだらけで、［330］なかにはきわめて複雑なものもあります（29節など）。34節は、逆から読むと直前の33節を普通に読んだものと同じになります。とはいえ、この作品全体は詩的な美しさや鋭い着想に決して欠けてはいません。</p>
+<p>六大詩の条件は、ダンディンが『カーヴィヤーダルシャ』（「詩の鏡」1章14〜19節）で述べています。題材は叙事詩の伝承（<span class="t">itihāsa</span>）からとり、規模が大きく、都市・海・山・季節・日の出・婚礼・主人公の戦いなどの描写で飾ることが求められます。</p>
+
+<h4>さらに技巧に傾いた作品</h4>
+<div class="cards">
+  <div class="card"><div class="h">『ハラヴィジャヤ』</div><span class="t">Haravijaya</span>「シヴァの勝利」<p>カシミールの詩人ラトナーカラ（<span class="t">Ratnākara</span>）の作。9世紀。50章に及ぶ大作。</p></div>
+  <div class="card"><div class="h">『ナローダヤ』</div><span class="t">Nalodaya</span>「ナラの復活」<p>すべてを失ったナラ王の復権を描く。カーリダーサ作とされるが、明らかにずっと後の作。多様な韻律と技巧を見せることが主眼で、行末だけでなく行中にまで脚韻を使う。［331］叙事の部分はわずかで、全4章のうち最長の第2章は、新婚夫婦の幸福を描くだけの純然たる抒情。</p></div>
+  <div class="card"><div class="h">『ラーガヴァパーンダヴィーヤ』</div><span class="t">Rāghavapāṇḍavīya</span><p>カヴィラージャ（<span class="t">Kavirāja</span>、800年頃?）の作。技巧の極致。両義語を駆使し、<b>同じ言葉でラーマーヤナとマハーバーラタの物語を同時に語る</b>。世界の文学でも比類のない離れ業だが、インドには模倣者がいる。</p></div>
+  <div class="card"><div class="h">『ナヴァサーハサーンカチャリタ』</div><span class="t">Navasāhasāṅkacarita</span><p>パドマグプタ（<span class="t">Padmagupta</span>、1000年頃）の作。マーラヴァ王シンドゥラージャ（<span class="t">Sindhurāja</span>）の事績を歌う。18章、19種の韻律で1500詩節以上。韻律の曲芸は控えているが、果てしない演説と冗長な描写で物語が進まない。（1900年当時は写本でしか知られていなかった）</p></div>
+</div>
+<p>最後に、カーリダーサ作とされるプラークリットの叙事詩『セートゥバンダ』（<span class="t">Setubandha</span>、「橋の建設」）にも触れておきます。『ラーヴァナヴァダ』（<span class="t">Rāvaṇavadha</span>、「ラーヴァナの死」）とも呼ばれ、ラーマの物語を語ります。カシミールのプラヴァラセーナ王（<span class="t">Pravarasena</span>）が［332］ヴィタスター川（<span class="t">Vitastā</span>、現ジェーラム川）に舟橋を架けたことを記念して、詩人が作ったと考えられています。</p>
+
+<h3><span class="sec">9</span>散文ロマンス：複合語と掛詞の森</h3>
+<p>6〜7世紀には散文ロマンスもいくつか作られ、サンスクリット詩学者はこれもカーヴィヤに分類しています。途方もなく長い複合語を多用するのが文体上の本質的な特徴で、そのためもちろんとても読みにくくなっています。内容の面では出来事が少なく、細い筋でつないだ場面の連続です。場面は長い描写の口実となり、そこには比喩が延々と連なり、しばしば掛詞であふれています。とはいえ、技巧的で入り組んだ文体の中にも、ヨーロッパ人には魅力に乏しい枠組みに埋もれた、本当に詩的な発想が多く見つかります。</p>
+<figure>
+<div class="scroll"><table>
+<thead><tr><th>作品</th><th>作者</th><th class="num">年代</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>『ダシャクマーラチャリタ』<br><span class="t">Daśakumāracarita</span>「十王子の冒険」</td><td>ダンディン</td><td class="num">6世紀?</td><td>庶民の生活の物語。退廃した社会を映す</td></tr>
+<tr><td>『ヴァーサヴァダッター』<br><span class="t">Vāsavadattā</span></td><td>スバンドゥ</td><td class="num">7世紀初頭</td><td>ウッジャイニー（<span class="t">Ujjayinī</span>）の王女ヴァーサヴァダッターとヴァツァ（<span class="t">Vatsa</span>）王ウダヤナ（<span class="t">Udayana</span>）の、よく知られた物語（下の訳注を参照）</td></tr>
+<tr><td>『カーダンバリー』<br><span class="t">Kādambarī</span></td><td>バーナ</td><td class="num">7世紀前半</td><td>同名の王女の運命を描く詩的ロマンス</td></tr>
+<tr class="hl"><td>『ハルシャチャリタ』<br><span class="t">Harṣacarita</span></td><td>バーナ</td><td class="num">7世紀前半</td><td>8章。カナウジのハルシャヴァルダナ王の生涯を描こうとした作品。ただし筋はわずか</td></tr>
+</tbody></table></div>
+<figcaption><b>表 XI-4</b>6〜7世紀の散文ロマンス</figcaption>
+</figure>
+<div class="note"><b>訳注：</b>現存するスバンドゥの『ヴァーサヴァダッター』は、王子カンダルパケートゥ（<span class="t">Kandarpaketu</span>）と王女ヴァーサヴァダッターの恋物語で、ウダヤナ王の伝説とは別の話です。原書の要約はウダヤナ伝説と混同しているようです。</div>
+
+<p>『ハルシャチャリタ』では、第8章の25頁のなかに平均2頁の長い描写が5つもあり、短いものは数えきれません。たとえば、比喩を連ねた4頁にわたる［333］「奉公の惨めさ」についての長談義があります。召使いとは——</p>
+<div class="verse">
+<p>彩色された弓のように、ありもしない美徳（<span class="t">guṇa</span>＝弦）を張りつめるという一事のために、いつも身をかがめている。だがその身に力はない。箒で掃き集めた塵の山のように、化粧の残りくずを持ち去る。聖母神たちへの供物の食事のように、夜でさえ虚空へ放り出される。水汲み機のように、重み（威厳）をすっかり捨て、水のためにさえ身をかがめる。</p>
+<div class="src">『ハルシャチャリタ』第8章（原書の英訳より）</div>
+</div>
+<div class="note"><b>訳注：</b>ここは掛詞の連続です。<span class="t">guṇa</span> は「弓の弦」と「美徳」の両方を意味し、「重み」は物理的な重さと人の威厳を兼ねています。</div>
+<p>そのすぐ後には、森の木々の描写が2頁続きます。次に、偉大な仏教の聖者の教えを受けようと森に集まる、さまざまな弟子たちを1頁にわたって列挙します。そこには、儀式に励む猿、仏教辞典を講じる信心深いオウム、仏陀の前世を講義するフクロウ、仏教の教えに心を静められて肉食をやめた虎までいます。続いて、聖者その人の描写が1頁あります。</p>
+<div class="verse">
+<p>彼はごく柔らかな赤い衣をまとっていた。それはまるで、朝日を浴びた東の空が、ほかの方角たちに仏教の赤い衣をまとうよう教えているかのようだった。一方で、ほかの方角たちは、切り出したばかりのルビーのような彼の体の清らかな赤い輝きに染まっていた。</p>
+</div>
+<p>そのすぐ後には、森に打ち伏す悲嘆の王女についての、掛詞だらけの長い描写が続きます。一つの動詞に二つの目的語をかけ、具体的なものと抽象的なものを並べる技法です。</p>
+<figure>
+<div class="scroll"><table>
+<thead><tr><th>かかる語</th><th>具体的なもの</th><th>抽象的なもの</th></tr></thead>
+<tbody>
+<tr><td>迷い込み</td><td>森に</td><td>物思いに</td></tr>
+<tr><td>向かい</td><td>木の根元に</td><td>死に</td></tr>
+<tr><td>倒れこみ</td><td>乳母の胸に</td><td>災厄に</td></tr>
+<tr><td>引き離され</td><td>夫から</td><td>幸福から</td></tr>
+<tr><td>焼かれ</td><td>激しい日ざしに</td><td>寡婦の嘆きに</td></tr>
+<tr><td>口を閉ざされ</td><td>自分の手で</td><td>沈黙で</td></tr>
+<tr><td>しっかり捕らえられ</td><td>友に</td><td>悲しみに</td></tr>
+<tr><td>すべて去り</td><td>身内が</td><td>美しさが</td></tr>
+<tr><td>むき出しにされ</td><td>耳が（耳飾りを外し）</td><td>魂が</td></tr>
+<tr><td>捨てられ</td><td>装身具が</td><td>目的が</td></tr>
+<tr><td>砕かれ</td><td>腕輪が</td><td>希望が</td></tr>
+<tr><td>足にまとわりつき</td><td>針のような草の葉が</td><td>友が</td></tr>
+<tr><td>胸の内に据えられ</td><td>目（まなざし）が</td><td>恋人が</td></tr>
+<tr><td>長く</td><td>髪が</td><td>ため息が</td></tr>
+<tr><td>尽き果て</td><td>手足が</td><td>徳が</td></tr>
+<tr><td>足もとに落ち</td><td>流れる涙が</td><td>年老いた侍女たちが</td></tr>
+</tbody></table></div>
+<figcaption><b>表 XI-5</b>悲嘆の王女の描写に使われた「二重がけ」の掛詞（原書の英訳から再構成）。原文ではたとえば「森と物思いに迷い、死と木の根元に向かい……」と続く。［334–335］</figcaption>
+</figure>
+</section>
+
+<!-- ======================= CHAPTER XII ======================= -->
+<section class="chapter" id="ch12">
+<div class="ch-head">
+  <div class="ch-num">XII</div>
+  <h2>抒情詩</h2>
+  <div class="meta">Lyric Poetry ／ 400年頃〜1100年頃 ／ 原書 335–346頁</div>
+</div>
+
+<p>サンスクリットの抒情詩には、まとまった長さの作品はあまり多くありません。しかしその中に、カーリダーサの最も完璧な作品が二つ含まれています。カーリダーサは叙事詩人・劇作家としてだけでなく、この分野でも傑出しており、その抒情の才は戯曲の中でも十分に発揮されています。</p>
+
+<h3><span class="sec">1</span>『メーガドゥータ』（「雲の使者」）</h3>
+<p>カーリダーサの『メーガドゥータ』（<span class="t">Meghadūta</span>）は、ゲーテも称賛した抒情詩の珠玉です。115詩節からなり、1行17音節・4行一組のマンダークラーンター（<span class="t">mandākrāntā</span>）韻律で書かれています。</p>
+<p>主題は、遠く離れて暮らす妻に、流刑の身の夫が雲に託して送る伝言です。シラーは『マリア・ストゥアルト』（第3幕第1場）でこの着想を使っています。囚われたスコットランド女王が、南へ流れていく雲に向かって、青春を過ごした国によろしく伝えてくれと呼びかける場面です。</p>
+<p>流刑の身の主人公は、富の神クベーラ（<span class="t">Kubera</span>）に仕える<b>ヤクシャ</b>（<span class="t">Yakṣa</span>）です。務めを怠った罰として、中央インドのラーマギリ（<span class="t">Rāmagiri</span>）の山腹の森へ追放されました。やせ衰え、ふさぎこんでいた彼は、雨季が近づくころ、黒い雲が北へ動いていくのを目にします。その姿に胸は恋しさでいっぱいになり、遠いヒマーラヤにいる妻へ希望の知らせを届けてほしいと、雲に頼まずにはいられなくなります。</p>
+
+<figure>
+<div class="scroll">
+<svg class="svgbox" viewBox="0 0 640 470" role="img" aria-label="メーガドゥータの雲の道筋の略図" style="min-width:520px">
+  <g font-size="12">
+    <!-- compass -->
+    <text x="604" y="30" fill="var(--muted)" text-anchor="middle" font-size="11">北</text>
+    <path d="M604 36 L604 64" stroke="var(--muted)" stroke-width="1.5"/>
+    <path d="M599 42 L604 34 L609 42" fill="none" stroke="var(--muted)" stroke-width="1.5"/>
+    <!-- Himalaya -->
+    <path d="M200 20 Q330 60 460 92 T600 150" fill="none" stroke="var(--muted)" stroke-width="10" stroke-opacity=".18" stroke-linecap="round"/>
+    <text x="400" y="118" fill="var(--muted)" font-size="11" transform="rotate(14 400 118)">ヒマーラヤ</text>
+    <!-- Vindhya band -->
+    <path d="M60 330 Q260 318 470 338" fill="none" stroke="var(--muted)" stroke-width="10" stroke-opacity=".14" stroke-linecap="round"/>
+    <text x="300" y="316" fill="var(--muted)" font-size="11">ヴィンディヤ山脈</text>
+    <!-- Narmada river -->
+    <path d="M508 366 Q380 378 260 372 T40 396" fill="none" stroke="var(--indigo)" stroke-width="2" stroke-opacity=".55"/>
+    <text x="330" y="394" fill="var(--indigo)" font-size="11">ナルマダー川 Narmadā</text>
+    <!-- Ganga -->
+    <path d="M286 92 Q330 160 420 200 T600 260" fill="none" stroke="var(--indigo)" stroke-width="2" stroke-opacity=".55"/>
+    <text x="470" y="236" fill="var(--indigo)" font-size="11">ガンガー Gaṅgā</text>
+    <!-- route -->
+    <path d="M358 415 L508 366 L268 335 L148 347 L208 88 L286 92 L478 47" fill="none" stroke="var(--lac)" stroke-width="2.2" stroke-dasharray="6 5"/>
+    <!-- points -->
+    <g fill="var(--paper)" stroke="var(--lac)" stroke-width="2.2">
+      <circle cx="358" cy="415" r="6"/><circle cx="508" cy="366" r="6"/><circle cx="268" cy="335" r="6"/>
+      <circle cx="148" cy="347" r="6"/><circle cx="208" cy="88" r="6"/><circle cx="286" cy="92" r="6"/>
+    </g>
+    <circle cx="478" cy="47" r="8" fill="var(--lac)"/>
+    <!-- labels -->
+    <g fill="var(--ink)">
+      <text x="372" y="432">① ラーマギリ Rāmagiri（出発）</text>
+      <text x="498" y="388" text-anchor="end">② アームラクータ山 Āmrakūṭa</text>
+      <text x="262" y="358" text-anchor="middle">③ ヴィディシャー Vidiśā</text>
+      <text x="262" y="372" text-anchor="middle" font-size="10.5" fill="var(--muted)">ヴェートラヴァティー川</text>
+      <text x="140" y="332" text-anchor="middle">④ ウッジャイニー</text>
+      <text x="140" y="318" text-anchor="middle" font-size="10.5" fill="var(--muted)">Ujjayinī（アヴァンティ国）</text>
+      <text x="196" y="80" text-anchor="end">⑤ クルクシェートラ</text>
+      <text x="196" y="66" text-anchor="end" font-size="10.5" fill="var(--muted)">Kurukṣetra</text>
+      <text x="296" y="112">⑥ ガンガーと源流の山々</text>
+      <text x="492" y="44" font-weight="700" fill="var(--lac)">⑦ カイラーサ山のアラカー</text>
+      <text x="492" y="60" font-size="10.5" fill="var(--muted)">Alakā（到着・妻の住む都）</text>
+    </g>
+  </g>
+</svg>
+</div>
+<figcaption><b>図 XII-1</b>雲がたどる道筋（前半「過去の雲」のあらすじに対応）。位置は現在の比定地にもとづくおおまかな略図です。</figcaption>
+</figure>
+
+<p>詩の前半で、ヤクシャは北へ向かう雲が通るはずの景色を、力強く美しく描きます。［336］山火事を雨で消した後に雲が頂で休むアームラクータ山（<span class="t">Āmrakūṭa</span>）。ヴィンディヤ山脈（<span class="t">Vindhya</span>）のふもとを曲がりくねって流れるナルマダー川（<span class="t">Narmadā</span>）。ヴィディシャー（<span class="t">Vidiśā</span>、現ビルサ）の町とヴェートラヴァティー川（<span class="t">Vetravatī</span>、現ベトワ川）。アヴァンティ（<span class="t">Avanti</span>）国の都ウッジャイニー（<span class="t">Ujjayinī</span>、現ウッジャイン）。聖地クルクシェートラ（<span class="t">Kurukṣetra</span>）。ガンガー（<span class="t">Gaṅgā</span>）と、その源である雪原に白く覆われた山々。そしてついに、カイラーサ山（<span class="t">Kailāsa</span>）のアラカー（<span class="t">Alakā</span>）にたどり着きます。</p>
+<p>後半では、ヤクシャはまずこの都の美しさと、そこにある自分の住まいを描きます。続いて、妻の魅力、その身のまわり、日々の営みを熱っぽく描き、妻が眠れずにやせ衰え、夜通し寝床で寝返りを打っている姿を思い浮かべます。そして妻が窓に目をやったとき、雲は雷の声で夫の伝言を告げるのです。自分はまだ生きていて、いつも君に会いたいと願っている、と。</p>
+<div class="verse">
+<p>蔓草に君の姿を、驚いた雌鹿の目に君のまなざしを、</p>
+<p>月に君の美しい顔を、孔雀の羽に君のつややかな髪を、</p>
+<p>流れる水のさざ波に、戯れにしかめた君の眉を見る。</p>
+<p>だが、ああ、それらが一つにそろった君の姿は、どこにも見えない。</p>
+</div>
+<figure>
+<div class="map">
+  <div class="hd l">妻の姿</div><div></div><div class="hd">自然の中に見るもの</div>
+  <div class="l">姿・体つき</div><div class="m">⟶</div><div>蔓草</div>
+  <div class="l">まなざし</div><div class="m">⟶</div><div>驚いた雌鹿の目</div>
+  <div class="l">顔</div><div class="m">⟶</div><div>月</div>
+  <div class="l">髪</div><div class="m">⟶</div><div>孔雀の羽</div>
+  <div class="l">戯れのしかめ眉</div><div class="m">⟶</div><div>川のさざ波</div>
+</div>
+<figcaption><b>図 XII-2</b>ヤクシャは妻の似姿を自然の中にばらばらに見出すが、全部がそろった姿はどこにもない。</figcaption>
+</figure>
+<p>しかし、気を落とすな、と彼は言います。私たちの悲しみはいつか終わり、また一緒になれるのだから、と。</p>
+<div class="verse">
+<p>そのときこそ、別れていたために　いっそう募った心の願いを、</p>
+<p>満ちた秋の月の光があふれる　輝かしく明るい夜ごとに、ともに味わおう。</p>
+</div>
+<p>最後にヤクシャは雲に、伝言を届けたら安心できる知らせを持って戻ってくれと頼みます。そして、雲がその妻である稲妻と、ひとときも離ればなれにならないようにと願って、雲を送り出します。［337］</p>
+<div class="note"><b>訳注：</b>伝統的に、前半は「過去の雲」（<span class="t">Pūrvamegha</span>）、後半は「未来の雲」（<span class="t">Uttaramegha</span>）と呼ばれます。</div>
+
+<h3><span class="sec">2</span>『リトゥサンハーラ』（「季節のめぐり」）</h3>
+<p>この見事な詩（『メーガドゥータ』）では、感情の表現に加えて、描写の要素がとても目立っています。それがいっそう当てはまるのが、同じカーリダーサの『リトゥサンハーラ』（<span class="t">Ṛtusaṃhāra</span>）です。この小品は6章153詩節からなり、さまざまな韻律で書かれています。古典サンスクリット詩人がふつうインドの一年を分ける<b>六つの季節</b>（<span class="t">ṛtu</span>）を、きわめて詩的に描いた作品です。自然の美しさを熱っぽく描き、そこに愛の場面をはさみながら、人の感情を巧みに織り込んでいます。自然への深い共感、鋭い観察力、インドの風景を鮮やかな色で描く腕前が、これほどはっきり表れたカーリダーサの作品はほかにないでしょう。</p>
+
+<figure>
+<div style="display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:18px;align-items:center" class="season-grid">
+<svg class="svgbox" viewBox="0 0 320 320" role="img" aria-label="六季の環">
+  <g stroke="var(--paper)" stroke-width="3">
+    <path d="M160 20 A140 140 0 0 1 281.2 90 L227.5 121 A78 78 0 0 0 160 82 Z" fill="var(--lac-soft)"/>
+    <path d="M281.2 90 A140 140 0 0 1 281.2 230 L227.5 199 A78 78 0 0 0 227.5 121 Z" fill="var(--indigo-soft)"/>
+    <path d="M281.2 230 A140 140 0 0 1 160 300 L160 238 A78 78 0 0 0 227.5 199 Z" fill="var(--haldi-soft)"/>
+    <path d="M160 300 A140 140 0 0 1 38.8 230 L92.5 199 A78 78 0 0 0 160 238 Z" fill="var(--panel)"/>
+    <path d="M38.8 230 A140 140 0 0 1 38.8 90 L92.5 121 A78 78 0 0 0 92.5 199 Z" fill="var(--indigo-soft)"/>
+    <path d="M38.8 90 A140 140 0 0 1 160 20 L160 82 A78 78 0 0 0 92.5 121 Z" fill="var(--lac-soft)"/>
+  </g>
+  <g text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">
+    <text x="215" y="62">① 夏</text><text x="270" y="158">② 雨季</text><text x="215" y="253">③ 秋</text>
+    <text x="105" y="253">④ 冬</text><text x="50" y="158">⑤ 寒季</text><text x="105" y="62">⑥ 春</text>
+  </g>
+  <g text-anchor="middle" font-size="11" fill="var(--muted)" font-style="italic" font-family="EB Garamond, serif">
+    <text x="215" y="78">grīṣma</text><text x="270" y="174">varṣā</text><text x="215" y="269">śarad</text>
+    <text x="105" y="269">hemanta</text><text x="50" y="174">śiśira</text><text x="105" y="78">vasanta</text>
+  </g>
+  <text x="160" y="156" text-anchor="middle" font-size="14" font-weight="700" fill="var(--lac)">六季</text>
+  <text x="160" y="175" text-anchor="middle" font-size="12" fill="var(--muted)" font-style="italic" font-family="EB Garamond, serif">ṛtu-saṃhāra</text>
+</svg>
+<div class="scroll" style="min-width:0">
+<table>
+<thead><tr><th>季節</th><th>描かれるもの</th></tr></thead>
+<tbody>
+<tr><td><b>夏</b></td><td>月夜は恋人たちに快い。乙女の顔に嫉妬する月。暑さに参る獣や鳥、森を焼く山火事。</td></tr>
+<tr><td><b>雨季</b></td><td>稲妻の旗と雷の太鼓を掲げてやって来る雲。チャータカ鳥。岸の木をつかむ奔流。</td></tr>
+<tr><td><b>秋</b></td><td>花嫁のような秋。蓮の顔、稲と砂糖黍の衣、フラミンゴの声の足鈴。</td></tr>
+<tr><td><b>冬</b></td><td>稲は実り、蓮はしおれ、朝の田は霜に覆われる。恋人たちの季節。</td></tr>
+<tr><td><b>寒季</b></td><td>火と穏やかな日ざしが快い。月光は冷たく、星は青ざめている。</td></tr>
+<tr><td><b>春</b></td><td>最も長く描かれる。アショーカ、ジャスミン、マンゴーの花、蜂の羽音、コーキラの声。</td></tr>
+</tbody></table>
+</div>
+</div>
+<figcaption><b>図 XII-3</b>『リトゥサンハーラ』の六季。詩は夏から始まり、春で終わる（右回り）。</figcaption>
+</figure>
+<style>@media (max-width:620px){.season-grid{grid-template-columns:1fr!important}.season-grid svg{max-width:300px;margin:0 auto;display:block}}</style>
+
+<h4>夏（<span class="t">grīṣma</span>）</h4>
+<p>詩は夏の描写で始まります。昼の日ざしが強すぎるぶん、月の照る夜は恋人たちにとってひときわ快いものです。月は美しい乙女たちの顔を見て、嫉妬のあまり我を忘れます。そしてこの季節には、旅人の心が別離の火に焼かれます。続いて暑さがもたらすものが鮮やかに描かれます。蛇、獅子、象、水牛、猪、ガゼル、孔雀、鶴、蛙、魚が、のどの渇きやけだるさに苦しみます。山火事は木々や茂みをのみこみ、恐れおののく獣の群れを追い立てます。</p>
+<h4>雨季（<span class="t">varṣā</span>）</h4>
+<p>蒸し暑さの後には雨が来ます。その訪れを告げるのは、稲妻の旗を掲げ、雷の太鼓を鳴らして近づく、黒く重い雲です。雲は、雨粒だけで生きるとされるチャータカ（<span class="t">cātaka</span>）鳥を従えてゆっくり進み、ついに水をぶちまけます。荒々しい流れは、奔放な娘たちのように［338］岸のぐらつく木々をたちまちつかみ、海へと駆けていきます。大地は若草に覆われ、森は金色の蕾をまといます。</p>
+<div class="verse">
+<p>雨を孕んだ雲が　そびえる岩に口づけしようと身をかがめ、</p>
+<p>あたり一面、山肌を　流れがほとばしり落ち、</p>
+<p>踊りはじめた孔雀の群れが見えるとき、</p>
+<p>山々は　心を恋の憧れで満たす。</p>
+</div>
+<h4>秋（<span class="t">śarad</span>）</h4>
+<p>次は秋です。新妻のように美しく、満開の蓮の顔をもち、砂糖黍と実りかけた稲の衣をまとい、フラミンゴの鳴き声を足鈴の音にしています。しなやかな蔓草は美しい女性の腕と競い合います。真紅のアショーカ（<span class="t">aśoka</span>）の花のあいだからのぞくジャスミンは、微笑む乙女のまぶしい歯と赤い唇に負けていません。</p>
+<h4>冬（<span class="t">hemanta</span>）</h4>
+<p>冬が続きます。稲は実り、蓮はしおれ、朝の田は霜に覆われます。</p>
+<div class="verse">
+<p>実りの時を迎えたプリヤング（<span class="t">priyaṅgu</span>）の蔓は、</p>
+<p>冷たい風に　たえず打たれて、</p>
+<p>愛しい人よ、しだいに色あせていく——</p>
+<p>恋人から引き離された　ひとりぼっちの乙女のように。</p>
+</div>
+<p>これは恋人たちにとって大切な季節で、詩人はその喜びを熱っぽく描きます。</p>
+<h4>寒季（<span class="t">śiśira</span>）</h4>
+<p>寒季には、火と穏やかな日の光が心地よいものです。この季節の夜は恋人たちを誘いません。月光は冷たく、星の光は青白いからです。</p>
+<h4>春（<span class="t">vasanta</span>）</h4>
+<p>詩人が最も長く筆を費やすのは、六季の最後、春の喜びです。乙女たちは耳にカルニカーラ（<span class="t">karṇikāra</span>）の花を挿し、髪に赤いアショーカの花とジャスミンの小枝を飾って、恋人に会いに行きます。酔った蜂の羽音と、［339］インドのカッコウ（<span class="t">kokila</span>）の声が聞こえ、マンゴーの木に花が咲きます。この花こそ、花の弓を持つ神（愛神カーマ）が乙女たちの胸に恋の火をつける、鋭い矢なのです。</p>
+
+<h3><span class="sec">3</span>短い抒情詩集</h3>
+<div class="cards">
+  <div class="card"><div class="h">『ガタカルパラ』</div><span class="t">Ghaṭakarpara</span>「素焼きの壺のかけら」<p>わずか22詩節の、きわめて技巧的な抒情詩。題は最後の詩節に織り込まれた作者の名にちなむ。年代は不明。先に触れた詩句で、神話上のヴィクラマーディティヤ王の宮廷の「九つの宝石」の一人に数えられている。</p></div>
+  <div class="card"><div class="h">『チャウラパンチャーシカー』</div><span class="t">Caurapañcāśikā</span>「盗人の五十詩節」<p>多くの美しさを備えた抒情詩。作者はカシミールのビルハナ（<span class="t">Bilhaṇa</span>、11世紀後半）。伝説では、詩人は王女とひそかに恋仲になり、発覚して死刑を言い渡された。そこで「今もなお私は思い出す」（<span class="t">adyāpi</span>）で始まる50の詩節を作り、味わった恋の喜びを熱く歌った。王はこれに深く心を動かされて詩人を許し、娘を妻として与えたという。</p></div>
+</div>
+
+<h3><span class="sec">4</span>一詩節の細密画：バルトリハリ</h3>
+<p>中世インドの抒情詩の大部分は、まとまった長さの詩ではありません。わずかな筆で愛の場面や感情を描き出す「細密画」のようなもので、4行の一詩節で完結します。これらの抒情詩は、インド人が見事に育てた格言詩と多くの点で近い関係にあります。豊かな観察と深い感情に裏打ちされ、名人の手になるものが少なくありません。内容と形式の両面で完璧な美しさをもつ［340］珠玉も多くあります。ただし、原文の凝った韻律を再現できないため、翻訳ではその魅力がいくらか失われてしまいます。こうした小抒情詩を集めた詩集を作ったサンスクリット詩人も何人かいます。</p>
+<div class="note"><b>訳注：</b>このような独立した一詩節の詩は、ムクタカ（<span class="t">muktaka</span>）と呼ばれます。</div>
+<p>その中で最も優れた作者が<b>バルトリハリ</b>（<span class="t">Bhartṛhari</span>）です。文法家であり、哲学者であり、詩人でもありました。これほどの兼業は、インドの学問的な修練があってこそ可能なもので、インドでもほかにほとんど例がありません。</p>
+<p>バルトリハリは7世紀前半の人です。7世紀末に20年以上インドに滞在した中国の旅行者、<b>義浄</b>（I Tsing）の記録によれば、彼は仏教の僧になった後で俗人に戻り、僧院と俗世のあいだを合わせて7度も行き来しました。バルトリハリは自分の移り気を責めながらも、それに打ち勝てなかったのです。</p>
+<figure>
+<div class="flow">
+  <div class="st"><div class="k">第1集　格言詩</div><div class="h">処世の百詩節</div><span class="t">Nītiśataka</span></div>
+  <div class="ar">→</div>
+  <div class="st acc"><div class="k">第2集　恋愛詩（本章で扱う）</div><div class="h">愛の百詩節</div><span class="t">Śṛṅgāraśataka</span></div>
+  <div class="ar">→</div>
+  <div class="st"><div class="k">第3集　格言詩</div><div class="h">離欲の百詩節</div><span class="t">Vairāgyaśataka</span></div>
+</div>
+<figcaption><b>図 XII-4</b>バルトリハリの三つの「百詩節」（<span class="t">śataka</span>）。第2集の終わりで、詩人の心は恋から離れはじめ、第3集へつながっていく。</figcaption>
+</figure>
+<p>彼は独立した詩節を100ずつ集めた詩集を三つ書きました。格言詩である第1集と第3集については後で述べます。恋愛の感情を扱うのは第2集の『<b>愛の百詩節</b>』（<span class="t">Śṛṅgāraśataka</span>）だけです。ここでバルトリハリは、優雅で思索的な詩によって、女性の魅力と、女性が男の心をとらえる手管の両方を知り尽くしていることを示します。</p>
+<p>たとえばある小詩で、彼はこう問いかけます。空気がマンゴーの花の香りに気を失いそうになり、蜜に酔った蜂の羽音に満ちる春に、恋の思いに満たされない者がいるだろうか、と。別の詩では、蓮のような目をした乙女たちの魅力には誰も抗えない、学者でさえそうで、恋を捨てるという彼らの言葉は空言にすぎない、と断言します。詩人自身も、恋人がいないと人生から輝きが消えてしまうと嘆きます。［341］</p>
+<div class="verse">
+<p>灯火のそばでも、燃える炉辺でも、</p>
+<p>日や月や星の光のなかでも、</p>
+<p>愛しい人の輝く瞳がなければ、</p>
+<p>この世は私にとって　まったくの闇だ。</p>
+</div>
+<p>同時に彼は、女性の美しさについて考えすぎないよう、うかつな者に警告もします。</p>
+<div class="verse">
+<p>旅人よ、女の姿という　あの森に</p>
+<p>思いをさまよわせてはならない。</p>
+<p>そこにはいつも盗賊が潜み、</p>
+<p>襲いかかろうと待ち構えている——愛の神が。</p>
+</div>
+<p>別の詩節では、インドのキューピッド（愛神）が漁師として登場します。この世の海に「女」という釣り針を投げ、赤い唇という餌に飛びつく魚のような男たちをすばやく釣り上げ、恋の火で焼いてしまうのです。</p>
+<p>乙女を愛したことで、詩人は奇妙な矛盾に陥ります。</p>
+<div class="verse">
+<p>思い出せば　苦しみを与えるばかり。</p>
+<p>姿を見れば　私の狂おしさは募る。</p>
+<p>触れれば　私の感覚をくらませる。</p>
+<p>いったいどうして　こんな人を愛せようか。</p>
+</div>
+<p>こうして『愛の百詩節』の終わりに近づくと、詩人の心は恋の誘惑から離れはじめます。「乙女よ、私に流し目を送るのはやめなさい。無駄骨だ。私は変わった。若さは過ぎ去り、心は森（隠遁）に向いている。迷いは終わり、今の私には全世界が一本の藁くずにしか思えない」。こうしてバルトリハリは、第3集『離欲の百詩節』への道を開くのです。</p>
+
+<h3><span class="sec">5</span>『シュリンガーラティラカ』と『アマルシャタカ』</h3>
+<p>独立した恋愛詩を集めた、短いが魅力的な詩集に『<b>シュリンガーラティラカ</b>』（<span class="t">Śṛṅgāratilaka</span>）があります。伝承では［342］カーリダーサの作とされます。23の詩節には、きわめて想像力に富んだ類推が、独創的に展開されています。たとえばある詩節で、詩人は問いかけます。顔立ちも手足もさまざまな柔らかい花に似ている乙女が、どうして石の心を持っているのか、と。別の詩節では、恋人を狩人にたとえます。</p>
+<div class="verse">
+<p>この乙女は　狩人のよう。</p>
+<p>その眉は　狩人が引きしぼる弓、</p>
+<p>その流し目は　放たれる矢、</p>
+<p>私の心は　彼女が射止める羚羊。</p>
+</div>
+<figure>
+<div class="map">
+  <div class="hd l">乙女</div><div></div><div class="hd">狩りの場面</div>
+  <div class="l">乙女</div><div class="m">＝</div><div>狩人</div>
+  <div class="l">眉</div><div class="m">＝</div><div>引きしぼった弓</div>
+  <div class="l">流し目</div><div class="m">＝</div><div>矢</div>
+  <div class="l">私の心</div><div class="m">＝</div><div>射止められる羚羊</div>
+</div>
+<figcaption><b>図 XII-5</b>「狩人」の詩の見立て</figcaption>
+</figure>
+<p>この種の抒情詩で最も重要なのが『<b>アマルシャタカ</b>』（<span class="t">Amaruśataka</span>、「アマルの百詩節」）です。作者アマルは、恋人たちのあらゆる気分、つまり至福と落胆、怒りと献身を描く名人です。特に、仲たがいから仲直りまでのさまざまな段階を描くのが巧みです。題材がこれほど限られ、状況も感情もよく似ているのに、驚くような発想の転換と、いつも新しい細やかな筆づかいで読者を引きつけるのは見事です。アマルもほかのインドの抒情詩人も、描く恋はロマンティックで理想的なものではなく、むしろ官能的なものです。それでも彼の作品には、繊細な感情と洗練された発想がしばしば見られます。たとえば、夕暮れに不在の夫の帰りを待ちわびる妻を描く詩がそうです。</p>
+
+<h3><span class="sec">6</span>植物と動物：抒情詩の小宇宙</h3>
+<p>サンスクリットの詩学書にも、多くの抒情詩の珠玉が保存されています。その一つが赤いアショーカの木を歌った詩節です。詩人は木に、恋人がどこへ行ったのか教えてくれと頼みます。知らないとでも言うように風に首を振ってみせる必要はない。［343］愛しい人の足に触れられなければ、どうしてそんなに見事に花を咲かせていられるだろう、と。</p>
+<div class="note"><b>原注：</b>アショーカの木は、美しい娘に足で蹴られたときにだけ花を咲かせる、という詩の上の言い伝えによる。<br><b>訳注：</b>このように木に花を咲かせる働きかけをドーハダ（<span class="t">dohada</span>）と呼びます。</div>
+<p>これらの抒情詩では、植物と動物の世界が重要な役割を果たし、魅力的に扱われています。花の中で最も目立つのは蓮です。ある詩節は、昼咲きの蓮が夕方に萼の目を閉じるのは、夫であり恩人である太陽が光を失って沈むのを見たくないからだ、と描きます。別の詩節は、一匹の蜂の夢を痛ましく美しく描きます。「夜は過ぎ、美しい夜明けが来て、太陽が昇り、蓮は笑うだろう」。蜂が萼の中でそう思いめぐらしていると、ああ、一頭の象が蓮の株を引き抜いてしまった。</p>
+<p>詩的な神話をまとったさまざまな鳥も、人の生と愛の類比としてしばしば登場します。</p>
+<figure>
+<div class="scroll"><table>
+<thead><tr><th>鳥</th><th>詩の上の言い伝え</th><th>象徴するもの</th></tr></thead>
+<tbody>
+<tr><td><b>チャータカ</b><br><span class="t">cātaka</span></td><td>雲から落ちる雨粒以外は何も飲まず、それなら渇きで死ぬほうを選ぶ</td><td><span class="tag lac">誇り</span></td></tr>
+<tr><td><b>チャコーラ</b><br><span class="t">cakora</span></td><td>月の光を飲むとされる</td><td><span class="tag ind">恋人の顔の輝きを目で飲む者</span></td></tr>
+<tr><td><b>チャクラヴァーカ</b><br><span class="t">cakravāka</span></td><td>夜ごと連れ合いと引き離される運命にあり、夜通し悲しげな声で呼びかける</td><td><span class="tag hal">夫婦の貞節</span></td></tr>
+</tbody></table></div>
+<figcaption><b>図 XII-6</b>抒情詩によく出る三つの鳥と、その意味</figcaption>
+</figure>
+<p>これらの抒情詩では、インドの娘たちの輝く目と美しさが、次のような舞台に置かれます。花咲く木々がまばゆく、花が香り、鳥の羽が色とりどりに映え、鳥のさえずりが響く。熱帯の日ざしを浴びた蓮池や、木陰に寝そべる大きな目のガゼルが、景色に変化を添える。その珠玉のいくつかは、［344］ハイネの『蓮の花』（<i>Die Lotosblume</i>）や『歌の翼に』（<i>Auf Flügeln des Gesanges</i>）のような抒情詩を生む霊感となったのも、うなずけるものです。</p>
+<p>同じ型の抒情詩は、プラークリットでもかなり作られました。とりわけ、おそらく1000年より前の人である詩人ハーラ（<span class="t">Hāla</span>）の大きな詞華集『<b>七百詩節</b>』（<span class="t">Saptaśataka</span>）があります。多くの美しさを備え、全体としてインドの民衆的な抒情詩の豊かな宝庫です。ここではその一詩節だけ紹介します。この小詩は月を、星の蓮をちりばめた夜空という清らかな湖を渡っていく、一羽の白い白鳥として描いています。</p>
+<div class="note"><b>訳注：</b>プラークリット名は『ガーハー・サッタサイー』（<span class="t">Gāhāsattasaī</span>）です。</div>
+
+<h3><span class="sec">7</span>『ギータゴーヴィンダ』：抒情詩から劇へ</h3>
+<p>純粋な抒情詩と純粋な劇のあいだの過渡的な段階を示すのが、『<b>ギータゴーヴィンダ</b>』（<span class="t">Gītagovinda</span>、「歌における牛飼い」）という抒情劇です。12世紀の作ですが、原始的な劇の型を伝える文学作品として最古のものです。その型は今もベンガルに残っており、正規の劇より前に存在していたはずです。</p>
+<p>この詩には本来の意味での対話がありません。三人の登場人物は一種の抒情的な独白を語るだけで、ほかの二人のどちらかが聞き手と想定されるか、ときには聞き手が誰もいません。題材は、クリシュナ（<span class="t">Kṛṣṇa</span>）と美しい牛飼い娘ラーダー（<span class="t">Rādhā</span>）の恋、二人の仲たがい、そして最後の仲直りです。これは、クリシュナ自身が牛飼い（<span class="t">go-vinda</span>）としてヤムナー川（<span class="t">Yamunā</span>）のほとりに住み、牛飼い娘たちの愛を心ゆくまで楽しんでいた時期の挿話からとられています。登場人物はクリシュナ、ラーダー、そしてラーダーの腹心の友の三人だけです。</p>
+
+<figure>
+<div class="flow">
+  <div class="st"><div class="k">1</div><div class="h">恋</div>クリシュナとラーダー</div>
+  <div class="ar">→</div>
+  <div class="st"><div class="k">2</div><div class="h">仲たがい</div>別離と嫉妬</div>
+  <div class="ar">→</div>
+  <div class="st"><div class="k">3</div><div class="h">探し求める</div>腹心の友が仲立ちする</div>
+  <div class="ar">→</div>
+  <div class="st acc"><div class="k">4</div><div class="h">仲直り</div>再会</div>
+</div>
+<div class="map" style="margin-top:16px">
+  <div class="hd l">物語の上で</div><div></div><div class="hd">インドの注釈家による寓意解釈</div>
+  <div class="l">クリシュナ</div><div class="m">⟶</div><div>最高神</div>
+  <div class="l">ラーダー</div><div class="m">⟶</div><div>人間の魂</div>
+  <div class="l">別離・探索・和解</div><div class="m">⟶</div><div>神と魂の関係</div>
+</div>
+<figcaption><b>図 XII-7</b>『ギータゴーヴィンダ』の筋と、その宗教的な寓意解釈</figcaption>
+</figure>
+
+<p>作者<b>ジャヤデーヴァ</b>（<span class="t">Jayadeva</span>）はおそらくベンガルの人で、ベンガル王ラクシュマナセーナ（<span class="t">Lakṣmaṇasena</span>）と同時代でした。彼は、［345］クリシュナの生涯の出来事を演じる民衆劇を手本にしたのでしょう。ベンガルの現代のヤートラー（<span class="t">yātrā</span>）が今もそうしているような劇です。これらの祭礼劇は今でも主に抒情的な詩節からなり、一部は朗唱され、一部は歌われます。対話はわずかで、かなりの部分が即興に任されています。</p>
+<p>ジャヤデーヴァはこうした素地の上に、非常に技巧的な詩を作り上げました。優美な言葉づかいと、きわめて難しい韻律を自在に扱う技を結びつけ、完璧な形式を実現しています。原文のサンスクリットを読めるすべての人が、これに感嘆してきました。頭韻を豊富に使い、『ナローダヤ』と同じく行末だけでなく行の途中にも入り組んだ脚韻を置いています。そして、多種多様で響きのよい韻律を、あふれるような恋の感情の表現に合わせて使いこなしており、その腕前は右に出る者がありません。</p>
+<figure>
+<div class="palin" style="font-size:21px">
+  <span>am</span><span class="c">ala</span><span>-k</span><span>am</span><span class="c">ala</span><span>-d</span><span class="c">ala</span><span>-l</span><span class="c">ocana</span><span>&nbsp;bhava-m</span><span class="c">ocana</span>
+</div>
+<p style="text-align:center;font-size:14px;margin:8px 0 0">「汚れなき蓮の花びらの目をもつ者よ、生存（輪廻）から解き放つ者よ」</p>
+<figcaption style="text-align:center"><b>図 XII-8</b>行の途中の脚韻の例（原書の脚注より）。<span class="t">-ala</span> が3度、<span class="t">-ocana</span> が2度響き合う。</figcaption>
+</figure>
+<p>ジャヤデーヴァの詩を英語で十分に再現するのは無理だと思われます。しかしドイツの詩人リュッケルト（Rückert）は、形式と内容の両面で、翻訳として可能なかぎり原文の技巧的な美しさに近づいています。</p>
+<p>官能の恋の陶酔を東洋的な空想のありったけで描くこの詩が、神秘的・宗教的な意味での寓意として解釈されてきたのは、いささか奇妙です（こうしたことは初めてではありませんが）。インドの注釈家によれば、クリシュナとラーダーの別離、互いを探し求めること、最後の和解は、最高神と人間の魂の関係を表しています。ジャヤデーヴァ自身にそうした意図があった可能性もあります。ただしそれは作品を貫く基本的な考えとしてであって、細部まで寓意をたどるべきものではないでしょう。［346］</p>
+</section>
+
+<!-- ======================= CHAPTER XIII ======================= -->
+<section class="chapter" id="ch13">
+<div class="ch-head">
+  <div class="ch-num">XIII</div>
+  <h2>演劇</h2>
+  <div class="meta">The Drama ／ 400年頃〜1000年頃 ／ 原書 346–368頁</div>
+</div>
+
+<p>ヨーロッパ人にとって、インド演劇の歴史は興味の尽きない題材です。これは西洋の影響をまったく受けずに、国民的な発展を豊かに多彩に遂げた重要な文学分野です。しかもイスラーム勢力による征服に先立つ5〜6世紀間のヒンドゥー社会の習俗を、大いに照らし出してくれるからです。</p>
+
+<h3><span class="sec">1</span>起源：踊りから劇へ</h3>
+<p>インドで最も古い劇文学の形は、リグ・ヴェーダのうち対話を含む讃歌です。サラマー（<span class="t">Saramā</span>）とパニ族（<span class="t">Paṇi</span>）、ヤマ（<span class="t">Yama</span>）とヤミー（<span class="t">Yamī</span>）、プルーラヴァス（<span class="t">Purūravas</span>）とウルヴァシー（<span class="t">Urvaśī</span>）の対話などがそうです。最後のものは、実に1000年以上後にインド最大の劇作家が書いた正規の劇の土台になりました。とはいえ、上演される劇がどこから生まれたのかは闇に包まれています。それでも、伝承と言語の証拠から、その源をかなりの確からしさで突き止めることができます。</p>
+
+<figure>
+<div class="flow">
+  <div class="st"><div class="k">段階 1</div><div class="h">無言の身ぶり劇</div>踊りの動きに、手と顔の無言のまねが加わる</div>
+  <div class="ar">→</div>
+  <div class="st"><div class="k">段階 2</div><div class="h">歌が加わる</div><span class="t">Bharata</span>＝「役者」、方言では「歌い手」</div>
+  <div class="ar">→</div>
+  <div class="st"><div class="k">段階 3</div><div class="h">対話が加わる</div>ヤートラーと『ギータゴーヴィンダ』がこの段階</div>
+  <div class="ar">→</div>
+  <div class="st acc"><div class="k">完成形</div><div class="h">サンスクリット劇</div>抒情詩と対話が溶け合う</div>
+</div>
+<figcaption><b>図 XIII-1</b>インド演劇の発達（マクドネルの推定）。ギリシアとほぼ同じ道筋をたどったとされる。</figcaption>
+</figure>
+
+<p>「役者」を意味するナタ（<span class="t">naṭa</span>）と「劇」を意味するナータカ（<span class="t">nāṭaka</span>）は、動詞 <span class="t">naṭ</span> から来ています。これはサンスクリットの <span class="t">nṛt</span>「踊る」のプラークリット（口語）形です。英語でもナウチ（nautch）、つまり現代のインドの踊りという形でおなじみの言葉です。実際、このナウチがインド演劇の始まりをよく伝えているのでしょう。劇は最初、粗削りな無言劇にすぎなかったはずです。［347］踊る体の動きに、手と顔による無言の身ぶりが伴うものです。歌も早くからこうした上演の要素になっていたに違いありません。劇を発明したとされる神話上の人物<b>バラタ</b>（<span class="t">Bharata</span>）の名は、サンスクリットでは「役者」も意味しますが、いくつかの方言では「歌い手」を意味します。グジャラーティー語のバロート（Bharot）がその例です。対話が加わったのは発達の最後の段階で、その道筋はインドとギリシアでほぼ同じでした。この原始的な段階を伝えるのが、ベンガルのヤートラーと『ギータゴーヴィンダ』です。これらが、抒情詩と対話が溶け合った完成形のサンスクリット劇への橋渡しとなっています。</p>
+<p>上演劇への最古の言及は『マハーバーシャ』に見られます。そこには、クリシュナの物語の挿話である『カンサヴァダ』（<span class="t">Kaṃsavadha</span>、「カンサ殺し」）と『バリバンダ』（<span class="t">Balibandha</span>、「バリの捕縛」）の上演が出てきます。インドの伝承によれば、バラタはヴィシュヌの妃ラクシュミー（<span class="t">Lakṣmī</span>）の婿選び（<span class="t">svayaṃvara</span>）を描く劇を神々の前で上演させました。また伝承は、歌・音楽・踊りを混ぜた上演であるサンギータ（<span class="t">saṃgīta</span>）の起源を、クリシュナと牛飼い娘たちに求めています。『ギータゴーヴィンダ』もクリシュナを扱い、現代のヤートラーもたいていこの神の生涯の場面を演じます。</p>
+<p>これらのことから、インド演劇はヴィシュヌ・クリシュナ信仰と結びついて発達したと考えられます。最古の上演は、キリスト教中世の神秘劇のような一種の宗教劇だったのでしょう。神の伝説の場面を主に歌と踊りで演じ、役者が即興で散文の対話を補ったのです。［348］</p>
+
+<h3><span class="sec">2</span>インド演劇の三つの特徴</h3>
+<p>インドで演劇が豊かに多彩に発達したことは、現存する多数の戯曲だけでなく、劇の構成と文体について細かな規則を定めた土着の詩学書からもわかります。たとえば『サーヒティヤダルパナ』（<span class="t">Sāhityadarpaṇa</span>、「修辞の鏡」）は、サンスクリット劇を上位のルーパカ（<span class="t">rūpaka</span>）と下位のウパルーパカ（<span class="t">uparūpaka</span>）の二つに大きく分け、前者を10種、後者を18種にも区別しています。</p>
+<figure>
+<div class="cards">
+  <div class="card"><div class="h">① 悲劇がない</div><p>喜びと悲しみが混じり合うが、結末は必ず幸福。舞台で死を演じることは許されない。</p></div>
+  <div class="card"><div class="h">② 韻文と散文の交替</div><p>抒情的な詩節と散文の対話が入れ替わる。『シャクンタラー』では詩節がほぼ半分を占める。</p></div>
+  <div class="card"><div class="h">③ 言語の使い分け</div><p>ある人物はサンスクリットを、ほかの人物はプラークリットを話す。</p></div>
+</div>
+<figcaption><b>図 XIII-2</b>西洋の研究者の目をひくインド演劇の特徴</figcaption>
+</figure>
+
+<h4>① 悲劇の不在</h4>
+<p>サンスクリット劇は、喜びと悲しみが入りまじる混合的な作品です。たいてい道化が目立つ役を演じ、主人公とヒロインはしばしば絶望のどん底にいます。しかし、悲しい結末で終わることは決してありません。観客の胸にかき立てられた恐れや悲しみや憐れみは、物語の幸福な結末によって必ず静められます。劇の途中で深く悲劇的な事件が起こることもありません。舞台上で死を演じることは決して許されないからです。それどころか、観客の目や耳の届くところでは、真剣なものであれ滑稽なものであれ、不作法とみなされることは何ひとつ演じてはいけません。</p>
+<figure>
+<div class="chips"><span>呪いの言葉</span><span>身分の剥奪</span><span>追放</span><span>国の災厄</span><span>噛みつく</span><span>引っかく</span><span>口づけ</span><span>食事</span><span>眠り</span><span>死</span></div>
+<figcaption><b>図 XIII-3</b>舞台で演じてはならないもの（原書に挙げられた例）</figcaption>
+</figure>
+
+<h4>② 抒情的な詩節</h4>
+<p>サンスクリット劇には、目の前に現れた場面や人物を描いたり、出来事から生まれる感慨を述べたりする抒情的な一節があふれています。ふつうは4行の詩節です。『シャクンタラー』（<span class="t">Śakuntalā</span>）には［349］200近い詩節があり、劇全体のほぼ半分を占めます。これらの詩節はきわめて多くの韻律で作られています。たとえば『シャクンタラー』の最初の34詩節だけで、11種類もの韻律が使われています。</p>
+<p>単純なヴェーダの韻律なら英語でまねることもできますが、複雑で完全に音量（長短）にもとづく古典サンスクリットの韻律の、ほとんど無限の可能性を英語で再現することはできません。そのため抒情的な部分の精神は、英語の劇でおなじみの韻律であるブランク・ヴァース（無韻詩）で訳すのがおそらく最善です。一方、劇の対話の散文はたいていごく平凡で、続く詩の高尚な感情への導入の役を果たすだけです。</p>
+
+<h4>③ 身分による言語の使い分け</h4>
+<p>サンスクリット劇の登場人物は、社会的な地位に応じて違う言語を話します。</p>
+<figure>
+<div class="scroll"><table>
+<thead><tr><th>言語</th><th>話す人物</th></tr></thead>
+<tbody>
+<tr class="hl"><td><b>サンスクリット</b></td><td>主人公、王、バラモン、身分の高い男性のみ</td></tr>
+<tr><td colspan="2" style="font-family:var(--label);font-size:12px;color:var(--muted);letter-spacing:.06em">▼ プラークリット（すべての女性と、下層の男性）</td></tr>
+<tr><td>マーハーラーシュトリー<br><span class="t">Māhārāṣṭrī</span></td><td>身分の高い女性が<b>抒情詩の部分</b>で使う</td></tr>
+<tr><td>シャウラセーニー<br><span class="t">Śaurasenī</span></td><td>身分の高い女性（抒情詩以外）、子ども、上級の召使い</td></tr>
+<tr><td>マーガディー<br><span class="t">Māgadhī</span></td><td>王宮の従者など</td></tr>
+<tr><td>アーヴァンティー<br><span class="t">Āvantī</span></td><td>ならず者、博打打ち</td></tr>
+<tr><td>アービーリー<br><span class="t">Ābhīrī</span></td><td>牛飼い</td></tr>
+<tr><td>パイシャーチー<br><span class="t">Paiśācī</span></td><td>炭焼き</td></tr>
+<tr><td>アパブランシャ<br><span class="t">Apabhraṃśa</span></td><td>最下層の、最も蔑まれた人々と異民族</td></tr>
+</tbody></table></div>
+<figcaption><b>図 XIII-4</b>劇中の言語の使い分け。上から下へ社会的な地位が下がる。</figcaption>
+</figure>
+
+<h3><span class="sec">3</span>筋書きの型と、シェイクスピアとの類似</h3>
+<p>サンスクリットの劇作家は、筋の出来事を織り上げることや、一人ひとりの性格を描くことにはかなりの腕を見せます。しかし創意には乏しく、たいてい歴史や叙事詩の伝説から話を借りています。インド劇の大半は恋を主題としています。</p>
+<figure>
+<svg class="svgbox" viewBox="0 0 640 250" role="img" aria-label="典型的な恋愛劇の登場人物の関係">
+  <g font-size="13">
+    <line x1="170" y1="70" x2="470" y2="70" stroke="var(--lac)" stroke-width="2"/>
+    <text x="320" y="60" text-anchor="middle" fill="var(--lac)" font-size="12">一目ぼれ・隠された恋</text>
+    <line x1="120" y1="95" x2="120" y2="170" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <line x1="520" y1="95" x2="520" y2="170" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <line x1="170" y1="80" x2="300" y2="180" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="2 4"/>
+    <rect x="40" y="45" width="160" height="50" rx="6" fill="var(--indigo-soft)"/>
+    <text x="120" y="67" text-anchor="middle" font-weight="700" fill="var(--ink)">主人公</text>
+    <text x="120" y="85" text-anchor="middle" fill="var(--muted)" font-size="11.5">たいてい王</text>
+    <rect x="440" y="45" width="160" height="50" rx="6" fill="var(--lac-soft)"/>
+    <text x="520" y="67" text-anchor="middle" font-weight="700" fill="var(--ink)">ヒロイン</text>
+    <text x="520" y="85" text-anchor="middle" fill="var(--muted)" font-size="11.5">恋を隠して王をじらす</text>
+    <rect x="40" y="170" width="160" height="56" rx="6" fill="var(--haldi-soft)"/>
+    <text x="120" y="193" text-anchor="middle" font-weight="700" fill="var(--ink)">道化 <tspan font-style="italic" font-family="EB Garamond, serif" font-weight="400">vidūṣaka</tspan></text>
+    <text x="120" y="212" text-anchor="middle" fill="var(--muted)" font-size="11.5">主人公の相棒・必ずバラモン</text>
+    <rect x="440" y="170" width="160" height="56" rx="6" fill="var(--panel)" stroke="var(--rule)"/>
+    <text x="520" y="193" text-anchor="middle" font-weight="700" fill="var(--ink)">腹心の侍女たち</text>
+    <text x="520" y="212" text-anchor="middle" fill="var(--muted)" font-size="11.5">にぎやかに場を和ませる</text>
+    <rect x="240" y="170" width="160" height="56" rx="6" fill="var(--paper)" stroke="var(--muted)" stroke-dasharray="4 3"/>
+    <text x="320" y="193" text-anchor="middle" font-weight="700" fill="var(--ink)">すでにいる妃</text>
+    <text x="320" y="212" text-anchor="middle" fill="var(--muted)" font-size="11.5">王は既婚者</text>
+  </g>
+</svg>
+<figcaption><b>図 XIII-5</b>典型的な恋愛劇の登場人物</figcaption>
+</figure>
+<p>主人公はたいてい王で、［350］すでに一人か複数の妃がいます。その王が、ある美しい乙女の魅力に一目で心を奪われます。ヒロインのほうも同じように恋に落ちやすく、すぐに王の思いに応えますが、恋心を隠して恋人をじらし、苦しめます。疑いや障害や遅れに悩まされ、二人とも憂いに沈んでやせ衰えていきます。二人の窮状が生むいささか陰気な雰囲気を和らげるのが、ヒロインの腹心の侍女たちのにぎやかな振る舞いです。そして何より、主人公のいつもの相棒である宮廷の道化、<b>ヴィドゥーシャカ</b>（<span class="t">vidūṣaka</span>）の立ち回りです。道化は体の欠点と、主人公の恋路への不器用な口出しで笑いを誘います。ただ、その機知はあまり上等ではありません。誰からも笑いものにされる役なのに、いつもバラモンであるのはいささか奇妙です。</p>
+<p>インド演劇はギリシア喜劇とも似たところがありますが、それ以上に際立った類似を見せるのは、エリザベス朝の劇作家、とりわけ<b>シェイクスピア</b>の作品です。</p>
+<figure>
+<div class="scroll"><table>
+<thead><tr><th>共通点</th><th>インド演劇</th><th>シェイクスピア</th></tr></thead>
+<tbody>
+<tr><td>人物描写</td><td colspan="2">類型ではなく、個々の人物を描く</td></tr>
+<tr><td>三一致の法則</td><td colspan="2">時間の一致も場所の一致も守らない</td></tr>
+<tr><td>題材</td><td colspan="2">ロマンティックな要素や空想的な要素を持ち込む</td></tr>
+<tr><td>文体</td><td colspan="2">散文と韻文を混ぜ、滑稽と深刻を混ぜる。掛詞や言葉の滑稽なもじりを使う</td></tr>
+<tr class="hl"><td>道化役</td><td><span class="t">vidūṣaka</span></td><td>fool（道化）</td></tr>
+<tr><td>筋を進める仕掛け</td><td colspan="2">手紙を書く／劇中劇／死者の蘇生／舞台上の酩酊で笑わせる</td></tr>
+</tbody></table></div>
+<figcaption><b>図 XIII-6</b>インド演劇とシェイクスピアの共通点</figcaption>
+</figure>
+<p>影響や借用がまったくありえない状況で［351］これほど多くの一致が見られることは、似た発展が互いに独立して起こりうることを示す、教訓的な例です。</p>
+
+<h3><span class="sec">4</span>劇の構成：前口上から結びの祈りまで</h3>
+<figure>
+<div class="flow">
+  <div class="st"><div class="k">冒頭</div><div class="h">祝福の祈り</div><span class="t">nāndī</span><br>観客のために国の神に祈る</div>
+  <div class="ar">→</div>
+  <div class="st"><div class="k">前口上</div><div class="h">座頭と役者の対話</div>作品と作者の紹介、観客へのお世辞。最後に劇中人物を登場させる</div>
+  <div class="ar">→</div>
+  <div class="st acc"><div class="k">本編</div><div class="h">幕（1〜10幕）</div>人物の出入りで場が変わる。幕の途中で舞台を空にしない</div>
+  <div class="ar">→</div>
+  <div class="st"><div class="k">幕間</div><div class="h">幕間劇</div><span class="t">viṣkambha</span>／<span class="t">praveśaka</span><br>幕のあいだの出来事を伝える</div>
+  <div class="ar">→</div>
+  <div class="st"><div class="k">終わり</div><div class="h">結びの祈り</div>主要人物が国の繁栄を祈る</div>
+</div>
+<figcaption><b>図 XIII-7</b>サンスクリット劇の構成</figcaption>
+</figure>
+<p>サンスクリット劇はすべて前口上（導入部）で始まります。前口上はきまって、観客のために国の神の加護を祈る祝福の祈り（<span class="t">nāndī</span>）で幕を開けます。続いてふつうは、座頭と一、二人の役者の対話があります。この対話は、上演する劇と作者に触れ、観客の批評眼をほめて好意を得ようとし、筋を理解するのに役立つ過去の出来事や現在の状況を述べます。そして最後に必ず、劇中の人物の一人を巧みに登場させて終わります。</p>
+<div class="note"><b>訳注：</b>前口上はプラスターヴァナー（<span class="t">prastāvanā</span>）、座頭はスートラダーラ（<span class="t">sūtradhāra</span>）、結びの祈りはバラタヴァーキヤ（<span class="t">bharatavākya</span>）と呼ばれます。</div>
+<p>サンスクリット劇は場と幕に分かれます。場は、ある人物の登場と別の人物の退場で区切られます。幕の終わりまで舞台が空になることはなく、場所が変わることもありません。新しい幕の前には、独白か対話からなる幕間劇（<span class="t">viṣkambha</span> または <span class="t">praveśaka</span>）がよく入ります。この場では、幕のあいだに起こったとされる出来事に触れ、観客にこれから起こることへの心構えをさせます。劇全体は、主要人物の一人が、ひいきの神に国の繁栄を祈る言葉で締めくくられます。</p>
+<p>幕の数は1から10まであり、多少の幅はあるものの劇の種類によって決まっています。たとえば、ナーティカー（<span class="t">nāṭikā</span>）と呼ばれる種類は4幕、笑劇のプラハサナ（<span class="t">prahasana</span>）は1幕だけです。</p>
+
+<h4>時間と場所</h4>
+<p>劇中の出来事にかかる時間は、舞台でそれを演じる時間と同じか、長くても1日とされます。そして、幕と幕のあいだには［352］一晩が経つものとされます。ただし、間隔がずっと長いこともあります。カーリダーサの『シャクンタラー』と『ウルヴァシー』では、最初の幕と最後の幕のあいだに数年が経ちます。バヴァブーティの『ウッタララーマチャリタ』では、第1幕と第2幕のあいだに12年もの時が流れます。</p>
+<p>場所の一致も守られません。舞台は地上のある場所から別の場所へ、さらには天空へと移ることもあります。同じ幕の中で場所が変わることさえあります。天の車で空を旅するとされる場合などです。役者の衣装や装飾、動作についてはこまかなト書きがたくさんあるのに、場面転換については何も書かれていないのは、いささか奇妙です。登場人物の数には、どんな制限もありません。</p>
+
+<h3><span class="sec">5</span>舞台</h3>
+<figure>
+<svg class="svgbox" viewBox="0 0 640 330" role="img" aria-label="宮廷の上演の舞台配置の略図">
+  <g font-size="12.5">
+    <rect x="80" y="20" width="480" height="70" rx="4" fill="var(--panel)" stroke="var(--rule)"/>
+    <text x="320" y="50" text-anchor="middle" font-weight="700" fill="var(--ink)">楽屋　<tspan font-style="italic" font-family="EB Garamond, serif" font-weight="400" fill="var(--indigo)">nepathya</tspan></text>
+    <text x="320" y="70" text-anchor="middle" fill="var(--muted)" font-size="11.5">役者はここから舞台に出る</text>
+    <path d="M80 98 L312 98" stroke="var(--lac)" stroke-width="6"/>
+    <path d="M328 98 L560 98" stroke="var(--lac)" stroke-width="6"/>
+    <text x="320" y="122" text-anchor="middle" fill="var(--lac)" font-size="12">▲ 中央で分かれた幕（舞台の<tspan font-weight="700">背景</tspan>になる）</text>
+    <path d="M300 92 Q320 76 340 92" fill="none" stroke="var(--lac)" stroke-width="1.5"/>
+    <text x="580" y="100" fill="var(--muted)" font-size="11">←「幕を跳ね上げて」</text>
+    <text x="580" y="114" fill="var(--muted)" font-size="11">　急いで登場</text>
+    <rect x="80" y="132" width="480" height="110" rx="4" fill="var(--haldi-soft)"/>
+    <text x="320" y="168" text-anchor="middle" font-weight="700" fill="var(--ink)">舞台</text>
+    <text x="320" y="190" text-anchor="middle" fill="var(--muted)" font-size="11.5">背景・装置はごく簡素。武器、座、玉座、車は出てくる</text>
+    <text x="320" y="208" text-anchor="middle" fill="var(--muted)" font-size="11.5">速さや移動は身ぶり（<tspan font-style="italic" font-family="EB Garamond, serif">nāṭayitvā</tspan>）で表す</text>
+    <text x="320" y="226" text-anchor="middle" fill="var(--muted)" font-size="11.5">（幕を下ろす仕切りは客席との間にない）</text>
+    <g fill="var(--indigo)">
+      <circle cx="160" cy="280" r="7"/><circle cx="200" cy="280" r="7"/><circle cx="240" cy="280" r="7"/><circle cx="280" cy="280" r="7"/>
+      <circle cx="360" cy="280" r="7"/><circle cx="400" cy="280" r="7"/><circle cx="440" cy="280" r="7"/><circle cx="480" cy="280" r="7"/>
+    </g>
+    <text x="320" y="312" text-anchor="middle" fill="var(--ink)" font-weight="700">観客（王宮の音楽堂 <tspan font-style="italic" font-family="EB Garamond, serif" font-weight="400" fill="var(--indigo)">saṃgītaśālā</tspan>）</text>
+  </g>
+</svg>
+<figcaption><b>図 XIII-8</b>宮廷での上演の配置（本文の記述をもとにした略図）。ローマの劇場と違い、幕は客席と舞台を隔てるのではなく、舞台の奥にある。</figcaption>
+</figure>
+<p>中世インドには専用の劇場はなく、劇は王宮の音楽堂（<span class="t">saṃgītaśālā</span>）で上演されたようです。中央で分かれた幕は舞台に欠かせない設備でした。ただしローマの劇場のように観客と舞台を隔てるのではなく、舞台の背景をなしていました。幕の後ろは楽屋（<span class="t">nepathya</span>）で、役者はそこから舞台に出てきました。急いで登場する場合には、「幕を跳ね上げて」登場せよと指示されています。</p>
+<p>舞台の背景や装置はきわめて簡素で、シェイクスピア劇と同じように多くが観客の想像に任されていました。武器、座席、玉座、車は舞台に現れました。しかし車を、それを引くとされる生きた動物が本当に引いていたとは、とても考えられません。［353］天上の住人と地上の住人の行き来がとても多いので、天の車を表すなんらかの空中の仕掛けがあったのかもしれません。しかしその場面では「身ぶりをして」（<span class="t">nāṭayitvā</span>）というト書きが繰り返し出てきます。ですから、動きや速さの印象は、役者の身ぶりだけで観客に伝えられたと考えるべきでしょう。</p>
+
+<h3><span class="sec">6</span>名作の時代と劇作家たち</h3>
+<p>インド演劇の最良の作品は十数編ほどで、5世紀初めから8世紀末までのおよそ400年間に書かれました。これらは大劇作家カーリダーサとバヴァブーティの作品か、あるいはシュードラカ（<span class="t">Śūdraka</span>）やシュリーハルシャといった王侯パトロンの名で伝わる作品です。後者の場合、本当の作者がパトロンの作としたのです。</p>
+
+<figure>
+<ol class="tl">
+  <li class="era"><span class="yr"></span><span class="dot"></span><span class="ev">名作の時代（5〜8世紀）</span></li>
+  <li class="key"><span class="yr">5世紀初頭</span><span class="dot"></span><span class="ev"><b>カーリダーサ</b>　『シャクンタラー』『ヴィクラモールヴァシーヤ』『マーラヴィカーグニミトラ』</span></li>
+  <li><span class="yr">6世紀?</span><span class="dot"></span><span class="ev"><b>シュードラカ王</b>の名で伝わる『ムリッチャカティカー』<small>実作者はダンディンか（ピシェル説）</small></span></li>
+  <li><span class="yr">7世紀前半</span><span class="dot"></span><span class="ev"><b>シュリーハルシャ王</b>の名で伝わる『ラトナーヴァリー』『ナーガーナンダ』<small>実作者はバーナ、ダーヴァカか</small></span></li>
+  <li class="key"><span class="yr">8世紀前半</span><span class="dot"></span><span class="ev"><b>バヴァブーティ</b>　『マーラティーマーダヴァ』『マハーヴィーラチャリタ』『ウッタララーマチャリタ』</span></li>
+  <li><span class="yr">800年頃まで</span><span class="dot"></span><span class="ev"><b>ヴィシャーカダッタ</b>　『ムドラーラークシャサ』</span></li>
+  <li class="era"><span class="yr"></span><span class="dot"></span><span class="ev">後代（9〜11世紀）</span></li>
+  <li><span class="yr">840年頃</span><span class="dot"></span><span class="ev"><b>バッタ・ナーラーヤナ</b>　『ヴェーニーサンハーラ』</span></li>
+  <li><span class="yr">900年頃</span><span class="dot"></span><span class="ev"><b>ラージャシェーカラ</b>　4作</span></li>
+  <li><span class="yr">10世紀</span><span class="dot"></span><span class="ev"><b>クシェーミーシュヴァラ</b>　『チャンダカウシカ』</span></li>
+  <li><span class="yr">11世紀</span><span class="dot"></span><span class="ev"><b>ダーモーダラ・ミシュラ</b>　『ハヌマンナータカ』</span></li>
+  <li><span class="yr">11世紀末</span><span class="dot"></span><span class="ev"><b>クリシュナミシュラ</b>　『プラボーダチャンドローダヤ』</span></li>
+</ol>
+<figcaption><b>図 XIII-9</b>本章で扱う劇作家と作品の年表（年代はマクドネルによる）</figcaption>
+</figure>
+
+<h3><span class="sec">7</span>カーリダーサ</h3>
+<p>最も偉大なのは、すでにいくつかの最良のカーヴィヤの作者として紹介した<b>カーリダーサ</b>です。彼の劇は三編が残っています。『シャクンタラー』、『ヴィクラモールヴァシーヤ』（<span class="t">Vikramorvaśīya</span>）、『マーラヴィカーグニミトラ』（<span class="t">Mālavikāgnimitra</span>）です。そこに見られる豊かな創造的空想と、優しい感情を表現する腕前は、彼を世界の劇作家の中でも高い地位に置きます。</p>
+<p>詩的な感情の調和が、荒々しいものや恐ろしいものに乱されることはどこにもありません。どの情熱も、弱められることなく和らげられています。恋の情熱は美の限度を越えず、狂おしい嫉妬や憎しみに変わることはありません。悲しみの苦しみは、深く心にしみる憂いへと和らげられています。インドの詩才は、ほかではほとんど知らなかった詩の中庸の法則を、ここでついに見出し、不朽の美をもつ作品を生み出したのです。だからこそ『シャクンタラー』は、［354］ゲーテの落ち着いた知性をあれほど強く魅了しました。ゲーテは一方で、ヒンドゥーの神話美術の過剰さにはひどく反発していたのですが。</p>
+<p>ギリシア劇や近代劇に比べて、サンスクリット劇では自然がはるかに大きな位置を占めています。登場人物は自然に囲まれ、自然と絶えず心を通わせています。彼らが動き回るマンゴーなどの木々、蔓草、蓮、淡紅色のノウゼンカズラ、ガゼル、フラミンゴ、色鮮やかなオウム、インドのカッコウには、しばしば直接話しかけられ、それらは彼らの生活に欠かせない一部となっています。そのため、自然が恋人たちの心に与える影響が詳しく描かれます。これらの自然の要素は古典サンスクリット詩のどこでも目立ちますが、劇の中で最も豊かに生い茂っています。</p>
+<p>ただし、カーリダーサの最良の作品が舞台劇としては欠点をもつことは否定できません。感情があまりに繊細なうえ、筋の動きが少ないため、観客に強い効果を与えられないのです。インドのロマンティックな劇を最もよく代表するのは『シャクンタラー』と『ヴィクラモールヴァシーヤ』です。どちらも古代叙事詩の伝説で名高い二人の王の恋の冒険を扱い、現実からかけ離れた場面を描いています。そこでは天と地は分かれておらず、人間、半神、天女、聖者が入りまじっています。一方『マーラヴィカーグニミトラ』は、英雄や神々を扱わない、宮殿と後宮の劇です。同時代の恋と陰謀の物語なのです。</p>
+
+<h4>『シャクンタラー』</h4>
+<p>筋はマハーバーラタの第1巻からとられています。主人公は古代の名高い王<b>ドゥフシャンタ</b>（<span class="t">Duṣyanta</span>）です。ヒロインの<b>シャクンタラー</b>は、天女メーナカー（<span class="t">Menakā</span>）と聖仙ヴィシュヴァーミトラ（<span class="t">Viśvāmitra</span>）の娘です。二人の息子バラタ（<span class="t">Bharata</span>）は名高い［355］一族の祖となりました。劇は7幕からなり、土着の詩学者が<b>ナータカ</b>（<span class="t">nāṭaka</span>、「劇」）と呼ぶ種類に属します。ナータカでは、筋は神話か歴史からとり、人物は英雄か神でなければなりません。凝った文体で書かれ、高貴な感情に満ち、5幕以上10幕以下とされます。</p>
+
+<figure>
+<div class="scroll"><table>
+<thead><tr><th class="num">幕</th><th>場所</th><th>出来事</th></tr></thead>
+<tbody>
+<tr><td class="num">前口上</td><td></td><td>女優が夏の美しさを歌う</td></tr>
+<tr><td class="num">1</td><td>カンヴァ仙の聖林</td><td>ガゼルを追う王が、木に水をやるシャクンタラーを見そめる</td></tr>
+<tr><td class="num">2</td><td>同</td><td>道化マータヴィヤ（<span class="t">Māṭhavya</span>）登場。王の恋わずらいにも狩り好きにもうんざり</td></tr>
+<tr><td class="num">3</td><td>あずまや</td><td>花の床に伏すシャクンタラー。王が現れ結婚を申し込む</td></tr>
+<tr class="hl"><td class="num">幕間</td><td></td><td>短気な苦行者ドゥルヴァーサス（<span class="t">Durvāsas</span>）の呪い：恋人は彼女を完全に忘れ、<b>指輪</b>によってしか思い出せない</td></tr>
+<tr><td class="num">4</td><td>聖林</td><td>最も美しい幕。シャクンタラーが花、ガゼル、友に別れを告げて旅立つ</td></tr>
+<tr><td class="num">5</td><td>王宮</td><td>王は彼女がわからず、妻と認めない。指輪は失われていた。彼女は天へ運ばれる</td></tr>
+<tr class="hl"><td class="num">幕間</td><td></td><td>漁師が魚の腹から王の印章指輪を見つける。王の記憶がよみがえる。インドラの御者マータリ（<span class="t">Mātali</span>）が悪魔退治の助けを求める</td></tr>
+<tr><td class="num">7</td><td>ヘーマクータ山</td><td>獅子の子と遊ぶ少年（わが子）に出会い、シャクンタラーと再会する</td></tr>
+</tbody></table></div>
+<figcaption><b>図 XIII-10</b>『シャクンタラー』の幕ごとのあらすじ。指輪が物語の鍵になる。</figcaption>
+</figure>
+
+<p>夏の季節の美しさを女優が愛らしく歌う前口上のあと、ドゥフシャンタ王が聖仙カンヴァ（<span class="t">Kaṇva</span>）の聖なる森でガゼルを追って現れます。王はそこで、二人の乙女の友と一緒に、お気に入りの木々に水をやっているシャクンタラーを目にします。その美しさに打たれて、王は叫びます。</p>
+<div class="verse">
+<p>その唇は　ほころびかけた蕾のように紅く、</p>
+<p>しなやかな腕は　若い新芽のようだ。</p>
+<p>木に咲く花のように　人の心をひきつける</p>
+<p>若さの輝きが　その全身に広がっている。</p>
+</div>
+<p>王は機会をとらえて彼女に話しかけ、すぐに都へ帰ることなどできないと感じます。</p>
+<div class="verse">
+<p>わが体は前へと進むが、心は後ろへ飛んでいく——</p>
+<p>風に逆らって運ばれる　絹の旗のように。</p>
+</div>
+<p>第2幕では、道化マータヴィヤによって喜劇の要素が加わります。マータヴィヤは、主人の恋わずらいにも狩り好きにも、同じくらいうんざりしています。第3幕では、恋に悩むシャクンタラーが、あずまやの花の床に横たわっています。王は彼女と二人の友の会話を立ち聞きし、姿を現して、ヒロインに結婚を申し込みます。</p>
+<p>幕間劇では、次のような事情が説明されます。ドゥルヴァーサスという短気な苦行者が、シャクンタラーから礼儀正しく迎えられなかったことに激怒しました。彼女は恋に心を奪われていたからです。苦行者は［356］呪いをかけました。彼女は恋人にすっかり忘れられ、恋人は指輪によってしか彼女を思い出せない、という呪いです。</p>
+<p>そのあいだに王はシャクンタラーと結婚して都に帰り、聖仙カンヴァは彼女を夫のもとへ送り出すことにしました。第4幕では、シャクンタラーが育った聖林、その花々、ガゼル、友だちに別れを告げる様子が愛らしく描かれます。この幕に最もわかりやすい美しさがあります。詩人がここで、豊かな空想、自然への深い共感、人の心についての深い知識を存分に発揮しているからです。</p>
+<p>シャクンタラーが森の庵を去る日の夜明けを、若いバラモンの弟子がこう描きます。</p>
+<div class="verse">
+<p>向こうでは、草木の主である月が</p>
+<p>西の山の頂の向こうへ沈んでいく。</p>
+<p>こちらでは、曙を先立てて太陽が</p>
+<p>姿を現す。二つの天体が同時に沈み、また昇るのは、</p>
+<p>この世における人の</p>
+<p>移ろいやすい運命の象徴なのだ。</p>
+</div>
+<p>そして続けて言います。</p>
+<div class="verse">
+<p>月は去った。湖の睡蓮は、</p>
+<p>その美しさが思い出に残るばかりで、</p>
+<p>もう私の目を喜ばせはしない。うなだれ、しぼんでいく——</p>
+<p>いなくなった主を　深く悲しんで。</p>
+</div>
+<p>森の年老いた隠者（カンヴァ）は、シャクンタラーを失う日が迫った気持ちをこう語ります。</p>
+<div class="verse">
+<p>「シャクンタラーは今日行ってしまう」と思うと、</p>
+<p>わが心は悲しみに打たれ、こらえた涙で</p>
+<p>喉は詰まり、物思いに目はかすむ。</p>
+<p>森に住む老いた隠者の悲しみでさえ［357］これほどならば、</p>
+<p>いとしい子と別れたばかりの父親の痛みは、</p>
+<p>どれほど鋭いことだろう。</p>
+</div>
+<p>そして木々に、彼女をやさしく送り出してくれるよう呼びかけて、叫びます。</p>
+<div class="verse">
+<p>森の住まいの身内である木々が、</p>
+<p>いまシャクンタラーに旅立ちを許す。</p>
+<p>コーキラ（<span class="t">kokila</span>）の美しい鳴き声で、</p>
+<p>木々は答えている。</p>
+</div>
+<p>すると空から声が響き、次のように幸運を祈ります。</p>
+<div class="verse">
+<p>旅路に幸いあれ。そよ風が</p>
+<p>やさしく穏やかにその頬をあおぎ、湖は</p>
+<p>睡蓮の杯に輝いて　その目を楽しませよ。</p>
+<p>陽の熱は木陰に冷まされ、</p>
+<p>足もとの塵は　蓮の花粉であれ。</p>
+</div>
+<p>シャクンタラーが夫の前に現れる第5幕は、深く心を打ちます。王は彼女がわかりません。邪険には扱わないものの、妻と認めることを拒みます。最後の手段として、シャクンタラーは夫からもらった指輪を思い出しますが、それを失くしていたことに気づき、望みを捨てます。すると彼女は天の力によって天へ運ばれていきます。</p>
+<p>続く幕間劇では、王の印章指輪を持っていたために、一人の漁師が役人に引き立てられてきます。漁師は、魚の腹の中から見つけたのだと言います。しかし王は彼を釈放させ、見つけた褒美をたっぷり与えます。ドゥフシャンタにかつての恋の記憶がよみがえります。シャクンタラーを退けたことを嘆いているところへ、インドラの御者マータリが現れ、悪魔退治に王の助けを求めます。［358］</p>
+<p>最後の幕では、ドゥフシャンタがインドラの車に乗って、ガンダルヴァ（<span class="t">Gandharva</span>）の山ヘーマクータ（<span class="t">Hemakūṭa</span>）へ向かいます。そこで彼は、獅子の子と遊んでいる幼い少年を見かけます。自分の息子とは知らずにその手をとり、王は叫びます。</p>
+<div class="verse">
+<p>見知らぬ子にほんの少し触れただけで</p>
+<p>これほど全身に喜びがかけめぐるのなら、</p>
+<p>この子をもうけた幸いなる父親の魂には、</p>
+<p>どれほどの歓喜が呼び覚まされることだろう。</p>
+</div>
+<p>まもなく王はシャクンタラーを見つけて彼女だとわかり、ついに幸福な再会を果たします。</p>
+<p>カーリダーサのこの劇は、二つの主な伝本で伝わっています。いわゆる<b>デーヴァナーガリー本</b>は短く簡潔で、おそらくこちらのほうが古く、すぐれています。より冗長な<b>ベンガル本</b>は、サー・ウィリアム・ジョーンズの翻訳によって先に知られるようになりました。</p>
+
+<h4>『ヴィクラモールヴァシーヤ』（「武勇で得たウルヴァシー」）</h4>
+<p>5幕の劇で、トロータカ（<span class="t">troṭaka</span>）と呼ばれる種類に属します。トロータカは、出来事の一部が地上で、一部が天上で起こり、5・7・8・9幕のいずれかで構成されるものとされています。</p>
+<figure>
+<div class="scroll"><table>
+<thead><tr><th class="num">幕</th><th>あらすじ</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>プルーラヴァス王は、天女たちから仲間のウルヴァシーが悪魔にさらわれたと聞き、救い出して車で連れ帰る。二人は恋に落ちるが、ウルヴァシーはインドラの玉座の前に呼ばれ、すぐに別れることになる。</td></tr>
+<tr><td class="num">2</td><td>ウルヴァシーが庭をさまよう王の前に少しだけ姿を見せる。恋を打ち明けた彼女の<b>手紙</b>を妃が見つけ、妃の怒りはおさまらない。</td></tr>
+<tr><td class="num">3</td><td>ウルヴァシーは天上でラクシュミーの婚約の劇を演じた際、「誰を慕うか」と問われて、プルショーッタマ（<span class="t">Puruṣottama</span>、ヴィシュヌ）ではなくプルーラヴァスと答えてしまった（<b>劇中劇</b>）。師バラタに呪われるが、インドラに許され、王が子を見るまで結ばれることを許される。</td></tr>
+<tr class="hl"><td class="num">4</td><td>ほぼ全編が抒情詩。嫉妬したウルヴァシーは、女人禁制の軍神クマーラ（<span class="t">Kumāra</span>）の森に入り、<b>蔓草に変わる</b>。狂乱した王は虫や鳥や獣や山の峰にまで彼女の行方を尋ねる。魔法の石の力で蔓草を抱くと、腕の中でウルヴァシーに戻る。</td></tr>
+<tr><td class="num">5</td><td>数年後。王は、ウルヴァシーがひそかに産んで庵で育てさせていた息子アーユス（<span class="t">Āyus</span>）を偶然見つける。ウルヴァシーは天に帰らねばならないが、インドラは悪魔退治の功に報い、彼女がずっと王のもとにいることを許す。</td></tr>
+</tbody></table></div>
+<figcaption><b>図 XIII-11</b>『ヴィクラモールヴァシーヤ』の幕ごとのあらすじ</figcaption>
+</figure>
+<p>筋を手短に述べます。プルーラヴァス王は天女たちから、仲間のウルヴァシーが悪魔にさらわれたと聞き、救出に向かって、彼女を車で連れ帰ります。王は天女の美しさにすっかり心を奪われ、天女もまた救い手に劣らず心を奪われます。しかしウルヴァシーがインドラの玉座の前に呼び出されたため、恋人たちはすぐに別れなければなりません。</p>
+<p>第2幕では、王が悲しみに沈んで庭をさまよっていると、ウルヴァシーが少しのあいだ姿を見せます。彼女が恋心を打ち明けて書いた手紙を妃が見つけ、妃はなだめられても怒りを解きません。</p>
+<p>第3幕では、ウルヴァシーがインドラの前で、ラクシュミーの［359］婚約を描く劇を演じていたことがわかります。心は誰にあるかと問われた彼女は、プルショーッタマ（ヴィシュヌ）ではなくプルーラヴァスの名を答えてしまいました。そのため師のバラタに呪われますが、インドラには許されます。インドラは、プルーラヴァスが自分の子を見るまで、二人が結ばれることを認めたのです。</p>
+<p>第4幕はほぼ全編が抒情詩という、珍しい幕です。恋人たちは神々の山カイラーサの近くをさまよっていますが、ウルヴァシーは嫉妬に駆られ、あらゆる女性の立ち入りを禁じられた軍神クマーラの森に入ってしまいます。バラタの呪いのため、彼女はたちまち蔓草に姿を変えます。王は彼女を失った悲しみで我を忘れ、あちこち探し回ります。虫や鳥や獣、さらには山の峰にまで、彼女の居場所を教えてくれと呼びかけます。とうとう王は、山の流れの中に彼女の姿を見たと思います。</p>
+<div class="verse">
+<p>さざ波は彼女のしかめた眉。揺れて連なる</p>
+<p>鳥の列は彼女の帯。泡の筋は、</p>
+<p>急ぎゆく彼女のはためく衣。</p>
+<p>流れは彼女のうねり、つまずく足どり。</p>
+<p>怒りのあまり川に変わった彼女なのだ。</p>
+</div>
+<p>最後に王は、手に入れた魔法の石の力で一本の蔓草を抱きしめます。すると蔓草は、王の腕の中でウルヴァシーに戻ります。</p>
+<p>第4幕と第5幕のあいだには数年が経ちます。プルーラヴァスは、ウルヴァシーがひそかに産み、庵で育てさせていた息子アーユスを偶然見つけます。そのためウルヴァシーは天に帰らなければなりません。しかしインドラは、悪魔との戦いでのプルーラヴァスの働きに報いて新たな許しを与え、天女がずっと王のもとにとどまることを認めます。</p>
+<p>この劇にも二つの伝本があり、その一つは南インドのものです。</p>
+
+<h4>『マーラヴィカーグニミトラ』（「マーラヴィカーとアグニミトラ」）</h4>
+<p>この劇は前口上でカーリダーサが作者と明記されています。それでも、［360］ほかの二作より劣り、性格も違うことから、本当に彼の作品なのか長く疑われてきました。しかしその疑いには、あまり根拠がありません。ヴェーバー（Weber）は、この劇が発想と言葉づかいの面で、詩人のほかの二作とかなりよく一致することを示しました。詩的な価値では確かに二作に及びませんが、多くの美しさを備えています。</p>
+<p>題材は英雄や神々ではなく、インドの王侯の日常の宮廷生活からとられています。そのため、当時の社会状況をとりわけよく描き出しています。主人公は、前2世紀にヴィディシャー（ビルサ）を都として治めたシュンガ朝（<span class="t">Śuṅga</span>）の実在の王です。劇はこのアグニミトラ王（<span class="t">Agnimitra</span>）と、妃の侍女マーラヴィカー（<span class="t">Mālavikā</span>）の恋を描きます。妃は、マーラヴィカーがあまりに美しいため、嫉妬して彼女を王の目から遠ざけています。王がマーラヴィカーに会って話そうとするさまざまな試みから、小さな陰謀がいくつも生まれます。その中でアグニミトラは決して暴君としては振る舞わず、妃たちの気持ちを細やかに気づかいます。最後に、マーラヴィカーは実は生まれながらの王女で、盗賊の手に落ちたためにアグニミトラの宮廷の侍女になっていたことがわかります。こうして二人の結婚を妨げるものはなくなり、すべてが幸福に終わります。</p>
+
+<h3><span class="sec">8</span>『ムリッチャカティカー』（「土の小車」）</h3>
+<p>詩的な洗練、優しさ、感情の深さではカーリダーサが最高です。一方、劇ならではの力強さ・生気・動き、そして鋭い性格描写でインドの劇作家の中で抜きんでているのが、『ムリッチャカティカー』（<span class="t">Mṛcchakaṭikā</span>）の作者です。その才能はシェイクスピアに近いものがあります。この劇は独創性と良識でも際立っています。</p>
+<p>前口上でたたえられているシュードラカという王の作とされますが、［361］おそらくその庇護を受けた詩人の作でしょう。ピシェル（Pischel）教授が考えるように、ダンディンかもしれません。いずれにせよ、6世紀の作である可能性は低くありません。</p>
+<figure>
+<div class="cards">
+  <div class="card"><div class="h">基本データ</div><p>10幕。種類はプラカラナ（<span class="t">prakaraṇa</span>）。舞台はウッジャイニーとその近郊。登場人物はきわめて多い。題名は第6幕の小さな挿話から来ていて、劇の本筋とはあまり関係がない。</p></div>
+  <div class="card"><div class="h">チャールダッタ</div><span class="t">Cārudatta</span><p>気前がよすぎて全財産を失ったバラモンの商人。貧しいが高潔。</p></div>
+  <div class="card"><div class="h">ヴァサンタセーナー</div><span class="t">Vasantasenā</span><p>裕福な遊女。貧しいチャールダッタを愛し、最後に彼の妻となる。</p></div>
+  <div class="card"><div class="h">見どころ</div><p>第3幕：盗みを「芸術」として扱う滑稽な泥棒の場面。第4幕：ヴァサンタセーナーの邸宅の豪華さを詳しく描く。誇張は多いが、当時の贅沢の様子を伝える。</p></div>
+</div>
+<figcaption><b>図 XIII-12</b>『ムリッチャカティカー』の概要</figcaption>
+</figure>
+<p>全体として、この劇は滑稽な場面にあふれ、真剣な場面も多く含んでいます。そのいくつかは悲劇に近いところまで迫ります。</p>
+<div class="note"><b>訳注：</b>原書の出版後、1909〜12年に南インドで劇作家バーサ（<span class="t">Bhāsa</span>）作とされる戯曲群が発見されました。その中の『貧しいチャールダッタ』（<span class="t">Daridracārudatta</span>）は、この劇の前半とほぼ同じ内容をもっています。</div>
+
+<h3><span class="sec">9</span>シュリーハルシャ王の名で伝わる劇</h3>
+<p>7世紀前半には、名高いシュリーハルシャ王、またの名ハルシャデーヴァ（<span class="t">Harṣadeva</span>）の作とされる劇が二つあります。詩人の保護者であったこの王は、先に触れたスターニーシュヴァラとカナウジのハルシャヴァルダナ王と同一人物です。</p>
+<h4>『ラトナーヴァリー』（「真珠の首飾り」）</h4>
+<p>当時の宮廷と後宮の生活を映す劇で、カーリダーサの『マーラヴィカーグニミトラ』と多くの共通点をもっています。実際、筋はおそらくそこから思いついたのでしょう。</p>
+<figure>
+<div class="vs">
+  <div class="claim"><h5>『マーラヴィカーグニミトラ』</h5><ul><li>王：アグニミトラ</li><li>ヒロイン：妃の侍女マーラヴィカー</li><li>正体：盗賊にさらわれた王女</li><li>嫉妬する妃が彼女を王から遠ざける</li></ul></div>
+  <div class="refute"><h5>『ラトナーヴァリー』</h5><ul><li>王：ヴァツァ国王ウダヤナ</li><li>ヒロイン：妃ヴァーサヴァダッターの侍女サーガリカー（<span class="t">Sāgarikā</span>）</li><li>正体：難破して流れ着いたセイロン（<span class="t">Siṃhala</span>）の王女ラトナーヴァリー</li><li>魔術師が神々の幻と火事を呼び出す</li></ul></div>
+</div>
+<figcaption><b>図 XIII-13</b>よく似た二つの「後宮の恋」の筋</figcaption>
+</figure>
+<p>これは、ヴァツァ国王ウダヤナと、その妃ヴァーサヴァダッターの侍女サーガリカーの恋の物語です。ヒロインは最後に、セイロンの王女ラトナーヴァリーだったことがわかります。彼女は難破したのちに［362］ウダヤナの宮廷にたどり着いたのでした。筋は神話とは関係がなく、歴史的または叙事詩的な伝承にもとづいています。その伝承は、ソーマデーヴァ（<span class="t">Somadeva</span>）の『カターサリットサーガラ』（<span class="t">Kathāsaritsāgara</span>）にも少し違う形で出てきます。王の二度目の結婚を扱っているので、よく知られたヴァーサヴァダッターの恋物語の続編になっています。詩人が伝承の大筋を変えたかどうかはわかりません。しかし、神々の幻と火事を呼び出す魔術師の人物と、まったく家庭的な性格の出来事は、詩人の創作です。本当の作者は、疑いなくシュリーハルシャの宮廷にいた詩人です。『パールヴァティーパリナヤ』（<span class="t">Pārvatīpariṇaya</span>）という劇も書いたバーナかもしれません。</p>
+<p>全体として『ラトナーヴァリー』は感じのよい劇で、人物がよく描かれ、詩的な美しさも多くあります。その例として、月の出を告げる東の空の淡い光を王が描く、次の詩句を挙げます。</p>
+<div class="verse">
+<p>祭りに心を奪われて、</p>
+<p>私たちは黄昏が過ぎたのに気づかなかった。</p>
+<p>見よ、東の空が告げている、</p>
+<p>昇る山にまだ隠れている夜の主（月）の訪れを——</p>
+<p>青ざめた顔によって、胸の奥に</p>
+<p>恋人が住んでいることを明かす乙女のように。</p>
+</div>
+<h4>『ナーガーナンダ』</h4>
+<p>シュリーハルシャの作とされる、もう一つのかなりすぐれた劇です。仏教色を帯びた劇的な作品で、主人公は仏教徒であり、冒頭の祝福の祈りでは仏陀がたたえられています。この理由から、作者はおそらく『ラトナーヴァリー』とは別人でしょう。バーナと同じくシュリーハルシャの宮廷にいたことが知られているダーヴァカ（<span class="t">Dhāvaka</span>）かもしれません。</p>
+
+<h3><span class="sec">10</span>バヴァブーティ</h3>
+<p>劇作家<b>バヴァブーティ</b>（<span class="t">Bhavabhūti</span>）は、ヤジュル・ヴェーダのタイッティリーヤ（<span class="t">Taittirīya</span>）学派に属するバラモンで、［363］前口上からわかるように、南インドのヴィダルバ（<span class="t">Vidarbha</span>、現ベラール）の出身です。ウッジャイニーの町をよく知っていて、少なくとも生涯の一部をそこで過ごしたのでしょう。パトロンは、8世紀前半に在位したカーニャクブジャ（カナウジ）のヤショーヴァルマン王（<span class="t">Yaśovarman</span>）です。</p>
+<p>この詩人の劇は三編が伝わっており、どれも詩的な美しさにあふれています。それらは二、三の点で、先行する劇作家の作品と対照的です。</p>
+<figure>
+<div class="scroll"><table>
+<thead><tr><th>点</th><th>カーリダーサら先行作家</th><th>バヴァブーティ</th></tr></thead>
+<tbody>
+<tr><td>道化</td><td>ヴィドゥーシャカが欠かせない</td><td><b>道化が登場しない</b>。滑稽や機知の要素はごくわずか</td></tr>
+<tr><td>自然</td><td>繊細で穏やかな美しさ</td><td><b>雄大で崇高な姿</b>（故郷の南の山々の影響）</td></tr>
+<tr><td>感情</td><td>優しく和らげられた情熱</td><td>優しく高貴な感情に加え、<b>情熱の深さと激しさ</b>も力強く表す</td></tr>
+</tbody></table></div>
+<figcaption><b>図 XIII-14</b>バヴァブーティの特色</figcaption>
+</figure>
+
+<h4>『マーラティーマーダヴァ』</h4>
+<p>バヴァブーティの劇で最もよく知られ、最も人気があるのが『マーラティーマーダヴァ』（<span class="t">Mālatīmādhava</span>）です。10幕のプラカラナで、舞台はウッジャイニーです。</p>
+<figure>
+<svg class="svgbox" viewBox="0 0 640 270" role="img" aria-label="マーラティーマーダヴァの人物関係図">
+  <g font-size="12.5">
+    <line x1="200" y1="60" x2="440" y2="60" stroke="var(--lac)" stroke-width="2.5"/>
+    <text x="320" y="50" text-anchor="middle" fill="var(--lac)" font-size="12">恋 ♥</text>
+    <line x1="200" y1="200" x2="440" y2="200" stroke="var(--lac)" stroke-width="2.5"/>
+    <text x="320" y="190" text-anchor="middle" fill="var(--lac)" font-size="12">恋 ♥</text>
+    <line x1="120" y1="88" x2="120" y2="172" stroke="var(--muted)" stroke-width="1.5"/>
+    <text x="128" y="134" fill="var(--muted)" font-size="11">友</text>
+    <line x1="520" y1="88" x2="520" y2="172" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="528" y="126" fill="var(--muted)" font-size="11">王が決めた婚約者</text>
+    <text x="528" y="140" fill="var(--muted)" font-size="11">（寵臣）はこの娘の兄</text>
+    <line x1="200" y1="182" x2="440" y2="82" stroke="var(--haldi)" stroke-width="1.5" stroke-dasharray="3 4"/>
+    <text x="330" y="150" fill="var(--haldi)" font-size="11">マーラティーに変装して</text>
+    <text x="330" y="164" fill="var(--haldi)" font-size="11">身代わりに婚礼へ</text>
+    <rect x="40" y="32" width="160" height="56" rx="6" fill="var(--indigo-soft)"/>
+    <text x="120" y="56" text-anchor="middle" font-weight="700" fill="var(--ink)">マーダヴァ</text>
+    <text x="120" y="74" text-anchor="middle" fill="var(--muted)" font-size="11">他国の大臣の子、若き学生</text>
+    <rect x="440" y="32" width="160" height="56" rx="6" fill="var(--lac-soft)"/>
+    <text x="520" y="56" text-anchor="middle" font-weight="700" fill="var(--ink)">マーラティー</text>
+    <text x="520" y="74" text-anchor="middle" fill="var(--muted)" font-size="11">この国の大臣の娘</text>
+    <rect x="40" y="172" width="160" height="56" rx="6" fill="var(--indigo-soft)"/>
+    <text x="120" y="196" text-anchor="middle" font-weight="700" fill="var(--ink)">マカランダ</text>
+    <text x="120" y="214" text-anchor="middle" fill="var(--muted)" font-size="11">マーダヴァの友</text>
+    <rect x="440" y="172" width="160" height="56" rx="6" fill="var(--lac-soft)"/>
+    <text x="520" y="196" text-anchor="middle" font-weight="700" fill="var(--ink)">マダヤンティカー</text>
+    <text x="520" y="214" text-anchor="middle" fill="var(--muted)" font-size="11">王の寵臣の妹</text>
+    <text x="320" y="252" text-anchor="middle" fill="var(--muted)" font-size="11.5">仲立ち：仏教の尼僧カーマンダキー（≒『ロミオとジュリエット』のロレンス神父）</text>
+  </g>
+</svg>
+<figcaption><b>図 XIII-15</b>『マーラティーマーダヴァ』の人物関係。王がマーラティーの婿に決めた寵臣は、マダヤンティカーの兄。</figcaption>
+</figure>
+<p>題材は、この国の大臣の娘<b>マーラティー</b>（<span class="t">Mālatī</span>）と、都で学ぶ若い学生で、他国の大臣の息子である<b>マーダヴァ</b>（<span class="t">Mādhava</span>）の恋物語です。この本筋に、マーダヴァの友マカランダ（<span class="t">Makaranda</span>）と、王の寵臣の妹マダヤンティカー（<span class="t">Madayantikā</span>）の運命が巧みに織り込まれています。</p>
+<p>マーラティーとマーダヴァは出会って恋に落ちます。しかし王は、ヒロインを自分の寵臣と結婚させると決めていて、彼女はその男を嫌っています。この計画は、マーラティーに化けたマカランダが花婿と婚礼の儀式を済ませてしまうことで、くじかれます。恋人たちは二人の親切な仏教の尼僧に助けられて計画を進め、最後に結ばれます。</p>
+<p>この劇は、［364］幸福な結末をもつインド版の『ロミオとジュリエット』と言えます。尼僧カーマンダキー（<span class="t">Kāmandakī</span>）の役割は、シェイクスピアの劇のロレンス神父に似ています。優しい恋の場面と、恐ろしい女神ドゥルガー（<span class="t">Durgā</span>）の女祭司の身の毛もよだつ所業の対比は、確かに効果的ですが、おそらく激しすぎるでしょう。また、この劇では気絶の場面がやや多すぎます。すぐに息を吹き返すのではありますが。</p>
+<p>第9幕には、ヴィンディヤ山脈の景色を描いた美しい一節がいくつかあります。その一つを訳してみます。</p>
+<div class="verse">
+<p>そそり立つ岩をいただくこの山は</p>
+<p>目を楽しませる。峰々は集まる雲に暗く、</p>
+<p>森には喜びに声をあげる孔雀が群れ、</p>
+<p>山腹の木々は、巣のまわりを飛び交う鳥で</p>
+<p>にぎわう。洞窟は熊のうなりを響かせ、</p>
+<p>象が折った枝からは、香木の香りが</p>
+<p>鋭く冷ややかに漂ってくる。</p>
+</div>
+
+<h4>ラーマを描く二つの劇</h4>
+<p>バヴァブーティのほかの二つの劇は、同じ国民的英雄ラーマの運命を描いています。</p>
+<p>『<b>マハーヴィーラチャリタ</b>』（<span class="t">Mahāvīracarita</span>、「大英雄の生涯」）の筋は、ラーマーヤナの物語とほとんど変わりません。7幕からなり、登場人物がひしめき、ラーマの即位で終わります。最終幕は、観客の想像にどれほど多くが任されているかをよく示しています。ラーマがセイロンからはるばる北インドのアヨーディヤー（アウド）まで空飛ぶ車で旅する場面で、通過する景色を一行の一人が語って聞かせるのです。</p>
+<p>『<b>ウッタララーマチャリタ</b>』（<span class="t">Uttararāmacarita</span>、「ラーマのその後の生涯」）は、美しい一節を多く含むロマンティックな作品です。ただし筋の動きに乏しいので、劇というより［365］劇詩と呼ぶべきものです。悲しみによって清められたラーマとシーター（<span class="t">Sītā</span>）の優しい愛の描写には、おそらくほかのどのインド劇よりも本物の哀感があります。劇はシーターの追放に始まり、12年のつらい孤独を経て、民衆の歓呼のうちに彼女がアヨーディヤーの王座に戻るところで終わります。</p>
+<p>シーターの追放後に生まれ、自分が王家の血を引くことを知らないまま聖仙ヴァールミーキに荒野で育てられた二人の息子は、シェイクスピアの『シンベリン』で隠者ベラリウスに育てられる二人の王子、ギデリアスとアーヴィレイガスと著しく似ています。二人が父ラーマに出会う場面は、詩として高い境地に達しています。</p>
+<div class="note"><b>訳注：</b>二人の息子の名はクシャ（<span class="t">Kuśa</span>）とラヴァ（<span class="t">Lava</span>）です。</div>
+
+<h3><span class="sec">11</span>そのほかの劇作家</h3>
+<h4>『ムドラーラークシャサ』（「ラークシャサと印章」）</h4>
+<p>ほかの劇作家の作品の中では、ヴィシャーカダッタ（<span class="t">Viśākhadatta</span>）の『ムドラーラークシャサ』（<span class="t">Mudrārākṣasa</span>）が、その類のなさから特に取り上げる価値があります。これまでに紹介したどの劇とも違い、これは<b>政治的陰謀の劇</b>です。しかも劇作の才能にあふれ、生気と動きに満ち、最後まで興味が途切れません。年代については、おそらく800年頃より後ではない、ということしか言えません。</p>
+<figure>
+<svg class="svgbox" viewBox="0 0 640 200" role="img" aria-label="ムドラーラークシャサの対立関係">
+  <g font-size="12.5">
+    <rect x="30" y="30" width="190" height="60" rx="6" fill="var(--panel)" stroke="var(--rule)"/>
+    <text x="125" y="55" text-anchor="middle" font-weight="700" fill="var(--ink)">ナンダ朝最後の王</text>
+    <text x="125" y="74" text-anchor="middle" fill="var(--muted)" font-size="11">廃位される</text>
+    <rect x="30" y="120" width="190" height="60" rx="6" fill="var(--lac-soft)"/>
+    <text x="125" y="145" text-anchor="middle" font-weight="700" fill="var(--ink)">ラークシャサ <tspan font-style="italic" font-family="EB Garamond, serif" font-weight="400">Rākṣasa</tspan></text>
+    <text x="125" y="164" text-anchor="middle" fill="var(--muted)" font-size="11">旧王の大臣・高潔・復讐を狙う</text>
+    <rect x="420" y="30" width="190" height="60" rx="6" fill="var(--indigo-soft)"/>
+    <text x="515" y="55" text-anchor="middle" font-weight="700" fill="var(--ink)">チャンドラグプタ</text>
+    <text x="515" y="74" text-anchor="middle" fill="var(--muted)" font-size="11">パータリプトラに新王朝</text>
+    <rect x="420" y="120" width="190" height="60" rx="6" fill="var(--indigo-soft)"/>
+    <text x="515" y="145" text-anchor="middle" font-weight="700" fill="var(--ink)">チャーナキヤ <tspan font-style="italic" font-family="EB Garamond, serif" font-weight="400">Cāṇakya</tspan></text>
+    <text x="515" y="164" text-anchor="middle" fill="var(--muted)" font-size="11">新王の大臣・バラモン</text>
+    <line x1="125" y1="90" x2="125" y2="120" stroke="var(--muted)" stroke-width="1.5"/>
+    <line x1="515" y1="90" x2="515" y2="120" stroke="var(--muted)" stroke-width="1.5"/>
+    <line x1="420" y1="60" x2="220" y2="60" stroke="var(--muted)" stroke-width="1.5"/>
+    <text x="320" y="52" text-anchor="middle" fill="var(--muted)" font-size="11">王位を奪う</text>
+    <path d="M420 150 L228 150" stroke="var(--haldi)" stroke-width="2.5"/>
+    <path d="M236 143 L226 150 L236 157" fill="none" stroke="var(--haldi)" stroke-width="2.5"/>
+    <text x="324" y="140" text-anchor="middle" fill="var(--haldi)" font-size="11.5" font-weight="700">策略で味方に引き入れる</text>
+    <text x="324" y="170" text-anchor="middle" fill="var(--muted)" font-size="11">→ 最後に成功</text>
+  </g>
+</svg>
+<figcaption><b>図 XIII-16</b>『ムドラーラークシャサ』の対立の構図</figcaption>
+</figure>
+<p>劇の出来事は、アレクサンドロスのインド侵入の直後の時代に起こります。当時チャンドラグプタ（<span class="t">Candragupta</span>）が、ナンダ（<span class="t">Nanda</span>）朝最後の王を廃して、パータリプトラ（<span class="t">Pāṭaliputra</span>）に新しい王朝を開きました。前王の大臣ラークシャサは、この簒奪者を認めず、亡き主君を滅ぼした報いを受けさせようとします。筋の中心は、チャンドラグプタの大臣であるバラモンのチャーナキヤが、高潔なラークシャサを主君の側に引き入れようとする努力です。チャーナキヤは最後にこれに成功します。</p>
+
+<h4>後代の劇作家たち</h4>
+<figure>
+<div class="scroll"><table>
+<thead><tr><th>作品</th><th>作者・年代</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>『ヴェーニーサンハーラ』<br><span class="t">Veṇīsaṃhāra</span>「編み髪を結ぶこと」</td><td>バッタ・ナーラーヤナ（<span class="t">Bhaṭṭa Nārāyaṇa</span>）<br>840年の銅板文書に土地の受領者として名が出る</td><td>6幕。マハーバーラタから、ドラウパディー（<span class="t">Draupadī</span>）がドゥルヨーダナ（<span class="t">Duryodhana</span>）の弟の一人に髪をつかまれて集会の場へ引きずり出される事件を軸とする。［366］詩的価値は高くないが、クリシュナ信仰をはっきり支持しているため、インドで長く大いに愛されてきた。</td></tr>
+<tr><td>『ヴィッダシャーラバンジカー』<span class="t">Viddhaśālabhañjikā</span>／『カルプーラマンジャリー』<span class="t">Karpūramañjarī</span>／『バーララーマーヤナ』<span class="t">Bālarāmāyaṇa</span>／『プラチャンダパーンダヴァ』<span class="t">Pracaṇḍapāṇḍava</span>（別名『バーラバーラタ』<span class="t">Bālabhārata</span>）</td><td>ラージャシェーカラ（<span class="t">Rājaśekhara</span>）<br>900年頃</td><td>4作が現存。言葉づかいの軽やかさと優雅さが特徴。</td></tr>
+<tr><td>『チャンダカウシカ』<br><span class="t">Caṇḍakauśika</span>「怒れるカウシカ」</td><td>クシェーミーシュヴァラ（<span class="t">Kṣemīśvara</span>）<br>10世紀、カナウジのマヒーパーラ王（<span class="t">Mahīpāla</span>）の下</td><td></td></tr>
+<tr><td>『ハヌマンナータカ』<br><span class="t">Hanumannāṭaka</span>「ハヌマットの劇」／別名『マハーナータカ』<span class="t">Mahānāṭaka</span>「大劇」</td><td>ダーモーダラ・ミシュラ（<span class="t">Dāmodara Miśra</span>）<br>11世紀。伝承では、ダーラー（<span class="t">Dhārā</span>）とウッジャイニーに住んだマーラヴァ王ボージャ（<span class="t">Bhoja</span>）の宮廷にいた</td><td>ラーマの物語を、その味方である猿の首領ハヌマットと結びつけて描く。14幕。まとまりがなく、断片を継ぎはぎした印象で、価値は低い。</td></tr>
+</tbody></table></div>
+<figcaption><b>図 XIII-17</b>9〜11世紀の劇</figcaption>
+</figure>
+
+<h4>『プラボーダチャンドローダヤ』（「知の月の出」）</h4>
+<p>クリシュナミシュラ（<span class="t">Kṛṣṇamiśra</span>）の『プラボーダチャンドローダヤ』（<span class="t">Prabodhacandrodaya</span>）は、11世紀末ごろの6幕の劇で、インド文学の中でも最も注目すべき作品の一つとして特に取り上げる価値があります。神学・哲学的な意図をもつ<b>寓意劇</b>で、［367］登場人物はほぼ抽象概念と象徴的な人物だけです。それでも劇的な生気と力強さで際立っています。スペインの詩人カルデロンの寓意劇がカトリック信仰を称揚するためのものだったように、この劇はヴィシュヌ派の立場から正統バラモン教を称揚することをめざしています。インドの詩人は、「啓示」「意志」「理性」「宗教」といった抽象概念を、血の通った生きた人物に変えることで、それらを使って魅力的な劇を作るという難しい仕事に成功しています。</p>
+<figure>
+<div class="vs">
+  <div class="claim"><h5>悪の陣営（ベナレスを支配）</h5>
+    <ul><li><b>邪悪な王「迷妄」</b>（<span class="t">Mahāmoha</span>）</li><li>忠実な家来「愚かさ」と「悪徳」たち</li></ul></div>
+  <div class="refute"><h5>善の陣営（追放されている）</h5>
+    <ul><li><b>高貴な王「理性」</b>（<span class="t">Viveka</span>）</li><li>「宗教」（<span class="t">Dharma</span>）と、すべての「美徳」たち</li></ul></div>
+</div>
+<div class="flow" style="margin-top:12px">
+  <div class="st"><div class="k">予言</div><div class="h">理性 ＋ 啓示</div>「理性」はいつか「啓示」（<span class="t">Upaniṣad</span>）と再び結ばれる</div>
+  <div class="ar">→</div>
+  <div class="st acc"><div class="k">その実り</div><div class="h">真の知</div><span class="t">prabodha</span>（「知の月」）が生まれる</div>
+  <div class="ar">→</div>
+  <div class="st"><div class="k">結末</div><div class="h">迷妄の支配の崩壊</div>善の陣営の最終的な勝利</div>
+</div>
+<figcaption><b>図 XIII-18</b>寓意劇『プラボーダチャンドローダヤ』の構図。サンスクリットの人物名は訳者が補ったもの。</figcaption>
+</figure>
+<p>邪悪な王「迷妄」がベナレスの支配者として舞台に登場し、忠実な家来である「愚かさ」と「悪徳」たちに囲まれています。一方、「宗教」と高貴な王「理性」は、すべての「美徳」たちとともに追放されています。しかし、「理性」はいつか「啓示」と再び結ばれるという予言があります。その結びつきの実りが「真の知」であり、それが「迷妄」の支配を滅ぼすのです。この結びつきを求める戦いとその成就、そして善の陣営の最終的な勝利が、この劇の筋を形づくっています。</p>
+
+<h3><span class="sec">12</span>12世紀以降</h3>
+<p>12世紀から現代に至るまで、サンスクリット劇は数多く書かれてきました。筋はたいていマハーバーラタとラーマーヤナからとられています。そのほかに、1幕または数幕の笑劇もあり、たいていは下品な種類のもので、偽善などのさまざまな悪徳を風刺しています。これら後代の作品は、初期インドの劇作家の作品に比べて、芸術としてはるかに低い水準にとどまっています。［368］</p>
+<div class="note"><b>原注：</b>12世紀に作られ、まだ写本の形では知られていない二つのサンスクリット劇が、アジメールで発見された碑文の中に部分的に保存されていることは興味深い（Kielhorn, <i>Epigraphia Indica</i> 第5巻付録 p. 20, No. 134, カルカッタ, 1899）。<br><b>訳注：</b>この二作は、ヴィグラハラージャ4世の『ハラケーリナータカ』（<span class="t">Harakelināṭaka</span>）と、ソーマデーヴァの『ラリタヴィグラハラージャナータカ』（<span class="t">Lalitavigraharājanāṭaka</span>）です。</div>
+</section>
+
+<footer>
+底本：Arthur A. Macdonell, <i>A History of Sanskrit Literature</i>, New York: D. Appleton and Company, 1900, pp. 318–368（Project Gutenberg eBook #41563）。<br>
+詩の引用は、マクドネル自身の英訳からの重訳です。サンスクリット原典から直接訳したものではありません。年代・学説は1900年当時のマクドネルの見解であり、その後の研究で改められた点があります（一部は訳注で補いました）。
+</footer>
+</div>
+</body>
+</html>
