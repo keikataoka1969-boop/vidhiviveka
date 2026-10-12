@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ウダヤナ『ニヤーヤ・クスマーンジャリ』の5章と9つの論証を、大学1年生向けに図と表で解説するページ。">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>クスマーンジャリ入門</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Tiro+Devanagari+Sanskrit&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表だけ少し広い帯に出す。章ごとに花びら番号の色を固定。 */
+:root{
+  --paper:#F4F5F9; --card:#FFFFFF; --ink:#1C2142; --muted:#596079; --line:#D6D9E6;
+  --gold:#B86A00; --gold-soft:#FCEBCB;
+  --opp:#AE2F55; --opp-soft:#FBE3EA;
+  --ans:#1F7A58; --ans-soft:#DDF2E8;
+  --indigo-soft:#E6E8F4;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+  --f-sa:"Tiro Devanagari Sanskrit","Noto Serif Devanagari",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11131D; --card:#1A1D2B; --ink:#E6E7F0; --muted:#A3A8BF; --line:#2E3249;
+  --gold:#F0A53A; --gold-soft:#3A2B11; --opp:#EE85A3; --opp-soft:#3B1C27;
+  --ans:#5FC79E; --ans-soft:#12322A; --indigo-soft:#22263A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11131D; --card:#1A1D2B; --ink:#E6E7F0; --muted:#A3A8BF; --line:#2E3249;
+  --gold:#F0A53A; --gold-soft:#3A2B11; --opp:#EE85A3; --opp-soft:#3B1C27;
+  --ans:#5FC79E; --ans-soft:#12322A; --indigo-soft:#22263A; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+.wide{max-width:64em;margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.55rem,4.2vw,2.05rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:800;margin-top:2.2em}
+p{margin:0 0 1em}
+a{color:var(--gold)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.sa{font-family:var(--f-sa)}
+em.t{font-style:normal;font-family:var(--f-body);color:var(--muted);font-size:.88em}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--gold);font-weight:700}
+.muted{color:var(--muted)}
+small,.cap{font-size:.84rem;color:var(--muted);line-height:1.7}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);
+  border-bottom:1px solid var(--line);margin-inline:-16px;padding:8px 16px;overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:64em}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.86rem;
+  padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-display);color:var(--gold)}
+
+/* hero */
+header.hero{padding-block:48px 24px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:32px;align-items:center}
+@media (max-width:760px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.hero h1{font-size:clamp(2.6rem,9vw,4.4rem);font-weight:800;letter-spacing:.04em;margin-block:.15em .1em}
+.hero .devtitle{font-family:var(--f-sa);font-size:1.35rem;color:var(--gold)}
+.hero .sub{font-family:var(--f-display);font-size:1.2rem;font-weight:600;margin-bottom:1.2em}
+.flower{width:100%;max-width:420px;margin-inline:auto;display:block}
+.flower .petal{fill:var(--gold-soft);stroke:var(--gold);stroke-width:1.5;transition:fill .2s}
+.flower a:hover .petal,.flower a:focus .petal{stroke-width:3.5;fill:var(--indigo-soft)}
+.flower text{fill:var(--ink);font-family:var(--f-body);font-size:13px;text-anchor:middle}
+.flower .pn{font-family:var(--f-display);font-weight:800;font-size:17px;fill:var(--gold)}
+.flower .core{fill:var(--ink)}
+.flower .coretext{fill:var(--paper);font-family:var(--f-display);font-weight:800;font-size:15px}
+
+section{padding-block:56px 8px;border-top:1px solid var(--line);margin-top:40px}
+section.first{border-top:0;margin-top:0}
+.sec-head{display:flex;gap:16px;align-items:baseline;margin-bottom:1em;flex-wrap:wrap}
+.petal-no{font-family:var(--f-display);font-weight:800;font-size:2.6rem;line-height:1;color:var(--gold)}
+.sec-head .sub{color:var(--muted);font-size:.95rem;width:100%}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.facts dt{font-size:.78rem;letter-spacing:.12em;color:var(--gold);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.08em;color:var(--muted);background:var(--indigo-soft);font-weight:700;white-space:nowrap}
+td.k{font-weight:700;white-space:nowrap}
+td .iast{display:block;font-size:.8rem;color:var(--muted);font-weight:400;font-style:italic}
+.tbl.min table{min-width:620px}
+.ok{color:var(--ans);font-weight:700}
+.ng{color:var(--opp);font-weight:700}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:1px 8px;border-radius:999px;white-space:nowrap;line-height:1.7}
+.pill.opp{background:var(--opp-soft);color:var(--opp)}
+.pill.ans{background:var(--ans-soft);color:var(--ans)}
+.pill.k{background:var(--gold-soft);color:var(--gold)}
+
+/* objection → answer rows */
+.duel{display:grid;gap:10px;margin-block:1.2em}
+.duel .row{display:grid;grid-template-columns:3.2em minmax(0,1fr) 1.6em minmax(0,1fr);gap:10px;align-items:stretch}
+.duel .no{font-family:var(--f-display);font-weight:800;font-size:1.5rem;color:var(--gold);align-self:center;text-align:center}
+.duel .o,.duel .a{border-radius:10px;padding:10px 14px;font-size:.93rem;line-height:1.65}
+.duel .o{background:var(--opp-soft)}
+.duel .a{background:var(--ans-soft)}
+.duel .o b{color:var(--opp)} .duel .a b{color:var(--ans)}
+.duel .arr{align-self:center;text-align:center;color:var(--muted);font-size:1.2rem}
+@media (max-width:620px){.duel .row{grid-template-columns:2.2em minmax(0,1fr)}.duel .arr{display:none}.duel .a{grid-column:2}}
+.groupnote{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16em),1fr));gap:10px;margin-top:6px}
+.groupnote div{border:1px dashed var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.84rem;color:var(--muted);margin-top:10px;line-height:1.7}
+figcaption b{color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-gold{fill:var(--gold)} .s-opp{fill:var(--opp)} .s-ans{fill:var(--ans)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-goldsoft{fill:var(--gold-soft)} .s-oppsoft{fill:var(--opp-soft)} .s-anssoft{fill:var(--ans-soft)} .s-indsoft{fill:var(--indigo-soft)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-gold{stroke:var(--gold)} .st-opp{stroke:var(--opp)} .st-ans{stroke:var(--ans)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.14em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+blockquote{margin:1.2em 0;padding:4px 0 4px 18px;border-left:3px solid var(--gold);font-family:var(--f-display);font-size:1.02rem;line-height:1.85}
+blockquote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--muted);margin-top:4px}
+
+/* syllogism */
+.syl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19em),1fr));gap:14px;margin-block:1.2em}
+.sylc{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
+.syl ol{list-style:none;margin:0;padding:0}
+.syl li{display:grid;grid-template-columns:4.6em minmax(0,1fr);gap:8px;padding:8px 12px;border-bottom:1px solid var(--line);font-size:.92rem;line-height:1.6}
+.syl li:last-child{border-bottom:0}
+.syl li span{font-size:.75rem;font-weight:700;color:var(--gold);letter-spacing:.06em;padding-top:2px}
+.syl h4{margin:0;padding:8px 12px;font-size:.85rem;background:var(--indigo-soft)}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">設計図</a></li>
+    <li><a href="#s1"><b>1</b>不可見力</a></li>
+    <li><a href="#s2"><b>2</b>ヴェーダ</a></li>
+    <li><a href="#s3"><b>3</b>否定の手段</a></li>
+    <li><a href="#s4"><b>4</b>正しい認識</a></li>
+    <li><a href="#s5"><b>5</b>九つの論証</a></li>
+    <li><a href="#think">考えてみよう</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wide">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">はじめてのインド哲学</div>
+      <h1>花の捧げもの</h1>
+      <div class="devtitle">न्यायकुसुमाञ्जलिः</div>
+      <p class="sub">ウダヤナ『ニヤーヤ・クスマーンジャリ』を図で読む</p>
+      <p>「神はいるのか」。千年ほど前のインドで、この問いに<strong>論理だけで</strong>答えようとした哲学者がいました。ウダヤナです。主著『ニヤーヤ・クスマーンジャリ』で、彼は神を認めない人たちの5つの異論を1章に1つずつ退け、最後の章で9つの論証を並べます。</p>
+      <p>このページでは、その議論の骨組みを図と表でたどります。サンスクリット語の知識は要りません。右の花の5枚の花びらが、本書の5つの章です。</p>
+    </div>
+    <svg class="flower" viewBox="0 0 400 400" role="img" aria-label="5枚の花びらで本書の5章を表した図。中心は神の存在。">
+      <g transform="translate(200 200)"><a href="#s1" aria-label="第1章 見えない力はある"><ellipse class="petal" cx="0" cy="-100" rx="62" ry="92" transform="rotate(0)"/></a><a href="#s2" aria-label="第2章 ヴェーダには神が要る"><ellipse class="petal" cx="0" cy="-100" rx="62" ry="92" transform="rotate(72)"/></a><a href="#s3" aria-label="第3章 否定する手段はない"><ellipse class="petal" cx="0" cy="-100" rx="62" ry="92" transform="rotate(144)"/></a><a href="#s4" aria-label="第4章 神の知は正しい"><ellipse class="petal" cx="0" cy="-100" rx="62" ry="92" transform="rotate(216)"/></a><a href="#s5" aria-label="第5章 九つの論証"><ellipse class="petal" cx="0" cy="-100" rx="62" ry="92" transform="rotate(288)"/></a><g pointer-events="none"><g transform="translate(0.0 -115.0)"><text class="pn" y="-26">1</text><text y="-2">見えない力</text><text y="16">はある</text></g><g transform="translate(109.4 -35.5)"><text class="pn" y="-26">2</text><text y="-2">ヴェーダには</text><text y="16">神が要る</text></g><g transform="translate(67.6 93.0)"><text class="pn" y="-26">3</text><text y="-2">否定する</text><text y="16">手段はない</text></g><g transform="translate(-67.6 93.0)"><text class="pn" y="-26">4</text><text y="-2">神の知は</text><text y="16">正しい</text></g><g transform="translate(-109.4 -35.5)"><text class="pn" y="-26">5</text><text y="-2">九つの</text><text y="16">論証</text></g></g><circle class="core" r="46"/>
+        <text class="coretext" x="0" y="-4" text-anchor="middle">神は</text>
+        <text class="coretext" x="0" y="16" text-anchor="middle">いる</text>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<main>
+<!-- ============ 入口 ============ -->
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2>まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>著者</dt><dd>ウダヤナ<br><small>10世紀後半〜11世紀。北インド、ミティラー地方の学者とされる</small></dd></div>
+    <div><dt>学派</dt><dd>ニヤーヤ（正理学派）<br><small>論理学と認識論を得意とする学派</small></dd></div>
+    <div><dt>書名の意味</dt><dd>ニヤーヤ（正理）の花を両手に盛った捧げもの<br><small>クスマ＝花、アンジャリ＝合わせた両手</small></dd></div>
+    <div><dt>分量</dt><dd>序と5章。偈（韻文）73、自注の散文<br><small>章は「スタバカ（花房）」と呼ばれる</small></dd></div>
+  </dl>
+
+  <h3>なぜ「花の捧げもの」なのか</h3>
+  <p>冒頭の祈りの偈（k.1）は、1つの文が<strong>2通りに読める</strong>ように作られています。花の描写として読むと、神の足もとに捧げる花束。論証の書として読むと、この本そのものです。注釈『ヴィスタラ』の説明を表にすると、こうなります。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>偈のことば</th><th>花として読むと</th><th>論証の書として読むと</th></tr></thead>
+      <tbody>
+        <tr><td class="k">良い花びらを広げ</td><td>花びらが美しく開く</td><td>正しい主題（<i>pakṣa</i>）を立てている</td></tr>
+        <tr><td class="k">香りが立ちのぼる</td><td>よい香りが人を喜ばせる</td><td>論証に説得力がある</td></tr>
+        <tr><td class="k">揉まれてもしおれない</td><td>手で揉んでも傷まない</td><td>反論されても崩れない</td></tr>
+        <tr><td class="k">甘露の蜜が湧く</td><td>甘い蜜がしたたる</td><td>解脱への願いを強める</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>つまりウダヤナにとって、<strong>きちんとした論証を組み立てること自体が、神への礼拝</strong>でした。序の偈（k.3）でも、神についての正理による考究は、聖典を聞いたあとに行う「思惟（マナナ）」であり、礼拝そのものだ、と言っています。信仰と論理を対立させない。ここが本書のいちばん大きな特徴です。</p>
+
+  <h3>登場する学派</h3>
+  <p>本書は論争の書です。相手の学派を知っておくと、どの章も読みやすくなります。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>学派</th><th>どんな考え方か</th><th>神（世界の作り手）について</th><th>主に出てくる章</th></tr></thead>
+      <tbody>
+        <tr><td class="k">ニヤーヤ<span class="iast">Nyāya</span></td><td>正しい認識手段（知覚・推論・類比・言葉）を分析する。ウダヤナの学派。ヴァイシェーシカ（原子論）と組む</td><td><span class="pill ans">認める</span> 世界を作り、ヴェーダを説いた神がいる</td><td>全章（著者の立場）</td></tr>
+        <tr><td class="k">ミーマーンサー<span class="iast">Mīmāṃsā</span></td><td>ヴェーダの祭式を研究する。ヴェーダは誰も作っていない永遠のことばだと考える</td><td><span class="pill opp">認めない</span> ヴェーダが永遠なら作者は要らない</td><td>1・2・3・4章（最大の論敵）</td></tr>
+        <tr><td class="k">仏教<span class="iast">Bauddha</span></td><td>すべては一瞬ごとに生じては滅する（刹那滅）</td><td><span class="pill opp">認めない</span> 世界を作る永遠の神はいない</td><td>1章</td></tr>
+        <tr><td class="k">サーンキヤ<span class="iast">Sāṅkhya</span></td><td>世界は物質原理（プラクリティ）の展開。純粋な精神（プルシャ）は見ているだけ</td><td><span class="pill opp">不要</span> 聖仙カピラらが教えを伝えればよい</td><td>1・2章</td></tr>
+        <tr><td class="k">順世派<span class="iast">Cārvāka</span></td><td>知覚できるものだけが実在。心は身体から生じる唯物論</td><td><span class="pill opp">認めない</span> 来世も見えない力もない</td><td>1章</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 設計図 ============ -->
+<section id="map" class="wrap">
+  <div class="sec-head"><h2>本書の設計図</h2><span class="sub">5つの異論に、1章ずつ答える</span></div>
+  <p>序の最後（0.4）で、ウダヤナは神を否定する異論を5つにまとめます。そして第1章から第5章まで、<strong>1つの章で1つの異論</strong>を退けていきます。本書の構成は、この対応表がすべてです。</p>
+
+  <div class="duel" role="list">
+    <div class="row" role="listitem"><div class="no">1</div><div class="o"><b>異論</b>　来世をもたらす、目に見えない手段などない</div><div class="arr">→</div><div class="a"><b>第1章</b>　行為の結果を来世まで運ぶ「不可見力」はある</div></div>
+    <div class="row" role="listitem"><div class="no">2</div><div class="o"><b>異論</b>　神がいなくても、永遠のヴェーダや聖仙が教えを伝えられる</div><div class="arr">→</div><div class="a"><b>第2章</b>　ヴェーダが正しい知識の源であるには、神が要る</div></div>
+    <div class="row" role="listitem"><div class="no">3</div><div class="o"><b>異論</b>　神がいないことを示す認識手段がある</div><div class="arr">→</div><div class="a"><b>第3章</b>　知覚・推論など6つの手段のどれも、神を否定できない</div></div>
+    <div class="row" role="listitem"><div class="no">4</div><div class="o"><b>異論</b>　神がいるとしても、その知は「正しい認識」ではない</div><div class="arr">→</div><div class="a"><b>第4章</b>　「正しい認識」を定義し直せば、神の知こそ正しい</div></div>
+    <div class="row" role="listitem"><div class="no">5</div><div class="o"><b>異論</b>　神を証明する認識手段がない</div><div class="arr">→</div><div class="a"><b>第5章</b>　9つの理由から、一切を知る神が証明される</div></div>
+  </div>
+
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 210" style="min-width:520px;width:100%" role="img" aria-label="5章を、神が必要な理由、守り、攻めの3段に分けた図">
+      <rect x="10" y="20" width="230" height="120" rx="10" class="s-indsoft"/>
+      <rect x="250" y="20" width="230" height="120" rx="10" class="s-oppsoft"/>
+      <rect x="490" y="20" width="140" height="120" rx="10" class="s-anssoft"/>
+      <text x="125" y="48" text-anchor="middle" class="s-ink" font-weight="700" font-size="15">神が「要る」ことを示す</text>
+      <text x="365" y="48" text-anchor="middle" class="s-ink" font-weight="700" font-size="15">否定論をつぶす（守り）</text>
+      <text x="560" y="48" text-anchor="middle" class="s-ink" font-weight="700" font-size="15">証明（攻め）</text>
+      <g font-size="13" class="s-ink">
+        <rect x="26" y="66" width="96" height="56" rx="8" class="s-card"/><text x="74" y="90" text-anchor="middle" class="s-gold" font-weight="800" font-size="18">1</text><text x="74" y="110" text-anchor="middle">不可見力</text>
+        <rect x="128" y="66" width="96" height="56" rx="8" class="s-card"/><text x="176" y="90" text-anchor="middle" class="s-gold" font-weight="800" font-size="18">2</text><text x="176" y="110" text-anchor="middle">ヴェーダ</text>
+        <rect x="266" y="66" width="96" height="56" rx="8" class="s-card"/><text x="314" y="90" text-anchor="middle" class="s-gold" font-weight="800" font-size="18">3</text><text x="314" y="110" text-anchor="middle">否定の手段</text>
+        <rect x="368" y="66" width="96" height="56" rx="8" class="s-card"/><text x="416" y="90" text-anchor="middle" class="s-gold" font-weight="800" font-size="18">4</text><text x="416" y="110" text-anchor="middle">正しい認識</text>
+        <rect x="512" y="66" width="96" height="56" rx="8" class="s-card"/><text x="560" y="90" text-anchor="middle" class="s-gold" font-weight="800" font-size="18">5</text><text x="560" y="110" text-anchor="middle">九つの論証</text>
+      </g>
+      <path d="M20 160 H620" class="st-muted nofill" stroke-width="1.5" marker-end="url(#ah)"/>
+      <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <text x="125" y="190" font-size="12" class="s-muted" text-anchor="middle">「神がいなくても困らない」を崩す</text>
+      <text x="365" y="190" font-size="12" class="s-muted" text-anchor="middle">「神はいない／役に立たない」を崩す</text>
+      <text x="560" y="190" font-size="12" class="s-muted" text-anchor="middle">「証拠がない」に答える</text>
+    </svg>
+    </div>
+    <figcaption><b>図1　5章の役割分担。</b>第1〜4章で反対側の足場を順に崩し、最後の第5章で正面から証明する。いきなり証明を出さず、先に反論の余地をなくしておく構成になっている。</figcaption>
+  </figure>
+</section>
+
+<!-- ============ 第1章 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="petal-no">1</span><h2>見えない力はある</h2><span class="sub">第1スタバカ　不可見力（アドリシュタ <i>adṛṣṭa</i>）の確立　k.4–20</span></div>
+
+  <p>インドの多くの思想では、善い行いをすれば将来よい報いがあり、悪い行いをすれば苦しみが返ってくる、と考えます。しかし、ここには謎があります。<strong>行為はその場で終わって消えてしまう</strong>のに、結果は何年も後、ときには来世に現れます。消えた行為と、後の結果は、何でつながっているのでしょうか。</p>
+  <p>ウダヤナの答えは、行為をした本人の魂（アートマン）に、目に見えない痕跡が残る、というものです。これを<strong>不可見力（アドリシュタ）</strong>、つまり「見えないもの」と呼びます。善行による痕跡が功徳、悪行による痕跡が罪です。</p>
+
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 220" style="min-width:540px;width:100%" role="img" aria-label="行為は消えるが、魂に残る不可見力が後の結果を生むことを示す時間軸の図">
+      <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-gold"/></marker>
+      <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <line x1="30" y1="60" x2="610" y2="60" class="st-line" stroke-width="2"/>
+      <text x="30" y="40" font-size="12" class="s-muted">時間 →</text>
+      <rect x="40" y="70" width="130" height="50" rx="8" class="s-indsoft"/>
+      <text x="105" y="92" text-anchor="middle" font-size="14" class="s-ink" font-weight="700">行為</text>
+      <text x="105" y="110" text-anchor="middle" font-size="12" class="s-muted">祭式・布施・悪事</text>
+      <text x="230" y="100" text-anchor="middle" font-size="12.5" class="s-muted">行為は消える</text>
+      <line x1="180" y1="80" x2="280" y2="80" class="st-muted" stroke-dasharray="4 4" stroke-width="1.5"/>
+      <rect x="470" y="70" width="140" height="50" rx="8" class="s-indsoft"/>
+      <text x="540" y="92" text-anchor="middle" font-size="14" class="s-ink" font-weight="700">経験（果報）</text>
+      <text x="540" y="110" text-anchor="middle" font-size="12" class="s-muted">楽・苦／来世</text>
+      <text x="390" y="100" text-anchor="middle" font-size="18" class="s-opp" font-weight="700">？</text>
+      <rect x="40" y="152" width="570" height="44" rx="22" class="s-goldsoft"/>
+      <text x="325" y="179" text-anchor="middle" font-size="14" class="s-ink"><tspan font-weight="700">魂に残る「不可見力」</tspan>（功徳・罪）が、結果が出るまで持ちこされる</text>
+      <path d="M105 122 C105 140 120 150 140 152" class="st-gold nofill" stroke-width="2" marker-end="url(#ah2)"/>
+      <path d="M520 152 C535 148 540 140 540 124" class="st-gold nofill" stroke-width="2" marker-end="url(#ah2)"/>
+    </svg>
+    </div>
+    <figcaption><b>図2　不可見力のはたらき。</b>行為と結果の間には時間の切れ目がある。その切れ目を埋めるのが、魂に残る見えない痕跡。たとえるなら、使えばなくなるお金ではなく、口座に残る「預金残高」のようなもの。</figcaption>
+  </figure>
+
+  <h3>不可見力を立てる5つの理由（k.4）</h3>
+  <p>章の前半は、ひとつの偈に並んだ5つの理由を、1つずつ説明していきます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>理由</th><th>言いたいこと</th><th>身近なたとえ</th></tr></thead>
+      <tbody>
+        <tr><td class="k">① 依存性<span class="iast">sāpekṣatva</span></td><td>楽や苦の経験は、たまたま起きるのではない。決まった時に決まった形で起きるので、原因に依存している（k.5）</td><td>芽はいつでも出るわけではない。種と季節がそろったときに出る</td></tr>
+        <tr><td class="k">② 無始性<span class="iast">anāditva</span></td><td>原因から結果への流れには始まりがない。結果の種類ごとに、それに合った原因があるはず（k.6）</td><td>種から芽、芽から種。どちらが先とも言えない</td></tr>
+        <tr><td class="k">③ 多様性<span class="iast">vaicitrya</span></td><td>人の経験は千差万別。一様な原因からは多様な結果は出ない。見えない原因に違いがあるはず（k.7）</td><td>同じ家に生まれた兄弟でも、人生はまるで違う</td></tr>
+        <tr><td class="k">④ 万人の営み<span class="iast">viśvavṛtti</span></td><td>多くの人が祭式や布施に努める。それが無意味だとも、苦労だけだとも、目先の得のためだけだとも考えにくい（k.8）</td><td>祭式の手間や出費は、料理に薪割りがつきものなのと同じで、目的ではない</td></tr>
+        <tr><td class="k">⑤ 各自への限定<span class="iast">pratyātmaniyama</span></td><td>行為はとうに消えたのに、結果は<strong>その行為をした本人に</strong>現れる。本人に結びついた「残存力」がなければ説明できない（k.9）</td><td>他人の勉強で自分の成績は上がらない</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>ライバルの説明を退ける</h3>
+  <p>後半では、「見えない力」の代わりになりそうな他派の説明を順に退けます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>相手</th><th>相手の説明</th><th>ウダヤナの答え</th></tr></thead>
+      <tbody>
+        <tr><td class="k"><span class="pill opp">ミーマーンサー</span></td><td>物そのものに「力（シャクティ）」がある。火には燃やす力があり、呪文などで妨げられると燃えない</td><td>余分な「力」は要らない。「妨げられる」とは、原因の一部が欠けている（妨げるものがない、という条件が満たされない）ことにすぎない（k.10）。浄めの儀礼の効果も、物ではなく人に生じる（k.11）</td></tr>
+        <tr><td class="k"><span class="pill opp">サーンキヤ</span></td><td>行為するのは物質側の知性。純粋精神はそれを見ているだけ</td><td>行為する者と経験する者が別なら、行為の結果が本人に返らない。解脱も輪廻も説明できなくなる。不可見力は精神（行為者）の性質である（k.14）</td></tr>
+        <tr><td class="k"><span class="pill opp">順世派</span></td><td>意識は身体から生じる。身体が心の主体</td><td>他人が見たことを別人は思い出せない。身体の部分は失われていくので、記憶をもち続ける主体になれない（k.15）</td></tr>
+        <tr><td class="k"><span class="pill opp">仏教</span></td><td>すべては一瞬で滅する。持続する魂はない</td><td>刹那滅を証明する推論そのものが、持続するものなしには成り立たない（k.16）。「これはさっきと同じものだ」という再認識は疑えない（k.17）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="point">
+    <span class="lbl">ここが神につながる</span>
+    <p>不可見力は意識をもたない力です。また、私たちには見えません。第2章の冒頭でウダヤナは、見えない原因が確かにある以上、<strong>それを見通して扱える、世間を超えた者</strong>が想定される、と話をつなげます。章末の偈（k.20）では、他派が「マーヤー」「プラクリティ」「無明」と呼ぶものも実はこの不可見力であり、それを力としてもつのが神だ、と讃えて終わります。</p>
+  </div>
+</section>
+
+<!-- ============ 第2章 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="petal-no">2</span><h2>ヴェーダには神が要る</h2><span class="sub">第2スタバカ　ヴェーダの権威と神　k.1–4</span></div>
+  <p>第2の異論はこうです。「来世の手段（祭式）があるとしても、神は要らない。ヴェーダは永遠に存在する作者のないことばだ（ミーマーンサー）。あるいは、カピラのような聖仙が教えを伝えればよい（サーンキヤ）」。</p>
+  <p>ウダヤナは章の最初の偈（k.1）で3つの理由を挙げ、これがそのまま章の骨組みになります。</p>
+
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 200" style="min-width:540px;width:100%" role="img" aria-label="ヴェーダの権威を支える3本の柱の図">
+      <rect x="40" y="18" width="560" height="40" rx="8" class="s-goldsoft"/>
+      <text x="320" y="44" text-anchor="middle" font-size="15" font-weight="700" class="s-ink">神なしに、法（祭式の教え）が伝わる別の道はない</text>
+      <g font-size="13" class="s-ink">
+        <rect x="60" y="70" width="150" height="80" rx="6" class="s-card st-line" stroke-width="1.5"/>
+        <text x="135" y="96" text-anchor="middle" font-weight="700">正しい認識は</text><text x="135" y="114" text-anchor="middle" font-weight="700">他に依存する</text><text x="135" y="138" text-anchor="middle" font-size="11.5" class="s-muted">→ ことばの正しさは話し手次第</text>
+        <rect x="245" y="70" width="150" height="80" rx="6" class="s-card st-line" stroke-width="1.5"/>
+        <text x="320" y="96" text-anchor="middle" font-weight="700">世界には創造と</text><text x="320" y="114" text-anchor="middle" font-weight="700">帰滅がある</text><text x="320" y="138" text-anchor="middle" font-size="11.5" class="s-muted">→ 伝承はいちど途切れる</text>
+        <rect x="430" y="70" width="150" height="80" rx="6" class="s-card st-line" stroke-width="1.5"/>
+        <text x="505" y="96" text-anchor="middle" font-weight="700">神以外は</text><text x="505" y="114" text-anchor="middle" font-weight="700">信頼できない</text><text x="505" y="138" text-anchor="middle" font-size="11.5" class="s-muted">→ 人間の聖仙は誤りうる</text>
+      </g>
+      <rect x="40" y="160" width="560" height="10" rx="3" class="s-indsoft"/>
+      <text x="320" y="192" text-anchor="middle" font-size="12" class="s-muted">k.1「正しい認識は他に依存するから、創造と帰滅がありうるから、彼以外の者は信頼できないから」</text>
+    </svg>
+    </div>
+    <figcaption><b>図3　第2章を支える3本の柱。</b>どの柱が崩れても「神なしでも伝わる」という道は残らない、という組み立て。</figcaption>
+  </figure>
+
+  <h3>柱1　「正しい」はどこから来るか</h3>
+  <p>ミーマーンサーとニヤーヤは、認識の正しさの源をめぐって正面から対立します。この違いが分かると、なぜヴェーダに作者が要るのかが見えてきます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th></th><th>ミーマーンサー（自律説）</th><th>ニヤーヤ（他律説）</th></tr></thead>
+      <tbody>
+        <tr><td class="k">基本の考え</td><td>認識は、生じたときから自ずと正しい。誤るのは、欠陥が入りこんだときだけ</td><td>認識の正しさは、それを生んだ原因の<strong>長所</strong>（健全な目、信頼できる話し手など）から来る</td></tr>
+        <tr><td class="k">ことばの場合</td><td>話し手がいなければ、話し手の欠陥もない。だから作者のないヴェーダは誤りようがない</td><td>ことばが正しいのは、話し手が正しく知り、正しく語るから。ヴェーダにも、確かな話し手が要る</td></tr>
+        <tr><td class="k">ヴェーダは</td><td>永遠。誰も作っていない</td><td>音は生じては消える。生じるものは無常（2.3–2.4）。ヴェーダも作られたもの</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>柱2　世界のリセットと「伝言ゲーム」</h3>
+  <p>インドの宇宙観では、世界は創造され、しばらく続き、やがて帰滅（プララヤ）を迎えて、また創造されます。帰滅のときには、先生から弟子へ続いてきたヴェーダの伝承も途切れます。では、次の世界でだれがヴェーダを伝え直すのでしょうか。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 230" style="min-width:540px;width:100%" role="img" aria-label="師から弟子への伝承が帰滅で途切れ、新しい世界の始まりに全知の話し手が必要になることを示す図">
+      <defs><marker id="ah4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <text x="20" y="28" font-size="13" font-weight="700" class="s-ink">前の世界</text>
+      <g class="s-indsoft"><circle cx="50" cy="70" r="20"/><circle cx="125" cy="70" r="20"/><circle cx="200" cy="70" r="20"/></g>
+      <g font-size="11" class="s-ink" text-anchor="middle"><text x="50" y="74">師</text><text x="125" y="74">弟子</text><text x="200" y="74">弟子</text></g>
+      <path d="M72 70 H100 M147 70 H175" class="st-muted" stroke-width="1.5" marker-end="url(#ah4)"/>
+      <path d="M222 70 H250" class="st-muted" stroke-width="1.5"/>
+      <rect x="262" y="40" width="116" height="60" rx="8" class="s-oppsoft"/>
+      <text x="320" y="66" text-anchor="middle" font-size="13" font-weight="700" class="s-opp">帰滅</text>
+      <text x="320" y="86" text-anchor="middle" font-size="11.5" class="s-opp">伝承が途切れる</text>
+      <text x="400" y="28" font-size="13" font-weight="700" class="s-ink">新しい世界</text>
+      <circle cx="430" cy="70" r="26" class="s-goldsoft st-gold" stroke-width="2"/>
+      <text x="430" y="68" text-anchor="middle" font-size="11" class="s-ink" font-weight="700">全知の</text><text x="430" y="82" text-anchor="middle" font-size="11" class="s-ink" font-weight="700">話し手</text>
+      <g class="s-indsoft"><circle cx="510" cy="70" r="20"/><circle cx="585" cy="70" r="20"/></g>
+      <g font-size="11" class="s-ink" text-anchor="middle"><text x="510" y="74">師</text><text x="585" y="74">弟子</text></g>
+      <path d="M458 70 H486 M532 70 H560" class="st-muted" stroke-width="1.5" marker-end="url(#ah4)"/>
+      <line x1="20" y1="130" x2="620" y2="130" class="st-line"/>
+      <text x="20" y="160" font-size="13" font-weight="700" class="s-ink">伝承の中でも劣化は起きる（k.3）</text>
+      <g font-size="12.5" class="s-muted">
+        <text x="20" y="186">生まれ・浄化儀礼・学問、ヴェーダの学習や祭式を行う力が、目に見えて衰えていく。</text>
+        <text x="20" y="208">伝言ゲームのように、人から人への伝達だけでは、元の正しさは保証されない。</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図4　伝承の切れ目。</b>世界が帰滅すれば人から人への伝承は続かない。続いている間にも劣化する。だから、最初にことばと意味の決まりを定め、ヴェーダを説く、信頼できる全知の者が要る。</figcaption>
+  </figure>
+  <p>相手は「世界に始まりや終わりなどない」と食い下がります。それに対するウダヤナの答え（k.2）は、どれも身近なたとえでできています。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>相手の主張</th><th>ウダヤナの答え</th></tr></thead>
+      <tbody>
+        <tr><td>昼のあとには必ず夜が来る。だから世界はずっと続く</td><td>それは世界が続いている間だけ成り立つ決まり。雨季の初日に当てはまることが、雨季が終われば当てはまらないのと同じ</td></tr>
+        <tr><td>業（行為の力）は絶えずはたらく。止まるはずがない</td><td>熟睡しているとき、はたらきは止まっている。世界全体でも同じことが起きうる</td></tr>
+        <tr><td>人の身分（ヴァルナ）は親から子へ伝わる。最初の人がいたはずがない</td><td>種なしに芽生える植物や、自然に湧くとされたサソリのように、最初は親なしに生じうる</td></tr>
+        <tr><td>ことばと意味の約束事は、だれかから教わらないと成り立たない</td><td>手品師が新しい合図を決めて見せるように、世界の初めに神が約束事を示す</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>柱3　多数決では決まらない</h3>
+  <p>カピラのような聖仙も人間であり、誤りうる以上、信頼のよりどころにはなりません。また、多くの人に受け入れられていること（2.9）も、正しさの根拠にはならない、とウダヤナは言います。見えないことについて完全に信頼できるのは、すべてを見通す者だけです。</p>
+</section>
+
+<!-- ============ 第3章 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="petal-no">3</span><h2>否定する手段はない</h2><span class="sub">第3スタバカ　神を否定する認識手段の検討　k.1–23</span></div>
+  <p>第3の異論は「神がいないことを示す手段がある」というものです。ウダヤナは、ミーマーンサーが認める<strong>6つの認識手段（プラマーナ）</strong>を1つずつ取り上げ、どれを使っても神の非存在は示せないことを確かめます。</p>
+
+  <h3>「見えない」と「ない」は違う</h3>
+  <p>最初の論点がいちばん分かりやすく、また大事です。「神がいるなら見えるはずだ。見えないのだから、いない」。これに対してウダヤナは、<strong>見えるはずのものが見えないとき</strong>にだけ「ない」と言える、と答えます（k.1）。</p>
+
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 600 270" style="min-width:500px;width:100%" role="img" aria-label="知覚できるかどうかと、見えたかどうかの2かける2の表">
+      <text x="300" y="22" text-anchor="middle" font-size="13" class="s-muted">その場で知覚されたか</text>
+      <text x="240" y="48" text-anchor="middle" font-size="13.5" font-weight="700" class="s-ink">見えた</text>
+      <text x="460" y="48" text-anchor="middle" font-size="13.5" font-weight="700" class="s-ink">見えない</text>
+      <text x="22" y="140" font-size="13" class="s-muted" transform="rotate(-90 22 140)" text-anchor="middle">もともと知覚できる性質か</text>
+      <text x="80" y="110" text-anchor="middle" font-size="13" font-weight="700" class="s-ink">知覚できる</text>
+      <text x="80" y="128" text-anchor="middle" font-size="11.5" class="s-muted">机の上の壺</text>
+      <text x="80" y="200" text-anchor="middle" font-size="13" font-weight="700" class="s-ink">知覚できない</text>
+      <text x="80" y="218" text-anchor="middle" font-size="11.5" class="s-muted">神・原子・功徳</text>
+      <rect x="135" y="62" width="210" height="88" rx="8" class="s-anssoft"/>
+      <text x="240" y="100" text-anchor="middle" font-size="13.5" class="s-ans" font-weight="700">「ある」と言える</text>
+      <text x="240" y="122" text-anchor="middle" font-size="12" class="s-ink">壺が見えた</text>
+      <rect x="355" y="62" width="210" height="88" rx="8" class="s-anssoft"/>
+      <text x="460" y="100" text-anchor="middle" font-size="13.5" class="s-ans" font-weight="700">「ない」と言える</text>
+      <text x="460" y="122" text-anchor="middle" font-size="12" class="s-ink">壺が見えない → 壺はない</text>
+      <rect x="135" y="160" width="210" height="88" rx="8" class="s-indsoft"/>
+      <text x="240" y="198" text-anchor="middle" font-size="13" class="s-muted">（起こらない）</text>
+      <rect x="355" y="160" width="210" height="88" rx="8" class="s-oppsoft"/>
+      <text x="460" y="194" text-anchor="middle" font-size="13.5" class="s-opp" font-weight="700">何も言えない</text>
+      <text x="460" y="216" text-anchor="middle" font-size="12" class="s-ink">見えないのは当然。</text>
+      <text x="460" y="234" text-anchor="middle" font-size="12" class="s-ink">「ない」の証拠にならない</text>
+    </svg>
+    </div>
+    <figcaption><b>図5　「見えない」から「ない」が言えるのは右上だけ。</b>神は感覚の対象ではないので右下に入る。そこでは、見えないことは否定の根拠にならない。私たちが原子を肉眼で見られないのと同じこと。</figcaption>
+  </figure>
+
+  <p>相手は「それなら兎の角も、見えないのは知覚できないからだ、と言えてしまう」と返します。ウダヤナの答えは、兎の角の場合は見えるはずの条件（兎の頭、明るさ、健全な目）がそろっているのに見えないのだから「ない」と言える、というものです（k.3）。</p>
+
+  <h3>否定しようとすると、自分の足場が崩れる</h3>
+  <p>推論で神を否定しようとする相手には、ジレンマで答えます（k.5）。「神は一切知者ではない」と主張するには、まず「神」という主題を立てなければなりません。その神の観念は、どこから来たのでしょうか。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 620 230" style="min-width:520px;width:100%" role="img" aria-label="神を主題に立てる根拠が正しいか誤りかで分かれるジレンマの図">
+      <defs><marker id="ah5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <rect x="170" y="10" width="280" height="54" rx="8" class="s-oppsoft"/>
+      <text x="310" y="34" text-anchor="middle" font-size="14" font-weight="700" class="s-opp">「神は存在しない」と論じたい</text>
+      <text x="310" y="54" text-anchor="middle" font-size="12" class="s-ink">その「神」の観念はどこから？</text>
+      <path d="M260 64 L150 110" class="st-muted" stroke-width="1.5" marker-end="url(#ah5)"/>
+      <path d="M360 64 L470 110" class="st-muted" stroke-width="1.5" marker-end="url(#ah5)"/>
+      <rect x="20" y="112" width="270" height="100" rx="8" class="s-card st-line" stroke-width="1.5"/>
+      <text x="155" y="138" text-anchor="middle" font-size="13.5" font-weight="700" class="s-ink">正しい認識手段から</text>
+      <text x="155" y="160" text-anchor="middle" font-size="12" class="s-ink">（聖典など）</text>
+      <text x="155" y="186" text-anchor="middle" font-size="12" class="s-ans" font-weight="700">その手段が神を立証してしまう</text>
+      <text x="155" y="204" text-anchor="middle" font-size="12" class="s-muted">→ 否定のほうが打ち消される</text>
+      <rect x="330" y="112" width="270" height="100" rx="8" class="s-card st-line" stroke-width="1.5"/>
+      <text x="465" y="138" text-anchor="middle" font-size="13.5" font-weight="700" class="s-ink">誤った手段から</text>
+      <text x="465" y="160" text-anchor="middle" font-size="12" class="s-ink">（根拠のない想像）</text>
+      <text x="465" y="186" text-anchor="middle" font-size="12" class="s-opp" font-weight="700">論じる主題がそもそもない</text>
+      <text x="465" y="204" text-anchor="middle" font-size="12" class="s-muted">→ 推論が成り立たない</text>
+    </svg>
+    </div>
+    <figcaption><b>図6　否定論のジレンマ（k.5）。</b>どちらに転んでも「神はいない」という推論は完成しない。ニヤーヤでは、主題が成り立たない推論の誤りを「基体不成立（アーシュラヤ・アシッディ）」と呼ぶ。</figcaption>
+  </figure>
+
+  <div class="point">
+    <span class="lbl">疑いには歯止めがある（k.7）</span>
+    <p>「推論の前提だって疑える」と言い出せば、どんな議論も進みません。ウダヤナは、疑いは<strong>自分の行動と矛盾するところで止まる</strong>と言います。食べ物で空腹が満たされることを本気で疑う人は、食事をしようとしないはずです。疑いながら食べているなら、その疑いは本物ではありません。</p>
+  </div>
+
+  <h3>6つの手段を順に検討する</h3>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>認識手段</th><th>神の否定に使えるか</th><th>ウダヤナの要点</th></tr></thead>
+      <tbody>
+        <tr><td class="k">知覚<span class="iast">pratyakṣa</span></td><td><span class="pill ans">使えない</span></td><td>見えるはずのものにしか「見えない＝ない」は使えない（k.1）</td></tr>
+        <tr><td class="k">推論<span class="iast">anumāna</span></td><td><span class="pill ans">使えない</span></td><td>主題の神をどこから得たかで行き詰まる（k.4–5）。見えないことを理由に原因を否定すれば、知覚そのものも成り立たなくなる（k.6）</td></tr>
+        <tr><td class="k">類比<span class="iast">upamāna</span></td><td><span class="pill ans">使えない</span></td><td>類比が教えるのは「この名前はこのものを指す」という結びつきだけ（k.10）。「ガヴァヤ（野牛の一種）は牛に似ている」と聞いた人が、森で似た動物を見て名前を知る、という働きで、神の非存在を教える力はない</td></tr>
+        <tr><td class="k">言葉<span class="iast">śabda</span></td><td><span class="pill ans">使えない</span></td><td>信頼できない人の言葉は根拠にならず、見えないものを語れるのは一切知者だけ（k.16）。聖典は神の存在も語っている（k.17）</td></tr>
+        <tr><td class="k">要請<span class="iast">arthāpatti</span></td><td><span class="pill ans">使えない</span></td><td>「ほかに説明がつかないから、こうだ」という推定。これは推論の一種で、独立の手段ではない（k.19）</td></tr>
+        <tr><td class="k">非認識<span class="iast">anupalabdhi</span></td><td><span class="pill ans">使えない</span></td><td>「床に壺がない」と分かるのは、感官（目）のはたらき。独立の手段は要らない（k.20–22）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 620 200" style="min-width:520px;width:100%" role="img" aria-label="ミーマーンサーの6つの認識手段のうち、要請は推論に、非認識は知覚に吸収され、ニヤーヤの4つになる図">
+      <defs><marker id="ah6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-gold"/></marker></defs>
+      <text x="10" y="40" font-size="12.5" class="s-muted">ミーマーンサー</text><text x="10" y="56" font-size="12.5" class="s-muted">（6つ）</text>
+      <text x="10" y="160" font-size="12.5" class="s-muted">ニヤーヤ</text><text x="10" y="176" font-size="12.5" class="s-muted">（4つ）</text>
+      <g font-size="13" text-anchor="middle" class="s-ink">
+        <rect x="110" y="24" width="76" height="36" rx="6" class="s-indsoft"/><text x="148" y="47">知覚</text>
+        <rect x="194" y="24" width="76" height="36" rx="6" class="s-indsoft"/><text x="232" y="47">推論</text>
+        <rect x="278" y="24" width="76" height="36" rx="6" class="s-indsoft"/><text x="316" y="47">類比</text>
+        <rect x="362" y="24" width="76" height="36" rx="6" class="s-indsoft"/><text x="400" y="47">言葉</text>
+        <rect x="446" y="24" width="76" height="36" rx="6" class="s-goldsoft"/><text x="484" y="47">要請</text>
+        <rect x="530" y="24" width="76" height="36" rx="6" class="s-goldsoft"/><text x="568" y="47">非認識</text>
+        <rect x="110" y="144" width="76" height="36" rx="6" class="s-anssoft"/><text x="148" y="167">知覚</text>
+        <rect x="194" y="144" width="76" height="36" rx="6" class="s-anssoft"/><text x="232" y="167">推論</text>
+        <rect x="278" y="144" width="76" height="36" rx="6" class="s-anssoft"/><text x="316" y="167">類比</text>
+        <rect x="362" y="144" width="76" height="36" rx="6" class="s-anssoft"/><text x="400" y="167">言葉</text>
+      </g>
+      <g class="st-muted" stroke-width="1.2"><path d="M148 60 V142"/><path d="M232 60 V142"/><path d="M316 60 V142"/><path d="M400 60 V142"/></g>
+      <path d="M484 60 C484 110 300 100 240 142" class="st-gold nofill" stroke-width="2" marker-end="url(#ah6)"/>
+      <path d="M568 60 C568 125 260 90 156 142" class="st-gold nofill" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah6)"/>
+      <text x="470" y="100" font-size="11.5" class="s-gold">要請 → 推論に含まれる</text>
+      <text x="470" y="118" font-size="11.5" class="s-gold">非認識 → 知覚に含まれる</text>
+    </svg>
+    </div>
+    <figcaption><b>図7　6つの手段が4つにまとまる。</b>第3章は神の否定を退けるだけでなく、ミーマーンサーの認識手段の数え方そのものを、ニヤーヤの4つに整理し直している。</figcaption>
+  </figure>
+</section>
+
+<!-- ============ 第4章 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="petal-no">4</span><h2>神の知は正しい</h2><span class="sub">第4スタバカ　「正しい認識（プラマー <i>pramā</i>）」とは何か　k.1–6</span></div>
+  <p>第4の異論は少し意外な角度から来ます。「神がいて、すべてを知っているとしよう。しかし、その知は<strong>正しい認識</strong>とは呼べない」。ミーマーンサーは、正しい認識を「まだ知られていないものを知ること」と定義していました。神は永遠にすべてを知っているので、神にとって「まだ知らないもの」はありません。だから神の知はこの定義に当てはまらない、というわけです。</p>
+  <p>ウダヤナはこの<strong>定義そのものが間違っている</strong>と反論し、代わりに「如実な経験（ヤタールターヌバヴァ）」、つまり、ものをありのままに捉える経験、という定義を立てます（k.1）。2つの定義を、いくつかのケースで比べてみましょう。</p>
+
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>ケース</th><th>本当は正しい認識？</th><th>定義A：未知のものを知る<br><small>ミーマーンサー</small></th><th>定義B：如実な経験<br><small>ウダヤナ</small></th></tr></thead>
+      <tbody>
+        <tr><td>壺を見続けているときの、2秒目の知覚</td><td>正しい</td><td><span class="ng">× 外れる</span><br><small>すでに知っているので「未知」でない</small></td><td><span class="ok">○ 合う</span></td></tr>
+        <tr><td>神の永遠の知</td><td>正しい（とウダヤナは考える）</td><td><span class="ng">× 外れる</span></td><td><span class="ok">○ 合う</span></td></tr>
+        <tr><td>貝殻を銀と見間違える</td><td>正しくない</td><td><span class="ng">× 区別できない</span><br><small>初めて捉えた対象ではある</small></td><td><span class="ok">○ 除外できる</span><br><small>ありのままではない</small></td></tr>
+        <tr><td>昨日見た壺を思い出す</td><td>正しい認識には数えない</td><td><span class="ok">○ 除外できる</span></td><td><span class="ok">○ 除外できる</span><br><small>経験ではなく記憶</small></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="cap">定義が、当てはまるべきものに当てはまらない欠点を「狭すぎる（アヴィヤープティ）」、当てはまるべきでないものまで含む欠点を「広すぎる（アティヴィヤープティ）」と呼ぶ。k.1 は定義Aがこの両方の欠点をもつと指摘する。</p>
+
+  <div class="point">
+    <span class="lbl">定義の勝負</span>
+    <p>正しさの条件を「新しさ」に置くか、「ありのまま」に置くか。定義Bを採れば、すべてをありのままに知る神の知は、むしろ<strong>正しい認識の典型</strong>になります。ウダヤナは、神は常に正しい認識と結びついているので「認識者」であり、同時に「認識手段（の基準）」でもある、と結論します（k.5）。章末の偈は「だから、私にとってシヴァこそが認識手段である」と結ばれます（k.6）。</p>
+  </div>
+
+  <p>この章では、知ることによって対象に「知られている」という新しい性質が生じる、というミーマーンサー（クマーリラ派）の説も退けています（4.3）。知が互いに区別されるのは対象が違うからで、対象の側に新しい性質を想定する必要はない、という議論です。</p>
+</section>
+
+<!-- ============ 第5章 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="petal-no">5</span><h2>九つの論証</h2><span class="sub">第5スタバカ　神の存在の論証　k.1–20</span></div>
+  <p>守りの4章を終えて、いよいよ証明です。第5の異論「神を証明する手段がない」に対し、ウダヤナは章の最初の偈（k.1）に9つの理由を詰めこみます。</p>
+  <blockquote>結果であること、結合、保持など（破壊）、言語慣習、信頼、天啓、文、特定の数から、一切を知る不滅の者（神）が証明される。<cite>第5スタバカ k.1（全訳より）</cite></blockquote>
+
+  <h3>インドの推論の型を知っておく</h3>
+  <p>ニヤーヤの推論は、決まった5つの部分（五支作法）で組み立てます。教科書の定番「山の火」と、第一の論証「結果であるから」を並べてみます。</p>
+  <div class="syl">
+    <div class="sylc"><h4>定番の例</h4><ol>
+      <li><span>主張</span>あの山には火がある</li>
+      <li><span>理由</span>煙があるから</li>
+      <li><span>実例</span>煙のあるところには火がある。かまどのように</li>
+      <li><span>適用</span>あの山にも、火と結びつく煙がある</li>
+      <li><span>結論</span>だから、あの山には火がある</li>
+    </ol></div>
+    <div class="sylc"><h4>第一の論証（5.2）</h4><ol>
+      <li><span>主張</span>大地などは、作り手をもつ</li>
+      <li><span>理由</span>結果（作られたもの）だから</li>
+      <li><span>実例</span>結果であるものには作り手がいる。壺のように</li>
+      <li><span>適用</span>大地なども、部分から組み上がった結果である</li>
+      <li><span>結論</span>だから、大地などには作り手がいる</li>
+    </ol></div>
+  </div>
+
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 600 250" style="min-width:480px;width:100%" role="img" aria-label="結果であるものの集合が、作り手をもつものの集合に含まれることを示す包含図">
+      <ellipse cx="300" cy="125" rx="280" ry="112" class="s-anssoft st-ans" stroke-width="1.5"/>
+      <ellipse cx="330" cy="140" rx="180" ry="72" class="s-goldsoft st-gold" stroke-width="1.5"/>
+      <text x="80" y="62" font-size="14" font-weight="700" class="s-ans">作り手をもつもの</text>
+      <text x="200" y="112" font-size="14" font-weight="700" class="s-gold">結果であるもの</text>
+      <g font-size="13" class="s-ink">
+        <circle cx="230" cy="150" r="5" class="s-ink"/><text x="242" y="155">壺</text>
+        <circle cx="300" cy="170" r="5" class="s-ink"/><text x="312" y="175">布</text>
+        <circle cx="390" cy="130" r="7" class="s-opp"/><text x="404" y="128" font-weight="700" class="s-opp">大地・山・体</text>
+        <text x="404" y="146" font-size="11.5" class="s-muted">結果であることは確か</text>
+      </g>
+      <text x="300" y="235" text-anchor="middle" font-size="12" class="s-muted">内側の円に入る以上、外側の円にも入る</text>
+    </svg>
+    </div>
+    <figcaption><b>図8　遍充（ヴィヤープティ）のイメージ。</b>推論を支えるのは「結果であるものは、すべて作り手をもつ」という包含関係。大地や山も、部分が組み合わさってできた結果である以上、外側の円に入るはずだ、という筋道になる。反論する側は、この包含関係（遍充）に例外がないかを突く。</figcaption>
+  </figure>
+
+  <h3>9つの理由の一覧</h3>
+  <p>9つは大きく3つのグループに分けられます。世界の観察から出発するもの、ヴェーダから出発するもの、原子論から出発するものです。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>理由</th><th>推論の中身（要約）</th><th>実例</th></tr></thead>
+      <tbody>
+        <tr><td colspan="3" style="background:var(--indigo-soft);font-weight:700;font-size:.82rem">世界の観察から</td></tr>
+        <tr><td class="k">① 結果であること<span class="iast">kārya</span></td><td>大地などは作り手をもつ。作られた結果だから</td><td>壺</td></tr>
+        <tr><td class="k">② 結合<span class="iast">āyojana</span></td><td>原子などは、精神をもつものに動かされて働く。それ自体は精神をもたないから</td><td>大工が使う手斧</td></tr>
+        <tr><td class="k">③ 保持<span class="iast">dhṛti</span></td><td>世界は、支える努力に支えられている。重さがあるのに落ちないから</td><td>空を飛ぶ鳥の体</td></tr>
+        <tr><td class="k">④ 破壊<span class="iast">saṃhāra</span></td><td>世界は、努力をもつ者によって壊される。壊されるものだから</td><td>引き裂かれる布</td></tr>
+        <tr><td class="k">⑤ 言語慣習<span class="iast">pada</span></td><td>機織りの技、話しことば、文字の順序など、人の営みには最初に教えた者がいる</td><td>職人の技の伝授</td></tr>
+        <tr><td colspan="3" style="background:var(--indigo-soft);font-weight:700;font-size:.82rem">ヴェーダから</td></tr>
+        <tr><td class="k">⑥ 信頼<span class="iast">pratyaya</span></td><td>ヴェーダの伝承の正しさは、話し手の長所に由来する。正しい認識手段だから</td><td>知覚（健全な目による）</td></tr>
+        <tr><td class="k">⑦ 天啓<span class="iast">śruti</span></td><td>ヴェーダは全知の者が作った。ヴェーダだから</td><td>（否定的な随伴で示す）</td></tr>
+        <tr><td class="k">⑧ 文<span class="iast">vākya</span></td><td>ヴェーダの文は人格的な作者をもつ。文だから</td><td>私たちの話す文</td></tr>
+        <tr><td colspan="3" style="background:var(--indigo-soft);font-weight:700;font-size:.82rem">原子論から</td></tr>
+        <tr><td class="k">⑨ 特定の数<span class="iast">saṅkhyāviśeṣa</span></td><td>二原子体の大きさは、原子の大きさからではなく原子の「数」から生じる。世界の始まりにその数を数え分ける知が要る</td><td>（ヴァイシェーシカ原子論）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 620 210" style="min-width:520px;width:100%" role="img" aria-label="原子から二原子体、三原子体へと大きさが生じる仕組みの図">
+      <defs><marker id="ah7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g class="s-ink"><circle cx="60" cy="90" r="6"/><circle cx="60" cy="120" r="6"/></g>
+      <text x="60" y="160" text-anchor="middle" font-size="12.5" class="s-ink">原子</text>
+      <text x="60" y="178" text-anchor="middle" font-size="11" class="s-muted">大きさは「極微」</text>
+      <path d="M85 105 H165" class="st-muted" stroke-width="1.5" marker-end="url(#ah7)"/>
+      <text x="125" y="95" text-anchor="middle" font-size="11.5" class="s-gold" font-weight="700">「2」</text>
+      <g><circle cx="205" cy="105" r="9" class="s-indsoft st-ink" stroke-width="1.2"/><circle cx="225" cy="105" r="9" class="s-indsoft st-ink" stroke-width="1.2"/></g>
+      <text x="215" y="160" text-anchor="middle" font-size="12.5" class="s-ink">二原子体</text>
+      <text x="215" y="178" text-anchor="middle" font-size="11" class="s-muted">まだ微小</text>
+      <path d="M250 105 H330" class="st-muted" stroke-width="1.5" marker-end="url(#ah7)"/>
+      <text x="290" y="95" text-anchor="middle" font-size="11.5" class="s-gold" font-weight="700">「3」</text>
+      <g class="s-goldsoft st-gold" stroke-width="1.2"><circle cx="372" cy="94" r="13"/><circle cx="398" cy="94" r="13"/><circle cx="385" cy="118" r="13"/></g>
+      <text x="385" y="160" text-anchor="middle" font-size="12.5" class="s-ink">三原子体</text>
+      <text x="385" y="178" text-anchor="middle" font-size="11" class="s-muted">はじめて目に見える大きさ</text>
+      <rect x="440" y="40" width="170" height="120" rx="10" class="s-goldsoft"/>
+      <text x="525" y="66" text-anchor="middle" font-size="12.5" font-weight="700" class="s-ink">大きさを生むのは数</text>
+      <text x="525" y="90" text-anchor="middle" font-size="11.5" class="s-ink">「2」「3」という数は、</text>
+      <text x="525" y="108" text-anchor="middle" font-size="11.5" class="s-ink">数え分ける知があって</text>
+      <text x="525" y="126" text-anchor="middle" font-size="11.5" class="s-ink">初めて生じる。創造の</text>
+      <text x="525" y="144" text-anchor="middle" font-size="11.5" class="s-ink">始めにそれをもつのは神</text>
+    </svg>
+    </div>
+    <figcaption><b>図9　第9の理由「特定の数」。</b>微小な原子の大きさをいくら足しても大きなものは生まれない、とウダヤナは考える（5.10）。大きさの決め手は数であり、数には数える知性が要る。ヴァイシェーシカ原子論を前提にした、いちばん専門的な論証。</figcaption>
+  </figure>
+
+  <h3>反論への備え</h3>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>予想される反論</th><th>ウダヤナの答え</th></tr></thead>
+      <tbody>
+        <tr><td>「結果だから作り手がいる」というのは、壺のような身近な例から言えるだけでは？</td><td>作り手がいないなら、結果そのものがありえなくなる。この仮定的推論（タルカ）が論証を支える（k.3）</td></tr>
+        <tr><td>原子は自分で動く。あるいは不可見力が動かす</td><td>自分で動くなら「精神をもたない」という前提が崩れる。不可見力も精神をもたない力なので、導く者が要る（k.4）</td></tr>
+        <tr><td>意図的な動作だけが精神を必要とする。ただの動きは別</td><td>「意図的な動作」をどう定義しても、うまく線が引けない。動作一般と精神のはたらきとの結びつきは崩れない（5.3）</td></tr>
+        <tr><td>神には体がない。体のない者が作れるはずがない</td><td>体の有無は、作り手であることの条件ではない。一般的な遍充は、特殊な事情で覆されない（5.3）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>同じ偈の「第二の読み」と、神を見ること</h3>
+  <p>注釈によれば、k.1 の9つの語は2通りに読めます。第一の読みは上で見た世界についての推論です。第二の読み（5.11–5.13）では、同じ語をヴェーダの内容から神を導く論証として読み直し、命令形の動詞が何を意味するか、という文法の議論にまで踏みこみます。そして最後に、聞いて推論した神は、ヨーガの修行者には<strong>直接見られる</strong>こともある、と述べます（5.14）。外の感覚がはたらかない夢の中でも、私たちはものを「見ている」のだから、感覚によらない直接知覚もありうる、という論法です。</p>
+
+  <div class="point">
+    <span class="lbl">全巻の結び</span>
+    <p>最後の偈（k.18）でウダヤナは、神に逆らう論者たちも、反論するためにじつは熱心に神のことを考えている、と言います。いずれ彼らも神の慈悲によって導かれるだろう、と。論争の相手を切り捨てずに終わるところに、この本の人柄が出ています。</p>
+  </div>
+</section>
+
+<!-- ============ 比較と問い ============ -->
+<section id="think" class="wrap">
+  <div class="sec-head"><h2>考えてみよう</h2><span class="sub">西洋の議論と比べ、自分で問いを立てる</span></div>
+  <p>「世界は作られたものだから、作り手がいる」という発想は、西洋哲学にも現れます。時代も文化も違う論者を並べると、ウダヤナの特徴がよく見えます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th></th><th>ウダヤナ</th><th>トマス・アクィナス</th><th>ウィリアム・ペイリー</th></tr></thead>
+      <tbody>
+        <tr><td class="k">時代</td><td>10〜11世紀・インド</td><td>13世紀・イタリア</td><td>18〜19世紀・イギリス</td></tr>
+        <tr><td class="k">代表的な議論</td><td>9つの理由（第一は「結果であるから」）</td><td>「五つの道」（運動・作用因・偶然性など）</td><td>時計職人のたとえ（『自然神学』1802年）</td></tr>
+        <tr><td class="k">たとえ</td><td>壺・手斧・布</td><td>動かされるものと動かすもの</td><td>野原で拾った時計</td></tr>
+        <tr><td class="k">主な論敵</td><td>ミーマーンサー、仏教、順世派</td><td>アリストテレス哲学を踏まえた神学論争</td><td>理神論・懐疑論（ヒュームら）</td></tr>
+        <tr><td class="k">特徴</td><td>先に反論の足場を崩し、認識論（何を「正しい認識」とするか）から攻める</td><td>経験から出発し、無限遡行を避ける</td><td>生物の精巧さに注目する</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <details>
+    <summary>問1　「結果には作り手がいる」から、作り手が<em>一人</em>だと言えるか？</summary>
+    <p>家は大勢の職人が建てます。ウダヤナは k.1 で「一切を知る不滅の者」と単数で言います。多くの作り手がいるという案に、どんな反論ができるでしょうか。ヒント：大勢の職人には、全体をまとめる親方が要るのでは？</p>
+  </details>
+  <details>
+    <summary>問2　「見えない ≠ ない」は、どこまで使ってよいか？</summary>
+    <p>図5の右下（もともと見えないもの）に、何でも入れてしまえば、どんな存在も否定できなくなります。原子や電子と、空飛ぶスパゲッティ・モンスターの違いは、どこにあるでしょうか。ウダヤナは兎の角の例（k.3）でどう線を引いていたか、もう一度読んでみましょう。</p>
+  </details>
+  <details>
+    <summary>問3　「正しい認識」に「新しさ」を条件として入れると、何が困るか？</summary>
+    <p>第4章の表を見直して、定義Aの欠点を自分の言葉で説明してみましょう。逆に、定義B「ありのままの経験」にも弱点はないでしょうか。「ありのまま」かどうかは、だれがどうやって確かめるのでしょう。</p>
+  </details>
+  <details>
+    <summary>問4　現代科学は、第一の論証にどう挑むか？</summary>
+    <p>山や大地は地質の作用で、生物の体は進化の過程で「作られた」と説明されます。それは「結果であるもの ⊂ 作り手をもつもの」（図8）への反例になるでしょうか。それとも、ウダヤナなら「その自然法則を動かす精神」を求めるでしょうか（第2の理由「結合」と比べてみよう）。</p>
+  </details>
+</section>
+
+<!-- ============ 用語集 ============ -->
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2>用語集</h2></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>用語</th><th>原語</th><th>意味</th></tr></thead>
+      <tbody>
+        <tr><td class="k">神（主宰神）</td><td><i>Īśvara</i></td><td>世界を作り、動かし、ヴェーダを説いた一切知者。本書ではシヴァとも呼ばれる</td></tr>
+        <tr><td class="k">不可見力</td><td><i>adṛṣṭa</i></td><td>行為が魂に残す見えない痕跡。功徳（ダルマ）と罪（アダルマ）</td></tr>
+        <tr><td class="k">認識手段</td><td><i>pramāṇa</i></td><td>正しい認識を生む手段。ニヤーヤは知覚・推論・類比・言葉の4つ</td></tr>
+        <tr><td class="k">正しい認識</td><td><i>pramā</i></td><td>ウダヤナの定義では「如実な経験」。ものをありのままに捉える経験</td></tr>
+        <tr><td class="k">遍充</td><td><i>vyāpti</i></td><td>「煙があれば必ず火がある」のような、例外のない結びつき。推論の土台</td></tr>
+        <tr><td class="k">仮定的推論</td><td><i>tarka</i></td><td>「もしそうでないなら、こうなってしまう」と背理を示して推論を支える方法</td></tr>
+        <tr><td class="k">基体不成立</td><td><i>āśrayāsiddhi</i></td><td>推論の主題そのものが成り立っていない誤り。兎の角について何かを論じるような場合</td></tr>
+        <tr><td class="k">帰滅</td><td><i>pralaya</i></td><td>世界が周期的に解体されること。その後、再び創造される</td></tr>
+        <tr><td class="k">スタバカ</td><td><i>stabaka</i></td><td>「花房」。本書の章の呼び名</td></tr>
+        <tr><td class="k">偈・自注</td><td><i>kārikā</i> / <i>vṛtti</i></td><td>要点を詰めた韻文と、著者自身による散文の説明。本書は73の偈と自注からなる</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>次に読むなら</h3>
+  <p>このページの章番号（k.〇、〇.〇）は、次の全訳と科段の番号に合わせています。気になった章は、原文と和訳を並べて読んでみてください。</p>
+  <ul>
+    <li><a href="https://mandana1221.github.io/brahmasiddhi/kusumanjali_zenyaku.html">ウダヤナ『ニヤーヤ・クスマーンジャリ』全訳（サンスクリット・日本語対照）</a></li>
+    <li><a href="https://mandana1221.github.io/brahmasiddhi/kusumanjali_sabcad.html">『ニヤーヤ・クスマーンジャリ』科段（アウトライン）</a></li>
+  </ul>
+</section>
+</main>
+
+<footer class="wrap">
+  この解説は、上記の全訳（T. ヴィーララーガヴァーチャーリヤ校訂本と注釈『クスマーンジャリ・ヴィスタラ』にもとづく試訳）を読んでまとめたものです。引用した偈の訳文は全訳によります。たとえと図は、理解を助けるための解説者による補いです。
+</footer>
+</body>
+</html>
