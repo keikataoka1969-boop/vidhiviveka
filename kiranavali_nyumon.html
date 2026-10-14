@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ウダヤナ『キラナーヴァリー』とプラシャスタパーダ『バーシュヤ』の六つのカテゴリー、原子論、知と推論を、大学1年生向けに図と表で解説するページ。">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>キラナーヴァリー入門</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Tiro+Devanagari+Sanskrit&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表だけ少し広い帯に出す。章ごとに花びら番号の色を固定。 */
+:root{
+  --paper:#F4F5F9; --card:#FFFFFF; --ink:#1C2142; --muted:#596079; --line:#D6D9E6;
+  --gold:#B86A00; --gold-soft:#FCEBCB;
+  --opp:#AE2F55; --opp-soft:#FBE3EA;
+  --ans:#1F7A58; --ans-soft:#DDF2E8;
+  --indigo-soft:#E6E8F4;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+  --f-sa:"Tiro Devanagari Sanskrit","Noto Serif Devanagari",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11131D; --card:#1A1D2B; --ink:#E6E7F0; --muted:#A3A8BF; --line:#2E3249;
+  --gold:#F0A53A; --gold-soft:#3A2B11; --opp:#EE85A3; --opp-soft:#3B1C27;
+  --ans:#5FC79E; --ans-soft:#12322A; --indigo-soft:#22263A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11131D; --card:#1A1D2B; --ink:#E6E7F0; --muted:#A3A8BF; --line:#2E3249;
+  --gold:#F0A53A; --gold-soft:#3A2B11; --opp:#EE85A3; --opp-soft:#3B1C27;
+  --ans:#5FC79E; --ans-soft:#12322A; --indigo-soft:#22263A; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+.wide{max-width:64em;margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.55rem,4.2vw,2.05rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:800;margin-top:2.2em}
+p{margin:0 0 1em}
+a{color:var(--gold)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.sa{font-family:var(--f-sa)}
+em.t{font-style:normal;font-family:var(--f-body);color:var(--muted);font-size:.88em}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--gold);font-weight:700}
+.muted{color:var(--muted)}
+small,.cap{font-size:.84rem;color:var(--muted);line-height:1.7}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);
+  border-bottom:1px solid var(--line);margin-inline:-16px;padding:8px 16px;overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:64em}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.86rem;
+  padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-display);color:var(--gold)}
+
+/* hero */
+header.hero{padding-block:48px 24px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:32px;align-items:center}
+@media (max-width:760px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.hero h1{font-size:clamp(2.6rem,9vw,4.4rem);font-weight:800;letter-spacing:.04em;margin-block:.15em .1em}
+.hero .devtitle{font-family:var(--f-sa);font-size:1.35rem;color:var(--gold)}
+.hero .sub{font-family:var(--f-display);font-size:1.2rem;font-weight:600;margin-bottom:1.2em}
+.flower{width:100%;max-width:420px;margin-inline:auto;display:block}
+.flower .petal{fill:var(--gold-soft);stroke:var(--gold);stroke-width:1.5;transition:fill .2s}
+.flower a:hover .petal,.flower a:focus .petal{stroke-width:3.5;fill:var(--indigo-soft)}
+.flower text{fill:var(--ink);font-family:var(--f-body);font-size:13px;text-anchor:middle}
+.flower .pn{font-family:var(--f-display);font-weight:800;font-size:17px;fill:var(--gold)}
+.flower .core{fill:var(--ink)}
+.flower .coretext{fill:var(--paper);font-family:var(--f-display);font-weight:800;font-size:15px}
+
+section{padding-block:56px 8px;border-top:1px solid var(--line);margin-top:40px}
+section.first{border-top:0;margin-top:0}
+.sec-head{display:flex;gap:16px;align-items:baseline;margin-bottom:1em;flex-wrap:wrap}
+.petal-no{font-family:var(--f-display);font-weight:800;font-size:2.6rem;line-height:1;color:var(--gold)}
+.sec-head .sub{color:var(--muted);font-size:.95rem;width:100%}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.facts dt{font-size:.78rem;letter-spacing:.12em;color:var(--gold);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.08em;color:var(--muted);background:var(--indigo-soft);font-weight:700;white-space:nowrap}
+td.k{font-weight:700;white-space:nowrap}
+td .iast{display:block;font-size:.8rem;color:var(--muted);font-weight:400;font-style:italic}
+.tbl.min table{min-width:620px}
+.ok{color:var(--ans);font-weight:700}
+.ng{color:var(--opp);font-weight:700}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:1px 8px;border-radius:999px;white-space:nowrap;line-height:1.7}
+.pill.opp{background:var(--opp-soft);color:var(--opp)}
+.pill.ans{background:var(--ans-soft);color:var(--ans)}
+.pill.k{background:var(--gold-soft);color:var(--gold)}
+
+/* objection → answer rows */
+.duel{display:grid;gap:10px;margin-block:1.2em}
+.duel .row{display:grid;grid-template-columns:3.2em minmax(0,1fr) 1.6em minmax(0,1fr);gap:10px;align-items:stretch}
+.duel .no{font-family:var(--f-display);font-weight:800;font-size:1.5rem;color:var(--gold);align-self:center;text-align:center}
+.duel .o,.duel .a{border-radius:10px;padding:10px 14px;font-size:.93rem;line-height:1.65}
+.duel .o{background:var(--opp-soft)}
+.duel .a{background:var(--ans-soft)}
+.duel .o b{color:var(--opp)} .duel .a b{color:var(--ans)}
+.duel .arr{align-self:center;text-align:center;color:var(--muted);font-size:1.2rem}
+@media (max-width:620px){.duel .row{grid-template-columns:2.2em minmax(0,1fr)}.duel .arr{display:none}.duel .a{grid-column:2}}
+.groupnote{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16em),1fr));gap:10px;margin-top:6px}
+.groupnote div{border:1px dashed var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.84rem;color:var(--muted);margin-top:10px;line-height:1.7}
+figcaption b{color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-gold{fill:var(--gold)} .s-opp{fill:var(--opp)} .s-ans{fill:var(--ans)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-goldsoft{fill:var(--gold-soft)} .s-oppsoft{fill:var(--opp-soft)} .s-anssoft{fill:var(--ans-soft)} .s-indsoft{fill:var(--indigo-soft)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-gold{stroke:var(--gold)} .st-opp{stroke:var(--opp)} .st-ans{stroke:var(--ans)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.14em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+blockquote{margin:1.2em 0;padding:4px 0 4px 18px;border-left:3px solid var(--gold);font-family:var(--f-display);font-size:1.02rem;line-height:1.85}
+blockquote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--muted);margin-top:4px}
+
+/* syllogism */
+.syl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19em),1fr));gap:14px;margin-block:1.2em}
+.sylc{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
+.syl ol{list-style:none;margin:0;padding:0}
+.syl li{display:grid;grid-template-columns:4.6em minmax(0,1fr);gap:8px;padding:8px 12px;border-bottom:1px solid var(--line);font-size:.92rem;line-height:1.6}
+.syl li:last-child{border-bottom:0}
+.syl li span{font-size:.75rem;font-weight:700;color:var(--gold);letter-spacing:.06em;padding-top:2px}
+.syl h4{margin:0;padding:8px 12px;font-size:.85rem;background:var(--indigo-soft)}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#layers">注釈の重なり</a></li>
+    <li><a href="#map">設計図</a></li>
+    <li><a href="#s1"><b>1</b>六つのカテゴリー</a></li>
+    <li><a href="#s2"><b>2</b>実体と原子</a></li>
+    <li><a href="#s3"><b>3</b>性質</a></li>
+    <li><a href="#s4"><b>4</b>知と錯誤</a></li>
+    <li><a href="#s5"><b>5</b>推論</a></li>
+    <li><a href="#s6"><b>6</b>運動・普遍・特殊・内属</a></li>
+    <li><a href="#debate">論争</a></li>
+    <li><a href="#book">本の来歴</a></li>
+    <li><a href="#think">考えてみよう</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wide">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">はじめてのインド哲学</div>
+      <h1>光線の連なり</h1>
+      <div class="devtitle">किरणावली</div>
+      <p class="sub">ウダヤナ『キラナーヴァリー』を図で読む</p>
+      <p>世界にあるものは、全部で何種類あるのでしょう。インドのヴァイシェーシカ学派は、この問いに「<strong>六つ</strong>」と答えました。実体・性質・運動・普遍・特殊・内属です。この六つを使って、原子から心まで、世界のすべてを分類しようとしたのです。</p>
+      <p>その体系をまとめた教科書がプラシャスタパーダの『バーシュヤ』です。千年ほど前の大学匠ウダヤナは、これに注釈を付けて『キラナーヴァリー（光線の連なり）』と名づけました。このページでは、その中身を図と表でたどります。サンスクリット語の知識は要りません。右の太陽の6本の光線が、六つのカテゴリーです。</p>
+      <p><a href="kiranavali_taiyaku.html">▶ 対訳本文（全8章）はこちら</a></p>
+    </div>
+    <svg class="flower" viewBox="0 0 400 400" role="img" aria-label="太陽から6本の光線が出ている図。光線は実体・性質・運動・普遍・特殊・内属の六つのカテゴリー。">
+      <g transform="translate(200 200)">
+        <a href="#s2" aria-label="実体"><path class="petal" d="M-26 -60 L0 -178 L26 -60 Z" transform="rotate(0)"/></a>
+        <a href="#s3" aria-label="性質"><path class="petal" d="M-26 -60 L0 -178 L26 -60 Z" transform="rotate(60)"/></a>
+        <a href="#s6" aria-label="運動"><path class="petal" d="M-26 -60 L0 -178 L26 -60 Z" transform="rotate(120)"/></a>
+        <a href="#s6" aria-label="普遍"><path class="petal" d="M-26 -60 L0 -178 L26 -60 Z" transform="rotate(180)"/></a>
+        <a href="#s6" aria-label="特殊"><path class="petal" d="M-26 -60 L0 -178 L26 -60 Z" transform="rotate(240)"/></a>
+        <a href="#s6" aria-label="内属"><path class="petal" d="M-26 -60 L0 -178 L26 -60 Z" transform="rotate(300)"/></a>
+        <g pointer-events="none">
+          <g transform="translate(0 -128)"><text class="pn" y="-6">1</text><text y="14">実体</text></g>
+          <g transform="translate(111 -64)"><text class="pn" y="-6">2</text><text y="14">性質</text></g>
+          <g transform="translate(111 64)"><text class="pn" y="-6">3</text><text y="14">運動</text></g>
+          <g transform="translate(0 128)"><text class="pn" y="-6">4</text><text y="14">普遍</text></g>
+          <g transform="translate(-111 64)"><text class="pn" y="-6">5</text><text y="14">特殊</text></g>
+          <g transform="translate(-111 -64)"><text class="pn" y="-6">6</text><text y="14">内属</text></g>
+        </g>
+        <circle class="core" r="56"/>
+        <text class="coretext" x="0" y="-6" text-anchor="middle">世界に</text>
+        <text class="coretext" x="0" y="15" text-anchor="middle">あるもの</text>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<main>
+<!-- ============ 入口 ============ -->
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2>まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>著者</dt><dd>ウダヤナ<br><small>10世紀後半〜11世紀。北インド、ミティラー地方の学者とされる。『ニヤーヤ・クスマーンジャリ』の著者でもある</small></dd></div>
+    <div><dt>何の注釈か</dt><dd>プラシャスタパーダ『バーシュヤ』<br><small>別名『パダールタダルマ・サングラハ（カテゴリーとその性質の要綱）』。6世紀ごろ</small></dd></div>
+    <div><dt>書名の意味</dt><dd>光線（キラナ）の連なり（アーヴァリー）<br><small>本文の帰敬偈は、闇を払う光のイメージで始まる</small></dd></div>
+    <div><dt>学派</dt><dd>ヴァイシェーシカ（勝論）<br><small>「特殊（ヴィシェーシャ）」を立てる学派。論理学のニヤーヤ学派と組んで「ニヤーヤ・ヴァイシェーシカ」と呼ばれる</small></dd></div>
+  </dl>
+
+  <h3>なぜ「光線」なのか</h3>
+  <p>冒頭の偈で、ウダヤナは「知の夜明けが高まり、無知の夜が尽きるときに昇る、あらゆる方角へ輝きを放つ何ものか」に礼拝します。そして結びの偈では、この書を「正しい論理の光からなる光線の連なり」と呼んでいます。<strong>注釈は光、読者の誤解は闇</strong>。その光でバーシュヤの一語一語を照らし出す、という意味の書名です。</p>
+  <blockquote>諸々のものを正しく見分けるため、世の人々の内なる闇を鎮めるため……ウダヤナは、正しい論理の光からなるこの『キラナーヴァリー』を広げた。<cite>『キラナーヴァリー』序の偈（第3偈）より</cite></blockquote>
+
+  <h3>登場する学派</h3>
+  <p>『キラナーヴァリー』はただの語釈ではなく、論争の書です。ヴァイシェーシカの説を守るために、ほかの学派と何度もぶつかります。相手を知っておくと、ぐっと読みやすくなります。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>学派</th><th>どんな考え方か</th><th>ウダヤナとぶつかる主な論点</th></tr></thead>
+      <tbody>
+        <tr><td class="k">ヴァイシェーシカ<span class="iast">Vaiśeṣika</span></td><td>世界を六つのカテゴリーに分け、物質は永遠の原子からできているとする。ウダヤナの立場</td><td>—（著者の立場）</td></tr>
+        <tr><td class="k">仏教<span class="iast">Bauddha</span></td><td>すべては一瞬ごとに生じては滅する（刹那滅）。言葉や概念は事物そのものではない（アポーハ）</td><td>全体（合成体）は実在するか／概念をともなう知覚は知覚か／推論の根拠は何か</td></tr>
+        <tr><td class="k">ミーマーンサー<span class="iast">Mīmāṃsā</span></td><td>ヴェーダの祭式を研究する。ヴェーダは作者のない永遠のことば。知の正しさは知そのものに備わる</td><td>ヴェーダの権威／錯誤の説明／非存在を知る別の手段（非知覚）／要請（アルターパッティ）</td></tr>
+        <tr><td class="k">サーンキヤ<span class="iast">Sāṅkhya</span></td><td>世界は根本原質（プラクリティ）の展開。結果は原因の中に前もって存在する</td><td>知性（ブッディ）はアートマンの性質か／因中有果論</td></tr>
+        <tr><td class="k">文法学派<span class="iast">Vaiyākaraṇa</span></td><td>音素を超えた不可分の言語の本体（スポータ）が意味を伝える</td><td>語や文はどうやって理解されるか</td></tr>
+        <tr><td class="k">順世派<span class="iast">Cārvāka</span></td><td>知覚できるものだけが実在。心は身体から生じる</td><td>アートマン（自己）は身体と別にあるか</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 注釈の重なり ============ -->
+<section id="layers" class="wrap">
+  <div class="sec-head"><h2>注釈の積み重ね</h2><span class="sub">経 → 釈 → 注 → 注の注</span></div>
+  <p>インドの哲学書は、たいてい<strong>短い根本テキストに注釈が何層にも重なって</strong>できています。『キラナーヴァリー』は、その3層目にあたります。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 300" style="min-width:520px;width:100%" role="img" aria-label="ヴァイシェーシカ文献の4層の積み重ね">
+      <g font-size="13">
+        <rect x="40" y="226" width="560" height="58" rx="10" class="s-indsoft"/>
+        <text x="60" y="250" class="s-ink" font-weight="700" font-size="15">① 『ヴァイシェーシカ・スートラ』　カナーダ</text>
+        <text x="60" y="272" class="s-muted">紀元前後〜数世紀。短い格言（スートラ）の集まり。体系の出発点</text>
+        <rect x="70" y="156" width="500" height="58" rx="10" class="s-goldsoft"/>
+        <text x="90" y="180" class="s-ink" font-weight="700" font-size="15">② 『バーシュヤ』　プラシャスタパーダ</text>
+        <text x="90" y="202" class="s-muted">6世紀ごろ。経の順序を離れ、六つのカテゴリーごとに体系を組み直した</text>
+        <rect x="100" y="86" width="440" height="58" rx="10" class="s-anssoft"/>
+        <text x="120" y="110" class="s-ink" font-weight="700" font-size="15">③ 『キラナーヴァリー』　ウダヤナ</text>
+        <text x="120" y="132" class="s-muted">10〜11世紀。②への注。他学派との論争で体系を深める</text>
+        <rect x="130" y="16" width="380" height="58" rx="10" class="s-card st-line" stroke-width="1.5"/>
+        <text x="150" y="40" class="s-ink" font-weight="700" font-size="15">④ 『キラナーヴァリー・プラカーシャ』ほか</text>
+        <text x="150" y="62" class="s-muted">③への注（ヴァルダマーナ）。刊本では脚注に入る</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図1　注釈の4層。</b>下の層ほど古く短い。②には『ヴィヨーマヴァティー』（ヴィヨーマシヴァ）や『ニヤーヤ・カンダリー』（シュリーダラ）など、③以外の有名な注釈もある。刊本の脚注には、これらとの読みの違いも記されている。</figcaption>
+  </figure>
+  <div class="point"><span class="lbl">ポイント</span><p>カナーダの経は格言の並びなので、それだけでは体系が見えにくい。プラシャスタパーダがそれを「六つのカテゴリー」の教科書に組み直し、ウダヤナがその教科書を他学派の批判から守った。<strong>体系化した人と、それを擁護した人</strong>の二段構えになっている。</p></div>
+</section>
+
+<!-- ============ 設計図 ============ -->
+<section id="map" class="wrap">
+  <div class="sec-head"><h2>本書の設計図</h2><span class="sub">全8章・385段落</span></div>
+  <p>バーシュヤは、序のあと、六つのカテゴリーを順番に扱います。ただし分量はまったく均等ではありません。下の図は、刊本（ジェトリー校訂、全275ページ）で各章が占めるページ数です。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 330" style="min-width:520px;width:100%" role="img" aria-label="章ごとのページ数の横棒グラフ。性質論が159ページで最大。">
+      <g font-size="13">
+        <text x="150" y="30" text-anchor="end" class="s-ink">序</text><rect x="160" y="18" width="18" height="18" rx="3" class="s-gold"/><text x="186" y="32" class="s-muted">9頁</text>
+        <text x="150" y="62" text-anchor="end" class="s-ink">1 カテゴリーの列挙</text><rect x="160" y="50" width="18" height="18" rx="3" class="s-gold"/><text x="186" y="64" class="s-muted">9頁</text>
+        <text x="150" y="94" text-anchor="end" class="s-ink">2 共通性と相違性</text><rect x="160" y="82" width="20" height="18" rx="3" class="s-gold"/><text x="188" y="96" class="s-muted">10頁</text>
+        <text x="150" y="126" text-anchor="end" class="s-ink">3 実体論</text><rect x="160" y="114" width="150" height="18" rx="3" class="s-gold"/><text x="318" y="128" class="s-muted">75頁</text>
+        <text x="150" y="158" text-anchor="end" class="s-ink">4 性質論</text><rect x="160" y="146" width="318" height="18" rx="3" class="s-gold"/><text x="486" y="160" class="s-muted">159頁</text>
+        <text x="150" y="190" text-anchor="end" class="s-ink">5 運動論</text><rect x="160" y="178" width="18" height="18" rx="3" class="s-ans"/><text x="186" y="192" class="s-muted">9頁</text>
+        <text x="150" y="222" text-anchor="end" class="s-ink">6 普遍</text><rect x="160" y="210" width="4" height="18" rx="2" class="s-ans"/><text x="172" y="224" class="s-muted">1頁</text>
+        <text x="150" y="254" text-anchor="end" class="s-ink">7 特殊</text><rect x="160" y="242" width="4" height="18" rx="2" class="s-ans"/><text x="172" y="256" class="s-muted">1頁</text>
+        <text x="150" y="286" text-anchor="end" class="s-ink">8 内属</text><rect x="160" y="274" width="6" height="18" rx="2" class="s-ans"/><text x="174" y="288" class="s-muted">2頁</text>
+        <rect x="380" y="214" width="14" height="14" rx="2" class="s-gold"/><text x="400" y="226" class="s-ink">注釈あり</text>
+        <rect x="470" y="214" width="14" height="14" rx="2" class="s-ans"/><text x="490" y="226" class="s-ink">バーシュヤのみ</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図2　章ごとの分量。</b>性質論が全体の半分以上を占める。その中でも「知」（知覚・推論）の議論が長い。注釈は段落 (302) の潜勢力のところで終わるので、運動論以下はバーシュヤだけになる。</figcaption>
+  </figure>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>章</th><th>段落</th><th>主な内容</th></tr></thead>
+      <tbody>
+        <tr><td class="k">序</td><td>(1)–(2)</td><td>帰敬偈。この学問の目的は、六つのカテゴリーの真理を知って解脱に至ること</td></tr>
+        <tr><td class="k">第1章</td><td>(3)–(10)</td><td>六つのカテゴリーの列挙。実体9・性質24・運動5の名前を挙げる</td></tr>
+        <tr><td class="k">第2章</td><td>(11)–(26a)</td><td>カテゴリーどうし・実体どうしの共通点（サーダルミヤ）と相違点（ヴァイダルミヤ）</td></tr>
+        <tr><td class="k">第3章</td><td>(27)–(82)</td><td>9つの実体：地・水・火・風、世界の創造と破壊、虚空・時間・方角・アートマン・意</td></tr>
+        <tr><td class="k">第4章</td><td>(83)–(323)</td><td>24の性質：色・味……知性（知覚・推論）・楽苦・功徳と罪・音</td></tr>
+        <tr><td class="k">第5章</td><td>(324)–(360)</td><td>5種の運動。手・杵・矢の運動の分析、不可見力による運動</td></tr>
+        <tr><td class="k">第6〜8章</td><td>(361)–(385)</td><td>普遍（上位・下位）、究極の特殊、内属</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 1 六つのカテゴリー ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="petal-no">1</span><h2>六つのカテゴリー</h2><span class="sub">世界の目録をつくる</span></div>
+  <p>「カテゴリー（パダールタ）」の文字どおりの意味は「語（パダ）の対象（アルタ）」です。<strong>ことばで名指せて、知られうるもの</strong>はすべて、六つのどれかに入る、というのがこの学派の考えです。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 660 260" style="min-width:560px;width:100%" role="img" aria-label="六つのカテゴリーの分類図">
+      <g font-size="13">
+        <rect x="250" y="10" width="160" height="40" rx="8" class="s-ink"/>
+        <text x="330" y="36" text-anchor="middle" class="s-paper" font-weight="700" font-size="15">カテゴリー（句義）</text>
+        <path d="M330 50 V70 M60 70 H600 M60 70 V90 M168 70 V90 M276 70 V90 M384 70 V90 M492 70 V90 M600 70 V90" class="st-muted nofill" stroke-width="1.5"/>
+        <g>
+          <rect x="12" y="90" width="96" height="44" rx="8" class="s-goldsoft"/><text x="60" y="117" text-anchor="middle" class="s-ink" font-weight="700">実体</text>
+          <rect x="120" y="90" width="96" height="44" rx="8" class="s-goldsoft"/><text x="168" y="117" text-anchor="middle" class="s-ink" font-weight="700">性質</text>
+          <rect x="228" y="90" width="96" height="44" rx="8" class="s-goldsoft"/><text x="276" y="117" text-anchor="middle" class="s-ink" font-weight="700">運動</text>
+          <rect x="336" y="90" width="96" height="44" rx="8" class="s-indsoft"/><text x="384" y="117" text-anchor="middle" class="s-ink" font-weight="700">普遍</text>
+          <rect x="444" y="90" width="96" height="44" rx="8" class="s-indsoft"/><text x="492" y="117" text-anchor="middle" class="s-ink" font-weight="700">特殊</text>
+          <rect x="552" y="90" width="96" height="44" rx="8" class="s-indsoft"/><text x="600" y="117" text-anchor="middle" class="s-ink" font-weight="700">内属</text>
+        </g>
+        <g class="s-muted" font-size="12" text-anchor="middle">
+          <text x="60" y="156">9種</text><text x="60" y="174">地・水・火・風</text><text x="60" y="192">虚空・時間・方角</text><text x="60" y="210">アートマン・意</text>
+          <text x="168" y="156">24種</text><text x="168" y="174">色・味・香・触</text><text x="168" y="192">数・量・結合…</text><text x="168" y="210">知性・楽・苦…</text>
+          <text x="276" y="156">5種</text><text x="276" y="174">上げる・下げる</text><text x="276" y="192">縮める・伸ばす</text><text x="276" y="210">行く</text>
+          <text x="384" y="156">上位：存在性</text><text x="384" y="174">下位：実体性</text><text x="384" y="192">牛性・壺性…</text>
+          <text x="492" y="156">永遠の実体に</text><text x="492" y="174">1つずつ</text><text x="492" y="192">（原子・アートマン…）</text>
+          <text x="600" y="156">ただ1つ</text><text x="600" y="174">「ここに」の</text><text x="600" y="192">関係</text>
+        </g>
+        <path d="M12 230 H324" class="st-gold nofill" stroke-width="3"/><text x="168" y="250" text-anchor="middle" class="s-gold" font-size="12" font-weight="700">存在性（サッター）と結びつく3つ</text>
+        <path d="M336 230 H648" class="st-muted nofill" stroke-width="3"/><text x="492" y="250" text-anchor="middle" class="s-muted" font-size="12" font-weight="700">存在性をもたない3つ</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図3　六つのカテゴリー。</b>前半の3つ（実体・性質・運動）は「ある」という普遍（存在性）をもつ。後半の3つは、それ自体が「ある」ことの根拠や関係なので、さらに存在性をもつことはない。後世にはこれに「非存在」を加えて7つとする（ウダヤナの他の著作に見られる）。</figcaption>
+  </figure>
+
+  <h3>身近な例で分けてみる</h3>
+  <p>「白い牛が歩いている」という一場面を、六つのカテゴリーで分解すると次のようになります。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>見えているもの</th><th>カテゴリー</th><th>説明</th></tr></thead>
+      <tbody>
+        <tr><td class="k">この牛（の身体）</td><td><span class="pill k">実体</span></td><td>地の原子からできた合成体。性質と運動の基体</td></tr>
+        <tr><td class="k">白さ</td><td><span class="pill k">性質</span></td><td>24の性質のうち「色」。実体にしか宿らない</td></tr>
+        <tr><td class="k">歩くこと</td><td><span class="pill k">運動</span></td><td>5種のうち「行くこと」。一瞬ごとに生じては滅びる</td></tr>
+        <tr><td class="k">「これも牛、あれも牛」</td><td><span class="pill ans">普遍</span></td><td>どの牛にも共通してある牛性</td></tr>
+        <tr><td class="k">牛を作る原子どうしの区別</td><td><span class="pill ans">特殊</span></td><td>そっくりな原子でも、ヨーギンには見分けられる。その根拠</td></tr>
+        <tr><td class="k">白さが牛に「ある」こと</td><td><span class="pill ans">内属</span></td><td>性質と実体、全体と部分などを切り離せない形で結ぶ関係</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="point"><span class="lbl">ポイント</span><p>私たちは「白い牛が歩く」をひとかたまりに見るが、ヴァイシェーシカはそれを<strong>6種類の部品の組み合わせ</strong>として説明する。部品はすべて実在し、ことばで名指せる。<em class="t">（実在論・多元論）</em></p></div>
+</section>
+
+<!-- ============ 2 実体と原子 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="petal-no">2</span><h2>実体と原子</h2><span class="sub">第3章　段落 (27)–(82)</span></div>
+  <p>9つの実体は、大きく2つに分けられます。<strong>原子からできていて壊れうるもの</strong>（地・水・火・風の合成体）と、<strong>はじめから一つで永遠のもの</strong>（虚空・時間・方角・アートマン・意）です。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>実体</th><th>特有の性質</th><th>永遠のもの／無常のもの</th><th>感官との関係</th></tr></thead>
+      <tbody>
+        <tr><td class="k">地<span class="iast">pṛthivī</span></td><td>香</td><td>原子は永遠／身体・感官・対象は無常</td><td>嗅覚器官は地からできる</td></tr>
+        <tr><td class="k">水<span class="iast">ap</span></td><td>本来の流動性・粘性・冷たい触</td><td>同上</td><td>味覚器官は水から</td></tr>
+        <tr><td class="k">火<span class="iast">tejas</span></td><td>熱い触・輝く色</td><td>同上（金も火の一種とされる）</td><td>視覚器官は火から</td></tr>
+        <tr><td class="k">風<span class="iast">vāyu</span></td><td>色のない触</td><td>同上。目に見えず、触から推論される</td><td>触覚器官は風から</td></tr>
+        <tr><td class="k">虚空<span class="iast">ākāśa</span></td><td>音</td><td>一つで遍在、永遠</td><td>聴覚器官は耳の穴に限られた虚空</td></tr>
+        <tr><td class="k">時間・方角</td><td>（遠近・前後の原因）</td><td>一つで遍在、永遠</td><td>—</td></tr>
+        <tr><td class="k">アートマン<span class="iast">ātman</span></td><td>知性・楽・苦・欲求など</td><td>多数、遍在、永遠</td><td>—</td></tr>
+        <tr><td class="k">意<span class="iast">manas</span></td><td>（知を一つずつ起こす）</td><td>アートマンごとに1つ、原子大、永遠</td><td>内的感官</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>原子から世界ができるまで</h3>
+  <p>原子は見えないほど小さく、部分をもちません。原子が2つ結合して二原子体、二原子体が3つで三原子体になると、はじめて目に見える大きさ（塵の一粒ほど）になります。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 200" style="min-width:520px;width:100%" role="img" aria-label="原子から二原子体、三原子体、目に見える物体へと組み上がる図">
+      <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="13">
+        <circle cx="60" cy="90" r="7" class="s-gold"/><circle cx="84" cy="90" r="7" class="s-gold"/>
+        <text x="72" y="140" text-anchor="middle" class="s-ink" font-weight="700">原子 ×2</text><text x="72" y="160" text-anchor="middle" class="s-muted" font-size="12">見えない・永遠</text>
+        <path d="M110 90 H160" class="st-muted nofill" stroke-width="1.5" marker-end="url(#ah2)"/>
+        <rect x="172" y="76" width="54" height="28" rx="14" class="s-goldsoft st-gold" stroke-width="1.5"/>
+        <circle cx="188" cy="90" r="6" class="s-gold"/><circle cx="210" cy="90" r="6" class="s-gold"/>
+        <text x="199" y="140" text-anchor="middle" class="s-ink" font-weight="700">二原子体</text><text x="199" y="160" text-anchor="middle" class="s-muted" font-size="12">まだ見えない</text>
+        <path d="M240 90 H290" class="st-muted nofill" stroke-width="1.5" marker-end="url(#ah2)"/>
+        <g><rect x="302" y="58" width="42" height="22" rx="11" class="s-goldsoft st-gold"/><rect x="302" y="86" width="42" height="22" rx="11" class="s-goldsoft st-gold"/><rect x="302" y="114" width="42" height="22" rx="11" class="s-goldsoft st-gold"/></g>
+        <text x="323" y="160" text-anchor="middle" class="s-ink" font-weight="700">三原子体</text><text x="323" y="178" text-anchor="middle" class="s-muted" font-size="12">はじめて見える（塵）</text>
+        <path d="M360 90 H410" class="st-muted nofill" stroke-width="1.5" marker-end="url(#ah2)"/>
+        <rect x="424" y="40" width="190" height="100" rx="12" class="s-anssoft"/>
+        <text x="519" y="80" text-anchor="middle" class="s-ink" font-weight="700">壺・身体・山・大地</text>
+        <text x="519" y="104" text-anchor="middle" class="s-muted" font-size="12">全体（アヴァヤヴィン）は</text>
+        <text x="519" y="122" text-anchor="middle" class="s-muted" font-size="12">部分とは別の一つの実体</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図4　合成の順序。</b>壺は「原子の寄せ集め」ではなく、部分に内属する<b>新しい一つの実体</b>（全体）として生じる。仏教徒は全体の実在を認めないので、ここが大きな争点になる。</figcaption>
+  </figure>
+
+  <h3>世界の創造と破壊</h3>
+  <p>第3章の中ほどでは、世界の周期的な創造と破壊が説かれます。どちらも、生き物たちの過去の行為の力（不可見力）と神の意志によって動きます。</p>
+  <div class="syl">
+    <div class="sylc"><h4>破壊（プララヤ）</h4><ol>
+      <li><span>1</span>疲れた生き物たちを休ませようと、神が破壊を望む</li>
+      <li><span>2</span>不可見力のはたらきが止まり、原子に運動が起こる</li>
+      <li><span>3</span>結合が離れ、合成体が上から順に壊れる</li>
+      <li><span>4</span>原子だけがばらばらに残り、アートマンは潜勢力を抱いて眠る</li>
+    </ol></div>
+    <div class="sylc"><h4>創造（スリシュティ）</h4><ol>
+      <li><span>1</span>神が創造を望み、不可見力がはたらき始める</li>
+      <li><span>2</span>風の原子から順に結合し、風・水・地・火の大元素ができる</li>
+      <li><span>3</span>神の意志で、火と地の原子から宇宙卵とブラフマー神が生じる</li>
+      <li><span>4</span>ブラフマーが生き物を、それぞれの行為に応じて創る</li>
+    </ol></div>
+  </div>
+</section>
+
+<!-- ============ 3 性質 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="petal-no">3</span><h2>24の性質</h2><span class="sub">第4章　段落 (83)–(323)</span></div>
+  <p>性質は、実体にだけ宿り、それ自身はさらに性質や運動をもちません。24の性質は、どの感官で知られるかで分けると整理しやすくなります。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>グループ</th><th>性質</th><th>どう知られるか</th></tr></thead>
+      <tbody>
+        <tr><td class="k">感覚の性質</td><td>色・味・香・触</td><td>それぞれ目・舌・鼻・皮膚の1つの感官だけで</td></tr>
+        <tr><td class="k">音</td><td>音</td><td>耳だけで。虚空の性質</td></tr>
+        <tr><td class="k">一般的な性質</td><td>数・量・別異性・結合・分離・遠さ・近さ</td><td>目と皮膚の2つの感官で</td></tr>
+        <tr><td class="k">物理的な性質</td><td>重さ・流動性・粘性・潜勢力（速力・弾性）</td><td>重さは知覚されず、落下から推論される</td></tr>
+        <tr><td class="k">アートマンの性質</td><td>知性・楽・苦・欲求・嫌悪・努力</td><td>意（内的感官）で直接知る</td></tr>
+        <tr><td class="k">見えない性質</td><td>功徳・罪・潜勢力（印象）</td><td>結果から推論される</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>「二つ」という数はどこから生まれるか</h3>
+  <p>ヴァイシェーシカでは、<strong>二以上の数は、数える人の知によって生まれる</strong>と考えます。2つの壺それぞれには「一」しかありません。「これは一、あれは一」と見比べる知（アペークシャー・ブッディ）が起こると、そのときはじめて2つの壺に「二」が生じます。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 170" style="min-width:540px;width:100%" role="img" aria-label="二性が生じて消えるまでの時間の流れ">
+      <defs><marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <path d="M20 40 H620" class="st-muted nofill" stroke-width="1.5" marker-end="url(#ah3)"/>
+      <g font-size="12" text-anchor="middle">
+        <circle cx="60" cy="40" r="6" class="s-gold"/><text x="60" y="70" class="s-ink" font-weight="700">①</text><text x="60" y="88" class="s-muted">2つの壺を見る</text><text x="60" y="104" class="s-muted">（一性の知覚）</text>
+        <circle cx="180" cy="40" r="6" class="s-gold"/><text x="180" y="70" class="s-ink" font-weight="700">②</text><text x="180" y="88" class="s-muted">見比べる知</text><text x="180" y="104" class="s-muted">（アペークシャー）</text>
+        <circle cx="300" cy="40" r="6" class="s-ans"/><text x="300" y="70" class="s-ink" font-weight="700">③</text><text x="300" y="88" class="s-muted">壺に「二性」が</text><text x="300" y="104" class="s-muted">生じる</text>
+        <circle cx="420" cy="40" r="6" class="s-gold"/><text x="420" y="70" class="s-ink" font-weight="700">④</text><text x="420" y="88" class="s-muted">「二性」を知覚</text><text x="420" y="104" class="s-muted">「これは二つだ」</text>
+        <circle cx="540" cy="40" r="6" class="s-opp"/><text x="540" y="70" class="s-ink" font-weight="700">⑤</text><text x="540" y="88" class="s-muted">見比べる知が消え</text><text x="540" y="104" class="s-muted">二性も消える</text>
+      </g>
+      <text x="320" y="148" text-anchor="middle" class="s-muted" font-size="12">知は一瞬ずつ入れ替わる。どの瞬間に何が生じ、何が滅びるかを、注釈は一コマずつ数え上げる</text>
+    </svg>
+    </div>
+    <figcaption><b>図5　二性の生成と消滅。</b>数という性質は物の側にあるが、それを生む原因は人の側の知にある。客観と主観の両方をまたぐ、この学派らしい説明。</figcaption>
+  </figure>
+
+  <h3>焼くと色が変わるのはなぜか</h3>
+  <p>黒い生の壺を窯で焼くと赤くなります。このとき何が起こっているのかが、第4章の名物論争です。</p>
+  <div class="duel">
+    <div class="row"><div class="no">A</div><div class="o"><b>ニヤーヤ説（壺のまま焼ける）</b>　壺は形を保ったまま、全体として色が変わる</div><div class="arr">⇄</div><div class="a"><b>ヴァイシェーシカ説（原子が焼ける）</b>　火の熱で壺がいったん原子まで分解し、原子の色が赤に変わり、再び組み上がる。私たちには一瞬で見分けられない</div></div>
+  </div>
+  <div class="point"><span class="lbl">ポイント</span><p>色が変わるのは<strong>原子のレベル</strong>だ、とヴァイシェーシカは考える。全体の色は部分（最終的には原子）の色から生じる、という原則を守るためである。</p></div>
+</section>
+
+<!-- ============ 4 知と錯誤 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="petal-no">4</span><h2>知と錯誤</h2><span class="sub">段落 (211)–(245)・(285)–(289)</span></div>
+  <p>知性（ブッディ）はアートマンの性質の1つです。プラシャスタパーダは、知を「正しい知（ヴィドヤー）」と「正しくない知（アヴィドヤー）」に分け、それぞれを4種にしました。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 230" style="min-width:540px;width:100%" role="img" aria-label="知の分類図。正しい知4種と正しくない知4種">
+      <g font-size="13">
+        <rect x="250" y="10" width="140" height="38" rx="8" class="s-ink"/><text x="320" y="34" text-anchor="middle" class="s-paper" font-weight="700">知（ブッディ）</text>
+        <path d="M320 48 V64 M160 64 H480 M160 64 V80 M480 64 V80" class="st-muted nofill" stroke-width="1.5"/>
+        <rect x="60" y="80" width="200" height="36" rx="8" class="s-anssoft"/><text x="160" y="103" text-anchor="middle" class="s-ans" font-weight="700">正しい知（ヴィドヤー）</text>
+        <rect x="380" y="80" width="200" height="36" rx="8" class="s-oppsoft"/><text x="480" y="103" text-anchor="middle" class="s-opp" font-weight="700">正しくない知（アヴィドヤー）</text>
+        <g font-size="12">
+          <rect x="16" y="136" width="66" height="56" rx="6" class="s-card st-line"/><text x="49" y="160" text-anchor="middle" class="s-ink" font-weight="700">知覚</text><text x="49" y="178" text-anchor="middle" class="s-muted">感官から</text>
+          <rect x="88" y="136" width="66" height="56" rx="6" class="s-card st-line"/><text x="121" y="160" text-anchor="middle" class="s-ink" font-weight="700">推論</text><text x="121" y="178" text-anchor="middle" class="s-muted">証相から</text>
+          <rect x="160" y="136" width="66" height="56" rx="6" class="s-card st-line"/><text x="193" y="160" text-anchor="middle" class="s-ink" font-weight="700">記憶</text><text x="193" y="178" text-anchor="middle" class="s-muted">潜勢力から</text>
+          <rect x="232" y="136" width="66" height="56" rx="6" class="s-card st-line"/><text x="265" y="160" text-anchor="middle" class="s-ink" font-weight="700">聖仙の知</text><text x="265" y="178" text-anchor="middle" class="s-muted">直観</text>
+          <rect x="342" y="136" width="66" height="56" rx="6" class="s-card st-line"/><text x="375" y="160" text-anchor="middle" class="s-ink" font-weight="700">疑い</text><text x="375" y="178" text-anchor="middle" class="s-muted">杭か人か</text>
+          <rect x="414" y="136" width="66" height="56" rx="6" class="s-card st-line"/><text x="447" y="160" text-anchor="middle" class="s-ink" font-weight="700">誤認</text><text x="447" y="178" text-anchor="middle" class="s-muted">牛を馬と</text>
+          <rect x="486" y="136" width="66" height="56" rx="6" class="s-card st-line"/><text x="519" y="160" text-anchor="middle" class="s-ink" font-weight="700">未決定</text><text x="519" y="178" text-anchor="middle" class="s-muted">「何か」</text>
+          <rect x="558" y="136" width="66" height="56" rx="6" class="s-card st-line"/><text x="591" y="160" text-anchor="middle" class="s-ink" font-weight="700">夢</text><text x="591" y="178" text-anchor="middle" class="s-muted">眠りの中</text>
+        </g>
+        <text x="320" y="218" text-anchor="middle" class="s-muted" font-size="12">対称的な4×4の分類。仮定的推論（タルカ）は誤認の一種とされる</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図6　知の8分類。</b>「正しい知」に記憶が入っている点に注意。後世のニヤーヤでは記憶を正しい認識（プラマー）から外すので、注釈はこのずれの説明に苦労している（段落 (287)）。</figcaption>
+  </figure>
+
+  <h3>錯誤のとき、何が見えているのか</h3>
+  <p>貝殻を銀と見まちがえたとき、心に現れているのは何でしょう。インド哲学ではこれを「キヤーティ（現れ）論」と呼び、学派ごとに答えが分かれます。『キラナーヴァリー』は段落 (222a) でこの問題を論じています。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>説</th><th>主張する学派</th><th>錯誤で現れているもの</th><th>ウダヤナの評価</th></tr></thead>
+      <tbody>
+        <tr><td class="k">他のものとして現れる<span class="iast">anyathā-khyāti</span></td><td>ニヤーヤ・ヴァイシェーシカ</td><td>別の場所に実在する銀が、目の前の貝殻の上に現れる</td><td><span class="pill ans">採用</span></td></tr>
+        <tr><td class="k">区別を捉えない<span class="iast">akhyāti</span></td><td>ミーマーンサー（プラバーカラ派）</td><td>「これ」の知覚と銀の記憶の区別がつかないだけで、誤った知はない</td><td><span class="pill opp">批判</span> 区別がつかないだけなら、なぜ銀を取りに行くのか</td></tr>
+        <tr><td class="k">言い表せない<span class="iast">anirvacanīya-khyāti</span></td><td>ヴェーダーンタ</td><td>有とも無とも言えない銀がそこに現れる</td><td><span class="pill opp">批判</span>「言い表せない銀だ」と思って手を伸ばす人はいない</td></tr>
+        <tr><td class="k">知そのものが現れる<span class="iast">ātma-khyāti</span></td><td>仏教（唯識）</td><td>知の中の銀の形が外にあるように見える</td><td><span class="pill opp">批判</span> 知の形に外界での効力はない</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>概念をともなう知覚も「知覚」か</h3>
+  <p>知覚には、名前のつく前の「ただ見るだけ」の段階（無分別知）と、「これは白い牛だ」と捉える段階（有分別知）があります。</p>
+  <div class="duel">
+    <div class="row"><div class="no">?</div><div class="o"><b>仏教（ディグナーガ・ダルマキールティ）</b>　知覚は無分別知だけ。「白い牛」のように概念やことばが加わった時点で、知覚ではなく思い込みになる</div><div class="arr">→</div><div class="a"><b>ウダヤナ</b>　普遍などの限定者は実在するので、それを捉えた有分別知も感官から生じた直接の知、つまり知覚である（段落 (235)）</div></div>
+  </div>
+</section>
+
+<!-- ============ 5 推論 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="petal-no">5</span><h2>推論</h2><span class="sub">段落 (246)–(284)</span></div>
+  <p>「山に煙がある。だから火がある」。推論（アヌマーナ）は、見えている<strong>証相</strong>（リンガ、しるし）から、見えていないものを知ることです。ヴァイシェーシカは、正しい認識手段を<strong>知覚と推論の2つだけ</strong>に絞ります。</p>
+
+  <h3>よい証相の3条件</h3>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 220" style="min-width:540px;width:100%" role="img" aria-label="証相の三相をベン図で示した図">
+      <g font-size="13">
+        <rect x="20" y="20" width="180" height="150" rx="14" class="s-goldsoft"/><text x="110" y="44" text-anchor="middle" class="s-ink" font-weight="700">主題：あの山</text>
+        <rect x="230" y="20" width="180" height="150" rx="14" class="s-anssoft"/><text x="320" y="44" text-anchor="middle" class="s-ink" font-weight="700">同類例：かまど</text>
+        <rect x="440" y="20" width="180" height="150" rx="14" class="s-oppsoft"/><text x="530" y="44" text-anchor="middle" class="s-ink" font-weight="700">異類例：湖</text>
+        <text x="110" y="100" text-anchor="middle" class="s-ink" font-size="22" font-weight="700">煙</text><text x="110" y="132" text-anchor="middle" class="s-muted" font-size="12">煙がある</text>
+        <text x="320" y="100" text-anchor="middle" class="s-ink" font-size="22" font-weight="700">煙・火</text><text x="320" y="132" text-anchor="middle" class="s-muted" font-size="12">煙も火もある</text>
+        <text x="530" y="100" text-anchor="middle" class="s-ink" font-size="22" font-weight="700">なし</text><text x="530" y="132" text-anchor="middle" class="s-muted" font-size="12">火がなく、煙もない</text>
+        <text x="110" y="198" text-anchor="middle" class="s-gold" font-weight="700">① 主題にある</text>
+        <text x="320" y="198" text-anchor="middle" class="s-ans" font-weight="700">② 同類例にある</text>
+        <text x="530" y="198" text-anchor="middle" class="s-opp" font-weight="700">③ 異類例にない</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図7　証相の三相。</b>バーシュヤはこれをカーシュヤパ（カナーダ）の偈として引く（段落 (247)）。注釈は、さらに「より強い認識手段に否定されないこと」「反対の推論がないこと」を加えた5条件が実際には必要だ、と補う。</figcaption>
+  </figure>
+
+  <h3>「付帯条件」に気をつけろ</h3>
+  <p>「火があれば煙がある」は正しいでしょうか。真っ赤に焼けた鉄球には火があっても煙はありません。煙が出るのは<strong>湿った燃料</strong>があるときだけです。このように、関係を見かけ上成り立たせている隠れた条件を「付帯条件（ウパーディ）」と呼びます。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>推論</th><th>付帯条件</th><th>判定</th></tr></thead>
+      <tbody>
+        <tr><td class="k">煙があるから火がある</td><td>なし（煙はどこでも火に伴う）</td><td class="ok">正しい</td></tr>
+        <tr><td class="k">火があるから煙がある</td><td>湿った燃料</td><td class="ng">誤り</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>付帯条件の定義は「<strong>論証されるべきものには必ず伴うが、論証因には必ずしも伴わないもの</strong>」です。仏教徒は、確実な関係は「同一性」か「因果関係」しかないと言いますが、注釈は「付帯条件がないこと」こそが関係を確かにする、と反論します（段落 (250)）。</p>
+
+  <h3>他人を説得する五段の論証</h3>
+  <p>自分で納得するだけなら推論は頭の中で済みますが、他人を説得するには、5つの部分（支分）からなる文が要ります。バーシュヤの例「風は実体である」で見てみましょう。</p>
+  <div class="syl">
+    <div class="sylc"><h4>バーシュヤの名称と例（段落 (265)–(284)）</h4><ol>
+      <li><span>主張</span>風は実体である</li>
+      <li><span>理由</span>運動をもつから、性質をもつから</li>
+      <li><span>喩例</span>運動をもつものは実体であると見られる。矢のように</li>
+      <li><span>適用</span>そして風は運動をもつ</li>
+      <li><span>結論</span>それゆえ、風は実体にほかならない</li>
+    </ol></div>
+    <div class="sylc"><h4>おなじみの例で</h4><ol>
+      <li><span>主張</span>あの山には火がある</li>
+      <li><span>理由</span>煙があるから</li>
+      <li><span>喩例</span>煙のあるところには火がある。かまどのように</li>
+      <li><span>適用</span>あの山にも煙がある</li>
+      <li><span>結論</span>それゆえ、あの山には火がある</li>
+    </ol></div>
+  </div>
+  <div class="point"><span class="lbl">ポイント</span><p>仏教徒は「学識ある人には理由だけを言えばよい」（ダルマキールティ）として支分を減らす。ウダヤナ側は、5つの支分それぞれに、聞き手の疑いを一つずつ消す役割があると答える（段落 (283)）。</p></div>
+
+  <h3>まちがった理由（似非の理由）</h3>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>名前</th><th>欠けている条件</th><th>例</th></tr></thead>
+      <tbody>
+        <tr><td class="k">不成立<span class="iast">asiddha</span></td><td>① 理由が主題にない</td><td>音は無常である。目で見られるから（音は目で見られない）</td></tr>
+        <tr><td class="k">矛盾<span class="iast">viruddha</span></td><td>②③ 理由がかえって反対を証明する</td><td>音は常住である。作られたものだから</td></tr>
+        <tr><td class="k">不確定<span class="iast">sandigdha</span></td><td>③ 理由が異類例にもある</td><td>これは牛である。角があるから（水牛にも角がある）</td></tr>
+        <tr><td class="k">未決定<span class="iast">anadhyavasita</span></td><td>② 理由が主題にしかない</td><td>大地は常住である。香をもつから（香をもつのは地だけ）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>ほかの認識手段も、みな推論</h3>
+  <p>ニヤーヤは言葉や類比も独立の認識手段と認めますが、ヴァイシェーシカは「<strong>手順が同じだから</strong>」と、すべてを推論に含めます（段落 (256)–(263)）。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>他学派が立てる手段</th><th>例</th><th>ヴァイシェーシカの見方</th></tr></thead>
+      <tbody>
+        <tr><td class="k">言葉（証言）</td><td>信頼できる人が「川岸に果物がある」と言う</td><td>話し手の信頼性を証相とする推論</td></tr>
+        <tr><td class="k">身振り</td><td>人差し指を上げて「十」を示す</td><td>取り決めを知っている人には推論</td></tr>
+        <tr><td class="k">類比</td><td>「野牛は牛に似ている」と聞いて野牛を知る</td><td>信頼できる人の言葉＝推論</td></tr>
+        <tr><td class="k">要請（アルターパッティ）</td><td>生きているデーヴァダッタが家にいない→外にいる</td><td>「対立するもの」による推論</td></tr>
+        <tr><td class="k">包含</td><td>千があれば百もある</td><td>不可分の関係による推論</td></tr>
+        <tr><td class="k">非知覚</td><td>床に壺がないと知る</td><td>知覚の場合もあり、推論の場合もある</td></tr>
+        <tr><td class="k">伝承</td><td>「昔からこう言われている」</td><td>偽りのない教え＝言葉＝推論</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 6 運動・普遍・特殊・内属 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="petal-no">6</span><h2>運動・普遍・特殊・内属</h2><span class="sub">第5〜8章　段落 (324)–(385)</span></div>
+  <h3>運動：矢はなぜ飛び続けるのか</h3>
+  <p>第5章は、手・杵・投げ槍・弓矢の動きを、欲求→努力→結合→運動→潜勢力（速力）という連鎖で細かく分析します。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 660 140" style="min-width:600px;width:100%" role="img" aria-label="矢を射るときの因果の連鎖">
+      <defs><marker id="ah4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12" text-anchor="middle">
+        <rect x="6" y="30" width="92" height="50" rx="8" class="s-indsoft"/><text x="52" y="52" class="s-ink" font-weight="700">放そうと</text><text x="52" y="70" class="s-ink" font-weight="700">欲する</text>
+        <rect x="116" y="30" width="92" height="50" rx="8" class="s-indsoft"/><text x="162" y="52" class="s-ink" font-weight="700">努力</text><text x="162" y="70" class="s-muted">指が動く</text>
+        <rect x="226" y="30" width="92" height="50" rx="8" class="s-goldsoft"/><text x="272" y="52" class="s-ink" font-weight="700">弓の弾性</text><text x="272" y="70" class="s-muted">弦が戻る</text>
+        <rect x="336" y="30" width="92" height="50" rx="8" class="s-goldsoft"/><text x="382" y="52" class="s-ink" font-weight="700">推進</text><text x="382" y="70" class="s-muted">弦が矢を押す</text>
+        <rect x="446" y="30" width="92" height="50" rx="8" class="s-anssoft"/><text x="492" y="52" class="s-ink" font-weight="700">矢に速力</text><text x="492" y="70" class="s-muted">（潜勢力）</text>
+        <rect x="556" y="30" width="98" height="50" rx="8" class="s-anssoft"/><text x="605" y="52" class="s-ink" font-weight="700">落ちるまで</text><text x="605" y="70" class="s-muted">運動が続く</text>
+        <path d="M98 55 H114 M208 55 H224 M318 55 H334 M428 55 H444 M538 55 H554" class="st-muted nofill" stroke-width="1.5" marker-end="url(#ah4)"/>
+        <text x="330" y="118" class="s-muted">運動は一瞬で滅びる。次の運動を生み続けるのは、矢に宿った「速力」という性質（段落 (345)）</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図8　矢を射る因果の連鎖。</b>運動そのものは一瞬ごとに滅びるので、飛び続けるには、運動を次々に生み出す「速力」が要る。西洋中世の「インペトゥス理論」とよく似た発想。</figcaption>
+  </figure>
+
+  <h3>普遍・特殊・内属</h3>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>カテゴリー</th><th>はたらき</th><th>ポイント</th></tr></thead>
+      <tbody>
+        <tr><td class="k">普遍<span class="iast">sāmānya</span></td><td>「これも牛、あれも牛」という<strong>一致</strong>の認識の原因</td><td>最上位は存在性。実体性・牛性などは、ほかとの<strong>区別</strong>の原因にもなるので「普遍でもあり特殊でもある」</td></tr>
+        <tr><td class="k">特殊<span class="iast">viśeṣa</span></td><td>永遠の実体を<strong>絶対に区別</strong>する認識の原因</td><td>形も性質もそっくりな原子どうしを、ヨーギンが見分けられる根拠。それ自身は自分で自分を区別する（灯火が自分を照らすように）。学派名の由来</td></tr>
+        <tr><td class="k">内属<span class="iast">samavāya</span></td><td>「この糸に布がある」「この牛に白さがある」の「<strong>ここに</strong>」の関係</td><td>結合とちがい、切り離せない2つ（全体と部分、性質と実体など）を結ぶ。世界にただ1つで永遠。知覚されず推論される</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 論争 ============ -->
+<section id="debate" class="wrap">
+  <div class="sec-head"><h2>注釈の見どころ：五つの論争</h2><span class="sub">ウダヤナが何を守ったか</span></div>
+  <p>バーシュヤは学説を淡々と述べますが、ウダヤナはその一語一語に対して「こういう反論がありうる」と相手の声を立て、それを退けていきます。代表的な論争を並べると、次のようになります。</p>
+  <div class="duel">
+    <div class="row"><div class="no">1</div><div class="o"><b>サーンキヤ</b>　知性（ブッディ）は物質原理から生じた内的器官で、アートマンのものではない</div><div class="arr">→</div><div class="a"><b>ウダヤナ</b>「私は知る」と直接に経験されるのはアートマンの性質だから。知・知性・認識は同義語（段落 (211)）</div></div>
+    <div class="row"><div class="no">2</div><div class="o"><b>仏教</b>　知は自分で自分を知る（自己認識）</div><div class="arr">→</div><div class="a"><b>ウダヤナ</b>　他人の知や過去の自分の知は別の知で知られる。知も別の知によって知られる（段落 (239)）</div></div>
+    <div class="row"><div class="no">3</div><div class="o"><b>仏教</b>　運動は知覚されない。見えるのは結合と分離の連続だけ</div><div class="arr">→</div><div class="a"><b>ウダヤナ</b>「動いている」とはっきり知覚される。知覚されない理由を挙げられない（段落 (238)）</div></div>
+    <div class="row"><div class="no">4</div><div class="o"><b>ミーマーンサー</b>　ヴェーダは作者のない永遠のことば。知の正しさは知そのものに備わる</div><div class="arr">→</div><div class="a"><b>ウダヤナ</b>　ヴェーダは最高神が作った。正しさは知の原因の外（欠陥のなさ・話し手の美質）から生じ、外から知られる（段落 (257)）</div></div>
+    <div class="row"><div class="no">5</div><div class="o"><b>ミーマーンサー</b>　非存在は、知覚とは別の手段「非知覚」で知られる</div><div class="arr">→</div><div class="a"><b>ウダヤナ</b>　非存在は実在する認識対象で、感官で直接知覚できる。事前・滅後・絶対・相互の4種に分けられる（段落 (262)）</div></div>
+  </div>
+</section>
+
+<!-- ============ 本の来歴 ============ -->
+<section id="book" class="wrap">
+  <div class="sec-head"><h2>途中で終わる注釈</h2><span class="sub">本の来歴</span></div>
+  <p>『キラナーヴァリー』は、バーシュヤの最後まで続いていません。しかも、どこで終わるかは本によって違います。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 150" style="min-width:540px;width:100%" role="img" aria-label="バーシュヤ全385段落のうち、注釈がどこまであるかを示した帯">
+      <g font-size="12">
+        <text x="20" y="26" class="s-ink" font-weight="700">段落</text>
+        <rect x="20" y="40" width="600" height="28" rx="6" class="s-indsoft"/>
+        <rect x="20" y="40" width="417" height="28" rx="6" class="s-ans"/>
+        <rect x="437" y="40" width="54" height="28" class="s-gold"/>
+        <text x="20" y="88" class="s-muted">(1)</text>
+        <text x="437" y="88" text-anchor="middle" class="s-ink">(267)</text>
+        <text x="491" y="88" text-anchor="middle" class="s-ink">(302)</text>
+        <text x="620" y="88" text-anchor="end" class="s-muted">(385)</text>
+        <rect x="20" y="104" width="14" height="14" rx="2" class="s-ans"/><text x="40" y="116" class="s-ink">以前の印刷本にある注釈</text>
+        <rect x="210" y="104" width="14" height="14" rx="2" class="s-gold"/><text x="230" y="116" class="s-ink">刊本が写本から補った部分</text>
+        <rect x="420" y="104" width="14" height="14" rx="2" class="s-indsoft"/><text x="440" y="116" class="s-ink">バーシュヤのみ</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図9　注釈のある範囲。</b>刊本の脚注によると、以前の印刷本は段落 (267)（推論の章の途中）で途切れていた。刊本は写本を使って段落 (302)（潜勢力）まで補い、そこに「以上でキラナーヴァリーは終わる」という奥書がある。最後の段落は相手側の主張を述べたまま終わっている。</figcaption>
+  </figure>
+  <p>なぜ途中で終わるのかは、よくわかっていません。ウダヤナが書き終えなかったという説も、後半が失われたという説もあります。後の学者たちは、この欠けた部分を補う注釈も書いています。</p>
+</section>
+
+<!-- ============ 考えてみよう ============ -->
+<section id="think" class="wrap">
+  <div class="sec-head"><h2>考えてみよう</h2></div>
+  <details><summary>Q1. 「白い牛」の白さは、牛が死んで消えたあとも残るでしょうか。</summary><p>残りません。性質は実体に内属してはじめて存在するので、基体（牛の身体）が滅びれば、その白さも滅びます。ただし「白さ」という普遍（白色性）は、別の白いものの中にありつづけます。個別の性質と普遍の違いに注意。</p></details>
+  <details><summary>Q2. 「火があるから煙がある」がまちがいなのはなぜでしょう。</summary><p>焼けた鉄球のように、煙のない火があるからです。煙は「湿った燃料」という付帯条件があるときだけ火に伴います。遍充（必ず伴う関係）は、煙→火の向きにしか成り立ちません。</p></details>
+  <details><summary>Q3. 2つのリンゴを見て「二つだ」と思うとき、「二」はどこにあるのでしょう。</summary><p>ヴァイシェーシカでは、リンゴの側に「二性」という性質が生じます。ただし、それを生む原因は、見比べる人の知（アペークシャー・ブッディ）です。その知が消えると、二性も消えます。あなたは、数は物の側にあると思いますか、心の側にあると思いますか。</p></details>
+  <details><summary>Q4. 夢の中で「これは夢だ」と思い出すことがあります。この知は正しい知、正しくない知のどちらでしょう。</summary><p>バーシュヤはこれを「夢の終わりのもの（スヴァプナーンティカ）」と呼び、過去の知を見直すことによるので<strong>記憶</strong>だとします（段落 (232)）。夢そのものは正しくない知ですが、夢の中の記憶は正しい知に入りうる、という細かい区別です。</p></details>
+  <details><summary>Q5. 言葉で何かを教わるのは、推論だと言えるでしょうか。</summary><p>ヴァイシェーシカは「言える」と考えます。「この人は信頼できる」→「だからこの人の言うことは本当だ」という推論だからです。しかし、ことばを聞いた瞬間に意味がわかる経験は、推論とは違うようにも感じられます。ニヤーヤが言葉を独立の手段とする理由も考えてみましょう。</p></details>
+</section>
+
+<!-- ============ 用語集 ============ -->
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2>用語集</h2></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>用語</th><th>原語</th><th>意味</th></tr></thead>
+      <tbody>
+        <tr><td class="k">カテゴリー（句義）</td><td><i>padārtha</i></td><td>語の対象。実体・性質・運動・普遍・特殊・内属の6つ</td></tr>
+        <tr><td class="k">実体</td><td><i>dravya</i></td><td>性質と運動の基体。地・水・火・風・虚空・時間・方角・アートマン・意の9つ</td></tr>
+        <tr><td class="k">性質</td><td><i>guṇa</i></td><td>実体に宿る24種の属性</td></tr>
+        <tr><td class="k">原子</td><td><i>paramāṇu</i></td><td>部分をもたない最小の実体。永遠</td></tr>
+        <tr><td class="k">全体（合成体）</td><td><i>avayavin</i></td><td>部分に内属して生じる、部分とは別の一つの実体</td></tr>
+        <tr><td class="k">不可見力</td><td><i>adṛṣṭa</i></td><td>功徳と罪。行為の結果を後に運ぶ見えない力</td></tr>
+        <tr><td class="k">証相</td><td><i>liṅga</i></td><td>推論の手がかり（煙など）</td></tr>
+        <tr><td class="k">遍充</td><td><i>vyāpti</i></td><td>証相が論証されるべきものに必ず伴う関係</td></tr>
+        <tr><td class="k">付帯条件</td><td><i>upādhi</i></td><td>見かけの関係を成り立たせている隠れた条件</td></tr>
+        <tr><td class="k">主題所属性</td><td><i>pakṣadharmatā</i></td><td>証相が主題（山など）にあること</td></tr>
+        <tr><td class="k">似非の理由</td><td><i>hetvābhāsa</i></td><td>理由のように見えて条件を欠くもの</td></tr>
+        <tr><td class="k">無分別知／有分別知</td><td><i>nirvikalpaka / savikalpaka</i></td><td>名前や限定のない知覚／「これは白い牛だ」と限定した知覚</td></tr>
+        <tr><td class="k">潜勢力</td><td><i>saṃskāra</i></td><td>速力・印象（記憶のもと）・弾性の3種</td></tr>
+        <tr><td class="k">アートマン</td><td><i>ātman</i></td><td>知・楽・苦などの基体である自己。身体ごとに別</td></tr>
+        <tr><td class="k">意</td><td><i>manas</i></td><td>内的感官。知を一つずつ起こす原子大の実体</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="point"><span class="lbl">次に読む</span><p>本文を読んでみたくなったら、<a href="kiranavali_taiyaku.html">『キラナーヴァリー』科段つき対訳（全8章）</a>へ。科段をたどれば、このページで見た図や表が本文のどこにあたるかがわかります。</p></div>
+</section>
+</main>
+
+<footer class="wrap">
+  <p>底本：J. S. Jetly ed., <i>Praśastapādabhāṣyam with the Commentary Kiraṇāvalī of Udayanācārya</i>, Gaekwad's Oriental Series 154. 段落番号は同書による。本ページは対訳の作成にもとづく入門用の解説で、年代などは概略である。</p>
+  <p><a href="index.html">対訳コレクション一覧へ</a></p>
+</footer>
+</body>
+</html>
