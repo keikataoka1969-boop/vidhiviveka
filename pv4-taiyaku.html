@@ -1,0 +1,1485 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pramāṇavārttika IV 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+<style>
+.mula .iast{font-family:var(--f-ia);font-size:.86rem;color:var(--muted);line-height:1.6;margin-top:4px}
+.mula.gap{border-left-color:var(--gold);background:var(--gold-soft)}
+.mula.gap .tr{border-top:0;margin-top:0;padding-top:0;font-size:.9rem}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#root">陳那の定義</a></li>
+    <li><a href="#s1"><b>1</b>「自ら確かめた」：相手だ</a></li><li><a href="#s2"><b>2</b>「対象」の語：概念的に付</a></li><li><a href="#s3"><b>3</b>主張の陳述は論証手段では</a></li><li><a href="#s4"><b>4</b>ニヤーヤの主張論を退ける</a></li><li><a href="#s5"><b>5</b>主張の定義の目的と四つの</a></li><li><a href="#s6"><b>6</b>「意図された」：サーンキ</a></li><li><a href="#s7"><b>7</b>「意図された」：順世派の</a></li><li><a href="#s8"><b>8</b>「自ら」：論書の説はすべ</a></li><li><a href="#s9"><b>9</b>論書・聖典は論証でどんな</a></li><li><a href="#s10"><b>10</b>論書の説が否定されても論</a></li><li><a href="#s11"><b>11</b>同学の仏教徒への批判（1</a></li><li><a href="#s12"><b>12</b>同学の仏教徒への批判（2</a></li><li><a href="#s13"><b>13</b>「否定されていない」：四</a></li><li><a href="#s14"><b>14</b>「信頼できる人」：論書と</a></li><li><a href="#s15"><b>15</b>「世間周知」（1）：語の</a></li><li><a href="#s16"><b>16</b>「世間周知」（2）：もう</a></li><li><a href="#s17"><b>17</b>「知覚の対象」：「音は聞</a></li><li><a href="#s18"><b>18</b>「自らの有法について」</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのインド論理学</div>
+  <h1>Pramāṇavārttika IV</h1>
+  <p class="deva-title" lang="sa">प्रमाणवार्त्तिक — परार्थानुमानपरिच्छेदः</p>
+  <p class="sub">Dharmakīrti『認識手段評釈』第4章「他者のための推理」k.1–148 を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　k.1–148（主張の定義の注釈まで）</span>
+  <p>議論の相手を納得させるとき、何を述べれば「論証」になるのか。Dharmakīrti の答えははっきりしています。<strong>論証するのは、ことばではなく事実である</strong>。述べてよいのは、事実として所証と結びついた論証因だけです。論者が何を信じているか、どの学派の論書を奉じているかは、論証の正しさには関わりません。</p>
+  <p>第4章は、Dignāga『集量論』（<i>Pramāṇasamuccaya</i>）第3章の冒頭二偈、つまり「他者のための推理」と「主張（宗）」の定義を、語ごとに注釈する形で進みます。k.1–27 が他者のための推理の性格、k.28–148 が主張の定義です。このページでは、サンスクリットの偈と和訳を対照させ、各偈に Manorathanandin の注（<i>Pramāṇavārttikavṛtti</i>）などを踏まえた解説を付けました。T. Tillemans の英訳注（2000）のうち重要な解釈は、別の欄に注記として要約しています。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>著者</dt><dd>Dharmakīrti<br><small>6–7世紀頃の仏教論理学者。<i>Pramāṇaviniścaya</i>、<i>Nyāyabindu</i>、<i>Hetubindu</i> などの著者</small></dd></div>
+    <div><dt>書名</dt><dd><i>Pramāṇavārttika</i>「認識手段についての評釈」<br><small>Dignāga『集量論』への韻文の注釈。全4章のうち、ここは第4章「他者のための推理」（<i>parārthānumāna</i>）</small></dd></div>
+    <div><dt>範囲</dt><dd>k.1–148<br><small>章全体（約285偈）の前半。後半（k.149–285）は主張の誤りと論証因（九句因）を扱う</small></dd></div>
+    <div><dt>主題</dt><dd>主張（<i>pakṣa</i>）とは何か<br><small>Dignāga の定義「自らの形でのみ示されるべき、自ら意図された、否定されていないもの」を語ごとに検討する</small></dd></div>
+    <div><dt>見どころ</dt><dd>論書と推理、ことばの「適合性」<br><small>§8–§12（論書を奉じることと論証の関係）と §15–§16（<i>prasiddha</i> と語の適合性）</small></dd></div>
+    <div><dt>注釈</dt><dd>Manorathanandin『評釈注』（PVV）ほか<br><small>解説は主に PVV に拠り、Devendrabuddhi（PVP）、Prajñākaragupta（PVBh）、Dharmottara（PVinṬ）の説も参照した</small></dd></div>
+    <div><dt>研究</dt><dd>T. J. F. Tillemans の英訳注（2000）<br><small><i>Dharmakīrti's Pramāṇavārttika. An annotated translation of the fourth chapter (parārthānumāna), Vol. 1 (k. 1–148)</i>, Wien。重要な解釈は注記欄に要約した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">k.15</span> は偈の番号。節見出しの <span class="pg">k.1–12</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリーとローマ字。Tillemans の改訂テキストを、OCR の誤りを正して用いた</div>
+    <div><b>和訳</b>サンスクリットからの試訳。（　）は訳者の補い。「〜と言うなら」は反論者の発言</div>
+    <div><b>解説</b>各偈の下の灰色の欄。注釈の頁は（PVV 413）のように示す。PVV の文言は Tillemans の注に引かれたサンスクリットに拠る</div>
+    <div><b>Tillemans の解釈</b>解説欄の下段。英訳注の重要な解釈・読みの判断を要約したもの。（T. p.25）は Tillemans 2000 の頁</div>
+    <div><b>欠落</b>使用した OCR に欠けている頁の偈は、黄色の欄で示した。原文の提供を待って補う</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">Dignāga の定義の語に沿って、テキストの順に節に分けた</span></div>
+  <p>第4章の前半は、Dignāga『集量論』第3章の第1偈と第2偈を、ほぼ一語ずつ取り上げて注釈します。第1偈の「自ら確かめた（<i>svadṛṣṭa</i>）」「対象（<i>artha</i>）」「所証の提示は論証因の目的を対象とする」、第2偈の「自らの形で（<i>svarūpeṇa</i>）」「のみ（<i>eva</i>）」「意図された（<i>iṣṭa</i>）」「自ら（<i>svayam</i>）」「否定されていない（<i>anirākṛta</i>）」「知覚の対象・推理・信頼できる人・世間周知」「自らの有法に関して（<i>svadharmiṇi</i>）」が、順に検討されます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>偈</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">「自ら確かめた」：相手だけが認める論証因を退ける</a></td><td class="num">k.1–12</td><td>相手の聖典を利用するサーンキヤの論法と、帰謬法との違い</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">「対象」の語：概念的に付託されたものは証因ではない</a></td><td class="num">k.13–14</td><td>定義の「事柄（artha）」は実在する証因を指す</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">主張の陳述は論証手段ではない</a></td><td class="num">k.15–22</td><td>陳那「所証の提示は論証因の目的を対象とする」の注釈</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">ニヤーヤの主張論を退ける</a></td><td class="num">k.23–27</td><td>「不足」の再定義、正理経の主張の定義への批判、同学の論駁への批判</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">主張の定義の目的と四つの特徴</a></td><td class="num">k.28–31</td><td>「自らの形で」「のみ」「意図された」「自ら」の四語</td></tr>
+<tr><td class="num">§6</td><td class="k"><a href="#s6">「意図された」：サーンキヤのアートマン論証</a></td><td class="num">k.32–33</td><td>意図された所証には肯定的随伴がなく、相違因になる</td></tr>
+<tr><td class="num">§7</td><td class="k"><a href="#s7">「意図された」：順世派の「伴侶をもつ」論証</a></td><td class="num">k.34–41</td><td>選言を使った詭弁と、仏教論理への偽の類比</td></tr>
+<tr><td class="num">§8</td><td class="k"><a href="#s8">「自ら」：論書の説はすべて所証か</a></td><td class="num">k.42–47</td><td>「音は虚空の性質」を否定すると論証因が相違因になるか</td></tr>
+<tr><td class="num">§9</td><td class="k"><a href="#s9">論書・聖典は論証でどんな役割をもつか</a></td><td class="num">k.48–55</td><td>事実にもとづく推理は論書に依存しない</td></tr>
+<tr><td class="num">§10</td><td class="k"><a href="#s10">論書の説が否定されても論証因は相違因にならない</a></td><td class="num">k.56–68</td><td>論証因の良し悪しは、自らの所証に照らして判断される</td></tr>
+<tr><td class="num">§11</td><td class="k"><a href="#s11">同学の仏教徒への批判（1）：論書の説を所証とする説</a></td><td class="num">k.69–75</td><td>「自ら」はどの論書を奉じるかを示すのではない</td></tr>
+<tr><td class="num">§12</td><td class="k"><a href="#s12">同学の仏教徒への批判（2）：「自ら」の他の解釈</a></td><td class="num">k.76–90</td><td>有法の周知、有法の非所証性、定義の働き、二つの定義の一致</td></tr>
+<tr><td class="num">§13</td><td class="k"><a href="#s13">「否定されていない」：四種の否定</a></td><td class="num">k.91–92</td><td>否定は知覚と三種の推理による</td></tr>
+<tr><td class="num">§14</td><td class="k"><a href="#s14">「信頼できる人」：論書と自分のことば</a></td><td class="num">k.93–108</td><td>否定（bādhā）と単なる妨げ（pratibandha）</td></tr>
+<tr><td class="num">§15</td><td class="k"><a href="#s15">「世間周知」（1）：語の適合性には制限がない</a></td><td class="num">k.109–117</td><td>「兎をもつものは月ではない」はなぜ誤りか</td></tr>
+<tr><td class="num">§16</td><td class="k"><a href="#s16">「世間周知」（2）：もう一つの解釈と、同学の解釈への批判</a></td><td class="num">k.118–130</td><td>了解は推理とは領域が異なる</td></tr>
+<tr><td class="num">§17</td><td class="k"><a href="#s17">「知覚の対象」：「音は聞かれない」</a></td><td class="num">k.131–135</td><td>知覚が否定するのは自相を拒む主張だけ</td></tr>
+<tr><td class="num">§18</td><td class="k"><a href="#s18">「自らの有法について」</a></td><td class="num">k.136–148</td><td>自らの有法と無関係な有法</td></tr>
+
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="root" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">注釈される陳那の二偈</h2><span class="sub">『集量論』第3章 k.1–2（サンスクリットは引用断片と Nyāyabindu などからの復元）</span></div>
+  <p>第4章 k.1–148 の全体は、次の二偈への注釈です。第1偈が他者のための推理を定義し、第2偈が主張（宗）を定義します。</p>
+<div class="mula sutra" id="ps1">
+  <span class="ref">PS III, k.1（Dignāga）</span>
+  <div class="src deva" lang="sa">परार्थानुमानं तु स्वदृष्टार्थप्रकाशनम् । तत्रानुमेयनिर्देशो हेत्वर्थविषयो मतः ॥</div>
+  <div class="iast" lang="sa-Latn">parārthānumānaṃ tu svadṛṣṭārthaprakāśanam |<br>tatrānumeyanirdeśo hetvarthaviṣayo mataḥ ||</div>
+  <div class="tr">一方、他者のための推理とは、自ら確かめた事柄（対象）を明らかにすることである。そのうち、推理されるべきものの提示（＝主張の陳述）は、論証因の目的を対象とするものと考えられる。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Dignāga は自注で、他者のための推理を次のように説明します。論者は、自分の心に三相をそなえた証因から所証の理解が生じたのと同じように、相手の心にも理解を生じさせたい。そのために三相をそなえた証因を述べる。この陳述が「推理」と呼ばれるのは、結果（推理）の名を原因（陳述）に転用しているからである。後半の「推理されるべきものの提示」は主張命題のことで、Dignāga はそれを論証手段とは認めず、論証因が何のために述べられるかを示すものにすぎない、とします。第4章 k.1–27 はこの一偈の注釈です。</p></div>
+</div>
+<div class="mula sutra" id="ps2">
+  <span class="ref">PS III, k.2（Dignāga）</span>
+  <div class="src deva" lang="sa">स्वरूपेणैव निर्देश्यः स्वयमिष्टोऽनिराकृतः । प्रत्यक्षार्थानुमानाप्तप्रसिद्धेन स्वधर्मिणि ॥</div>
+  <div class="iast" lang="sa-Latn">svarūpeṇaiva nirdeśyaḥ svayam iṣṭo 'nirākṛtaḥ |<br>pratyakṣārthānumānāptaprasiddhena svadharmiṇi ||</div>
+  <div class="tr">（主張とは）自らの形でのみ示されるべきもの、自ら意図されたものであり、自らの有法について、知覚の対象・推理・信頼できる人（のことば）・世間周知のものによって否定されていないものである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Dignāga の自注によれば、「自らの形で」とは「所証として」の意味で、成立済みのものや論証手段（証因・喩）の形で示されるものを除きます。「自ら意図された」は、論書に依存しない論者自身の立場を示します。否定されたもの（似非主張）の例として、「音は聞かれない」（知覚に反する）、「壺は常住である」（推理に反する）、「認識対象をもつ認識手段は存在しない」（自らの承認に反する）、「兎をもつもの（＝月）は月ではない、存在するから」（ことばによる周知に反する）の四つが挙げられます。第4章 k.28–148 はこの一偈の注釈です。</p></div>
+</div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>「自ら確かめた」：相手だけが認める論証因を退ける</h2><span class="sub"><span class="pg">k.1–12</span>相手の聖典を利用するサーンキヤの論法と、帰謬法との違い</span></div>
+<p>Dignāga の定義「自ら確かめた事柄を明らかにすること」の「自ら確かめた（<i>svadṛṣṭa</i>）」を説明します。論証因は相手だけでなく論者自身にも確かめられていなければならない。Dharmakīrti はこれを、サーンキヤ学派の巧妙な論法への批判として展開します。</p>
+<p>サーンキヤは仏教徒に向かってこう論じます。「快・苦・迷妄は精神的なものではない（<i>acetana</i>）。生起するもの・無常なものだから。色などのように」。サーンキヤ自身は快などを常住の根本原質の一部と考えるので、「生起する」「無常」という論証因を認めていません。しかし仏教徒は自分の聖典によってそれを認めている。サーンキヤは、相手の聖典を梃子にして、相手を自説（快などは非精神的）へ引き込もうとするわけです。</p>
+<div class="mula" id="k1">
+  <span class="ref">k.1</span>
+  <div class="src deva" lang="sa">परस्य प्रतिपाद्यत्वाददृष्टोऽपि स्वयं परैः । दृष्टः साधनमित्येके तत्क्षेपायात्मदृग्वचः ॥</div>
+  <div class="iast" lang="sa-Latn">parasya pratipādyatvād adṛṣṭo &#x27;pi svayaṃ paraiḥ |<br> dṛṣṭaḥ sādhanam ity eke tatkṣepāyātmadṛgvacaḥ ||</div>
+  <div class="tr">「教えられるべきは他者である。だから、自分では確かめていなくても、他者たちが確かめているものは論証手段である」とある人々（サーンキヤ）は言う。それを退けるために「自ら確かめた」という語がある。</div>
+  <div class="exp"><span class="lbl">解説</span><p>他者のための推理は相手を納得させるためのものだから、相手が認めている論証因でさえあれば、自分が認めていなくてもよい。これが反論者の考えです。Dignāga の「自ら（<i>sva</i>）」の一語は、この考えを封じるためにある、と Dharmakīrti は読みます。</p><p>Śākyabuddhi によれば、「自ら」は論証を述べる論者を、「確かめた」は認識手段によって確定したことを意味します。Vibhūticandra の注は文脈から「論者と対論者の双方によって」と補っています。論証因は両者に確定していなければなりません。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans はこの論法の具体例を、Manorathanandin（PVV 413）と rGyal tshab の注によって再構成し、サーンキヤが仏教の聖典を相手に向けて使い、仏教徒を自説に引き込む「誘惑的な」誤解だと説明します。偈の <i>ātmadṛg</i> は Dignāga の <i>svadṛṣṭa</i> の言い換えであり、Tillemans はこれを、論証因が提示者と相手の双方に認められていることを保証する語と解します（T. pp.9–11）。</p></div></div>
+</div>
+<div class="mula" id="k2">
+  <span class="ref">k.2</span>
+  <div class="src deva" lang="sa">अनुमाविषये नेष्टं परीक्षितपरिग्रहात् । वाचः प्रामाण्यमस्मिन्हि नानुमानं प्रवर्तते ॥</div>
+  <div class="iast" lang="sa-Latn">anumāviṣaye neṣṭaṃ parīkṣitaparigrahāt |<br> vācaḥ prāmāṇyam asmin hi nānumānaṃ pravartate ||</div>
+  <div class="tr">吟味されたものを受け入れるのであるから、推理の領域についてはことばが認識手段であるとは認められない。もしそうなら（ことばが認識手段なら）、推理は働かなくなるからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>サーンキヤは「生起すること」などを仏教徒の聖典によって確定させようとします。しかし仏教の立場では、無常のように推理で確かめられる事柄について、ことばは認識手段になりません。Manorathanandin は理由を「（ことばには）対象との結びつきがないから」と述べます（PVV 414）。ここでの推理は、事物の力によって働く推理（<i>vastubalapravṛttānumāna</i>）、つまり事実にもとづく推理です。</p><p>後半の理由は『認識手段決択』（PVin）がはっきり述べています。ことばだけで命題が成り立つなら、論証因などは無意味になるからです。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、この偈の主題が k.13–14 で再び取り上げられ、Dharmakīrti 哲学の中心原理、すなわち推理の項のあいだに事実上の結合（<i>svabhāvapratibandha</i>）がなければならないという原理に行きつくことを指摘します。また、聖典にもとづく推理が許されるのは「全く知覚を越えたもの」（<i>atyantaparokṣa</i>：業の細部や天界の様子など）に限られ、k.48–51 でこの区別が詳しく論じられる、と予告しています。Tillemans はこの術語を、知覚できないもの（<i>parokṣa</i>）と区別して訳しています（T. pp.11–12, n.36）。</p></div></div>
+</div>
+<div class="mula" id="k3">
+  <span class="ref">k.3</span>
+  <div class="src deva" lang="sa">बाधनायागमस्योक्तेः साधनस्य परं प्रति । सोऽप्रमाणं तदासिद्धं तत्सिद्धमखिलं ततः ॥</div>
+  <div class="iast" lang="sa-Latn">bādhanāyāgamasyokteḥ sādhanasya paraṃ prati |<br> so &#x27;pramāṇaṃ tadāsiddhaṃ tatsiddham akhilaṃ tataḥ ||</div>
+  <div class="tr">（サーンキヤは）聖典を否定するために、相手に向かって論証手段を述べるのであるから、そのとき（否定が成功すれば）その（聖典）は認識手段ではない。したがって、それによって成立したものはすべて成立していないことになる。</div>
+  <div class="nt">OCR の <i>bādhanāyāgamayokteḥ</i> を、韻律と文意により <i>bādhanāyāgamasyokteḥ</i> と読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>サーンキヤは、仏教の聖典のうち「生起する」を説く部分を使って、同じ聖典の「快などは精神的である」という部分を否定しようとしています。しかしその否定が成功すれば、聖典には誤りがあったことになり、聖典は認識手段ではなくなる。そうなれば、その聖典で成立していたことも、すべて成立していなかったことになります。Manorathanandin は、論証因（生起すること）も所証（非精神性）も、聖典によって直接・間接に成立したものはすべて成立しない、と結論します（PVV 414）。</p></div>
+</div>
+<div class="mula" id="k4">
+  <span class="ref">k.4</span>
+  <div class="src deva" lang="sa">तदागमवतः सिद्धं यदि कस्य क आगमः । बाध्यमानः प्रमाणेन स सिद्धः कथमागमः ॥</div>
+  <div class="iast" lang="sa-Latn">tadāgamavataḥ siddhaṃ yadi kasya ka āgamaḥ |<br> bādhyamānaḥ pramāṇena sa siddhaḥ katham āgamaḥ ||</div>
+  <div class="tr">もし「その聖典をもつ者にとって成立している」と言うなら、（問おう）誰のどの聖典か。認識手段によって否定されつつあるその聖典が、どうして（その人のものとして）成立していようか。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「聖典をもつ」とはどういうことか。Manorathanandin は、人と聖典の結びつきに二通りを考えます。一つは身体の部分のように生まれつきもっている結びつき（<i>sahaja</i>）、もう一つは何らかの条件（理由づけ）によって得た結びつき（<i>aupādhika</i>）です。前者はありえない。後者も成り立たない。サーンキヤが推理で聖典の一部（快などは精神的）を否定すれば、聖典を受け入れる理由そのものが失われるからです（PVV 415）。</p></div>
+</div>
+<div class="mula" id="k5">
+  <span class="ref">k.5</span>
+  <div class="src deva" lang="sa">तद्विरुद्धाभ्युपगमस्तेनैव च कथं भवेत् । तदन्योपगमे तस्य त्यागाङ्गस्याप्रमाणता ॥</div>
+  <div class="iast" lang="sa-Latn">tadviruddhābhyupagamas tenaiva ca kathaṃ bhavet |<br> tadanyopagame tasya tyāgāṅgasyāpramāṇatā ||</div>
+  <div class="tr">また、その（聖典）に反することを、その同じ（聖典）によって受け入れることが、どうしてありえようか。それと異なることを受け入れるなら、捨てられるべきその（聖典）は認識手段ではない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「快などは非精神的である」は仏教聖典の説に反します。それを同じ聖典を根拠に受け入れさせるのは自己矛盾です。仏教徒の側から見れば、聖典が矛盾を導くと分かった時点でその聖典を捨てるので、「生起する」もそこから導かれることも受け入れなくなります。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p><i>tyāgāṅga</i> を Tillemans は「拒否に値する」と訳し、Śākyabuddhi の注の訳語「捨てることに与る」と、Devendrabuddhi の注の訳語「捨てる原因」を併記しています（T. p.14, n.47）。</p></div></div>
+</div>
+<div class="mula" id="k6">
+  <span class="ref">k.6</span>
+  <div class="src deva" lang="sa">तत्कस्मात्साधनं नोक्तं स्वप्रतीतिर्यदुद्भवा । युक्त्या ययागमो ग्राह्यो ग्राहिकस्यापि सा न किम् ॥</div>
+  <div class="iast" lang="sa-Latn">tat kasmāt sādhanaṃ noktaṃ svapratītir yadudbhavā |<br> yuktyā yayāgamo grāhyo grāhikasyāpi sā na kim ||</div>
+  <div class="tr">では、自分の理解がそこから生じた論証手段を、なぜ述べないのか。聖典を受け入れるべきものとする道理があるなら、それは（相手を）納得させるものにもならないのか。</div>
+  <div class="nt">前半は PV-k(II) の読み。他の写本は <i>tat kiṃ na sādhanaṃ proktaṃ</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>サーンキヤ自身は、快などが非精神的だと何によって知ったのか。もし何らかの道理によって自派の聖典を受け入れたのなら、その道理をそのまま相手に述べればよい。相手が認めるだけの論証因という回り道は要りません。逆に道理なしに「周知だから」聖典を受け入れているだけなら、その聖典は認識手段ではなく、受け入れる理由がない。Devendrabuddhi はこのように両刀論法として解しています。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p><i>grāhikasya</i> の読みについて、Tillemans は PV-k(II) の <i>grāhyaḥ parasyāpi</i> もありうるとし、<i>grāhika</i> を「人を捉えるもの、納得させるもの」の意に解します（T. p.15, nn.51–52）。</p></div></div>
+</div>
+<div class="mula" id="k7">
+  <span class="ref">k.7</span>
+  <div class="src deva" lang="sa">प्रकृतस्य सतः प्राग्यैः प्रतिपत्त्यक्षसंभवौ । साधनैः साधनान्यर्थशक्तिज्ञानेऽस्य तान्यलम् ॥</div>
+  <div class="iast" lang="sa-Latn">prakṛtasya sataḥ prāg yaiḥ pratipattyakṣasaṃbhavau |<br> sādhanaiḥ sādhanāny arthaśaktijñāne &#x27;sya tāny alam ||</div>
+  <div class="tr">以前、彼が凡夫であったときに、実践と（その結果の）知覚とを生じさせた修行手段、それらの手段こそが、目的に対する（手段の）効力を知らせるべきときに、この（相手）にとって十分なものとなる。</div>
+  <div class="exp"><span class="lbl">解説</span><p>サーンキヤはこう言うかもしれません。「快などの非精神性は、ヨーガの力から生じた知覚で知ったのであって、それ以外のしかたで相手に教えることはできない。だから相手の認める論証手段を述べるのだ」。Manorathanandin はこう応じます。その知覚とそれを得るための修行とのあいだに、手段と目的の関係があることを、彼はあらかじめ確かめていたはずだ。確かめずに修行を始めることはできない（PVV 415–416）。それなら、その修行と効力をそのまま相手に示せばよい、というわけです。</p><p>ここでは <i>sādhana</i> が「論証手段」ではなく「修行の手段」の意味で使われています。Manorathanandin は <i>pratipatti</i> を「実践」（<i>anuṣṭhāna</i>）、<i>akṣa</i> を非精神性などをとらえる「知覚」と注釈します（PVV 416）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は Manorathanandin の解釈に従います。チベット語訳は <i>pratipatti</i> を「理解」、<i>akṣa</i> を「感官」と訳しており、偈がかなり違った意味になるが、その解釈は可能性が低い、と判断しています（T. pp.16–17）。</p></div></div>
+</div>
+<div class="mula" id="k8">
+  <span class="ref">k.8</span>
+  <div class="src deva" lang="sa">विच्छिन्नानुगमा ये च सामान्येनाप्यगोचराः । साध्यसाधनचिन्तास्ति न तेष्वर्थेषु काचन ॥</div>
+  <div class="iast" lang="sa-Latn">vicchinnānugamā ye ca sāmānyenāpy agocarāḥ |<br> sādhyasādhanacintāsti na teṣv artheṣu kācana ||</div>
+  <div class="tr">また、結びつきが断たれていて、一般的なしかたでさえ（知の）対象とならない事柄については、所証と手段の考察はまったく成り立たない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>サーンキヤが「その関係は遠く隔たっていて、一般的にさえ理解できないから示さないのだ」と言い逃れることへの応答です。Śākyabuddhi は「結びつきが断たれた」を「全く知覚を越えた」と言い換えます。Manorathanandin は、そうした事柄については「これが手段、これが目的」という考察が成り立たず、まだ洞察を得ていない者が、一方を実践すれば他方が得られるとどうして言えようか、と結びます（PVV 416）。</p></div>
+</div>
+<div class="mula" id="k9">
+  <span class="ref">k.9</span>
+  <div class="src deva" lang="sa">पुंसामभिप्रायवशात्तत्त्वातत्त्वव्यवस्थितौ । लुप्तौ हेतुतदाभासौ तस्य वस्त्वसमाश्रयात् ॥</div>
+  <div class="iast" lang="sa-Latn">puṃsām abhiprāyavaśāt tattvātattvavyavasthitau |<br> luptau hetutadābhāsau tasya vastvasamāśrayāt ||</div>
+  <div class="tr">真であるか否かの区別が人々の思いによって決まるのだとすれば、正しい論証因とその似非（似因）の区別は失われる。その（思い）は事物に依拠していないからである。</div>
+  <div class="nt"><i>vastvasamāśrayāt</i> は一語の複合語（MIY. は <i>vastv asamāśrayāt</i> と分ける）。</div>
+  <div class="exp"><span class="lbl">解説</span><p>サーンキヤは主観的な真理観に逃げ込みます。Prajñākaragupta はその主張をこう伝えます。「相手は未熟なうちは論証手段が似非であることに気づかない。だから相手の考えからすれば、それは論証手段である。論証手段でないと悟ったときに、論証手段でなくなるだけだ。何の問題があるのか」（PVBh 474）。Dharmakīrti の答えは、真理と必然性は客観的に存在する事態に根ざしていなければならない、というものです。この主題は k.10、k.13–14 で展開されます。</p></div>
+</div>
+<div class="mula" id="k10">
+  <span class="ref">k.10</span>
+  <div class="src deva" lang="sa">सन्नर्थो ज्ञानसापेक्षो नासन्ज्ञानेन साधकः । सतोऽपि वस्त्वसंश्लिष्टासंगत्या सदृशी गतिः ॥</div>
+  <div class="iast" lang="sa-Latn">sann artho jñānasāpekṣo nāsan jñānena sādhakaḥ |<br> sato &#x27;pi vastvasaṃśliṣṭāsaṃgatyā sadṛśī gatiḥ ||</div>
+  <div class="tr">存在する事態が（確定する）認識に支えられて（論証するもの）となるのであり、存在しないものが認識によって論証するものとなるのではない。実在と結びつかない理解は、たとえ存在するものについての理解であっても、理解しないことに等しい。</div>
+  <div class="nt">OCR の <i>jñānāsāpekṣo</i> を、韻律と文意により <i>jñānasāpekṣo</i> と読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>正しい論証因には二つの条件があります。（1）論証因は実在する事態でなければならない。（2）それが所証と必然的に結びついていることが、認識によって確定されていなければならない。Dharmottara は、論証因は灯火のようにそれ自体の力で知らせるのではないから、確定する認識が必要なのだ、と注します。</p><p>後半は、「非精神性は事実として成り立っているのだから、それを何とかして相手に伝えればよい。だから相手の承認する論証因を使うのだ」という言い分への応答です（PVV 417）。Manorathanandin は「実在と結びつかない」を「実在である証因に結びついていない」と注します。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は後半の <i>asaṃgatyā</i> をチベット語訳に従って「理解がないこと」と訳しました。一方、PVV に残る『認識手段決択』のサンスクリット断片は「存在しないものの理解（<i>asatpratipatti</i>）」と言っており、少し違う解釈になることを注記しています。また、真実を伝えるための方便としての虚偽をここで退けている、と読みます（T. pp.19–20）。</p></div></div>
+</div>
+<div class="mula" id="k11">
+  <span class="ref">k.11</span>
+  <div class="src deva" lang="sa">लिङ्गं स्वभावः कार्यं वा दृश्यादर्शनमेव वा । संबद्धं वस्तुतः सिद्धं तदसिद्धं किमात्मनः ॥</div>
+  <div class="iast" lang="sa-Latn">liṅgaṃ svabhāvaḥ kāryaṃ vā dṛśyādarśanam eva vā |<br> saṃbaddhaṃ vastutaḥ siddhaṃ tad asiddhaṃ kim ātmanaḥ ||</div>
+  <div class="tr">（所証と）結びついた証因は、自性か、結果か、知覚されうるものの非知覚か、のいずれかである。事実として成立しているそれが、どうして自分（サーンキヤ）にとって成立していないのか。</div>
+  <div class="exp"><span class="lbl">解説</span><p>k.11 と k.12 前半は両刀論法です。「生起すること」が三種の正しい論証因のどれかに当たるなら、それは正しい論証因であり、サーンキヤも認めない理由はない。三種のどれにも当たらないなら、相手もそれによって快などの非精神性を理解することはできない（k.12）。k.10 で述べたとおり、誤った論証因では、たとえ結論が真でも誰も何も理解しないからです。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、論証因と所証の必然的結合が「同一性」（<i>tādātmya</i>）と「因果性」（<i>tadutpatti</i>）の二種に限られ、それゆえ正しい論証因も三種に限られる、という Dharmakīrti の基本原理をここで確認しています（T. p.20）。</p></div></div>
+</div>
+<div class="mula" id="k12">
+  <span class="ref">k.12</span>
+  <div class="src deva" lang="sa">परेणाप्यन्यतो गन्तुमयुक्तं परकल्पितैः । प्रसङ्गो द्वयसंबन्धादेकाभावेऽन्यहानये ॥</div>
+  <div class="iast" lang="sa-Latn">pareṇāpy anyato gantum ayuktaṃ parakalpitaiḥ |<br> prasaṅgo dvayasaṃbandhād ekābhāve &#x27;nyahānaye ||</div>
+  <div class="tr">相手もまた、それ以外のもの（三種以外の論証因）から理解することは不合理である。帰謬は相手が構想したものによって行われる。二項が結びついているので、一方が無いときに他方を除くためである。</div>
+  <div class="nt">末尾は PV-k(II) では <i>ekāpāye</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は言います。「相手の立場で成立しているものが論証手段でないなら、帰謬（<i>prasaṅga</i>）の論証因も論証因でなくなるではないか」。仏教徒も帰謬論法を盛んに使うからです。</p><p>Manorathanandin の答えはこうです。帰謬は相手が構想した手段によって行う。たとえば「普遍は多である。相手の認めるとおり多くのものに存在するから」。これは三相を欠くので真の論証因ではない。ではなぜ述べるのか。所証と論証手段のあいだに遍充関係があるので、所証（多であること）が無いところでは論証手段（多くに存在すること）も無い、と示すためである。「普遍は多ではない、だから多くに存在しない」という対偶（<i>prasaṅgaviparyaya</i>）こそが根本の論証因であり、帰謬の陳述は、遍充をとらえる認識手段を思い出させるためのものである（PVV 417–418）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は帰謬と通常の論証を論理構造の違いとして説明します。帰謬では、非実在の性質（ここでは実在しない普遍の「多くに存在すること」）を演繹のために仮に前提し、不合理に至ったところでその前提を捨てる。これは自然演繹で前提を立てて最後に解消する手続きに似ている、と現代論理学にたとえています。帰謬を対偶にとると正しい論証因が得られるのは、（a）主題が実際にその性質をもたず、（b）論証因と所証のあいだに必然的結合にもとづく遍充がある場合に限る、とも整理しています（T. pp.22–24）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>「対象」の語：概念的に付託されたものは証因ではない</h2><span class="sub"><span class="pg">k.13–14</span>定義の「事柄（artha）」は実在する証因を指す</span></div>
+<p>Dignāga の「自ら確かめた事柄（<i>artha</i>）」の「事柄」の語を説明します。注釈者たちは一致して、この <i>artha</i> を三相をそなえた証因と解します。Manorathanandin はさらに、それが「実在である証因」でなければならないと言います（PVV 418）。</p>
+<div class="mula" id="k13">
+  <span class="ref">k.13</span>
+  <div class="src deva" lang="sa">तदर्थग्रहणं शब्दकल्पनारोपितात्मनाम् । अलिङ्गत्वप्रसिद्ध्यर्थमर्थादर्थप्रसिद्धितः ॥</div>
+  <div class="iast" lang="sa-Latn">tad arthagrahaṇaṃ śabdakalpanāropitātmanām |<br> aliṅgatvaprasiddhyartham arthād arthaprasiddhitaḥ ||</div>
+  <div class="tr">その「事柄」という語は、ことばと概念によって本性を付託されたものが証因ではないことを示すためにある。事柄は事柄から成立するからである。</div>
+  <div class="nt">MIY. は <i>tadarthagrahaṇam</i> と一語にするが、チベット語訳に従い <i>tad</i> を分ける。</div>
+  <div class="exp"><span class="lbl">解説</span><p>ある事態（所証）は、別の事態（証因）から成立する。ことばや概念で作り上げられただけのものは、実在との結びつきが保証されないので、所証を導くとは限りません。『認識手段決択』はその例として、「音は常住か無常かのどちらかである。主題か同類のどちらかだから」という論証を挙げます。どちらの同類を考えるかは論者の意図しだいで、事物の本性に従うものではないからです。</p></div>
+</div>
+<div class="mula" id="k14">
+  <span class="ref">k.14</span>
+  <div class="src deva" lang="sa">कल्पनागमयोः कर्तुरिच्छामात्रानुरोधतः । वस्तुनश्चान्यथाभावात्कल्पिता व्यभिचारिणः ॥</div>
+  <div class="iast" lang="sa-Latn">kalpanāgamayoḥ kartur icchāmātrānurodhataḥ |<br> vastunaś cānyathābhāvāt kalpitā vyabhicāriṇaḥ ||</div>
+  <div class="tr">概念と聖典は作り手の意欲だけに従い、事物は（それとは）別様にありうるから、構想されたもの（を論証因とするもの）は逸脱する。</div>
+  <div class="nt">末尾は PV-k の諸本で <i>tatkṛtā</i>。チベット語訳と PVBh（Dānaśīla の写本）は <i>kalpitā</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>概念や聖典の内容は、それを作った人の思いのままに決まります。事物がその思いどおりである保証はありません。だから、概念的に構想されただけの論証因は所証から外れうる（不定）のです。この偈は『認識手段決択』第3章の第3偈としても置かれています。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>主張の陳述は論証手段ではない</h2><span class="sub"><span class="pg">k.15–22</span>陳那「所証の提示は論証因の目的を対象とする」の注釈</span></div>
+<p>Dignāga の第1偈後半「そのうち、推理されるべきものの提示は、論証因の目的を対象とするものと考えられる」を説明します。主張の陳述（<i>pakṣavacana</i>）は論証手段ではなく、何を論証しようとしているかを示すだけだ、という立場です。Dharmakīrti はまず、主張の陳述が直接に（k.15–16）も間接に（k.17）も論証手段になりえないことを示します。この節の議論は主に、主張・理由・喩・適合・結論の五支作法を立てるニヤーヤ学派に向けられています。</p>
+<div class="mula" id="k15">
+  <span class="ref">k.15</span>
+  <div class="src deva" lang="sa">अर्थादर्थगतेः शक्तिः पक्षहेत्वभिधानयोः । नार्थे ततस्तयोर्नास्ति स्वतः साधनसंस्थितिः ॥</div>
+  <div class="iast" lang="sa-Latn">arthād arthagateḥ śaktiḥ pakṣahetvabhidhānayoḥ |<br> nārthe tatas tayor nāsti svataḥ sādhanasaṃsthitiḥ ||</div>
+  <div class="tr">事柄は事柄から理解されるから、主張と論証因の陳述には、事柄に対する力はない。だから、その二つはそれ自体としては論証手段の位置にない。</div>
+  <div class="nt">OCR の後半 <i>nārthe tayor nāsti svataḥ</i> は韻律上二音節足りない。<i>tatas</i> を補って読む（訳文の「だから」に当たる）。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論証するのは事柄（実在する証因）であって、ことばではありません。この点では、主張の陳述も論証因の陳述も同じです。『認識手段決択』は言います。「事柄だけが事柄を知らせる。逸脱しないからである。ことばはそうではない。結びつきによる確定がないからである」。Manorathanandin は「それ自体としては」を「それ自身の形としては」と注します（PVV 419）。ことばは、それ自体として特定の対象に限られる性質をもたないのです。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、ここでの「論証因の陳述」が、二支から成る他者のための推理（遍充の陳述と主題所属性の陳述）を指していることに注意を促します。また、ことばに本来の「適合性」（<i>yogyatā</i>）がなく、話者の意図だけで使われるという主題が、後の k.109 以下（世間周知）につながることを指摘しています（T. pp.25–27, n.100）。</p></div></div>
+</div>
+<div class="mula" id="k16">
+  <span class="ref">k.16</span>
+  <div class="src deva" lang="sa">तत्पक्षवचनं वक्तुरभिप्रायनिवेदने । प्रमाणं संशयोत्पत्तेस्ततः साक्षान्न साधनम् ॥</div>
+  <div class="iast" lang="sa-Latn">tat pakṣavacanaṃ vaktur abhiprāyanivedane |<br> pramāṇaṃ saṃśayotpattes tataḥ sākṣān na sādhanam ||</div>
+  <div class="tr">だから主張の陳述は、話者の意図を知らせることについては認識手段である。（しかし）それから疑いが生じるので、直接には論証手段ではない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Devendrabuddhi・Śākyabuddhi・Manorathanandin は、前半を想定される反論への答えと読みます。反論者はこう言います。「師（Dignāga）はことばによる認識を認識手段とされた。それなら主張の陳述によって事柄が成立するはずではないか」。答えはこうです。主張の陳述が認識手段であるのは、話者が何を言いたいかを知らせる点においてであり、事柄そのものについてではない。主張を聞いても、それが本当かどうか疑いが生じるのを見れば、それが直接の論証手段でないことは明らかです。</p><p>これは Dignāga 自身が自注で「主張からは疑いが生じるので論証手段とは認めない」と述べたことの反映です。Dignāga は第5章冒頭で、ことばによる認識を推理に含めました。Dharmakīrti もすでに第1章 k.213 で、ことばは事物と必然的な関係をもたず、話者の意図を示すだけだ、と述べています。</p></div>
+</div>
+<div class="mula" id="k17">
+  <span class="ref">k.17</span>
+  <div class="src deva" lang="sa">साध्यस्यैवाभिधानेन पारंपर्येण नाप्यलम् । शक्तस्य सूचकं हेतुवचोऽशक्तमपि स्वयम् ॥</div>
+  <div class="iast" lang="sa-Latn">sādhyasyaivābhidhānena pāraṃparyeṇa nāpy alam |<br> śaktasya sūcakaṃ hetuvaco &#x27;śaktam api svayam ||</div>
+  <div class="tr">（主張の陳述は）所証だけを述べるので、間接的にも（論証する）力はない。論証因の陳述は、それ自体は力がなくとも、力あるもの（証因）を指し示す。</div>
+  <div class="exp"><span class="lbl">解説</span><p>k.15 では、主張の陳述と論証因の陳述はどちらも直接の論証手段でない点で同じでした。ここで両者の違いが示されます。論証因の陳述は、所証を論証する力をもつ三相の証因を指し示すので、間接的には論証手段と言える。主張の陳述が指すのは所証そのものであり、所証は自分自身を論証できません。『認識手段決択』とその注は、論証因の陳述が本当の論証手段（証因）を思い出させる原因なので、比喩的に（<i>upacārāt</i>）論証手段と呼ばれる、と説明します。</p></div>
+</div>
+<div class="mula" id="k18">
+  <span class="ref">k.18</span>
+  <div class="src deva" lang="sa">हेत्वर्थविषयत्वेन तदशक्तोक्तिरीरिता । शक्तिस्तस्यापि चेद्धेतुवचनस्य प्रवर्तनात् ॥</div>
+  <div class="iast" lang="sa-Latn">hetvarthaviṣayatvena tadaśaktoktir īritā |<br> śaktis tasyāpi ced dhetuvacanasya pravartanāt ||</div>
+  <div class="tr">力のないその（所証）の陳述は、「論証因の目的を対象とする」と言われた。――（反論）それにも力はある。論証因の陳述を促すのだから、と言うなら。</div>
+  <div class="nt">OCR の <i>tadaśaktir īritā</i> は一音節不足。PVV の注（<i>aśaktatayoktir īritā</i>）により <i>tadaśaktoktir</i> と読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>前半は Dignāga の「（主張の提示は）論証因の目的を対象とする」の解釈です。Prajñākaragupta は、主張の提示が論証手段としてではなく論証因の目的を示すものとして置かれているから、その陳述には力がないと言われた、と注します（PVBh 488）。複合語 <i>tad-aśakti</i> の「それ」を、Prajñākaragupta は所証、Manorathanandin は主張の陳述と解しています。</p><p>後半は反論です。主張が述べられなければ論証因を述べる理由がない。だから主張の陳述も論証因の陳述を引き出すという点で力をもつのではないか。答えは k.19 です。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans はここで、主張の陳述をめぐる Dignāga・Dharmakīrti の考えが段階的に変わったという見方（稲見正浩 1991 の研究を受けたもの）を示します。初期の Dignāga『因明正理門論』では主張は論証式の必須の支分であり、論証手段でもあった。『集量論』では、論証手段ではないが論証因の目的を示すために述べてもよいものとなった。Dharmakīrti も『評釈』と『正理一滴』ではほぼこれを保ち、主張は含意によって知られるので省略できるとした。その後『ヘートゥビンドゥ』で主張を不要とし、最後の著作『論諍の理論』（<i>Vādanyāya</i>）では、主張を述べることを負処とまでした。これに対して Prajñākaragupta ら後代の注釈者は、Dharmakīrti の立場は最初から変わらないと解したが、Tillemans はその解釈に無理があると論じます。またサキャ・パンディタのチベット語改訳はこの偈の統語を誤解しているとし、PVBh と PVV の読みに従っています（T. pp.30–32）。</p></div></div>
+</div>
+<div class="mula" id="k19">
+  <span class="ref">k.19</span>
+  <div class="src deva" lang="sa">तत्संशयेन जिज्ञासोर्भवेत्प्रकरणाश्रयः । विपक्षोपगमेऽप्येतत्तुल्यमित्यनवस्थितिः ॥</div>
+  <div class="iast" lang="sa-Latn">tatsaṃśayena jijñāsor bhavet prakaraṇāśrayaḥ |<br> vipakṣopagame &#x27;py etat tulyam ity anavasthitiḥ ||</div>
+  <div class="tr">（それなら）その事柄を疑って知ろうと欲する者にとっても、（論証を述べる）場の拠りどころがあることになる。所証に反するものを承認する場合にも、これは同じである。こうして（論証式の支分には）際限がなくなる。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論証因が述べられる条件は主張だけではありません。相手が疑い、知りたいと思うことも条件です。それらまで論証式の支分に数えれば、ニヤーヤの『正理経疏』が紹介して退けた「十支」の論証式を認めることになります。Vibhūticandra はここに十支説への言及を見ています。</p><p>Manorathanandin は前半をこう注します。所証を疑うので知りたいと思い、そのとき論証手段が述べられる。だから疑いと知的欲求は論証手段を述べる場の原因であり、主張の陳述と同じく論証手段になってしまう（PVV 420）。後半は、所証に反する性質を相手が主張している場合も、論証因の陳述を促す点で同じだから、その陳述まで支分になって際限がなくなる、という意味です（PVV 421）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、チベット語訳が <i>prakaraṇāśraya</i> を所有複合語、<i>jijñāsoḥ</i> を奪格と解していることを注記し、それと異なる Manorathanandin の解釈（属格）を主に採ると述べています（T. p.33, n.121）。</p></div></div>
+</div>
+<div class="mula gap" id="k20"><span class="ref">k.20–22</span><div class="tr"><span class="pill g">OCR 欠落</span> 使用した OCR では Tillemans 2000 の pp.35–36 が欠けており、k.19 の解説の続きと k.20–22 の原文・英訳を確認できない。前後の論述によれば、k.22 は「主張は（遍充と主題所属性の）二支から含意によって（<i>arthāt</i>）知られる」ことを述べている（T. p.37, xviii n.8 の言及による）。原文の提供を待って補う。</div></div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>ニヤーヤの主張論を退ける</h2><span class="sub"><span class="pg">k.23–27</span>「不足」の再定義、正理経の主張の定義への批判、同学の論駁への批判</span></div>
+<p>ここから k.27 までは、論証式に主張を含めなければならないとするニヤーヤ学派への個別の反論です。この部分には『認識手段決択』に対応する箇所がなく、同書はすぐに Dignāga の主張の定義（k.28 以下に当たる）へ進みます。</p>
+<div class="mula" id="k23">
+  <span class="ref">k.23</span>
+  <div class="src deva" lang="sa">अनुक्तावपि पक्षस्य सिद्धेरप्रतिबन्धतः । त्रिष्वन्यतमरूपस्यैवानुक्तिर्न्यूनतोदिता ॥</div>
+  <div class="iast" lang="sa-Latn">anuktāv api pakṣasya siddher apratibandhataḥ |<br> triṣv anyatamarūpasyaivānuktir nyūnatoditā ||</div>
+  <div class="tr">主張を述べなくても（所証の）成立には妨げがないから、三相のうちどれか一つを述べないことこそが「不足」であると説かれた。</div>
+  <div class="nt">OCR の <i>apratibandhaḥ</i> は一音節不足。<i>apratibandhataḥ</i> と読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「不足」（<i>nyūnatā</i>）は、ニヤーヤの『正理経』（5.2.12）では、五支のどれか一つでも欠ければ生じる負処です。Dignāga は自注で、三相のうち一つでも述べなければ不足になる、とこれを読み替えました。Dharmakīrti はそれをほぼそのまま繰り返します。主張は含意によって知られるので、述べなくても論証は損なわれないのです。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Dignāga 自身も初期の『因明正理門論』では主張を含む三支の論証式を認め、主張を欠けば不足になるとしていたことを、漢訳の文言を引いて示しています。Dignāga の考えも変化したのだ、というのです（T. p.37, n.142）。</p></div></div>
+</div>
+<div class="mula" id="k24">
+  <span class="ref">k.24</span>
+  <div class="src deva" lang="sa">साध्योक्तिं वा प्रतिज्ञां स वदन्दोषैर्न युज्यते । साधनाधिकृतेरेव हेत्वाभासाप्रसङ्गतः ॥</div>
+  <div class="iast" lang="sa-Latn">sādhyoktiṃ vā pratijñāṃ sa vadan doṣair na yujyate |<br> sādhanādhikṛter eva hetvābhāsāprasaṅgataḥ ||</div>
+  <div class="tr">（主張を論証手段としない者は）所証の陳述を主張と言っても、誤りに陥らない。（そこでは）論証手段だけが問題になるので、似因（が主張になるという過失）は帰結しないからである。</div>
+  <div class="nt">OCR の <i>hetvābhāsaprasaṅgataḥ</i> を、文意により <i>hetvābhāsāprasaṅgataḥ</i> と読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>ニヤーヤの主張の定義は「所証の提示が主張である」（<i>sādhyanirdeśaḥ pratijñā</i>）です。Manorathanandin の導入によれば、主張も論証手段だと考えるなら、この定義は広すぎることになります。成立していない論証因や喩は、まだ成立していない（所証である）と同時に論証手段でもあるので、主張の定義に当てはまってしまうからです（PVV 422）。</p><p>主張を論証手段と認めない者なら、同じ定義を使っても困りません。成立していない論証因を述べることは、論証手段を述べることとして扱われるので、所証の提示には当たらないからです。この議論は Dignāga『集量論』第3章 k.3 の、ニヤーヤの定義への批判を受けたものです。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans はここに、所証と論証手段を一つの論争の中で別物として扱う原則を見ます。ニヤーヤでは、論証因の陳述が論証手段であってもなお所証でありうるが、Dharmakīrti では、ある論争で論証手段とみなされるものは同じ論争で所証とはみなされない。また、問題は論証因そのものよりも「成立していない論証因の陳述」であり、使用と言及の区別があいまいなのは古い論理学に共通する、と注記しています（T. pp.38–39, n.144）。</p></div></div>
+</div>
+<div class="mula" id="k25">
+  <span class="ref">k.25</span>
+  <div class="src deva" lang="sa">अविशेषोक्तिरप्येकजातीये संशयावहा । अन्यथा सर्वसाध्योक्तेः प्रतिज्ञात्वं प्रसज्यते ॥</div>
+  <div class="iast" lang="sa-Latn">aviśeṣoktir apy ekajātīye saṃśayāvahā |<br> anyathā sarvasādhyokteḥ pratijñātvaṃ prasajyate ||</div>
+  <div class="tr">区別のない陳述も、同じ種類のものについて疑いをもたらす。さもなければ、所証を述べるものすべてが主張であることになってしまう。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「所証の提示」と区別なしに言うだけでは、成立していない論証因の陳述が主張なのかどうか、疑いが残ります。Vibhūticandra は「論証手段と非論証手段の区別なしの陳述」と注します。さらに、<i>sādhya</i> を「成し遂げられるべきもの」という一般的な意味で取れば、「陶工が壺を作る」と言うことさえ、壺を成し遂げられるべきものとして述べることになり、主張になってしまう、と Devendrabuddhi は言います。</p></div>
+</div>
+<div class="mula" id="k26">
+  <span class="ref">k.26</span>
+  <div class="src deva" lang="sa">सिद्धोक्तेः साधनत्वाच्चेत्परस्यापि न दुष्यति । इदानीं साध्यनिर्देशः साधनावयवः कथम् ॥</div>
+  <div class="iast" lang="sa-Latn">siddhokteḥ sādhanatvāc cet parasyāpi na duṣyati |<br> idānīṃ sādhyanirdeśaḥ sādhanāvayavaḥ katham ||</div>
+  <div class="tr">「成立したものの陳述が論証手段なのだから、相手（ニヤーヤ）にも誤りはない」と言うなら、それでは所証の提示が、どうして論証式の支分でありえようか。</div>
+  <div class="nt">PV-k(II) は <i>sādhanatvāc ca</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>ニヤーヤ側の逃げ道はこうです。論証手段とは成立したことの陳述であり、成立していない論証因の陳述は論証手段ではない。だからそれが主張になる心配もない。しかしこの前提をとると、主張そのものも論証手段でなくなります。主張はまだ成立していない所証を述べるものだからです。Manorathanandin は言います。「主張の内容は成立していない。まさにそのために論証手段が提示されるのだから。成立していないものは、似因と同じく論証手段ではない」（PVV 423）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Manorathanandin が <i>siddhokteḥ</i> を奪格と解して二つの理由を読み込むのに対し、Devendrabuddhi やサキャ・パンディタのチベット語訳に従って属格と読む、と注記しています（T. p.40, n.151）。</p></div></div>
+</div>
+<div class="mula" id="k27">
+  <span class="ref">k.27</span>
+  <div class="src deva" lang="sa">साभासोक्त्याद्युपक्षेपपरिहारौ विडम्बना । असंबद्धा तथा ह्येष न न्याय इति वर्णितम् ॥</div>
+  <div class="iast" lang="sa-Latn">sābhāsoktyādy upakṣepaparihārau viḍambanā |<br> asaṃbaddhā tathā hy eṣa na nyāya iti varṇitam ||</div>
+  <div class="tr">「似非をともなう陳述」などをめぐる問題提起と応答とは、的外れな茶番である。そのような（議論）が正しい方法でないことは、すでに述べたからである。</div>
+  <div class="nt">諸本は <i>sābhāsoktyādyupakṣepaparihāraviḍambanā</i> と一語にするが、PVV の注とチベット語訳に従い分けて読む（Tillemans の校訂）。</div>
+  <div class="exp"><span class="lbl">解説</span><p>仏教徒の先輩たち（Vibhūticandra によれば『因明正理門論注』の作者ら）は、ニヤーヤとの論争をこう描きました。ニヤーヤ「主張の陳述は論証手段である。似非をもちうるものだから」。仏教「知覚によって不定である。知覚は似非（似現量）をもちうるが論証手段ではない」。ニヤーヤ「ことばである点で似非をもちうるから」。仏教「論駁によって不定である」……。Manorathanandin は、この応酬全体が茶番だと言います（PVV 423–424）。</p><p>なぜか。「似非をもちうる」という論証因は、否定されれば覆す認識手段がない（遍充がない）ので、そもそも論証因ではありません。それを認めたうえで反例を一つずつ挙げるのは見苦しい。相手が「ことばであるかぎり」という限定を加えたら、その限定が論証因を異類から切り離すかどうかを問うべきであって、新たな反例を探すべきではない。この原則は第1章（k.240–243 と自注）で、ヴェーダの朗誦を論じたときにすでに述べられています。ミーマーンサーが「朗誦は先行する朗誦をもつ」と言い、『マハーバーラタ』の朗誦という反例を「ヴェーダの朗誦であるかぎり」という限定で避けようとした例です。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、この「茶番」の相手となる仏教徒の注釈者について、Śākyabuddhi が名前を挙げていることを紹介します。その名を「Bāhuleya」と復元する Watanabe 1976 の推定にふれつつ、その人物についてはほとんど何も分からないとしています。この注釈者は k.122 でも再び登場します。また Śākyabuddhi が、ニヤーヤ側は次に「論駁でないかぎり」といった限定を加えるだろうと予想していることを紹介し、Dharmakīrti はこの応酬そのものから抜け出す原則を示したのだ、と解しています（T. pp.42–45）。なお、k.27 の解説の末尾（T. p.46）は OCR が判読できない。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>主張の定義の目的と四つの特徴</h2><span class="sub"><span class="pg">k.28–31</span>「自らの形で」「のみ」「意図された」「自ら」の四語</span></div>
+<p>ここから Dignāga の第2偈、主張の定義に移ります。主張の陳述が論証手段でなく、含意によって知られるものなら、なぜ Dignāga はわざわざ主張の定義を立てたのか。これが Manorathanandin の示す問いです（PVV 424）。</p>
+<div class="mula" id="k28">
+  <span class="ref">k.28</span>
+  <div class="src deva" lang="sa">गम्यार्थत्वेऽपि साध्योक्तेरसंमोहाय लक्षणम् । तच्चतुर्लक्षणं रूपनिपातेष्टस्वयंपदैः ॥</div>
+  <div class="iast" lang="sa-Latn">gamyārthatve &#x27;pi sādhyokter asaṃmohāya lakṣaṇam |<br> tac caturlakṣaṇaṃ rūpanipāteṣṭasvayaṃpadaiḥ ||</div>
+  <div class="tr">所証の陳述の内容は（含意によって）理解されうるものであるが、迷いを除くために定義（が述べられた）。それ（所証）は、「（自らの）形」「（のみという）不変化辞」「意図された」「自ら」の語によって、四つの特徴をもつ。</div>
+  <div class="nt">諸本の <i>rūpanipāteṣu svayaṃpadaiḥ</i> は誤りで、<i>rūpanipāteṣṭasvayaṃpadaiḥ</i> と一語に読む（Frauwallner 1957 の指摘を Tillemans が採用）。</div>
+</div>
+<div class="mula" id="k29">
+  <span class="ref">k.29</span>
+  <div class="src deva" lang="sa">असिद्धासाधनार्थोक्तवाद्यभ्युपगतग्रहः । अनुक्तोऽपीच्छया व्याप्तः साध्य आत्मार्थवन्मतः ॥</div>
+  <div class="iast" lang="sa-Latn">asiddhāsādhanārthoktavādyabhyupagatagrahaḥ |<br> anukto &#x27;pīcchayā vyāptaḥ sādhya ātmārthavan mataḥ ||</div>
+  <div class="tr">（それらの語によって、主張は）成立していないもの、論証手段でないもの、意味どおりに述べられたもの、論者が承認したもの、として把握される。述べられていなくても、意図に包摂されているものが所証と考えられる。「アートマンのため」の場合のように。</div>
+  <div class="nt">後半の <i>vādyabhyupagata</i> は PV-k(II) とチベット語訳の読み。他の諸本は <i>vādyabhyupagama</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>四語と四つの特徴の対応は次のとおりです。</p><p>（1）「自らの形で」：主張は所証であり、相手にとって成立していないもの（たとえば「音は聞かれる」のような自明な命題ではない）。（2）「のみ」：主張は所証だけであって、論証手段ではない。成立していない論証因や喩が主張に紛れ込むのを防ぐ（k.24–26 参照）。（3）「意図された」：主張は語の字面ではなく、論者が実際に意味したとおりのもの。（4）「自ら」：主張は論者自身が承認するものであって、その学派の論書に書かれていることすべてではない。</p><p>「否定されていない」と四種の否定は k.91–135 で、「自らの有法」は k.136–148 で扱われます。</p><p>最後の「アートマンのため」は、サーンキヤのアートマン（精神原理）の論証を指します。「眼などは他のためにある。集合体だから。寝台や座具などの付属物のように」。サーンキヤが「他」で実際に意味しているのは、根本原質から展開したものを享受する精神（プルシャ）です。それは述べられていなくても、論者の意図の対象なので所証です（PVV 425）。この論証は k.31–33 で再び検討されます。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Dignāga 自身は自注で「自らの形でのみ」と「自ら意図された」の二つの働きしか述べていなかったのに対し、Dharmakīrti が四語それぞれに別の機能を割り当てたことを、Dharmakīrti の革新と見ます（小野基 1986 の研究に依拠）。とくに「自ら」と「意図された」を分けたことで、「意図された」によってサーンキヤや順世派の詭弁を退け（k.32 以下）、「自ら」によって論証が論書から独立していることを展開できた（k.42 以下）、と整理しています（T. pp.48–50）。</p></div></div>
+</div>
+<div class="mula gap" id="k30"><span class="ref">k.30–31</span><div class="tr"><span class="pill g">OCR 欠落</span> 使用した OCR では Tillemans 2000 の pp.51–52 が欠けており、k.30–31 の原文・英訳を確認できない。前後の論述によれば、k.30 は「『意図された』の語があれば『自ら』は不要ではないか」という反論への答え（語は排除を目的とするから）であり、k.31 は「所証が論者の意図だけなら、Dignāga の立てた『法の差別相違因』などの区別がなくなる」という反論に答え、意図された内容は同じでも言語表現のしかたで区別が生じる、と述べる（T. p.53 による）。原文の提供を待って補う。</div></div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>「意図された」：サーンキヤのアートマン論証</h2><span class="sub"><span class="pg">k.32–33</span>意図された所証には肯定的随伴がなく、相違因になる</span></div>
+<p>サーンキヤが実際に意図している所証、つまり「眼などは（集合していない）アートマンのためにある」を検討します。Manorathanandin は「アートマンのためであることを論じる場合に、どんな誤りがあるか」と導入します（PVV 426）。</p>
+<div class="mula" id="k32">
+  <span class="ref">k.32</span>
+  <div class="src deva" lang="sa">अनन्वयोऽपि दृष्टान्ते दोषस्तस्य यथोदितम् । आत्मा परश्चेत्सोऽसिद्ध इति तत्रेष्टघातकृत् ॥</div>
+  <div class="iast" lang="sa-Latn">ananvayo &#x27;pi dṛṣṭānte doṣas tasya yathoditam |<br> ātmā paraś cet so &#x27;siddha iti tatreṣṭaghātakṛt ||</div>
+  <div class="tr">それ（アートマンのためであること）には、喩において肯定的随伴がないという誤りもある。（世親が）「他がアートマンなら、それは（喩において）成立していない」と言ったとおりである。その場合、（論証因は）意図されたものを損なうものとなる。</div>
+  <div class="exp"><span class="lbl">解説</span><p>誤りは二つです。（1）肯定的随伴がない。喩の寝台や座具は「他のため」にあるとしても、「アートマンのため」にあるとは成立していないので、喩の上で論証因と所証が共存しない。Dharmakīrti はここで、おそらく世親の『論軌』（<i>Vādavidhi</i>）の一句「他がアートマンなら、それは成立していない」を引いています。Manorathanandin は「師世親が言ったように」と明記します（PVV 426）。（2）「集合体であること」という論証因は、意図された所証の反対を論証してしまう。集合体であるものは、やはり集合体である他のためにある、と示すからです。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans はこの世親の句が、Frauwallner の集めた世親の断片には含まれていないことを指摘します。また Manorathanandin と Dharmottara が、引用と自分の注釈を混ぜて書いていることにも注意しています。<i>iṣṭaghātakṛt</i> は Dignāga の術語 <i>iṣṭavighātakṛt</i>（意図を損なうもの）の意図的な言い換えと考えられます。Dignāga はこれを相違因の独立の一種としたが、Dharmakīrti は『正理一滴』で、それは所証の反対を論証する点で他の相違因と同じだとして独立させなかった、と述べています。<i>anvaya</i> の訳語には、従来の「肯定的随伴」にあたる英語を避けて「共存（co-presence）」を採っています（T. pp.55–56）。</p></div></div>
+</div>
+<div class="mula" id="k33">
+  <span class="ref">k.33</span>
+  <div class="src deva" lang="sa">साधनं यद्विवादेन न्यस्तं तच्चेन्न साध्यते । किं साध्यमन्यथानिष्टं भवेद्वैफल्यमेव वा ॥</div>
+  <div class="iast" lang="sa-Latn">sādhanaṃ yadvivādena nyastaṃ tac cen na sādhyate |<br> kiṃ sādhyam anyathāniṣṭaṃ bhaved vaiphalyam eva vā ||</div>
+  <div class="tr">ある事柄をめぐる論争のために論証手段が置かれたのに、その事柄が論証されていないのだとすれば、何が所証なのか。そうでなければ、（所証は）意図されないものになるか、（論証手段が）まったく無益になるかである。</div>
+  <div class="nt">MIY. は <i>yad vivāde na</i>。Manorathanandin はこの読みで注するが、Devendrabuddhi・PVin・チベット語訳の大半は具格 <i>yadvivādena</i> を支持する。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は「アートマンのためであることは述べられていないから所証ではない」と言います。Dharmakīrti の答えは両刀論法です。論争の的になっている事柄が所証でないなら、（a）論証は意図しないもの（その反対）を成立させてしまうか、（b）字面どおりの「他のため」を論証するだけなら、それは仏教徒もすでに認めていることなので、論証手段は無益になる。『認識手段決択』は「彼ら（仏教徒）は集合体が他のためにはたらくことを認めているから、論証手段は無益である」と言います。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は読みについて、Manorathanandin の <i>yadvivāde na nyastaṃ</i> ではなく <i>yadvivādena</i> を採ります。哲学的にもこの方が筋が通り、渡辺（1977）もそう読んでいるようだ、としています（T. p.56, n.198）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §7 ============ -->
+<section id="s7" class="wrap">
+  <div class="sec-head"><span class="sec-no">7</span><h2>「意図された」：順世派の「伴侶をもつ」論証</h2><span class="sub"><span class="pg">k.34–41</span>選言を使った詭弁と、仏教論理への偽の類比</span></div>
+<p>順世派（唯物論者）は次のような論法（<i>sadvitīyaprayoga</i>「伴侶をもつことの論証」）を使ったとされます。「壺は、壺か、意識の現れた身体という人間か、どちらか一方を伴侶としてもつ。青蓮華ではないから。壁のように」。壺は自分自身を伴侶にはできないので、伴侶は人間（意識が要素の現れにすぎない身体）だということになる。そうなれば心身は同一で、死後の再生はない、という結論に誘い込むわけです。</p>
+<p>この選言を使った論法は順世派に限らず、『論諍の理論』ではミーマーンサーが音の常住性の論証に、『カマラシーラの真実綱要細疏』ではニヤーヤのアヴィッダカルナが用いています。</p>
+<div class="mula" id="k34">
+  <span class="ref">k.34</span>
+  <div class="src deva" lang="sa">सद्वितीयप्रयोगेषु निरन्वयविरुद्धते । एतेन कथिते साध्यं सामान्येनाथ संमतम् ॥</div>
+  <div class="iast" lang="sa-Latn">sadvitīyaprayogeṣu niranvayaviruddhate |<br> etena kathite sādhyaṃ sāmānyenātha saṃmatam ||</div>
+  <div class="tr">これによって、「伴侶をもつ」論証においても、肯定的随伴の欠如と相違（の誤り）が述べられたことになる。――（反論）所証は一般的なものとして認められている、と言うなら。</div>
+  <div class="exp"><span class="lbl">解説</span><p>サーンキヤの論証への批判（k.32）が、そのままここにも当てはまります。Manorathanandin によれば、（1）順世派が実際に意図する所証は「意識の現れた身体という人間を伴侶にもつこと」だが、喩の壁にそれは見られないので、肯定的随伴がない。（2）壁が壺を伴侶にもつことは見られるので、論証因は「壺を伴侶にもつこと」を論証してしまう。「どちらか一方」とは一方だけということなので、壺が伴侶なら人間は伴侶ではないことになり、論証因は意図の反対を論証する相違因になる（PVV 427）。</p><p>後半は順世派の反論です。所証は特定のものを挙げない一般的な「伴侶をもつこと」であり、壁にもそれはある、と言います（PVV 427）。答えは k.35 以下です。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は順世派の論法を四段階に整理しています。（a）壺は青蓮華ではないので主題所属性は成り立つ。（b）仏教論理との偽の類比で遍充を立て、後には仏教徒も同じ欠陥を免れないと論じる（k.37 以下）。（c）壺は自分自身を伴侶にできない。（d）伴侶が唯物論的な人間なら再生は不可能である。所証を「伴侶をもつこと」一般とする言い分は、仏教論理でも所証の性質は限定なしの一般的なもので取られる、という原則を借りたものだ、と説明します（T. pp.59–62）。</p></div></div>
+</div>
+<div class="mula gap" id="k35"><span class="ref">k.35</span><div class="tr"><span class="pill g">OCR 欠落</span> 使用した OCR では Tillemans 2000 の p.58 が欠けており、k.35 の原文・英訳を確認できない。前後の論述によれば、k.35 前半は、順世派の言う（意識をそなえた）身体は存在しないので、壺とは別の伴侶となる対象はなく、普遍「伴侶であること」もありえない、と答える。普遍はその個物を離れて存在しないからである（T. p.62 による）。原文の提供を待って補う。</div></div>
+<div class="mula" id="k36">
+  <span class="ref">k.36</span>
+  <div class="src deva" lang="sa">तुल्यं नाशेऽपि चेच्छब्दघटभेदेन कल्पने । न सिद्धेन विनाशेन तद्वतः साधनाद्ध्वनेः ॥</div>
+  <div class="iast" lang="sa-Latn">tulyaṃ nāśe &#x27;pi cec chabdaghaṭabhedena kalpane |<br> na siddhena vināśena tadvataḥ sādhanād dhvaneḥ ||</div>
+  <div class="tr">「（所証である）消滅についても、音と壺という個別のものとして構想すれば同じことだ」と言うなら、そうではない。成立している消滅によって、音がそれをもつことが論証されるからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>順世派はもう一つの偽の類比を持ち出します。仏教徒が「音は消滅する。作られたものだから。壺のように」と論じるとき、もし所証を「音の消滅」と取れば、喩の壺にそれはなく、「壺の消滅」と取れば音にはない。だから仏教徒も所証を一般的に取るしかない。それなら自分たちも「伴侶をもつこと」を一般的に取ってよいはずだ、と言うのです（PVV 428）。</p><p>Dharmakīrti の答えは、類比は成り立たない、というものです。消滅という普遍は、壺などで成立しており、それを音がもつことを論証する。これに対して「伴侶であること」は、順世派の言う意味での壺にも人間にも成立していません。</p></div>
+</div>
+<div class="mula" id="k37">
+  <span class="ref">k.37</span>
+  <div class="src deva" lang="sa">तथार्थान्तरभावे स्यात्तद्वान्कुम्भोऽप्यनित्यता । विशिष्टा ध्वनिनान्वेति नो चेन्नायोगवारणात् ॥</div>
+  <div class="iast" lang="sa-Latn">tathārthāntarabhāve syāt tadvān kumbho &#x27;py anityatā |<br> viśiṣṭā dhvaninānveti no cen nāyogavāraṇāt ||</div>
+  <div class="tr">同じように、別の対象が存在するなら、壺もそれ（伴侶）をもつことになろう。――（反論）音によって限定された無常性は（喩に）随伴しない、と言うなら。――そうではない。非結合を退けるのだから。</div>
+  <div class="nt">PV-k(I) は <i>viśiṣṭo</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>前半：身体か壺かのどちらかが壺とは別の対象として存在するなら、無常性の場合と同じく、壺は「伴侶をもつ」ことになります。しかし壺は自分とは別ではなく、「意識の現れた身体」は仏教徒から見て存在しない。Manorathanandin は、身体が意識のない（壺と同じ種類の）ものなら「伴侶をもつこと」は成立するが、それでは順世派の意図した身心同一の結論は出ない、と指摘します（PVV 428）。</p><p>後半は反論です。仏教徒も、音に属する無常性を論証するなら喩に随伴しないではないか。答えは、所証が排除しているのは音と無常性の「非結合」だけだ、ということです（PVV 428）。次偈で詳しく説明されます。</p></div>
+</div>
+<div class="mula" id="k38">
+  <span class="ref">k.38</span>
+  <div class="src deva" lang="sa">द्विविधो हि व्यवच्छेदो वियोगापरयोगयोः । व्यवच्छेदादयोगे तु वार्ये नानन्वयागमः ॥</div>
+  <div class="iast" lang="sa-Latn">dvividho hi vyavacchedo viyogāparayogayoḥ |<br> vyavacchedād ayoge tu vārye nānanvayāgamaḥ ||</div>
+  <div class="tr">排除には二種類ある。非結合の排除と、他との結合の排除とである。非結合が退けられるべき場合には、（喩で）随伴しないという（誤り）は生じない。</div>
+  <div class="nt">後半は PV-k(II/III) の読み。MIY. と PV-k(I) は <i>ayoge tu nānyenānanvayāgamaḥ</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>仏教の言語理論では、限定するもの（形容）と限定されるもの（被形容）の関係は、必ず何らかの排除を含みます。「チャイトラは弓取りである」と言うとき、通常はチャイトラが弓取りでないことを否定するだけで、他にも弓取りがいてかまいません。これが「非結合の排除」（<i>ayogavyavaccheda</i>）です。「パールタ（アルジュナ）こそ弓取りである」と言えば、他の者が弓取りであることを排除します。これが「他との結合の排除」（<i>anyayogavyavaccheda</i>）です。「音は無常である」は前者なので、無常性が壺など他のものにあることを妨げません。だから喩で随伴しないという誤りは生じません。</p></div>
+</div>
+<div class="mula" id="k39">
+  <span class="ref">k.39</span>
+  <div class="src deva" lang="sa">सामान्यमेव तत्साध्यं न च सिद्धप्रसाधनम् । विशिष्टं धर्मिणा तच्च न निरन्वयदोषवत् ॥</div>
+  <div class="iast" lang="sa-Latn">sāmānyam eva tat sādhyaṃ na ca siddhaprasādhanam |<br> viśiṣṭaṃ dharmiṇā tac ca na niranvayadoṣavat ||</div>
+  <div class="tr">その普遍こそが所証であり、しかも既成のものを論証するのでもない。そしてそれは有法によって限定されてはいるが、随伴の欠如という誤りをもたない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>個別の無常性（音の無常性）を所証とすれば、喩に随伴しない誤りが生じます。だから所証は普遍（無常性一般）だけです。しかし普遍としての無常性は、稲妻などどこかですでに成立しているのだから、それを論証するのは無意味ではないか。Manorathanandin はこう答えます。どこかにあるというだけの無常性を論証するのではない。有法（音）について、まだ成立していない「非結合の排除」を論証するのである（PVV 429）。</p></div>
+</div>
+<div class="mula" id="k40">
+  <span class="ref">k.40</span>
+  <div class="src deva" lang="sa">एतेन धर्मिधर्माभ्यां विशिष्टौ धर्मधर्मिणौ । प्रत्याख्यातो निराकुर्वन्धर्मिण्येवमसाधनात् ॥</div>
+  <div class="iast" lang="sa-Latn">etena dharmidharmābhyāṃ viśiṣṭau dharmadharmiṇau |<br> pratyākhyāto nirākurvan dharmiṇy evam asādhanāt ||</div>
+  <div class="tr">これによって、有法によって限定された法、あるいは法によって限定された有法（の欠如）を挙げて論難する者は退けられた。有法についてそのようなものを論証するのではないからである。</div>
+  <div class="nt">諸本・MIY. は <i>pratyākhyātau</i>。PVV の注（<i>sa evaṃ vadan pratyākhyātaḥ</i>）により <i>pratyākhyāto</i> と読む（Tillemans の校訂）。</div>
+  <div class="exp"><span class="lbl">解説</span><p>順世派（と Manorathanandin は特定します）は、仏教徒の所証をわざと曲げて言います。「音は、音に属する無常性をもつ」あるいは「音は、無常な音をもつ」。こう取れば、喩の壺にそれらは見られないので、論証因は随伴を欠き、意図の反対を論証する相違因になる、というのです。しかし仏教徒はそんなものを論証しようと意図していません。音について論証するのは、ただの無常性です。だから「これによって」、つまり Dignāga が定義に「意図された」を入れたことによって、この論難は退けられます（PVV 429）。</p></div>
+</div>
+<div class="mula" id="k41">
+  <span class="ref">k.41</span>
+  <div class="src deva" lang="sa">समुदायापवादो हि न धर्मिणि विरुध्यते । साध्यं यतस्तथा नेष्टं साध्यो धर्मोऽत्र केवलः ॥</div>
+  <div class="iast" lang="sa-Latn">samudāyāpavādo hi na dharmiṇi virudhyate |<br> sādhyaṃ yatas tathā neṣṭaṃ sādhyo dharmo &#x27;tra kevalaḥ ||</div>
+  <div class="tr">有法において（そのような）結合体が否定されても矛盾はない。所証はそのようには意図されていないからである。ここ（有法）において論証されるのは、ただの法である。</div>
+  <div class="exp"><span class="lbl">解説</span><p>仏教徒も、有法と法の結合体が所証であることは認めます。Manorathanandin は「ただの法が有法について論証されるのだから、結合体こそが所証である」と言います（PVV 429）。しかしその結合体は「有法＋ただの普遍としての法」であって、順世派の言う「有法に限定された法」との結合体ではありません。後者を否定する論証因は、仏教徒の意図した所証を否定しないので、相違因にはなりません。</p><p>これで「意図された」の検討が終わり、k.42 から k.90 まで「自ら」の検討に入ります。</p></div>
+</div>
+</section>
+
+<!-- ============ §8 ============ -->
+<section id="s8" class="wrap">
+  <div class="sec-head"><span class="sec-no">8</span><h2>「自ら」：論書の説はすべて所証か</h2><span class="sub"><span class="pg">k.42–47</span>「音は虚空の性質」を否定すると論証因が相違因になるか</span></div>
+<p>「自ら」は、論者がそのとき自分で論証しようと意図しているものだけが所証であることを示します。論者が属する学派の論書がその有法について他にどんな性質を説いていても、それは所証に含まれません。この長い議論（k.42–90）は、Dignāga の「自ら」に異を唱えた Uddyotakara（『正理評釈』）を相手にしている可能性があります。</p>
+<p>例として使われるのは勝論派（ヴァイシェーシカ）の論証「音は無常である。作られたものだから」です。勝論派の論書（『勝論経』2.1.24–26）は、音を虚空の性質（<i>ākāśaguṇa</i>）とします。虚空は常住なので、それに依存する性質も常住になるはずです。すると「作られたものだから」は音の無常性と同時に「音は虚空の性質ではない」ことも論証してしまう。もし論書の説もすべて所証なら、この論証因は論者自身の所証を否定する相違因になる、というのが反論者の言い分です。</p>
+<div class="mula" id="k42">
+  <span class="ref">k.42</span>
+  <div class="src deva" lang="sa">एकस्य धर्मिणः शास्त्रे नानाधर्मस्थितावपि । साध्यः स्यादात्मनैवेष्ट इत्युपात्ता स्वयंश्रुतिः ॥</div>
+  <div class="iast" lang="sa-Latn">ekasya dharmiṇaḥ śāstre nānādharmasthitāv api |<br> sādhyaḥ syād ātmanaiveṣṭa ity upāttā svayaṃśrutiḥ ||</div>
+  <div class="tr">論書のなかで一つの有法にさまざまな法が立てられていても、論者自身が意図したものだけが所証である。このために「自ら」の語が採られた。</div>
+  <div class="exp"><span class="lbl">解説</span><p>『正理一滴』の並行箇所はこう言います。「『自ら』とは、そのとき論証手段を述べる論者によって、ということである。たとえ何らかの論書に立って論証手段を述べ、その論書の作者がその有法に多くの法を認めていても、そのとき論者が自ら論証しようと意図した法だけが所証であり、他はそうではない」（NB III 42–44）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、ここでの「自ら」の解釈に、ラディカルな「反独断論」を見ます。論者は、論争の瞬間に論証しようと意図することにだけ責任を負い、どの学派の教義にも縛られない。後の k.93–108 では、自派の教義に反して「語は無常である」と論証する、ミーマーンサーからの「背教者」さえ、その背教が主張の否定にはならないとされる、と指摘しています。また Uddyotakara が、Dignāga の「自ら＝論書に依存しない立場」を、認識手段のない立場を受け入れることだと批判していた箇所を引き、この議論の背景としています（T. pp.68–69）。</p></div></div>
+</div>
+<div class="mula" id="k43">
+  <span class="ref">k.43</span>
+  <div class="src deva" lang="sa">शास्त्राभ्युपगमादेव सर्वादानात्प्रबाधने । तत्रैकस्यापि दोषः स्याद्यदि हेतुप्रतिज्ञयोः ॥</div>
+  <div class="iast" lang="sa-Latn">śāstrābhyupagamād eva sarvādānāt prabādhane |<br> tatraikasyāpi doṣaḥ syād yadi hetupratijñayoḥ ||</div>
+  <div class="tr">もし「論書を承認しているがゆえに（その説は）すべて取り込まれているのだから、そのうち一つでも否定すれば、論証因と主張とに誤りがある」と言うなら、</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者の言い分です。Bu ston と Vibhūticandra は、この反論者をヴェーダ非人為説を唱えるミーマーンサー学派と見ます。ミーマーンサーは音（ことば）の常住を説くので、勝論派の「音は無常である」を攻撃する立場にあるからです。論法はこうです。（a）論者が承認する論書の説はすべて論者の所証である。（b）「音は虚空の性質」は勝論派の論書にあるので、勝論派の所証でもある。（c）音が虚空の性質なら音は常住である。（d）「作られたもの」は音の無常性を論証し、したがって音が虚空の性質ではないことを論証する。（e）ゆえに「作られたもの」は勝論派の所証の反対を論証する相違因、あるいは主張と矛盾する理由である。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、ここでは「主張と理由の矛盾」（<i>pratijñāvirodha</i>、ニヤーヤの負処の一つで Dignāga が退けたもの）と「相違因」の二つの枠組みが重ねて使われていると指摘します。また同じ論法が、カマラシーラ『真実綱要細疏』では順世派の推理否定論の一つとしても現れ、あらゆる正しい論証因が論書との矛盾によって相違因になりうる、という一般的な攻撃に使われていることを紹介しています（T. pp.70–72）。</p></div></div>
+</div>
+<div class="mula" id="k44">
+  <span class="ref">k.44</span>
+  <div class="src deva" lang="sa">शब्दनाशे प्रसाध्ये स्याद्गन्धभूगुणताक्षतेः । हेतुर्विरुद्धोऽप्रकृतेर्नो चेदन्यत्र सा समा ॥</div>
+  <div class="iast" lang="sa-Latn">śabdanāśe prasādhye syād gandhabhūguṇatākṣateḥ |<br> hetur viruddho &#x27;prakṛter no ced anyatra sā samā ||</div>
+  <div class="tr">（それなら）音の消滅を論証するときにも、香が地の性質であることを損なうので、論証因は相違因となろう。――「（それは）論題になっていないから、そうはならない」と言うなら、そのこと（論題でないこと）は他方（虚空の性質）でも同じである。</div>
+  <div class="nt">PV-k(I/III) は <i>gandhe bhūguṇatā°</i>。チベット語訳の <i>dri za'i</i>（ガンダルヴァ）は <i>dri sa'i</i>（香・地の）の誤り。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論書の説がすべて所証なら、勝論派の論書が説く「香は地の性質である」も所証になります。「作られたもの」がそれを否定するなら（Manorathanandin の注のように類推して）、それも相違因になってしまう。反論者が「香の話は論題になっていない」と言うなら、論者は「音は虚空の性質」についても論じようとはしていないのだから、条件は同じです。</p></div>
+</div>
+<div class="mula" id="k45">
+  <span class="ref">k.45</span>
+  <div class="src deva" lang="sa">अथात्र धर्मी प्रकृतस्तत्र शास्त्रार्थबाधनम् । अथ वादीष्टतां ब्रूयाद्धर्मिधर्मादिसाधनैः ॥</div>
+  <div class="iast" lang="sa-Latn">athātra dharmī prakṛtas tatra śāstrārthabādhanam |<br> atha vādīṣṭatāṃ brūyād dharmidharmādisādhanaiḥ ||</div>
+  <div class="tr">「ここ（虚空の性質の場合）では有法（音）が論題になっているので、そこで論書の説が否定される」と言うなら、（同じことである）。あるいは、「有法の法であること」などの論証によって、（それが）論者の意図であると言うかもしれない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は区別を立てます。所証になるのは論書のすべての説ではなく、論題の有法（音）について論書が説く性質だけだ。香の場合は有法（香）が論題でないので否定されてもかまわない。Manorathanandin はこれを退けます。論者の意図に反するから誤りだと言われたのではなく、論書の説に反するから誤りだと言われたのだから、論題かどうかは関係がない。論者が意図していない点では、香の地性も音の虚空性も同じである（PVV 431）。</p><p>後半では反論者が論証を持ち出します。「虚空の性質であることは論者に意図されている。論証される有法の法だから（あるいは論証される結合体の一部だから）。無常性のように」（PVV 431、Devendrabuddhi の注も同様）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、『認識手段決択』の反論が少し違うことを注記します。そこでは、虚空の性質も地の性質も、所証である無常性と事実上結びついていない点で同じだ、と答えます。Dharmottara の注では、論者が論題の有法について意図するものなら、述べられていなくても事実上結合しているものは所証になる（無我性など）が、虚空の性質はそもそも存在しないので結合がない、と説明されています（T. pp.74–75）。</p></div></div>
+</div>
+<div class="mula" id="k46">
+  <span class="ref">k.46</span>
+  <div class="src deva" lang="sa">कैश्चित्प्रकरणैरिच्छा भवेत्सा गम्यते च तैः । बलात्तवेच्छेयमिति व्यक्तमीश्वरचेष्टितम् ॥</div>
+  <div class="iast" lang="sa-Latn">kaiścit prakaraṇair icchā bhavet sā gamyate ca taiḥ |<br> balāt taveccheyam iti vyaktam īśvaraceṣṭitam ||</div>
+  <div class="tr">意図は何らかの文脈によって生じ、またその（文脈）によって知られる。（それなのに）「（論証の）力によって、お前にはこの意図がある」と言うなら、それは明らかに神のしわざである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論者が何を意図しているかは、論争の文脈によって決まり、文脈によって知られます。それを論証によって「お前はこう意図しているはずだ」と押しつけるのは、神の命令でもなければできないことだ、という皮肉です。『認識手段決択』では、その論証因は論者がつねに虚空の性質を論証しようと意図しているという不合理を招き、人がある有法の性質すべてを論証しようとは思わないという知覚の事実にも反する、と論じます。Devendrabuddhi は、反対の場合を否定する認識手段がないので遍充がなく、その推理は「残余あり」（<i>śeṣavat</i>）の不定因だと言います。この偈は『認識手段決択』第3章 k.7 と同じです。</p></div>
+</div>
+<div class="mula" id="k47">
+  <span class="ref">k.47</span>
+  <div class="src deva" lang="sa">वदन्नकार्यलिङ्गां तां व्यभिचारेण बाध्यते । अनान्तरीयके चार्थे बाधितेऽन्यस्य का क्षतिः ॥</div>
+  <div class="iast" lang="sa-Latn">vadann akāryaliṅgāṃ tāṃ vyabhicāreṇa bādhyate |<br> anāntarīyake cārthe bādhite &#x27;nyasya kā kṣatiḥ ||</div>
+  <div class="tr">その（意図）を、結果以外を証因とするものとして説く者は、逸脱によって否定される。そして、（所証と）不可離でない事柄が否定されても、他のもの（所証）にどんな損失があろうか。</div>
+  <div class="nt">MIY. は <i>vadan na kāryaliṅgāṃ</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>話者の意図は、その結果であることば（結果因）によって推理されます。これは第1章 k.213 以来の Dharmakīrti の考えです。しかし論者のことばは、虚空の性質を論証しようという意図を示していません。そこで反論者は結果因以外の論証因（「有法の法であるから」など）を持ち出しますが、それは逸脱するので遍充が成り立ちません。</p><p>後半：仮に虚空の性質が否定されても、虚空の性質と無常性のあいだには不可離の関係（<i>nāntarīyakatā</i>）がないので、所証である無常性には何の影響もありません。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Dharmakīrti が所証と必然的に結合したものを否定してはならないことは認めている、と指摘します。それを否定すれば、対偶によって所証も否定されるからです。しかし、所証と必然的に結合したものが「所証でもある」と言うのは別問題で、Dharmottara はこれを認めたようだが、k.47 はその点に触れず、虚空の性質と無常性のあいだに結合がないことだけを論じている、と区別しています（T. p.77）。この偈は『認識手段決択』第3章 k.8 と同じです。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §9 ============ -->
+<section id="s9" class="wrap">
+  <div class="sec-head"><span class="sec-no">9</span><h2>論書・聖典は論証でどんな役割をもつか</h2><span class="sub"><span class="pg">k.48–55</span>事実にもとづく推理は論書に依存しない</span></div>
+<p>ここで Dharmakīrti は、論書と推理の関係についての自分の立場を述べます。事物の力によって働く推理（<i>vastubalapravṛttānumāna</i>）、つまり事実から事実へ進む通常の推理は、論書に依存しません。論書に依拠する推理が許されるのは、知覚にも通常の推理にも近づけない「全く知覚を越えたもの」（業の細部など）についてだけです。</p>
+<p>ある論書が信頼に値するかどうかは、次の三段階で吟味されます。（a）知覚できる事柄についての記述が知覚に否定されない。（b）推理できる事柄（無我性など）についての記述が通常の推理に否定されない。（c）全く知覚を越えた事柄についての記述が、同じ論書の他の記述と直接・間接に矛盾しない。この基準は第1章 k.215–217 で初めて示されたものです。</p>
+<div class="mula" id="k48">
+  <span class="ref">k.48</span>
+  <div class="src deva" lang="sa">उक्तं च नागमापेक्षमनुमानं स्वगोचरे । सिद्धं तेन सुसिद्धं तन्न तदा शास्त्रमीक्ष्यते ॥</div>
+  <div class="iast" lang="sa-Latn">uktaṃ ca nāgamāpekṣam anumānaṃ svagocare |<br> siddhaṃ tena susiddhaṃ tan na tadā śāstram īkṣyate ||</div>
+  <div class="tr">また、推理は自らの領域については聖典に依存しない、とすでに述べた。それによって成立したものはよく成立している。そのとき論書は顧みられない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「すでに述べた」は k.2 を指します。Manorathanandin は「事物の力によって働く推理は、自らの領域である所証について聖典に依存しない」と注し、「そのとき」を「推理のときには論書に依拠しないから」と説明します（PVV 432）。論書の記述を吟味する段階（上の a・b）で、その論書の記述を使って何かを論証するのは循環になります。だから吟味のときには、論書から独立に評価できる推理だけを使います。この偈は『認識手段決択』第3章 k.9 にほぼ当たります。</p></div>
+</div>
+<div class="mula" id="k49">
+  <span class="ref">k.49</span>
+  <div class="src deva" lang="sa">वादत्यागस्तदा स्याच्चेन्न तदानभ्युपायतः । उपायो ह्यभ्युपायेऽयमनङ्गं स तदापि सन् ॥</div>
+  <div class="iast" lang="sa-Latn">vādatyāgas tadā syāc cen na tadānabhyupāyataḥ |<br> upāyo hy abhyupāye &#x27;yam anaṅgaṃ sa tadāpi san ||</div>
+  <div class="tr">「それでは（自分の）説を捨てることになる」と言うなら、そうではない。そのときには（論書の）承認がないからである。これ（推理）は承認への手段なのであり、その（承認）はそのときあっても、（推理の）構成要素ではない。</div>
+  <div class="nt">OCR の <i>tadānabhyupayataḥ</i> を <i>tadānabhyupāyataḥ</i> と読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は、論書を顧みないなら自派の説を捨てることになる、と言います。答えはこうです。事実にもとづく推理をするときには、まだ論書を承認していない。推理は、論書を承認するかどうかを決めるための手段である。仮にそのとき論書を承認していても、それは推理の成立に何の役割も果たさない。Dharmottara は「事物の力によって働く推理のときには承認がないから」と注します。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は「全く知覚を越えたもの」（<i>atyantaparokṣa</i>）と「知覚できないもの」（<i>parokṣa</i>）の訳し分けに苦労したことを述べています。「完全に知覚できない」と「知覚できない」では、知覚できないことに程度があるかのようで不自然だからです。そこで前者を「根本的に近づけないもの（radically inaccessible）」と訳した、と説明しています（T. pp.78–79, n.266）。</p></div></div>
+</div>
+<div class="mula gap" id="k50"><span class="ref">k.50–51</span><div class="tr"><span class="pill g">OCR 欠落</span> 使用した OCR では Tillemans 2000 の p.80 が欠けており、k.50 と k.51 前半の原文・英訳を確認できない。前後の論述によれば、k.50 は、通常の推理による吟味（a・b）を通った後にはじめて全く知覚を越えた事柄について論書を採用でき、そのときには論書による否定がありうる、と述べる（k.50d「そのときにこそ論書による否定がある」）。k.51 は残された英訳によれば「（これは）その（論書）によって成立した事柄が、その（論書）と矛盾すると考えるべきではないからである。第三の存在領域（全く知覚を越えたもの）に進むときには、論書を採用するのが正しい」という趣旨である。Tillemans は <i>tadvirodhena</i> を理由（「矛盾のゆえに」）とする Devendrabuddhi の解釈を採らず、チベット語訳と Prajñākaragupta に従って「矛盾すると考える」と読む（T. p.81）。原文の提供を待って補う。</div></div>
+<div class="mula" id="k52">
+  <span class="ref">k.52</span>
+  <div class="src deva" lang="sa">तत्रापि साध्यधर्मस्य नान्तरीयकबाधनम् । परिहार्यं न चान्येषामनवस्थाप्रसङ्गतः ॥</div>
+  <div class="iast" lang="sa-Latn">tatrāpi sādhyadharmasya nāntarīyakabādhanam |<br> parihāryaṃ na cānyeṣām anavasthāprasaṅgataḥ ||</div>
+  <div class="tr">その場合（論書を採用した場合）でも、避けるべきは所証の性質と不可離のものの否定であって、他のもの（の否定）ではない。（さもなければ）際限がなくなるからである。</div>
+  <div class="nt">PV-k(III) と MIY. は <i>saṃbaddhasyaiva bādhanam</i>。チベット語訳は <i>nāntarīyakabādhanam</i> を支持する。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論書を受け入れた場合でも、論者が避けなければならないのは、所証の性質と不可離に結びついたものを否定することだけです。Manorathanandin は例として、刹那滅性と不可離な無我性を挙げます（PVV 433）。論書に書かれた他のあらゆる事柄の否定まで避けなければならないとすれば、きりがありません。この偈は『認識手段決択』第3章 k.13 と同じです。</p></div>
+</div>
+<div class="mula" id="k53">
+  <span class="ref">k.53</span>
+  <div class="src deva" lang="sa">केनेयं सर्वचिन्तासु शास्त्रं ग्राह्यमिति स्थितिः । कृतेदानीमसिद्धान्तैर्ग्राह्यो धूमेन नानलः ॥</div>
+  <div class="iast" lang="sa-Latn">keneyaṃ sarvacintāsu śāstraṃ grāhyam iti sthitiḥ |<br> kṛtedānīm asiddhāntair grāhyo dhūmena nānalaḥ ||</div>
+  <div class="tr">あらゆる考察において論書を持つべきだという決まりを、いったい誰が作ったのか。それなら、学説をもたない人々は、煙によって火を知ることができないことになる。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin の導入では、反論者は「論書に依拠せずに論争すべきではない。だから事実にもとづく推理にも論書への依存がある」と言います（PVV 433）。Prajñākaragupta によれば、論書を承認せずに論争する者は揚げ足取り（<i>vaitaṇḍika</i>）であり、論書に立たない者は虚無論者だ、という非難です（PVBh 505）。これはニヤーヤの論争の定義（『正理経』1.2.1、学説に反しないこと）と、論難（<i>vitaṇḍā</i>、1.2.3）の考えに沿っています。</p><p>Dharmakīrti は日常の事実で答えます。哲学の学説をもたない人々も、煙から火を推理する。論書がなければ推理できないなら、そうした日々の推理はすべて不可能になってしまいます。</p></div>
+</div>
+<div class="mula" id="k54">
+  <span class="ref">k.54</span>
+  <div class="src deva" lang="sa">रिक्तस्य जन्तोर्जातस्य गुणदोषमपश्यतः । विलब्धा बत केनामी सिद्धान्तविषमग्रहाः ॥</div>
+  <div class="iast" lang="sa-Latn">riktasya jantor jātasya guṇadoṣam apaśyataḥ |<br> vilabdhā bata kenāmī siddhāntaviṣamagrahāḥ ||</div>
+  <div class="tr">人は（学説を）もたずに生まれ、（学説の）長所と短所を見てもいない。ああ、いったい誰が、これら学説という悪鬼を彼に授けたのか。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin によれば、人と学説の結びつきは、生まれつきか、何らかの条件によるかのどちらかです（PVV 434）。「もたずに生まれ」は生まれつきの結びつきを、「長所と短所を見ていない」は条件による結びつきを否定します。学説は身体の器官のように生まれつき備わるものではなく、認識手段で長所と短所を吟味してはじめて自分のものになります。そうする前から、誰がその人を学説に縛りつけたのか、というのです。Devendrabuddhi は、学説を「悪鬼」と呼ぶのは一度取りつくと捨てさせられないからだ、と注します。Prajñākaragupta は「だから推理は論書の承認を前提としない」と結論します（PVBh 506）。この偈は『認識手段決択』第3章 k.2 です。</p></div>
+</div>
+<div class="mula" id="k55">
+  <span class="ref">k.55</span>
+  <div class="src deva" lang="sa">यदि साधन एकत्र सर्वं शास्त्रं निदर्शने । दर्शयेत्साधनं स्यादित्येषा लोकोत्तरा स्थितिः ॥</div>
+  <div class="iast" lang="sa-Latn">yadi sādhana ekatra sarvaṃ śāstraṃ nidarśane |<br> darśayet sādhanaṃ syād ity eṣā lokottarā sthitiḥ ||</div>
+  <div class="tr">「もし喩において、論書（の説）すべてが同じ一つの論証手段に（遍充するものとして）関わることを示しうるなら、（それは正しい）論証手段である」というなら、これは世間を超えた決まりである。</div>
+  <div class="nt">PV-k(I) は <i>sarvaśāstranidarśane</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者の考えでは、正しい論証因は、その論証に関わる論書の説すべてを含意するものでなければなりません。Dharmottara と チベットの注釈者たちは、ここで遍充が問題になっているとはっきり言います。喩において、論書の説すべてがその論証因を遍充していると示さなければならない、というのです。しかし論書どうしは互いに矛盾するので、そんな論証因は一つもありません。「世間を超えた決まり」は皮肉で、Devendrabuddhi は「彼はこれを笑いものにしている」と注します。この偈は『認識手段決択』第3章 k.15 です。</p></div>
+</div>
+</section>
+
+<!-- ============ §10 ============ -->
+<section id="s10" class="wrap">
+  <div class="sec-head"><span class="sec-no">10</span><h2>論書の説が否定されても論証因は相違因にならない</h2><span class="sub"><span class="pg">k.56–68</span>論証因の良し悪しは、自らの所証に照らして判断される</span></div>
+<p>Dharmakīrti は自分自身の「負処」（論争で敗れる点）についての考え方を示します。（a）論証因は、論者が意図した所証を論証するかどうかだけで評価される。（b）論者が誤りを犯すのは、その所証を論証しない論証因を述べたときである。（c）したがって、不成や不定の論証因を述べれば負処になる。しかし「作られたもの」がたまたま「音は虚空の性質」という意図されていない説と矛盾しても、それは論者の誤りではなく、せいぜい論書の誤りを示すにすぎない（後に『論諍の理論』で体系化される）。</p>
+<div class="mula" id="k56">
+  <span class="ref">k.56</span>
+  <div class="src deva" lang="sa">असंबद्धस्य धर्मस्य किमसिद्धौ न सिध्यति । हेतुस्तत्साधनायोक्तः किं दुष्टस्तत्र सिध्यति ॥</div>
+  <div class="iast" lang="sa-Latn">asaṃbaddhasya dharmasya kim asiddhau na sidhyati |<br> hetus tatsādhanāyoktaḥ kiṃ duṣṭas tatra sidhyati ||</div>
+  <div class="tr">結びついていない性質が成立しないとき、なぜ（論証因を遍充する無常性が）成立しないのか。その（無常性）を論証するために述べられた論証因が、それ（無常性）が成立しているのに、なぜ誤っていようか。</div>
+  <div class="nt">後半の <i>tatra sidhyati</i> はチベット語訳に従い絶対処格に解する。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「作られたもの」が論証するのは無常性です。虚空の性質という、無常性と結びついていない性質に何が起ころうと、無常性の論証には関わりません。</p></div>
+</div>
+<div class="mula" id="k57">
+  <span class="ref">k.57</span>
+  <div class="src deva" lang="sa">धर्माननुपनीयैव दृष्टान्ते धर्मिणोऽखिलान् । वाग्धूमादेर्जनोऽन्वेति चैतन्यदहनादिकम् ॥</div>
+  <div class="iast" lang="sa-Latn">dharmān anupanīyaiva dṛṣṭānte dharmiṇo &#x27;khilān |<br> vāgdhūmāder jano &#x27;nveti caitanyadahanādikam ||</div>
+  <div class="tr">人は、有法の性質すべてを喩において示すことなく、ことばや煙などから、意識や火などを推理する。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin の導入では、反論者は「論書の説が否定されれば、意図したものも成立しない」と言います（PVV 435）。答えはこうです。私たちは他人のことばからその人に意識があることを、自分の場合と同じように推理します。台所の例によって煙から火を推理します。そのとき、論書がその有法について説く性質をすべて、論証因を遍充するものとして示したりはしません。前者は Dharmakīrti 『他相続の証明』（<i>Saṃtānāntarasiddhi</i>）の、他者の心の類推による論証への言及です。この偈は『認識手段決択』第3章 k.17 です。</p></div>
+</div>
+<div class="mula" id="k58">
+  <span class="ref">k.58</span>
+  <div class="src deva" lang="sa">स्वभावं कारणं वार्थोऽव्यभिचारेण साधयन् । कस्यचिद्वादबाधायां स्वभावान्न निवर्तते ॥</div>
+  <div class="iast" lang="sa-Latn">svabhāvaṃ kāraṇaṃ vārtho &#x27;vyabhicāreṇa sādhayan |<br> kasyacid vādabādhāyāṃ svabhāvān na nivartate ||</div>
+  <div class="tr">ある事柄が、自性あるいは原因を逸脱なく論証するとき、たとえ誰かの説を否定することになっても、それは自らの本性から退くことはない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>正しい論証因（自性因・結果因）は、論書が何と言おうと、論証すべきものを客観的に論証します。Manorathanandin は「その本性、つまり遍充するものや原因を知らせるという本性から退かない」と注し、Dharmottara は「所証と同一であること、あるいは所証の結果であることから退かない」と注します。論証は、論証因と所証のあいだの事実上の結合にもとづいているからです。この偈は『認識手段決択』第3章 k.18 です。</p></div>
+</div>
+<div class="mula" id="k59">
+  <span class="ref">k.59</span>
+  <div class="src deva" lang="sa">प्रपद्यमानश्चान्यस्तं नान्तरीयकमीप्सितैः । साध्यार्थैर्हेतुना तेन कथमप्रतिपादितः ॥</div>
+  <div class="iast" lang="sa-Latn">prapadyamānaś cānyas taṃ nāntarīyakam īpsitaiḥ |<br> sādhyārthair hetunā tena katham apratipāditaḥ ||</div>
+  <div class="tr">また相手も、その（論証因）が意図された所証の事柄と不可離であると理解すれば、どうしてその論証因によって納得させられないことがあろうか。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論証因とそれが所証と事実上結合していることを理解すれば、相手もまた、その人の論書が何と言っていようと納得します。k.57–59 は、事実にもとづく推理にとって論書の記述がまったく無関係であることを示しています。この偈は『認識手段決択』第3章 k.19 です。</p></div>
+</div>
+<div class="mula" id="k60">
+  <span class="ref">k.60</span>
+  <div class="src deva" lang="sa">उक्तोऽनुक्तोऽपि वा हेतुर्विरोधा वादिनोऽत्र किम् । न हि तस्योक्तिदोषेण स जातः शास्त्रबाधनः ॥</div>
+  <div class="iast" lang="sa-Latn">ukto &#x27;nukto &#x27;pi vā hetur virodhā vādino &#x27;tra kim |<br> na hi tasyoktidoṣeṇa sa jātaḥ śāstrabādhanaḥ ||</div>
+  <div class="tr">論証因は、述べられても述べられなくても（論書の説に）矛盾するものである。ここで論者に何の（落ち度が）あろうか。その（論者）の陳述の誤りによって、それ（論証因）が論書を否定するものになったのではないからである。</div>
+  <div class="nt">前半は PV-k(II) の読み（<i>vā hetur</i>, <i>virodhā</i>）。他の諸本は <i>ced dhetur</i>, <i>virodho</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「作られたもの」と「音は虚空の性質」の矛盾は、事実として初めからあります。論者がそれを述べたから生じたのではありません。だから論者に責任はありません。Manorathanandin は「事実としてそれと矛盾するから、必ず否定する」と注します（PVV 436）。</p></div>
+</div>
+<div class="mula" id="k61">
+  <span class="ref">k.61</span>
+  <div class="src deva" lang="sa">बाधकस्याभिधानाच्चेद्दोषो यदि वदेन्न सः । किं न बाधेत सोऽकुर्वन्नयुक्तं केन दुष्यति ॥</div>
+  <div class="iast" lang="sa-Latn">bādhakasyābhidhānāc ced doṣo yadi vaden na saḥ |<br> kiṃ na bādheta so &#x27;kurvann ayuktaṃ kena duṣyati ||</div>
+  <div class="tr">「否定するものを述べたから誤りがある」と言うなら、（問おう）もし彼が述べなかったら、それは否定しないだろうか。不正なことを何もしていない者が、何によって誤りを犯すのか。</div>
+  <div class="nt">MIY. は <i>'kurvan na yuktaṃ</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Devendrabuddhi は、論者が自派の論書に反するとは気づかずに論証因を述べた場合を想定して、反論を導入しています。答えは k.60 と同じです。論証因は述べられなくても論書の説を否定します。論者は何も不正なことをしていません。</p></div>
+</div>
+<div class="mula" id="k62">
+  <span class="ref">k.62</span>
+  <div class="src deva" lang="sa">अन्येषु हेत्वाभासेषु स्वेष्टस्यैवाप्रसाधनात् । दुष्येद्व्यर्थाभिधानेन नात्र तस्य प्रसाधनात् ॥</div>
+  <div class="iast" lang="sa-Latn">anyeṣu hetvābhāseṣu sveṣṭasyaivāprasādhanāt |<br> duṣyed vyarthābhidhānena nātra tasya prasādhanāt ||</div>
+  <div class="tr">他の似因の場合には、自ら意図したものそのものを論証しないので、無益なことを述べたことによって誤りを犯すであろう。ここではそうではない。その（意図したもの）を論証するからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は言います。「誤った論証因を述べても論者に落ち度がないなら、不成因などを述べても落ち度はないことになる」（PVV 436）。答えは、両者は違う、ということです。不成因や不定因を述べれば、論者が実際に意図したものが論証されないので、論者は負けます。「作られたもの」は意図した無常性を論証するので、論者は負けません。Manorathanandin は続けます。「論者の意図しない論書の説が否定されるなら、誤っているのは論書だけである」（PVV 436）。</p></div>
+</div>
+<div class="mula" id="k63">
+  <span class="ref">k.63</span>
+  <div class="src deva" lang="sa">यदि किंचित्क्वचिच्छास्त्रे न युक्तं प्रतिषिध्यते । ब्रुवाणो युक्तमप्यन्यदिति राजकुलस्थितिः ॥</div>
+  <div class="iast" lang="sa-Latn">yadi kiṃcit kvacic chāstre na yuktaṃ pratiṣidhyate |<br> bruvāṇo yuktam apy anyad iti rājakulasthitiḥ ||</div>
+  <div class="tr">ある論書に何か正しくないことがあれば、ほかの正しいことを述べても退けられる、というのは王宮の掟である。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin によれば、「作られたもの」によって無常性など正しいことを論証しても、それだけで退けられることになります。王の命令は力によって働き、正しいかどうかの吟味の外にあるからです（PVV 436）。この偈は『認識手段決択』第3章 k.20 です。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、チベット語訳の PV と PVin が <i>api</i> を <i>anyad</i> の後に置き、Dharmottara は「他の（正しい）論証因も」と解していることを注記しています（T. p.90, n.321）。</p></div></div>
+</div>
+<div class="mula" id="k64">
+  <span class="ref">k.64</span>
+  <div class="src deva" lang="sa">सर्वानर्थान्समीकृत्य वक्तुं शक्यं न साधनम् । सर्वत्र तेनोत्सन्नेयं साध्यसाधनसंस्थितिः ॥</div>
+  <div class="iast" lang="sa-Latn">sarvān arthān samīkṛtya vaktuṃ śakyaṃ na sādhanam |<br> sarvatra tenotsanneyaṃ sādhyasādhanasaṃsthitiḥ ||</div>
+  <div class="tr">すべての事柄を等しく（所証として）扱うなら、論証手段を述べることはできない。だから、あらゆるところで所証と論証手段のあり方が失われる。</div>
+  <div class="nt">PV-k(II) は <i>tena succhanneyaṃ</i>、MIY. は <i>tenotsanne 'yaṃ</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論書の説すべてを所証として扱えば、喩において、論書の説すべてによる遍充をとらえることはできません（PVV 437）。だから論証手段は一つも述べられず、どの有法についても（Manorathanandin は「あらゆるところで」を「有法について」と注します）所証と論証手段の区別が成り立たなくなります。k.63–64 は、論者に学派の論書すべての責任を負わせることの不合理を、真理の点からも、心理的な可能性の点からも示しています。この偈は『認識手段決択』第3章 k.21 です。</p></div>
+</div>
+<div class="mula" id="k65">
+  <span class="ref">k.65</span>
+  <div class="src deva" lang="sa">विरुद्धयोरेकधर्मिण्ययोगादस्तु बाधनम् । विरुद्धैकान्तिके नात्र तद्वदस्ति विरोधिता ॥</div>
+  <div class="iast" lang="sa-Latn">viruddhayor ekadharmiṇy ayogād astu bādhanam |<br> viruddhaikāntike nātra tadvad asti virodhitā ||</div>
+  <div class="tr">相反する二つ（の性質）は一つの有法にありえないので、相違決定の場合には否定があってよい。（しかし）ここには、そのような矛盾はない。</div>
+  <div class="nt">偈の <i>viruddhaikāntika</i> は相違決定（<i>viruddhāvyabhicārin</i>）の同義語。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は相違決定との類比を持ち出します。Prajñākaragupta の導入によれば、「虚空の性質を否定しても論証因に誤りがないなら、相違決定はなぜ論証手段の誤りなのか。そこでは別の論証手段で成立した事柄と矛盾するから誤りなのだ。ここでも論書で成立した事柄と矛盾するから誤りだ」（PVBh 508）。</p><p>相違決定の典型は Dignāga 自身の挙げる例です。勝論派が「音は無常である。作られたものだから」と論じ、ミーマーンサーが「音は常住である。聞かれるものだから。音性のように」と論じる。後者でも、聞かれるもので無常でかつ音以外のものはないので、論証因は異類から排除され、勝論派にとって音性は聞かれる常住のもの（同類）です。こうして同じ有法に常住と無常という相反する性質が論証されてしまいます。Dharmakīrti の答えは、類比は成り立たない、ということです。相違決定では相反する二つの性質が論証されますが、ここで論証されるのは無常性と「虚空の性質でないこと」で、両者は互いに否定しあいません（Devendrabuddhi の注）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans はここで相違決定について詳しく論じます。Dignāga は、三相が論証の十分条件にならないことを暗に認め、相違決定のような逆説的な場合を、別枠の誤りとして除こうとしたのかもしれない。これに対して Dharmakīrti は、三相を十分条件と考えた。そして『正理一滴』（III 110–114）では、相違決定は聖典に依拠した推理の場合にだけ起こるものであり、真に正しい二つの論証因が相反する結論を導くことは論理的に不可能だとして、相違決定を似因の分類から外した。『評釈』第4章ではまだ Dignāga の術語を使っているが、と Tillemans は位置づけています。また Īśvarasena が三相を必要条件にすぎないとみて、「否定されない対象をもつこと」「意図された単一性」「知られていること」を加えたことも紹介しています（T. pp.92–95）。</p></div></div>
+</div>
+<div class="mula" id="k66">
+  <span class="ref">k.66</span>
+  <div class="src deva" lang="sa">अबाध्यबाधकत्वेऽपि तयोः शास्त्रार्थविप्लवात् । असंबन्धेऽपि बाधा चेत्सर्वं सर्वस्य बाधनम् ॥</div>
+  <div class="iast" lang="sa-Latn">abādhyabādhakatve &#x27;pi tayoḥ śāstrārthaviplavāt |<br> asaṃbandhe &#x27;pi bādhā cet sarvaṃ sarvasya bādhanam ||</div>
+  <div class="tr">その二つ（無常性と、虚空の性質でないこと）が否定しあう関係にないとしても、論書の説が崩れたことによって、結びつきのない（無常性）にも否定が及ぶというなら、あらゆるものがあらゆるものを否定することになる。</div>
+  <div class="nt">OCR の <i>sarvam sarvabādhanam</i> は一音節不足。PVV の注（<i>sarvasya ... bādhanaṃ syāt</i>）により <i>sarvaṃ sarvasya bādhanam</i> と読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>帰謬論法です。虚空の性質の否定によって、それと結びつきのない無常性まで否定されるとしましょう。それなら、まったく別の論証因（たとえば「努力の直後に生じること」）が、まったく別の有法について論書の説（「香は地の性質」）を否定したときにも、同じ論書が崩れたのだから、「作られたもの」による音の無常性の論証まで否定されることになります。Manorathanandin は、こうなるとどの論証因もどの所証も否定してしまう、と注します（PVV 437）。</p></div>
+</div>
+<div class="mula" id="k67">
+  <span class="ref">k.67</span>
+  <div class="src deva" lang="sa">संबन्धस्तेन तत्रैव बाधनादस्ति चेदसत् । हेतोः सर्वस्य चिन्त्यत्वात्स्वसाध्ये गुणदोषयोः ॥</div>
+  <div class="iast" lang="sa-Latn">saṃbandhas tena tatraiva bādhanād asti ced asat |<br> hetoḥ sarvasya cintyatvāt svasādhye guṇadoṣayoḥ ||</div>
+  <div class="tr">「その（論証因）によって、まさにそこ（音という有法）で否定が起こるのだから、結びつきがある」と言うなら、正しくない。あらゆる論証因の長所と短所は、自らの所証に照らして考えられるべきだからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は区別を立て直します。虚空の性質は音という有法にあるので音と結びついている。だから「作られたもの」が音について虚空の性質を否定すれば相違因になる。地の性質は音と結びついていないから、それが否定されても関係ない（PVV 437）。答えは、論証因の良し悪しはその論証因自身の所証、つまり論者が意図した所証に照らして判断される、ということです。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、この偈前半の訳が試訳にとどまると明言しています。サンスクリットの奪格 <i>bādhanād</i> がチベット語訳に反映されておらず、それに注するのは Manorathanandin だけで、その統語もかなり無理があるからです。チベット語訳に従えば「結びつきがある。だからまさにそこで否定があることになる」と訳すことになる、と注記しています（T. p.98, n.347）。</p></div></div>
+</div>
+<div class="mula" id="k68">
+  <span class="ref">k.68</span>
+  <div class="src deva" lang="sa">नान्तरीयकता साध्ये संबन्धः सेह नेक्ष्यते । केवलं शास्त्रपीडेह दोषः सान्यकृते समा ॥</div>
+  <div class="iast" lang="sa-Latn">nāntarīyakatā sādhye saṃbandhaḥ seha nekṣyate |<br> kevalaṃ śāstrapīḍeha doṣaḥ sānyakṛte samā ||</div>
+  <div class="tr">所証と不可離であることが「結びつき」である。それはここには見られない。ここでの誤りは論書を損なうことだけであり、それは他（の論証因）によってなされる場合も同じである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin は「有法にあるというだけでは結びつきではない」と導入し、「所証と不可離であること、つまり所証なしにはないこと」が結びつきだ、と注します（PVV 438）。問題になるべき結びつきは、虚空の性質と所証（無常性）のあいだの結びつきです。それがあれば、虚空の性質を否定することで無常性も否定されます。しかしそういう結びつきはありません。後半：ここで起きているのは論書が損なわれることだけで、それは「努力の直後に生じること」が香の地性を否定する場合と同じである。だから反論者の考えでは、正しい「作られたもの」まで相違因になってしまう（PVV 438）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、この議論が形式的にも妥当であることを、述語論理で再構成して示しています。（a）すべての x について、x が音なら x は無常である。（b）すべての x について、x が音なら x は虚空の性質ではない。この二つから、（c）x が音なら x は無常ではない、は導けない。（c）を導くには、（d）x が無常なら x は虚空の性質である、という結合が必要だが、（d）は偽である、と整理しています（T. p.100, n.355）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §11 ============ -->
+<section id="s11" class="wrap">
+  <div class="sec-head"><span class="sec-no">11</span><h2>同学の仏教徒への批判（1）：論書の説を所証とする説</h2><span class="sub"><span class="pg">k.69–75</span>「自ら」はどの論書を奉じるかを示すのではない</span></div>
+<p>ここで論敵は、Dignāga の定義を受け入れる仏教徒の注釈者に移ります。Manorathanandin は「師（Dignāga）の追随者たち」の説として紹介し（PVV ad k.69）、Śākyabuddhi は「『集量論』の注釈者」と呼びます。彼らは、論書を承認して論争するなら論書の説はすべて所証になる、と考えました。</p>
+<div class="mula gap" id="k69"><span class="ref">k.69</span><div class="tr"><span class="pill g">OCR 欠落</span> 使用した OCR では Tillemans 2000 の p.101 が欠けており、k.69 の原文・英訳を確認できない。前後の論述によれば、k.69 は仏教徒の注釈者の原則「論書の承認によって、論書に見られるものはすべて所証である」（<i>śāstrābhyupagamāt sādhyaḥ śāstradṛṣṭo 'khilaḥ</i>）を取り上げる。Dharmakīrti はこれに対し、それなら論書に述べられた未成立の論証因や喩まで所証になり、Dignāga が退けたニヤーヤと同じ不合理に陥る、と答える（T. pp.102–103 による）。原文の提供を待って補う。</div></div>
+<div class="mula" id="k70">
+  <span class="ref">k.70</span>
+  <div class="src deva" lang="sa">उक्तयोः साधनत्वेन नो चेदीप्सितवादतः । न्यायप्राप्तं न साध्यत्वं वचनाद्विनिवर्तते ॥</div>
+  <div class="iast" lang="sa-Latn">uktayoḥ sādhanatvena no ced īpsitavādataḥ |<br> nyāyaprāptaṃ na sādhyatvaṃ vacanād vinivartate ||</div>
+  <div class="tr">「論証手段として述べられた二つ（論証因と喩）は、『意図された』と言われているので、（所証では）ない」と言うなら、（答えよう）道理によって帰結する所証性は、ことばによって退くものではない。</div>
+  <div class="nt">PV-k(I) は <i>īpsitabādhataḥ</i>。チベット語訳は <i>vadataḥ</i> を支持する。</div>
+  <div class="exp"><span class="lbl">解説</span><p>仏教徒の論敵は、Dignāga『因明正理門論』の定義「自ら所証として意図されたものが主張であり、相反する事柄によって否定されていない」を引きます。「意図された」（<i>īpsita</i>）の語が、論証手段（論証因や喩）を主張から除く、というのです。しかし Dharmakīrti は答えます。論書の説はすべて所証だという原則を本気で認めるなら、未成立の論証因なども所証になることは論理的に帰結する。Dignāga のことばを引いても、それは変わらない（PVV 438）。</p></div>
+</div>
+<div class="mula" id="k71">
+  <span class="ref">k.71</span>
+  <div class="src deva" lang="sa">अनीप्सितमसाध्यं चेद्वादिनान्योऽप्यनीप्सितः । धर्मोऽसाध्यस्तदासाध्यं बाधमानं विरोधि किम् ॥</div>
+  <div class="iast" lang="sa-Latn">anīpsitam asādhyaṃ ced vādinānyo &#x27;py anīpsitaḥ |<br> dharmo &#x27;sādhyas tadāsādhyaṃ bādhamānaṃ virodhi kim ||</div>
+  <div class="tr">「論者に意図されていないものは所証ではない」と言うなら、論者に意図されていない他の性質（虚空の性質など）も所証ではない。それなら、所証でないものを否定する（論証因）が、どうして相違因であろうか。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論敵が「本当は論者が意図したものだけが所証だ」と言い直すなら、論書の他の説は関係がなくなります。「作られたもの」の所証は無常性だけになり、論者がまったく意図していない虚空の性質は否定されてもかまいません。相違因になるおそれはありません。</p></div>
+</div>
+<div class="mula" id="k72">
+  <span class="ref">k.72</span>
+  <div class="src deva" lang="sa">पक्षलक्षणबाह्यार्थः स्वयंशब्दोऽप्यनर्थकः । शास्त्रेष्विच्छाप्रवृत्त्यर्थो यदि शङ्का कुतो न्वियम् ॥</div>
+  <div class="iast" lang="sa-Latn">pakṣalakṣaṇabāhyārthaḥ svayaṃśabdo &#x27;py anarthakaḥ |<br> śāstreṣv icchāpravṛttyartho yadi śaṅkā kuto nv iyam ||</div>
+  <div class="tr">（論書の説が所証なら）「自ら」の語も、主張の定義の外にある意味をもつことになり、無意味になる。もし「（それは）論書へ意のままに向かうことを示すためだ」と言うなら、いったいこの疑いはどこから生じるのか。</div>
+  <div class="nt">PV-k(I) は <i>śaṅkāṃ gato hi yaḥ</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論書の説がすべて所証なら、「自ら」が課すはずの限定（論者の意図しない虚空の性質などを除くこと）は、主張に当てはまらなくなります。それで「定義の外にある意味」をもつ無意味な語になってしまう、と Dharmottara は説明します。</p><p>後半で論敵は、それでも「自ら」には役目があると言います。Devendrabuddhi によれば、こうです。以前に承認した論書を捨てて、論争のときには自分の望むままに別の論書に依拠してもかまわない。所証の基盤となる論書は、論者自身（<i>svayam</i>）がいま承認しているその論書だ、と示すのが「自ら」の役目だ、というのです。Dharmakīrti は、そもそもそんな疑いが生じる理由がない、と答えます。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans はこの論敵を、Dharmakīrti の師とされる Īśvarasena ではないかと推測します。Śākyabuddhi が「『集量論』の注釈者」と呼んでいること、Īśvarasena の『集量論』注釈が Dharmakīrti の思想の展開に大きな影響を与えたことが理由です。そうだとすれば、論書の説はすべて所証であるという、本来ニヤーヤ的な立場を仏教徒の注釈者がとっていたことになる、とします（T. pp.104–105。詳しくは Tillemans 1994）。</p></div></div>
+</div>
+<div class="mula" id="k73">
+  <span class="ref">k.73</span>
+  <div class="src deva" lang="sa">सोऽनिषिद्धः प्रमाणेन गृह्णन्केन निवार्यते । निषिद्धश्चेत्प्रमाणेन वाचा केन प्रवर्त्यते ॥</div>
+  <div class="iast" lang="sa-Latn">so &#x27;niṣiddhaḥ pramāṇena gṛhṇan kena nivāryate |<br> niṣiddhaś cet pramāṇena vācā kena pravartyate ||</div>
+  <div class="tr">認識手段によって（論書の説が）否定されていないのに、論者が（その論書を）受け入れるなら、誰がそれを止めようか。もし認識手段によって否定されているなら、誰がことば（「自ら」の語）によって（その論書へ）向かわせられようか。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin の注では、論書の説を否定する認識手段がないなら、論者がその論書を受け入れるのを誰も止めない。否定する認識手段があるなら、どんな定義の作者も「自ら」の語によって論者をその論書へ向かわせることはできない（PVV 439）。論書を選ぶのは認識手段であって、単なる意欲ではありません。だから「自ら」がそのための語なら、何の役にも立ちません。</p></div>
+</div>
+<div class="mula" id="k74">
+  <span class="ref">k.74</span>
+  <div class="src deva" lang="sa">पूर्वमप्येष सिद्धान्तं स्वेच्छयैव गृहीतवान् । कथंचिदन्यं स पुनर्ग्रहीतुं लभते न किम् ॥</div>
+  <div class="iast" lang="sa-Latn">pūrvam apy eṣa siddhāntaṃ svecchayaiva gṛhītavān |<br> kathaṃcid anyaṃ sa punar grahītuṃ labhate na kim ||</div>
+  <div class="tr">この（論者）は、以前にも自分の望むままに学説を受け入れた。どうして後にまた、何とかして別の（学説）を受け入れることができないことがあろうか。</div>
+  <div class="nt">PV-k(II) は <i>kiṃcid</i>、PV-k(I/III) は <i>na</i>（<i>sa</i> の代わり）。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論者が意欲によって学説を選ぶのなら、以前の学説も、後の学説も、同じように意のままに選ばれるだけです。論者が受け入れる論書はいつでも彼が受け入れたいと望んだ論書なのだから、それを保証するために「自ら」の語は要りません。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Prajñākaragupta とチベットの注釈者（rGyal tshab, dGe 'dun grub）が、k.73 を認識手段で論書を選ぶ聡明な論者、k.74 を意欲だけで論書を選ぶ愚かな論者を述べたものと解し、二種の論者を区別していることを紹介しています（T. p.106）。</p></div></div>
+</div>
+<div class="mula" id="k75">
+  <span class="ref">k.75</span>
+  <div class="src deva" lang="sa">दृष्टेर्विप्रतिपत्तीनामत्राकार्षीत्स्वयंश्रुतिम् । इष्टाक्षतिमसाध्यत्वमनवस्थां च दर्शयन् ॥</div>
+  <div class="iast" lang="sa-Latn">dṛṣṭer vipratipattīnām atrākārṣīt svayaṃśrutim |<br> iṣṭākṣatim asādhyatvam anavasthāṃ ca darśayan ||</div>
+  <div class="tr">（師は）さまざまな誤解が見られたので、ここに「自ら」の語を置いた。意図されたものが損なわれないこと、（論書の説は）所証ではないこと、そして（さもなければ）際限がなくなることを示すためである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin の導入では、論敵は言います。「意図されたものが所証であることは、論者自身の意欲によって取り込まれることがすでに成立している。だから『自ら』の語は無益だ」（PVV 440）。Dharmakīrti は、論理的には「意図された」で足りることを認めます。それでも Dignāga が「自ら」を置いたのは、人を惑わすいくつもの誤解を除くためでした。この偈はそれまでの議論のまとめです。（a）論書の説が否定されても論者の意図したものは損なわれない（k.56 など）。（b）論書の説は所証ではない（k.42–43 など）。（c）さもなければ、正しい論証因でも、論書のどれかの説を否定するたびに相違因になるという際限のない不合理が生じる（k.44, 52）。この偈は『認識手段決択』第3章 k.25 です。</p></div>
+</div>
+</section>
+
+<!-- ============ §12 ============ -->
+<section id="s12" class="wrap">
+  <div class="sec-head"><span class="sec-no">12</span><h2>同学の仏教徒への批判（2）：「自ら」の他の解釈</h2><span class="sub"><span class="pg">k.76–90</span>有法の周知、有法の非所証性、定義の働き、二つの定義の一致</span></div>
+<p>Dharmakīrti は「自ら」についての他の解釈を順に退けます。「自ら」は有法が世間周知であることを保証する（k.76–77）。有法が所証でないことを保証する（k.78–83）。これらに続いて、定義そのものの働き（k.84–86）と、『集量論』と『因明正理門論』の二つの定義の一致（k.86–88）が論じられ、k.89–90 で「自ら」の議論がまとめられます。論敵の名はほとんど伝わっていませんが、Vibhūticandra は k.76 の相手を「注釈者」と呼んでいます。</p>
+<div class="mula" id="k76">
+  <span class="ref">k.76</span>
+  <div class="src deva" lang="sa">समयाहितभेदस्य परिहारेण धर्मिणः । प्रसिद्धस्य गृहीत्यर्थं जगादान्यः स्वयंश्रुतिम् ॥</div>
+  <div class="iast" lang="sa-Latn">samayāhitabhedasya parihāreṇa dharmiṇaḥ |<br> prasiddhasya gṛhītyarthaṃ jagādānyaḥ svayaṃśrutim ||</div>
+  <div class="tr">別の人は、「自ら」の語は、（学派の）約束によって特殊性が付け加えられた有法を除くことによって、周知の有法をとらえさせるためのものである、と言った。</div>
+  <div class="exp"><span class="lbl">解説</span><p>この解釈では、「自ら」は、論書や聖典で認められているだけの性質を付託された有法を除きます。論者が「音は無常である」と論証するとき、問題にしているのは、論者も相手も、牛飼いの女に至るまで世間の誰もが知っている音です（Devendrabuddhi は「牛飼いの女に至るまで周知の有法」と言います）。『勝論経』が説く「虚空の性質である音」という理論上の存在ではありません。有法が周知でなければ、論証因は所依不成の誤りに陥ります。</p></div>
+</div>
+<div class="mula" id="k77">
+  <span class="ref">k.77</span>
+  <div class="src deva" lang="sa">विचारप्रस्तुतेरेव प्रसिद्धः सिद्ध आश्रयः । स्वेच्छाकल्पितभेदेषु पदार्थेष्वविवादतः ॥</div>
+  <div class="iast" lang="sa-Latn">vicāraprastuter eva prasiddhaḥ siddha āśrayaḥ |<br> svecchākalpitabhedeṣu padārtheṣv avivādataḥ ||</div>
+  <div class="tr">（所証の性質があるかないかの）考察が始められたことそのものによって、基体が周知であることは成立している。自分の望むままに特殊性を構想された事物については、論争は起こらないからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>有法が周知の実在であることは、それが所証の性質をもつかどうかを論じ始めた時点で、すでに前提されています。有法が周知の実在でないと分かれば、論争はそこで止みます。だから、周知の有法を保証するための「自ら」は何の役にも立ちません。</p></div>
+</div>
+<div class="mula" id="k78">
+  <span class="ref">k.78</span>
+  <div class="src deva" lang="sa">असाध्यतामथ प्राह सिद्धादेशेन धर्मिणः । स्वरूपेणैव निर्देश्य इत्यनेनैव तद्गतम् ॥</div>
+  <div class="iast" lang="sa-Latn">asādhyatām atha prāha siddhādeśena dharmiṇaḥ |<br> svarūpeṇaiva nirdeśya ity anenaiva tad gatam ||</div>
+  <div class="tr">「（師は）（有法が）成立していることを（「自ら」で）示すことによって、有法が所証でないことを述べたのだ」と言うなら、それは「自らの形でのみ示されるべき」という（定義の一部）だけで理解される。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin によれば、論敵は、周知の意味を表す「自ら」によって、有法が所証でないことが示された、と言います（PVV 441）。誤った例として Dignāga が挙げたのは、サーンキヤの「根本原質は存在する。個物に共通の性格が見られるから」です。ここでは有法である根本原質そのものが成立していません。Vibhūticandra は「有法である根本原質が成立していないのに、どこに存在を論証するのか」と注します。</p><p>Dharmakīrti の答えは、有法が所証でないことは「自らの形で」、つまり「所証としてのみ示されるべき」という定義の一部ですでに分かる、というものです。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Uddyotakara『正理評釈』に「根本原質は存在する。随伴が見られるから」とあることから、PVV の本文を <i>anvayadarśanāt</i> と読むべきだろうと提案しています。また、Dignāga が『因明正理門論』でこの主張を、有法が存在するよう「個物は同一の原因をもつ」と言い換えるべきだと論じていることを紹介しています（T. p.109, nn.389, 392）。</p></div></div>
+</div>
+<div class="mula" id="k79">
+  <span class="ref">k.79</span>
+  <div class="src deva" lang="sa">सिद्धसाधनरूपेण निर्देशस्य हि संभवे । साध्यत्वेनैव निर्देश्य इतीदं फलवद्भवेत् ॥</div>
+  <div class="iast" lang="sa-Latn">siddhasādhanarūpeṇa nirdeśasya hi saṃbhave |<br> sādhyatvenaiva nirdeśya itīdaṃ phalavad bhavet ||</div>
+  <div class="tr">成立したものや論証手段の形での提示が（主張として）ありうるなら、「所証としてのみ示されるべき」というこの（語）が効果をもつことになる。</div>
+  <div class="exp"><span class="lbl">解説</span><p>有法は論争の前提として成立していなければなりません。推理は有法の存在を論証するのではなく、有法と普遍的な性質のあいだの「非結合の排除」を論証するのです（k.37–39）。「所証としてのみ示されるべき」という限定は、成立しているもの（有法）や論証手段（論証因・喩）を主張から除きます。だから、有法が主張になるおそれを除くのに「自ら」の助けは要りません。この偈は『認識手段決択』の並行箇所にほぼ対応します。</p></div>
+</div>
+<div class="mula" id="k80">
+  <span class="ref">k.80</span>
+  <div class="src deva" lang="sa">अनुमानस्य सामान्यविषयत्वं च वर्णितम् । इहैवं न ह्यनुक्तेऽपि किंचित्पक्षे विरुध्यते ॥</div>
+  <div class="iast" lang="sa-Latn">anumānasya sāmānyaviṣayatvaṃ ca varṇitam |<br> ihaivaṃ na hy anukte &#x27;pi kiṃcit pakṣe virudhyate ||</div>
+  <div class="tr">また、推理が普遍を対象とすることも（師によって）説かれた。だから、ここでこのように（「自ら」を）述べなくても、主張において何も矛盾は生じない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Dignāga は『集量論』第1章で、知覚の対象は自相（個物）、推理の対象は普遍だと説きました。主張として推理されるものは、つねに有法と結びついた普遍的な性質であって、個物ではありません。Manorathanandin は、有法が主張なら、有法は自相なので、推理が普遍を対象とすることが損なわれる、と注します（PVV 441）。『認識手段決択』は「有法の存在を論証するなら、自相が所証になる。それはすでに退けた」と言います。</p></div>
+</div>
+<div class="mula" id="k81">
+  <span class="ref">k.81</span>
+  <div class="src deva" lang="sa">कुर्याच्चेद्धर्मिणं साध्यं ततः किं तन्न शक्यते । कस्माद्धेत्वन्वयाभावान्ननु दोषस्तयोरयम् ॥</div>
+  <div class="iast" lang="sa-Latn">kuryāc ced dharmiṇaṃ sādhyaṃ tataḥ kiṃ tan na śakyate |<br> kasmād dhetvanvayābhāvān nanu doṣas tayor ayam ||</div>
+  <div class="tr">「（「自ら」がなければ定義は）有法を所証としてしまうだろう」と言うなら、それで何が（困るのか）。――「それは不可能だ」――なぜか。――「論証因に随伴がないからだ」――それなら、これはその二つ（論証因と喩）の誤りではないか。</div>
+  <div class="nt">諸本・MIY. は <i>na ca</i>。PV-k(III) とチベット語訳は <i>nanu</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>この偈は問答の形になっています。Manorathanandin と『認識手段決択』によって役割を割り振ると、こうなります。論敵「『自ら』がなければ、定義は有法を所証にしてしまう」。Dharmakīrti「それでどんな不都合があるのか」。論敵「有法を主張にすることはできない」。Dharmakīrti「なぜか」。論敵「有法は所証として成立していないので論証因がなく（所依不成）、有法は個物なので喩に現れず、随伴がないからだ」。Dharmakīrti「それは論証因と喩の誤りであって、主張の誤りではない」（PVV 441–442）。</p></div>
+</div>
+<div class="mula" id="k82">
+  <span class="ref">k.82</span>
+  <div class="src deva" lang="sa">उत्तरावयवापेक्षो न दोषः पक्ष इष्यते । तथा हेत्वादिदोषोऽपि पक्षदोषः प्रसज्यते ॥</div>
+  <div class="iast" lang="sa-Latn">uttarāvayavāpekṣo na doṣaḥ pakṣa iṣyate |<br> tathā hetvādidoṣo &#x27;pi pakṣadoṣaḥ prasajyate ||</div>
+  <div class="tr">後の支分（論証因と喩）に関わる誤りは、主張（の誤り）とは認められない。そうでなければ、論証因などの誤りも主張の誤りになってしまう。</div>
+</div>
+<div class="mula" id="k83">
+  <span class="ref">k.83</span>
+  <div class="src deva" lang="sa">सर्वैः पक्षस्य बाधातस्तस्मात्तन्मात्रसङ्गिनः । पक्षदोषा मता नान्ये प्रत्यक्षादिविरोधवत् ॥</div>
+  <div class="iast" lang="sa-Latn">sarvaiḥ pakṣasya bādhātas tasmāt tanmātrasaṅginaḥ |<br> pakṣadoṣā matā nānye pratyakṣādivirodhavat ||</div>
+  <div class="tr">すべて（の誤り）によって主張が否定されるからである。だから、それ（主張）だけに関わるものが主張の誤りと考えられ、他のものはそうではない。知覚などとの矛盾のように。</div>
+  <div class="nt">PV-k(III) と MIY. は <i>tanmātraliṅginaḥ</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin は言います。「後の支分に関わるものも、主張が否定されるから主張の誤りだと言うなら、論証因などの誤りも主張の誤りになってしまう」（PVV 442）。主張の定義の条件は、主張の誤りだけを除くためにあります。有法を所証とすれば随伴がなくなるのは事実ですが、それは論証因の誤りです。主張の誤りとは、知覚との矛盾のように主張だけに関わるものです。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、『評釈』の段階の Dharmakīrti が、Dignāga から受け継いだ似因・似喩・似宗の三分類を、不安定ながら保っていたことを指摘します。そのため三種の誤りをはっきり分けておく必要があった。後の『ヘートゥビンドゥ』と『論諍の理論』では主張の陳述そのものを論証式から追放し、似宗の分類も捨てることになる、と位置づけています（T. p.114）。</p></div></div>
+</div>
+<div class="mula" id="k84">
+  <span class="ref">k.84</span>
+  <div class="src deva" lang="sa">हेत्वादिलक्षणैर्बाध्यं मुक्त्वा पक्षस्य लक्षणम् । उच्यते परिहारार्थमव्याप्तिव्यतिरेकयोः ॥</div>
+  <div class="iast" lang="sa-Latn">hetvādilakṣaṇair bādhyaṃ muktvā pakṣasya lakṣaṇam |<br> ucyate parihārārtham avyāptivyatirekayoḥ ||</div>
+  <div class="tr">論証因などの定義によって退けられるべきものは別として、主張の定義は、不遍と過遍とを除くために述べられる。</div>
+  <div class="nt">PV-k(I) は <i>na vyāptivyatirekayoḥ</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>三相をそなえるという論証因の定義は、不成・相違・不定・随伴の欠如といった論証因の誤りを除きます。それを除くのは主張の定義の役目ではありません。主張の定義の役目は、定義されるもの（主張）と過不足なく一致すること、つまり主張であるものをすべて含み、主張でないものを含まないことです。Prajñākaragupta は、随伴の欠如のような誤りは別の定義（論証因の定義）で除かれるのだから、「自ら」をそのために置くのは無益だ、と結論します（PVBh 520）。この偈は『認識手段決択』第3章 k.22 です。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、定義の誤りとして不遍（<i>avyāpti</i>：定義が定義されるものより狭い）と過遍（<i>ativyāpti</i>、偈では <i>vyatireka</i>：定義が広すぎる）を挙げ、これが仏教徒とニヤーヤに共通の定義論であることを説明します。k.84–88 を独立の主題とせず、「自ら」が有法を非所証とするためにあるという説への反論の続きと読む方がよい、とも述べています。チベットの注釈者のあいだでは、この区切りについて見解が分かれます（T. pp.115–116）。</p></div></div>
+</div>
+<div class="mula" id="k85">
+  <span class="ref">k.85</span>
+  <div class="src deva" lang="sa">स्वयंनिपातरूपाख्या व्यतिरेकस्य बाधिकाः । सहानिराकृतेनेष्टश्रुतिरव्याप्तिबाधनी ॥</div>
+  <div class="iast" lang="sa-Latn">svayaṃnipātarūpākhyā vyatirekasya bādhikāḥ |<br> sahānirākṛteneṣṭaśrutir avyāptibādhanī ||</div>
+  <div class="tr">「自ら」「不変化辞（のみ）」「（自らの）形」という語は、「否定されていない」とともに、過遍を退ける。「意図された」という語は不遍を退ける。</div>
+  <div class="nt">PV-k(I) は <i>avyāptibādhinī</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>四つの語はそれぞれ、主張でないものを除いて、定義が広すぎるのを防ぎます。「自ら」は論書で認められているだけの命題を、「のみ」は未成立の論証手段を、「自らの形」は成立済みの命題を、「否定されていない」は知覚・推理・信頼できる人・世間周知に否定される命題を除きます。これに対して「意図された」は、定義が狭すぎるのを防ぎます。この語がなければ、主張は論者のことばの字面だけになり、サーンキヤの「他のため」の論証（k.31–33）のように、実際に意図された内容が含まれなくなるからです。この偈は『認識手段決択』第3章 k.23 です。</p></div>
+</div>
+<div class="mula" id="k86">
+  <span class="ref">k.86</span>
+  <div class="src deva" lang="sa">साध्याभ्युपगमः पक्षलक्षणं तेष्वपक्षता । निराकृते बाधनतः शेषेऽलक्षणवृत्तितः ॥</div>
+  <div class="iast" lang="sa-Latn">sādhyābhyupagamaḥ pakṣalakṣaṇaṃ teṣv apakṣatā |<br> nirākṛte bādhanataḥ śeṣe &#x27;lakṣaṇavṛttitaḥ ||</div>
+  <div class="tr">「所証として承認されたもの」が主張の定義である。それら（五つの場合）のうち、否定されたものが主張でないのは否定されるからであり、残りのものが主張でないのは定義が当てはまらないからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin の導入はこうです。『集量論』の定義には過遍を除く「自ら」「のみ」「自らの形」がある。しかし『因明正理門論』の定義「所証として意図されたものが主張であり、相反する事柄によって否定されていない」にはそれらがない。それでどうして不遍と過遍が除かれるのか（PVV 443）。</p><p>答えは、『因明正理門論』の定義の実質は「所証として承認されたもの」であり、それだけで二つの誤りが除かれる、というものです。Devendrabuddhi は詳しく説明します。所証が論題として示されているので、主張が所証であることが分かる（「自らの形」の意味）。承認するのは「論者が」であることが含意されるので、論書の作者の立場が除かれる（「自ら」の意味）。未成立の論証手段を所証として承認することはなく、論争の基盤となるものを承認するので、「のみ」と「意図された」の意味も得られる。「論証されるべきもの」は論証しうるものの意なので、「否定されていない」の意味も含まれる。この偈は『認識手段決択』第3章 k.24 です。</p></div>
+</div>
+<div class="mula gap" id="k87"><span class="ref">k.87–88</span><div class="tr"><span class="pill g">OCR 欠落</span> 使用した OCR では Tillemans 2000 の p.119 が欠けており、k.87–88 の原文・英訳を確認できない。前後の論述によれば、論敵は次のように問う。パーニニの規則（3.2.188）によれば、「意図する」などの意味の語根につく過去分詞語尾（-ta）は現在の意味を表す。だから『集量論』の <i>iṣṭa</i> も『因明正理門論』の <i>īpsita</i> も「いま論証しようと意図されているもの」を意味し、未成立の論証因は除かれる。それなら『集量論』の定義の「のみ」は不要ではないか（k.87）。Dharmakīrti は、『集量論』の定義には義務分詞語尾をもつ <i>nirdeśya</i>（示されるべき）があるので、過去分詞語尾だけでは現在の意図に限定されず、未成立の論証因が後で所証として示されることも含まれてしまう、だから「のみ」が必要だ、と答える（k.88。T. pp.120–121、PVV 443–444 による）。原文の提供を待って補う。</div></div>
+<div class="mula" id="k89">
+  <span class="ref">k.89</span>
+  <div class="src deva" lang="sa">अवाचकत्वाच्चायुक्तं तेनेष्टं स्वयमात्मना । अनपेक्ष्याखिलं शास्त्रं तदभीष्टस्य साध्यता ॥</div>
+  <div class="iast" lang="sa-Latn">avācakatvāc cāyuktaṃ teneṣṭaṃ svayam ātmanā |<br> anapekṣyākhilaṃ śāstraṃ tadabhīṣṭasya sādhyatā ||</div>
+  <div class="tr">また、（「自ら」は他の注釈者が言うような意味を）表さないので、（そう解するのは）不合理である。だから（「自ら」とは）論者自身が意図した、の意であり、論書全体に依存せず、その者が意図したものが所証である。</div>
+  <div class="nt">OCR の <i>sādhayatā</i> を <i>sādhyatā</i> と読む。PV-k(II) は <i>tadvādīṣṭasya</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Śākyabuddhi は、冒頭の「また」はこれまでに説いた誤りをまとめる意味だ、と注します。「自ら」は、有法が成立していること（k.78–80）も、有法が周知であること（k.76–77）も、論者が自ら望んだ論書であること（k.72–74）も表しません。表すのは、他の解説者ではなく論者自身が意図したということだけです。Prajñākaragupta は「だから、論書全体に依存せず、論者が意図したものが所証である」と言います（PVBh 523）。Manorathanandin はこの偈を「まとめ」と呼びます。</p></div>
+</div>
+<div class="mula" id="k90">
+  <span class="ref">k.90</span>
+  <div class="src deva" lang="sa">तेनानभीष्टसंसृष्टस्येष्टस्यापि हि बाधने । यथा साध्यमबाधातः पक्षहेतू न दुष्यतः ॥</div>
+  <div class="iast" lang="sa-Latn">tenānabhīṣṭasaṃsṛṣṭasyeṣṭasyāpi hi bādhane |<br> yathā sādhyam abādhātaḥ pakṣahetū na duṣyataḥ ||</div>
+  <div class="tr">だから、意図されていないもの（虚空の性質）と結びついた意図されたもの（無常性）が否定されても、主張と論証因に誤りはない。所証であるとおりのもの（ただの無常性）は否定されないからである。</div>
+  <div class="nt">OCR の <i>tenābhiṣṭa°</i> では一音節不足。PVV の注（<i>vādino 'nabhīṣṭenākāśaguṇatvena saṃsṛṣṭasyeṣṭasya</i>）により <i>tenānabhīṣṭa°</i> と読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>ニヤーヤ・勝論派の考えでは、「虚空の性質であること」と「無常性」は、同じ対象（音など）に内属すること（<i>ekārthasamavāya</i>）によって間接的に結びついています。だから両方が所証だ、と彼らは言います。Manorathanandin は答えます。論者は、虚空の性質と同じ対象に内属する無常性を論証しようと意図しているのではない。ただの無常性を論証しようとしているのである。それは知覚などによって否定されず、論証因もそれに対して相違などではない（PVV 444）。</p><p>これで k.43 から続いた「自ら」の議論が締めくくられます。Manorathanandin と Prajñākaragupta は、これが k.85 の「『自ら』などは過遍を退ける」を説明したことになる、と結びます。</p></div>
+</div>
+</section>
+
+<!-- ============ §13 ============ -->
+<section id="s13" class="wrap">
+  <div class="sec-head"><span class="sec-no">13</span><h2>「否定されていない」：四種の否定</h2><span class="sub"><span class="pg">k.91–92</span>否定は知覚と三種の推理による</span></div>
+<p>Dignāga の定義の後半「自らの有法について、知覚の対象・推理・信頼できる人・世間周知のものによって否定されていない」に入ります。Dharmakīrti はこれを、Dignāga とは違う順序で取り上げます。通常の推理（k.91–92）、信頼できる人（k.93–108）、世間周知（k.109–130）、知覚の対象（k.131–135）、自らの有法（k.136–148）の順です。</p>
+<div class="mula" id="k91">
+  <span class="ref">k.91</span>
+  <div class="src deva" lang="sa">अनिषिद्धः प्रमाणाभ्यां स चोपगम इष्यते । संदिग्धे हेतुवचनाद्व्यस्तो हेतोरनाश्रयः ॥</div>
+  <div class="iast" lang="sa-Latn">aniṣiddhaḥ pramāṇābhyāṃ sa copagama iṣyate |<br> saṃdigdhe hetuvacanād vyasto hetor anāśrayaḥ ||</div>
+  <div class="tr">その承認（主張）は、二つの認識手段によって否定されていないものと認められる。論証因は疑いがあるときに述べられるので、（認識手段によって）退けられたものは、論証因の基体ではない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>この段階の Dharmakīrti は、主張の陳述について、まだほぼ Dignāga の立場にいます。主張は論証の目的を示すために述べてよいが、論証手段ではない。認識手段によって否定された主張は似宗です。なぜ除かれるのか。偽であることがすでに決まっているので、疑いがなく、論証因を述べる必要がないからです。Devendrabuddhi は言います。主張は論証因の目的である。それが否定されれば、目的をもつ論証因も働かない。だから似宗を述べても何も成し遂げられない。</p></div>
+</div>
+<div class="mula" id="k92">
+  <span class="ref">k.92</span>
+  <div class="src deva" lang="sa">अनुमानस्य भेदेन सा बाधोक्ता चतुर्विधा । तत्राभ्युपायः कार्याङ्गं स्वभावाङ्गं जगत्स्थितिः ॥</div>
+  <div class="iast" lang="sa-Latn">anumānasya bhedena sā bādhoktā caturvidhā |<br> tatrābhyupāyaḥ kāryāṅgaṃ svabhāvāṅgaṃ jagatsthitiḥ ||</div>
+  <div class="tr">その否定が四種と説かれたのは、推理の（三つの）区別による。そのうち、承認（信頼できる人のことばと自分のことば）は結果因であり、世間のならわしは自性因である。</div>
+  <div class="nt">PV-k(I) は <i>bādhoktiḥ</i>、<i>atrābhyupāyaḥ</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin の導入はこうです。主張の否定が（知覚と推理の）二種なら、師はなぜ「知覚・推理・信頼できる人・世間周知」と四種を示したのか（PVV 445）。答えは、推理に三つの区別があり、それに知覚を加えて四種になる、というものです（PVV 445）。三種の推理は、（1）事物の力によって働く推理、（2）信頼できる人のことばと自分のことばにもとづく推理（Manorathanandin は「承認」を「信頼できる人のことばと自分のことば」と注します）、（3）世間周知、つまり言語の慣習にもとづく推理です。</p><p>（2）が結果因であることは k.93 で説明されます。（3）が自性因であることについては、Durvekamiśra が論証式をこう示します。「概念的な認識の対象であるものは、取り決められた語によって言い表すことができる。枝などをもつものが『木』という語で言い表されるように。そして『兎をもつもの』は概念的な認識の対象である」。概念の対象であることそのものが、どんな名でも呼ばれうる適合性を本質として含んでいる、ということです（k.109 以下）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Devendrabuddhi と Śākyabuddhi によるこの推理の三分類が、後のチベットの論理学教科書で標準となる推理の三分類（事物の力による推理・周知による推理・信頼による推理）の源になったことを指摘しています。また、Dignāga 自身は『因明正理門論』では自分のことばとそれ以前の承認を分けて否定を五種としていたことを、Śākyabuddhi の注によって紹介しています（T. pp.127–128）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §14 ============ -->
+<section id="s14" class="wrap">
+  <div class="sec-head"><span class="sec-no">14</span><h2>「信頼できる人」：論書と自分のことば</h2><span class="sub"><span class="pg">k.93–108</span>否定（bādhā）と単なる妨げ（pratibandha）</span></div>
+<p>Dignāga は「信頼できる人（のことば）」（<i>āpta</i>）の一語で、論書・聖典と論者自身のことばをまとめて扱いました。Dharmakīrti はそのわけを説明し、両者の論理的な類似を論じます。</p>
+<p>ここで重要になるのが、「否定するもの」（<i>bādhaka</i>）と「妨げ」（<i>pratibandhaka</i>）の区別です。ある陳述 P が Q の否定を含意するとき、P が真であることが認識手段で知られていれば、P は Q を否定します。P の真偽が認識手段で知られていなければ、P と Q はぶつかり合うだけで、どちらも相手を否定できません。論書の記述が否定するものになるのは、主張の有法が全く知覚を越えたもので、論書によってしか知られない場合に限られます。知覚や推理で確かめられる事柄についての論書の記述は、単なる妨げにすぎません。</p>
+<div class="mula" id="k93">
+  <span class="ref">k.93</span>
+  <div class="src deva" lang="sa">आत्मा परो वाभिमतो भूतनिश्चययुक्तवाक् । आप्तः स्ववचनं शास्त्रं चैकमुक्तं समत्वतः ॥</div>
+  <div class="iast" lang="sa-Latn">ātmā paro vābhimato bhūtaniścayayuktavāk |<br> āptaḥ svavacanaṃ śāstraṃ caikam uktaṃ samatvataḥ ||</div>
+  <div class="tr">自分であれ他人であれ、真実の確定をそなえたことばをもつと認められた者が、信頼できる人である。自分のことばと論書とは、同等であるから、一つにして説かれた。</div>
+  <div class="nt">諸本・MIY. の <i>ātmāparodhābhimato</i> は意味をなさず、チベット語訳にも合わない。PVin とその注に従い <i>ātmā paro vā</i> と読む。<i>caikam</i> は PV-k(II) とチベット語訳の読み（他本 <i>caivam</i>）。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin の導入では、「信頼できる人のことばと自分のことばが、なぜ『承認』（k.92）と呼ばれるのか」という問いに答える偈です（PVV 445）。『認識手段決択』は言います。自分であれ他人であれ、事柄をあるがままに見たうえでことばを発しようとする者が信頼できる人である。そのことばは、その事柄がなければ生じないので、その結果である。Devendrabuddhi は、両者とも結果因である点で等しいから「信頼できる人」の一語で説かれた、と注します。</p><p>ただし、人が何かを言えばそれだけで真になる、ということではありません。その人（論者自身であれ論書の作者であれ）が信頼できると承認されてはじめて、そのことばは、その権威を受け入れる人にとってだけ結果因になります。だからこれは「承認」（<i>abhyupāya</i>）と呼ばれ、事物の力によるものではないのです。</p><p>自分のことばとの矛盾の典型は、以前と違うことを言う場合ではありません。発言そのものが自分を否定する場合です。「私の母は石女である」「言われたことはすべて偽である」「推理は認識手段ではない」「認識対象をもつ認識手段は存在しない」などがそれに当たります。</p></div>
+</div>
+<div class="mula" id="k94">
+  <span class="ref">k.94</span>
+  <div class="src deva" lang="sa">यथात्मनोऽप्रमाणत्वे वचनं न प्रवर्तते । शास्त्रसिद्धे तथा नार्थे विचारस्तदनाश्रये ॥</div>
+  <div class="iast" lang="sa-Latn">yathātmano &#x27;pramāṇatve vacanaṃ na pravartate |<br> śāstrasiddhe tathā nārthe vicāras tadanāśraye ||</div>
+  <div class="tr">自分が認識手段でなければことばが発せられないように、論書によって成立した事柄についても、その（論書）に依拠しなければ考察は起こらない。</div>
+  <div class="nt">MIY. は <i>śāstradṛṣṭe</i>。チベット語訳は <i>śāstrasiddhe</i> を支持する。</div>
+</div>
+<div class="mula" id="k95">
+  <span class="ref">k.95</span>
+  <div class="src deva" lang="sa">तत्प्रस्तावाश्रयत्वे हि शास्त्रं बाधकमित्यमुम् । वक्तुमर्थं स्ववाचास्य सहोक्तिः साम्यदृष्टये ॥</div>
+  <div class="iast" lang="sa-Latn">tatprastāvāśrayatve hi śāstraṃ bādhakam ity amum |<br> vaktum arthaṃ svavācāsya sahoktiḥ sāmyadṛṣṭaye ||</div>
+  <div class="tr">論書がその論題の基盤であるときには、論書は否定するものとなる。この点を述べるために、（師は）これを自分のことばとともに説いた。類似を示すためである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>k.94–95 は、自分のことばと論書のさらに二つの類似を示します。（a）真であることの前提。人を説得しようとして何かを言うことは、自分が信頼でき、真実を語っていると前提することです。そうでなければ言わないでしょう。同じように、論書に説かれた事柄、たとえば幸不幸の業の原因のような全く知覚を越えた事柄を考察することは、その論書を信頼できると前提することです。そうした事柄の有法は、論書に説かれていること以外の手段では知られないからです。（b）否定。真と承認された陳述は、それに矛盾する主張を否定しえます。「言われたことはすべて偽である」と言えば、言うこと自体がそれを真と認めることになるが、内容はそれが偽であることを含意するので、発言は自分自身を否定します。</p><p>Dharmottara は言います。話者は「私のことばはそれが述べる事柄なしには生じない」と相手に約束するからこそことばを発する。論書についても、それを認識手段として受け入れなければ、その論書で周知の有法についての考察は起こらない。Prajñākaragupta は「有法が存在しなくなるため論書なしには考察が起こらない場合にだけ、論書は否定するものとなる」と注します。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、k.94–95 では論書や自分のことばが「否定するもの」となりうるとされる一方で、『認識手段決択』の並行箇所や k.98 以下では両者がむしろ「妨げ」に近いものとされていることを、解釈上の難問として取り上げます。最も妥当なのは Dharmottara の線に沿った解釈だ、と Tillemans は考えます。Dharmakīrti は論書などが否定しうることを「さしあたり」認めただけで、本当は知覚や事実にもとづく推理ほどの論証力はないと考えていた、というのです。後のインド論理学（新ニヤーヤ）では <i>pratibandhaka</i> が、ある認識が別の認識を心理的に妨げる「認知の阻止要因」として、因果的に理解されたことにも触れています（T. pp.133–134）。なお、k.95 の解説の末尾（T. p.135）は OCR が欠けている。</p></div></div>
+</div>
+<div class="mula" id="k96">
+  <span class="ref">k.96</span>
+  <div class="src deva" lang="sa">उदाहरणमप्यत्र सदृशं तेन वर्णितम् । प्रमाणानामभावे हि शास्त्रवाचोरयोगतः ॥</div>
+  <div class="iast" lang="sa-Latn">udāharaṇam apy atra sadṛśaṃ tena varṇitam |<br> pramāṇānām abhāve hi śāstravācor ayogataḥ ||</div>
+  <div class="tr">だから（師は）ここで同じ例を挙げた。認識手段が存在しなければ、論書もことばもありえないからである。</div>
+  <div class="nt">PV-k(I/III) は <i>darśitam</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Dignāga は自注で、自分のことばによる否定と論書による否定の例として、同じ「認識対象をもつ認識手段は存在しない」を挙げました（Manorathanandin が例を示します。PVV 446）。認識手段がまったく存在しないなら、この主張そのものも成り立たないし、どんな論書も認識手段として受け入れられません。Prajñākaragupta は、認識手段を否定すれば論書もあなたにとって認識手段ではなくなるのに、なぜそれを承認するのか、互いに矛盾するだけだ、と注します（PVBh 525）。</p></div>
+</div>
+<div class="mula" id="k97">
+  <span class="ref">k.97</span>
+  <div class="src deva" lang="sa">स्ववाग्विरोधे विस्पष्टमुदाहरणमागमे । दिङ्मात्रदर्शनं तत्र प्रेत्य धर्मोऽसुखप्रदः ॥</div>
+  <div class="iast" lang="sa-Latn">svavāgvirodhe vispaṣṭam udāharaṇam āgame |<br> diṅmātradarśanaṃ tatra pretya dharmo &#x27;sukhapradaḥ ||</div>
+  <div class="tr">この例は、自分のことばとの矛盾についてははっきりした例であるが、聖典（との矛盾）については方向を示すだけである。そちらについては、「法は死後に不幸をもたらす」が（主要な例である）。</div>
+  <div class="nt">末尾は諸本・MIY. で <i>dharmo sukhapradaḥ</i> などと読まれるが、PVV・PVin・チベット語訳に従い <i>dharmo 'sukhapradaḥ</i> と読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>認識手段は論書によってしか知られないものではないので、「認識手段は存在しない」は論書との矛盾の典型例にはなりません。Manorathanandin によれば、論書との矛盾の主要な例は、有法が全く知覚を越えたもので、聖典によってしか知られないものでなければなりません。「法（善行）は来世で不幸をもたらす」のように（PVV 446）。</p></div>
+</div>
+<div class="mula" id="k98">
+  <span class="ref">k.98</span>
+  <div class="src deva" lang="sa">शास्त्रिणोऽप्यतदालम्बे विरुद्धोक्तौ तु वस्तुनि । न बाधा प्रतिबन्धः स्यात्तुल्यकक्षतया द्वयोः ॥</div>
+  <div class="iast" lang="sa-Latn">śāstriṇo &#x27;py atadālambe viruddhoktau tu vastuni |<br> na bādhā pratibandhaḥ syāt tulyakakṣatayā dvayoḥ ||</div>
+  <div class="tr">論書を奉じる者であっても、その（論書）に依存しない事物について（論書と）相反することを言うなら、否定はない。二つは同等の力をもつので、妨げがあるだけである。</div>
+  <div class="nt">OCR の <i>tulyakakṣayatayā</i> は一音節多い。PV-k(II) により <i>tulyakakṣatayā</i>（PV-k(I) は <i>tulyaśaktitayā</i>）。</div>
+</div>
+<div class="mula" id="k99">
+  <span class="ref">k.99</span>
+  <div class="src deva" lang="sa">यथा स्ववाचि तच्चास्य तदा स्ववचनात्मकम् । तयोः प्रमाणं यस्यास्ति तत्स्यादन्यस्य बाधकम् ॥</div>
+  <div class="iast" lang="sa-Latn">yathā svavāci tac cāsya tadā svavacanātmakam |<br> tayoḥ pramāṇaṃ yasyāsti tat syād anyasya bādhakam ||</div>
+  <div class="tr">自分のことばの場合と同じである。その（論書）は、そのとき彼にとって自分のことばそのものである。二つのうち、認識手段のある方が他方を否定するものとなる。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin と Devendrabuddhi は、ミーマーンサー学派からの「背教者」の例を挙げます。この人は自派の論書に反して「音は無常である」と論証します。音は知覚によって成立している有法で、論書に依存しません。だから「音は常住である」という論書の説と自分の主張は、ことばとしては同等の力しかなく、ぶつかり合うだけです。どちらが真かは、どちらが認識手段に支えられているかで決まります。ここでは無常性が常住性を否定します（PVV 447）。</p><p>「自分のことばの場合と同じ」とは、「私の母は石女である」のような自己矛盾の発言を指します。Manorathanandin は、そのとき論書は論者が自分で承認したことによって認識手段とされているので、論者自身のことばと同じものになっている、と注します（PVV 447）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、k.98 の <i>śāstriṇo 'py</i> を、Devendrabuddhi と Śākyabuddhi の注（「論書を承認する者」）に従って「論書を奉じる者にとっても」と訳します。一方、チベット語訳は「論書と矛盾することを言っても」と全く違う理解を示している、と注記しています（T. p.139, n.480）。なお、k.99 の解説の途中（T. p.140）は OCR が欠けている。</p></div></div>
+</div>
+<div class="mula" id="k100">
+  <span class="ref">k.100</span>
+  <div class="src deva" lang="sa">प्रतिज्ञामनुमानं वा प्रतिज्ञापेतयुक्तिका । तुल्यकक्ष्यां यथार्थं वा बाधेत कथमन्यथा ॥</div>
+  <div class="iast" lang="sa-Latn">pratijñām anumānaṃ vā pratijñāpetayuktikā |<br> tulyakakṣyāṃ yathārthaṃ vā bādheta katham anyathā ||</div>
+  <div class="tr">そうでなければ、道理を欠いた主張が、同等の力をもつ主張や、事実どおりの推理を、どうして否定しえようか。</div>
+  <div class="nt"><i>tulyakakṣyāṃ</i> は PV-k(III) と Vibhūticandra の PVBh 写本の読みで、PVin に合う。他本は <i>tulyakakṣyā</i>, <i>tulyakakṣā</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>認識手段の裏づけのない二つの陳述が単に妨げ合うだけだと認めないなら、不合理が生じます。根拠のない陳述が、同じく根拠のない陳述を否定したり、事実にもとづく正しい推理を覆したりすることになるからです。</p></div>
+</div>
+<div class="mula" id="k101">
+  <span class="ref">k.101</span>
+  <div class="src deva" lang="sa">प्रामाण्यमागमानां च प्रागेव विनिवारितम् । अभ्युपायविचारेषु तस्माद्दोषोऽयमिष्यते ॥</div>
+  <div class="iast" lang="sa-Latn">prāmāṇyam āgamānāṃ ca prāg eva vinivāritam |<br> abhyupāyavicāreṣu tasmād doṣo &#x27;yam iṣyate ||</div>
+  <div class="tr">また、聖典が（それ自体で）認識手段であることは、すでに退けた。だから、承認にもとづく考察においてだけ、この誤り（論書による否定）が認められる。</div>
+  <div class="exp"><span class="lbl">解説</span><p>聖典がその語の性質や成り立ちによって本来的に認識手段だという考えは、第1章で（たとえば k.224 以下のヴェーダ非人為説批判で）退けられています。Dharmottara は、『認識手段決択』第2章で、聖典が本来作られたものでないこと、その意味が人によって作られていないこと、信頼できる人のことばであることのいずれによっても認識手段ではない、と退けた、と注します。それでも、全く知覚を越えた事柄（法が来世に幸福をもたらすか、など）については他に判定の手段がないので、聖典を認識手段として受け入れ、それにもとづく考察では論書による否定がありうるのです。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans によれば、k.99–101 は Manorathanandin の注にはなく、Prajñākaragupta は中間偈（<i>antaraśloka</i>）として扱っています。しかし Devendrabuddhi は注釈しており、『認識手段決択』の対応箇所には Dharmottara の注がある、と注記しています（T. p.142, n.491）。</p></div></div>
+</div>
+<div class="mula" id="k102">
+  <span class="ref">k.102</span>
+  <div class="src deva" lang="sa">तस्माद्विषयभेदस्य दर्शनाय पृथक्कृतः । अनुमानाबहिर्भूतोऽप्यभ्युपायः प्रबाधनात् ॥</div>
+  <div class="iast" lang="sa-Latn">tasmād viṣayabhedasya darśanāya pṛthakkṛtaḥ |<br> anumānābahirbhūto &#x27;py abhyupāyaḥ prabādhanāt ||</div>
+  <div class="tr">だから、承認は、否定するという点で推理の外にあるものではないが、領域の違いを示すために（推理と）別に立てられた。</div>
+  <div class="nt">PV-k(I/II) は <i>darśanārtham</i>。チベット語訳は <i>darśanāya</i> を支持する。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin は言います。推理はあらゆる場合に否定するものとなるが、論書は論書を基盤とする有法についてだけそうなる。この否定の領域の違いを示すことが、別に立てた目的である。論書が推理の外にないのは、自ら成立させた有法について、自らの立場に反する性質を否定するからである。否定するものは認識手段でないことはなく、知覚ではない認識手段は推理である（PVV 448）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Prajñākaragupta がこの偈を少し違うふうに解していることを指摘します。推理は真に否定するものだが、論書は妨げるものにすぎず、承認されたときにだけ否定するものとなる、という解釈です。Tillemans によれば、これは後のチベット学僧が「聖典を妨げるものと認める伝統」と呼んだものに近い、とのことです（T. pp.142–143, n.495）。</p></div></div>
+</div>
+<div class="mula" id="k103">
+  <span class="ref">k.103</span>
+  <div class="src deva" lang="sa">अन्यथातिप्रसङ्गः स्याद्व्यर्थता वा पृथक्कृतेः । भेदो वाङ्मात्रवचने प्रतिबन्धः स्ववाच्यपि ॥</div>
+  <div class="iast" lang="sa-Latn">anyathātiprasaṅgaḥ syād vyarthatā vā pṛthakkṛteḥ |<br> bhedo vāṅmātravacane pratibandhaḥ svavācy api ||</div>
+  <div class="tr">そうでなければ、過大な帰結になるか、別に立てたことが無意味になるかである。自分のことばにおける違いは、（ことばを発するという）ことばだけの陳述（そのもの）が妨げとなる点にある。</div>
+  <div class="exp"><span class="lbl">解説</span><p>前半：もし別に立てたのが領域の違いを示すためでないなら、推理の下位区分を示すためだったことになる。そうなら、結果因・自性因・非認識因の区別まですべて述べなければならないという過大な帰結になる（PVV 448）。あるいは、論書が推理に含まれるなら、別に立てたことは無意味になる。</p><p>後半は新しい問いへの答えです。Dignāga は『因明正理門論』で、自分のことばとの矛盾（例「言われたことはすべて偽である」）と、以前に承認した立場との矛盾（例：勝論派が「音は常住である」と言う）を分けていました。なぜか。Manorathanandin は言います。自分のことばは、発すること自体によって、認識手段として（つまり真として）承認されている。そうでなければ発しない。その真であることが、述べられた「偽であること」と同等の力でぶつかるので、ここには妨げがあるだけで否定はない。この文は自分自身の意味を妨げ、論書は別の文に述べられた事柄を妨げる。これが二つの違いである（PVV 448）。</p></div>
+</div>
+<div class="mula" id="k104">
+  <span class="ref">k.104</span>
+  <div class="src deva" lang="sa">तेनाभ्युपगमाच्छास्त्रं प्रमाणं सर्ववस्तुषु । बाधकं यदि नेच्छेत्स बाधकं किं पुनर्भवेत् ॥</div>
+  <div class="iast" lang="sa-Latn">tenābhyupagamāc chāstraṃ pramāṇaṃ sarvavastuṣu |<br> bādhakaṃ yadi necchet sa bādhakaṃ kiṃ punar bhavet ||</div>
+  <div class="tr">「論者が承認しているので、論書はあらゆる事物について認識手段であり、否定するものである」と言うなら、もし彼が（論書を）認めなかったら、それでも否定するものだろうか。</div>
+  <div class="nt">チベット語訳は前半を「彼が論書を認識手段と承認しているので、あらゆる事物について否定するものである」と解する。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論敵は、Dharmakīrti 自身の「承認によって論書は認識手段となる」という立場を逆手に取ります。承認されているなら、知覚できる事柄、推理できる事柄、全く知覚を越えた事柄のすべてについて、論書は否定するものとなるはずだ、というのです（PVV 449）。Dharmakīrti は問い返します。論者が承認しなければ、それでも否定するものだろうか。Devendrabuddhi はこう注します。そうなら主張の否定は論者の意欲（承認）によって起こるのであって、道理によるのではない。Prajñākaragupta はさらに鋭く言います。認めなければ否定するものでないなら、認めたからといってどうして否定するものになるのか。認識手段でない意欲は、何かを認識手段にはしない。</p></div>
+</div>
+<div class="mula" id="k105">
+  <span class="ref">k.105</span>
+  <div class="src deva" lang="sa">स्ववाग्विरोधेऽभेदः स्यात्स्ववाक्शास्त्रविरोधयोः । पुरुषेच्छाकृता चास्य परिपूर्णा प्रमाणता ॥</div>
+  <div class="iast" lang="sa-Latn">svavāgvirodhe &#x27;bhedaḥ syāt svavākśāstravirodhayoḥ |<br> puruṣecchākṛtā cāsya paripūrṇā pramāṇatā ||</div>
+  <div class="tr">（論書との矛盾が）自分のことばとの矛盾だというなら、自分のことばとの矛盾と論書との矛盾とに違いはないことになる。また、人の意欲によって作られるその（論書）の認識手段性は、（自分のことばにおいても）完全に満たされている。</div>
+  <div class="nt">OCR の <i>svavagvirodhe bhedah</i> を <i>svavāgvirodhe 'bhedaḥ</i> と読む（PVBh の注 <i>abheda eva</i> による）。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Prajñākaragupta の導入では、論敵は言います。「以前に承認したことを後で違うふうに言うべきではない。そうすれば自分のことばと矛盾する」。Dharmakīrti はこれを難なく受け入れられます。k.93 以下でまさに、自分のことばとの矛盾と論書との矛盾に本質的な違いはないと論じてきたからです。論敵の議論は、かえって Dharmakīrti の立場を裏づけます。</p><p>後半を、Prajñākaragupta は、人々は信じて受け入れるかぎりで両方を認識手段とみなす、という類似を示すだけだと解します。Devendrabuddhi と Manorathanandin は、「認識手段性」「完全に満たされている」を皮肉と解します。人の意欲は事物に依存しないので、それによって本当の認識手段になることはない、と嘲っているのだというのです（PVV 449 は「嘲る」と注します）。</p></div>
+</div>
+<div class="mula" id="k106">
+  <span class="ref">k.106</span>
+  <div class="src deva" lang="sa">तस्मात्प्रसिद्धेष्वर्थेषु शास्त्रत्यागेऽपि न क्षतिः । परोक्षेष्वागमानिष्टौ न चिन्तैव प्रवर्तते ॥</div>
+  <div class="iast" lang="sa-Latn">tasmāt prasiddheṣv artheṣu śāstratyāge &#x27;pi na kṣatiḥ |<br> parokṣeṣv āgamāniṣṭau na cintaiva pravartate ||</div>
+  <div class="tr">だから、（知覚と推理によって）知られている事柄については、論書を捨てても損失はない。（全く）知覚を越えた事柄については、聖典を認めなければ、考察そのものが起こらない。</div>
+  <div class="nt">PV-k(I) は <i>parokṣe 'py</i>。チベット語訳は複数形を支持する。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin は言います。論書は、論書によって成立した有法と証因についてだけ否定するものであり、認識手段によって成立したものについてはそうではない。だから、有法・証因・所証・結合などが知覚や推理によって知られている場合には、論書を捨てても誤りはない。たとえば、音・作られたこと・無常性・その結合が認識手段で成立しているとき、音を虚空の性質とする論書を捨てても不都合はない。しかし法・非法のような知覚を越えた事柄については、聖典を認識手段と認めなければ考察そのものが起こらない。成立していない有法についての考察はないからである（PVV 449）。</p><p>Devendrabuddhi は、ここでの「知覚を越えた」（<i>parokṣa</i>）を「全く知覚を越えた」（<i>atyantaparokṣa</i>）と注します。</p></div>
+</div>
+<div class="mula" id="k107">
+  <span class="ref">k.107</span>
+  <div class="src deva" lang="sa">विरोधोद्भावनप्राया परीक्षाप्यत्र तद्यथा । अधर्ममूलं रागादि स्नानं चाधर्मशोधनम् ॥</div>
+  <div class="iast" lang="sa-Latn">virodhodbhāvanaprāyā parīkṣāpy atra tadyathā |<br> adharmamūlaṃ rāgādi snānaṃ cādharmaśodhanam ||</div>
+  <div class="tr">また、その（論書）についての吟味は、主に矛盾を指摘することから成る。たとえば、「貪りなどが非法の根である」と言いながら「沐浴が非法を清める」と言う（ような矛盾）である。</div>
+  <div class="nt">PV-k(I/II) は <i>cādharmanāśanam</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論敵は言います。「論書が認識手段でないなら、それによって成立した有法や証因について、どうして考察がありうるのか」（PVV 449）。答えはこうです。そうした論書の吟味は、事実を調べることではなく、主に前後の記述の矛盾を指摘することから成ります（PVV 450）。たとえば、非法は煩悩から生じると説きながら、煩悩を除くことと無関係なガンジス川での沐浴を対治として勧める、という矛盾です。『認識手段決択』は、論書は実際には認識手段でなくても、論者がそれを認識手段として承認しているので有法を立てることができる、と言います。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Dharmakīrti が知覚を越えた事柄についての真理を、聖典の内的整合性や実践上の有用性に還元しているわけではない、と強調します。聖典にもとづく推理は誤りうるものであり、完全な認識手段でさえない。そして三段階の吟味は、なぜ聖典を信じてよいかという「正当化の理論」であって、真理そのものの定義（対応説に代わる真理論）を与えるものではない、と読んでいます（T. pp.150–152）。</p></div></div>
+</div>
+<div class="mula" id="k108">
+  <span class="ref">k.108</span>
+  <div class="src deva" lang="sa">शास्त्रं यत्सिद्धया युक्त्या स्ववाचा च न बाध्यते । दृष्टेऽदृष्टेऽपि तद्ग्राह्यमिति चिन्ता प्रवर्तते ॥</div>
+  <div class="iast" lang="sa-Latn">śāstraṃ yat siddhayā yuktyā svavācā ca na bādhyate |<br> dṛṣṭe &#x27;dṛṣṭe &#x27;pi tad grāhyam iti cintā pravartate ||</div>
+  <div class="tr">経験できる事柄については確立した道理によって、経験できない事柄については自らのことばによって否定されない論書は、受け入れるべきである。こうして考察が起こる。</div>
+  <div class="nt">PV-k(II) は <i>pravartyate</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin はこう注します。経験できる事柄、つまり認識手段の領域については、知覚や（推理という）道理によって否定されず、経験できない事柄、つまり認識手段の領域でないものについては、自分のことば、つまり聖典に依拠した推理によって否定されない論書。経験できない領域で行動しようと望む者は、そういう論書を認識手段として受け入れるべきであり、何でもよいわけではない。この目的のために、論書について矛盾の指摘を主とする考察が行われる（PVV 450）。Devendrabuddhi は「経験できない」を「全く知覚を越えた」と注します。これは第1章 k.215–217 で示された論書吟味の三基準を言い直したもので、ここで「信頼できる人」の節が終わります。</p></div>
+</div>
+</section>
+
+<!-- ============ §15 ============ -->
+<section id="s15" class="wrap">
+  <div class="sec-head"><span class="sec-no">15</span><h2>「世間周知」（1）：語の適合性には制限がない</h2><span class="sub"><span class="pg">k.109–117</span>「兎をもつものは月ではない」はなぜ誤りか</span></div>
+<p>Dignāga の似宗の第四の例は、「兎をもつもの（<i>śaśin</i>、月の異名）は月（<i>candra</i>）ではない。存在するから」でした。Dignāga 自注の文はこうです。「また、不共であるために推理がない場合に、ことばによって周知の相反する事柄によって退けられる（主張）、たとえば『兎をもつものは月ではない、存在するから』」。</p>
+<p>Dignāga にとって、これはおそらく言語の慣用に反する誤用を除くという程度の話でした。Dharmakīrti はこれを哲学的に読み直します。語には、本性上それが指示できる対象を限定する制約がない。語はただ話者の意図と約束（<i>saṃketa</i>）によって使われる。だから、どの語もどの対象にも適合する（<i>yogya</i>）。「兎をもつものは『月』と呼ばれえない」という主張は、ある語がある対象にしか本来結びつかないという考えであり、これがまさに「世間周知」によって否定される、というのです。</p>
+<p>背景には、第1章（k.224 以下, 314 以下）のミーマーンサー批判があります。ミーマーンサーは、ヴェーダの語と対象のあいだには始まりのない結びつき（Dharmakīrti の言う「適合性」）があり、だからヴェーダは人を欺かない、と考えました。Dharmakīrti はこれに対し、語は実在ではなく概念が作った対象（普遍）を指すにすぎず、語にも対象にも、ある語をある対象に使うべきだと決める固有の性質はない、と応じます。</p>
+<div class="mula" id="k109">
+  <span class="ref">k.109</span>
+  <div class="src deva" lang="sa">अर्थेष्वप्रतिषिद्धत्वात्पुरुषेच्छानुरोधिनः । इष्टशब्दाभिधेयत्वस्याप्तोऽत्राक्षतवाग्जनः ॥</div>
+  <div class="iast" lang="sa-Latn">artheṣv apratiṣiddhatvāt puruṣecchānurodhinaḥ |<br> iṣṭaśabdābhidheyatvasyāpto &#x27;trākṣatavāg janaḥ ||</div>
+  <div class="tr">人の意欲に従う「意図された語の指示対象であること」は、どの対象についても禁じられていない。だから、ここでは、ことばを損なわれない人々が信頼できる者である。</div>
+  <div class="nt">PV-k(I/II) は <i>vākṣata°</i>。チベット語訳の <i>'dod</i> は <i>'dir</i>（= <i>atra</i>）の誤りであろう。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin の導入は「（世間周知による）了解の否定を説明するために」です。語は話者の望みに従って使われ、話者が意図するどんなものでも指します。だから語の使い手は、自分が何を指しているかについて信頼できる者です。Manorathanandin は、「ここで」とは「意図された語の指示対象であることについて」の意味であり、信頼できる者とは、ことばが否定されていない言語の使い手である、と注します（PVV 451）。話者は自分の意図を自己認識（<i>svasaṃvedana</i>）という認識手段で確かめられます。</p></div>
+</div>
+<div class="mula" id="k110">
+  <span class="ref">k.110</span>
+  <div class="src deva" lang="sa">उक्तः प्रसिद्धशब्देन धर्मस्तद्व्यवहारजः । प्रत्यक्षादिमिता मानश्रुत्यारोपेण सूचिताः ॥</div>
+  <div class="iast" lang="sa-Latn">uktaḥ prasiddhaśabdena dharmas tadvyavahārajaḥ |<br> pratyakṣādimitā mānaśrutyāropeṇa sūcitāḥ ||</div>
+  <div class="tr">「周知」の語によって述べられたのは、その言語慣用から生じた性質（適合性）である。（同じように）知覚などで知られるもの（対象）は、認識手段の名を付託することで示された。</div>
+  <div class="nt">MIY. の <i>pratyakṣādim iti ... sūcitaḥ</i> は誤り。諸写本の <i>pratyakṣādimitā ... sūcitāḥ</i> に従う。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin はこう注します。「月が『月』と呼ばれる」といった語の慣用から生じた、概念の対象である性質、つまり「適合性」と呼ばれるものを、師は「ことばによって周知の」の「周知」の語で述べた（PVV 451）。「周知」は文字どおりの慣用そのものではなく、慣用が生む「その語がその対象にふさわしい」という性質を指しているのです。</p><p>後半は、定義の中で語が比喩的に使われるのはここだけではない、と言います。「知覚」（<i>pratyakṣa</i>）は本来認識の名ですが、定義の「知覚の対象」（<i>pratyakṣārtha</i>）では、知覚される対象を指して使われています。</p></div>
+</div>
+<div class="mula" id="k111">
+  <span class="ref">k.111</span>
+  <div class="src deva" lang="sa">तदाश्रयभुवामिच्छावर्तित्वादनिषेधिनाम् । कृतानामकृतानां वा योग्यं विश्वं स्वभावतः ॥</div>
+  <div class="iast" lang="sa-Latn">tadāśrayabhuvām icchāvartitvād aniṣedhinām |<br> kṛtānām akṛtānāṃ vā yogyaṃ viśvaṃ svabhāvataḥ ||</div>
+  <div class="tr">その（世間）に依拠して生じる（語）は、意欲に従って働くので、どこにも禁止をもたない。だから、（約束が）なされていてもいなくても、それら（の語）に対して、あらゆるものは本性上適合している。</div>
+  <div class="nt">PV-k(II) は <i>icchānurodhād</i>、PV-k(I) は <i>aniṣedhitām</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin はこう注します。世間に依拠して生じる慣用の語は、意欲に従って対象を指示するので、どの対象についても禁止をもたない。そうした語は、約束がなされていてもいなくても、この世界のすべてが本性上その指示対象として適合している（PVV 451）。</p><p>Dharmottara によれば、「本性上」とは概念的な認識に現れる本性のことで、感官でとらえられる本性のことではありません。どんな語の指示対象にもなりうるのは、概念が作った虚構、つまり普遍であって、自相ではないのです。</p></div>
+</div>
+<div class="mula" id="k112">
+  <span class="ref">k.112</span>
+  <div class="src deva" lang="sa">अर्थमात्रानुरोधिन्या भाविन्या भूतयापि वा । बाध्यते प्रतिरुन्धानः शब्दयोग्यतया तया ॥</div>
+  <div class="iast" lang="sa-Latn">arthamātrānurodhinyā bhāvinyā bhūtayāpi vā |<br> bādhyate pratirundhānaḥ śabdayogyatayā tayā ||</div>
+  <div class="tr">（この適合性を）妨げる者は、ただ（概念の）対象だけに従う、これから生じる、あるいはすでに生じた、その語の適合性によって否定される。</div>
+  <div class="nt">PV-k(I) と MIY. は <i>vādhyate</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>妨げる者とは、「兎をもつものは月ではない、存在するから」と主張する者です（PVV 452）。Dharmottara は「すでに生じた」と「これから生じる」をこう例示します。「月」という語に月を指すことはすでに約束されている。「月」という語に壺などを指すことはまだ約束されていない。どちらにしても、話者の意図のほかに、語のある使い方が正しく他の使い方が誤りだと決める、対象や語の側の事実はありません。Prajñākaragupta は第1章 k.318 を引き、「天界を望む者はアグニホートラ祭を行うべし」という語は「犬の肉を食べるべし」という意味にも同じように適合する、と論じています。</p></div>
+</div>
+<div class="mula" id="k113">
+  <span class="ref">k.113</span>
+  <div class="src deva" lang="sa">तद्योग्यताबलादेव वस्तुतो घटितो ध्वनिः । सर्वोऽस्यामप्रतीतेऽपि तस्मिंस्तत्सिद्धता ततः ॥</div>
+  <div class="iast" lang="sa-Latn">tadyogyatābalād eva vastuto ghaṭito dhvaniḥ |<br> sarvo &#x27;syām apratīte &#x27;pi tasmiṃs tatsiddhatā tataḥ ||</div>
+  <div class="tr">まさにその適合性の力によって、あらゆる語は事実上この（適合性）において結びついている。それ（結びつき）が了解されていなくてもそうである。だから、それ（適合性）は（ことばによって）成立していると（師は言った）。</div>
+  <div class="nt">PV-k(III) は <i>ghaṭato</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin は Devendrabuddhi に従ってこう注します。約束されたものもされていないものも、あらゆる語は、適合性の力、つまり能力によって、事実上この適合性において結びついている。その語が指示するものとして直接了解されていなくても、拒まれないという性格をもつ適合性は、事物においてつねにあるからである。だから師は、この適合性が「ことばによって周知」であると言った。何かについて能力をもつものは、それが目の前に現れていなくても、そのはたらきによって呼ばれる。「料理人」のように。そして事物は、意図された語の指示対象となる能力がある（PVV 452）。</p><p>Śākyabuddhi は、料理人は料理が目の前で行われていなくても、能力の力によって「料理人」と呼ばれる、と説明します。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans はこの偈を、第4章のこの節の核心と見ます。語 w が対象 x を指示するのに「適合する」と言うことは、単に将来そう使える可能性があるという弱い意味ではない。w がいま現に x の「指示者」（<i>vācaka</i>）だ、という強い意味だと解します。その根拠を Tillemans は「潜在的行為の原理」（principle of latent action）と名づけます。条件が整えばある行為を行えるものは、その行為者である、という原理です。<i>pācaka</i>（料理人）や <i>vācaka</i>（指示者）の接尾辞 -ka が時制に中立的なものと解されていた、という J. Bronkhorst の指摘も紹介しています。こうして「周知」は、いま認められている用法だけでなく、考えうるあらゆる用法を含むことになる、と整理しています（T. pp.157–159, 165–166）。</p></div></div>
+</div>
+<div class="mula" id="k114">
+  <span class="ref">k.114</span>
+  <div class="src deva" lang="sa">असाधारणता न स्याद्बाधाहेतोरिहान्यथा । तन्निषेधोऽनुमानात्स्याच्छब्दार्थेऽनक्षवृत्तितः ॥</div>
+  <div class="iast" lang="sa-Latn">asādhāraṇatā na syād bādhāhetor ihānyathā |<br> tanniṣedho &#x27;numānāt syāc chabdārthe &#x27;nakṣavṛttitaḥ ||</div>
+  <div class="tr">そうでなければ、ここで否定の論証因が不共であることはないだろう。語の対象については感官がはたらかないので、その（適合性）の否定は推理によるはずである。</div>
+  <div class="nt">MIY. は <i>tan niṣedho</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin はこう注します。語が目の前に現れていなくても適合性において結びついている、というのでなければ、語の適合性を否定しようとする場合に、否定の論証因（「兎をもつものは月ではない、存在するから」の「存在すること」など）が不共だとは言えないはずだ。すべてが「月」という語に適合しているから、同類（月と呼ばれえないもの）がなく、不共になるのである。そうでない場合には不共にはならない（PVV 452）。</p><p>これは対偶による議論です。もし語と対象の結びつきが限定されているという実在論が正しければ、同類（客観的に「月」と呼ぶのに不適当なもの）が存在するので、Dignāga がこの推理を不共と言ったことは理解できなくなる。Dignāga は正しい。だから実在論は誤りである。</p></div>
+</div>
+<div class="mula" id="k115">
+  <span class="ref">k.115</span>
+  <div class="src deva" lang="sa">असाधारणता तत्र हेतूनां यत्र नान्वयि । सत्त्वमित्यभ्युदाहारो हेतोरेवंफलो मतः ॥</div>
+  <div class="iast" lang="sa-Latn">asādhāraṇatā tatra hetūnāṃ yatra nānvayi |<br> sattvam ity abhyudāhāro hetor evaṃphalo mataḥ ||</div>
+  <div class="tr">存在性が随伴しないところでは、（あらゆる）論証因が不共である。（師が）論証因（存在性）を例に挙げたのは、このような効果をもつと考えられる。</div>
+  <div class="nt">PV-k(I/II) は <i>asyodāhāro</i>。<i>evaṃphalo</i> はチベット語訳と Devendrabuddhi の支持する読み。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「存在すること」が不共だというのは、この論証因だけのたまたまの欠陥でしょうか。そうではありません。「存在すること」はあらゆるものを遍充する最も一般的な論証因です。それさえ所証（「月」と呼ばれえないこと）と共存する事例をもたないなら、他のどんな論証因も随伴をもてません。Manorathanandin は、すべての論証因が不共であることを示すのが、師が例を挙げた目的だ、と注します（PVV 452）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Manorathanandin が偈の「論証因」を「作られたこと」と注しているのは不可解で、Dharmottara のように「存在性」と解する方がよい、と注記しています（T. p.169, n.573）。</p></div></div>
+</div>
+<div class="mula" id="k116">
+  <span class="ref">k.116</span>
+  <div class="src deva" lang="sa">संकेतसंश्रयाः शब्दाः स चेच्छामात्रसंश्रयः । नासिद्धिः शब्दसिद्धानामिति शब्दप्रसिद्धवाक् ॥</div>
+  <div class="iast" lang="sa-Latn">saṃketasaṃśrayāḥ śabdāḥ sa cecchāmātrasaṃśrayaḥ |<br> nāsiddhiḥ śabdasiddhānām iti śabdaprasiddhavāk ||</div>
+  <div class="tr">語は約束に依拠し、その（約束）はただ意欲だけに依拠する。だから、語によって成立したものに不成立はない。それゆえ「ことばによって周知の」という言い方がある。</div>
+  <div class="nt">PV-k(I) は <i>vāsiddhiḥ</i>、PV-k(II) は <i>śabdaprasiddhivāk</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin はこう注します。約束がなければ指示者（である語）は見られないので、語は約束に依拠する。その約束は人の意欲だけに依拠し、それ以上に必要なものはない。だから、語によって成立したもの、つまり指示対象であることなどは、どの対象についても不成立ではない。それが師の「ことばによって周知」の理由である（PVV 453）。</p><p>ふつう「ことばによって周知」は、話者たちが言語を特定のしかたで使うという共通の取り決めを指します。Dharmakīrti はそれを、いま取り決められている用法だけでなく、別のときに意図されうる無数の用法まで含むものとして読み替えています（k.113 参照）。</p></div>
+</div>
+<div class="mula" id="k117">
+  <span class="ref">k.117</span>
+  <div class="src deva" lang="sa">अनुमानप्रसाध्येषु विरुद्धाव्यभिचारिणः । अभावं दर्शयत्येवंप्रतीतेरनुमात्वतः ॥</div>
+  <div class="iast" lang="sa-Latn">anumānaprasādhyeṣu viruddhāvyabhicāriṇaḥ |<br> abhāvaṃ darśayaty evaṃpratīter anumātvataḥ ||</div>
+  <div class="tr">このような了解は推理であるから、（「ことばによって周知」という言い方は）推理によって論証されるべきものについて、相違決定がないことを示す。</div>
+  <div class="nt">PV-k(II) は <i>°prasiddheṣu</i>。MIY. の <i>anumā tv ataḥ</i> は誤り。</div>
+  <div class="exp"><span class="lbl">解説</span><p>事実にもとづく推理で成立した結論に対して、言語の用法だけに頼る別の論証因を並べて、反対の結論を導けないか、という疑いがありえます。Prajñākaragupta の例では、「ここには火がある。煙があるから」に対して「ここには火がない（火と呼ばれえない）。存在するから。火のない場所のように」を並べる、というものです。</p><p>しかしそうした相違決定は起こりません。k.92 で見たように、「概念的な認識の対象であること」は、どんな語でも呼ばれうるという適合性を論証する自性因です。了解（<i>pratīti</i>）そのものが推理なのです。Manorathanandin は、この「ことばによって周知」という言い方は、事実にもとづく推理で知られた事柄について、反対の性質を立てる相違決定の論証手段がないことを示す、と注します（PVV 453）。</p></div>
+</div>
+</section>
+
+<!-- ============ §16 ============ -->
+<section id="s16" class="wrap">
+  <div class="sec-head"><span class="sec-no">16</span><h2>「世間周知」（2）：もう一つの解釈と、同学の解釈への批判</h2><span class="sub"><span class="pg">k.118–130</span>了解は推理とは領域が異なる</span></div>
+<p>k.118 から、Dignāga の「不共であるために推理がない場合」についての第二の解釈が始まります。第一の解釈（k.114–117）では、推理がないのは、論敵の「兎をもつものは月ではない」という推理が不共で推理として成り立たないからでした。第二の解釈では、実在論者の論敵に対しては、「兎をもつものは月である」を証明する推理をこちらも立てられない、と読みます。論敵は慣習による適合性というものを一切認めないので、彼にとっては同類（慣習的に「月」と呼ばれうるもの）が確かめられず、こちらの推理も不共になるからです。</p>
+<div class="mula" id="k118">
+  <span class="ref">k.118</span>
+  <div class="src deva" lang="sa">अथ वा ब्रुवतो लोकस्यानुमाभाव उच्यते । किं तेन भिन्नविषया प्रतीतिरनुमानतः ॥</div>
+  <div class="iast" lang="sa-Latn">atha vā bruvato lokasyānumābhāva ucyate |<br> kiṃ tena bhinnaviṣayā pratītir anumānataḥ ||</div>
+  <div class="tr">あるいは、（師は）語る世間について推理がないと言ったのである。それによって何（が示されたの）か。了解は、（事物の力による）推理とは領域が異なる、ということである。</div>
+  <div class="nt">MIY. は <i>lokasyānumā 'bhāva</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Devendrabuddhi はこう注します。「兎をもつものは月ではない」と誤って主張する者に、その慣習を示すための推理は、世間の話者については存在しない。師がこう言ったのはなぜか。私たちは、兎をもつものが事実として月であると知るのではなく、ことばの力によって知る。だから、ことばによる周知について推理がないと示すことで、了解が事物の力による推理とは領域の異なるものであることを示した、というのです。Manorathanandin も、推理は事物を領域とし、ことばによる了解は概念が作ったものを領域とする、と注します（PVV 453）。</p></div>
+</div>
+<div class="mula" id="k119">
+  <span class="ref">k.119</span>
+  <div class="src deva" lang="sa">तेनानुमानाद्वस्तूनां सदसत्तानुरोधिनः । भिन्नस्यातद्वशा वृत्तिस्तदिच्छाजेति सूचितम् ॥</div>
+  <div class="iast" lang="sa-Latn">tenānumānād vastūnāṃ sadasattānurodhinaḥ |<br> bhinnasyātadvaśā vṛttis tadicchājeti sūcitam ||</div>
+  <div class="tr">これによって、事物の有無に従う推理（の対象）とは異なるもの（語の適合性）のはたらきは、その（事物）によるのではなく、その（人々）の意欲から生じる、ということが示された。</div>
+  <div class="nt">PV-k(I/III) と MIY. は <i>°vaśād</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin は「異なるもの」を「概念が作った対象、つまり語の適合性」と注します。言語の使用についての了解は、客観的な事実にもとづかず、事実によって証明もされません。指示は、実在に対応するもののない、概念が作った性質なのです。</p></div>
+</div>
+<div class="mula" id="k120">
+  <span class="ref">k.120</span>
+  <div class="src deva" lang="sa">चन्द्रतां शशिनोऽनिच्छन्कां प्रतीतिं स वाञ्छति । इति तं प्रत्यदृष्टान्तं तदसाधारणं मतम् ॥</div>
+  <div class="iast" lang="sa-Latn">candratāṃ śaśino &#x27;nicchan kāṃ pratītiṃ sa vāñchati |<br> iti taṃ praty adṛṣṭāntaṃ tad asādhāraṇaṃ matam ||</div>
+  <div class="tr">兎をもつものが月であることを認めない者が、どんな了解を望むだろうか。だから、彼に対しては（その推理は）喩をもたず、不共と考えられた。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「兎をもつものは月である」は、サンスクリットを知る人なら誰もが認める言語慣習の典型です。それさえ認めない人は、言語の用法にもとづく了解を何一つ認められず、何かが慣習的に「月」と呼ばれうることも認められません。Manorathanandin が言うとおり、それは「すべての人に成立している」慣習だからです。だから、実在論者に「兎をもつものは月である」を推理で示そうとしても、論証因と所証をともにもつと彼が確かめる喩（同類）は一つもありません。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、k.118–120 の第二の解釈については Jinendrabuddhi『集量論注』と Dharmottara の説明が最も明快で、Manorathanandin はここに独立した第二の議論をはっきり見出していないようだ、と注記しています（T. p.175, n.596）。</p></div></div>
+</div>
+<div class="mula" id="k121">
+  <span class="ref">k.121</span>
+  <div class="src deva" lang="sa">नोदाहरणमेवेदमधिकृत्येदमुच्यते । लक्षणत्वात्तथावृक्षो धात्रीत्युक्तौ च बाधनात् ॥</div>
+  <div class="iast" lang="sa-Latn">nodāharaṇam evedam adhikṛtyedam ucyate |<br> lakṣaṇatvāt tathāvṛkṣo dhātrīty uktau ca bādhanāt ||</div>
+  <div class="tr">この（不共であること）は、この例だけについて言われたのではない。（それは一般的な）特徴だからである。また、「ダートリーは木ではない」と言っても、同じように否定されるからである。</div>
+  <div class="nt"><i>evedam</i> は PV-k(II)、MIY.、チベット語訳の読み。PV-k(I/III) と PVin などは <i>evaikam</i>。OCR の <i>dhātṛty</i> を <i>dhātrīty</i> と読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Śākyabuddhi によれば、ここで再び『因明正理門論注』の作者が登場します。彼は不共であることを別のしかたで説明しました。月は一つしかないので、兎をもつもの以外に「月」の同類の喩が挙げられない、だから不共だ、というのです（Devendrabuddhi の引用）。</p><p>Dharmakīrti はこれを退けます。不共であることは「兎をもつものは月ではない」という特定の主張だけの問題ではなく、実在論の言語観から生じる一般的な問題だからです。「ダートリー（アーマラカの木。字義は「養い手、乳母」）は木ではない、存在するから」と言っても、同じように否定されます。木は一種類だけではないので、月が一つだからという説明はここでは通用しません。『認識手段決択』と Prajñākaragupta は、ダートリーの代わりにシンシャパー樹を例にしています。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、この比較的単純な「月は一つだから」という解釈の方が、実は Dignāga 自身の考え（周知による否定は言語の誤用の禁止にすぎない）に合っているかもしれない、と述べます。何人かの現代の研究者も、『因明正理門論』と『集量論』自注をそう読んできた、と付け加えています（T. p.177, n.602）。</p></div></div>
+</div>
+<div class="mula" id="k122">
+  <span class="ref">k.122</span>
+  <div class="src deva" lang="sa">अत्रापि लोके दृष्टत्वात्कर्पूररजतादिषु । समयाद्वर्तमानस्य कासाधारणतापि वा ॥</div>
+  <div class="iast" lang="sa-Latn">atrāpi loke dṛṣṭatvāt karpūrarajatādiṣu |<br> samayād vartamānasya kāsādhāraṇatāpi vā ||</div>
+  <div class="tr">ここ（兎をもつものの例）でも、約束によって働く（「月」の語）が、世間では樟脳や銀などに（使われるのが）見られるのだから、いったいどんな不共があろうか。</div>
+  <div class="nt">PV-k(I/III) と MIY. は <i>kāsādhāraṇatābhidhā</i>。PV-k(II) とチベット語訳は <i>kāsādhāraṇatāpi vā</i>（<i>vā</i> は <i>kā</i> を強める）。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Vibhūticandra は「『因明正理門論注』の作者を指している」と注します。香料を扱う人々の用語では、「月」（<i>candra</i>）は樟脳や銀などにも使われます（PVV 455）。だから、「兎をもつものは月である」を論証するときにも、兎をもつもの以外に「月」と呼ばれるものはいくらでもあります。月が一つしかないから不共だ、という説明は、この例についてさえ成り立ちません。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Prajñākaragupta がこの偈を細かく解釈していることを紹介します。論敵は、シンシャパーが木であることは、木性が多くのものに共通なので推理で論証できると言う。しかしそれなら、「月」の語も多くのものに使われるので、「兎をもつものは月ではない」も推理で否定されることになる。そうなると、Dignāga の言う了解による否定は無用になってしまう、という議論です（T. pp.179–180）。</p></div></div>
+</div>
+<div class="mula" id="k123">
+  <span class="ref">k.123</span>
+  <div class="src deva" lang="sa">यदि तस्य क्वचित्सिध्येत्सिद्धं वस्तुबलेन तत् । प्रतीतिसिद्धोपगमे शशिन्यप्यनिवारणात् ॥</div>
+  <div class="iast" lang="sa-Latn">yadi tasya kvacit sidhyet siddhaṃ vastubalena tat |<br> pratītisiddhopagame śaśiny apy anivāraṇāt ||</div>
+  <div class="tr">もし彼にとって（指示が）ある場合にだけ成立するなら、それは事物の力によって成立していることになる。了解によって成立すると認めるなら、兎をもつものについても禁じられないからである。</div>
+  <div class="nt"><i>śaśiny apy</i> は PVin とその注、Devendrabuddhi、Manorathanandin の読み。チベット語訳は <i>aśaśiny apy</i> を支持し、Tillemans はチベット語訳の k.123 を k.125 に見られる形に改めるべきだとする。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Prajñākaragupta の導入では、論敵は言います。「銀などが『月』の語の指示対象だというのは、まったく周知ではない。香料の調合を説く人々が勝手に考えたことにすぎず、事物に即したことではない」（PVBh 541）。</p><p>Dharmakīrti は答えます。指示がある場合（月そのもの）にだけ成立し、他の場合（樟脳など）には成立しないと言うなら、それは指示の選択が客観的な事実、つまり「事物の力によって」決まると認めることで、実在論の言語観に立つことになる。仏教徒の立場のように、語は慣習的な了解によってだけ使われると認めるなら、「月」の語は樟脳にも銀にも、兎をもつものにも、制限なく使えるはずだ、というのです。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、この論敵がやはり『因明正理門論注』の作者か、それに近い仏教徒だろうと推測します。そうだとすれば、Dharmakīrti 以前に、不共性の技術的な解釈だけでなく、意味論の見方そのものが Dharmakīrti と異なる仏教徒の Dignāga 解釈があったことになります。Dharmakīrti の大きな革新の一つは、どの語にも実在を根拠とする適用の根拠（<i>nimitta</i>）はないと強調したことにある、と Tillemans は見ます。ただし資料が乏しく、その論敵がはっきり意味論的実在論を唱えたのか、Dharmakīrti がそう帰結させたのかは分からない、としています（T. pp.181–182）。</p></div></div>
+</div>
+<div class="mula" id="k124">
+  <span class="ref">k.124</span>
+  <div class="src deva" lang="sa">तस्य वस्तुनि सिद्धस्य शशिन्यप्यनिवारणम् । तद्वस्त्वभावे शशिनि वारणेऽपि न दुष्यति ॥</div>
+  <div class="iast" lang="sa-Latn">tasya vastuni siddhasya śaśiny apy anivāraṇam |<br> tadvastvabhāve śaśini vāraṇe &#x27;pi na duṣyati ||</div>
+  <div class="tr">それ（「月」の語の指示対象であること）が（白さなどの）事物にもとづいて成立しているなら、兎をもつものについても禁じられない。その事物がないなら、兎をもつものについて禁じても誤りはない。</div>
+  <div class="nt">PV-k(I) は <i>tadvat svabhāve</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>両刀論法です。Manorathanandin は「事物」を「適用の根拠となる白さなど」と注します（PVV 455）。（a）樟脳などが「月」と呼ばれる根拠（白さなど）をもつなら、兎をもつもの（月）ももつので、兎をもつものが月であることを否定する理由はない。（b）樟脳などがその根拠をもたないなら、兎をもつものももたないかもしれず、実在論の立場では「兎をもつものは月ではない」に誤りはないことになる。それでは、Dignāga がこれを世間周知によって否定される似宗の例としたことと矛盾します。Prajñākaragupta は「事物に結びついたものは、事物がなければ生じない。これは（あなたにも）周知のことだ」と付け加えます（PVBh 542）。</p></div>
+</div>
+<div class="mula" id="k125">
+  <span class="ref">k.125</span>
+  <div class="src deva" lang="sa">तस्मादवस्तुनियतसंकेतध्वनिभाविनाम् । योग्याः पदार्था धर्माणामिच्छाया अनिरोधनात् ॥</div>
+  <div class="iast" lang="sa-Latn">tasmād avastuniyatasaṃketadhvanibhāvinām |<br> yogyāḥ padārthā dharmāṇām icchāyā anirodhanāt ||</div>
+  <div class="tr">だから、事物によって限定されない約束をもつ語から生じる（概念的な）性質に、あらゆる事物は適合している。（話者の）意欲が妨げられないからである。</div>
+  <div class="nt">PV-k(II) は <i>avastuniyatasaṃketalabhāvinām</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Devendrabuddhi と Prajñākaragupta は、この偈を k.124 の第二の場合の続きと見ます。Dignāga が「兎をもつものは月ではない」を退けたことを理解するには、語はただ約束、つまり共通の意図によってだけ使われ、客観的な制約はないという、純粋に意図にもとづく意味論が必要です。Prajñākaragupta はこの後、適用の根拠（<i>pravṛttinimitta</i>）について長く論じます。語が根拠をもつものに使われることを確かめる認識手段はない。根拠にもさらに根拠が要り、無限遡行になるからだ、というのです。</p></div>
+</div>
+<div class="mula" id="k126">
+  <span class="ref">k.126</span>
+  <div class="src deva" lang="sa">तां योग्यतां निरुन्धानं संकेताप्रतिषेधजा । प्रतिहन्ति प्रतीत्याख्या योग्यताविषयानुमा ॥</div>
+  <div class="iast" lang="sa-Latn">tāṃ yogyatāṃ nirundhānaṃ saṃketāpratiṣedhajā |<br> pratihanti pratītyākhyā yogyatāviṣayānumā ||</div>
+  <div class="tr">その適合性を妨げる者を、約束が禁じられていないことから生じ、適合性を対象とする、「了解」と呼ばれる推理が打ち破る。</div>
+  <div class="nt">PV-k(II) は <i>virundhānam</i>、<i>°viṣaye</i>。MIY. は <i>yogyatā viṣayā</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>語がある対象に適合すると論証することは、それ自体一種の推理です。それは「了解と呼ばれる推理」（<i>pratītyākhyānumāna</i>）で、普遍的な適合性を論証し、指示を制限しようとする実在論者の試みをすべて退けます。Manorathanandin は、その論証式を「人の意欲に従うものは、どこにでも当てはまりうる。概念のように。そして対象が意図された語の指示対象であることは、人の意欲に従う」と示します（PVV 456）。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、k.126–127 が、Devendrabuddhi と Śākyabuddhi による推理の三分類（事物の力による推理・承認による推理・了解による推理）の妥当性を裏づける、と述べています（T. p.186, n.631）。</p></div></div>
+</div>
+<div class="mula" id="k127">
+  <span class="ref">k.127</span>
+  <div class="src deva" lang="sa">शब्दानामर्थनियमः संकेतानुविधायिनाम् । नेत्यनेनोक्तमत्रैषां प्रतिषेधो विरुध्यते ॥</div>
+  <div class="iast" lang="sa-Latn">śabdānām arthaniyamaḥ saṃketānuvidhāyinām |<br> nety anenoktam atraiṣāṃ pratiṣedho virudhyate ||</div>
+  <div class="tr">これによって、約束に従う語には対象の限定がない、と述べられた。ここでそれら（語の適合性）を禁じることは、（了解と）矛盾する。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Devendrabuddhi は「これによって」を「今述べたばかりのことによって」と注します。Manorathanandin は、ある事物が意図された語の指示対象であることへの適合性を禁じれば、それが否定されることが示された、と言います（PVV 456）。「存在するから」などの論証因によって語の適用を禁じる主張は、了解と矛盾するのです。</p></div>
+</div>
+<div class="mula" id="k128">
+  <span class="ref">k.128</span>
+  <div class="src deva" lang="sa">नैमित्तिक्याः श्रुतेरर्थमर्थं वा पारमार्थिकम् । शब्दानां प्रतिरुन्धानो न बाध्यस्तेन वर्णितः ॥</div>
+  <div class="iast" lang="sa-Latn">naimittikyāḥ śruter artham arthaṃ vā pāramārthikam |<br> śabdānāṃ pratirundhāno na bādhyas tena varṇitaḥ ||</div>
+  <div class="tr">これによって、根拠をもつ語に（それぞれの）対象があることを拒む者、あるいは語に真実の対象があることを拒む者は、否定されるべきではない、と説かれた。</div>
+  <div class="nt">PV-k(II) は <i>abādhanārho hi varṇitaḥ</i>、PV-k(III) は <i>na vācyas tena varṇitaḥ</i>。チベット語訳は <i>na bādhyas</i> を支持する。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin はこう注します。実在する性質（属性）などを根拠とする語に、属性などの対象があること、あるいは属性などを表す語に、属性と属性をもつものとの結合などの真実の対象があることを拒む者は、否定に値しない（PVV 457）。Vibhūticandra は「属性など」に種（<i>jāti</i>）を含めます。</p><p>論敵は、恣意的に名づけられた語は慣習だけで使われるが、名詞や形容詞のような他の語は実在の根拠によって使われる、と考えていたようです。語の使用に制限がないと認めれば、どの語にも実在の根拠はないことになります。それを拒む者（仏教徒）は否定されないのです。この偈は『認識手段決択』第3章 k.28 です。</p></div>
+</div>
+<div class="mula" id="k129">
+  <span class="ref">k.129</span>
+  <div class="src deva" lang="sa">तस्माद्विषयभेदस्य दर्शनाय पृथक्कृता । अनुमानाबहिर्भूता प्रतीतिरपि पूर्ववत् ॥</div>
+  <div class="iast" lang="sa-Latn">tasmād viṣayabhedasya darśanāya pṛthakkṛtā |<br> anumānābahirbhūtā pratītir api pūrvavat ||</div>
+  <div class="tr">だから、了解もまた、推理の外にあるものではないが、前（の承認の場合）と同じく、領域の違いを示すために別に立てられた。</div>
+  <div class="exp"><span class="lbl">解説</span><p>この偈は k.102 を意図的になぞっています。信頼できる人のことばと同じく、了解（周知）も推理に含まれるので、知覚と推理以外の認識手段を立てたわけではありません。Dignāga が別に挙げたのは、領域の違いを示すためです。Manorathanandin は、領域の違いとは概念が作ったものか否かの違いであり、了解は概念が作った対象を、推理は事物を領域とする、と注します（PVV 457）。この偈は『認識手段決択』第3章 k.29 です。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Prajñākaragupta がここでも k.102 と同じく、信頼できる人のことばが完全な否定するものではなく妨げに近いことを強調し、了解をそれと並べていることを指摘します。Prajñākaragupta によれば、了解も真に実在する事柄を否定するのではなく、ただ了解によって周知のものを拒む主張を否定するだけだ、というのです（T. p.187, n.633）。</p></div></div>
+</div>
+<div class="mula" id="k130">
+  <span class="ref">k.130</span>
+  <div class="src deva" lang="sa">सिद्धयोः पृथगाख्याने दर्शयंश्च प्रयोजनम् । एते सहेतुके प्राह नानुमाध्यक्षबाधने ॥</div>
+  <div class="iast" lang="sa-Latn">siddhayoḥ pṛthagākhyāne darśayaṃś ca prayojanam |<br> ete sahetuke prāha nānumādhyakṣabādhane ||</div>
+  <div class="tr">また（師は）、成立した二つ（承認による否定と了解による否定）を別に説く目的を示して、この二つを原因とともに述べた。推理による否定と知覚による否定はそうしなかった。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Dignāga は自注で、知覚による否定と推理による否定の例（「音は聞かれない」「壺は常住である」）を、否定の原因を示さずに挙げました。これに対して、承認による否定（「認識対象をもつ認識手段は存在しない」）には「承認されることだけによって」、周知による否定（「兎をもつものは月ではない」）には「ことばによって周知の」と、否定の原因を明記しました。Dharmakīrti はこの小さな違いを、両者が推理に含まれながら特別な領域をもつことを示すためだったと読みます。Manorathanandin は、知覚と推理による否定は領域が普遍的だが、承認と了解による否定は領域が限定されている、と注します（PVV 457）。ここで了解による否定の節が終わります。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、宮坂校訂本が k.126–132 を知覚による否定の節に分類しているのは誤りで、その節は k.131 から始まる、と指摘しています。Manorathanandin が k.130 の注の直後に「了解による否定は説かれた」と言っていることが根拠です。また k.130d の <i>nānumādhyakṣabādhane</i> を、Prajñākaragupta らに従って処格でなく両数と読んでいます（T. pp.188–189）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §17 ============ -->
+<section id="s17" class="wrap">
+  <div class="sec-head"><span class="sec-no">17</span><h2>「知覚の対象」：「音は聞かれない」</h2><span class="sub"><span class="pg">k.131–135</span>知覚が否定するのは自相を拒む主張だけ</span></div>
+<p>Dignāga の知覚による否定の例は「音は聞かれない」でした。Manorathanandin は「知覚による否定を説明すべきである。慣習的な性質が周知である場合にだけ、それを妨げる者が否定されるのではない」と導入します（PVV 458）。</p>
+<p>ここでの問題はこうです。概念的な思考は「S は P である」という命題の形で、有法と法を分けて対象をとらえます。知覚は特定の性質を切り出さず、ただ自相をとらえるだけです。それなら、知覚はどうやって「音は聞かれない」のような偽の命題を否定できるのか。</p>
+<div class="mula" id="k131">
+  <span class="ref">k.131</span>
+  <div class="src deva" lang="sa">तत्राप्यध्यक्षबाधायां नानारूपतया ध्वनेः । प्रसिद्धस्य श्रुतौ रूपं यदेव प्रतिभासते ॥</div>
+  <div class="iast" lang="sa-Latn">tatrāpy adhyakṣabādhāyāṃ nānārūpatayā dhvaneḥ |<br> prasiddhasya śrutau rūpaṃ yad eva pratibhāsate ||</div>
+  <div class="tr">そこでも、知覚による否定の場合、さまざまな形をもつと周知されている音について、聞くときにまさに現れる形は、</div>
+  <div class="nt">PV-k(II) は <i>atrāpy</i>。PV-k(II) と MIY. は <i>dhvanau</i>。</div>
+</div>
+<div class="mula" id="k132">
+  <span class="ref">k.132</span>
+  <div class="src deva" lang="sa">अद्वयं शबलाभासस्यादृष्टेर्बुद्धिजन्मनः । तदर्थार्थोक्तिरस्यैव क्षेपेऽध्यक्षेण बाधनम् ॥</div>
+  <div class="iast" lang="sa-Latn">advayaṃ śabalābhāsasyādṛṣṭer buddhijanmanaḥ |<br> tadarthārthoktir asyaiva kṣepe &#x27;dhyakṣeṇa bādhanam ||</div>
+  <div class="tr">二元性のないもの（有法と法の区別のないもの）である。まだらな現れをもつ認識が生じるのは見られないからである。「対象」の語はそのためにある。まさにこの（知覚で成立した形）を拒むときに、知覚による否定がある。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Dharmakīrti は「知覚の対象」の「対象」（<i>artha</i>）の語に注目し、それを無常性などの普遍的な性質ではなく、自相そのものと解します。音を聞くとき、聴覚に現れるのは、有法と法に分かれていない一つの形です。いくつもの性質が混ざり合った現れをもつ認識は見られません。Vibhūticandra は「知覚で成立した形」を「自相」と注します。知覚による否定が起こるのは、この形を拒むとき、つまり音が聞かれるという自相そのものを否定するときだけです。</p></div>
+</div>
+<div class="mula" id="k133">
+  <span class="ref">k.133</span>
+  <div class="src deva" lang="sa">तदेव रूपं तत्रार्थः शेषं व्यावृत्तिलक्षणम् । अवस्तुरूपं सामान्यमतस्तन्नाक्षगोचरः ॥</div>
+  <div class="iast" lang="sa-Latn">tad eva rūpaṃ tatrārthaḥ śeṣaṃ vyāvṛttilakṣaṇam |<br> avasturūpaṃ sāmānyam atas tan nākṣagocaraḥ ||</div>
+  <div class="tr">その形こそが、そこ（聴覚）にとっての対象である。残りのもの（無常性など）は排除を特徴とする。普遍は実在の形ではなく、だからそれは感官の領域ではない。</div>
+  <div class="nt">PV-k(II) は <i>avastubhūtam</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>アポーハ論によれば、無常性などの普遍は、反対のものの排除であって、心が作ったものです。実在の形ではないので、感官の対象にはなりません。この偈は『認識手段決択』第3章 k.30 です。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans はこの節の前提を、アビダルマの基本的な考え方に見ます。音や色といった感官の対象は、それぞれの感官の認識によって定義される。聞かれるもの（音）とは聴覚によって知覚されるものである。だから、ある音を聞くという事実そのものが、聞かれる自相としての音を成立させ、「音は聞かれない」を偽とする。知覚そのものが命題的な知だからではなく、ただ知覚が生じ、それに対応する自相を実際にとらえることによって、成立させたり偽としたりする、と読んでいます（T. pp.190–191）。</p></div></div>
+</div>
+<div class="mula" id="k134">
+  <span class="ref">k.134</span>
+  <div class="src deva" lang="sa">तेन सामान्यधर्माणामप्रत्यक्षत्वसिद्धितः । प्रतिक्षेपेऽप्यबाधेति श्रावणोक्त्या प्रकाशितम् ॥</div>
+  <div class="iast" lang="sa-Latn">tena sāmānyadharmāṇām apratyakṣatvasiddhitaḥ |<br> pratikṣepe &#x27;py abādheti śrāvaṇoktyā prakāśitam ||</div>
+  <div class="tr">だから、普遍的な性質は知覚の対象でないことが成立しているので、それを拒んでも（知覚による）否定はない。このことが「聞かれる」という語によって示された。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「音は認識手段の対象ではない」や「音は常住である」のような主張は、普遍的な性質を有法に帰する概念的な認識によってしか否定できません。普遍は知覚されないので、それを否定するのは知覚ではありません。Manorathanandin は普遍的な性質の例として「認識対象であること」などを挙げます。これに対して「聞かれる」を否定することは、知覚に現れている個物そのものを否定することなので、知覚によって否定されます。これが、Dignāga が例に「聞かれない」を選んだ理由です。</p></div>
+</div>
+<div class="mula" id="k135">
+  <span class="ref">k.135</span>
+  <div class="src deva" lang="sa">सर्वथावाच्यरूपत्वात्सिद्ध्या तस्य समाश्रयात् । बाधनात्तद्बलेनोक्तः श्रावणेनाक्षगोचरः ॥</div>
+  <div class="iast" lang="sa-Latn">sarvathāvācyarūpatvāt siddhyā tasya samāśrayāt |<br> bādhanāt tadbalenoktaḥ śrāvaṇenākṣagocaraḥ ||</div>
+  <div class="tr">（音の固有の形は）いかなる意味でもことばで表せない形だからであり、またその（聴覚）に依拠して成立するので、その（聴覚という認識手段の）力によって否定されるからである。（だから）「聞かれる」の語によって感官の領域が表された。</div>
+  <div class="nt">PV-k(I) は <i>siddhā</i>。チベット語訳は <i>samāśrayāt</i> の後に「と」（<i>ca</i>）を補うが、サンスクリットと注釈には支持がない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Dharmottara は『認識手段決択』の同じ偈にこう注します。「音は存在しない」と言っても知覚との矛盾はある。しかし音には、刹那的・遍在・常住など、否定しうる性質がいくつもある。「聞かれる」の語がなければ、そのすべての否定が知覚によって否定されると疑われかねない。「聞かれる」の語は、聴覚でとらえられる本性の否定だけが知覚によって否定され、普遍である性質の否定はそうでないことを示す。「聞かれる」も普遍を表すのではないか、と問われれば、音の固有の本性はいかなる意味でもことばで表せないので、「聞かれる」という語を加えることで、間接的に限定が理解されるのだ、と答える。自相としての音は聴覚に依拠して成立し、だからその聴覚という認識手段の力によって否定される。こうして「聞かれる」の語が感官の領域を表すのである。この偈は『認識手段決択』第3章 k.32 です。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans はこの偈の解釈が難しいことを認めつつ、Dharmottara に従い、Manorathanandin と Devendrabuddhi もおおむね同じだとしています。「聞かれる」は、どの語とも同じく自相を直接表すことはできない。しかし知覚できる自相の本性を間接的に示し、主張が知覚で偽とされうるものであることを保証する、というのです。<i>samāśrayāt</i> は「〜に依拠して」の意味に取り、チベット語訳のように理由を一つ追加するものとは読みません（T. pp.192–194）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §18 ============ -->
+<section id="s18" class="wrap">
+  <div class="sec-head"><span class="sec-no">18</span><h2>「自らの有法について」</h2><span class="sub"><span class="pg">k.136–148</span>自らの有法と無関係な有法</span></div>
+<p>最後に、定義の「自らの有法について」（<i>svadharmiṇi</i>）が検討されます。否定は、論者自身が所証の性質の担い手として意図している有法について起こらなければならない、ということです。</p>
+<p>背景にあるのは、所依不成（<i>āśrayāsiddha</i>）の問題です。有法が存在しなければ、所証の性質をもつこともできず、主張は否定されます（たとえばサーンキヤの根本原質が存在しないと示されれば、根本原質についての主張は崩れます）。しかし、仏教徒が何かの非存在を証明する場合、証明が成功すれば有法は存在しないことになるので、すべての非存在証明が自分を否定してしまうことになりかねません。Dharmakīrti はここで、論者が実際に意図する「自らの有法」と、名目上述べられるだけの「無関係な有法」（<i>kevaladharmin</i>）を区別します。</p>
+<div class="mula" id="k136">
+  <span class="ref">k.136</span>
+  <div class="src deva" lang="sa">सर्वत्र वादिनो धर्मो यः स्वसाध्यतयेप्सितः । तद्धर्मवति बाधा स्यान्नान्यधर्मेण धर्मिणि ॥</div>
+  <div class="iast" lang="sa-Latn">sarvatra vādino dharmo yaḥ svasādhyatayepsitaḥ |<br> taddharmavati bādhā syān nānyadharmeṇa dharmiṇi ||</div>
+  <div class="tr">どんな場合にも、論者が自らの所証として意図した法、その法をもつもの（有法）について否定があるときに、（主張の）否定がある。他の法による有法については、そうではない。</div>
+  <div class="nt">MIY. の <i>tad dharmavati</i> は <i>taddharmavati</i> と一語に読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin の導入は「師が『自らの有法について』と言った意義を説くために」です（PVV 459）。そしてこう注します。たとえば聞かれることをもつ音が否定されれば、主張が否定される。しかし論者が意図した法とは別の法によって法をもつ有法が否定されても、主張の否定はない。たとえば、虚空の性質であることをもつ音が否定されても、主張は否定されない（PVV 460）。</p><p>「音は聞かれる」と論証する仏教徒が語っているのは、勝論派が虚空の性質だと証明しようとする仮構の「音」ではありません。勝論派流の「音」が存在しないと示しても、実在する無常な音が聞かれるという仏教徒の主張は揺らぎません。</p></div>
+</div>
+<div class="mula" id="k137">
+  <span class="ref">k.137</span>
+  <div class="src deva" lang="sa">अन्यथास्योपरोधः को बाधितेऽन्यत्र धर्मिणि । गतार्थे लक्षणेनास्मिन्स्वधर्मिवचनं पुनः ॥</div>
+  <div class="iast" lang="sa-Latn">anyathāsyoparodhaḥ ko bādhite &#x27;nyatra dharmiṇi |<br> gatārthe lakṣaṇenāsmin svadharmivacanaṃ punaḥ ||</div>
+  <div class="tr">そうでなければ、別の（法）について有法が否定されたとき、どうしてこの（論題の法をもつ有法）が否定されようか。この点は定義によって理解されているが、それでも「自らの有法」という語は、</div>
+  <div class="nt">MIY. の <i>lakṣaṇe nāsmin</i> は誤り。チベット語訳に従い具格 <i>lakṣaṇena</i> と読む。</div>
+</div>
+<div class="mula" id="k138">
+  <span class="ref">k.138</span>
+  <div class="src deva" lang="sa">बाधायां धर्मिणोऽपि स्याद्बाधेत्यस्य प्रसिद्धये । आश्रयस्य विरोधेन तदाश्रितविरोधनात् ॥</div>
+  <div class="iast" lang="sa-Latn">bādhāyāṃ dharmiṇo &#x27;pi syād bādhety asya prasiddhaye |<br> āśrayasya virodhena tadāśritavirodhanāt ||</div>
+  <div class="tr">有法が否定されるときにも（主張の）否定がある、ということを知らせるためにある。基体を退ければ、それに依拠するものも退けられるからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Prajñākaragupta は「自らの法をそなえた有法だけが、論者によって自ら意図されたものである」と言います（PVBh 549）。定義の「自ら意図された」がすでに、意図されない法をもつ有法を除いているので、「自らの有法について」は厳密には余分です。それでもこの語があるのは、有法の不成立、つまり所依不成によっても主張が否定されることを思い出させるためです。Manorathanandin は「法を通してであれ有法を通してであれ、結合体全体が否定されれば主張の否定である」と結びます（PVV 460）。</p></div>
+</div>
+<div class="mula" id="k139">
+  <span class="ref">k.139</span>
+  <div class="src deva" lang="sa">अन्यथैवंविधो धर्मः साध्य इत्यभिधानतः । तद्बाधामेव मन्येत स्वधर्मिवचनं ततः ॥</div>
+  <div class="iast" lang="sa-Latn">anyathaivaṃvidho dharmaḥ sādhya ity abhidhānataḥ |<br> tadbādhām eva manyeta svadharmivacanaṃ tataḥ ||</div>
+  <div class="tr">そうでなければ、このような（所証としてのみ意図された）法が所証である、と言われているので、その（法だけ）の否定だけを（主張の否定と）考えるかもしれない。だから「自らの有法」の語がある。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin はこう注します。有法を通した結合体の否定を含めるために「自らの有法」の語が置かれなかったなら、理解する者は法だけの否定を考え、有法の否定は考えないだろう。だから両方を含めるために、師は「自らの有法」の語を置いた（PVV 460）。所証を所証の性質の意味だけで読み、法だけが否定されうると誤解されるのを防ぐためです。有法もまた論証されるものの一部だという考えは、Dignāga の『因明正理門論』と『集量論』にすでに見られます。</p></div>
+</div>
+<div class="mula" id="k140">
+  <span class="ref">k.140</span>
+  <div class="src deva" lang="sa">नन्वेतदप्यर्थसिद्धं सत्यं केचित्तु धर्मिणः । केवलस्योपरोधेऽपि दोषवत्तामुपागताः ॥</div>
+  <div class="iast" lang="sa-Latn">nanv etad apy arthasiddhaṃ satyaṃ kecit tu dharmiṇaḥ |<br> kevalasyoparodhe &#x27;pi doṣavattām upāgatāḥ ||</div>
+  <div class="tr">「これも含意によって成立しているではないか」――そのとおりである。しかしある人々は、無関係な有法が否定されたときにも、（主張に）誤りがあると認めている。</div>
+  <div class="nt">MIY. の <i>doṣavat tām</i> は <i>doṣavattām</i> と一語に読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin はこう注します。そのとおりだ。しかしある論者たちは、無関係な有法が否定されたとき、所証の性質が否定されていなくても、主張には誤りがあると認めている（PVV 461）。論敵の考えでは、論者が意図したかどうかにかかわらず、有法が否定されればつねに主張は否定されます。それでは、どんな非存在証明も所依不成で自己否定になってしまいます。k.141–142 を見ると、論敵は勝論派らしいことが分かります。存在しないものについて語ることへのニヤーヤ・勝論派の厳しい制限とも合います。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、「自らの有法」と「無関係な有法」の対比が Dharmakīrti の新しい導入であることを強調します。Dignāga は「自らの有法」としか言っていなかった。Prajñākaragupta は無関係な有法を「論敵が構想した、（所証と）結びつかない有法」と呼び、ツォンカパら後のチベットの著者も同じ理解をとる、と紹介しています（T. pp.196–197）。</p></div></div>
+</div>
+<div class="mula" id="k141">
+  <span class="ref">k.141</span>
+  <div class="src deva" lang="sa">यथा परैरनुत्पाद्यापूर्वरूपं न खादिकम् । सकृच्छब्दाद्यहेतुत्वादित्युक्ते प्राह दूषकः ॥</div>
+  <div class="iast" lang="sa-Latn">yathā parair anutpādyāpūrvarūpaṃ na khādikam |<br> sakṛc chabdādyahetutvād ity ukte prāha dūṣakaḥ ||</div>
+  <div class="tr">たとえば、（仏教徒が）「虚空などは、他（の条件）によって生じさせられない新しい本性をもつものではない。音などを一度に生じさせる原因ではないから」と言うと、論難者は言う。</div>
+  <div class="nt">MIY. の <i>anutpādyā pūrvarūpaṃ</i> は誤り。</div>
+</div>
+<div class="mula" id="k142">
+  <span class="ref">k.142</span>
+  <div class="src deva" lang="sa">तद्वद्वस्तुस्वभावोऽसन्धर्मी व्योमादिरित्यपि । नैवमिष्टस्य साध्यस्य बाधा काचन विद्यते ॥</div>
+  <div class="iast" lang="sa-Latn">tadvad vastusvabhāvo &#x27;san dharmī vyomādir ity api |<br> naivam iṣṭasya sādhyasya bādhā kācana vidyate ||</div>
+  <div class="tr">「同じように、有法である虚空なども、実在の本性をもたないことになる」と。（しかし）このようにしても、意図された所証の否定はまったくない。</div>
+  <div class="nt">MIY. は <i>kvacana</i>。チベット語訳は <i>kācana</i> を支持する。</div>
+  <div class="exp"><span class="lbl">解説</span><p>これは勝論派の虚空の論駁です。勝論派の虚空は、常住で原因に生じさせられない実在で、音はその性質だとされます。「他の条件によって生じさせられない新しい本性」とは、常住でありながら実在で、本来的に成立した本性のことです。仏教徒は論じます。そのような虚空があるなら、その性質である音なども原因なしにあり、虚空と同じくつねに一度に存在しなければならない。しかし実際には、すべての音が一度に生じるわけではない。だから虚空は常住で本来的に成立した本性をもたない。</p><p>勝論派は、有法が存在しないことになるので主張は誤りだ、と反論します。Dharmakīrti は答えます。否定されたのは勝論派の虚空という無関係な有法であって、意図された所証は何も否定されていない。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans は、Prajñākaragupta がこの偈に二つの解釈を挙げていることに注目します。第一の解釈では、仏教徒の論者が実際に意図する自らの有法は、勝論派が外界の実在と考える虚空ではなく、概念的に作り出された虚空の表象です（Tillemans の言う「概念的主題の原理」）。第二の解釈では、論証そのものを言い換えます。「虚空は無常である。順次に結果を生じるから」と言い換え、自らの有法を仏教徒自身が認める無常な虚空とするのです（「言い換えの方法」）。Tillemans は、第一の解釈がカマラシーラ『中観光明論』を経て後のインド・チベットで定説となったが、Dharmakīrti 自身の考えにより近いのはおそらく第二の解釈だろう、と論じています（T. pp.197–198, 203–204。詳しくは Tillemans 1998a, Tillemans and Lopez 1998）。</p></div></div>
+</div>
+<div class="mula" id="k143">
+  <span class="ref">k.143</span>
+  <div class="src deva" lang="sa">द्वयस्यापि हि साध्यत्वे साध्यधर्मोपरोधि यत् । बाधनं धर्मिणस्तत्र बाधेत्येतेन वर्णितम् ॥</div>
+  <div class="iast" lang="sa-Latn">dvayasyāpi hi sādhyatve sādhyadharmoparodhi yat |<br> bādhanaṃ dharmiṇas tatra bādhety etena varṇitam ||</div>
+  <div class="tr">二つ（有法と法の結合体）がともに所証であるとき、所証の法を退けるような有法の否定がある場合、そこに（主張の）否定がある。このことがこれ（「自らの有法」の語）によって説かれた。</div>
+  <div class="nt">OCR の <i>sādhyadharmaporodhi</i> を <i>sādhyadharmoparodhi</i> と読む。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin はこう注します。ただ所証の性質だけを論証するために論証手段を探す者はいない。それが世間のどこかに存在することについては論争がないし、そういう確定によって行動に向かうこともないからである。所証は、特定の有法に属するものとして意図されている（PVV 462）。だから、論者が意図した有法が成立しなければ、主張は否定されるのです。</p></div>
+</div>
+<div class="mula" id="k144">
+  <span class="ref">k.144</span>
+  <div class="src deva" lang="sa">तथैव धर्मिणोऽप्यत्र साध्यत्वात्केवलस्य न । यद्येवमत्र बाधा स्यान्नान्यानुत्पाद्यशक्तिकः ॥</div>
+  <div class="iast" lang="sa-Latn">tathaiva dharmiṇo &#x27;py atra sādhyatvāt kevalasya na |<br> yady evam atra bādhā syān nānyānutpādyaśaktikaḥ ||</div>
+  <div class="tr">まったく同じように、ここでは有法も所証であるから、無関係な（有法）は（所証で）ない。（反論）「もしそうなら、ここで否定があることになる。（サーンキヤに対して）『他によって力を生じさせられないものではない、</div>
+  <div class="nt">OCR の <i>nānyānutpādaśaktikaḥ</i> を、PVV の注（<i>nānyena sahakāriṇā 'nutpādya°</i>）により <i>nānyānutpādyaśaktikaḥ</i> と読む。</div>
+</div>
+<div class="mula" id="k145">
+  <span class="ref">k.145</span>
+  <div class="src deva" lang="sa">सकृच्छब्दाद्यहेतुत्वात्सुखादिरिति पूर्ववत् । विरोधिता भवेदत्र हेतुरैकान्तिको यदि ॥</div>
+  <div class="iast" lang="sa-Latn">sakṛc chabdādyahetutvāt sukhādir iti pūrvavat |<br> virodhitā bhaved atra hetur aikāntiko yadi ||</div>
+  <div class="tr">快などは。音などを一度に生じさせる原因ではないから』と前と同じように言う場合に」と言うなら、ここで論証因が（常住性を論証するのに）決定的なものであれば、矛盾があることになろう。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は言います。勝論派の虚空の論駁が正しいなら、サーンキヤへの仏教徒の論駁は失敗する。仏教徒は「快など（つまり快・苦・迷妄を本質とする根本原質）は、他の補助因によって力を生じさせられないものではない。音などを一度に生じさせる原因ではないから」と論じる。快などの常住性が否定されれば、有法である快などが否定され、主張は否定されるはずだ、というのです（PVV 462）。</p><p>Dharmakīrti は「言い換えの方法」で答えます。論者が実際に論証しているのは、誰もが認める普通の（実在の）快などが、結果を順次に生じるので無常だ、ということです。サーンキヤだけが認める理論上の「快など」が否定されても、論者の自らの有法は否定されません。サーンキヤが仏教徒の主張を本当に否定できるのは、論証因「一度に生じさせないこと」が実は常住性を論証する決定的な論証因（相違因）だと示せた場合だけです。しかしそんなことはありません。</p></div>
+</div>
+<div class="mula" id="k146">
+  <span class="ref">k.146</span>
+  <div class="src deva" lang="sa">क्रमक्रियानित्यतयोरविरोधाद्विपक्षतः । व्यावृत्तेः संशयादेष शेषवद्भेद इष्यते ॥</div>
+  <div class="iast" lang="sa-Latn">kramakriyānityatayor avirodhād vipakṣataḥ |<br> vyāvṛtteḥ saṃśayād eṣa śeṣavadbheda iṣyate ||</div>
+  <div class="tr">順次にはたらくことと無常であることは矛盾しないので、異類（無常なもの）から（この論証因が）排除されるかどうか疑わしい。だから、これは「残余あり」の一種と考えられる。</div>
+  <div class="nt">PV-k(II) は <i>saṃśayān nāyaṃ śeṣavad</i>。MIY. の <i>śeṣavad bheda</i> は一語に読む（PVV は「不定の一種」と注す）。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論証因「一度に生じさせないこと」が、ここでは「順次にはたらくこと」と言い換えられています。決定的な論証因であるためには、異類から完全に排除されていなければなりません。順次にはたらくことが常住性を論証するなら、それは異類（無常なものすべて）と矛盾し、そこから排除されていなければならない。しかし順次にはたらくことと無常性は矛盾しないので、排除されているかどうか疑わしい。だからそれは「残余あり」（<i>śeṣavat</i>）の不定因です。</p><p>ただし Śākyabuddhi は、仏教徒にとって順次にはたらくことは厳密に無常性を含意する、と指摘します。それなのに「疑わしい」と言うのは、論敵（サーンキヤ）がそれを認めず、順次にはたらくことが常住なものにも無常なものにもあると考えているので、論敵の立場から語っているのだ、と言います。</p></div>
+</div>
+<div class="mula" id="k147">
+  <span class="ref">k.147</span>
+  <div class="src deva" lang="sa">स्वयमिष्टो यतो धर्मः साध्यस्तस्मात्तदाश्रयः । बाध्यो न केवलो नान्यसंश्रयो वेति सूचितम् ॥</div>
+  <div class="iast" lang="sa-Latn">svayam iṣṭo yato dharmaḥ sādhyas tasmāt tadāśrayaḥ |<br> bādhyo na kevalo nānyasaṃśrayo veti sūcitam ||</div>
+  <div class="tr">自ら意図された法が所証であるから、否定されるべきはその基体であって、無関係なもの、あるいは他（の法）の基体ではない。（「自ら」の語によって）このことが示された。</div>
+  <div class="exp"><span class="lbl">解説</span><p>Manorathanandin はこう注します。論者が自ら意図した法が所証であるから、所証の法の基体だけが否定されるべきであり、無関係なものは否定されるべきでない。たとえば、実在としての虚空を否定しても、所証の法「常住で単一な本性をもたないこと」は損なわれない。また、所証の法とは別の法の基体も否定されるべきでない。たとえば無常性を論証するとき、音を虚空の性質の基体として否定しても誤りはない。これが「自ら」の語によって示された（PVV 463）。</p></div>
+</div>
+<div class="mula" id="k148">
+  <span class="ref">k.148</span>
+  <div class="src deva" lang="sa">स्वयंश्रुत्यान्यधर्माणां बाधाबाधेति कथ्यते । तथा स्वधर्मिणान्यस्य धर्मिणोऽपीति कथ्यते ॥</div>
+  <div class="iast" lang="sa-Latn">svayaṃśrutyānyadharmāṇāṃ bādhābādheti kathyate |<br> tathā svadharmiṇānyasya dharmiṇo &#x27;pīti kathyate ||</div>
+  <div class="tr">「自ら」の語によって、他の法の否定は（主張の）否定ではないと言われる。同じように、「自らの有法」（の語）によって、別の有法の（否定）もまた（否定ではない）と言われる。</div>
+  <div class="nt">MIY. は <i>svayaṃ śrutyanya°</i>。</div>
+  <div class="exp"><span class="lbl">解説</span><p>k.147–148 は、「自らの有法」についての考えを、k.43–83 で論じた「自ら」との並行関係を強調しながらまとめます（チベットの注釈者もほぼ一致して「まとめ」とします）。これで、Dignāga の主張の定義の各要素への注釈が終わります。</p><p>第4章はこの後、主張の誤り（似宗）の諸類型（k.149–188）を扱い、さらに論証因の正誤、Dignāga の九句因の解釈（k.189–285）へと進みます。</p><div class="stk"><span class="lbl">Tillemans の解釈（注記）</span><p>Tillemans 2000 の第1巻はここで終わり、後半の訳注は第2巻に回すとしています（T. p.210）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>parārthānumāna</dt><dd>他者のための推理。相手に推理を生じさせるための言語表現</dd>
+    <dt>pakṣa / pratijñā</dt><dd>主張（宗）。論証されるべき命題。ニヤーヤでは pratijñā と呼ぶ</dd>
+    <dt>pakṣavacana / anumeyanirdeśa</dt><dd>主張の陳述／推理されるべきものの提示</dd>
+    <dt>sādhya / sādhyadharma</dt><dd>所証／所証の性質</dd>
+    <dt>sādhana</dt><dd>論証手段（証因・喩、またはそれを述べることば）。文脈により修行の手段</dd>
+    <dt>hetu / liṅga</dt><dd>論証因／証因</dd>
+    <dt>dharmin / svadharmin</dt><dd>有法（性質の担い手）／自らの有法。論者が実際に意図する有法</dd>
+    <dt>kevaladharmin</dt><dd>無関係な有法。名目上述べられても、所証の性質の担い手ではない有法</dd>
+    <dt>trairūpya</dt><dd>論証因の三相（主題所属性・肯定的随伴・否定的随伴）</dd>
+    <dt>svabhāva / kārya / anupalabdhi</dt><dd>自性因／結果因／非認識因</dd>
+    <dt>anvaya / vyatireka</dt><dd>肯定的随伴／否定的随伴</dd>
+    <dt>vyāpti / vyāpaka</dt><dd>遍充／遍充するもの</dd>
+    <dt>(svabhāva)pratibandha / saṃbandha</dt><dd>本質的結合。論証因と所証の事実上の結びつき（同一性か因果関係）</dd>
+    <dt>nāntarīyaka(tā)</dt><dd>それなしには無いこと。不可離の関係</dd>
+    <dt>vastubalapravṛttānumāna</dt><dd>事物の力によって働く推理。事実にもとづく通常の推理</dd>
+    <dt>āgamāśritānumāna</dt><dd>聖典に依拠する推理。全く知覚を越えたものについてのみ許される</dd>
+    <dt>parokṣa / atyantaparokṣa</dt><dd>不可視のもの（推理できる）／全く知覚を越えたもの（聖典によってのみ知られる）</dd>
+    <dt>āpta / āgama / śāstra</dt><dd>信頼できる人（のことば）／聖典／論書</dd>
+    <dt>svavacana</dt><dd>自分自身のことば。それに反する主張は自己矛盾となる</dd>
+    <dt>abhyupagama / abhyupāya</dt><dd>承認。論者が受け入れていること</dd>
+    <dt>bādhā / bādhaka</dt><dd>否定（覆すこと）／否定するもの</dd>
+    <dt>pratibandha(ka)</dt><dd>妨げ。認識手段の裏づけのない二つの陳述が互いにぶつかり合うだけの関係</dd>
+    <dt>prasiddha / pratīti</dt><dd>世間周知のもの／（慣習的な）了解</dd>
+    <dt>yogyatā</dt><dd>適合性。語が何を指示しうるかという適格性</dd>
+    <dt>saṃketa</dt><dd>約束（取り決め）。語と対象の結びつきを定める慣習</dd>
+    <dt>asādhāraṇa</dt><dd>不共（ふぐう）。論証因が同類にも異類にも確かめられない誤り</dd>
+    <dt>viruddha / viruddhāvyabhicārin</dt><dd>相違因／相違決定</dd>
+    <dt>āśrayāsiddha</dt><dd>所依不成。有法が存在しないために論証因が成立しない誤り</dd>
+    <dt>prasaṅga</dt><dd>帰謬。相手の承認するものから不合理を導く論法</dd>
+    <dt>svalakṣaṇa / sāmānya</dt><dd>自相（個物そのもの）／普遍</dd>
+    <dt>ayoga- / anyayogavyavaccheda</dt><dd>非結合の排除／他との結合の排除</dd>
+    <dt>nigrahasthāna</dt><dd>負処。論争で敗北となる点</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は T. J. F. Tillemans, <i>Dharmakīrti's Pramāṇavārttika. An annotated translation of the fourth chapter (parārthānumāna), Volume 1 (k. 1–148)</i>, Wien 2000 に掲げられた偈を、提供された OCR テキストから取った。同書の偈は宮坂宥勝校訂本（MIY.）を写本・注釈によって改めたものである。OCR には分音符の脱落や誤字が多いため、韻律と注釈（PVV など）によって正した。OCR の字面から韻律上一字不足する箇所などを改めたときは、偈の下の「注」に記した。デーヴァナーガリーはローマ字表記から機械的に転写し、子音で終わる語は次の語に続けて書いた。</p>
+  <p>OCR に欠けている頁にある偈（k.20–22, 30–31, 35, 50–51, 69, 87–88）は、原文の提供を待って補う。</p>
+  <p><strong>和訳と解説について</strong>　和訳はサンスクリットからの試訳であり、正確な読みは校訂本で確認されたい。解説は主に Manorathanandin の <i>Pramāṇavārttikavṛtti</i>（PVV, Sāṅkṛtyāyana 版の頁）に拠り、Devendrabuddhi（PVP）、Śākyabuddhi（PVṬ）、Prajñākaragupta（PVBh）、Dharmottara（PVinṬ）などの説を参照した。これらの注釈の文言は、Tillemans の注に引かれたサンスクリット・チベット語に拠る。</p>
+  <p><strong>Tillemans 2000 の扱いについて</strong>　「Tillemans の解釈」の欄は、同書の訳と注のうち、読みの判断・解釈の分岐・思想史上の位置づけなど重要なものを、訳者が日本語で要約したものである。同書の英訳や注の文章をそのまま訳出・転載したものではない。引用は術語や数語の言い回しにとどめた。（T. p.○）は同書の頁を示す。詳しくは原書を参照されたい。</p>
+</footer>
+</main>
+</body>
+</html>
