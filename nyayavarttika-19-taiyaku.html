@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 19</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-18-taiyaku.html">← プラカラナ18</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>類比は成り立つか</a></li><li><a href="#s2"><b>2</b>類比は推理か</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第19プラカラナ「類比の吟味」（スートラ 2.1.45–49、Thakur 版 pp.243–245）</span>
+  <p>三つ目の認識手段は類比（<i>upamāna</i>）です。「ガヴァヤ（野牛の一種）は牛に似ている」と教えられた人が、森で牛に似た動物を見て、「これがガヴァヤという名のものだ」と知る、という認識です（1.1.6）。</p>
+  <p>反論は二つあります。第一に、「似ている」とは、完全に同じか、だいたい同じか、一部が同じかのどれかだが、どれでも類比は成り立たない。第二に、見えている牛から見えていないガヴァヤを知るのだから、類比は推理の一種にすぎない。スートラと Uddyotakara は、類比の目的は「名前とそれが指すものとの関係」を知ることであり、それは推理とも言葉とも知覚とも違う、と答えます。</p>
+  <p>解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>類比の吟味の章<br><small><i>upamānaparīkṣāprakaraṇa</i>。スートラ 2.1.45–49 の注釈。Thakur 版 pp.243–245</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.1.45–49<br><small>類比は成り立たない（45）、答え（46）、類比は推理だ（47）、答え（48–49）</small></dd></div>
+    <div><dt>論敵</dt><dd>類比を独立の認識手段と認めない論者<br><small>ヒンディー訳の注は、類比を推理とする説をヴァイシェーシカとサーンキヤ・ヨーガのものとする</small></dd></div>
+    <div><dt>見どころ</dt><dd>ラーマとラーヴァナの戦い<br><small>§1。完全に同じものによる類比もありうる</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.639–645 ごろ</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.244</span> は Thakur 版の頁。節見出しの <span class="pg">pp.243–244</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.1.45–49 の注釈を、テキストの順に2節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">類比は成り立つか</a></td><td class="num">pp.243–244</td><td>スートラ 2.1.45–46。完全・大部分・一部の類似</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">類比は推理か</a></td><td class="num">pp.244–245</td><td>スートラ 2.1.47–49。類比の目的は名と指示対象の関係</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>類比は成り立つか</h2><span class="sub"><span class="pg">pp.243–244</span>スートラ 2.1.45–46。完全・大部分・一部の類似</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.243 · NS 2.1.45</span>
+  <div class="src deva" lang="sa">अत्यन्तप्रायैकदेशसाधर्म्यादुपमानासिद्धिः ॥२।१।४५॥<br>अथेदानीमुपमानमवसरप्राप्तं परीक्ष्यते । किं पुनरुपमानम् ? प्रसिद्धसाधर्म्यात् साध्यसाधनमुपमानम् [१।१।६] इत्युक्तम् । तस्याक्षेपः—अत्यन्तप्रायैकदेशसाधर्म्यादुपमानासिद्धिरिति । नात्यन्तसाधर्म्यादुपमानं भवति, यथा गौरेवं गौरिति । भूयःसाधर्म्यादपि नोपमानं सिध्यति, न हि भवति यथा गौरेवं महिष इति । एकदेशसाधर्म्यादपि न भवति, न हि भवति यथा मेरुस्तथा सर्षप इति । न चान्या गतिरस्ति, तस्मान्नोपमानं सिध्यति । अत्यन्तादिसाधर्म्यादुपमानप्रतिषेधे नोपमानप्रतिषेध इति । यदत्यन्तप्रायैकदेशसाधर्म्यादुपमानं तत् प्रतिषिध्यते तेन सूत्रेण, न पुनरुपमानमात्रस्य प्रतिषेधः । तथा सति यदन्यथोपमानं तस्य स्वरूपं वक्तव्यम् । अथ नैवान्यथोपमानमस्तीति प्रतिपद्यसे, व्यर्थं तर्हीदं वाक्यम् । …… अनभ्युपगच्छता ह्युपमानमेवं वक्तव्यम्, उपमानमप्रमाणमर्थाप्रतिपादकत्वादिति ॥४५॥</div>
+  <div class="tr">（反論）「完全な、大部分の、一部の類似によっては、類比は成り立たない」。<br>さて今、順番が来た類比が吟味される。では、類比とは何か。「よく知られたものとの類似によって、論証されるべきものを論証することが類比である」（1.1.6）と言われた。それへの論難が、「完全な、大部分の、一部の類似によっては、類比は成り立たない」である。（反論者は言う。）「完全な類似によっては類比はない。『牛のように、牛は』のように。大部分の類似によっても類比は成り立たない。『牛のように、水牛は』とは言わない。一部の類似によってもない。『メール山のように、芥子粒は』とは言わない。ほかの道はない。だから類比は成り立たない」。（答え）完全なものなどの類似による類比を否定しても、類比を否定したことにはならない。このスートラによって否定されるのは、完全な、大部分の、一部の類似による類比であって、類比一般の否定ではない。そうであれば、別の仕方の類比があるなら、その本性を言わなければならない。もしあなたが「別の仕方の類比はない」と考えるなら、この文は無駄である。……類比を認めない者は、「類比は認識手段ではない。対象を知らせないから」と言うべきである。（第四十五スートラ）</div><div class="exp"><span class="lbl">解説</span><p>反論は、類似の程度を三つに分けます。完全に同じものを例にしても何も教えない（「牛は牛のようだ」）。大部分が同じでも違うものがある（牛と水牛）。一部が同じなら何にでも似ている（メール山と芥子粒は、どちらも存在する点では同じ）。どの程度の類似でも類比は成り立たない、というのです。</p><p>Uddyotakara は、反論のスートラの言い方に注目します。それは特定の三つの類似による類比を否定しているだけで、類比一般を否定してはいない。類比一般を否定したいなら、「類比は何も知らせない」と言うべきだ、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、この章を、類比の定義の吟味（スートラ 45–46）と、類比が推理に含まれるかの吟味（スートラ 47–49）の二つに分けます。類比とは、「牛のようにガヴァヤは」という移し替えの文を思い出しながら、牛とガヴァヤの類似を見ることであり、その結果（<i>upamiti</i>）が、「ガヴァヤ」という名とその動物との関係を知ることだ、と注します。「ほかの道はない」は「この三つ以外の類似はない」と解しています。大部分の類似の例は、バーシュヤでは牡牛と水牛、Vārttika では牛と水牛です（Hi. p.639）。</p></div></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.243–244 · NS 2.1.46</span>
+  <div class="src deva" lang="sa">प्रसिद्धसाधर्म्यादुपमानसिद्धेर्यथोक्तदोषानुपपत्तिः ॥२।१।४६॥<br>…… योऽयं भवता प्रतिषेधः क्रियतेऽत्यन्तादिसाधर्म्यादुपमानं न सिध्यतीति, अयमनुपपन्नः, अनभ्युपगमात् । कः खल्वेवमाहात्यन्तादिसाधर्म्यादुपमानमिति ? अपि तु प्रसिद्धसाधर्म्यादुपमानं साध्यसाधनभावमाश्रित्य प्रवर्तते । तथा चायमप्रतिषेधः । सर्वथासंभवाच्च । अत्यन्तसाधर्म्यादुपमानं सिध्यति, यदा तत्क्रिययैव तत्क्रियोपमीयते, यथा—रामरावणयोर्युद्धं रामरावणयोरिव इति । प्रायःसाधर्म्येणापि—यदा गोर्बलप्रकर्षजिज्ञासा भवति, तदा भूयःसाधर्म्येणोपमानम्, यथा महिषस्तथा गौरिति । एकदेशसाधर्म्यादपि भवति, यदा तु सन्मात्रं जिज्ञापयितव्यं भवति मेरोः सत्ता किंरूपेति, तदा यथा सर्षपस्य तथा मेरोः । तस्मादप्रतिषेधोऽयमिति ॥४६॥</div>
+  <div class="tr">（答え）よく知られたものとの類似によって類比が成り立つので、述べられたような誤りはない。<br>……あなたがする否定、「完全なものなどの類似によっては類比は成り立たない」というのは、成り立たない。（我々はそれを）認めていないからである。いったい誰が「完全なものなどの類似によって類比がある」と言ったのか。そうではなく、類比は、よく知られたものとの類似によって、論証されるものと論証するものとの関係に依拠してはたらくのである。だから、これは否定にならない。また、（三つの類似の）どれによっても（類比は）ありうるからである。完全な類似によっても類比は成り立つ。ある行為を、その同じ行為によって喩えるときである。「ラーマとラーヴァナの戦いは、ラーマとラーヴァナ（の戦い）のようだ」のように。大部分の類似によっても（成り立つ）。牛の力の強さを知りたいときには、大部分の類似による類比がある。「水牛のように、牛は（強い）」のように。一部の類似によっても成り立つ。単なる存在を知らせたいとき、「メール山の存在はどのようなものか」と（問われる）とき、「芥子粒の（存在）のように、メール山の（存在）も」と（言う）。だから、これは否定にならない。（第四十六スートラ）</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は二段で答えます。まず、ニヤーヤは「完全な類似」などを類比の根拠とは言っていない。根拠は「よく知られたものとの類似」である。次に、反論者が成り立たないと言った三つの場合でも、実は類比は成り立つ例がある。「ラーマとラーヴァナの戦いはラーマとラーヴァナの戦いのようだ」は、比べるものがないほど激しい戦いだ、という意味の有名な詩句です（『ラーマーヤナ』）。牛の力を知りたい人には「水牛のように強い」が役立ち、メール山の存在を知りたい人には「芥子粒と同じく存在する」が役立つ。目的に応じて、どの程度の類似も類比になる、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、どの程度の類似が意図されているかは文だけでなく文脈によって決まる、と注します。「（我々はそれを）認めていないから」について、Vācaspati の「Vārttika の『認めていないから』は、（完全な類似などによるという）限定を意図したものだ」を引きます（TṬ p.410）。「ある行為を、その同じ行為によって喩える」は完全な類似の例だとし、「牛の力の強さ」の「牛」は牡牛と訳しています。また、「どれによってもありうるから」（<span lang="sa" class="deva">सर्वथासंभवाच्च</span>）を、所収本文では <span lang="sa" class="deva">सर्वथाभावाच्च</span> と読み、「（この否定が）まったく成り立たないから」と訳しています（Hi. pp.640–641）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>類比は推理か</h2><span class="sub"><span class="pg">pp.244–245</span>スートラ 2.1.47–49。類比の目的は名と指示対象の関係</span></div>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.244 · NS 2.1.47–48</span>
+  <div class="src deva" lang="sa">प्रत्यक्षेणाप्रत्यक्षसिद्धेः ॥२।१।४७॥<br>अस्तु तर्ह्युपमानमनुमानम्—प्रत्यक्षेणाप्रत्यक्षसिद्धेः । यथा प्रत्यक्षेण धूमधर्मेणोर्ध्वगत्यादिनाप्रत्यक्षो धूमधर्म्यग्निरनुमीयते, तथा प्रत्यक्षेण गवाप्रत्यक्षस्य गवयस्य प्रतिपत्तिरित्यप्रत्यक्षार्थप्रतिपादकत्वादुपमानमनुमानं भवति ॥४७॥<br>नाप्रत्यक्षे गवये प्रमाणार्थमुपमानस्य पश्यामः ॥२।१।४८॥<br>न, अपरिज्ञानात् । न भवतोपमानलक्षणं व्यज्ञायि । न चाप्रत्यक्षे गवय उपमानार्थं पश्यामः । …… अथ प्रत्यक्षे गवये क उपमानार्थः ? यासौ संज्ञासंज्ञिसम्बन्धप्रतिपत्तिः स उपमानार्थः । एवं च नोपमानमागमो न प्रत्यक्षम् । न ह्ययमागमात् प्रत्यक्षाद् वायं गवय इति प्रतिपद्यत इति ॥४८॥</div>
+  <div class="tr">（反論）「（類比は推理である。）知覚されるものによって、知覚されないものが成立するからである」。<br>「では、類比は推理だということにしよう。知覚されるものによって、知覚されないものが成立するからである。知覚される煙の性質、上に昇ることなどによって、知覚されない、煙をもつもの、火が推理されるように、知覚される牛によって、知覚されないガヴァヤを知る。だから、知覚されない対象を知らせるので、類比は推理である」。（第四十七スートラ）<br>（答え）知覚されないガヴァヤについては、類比の認識手段としての目的は見られない。<br>そうではない。（類比を）理解していないからである。あなたは類比の定義を理解していない。我々は、知覚されないガヴァヤについては、類比の目的を見ない。……では、知覚されるガヴァヤについて、類比の目的とは何か。名と名づけられるものとの関係を知ること、それが類比の目的である。そうであれば、類比は言葉（による知）でも知覚でもない。この人は、言葉や知覚から「これがガヴァヤだ」と知るのではないからである。（第四十八スートラ）</div><div class="exp"><span class="lbl">解説</span><p>反論者は、類比を推理に還元します。見えている牛から見えていないガヴァヤを知るのは、見えている煙から見えていない火を知るのと同じだ、と。答えは、反論者は類比を誤解している、というものです。類比がはたらくのは、ガヴァヤが見えていないときではなく、目の前にガヴァヤを見て「牛に似ている」と気づいたときです。そのとき知られるのは、ガヴァヤという動物そのもの（それは知覚されている）ではなく、「ガヴァヤ」という名がこの動物を指すという関係です。この関係は、「ガヴァヤは牛に似ている」という言葉だけでも、目の前の動物の知覚だけでもわからない。だから類比は独立の認識手段だ、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、類比は推理だという説を「ヴァイシェーシカとサーンキヤ・ヨーガの見解」とします。ガヴァヤ自体は知覚されているので、反論者の言う「知覚されないもの」とはガヴァヤの名のことだ、と注し、答えのスートラについては、移し替えの文の「ガヴァヤ」という語だけではまだこの動物を指さず、名と名づけられるものとの関係は知覚されたガヴァヤの上で確定される、と説明します。そして「ここでは、知覚されない牛によって、知覚されるガヴァヤについて知るのである」と、反論者の言い方をひっくり返して結んでいます（Hi. pp.642–644）。</p></div></div>
+</div>
+<div class="mula sutra" id="u4">
+  <span class="ref">pp.244–245 · NS 2.1.49</span>
+  <div class="src deva" lang="sa">तथेत्युपसंहारादुपमानसिद्धेर्नाविशेषः ॥२।१।४९॥<br>परार्थत्वाच्च । परार्थं चोपमानं भवति । न हि यथा गौरेवं गवय इत्येतदागममन्तरेण सारूप्यमात्रपरिज्ञानमुपमानमुक्तम्, न ह्यागममात्रं सारूप्यपरिज्ञानमन्तरेणोपमानं भवितुमर्हति, न चैवमनुमानम् । तस्माद् यथा लिङ्गलिङ्गिसम्बन्धस्मृत्यनुग्रहे सति लिङ्गपरामर्शोऽनुमानम्, तच्च प्रत्यक्षम्, तथागमाहितसंस्कारस्मृत्यपेक्षं सारूप्यप्रत्यक्षमुपमानमिति । प्रतिपत्तिभेदाच्च । नानुमानमेवं भवति यथा धूमस्तथाग्निरिति, अस्ति तूपमाने यथा गौरेवं गवय इति । यत्र च प्रतिपत्तिभेदस्तत् प्रमाणान्तरम्, यथा प्रत्यक्षादनुमानम् । अपूर्वानधिगमादुपमानं न भवतीत्यनेन प्रत्युक्तम् ॥४९॥<br>॥ उपमानपरीक्षाप्रकरणम् ॥</div>
+  <div class="tr">（答え）「そのように」と（よく知られたものに）結びつけることによって類比が成り立つので、（推理と）違いがないのではない。<br>また、他人のためのものだからである。類比は他人のためのものである。「牛のように、ガヴァヤは」というこの言葉なしに、単に姿が似ていることを知るだけでは、類比とは言われない。また、姿が似ていることを知ることなしに、単なる言葉だけでは、類比にはならない。推理はそうではない。だから、証因と証因をもつものとの関係の想起に助けられて、証因を（主題に）見出すことが推理であり、それは知覚である（のと同じように）、言葉によって残された潜在印象の想起を必要とする、姿が似ていることの知覚が類比である。また、知り方が違うからである。推理では、「煙のように、火は」とは言わない。しかし類比では、「牛のように、ガヴァヤは」と言う。そして、知り方が違うところでは、別の認識手段である。知覚から推理が（区別される）ように。（これによって、）「新しいことを知らせないので類比は（認識手段では）ない」（という説）も退けられた。（第四十九スートラ）<br>類比の吟味のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>推理との違いがさらに二つ挙げられます。第一に、類比は「ガヴァヤは牛のようだ」という他人の言葉を前提にします（他人のためのもの）。言葉だけでも、似ていることを見るだけでも足りず、その両方がそろって初めて「これがガヴァヤだ」とわかります。推理は他人の言葉を必要としません。第二に、知り方の形が違います。推理では「煙のように火がある」とは言いませんが、類比では「牛のように」と言います。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、類比と推理を区別する理由を、スートラの二つ（知覚されないガヴァヤ、「そのように」の結びつけ）、バーシュヤの一つ（他人のため）、Vārttika の一つ（知り方の違い）の計四つと整理し、後代のニヤーヤでは結果である知の違いが区別の決め手とされる、と注します。「他人のためのものである」には「（ただ）他人のための」と補い、「それは知覚である」の「それ」を「（ガヴァヤ）」と補って訳していますが、文脈からは証因を見出すこと（<i>parāmarśa</i>）を指すと読むほうが自然です（Hi. pp.644–645）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>upamāna</dt><dd>類比。よく知られたものとの類似によって、名と指示対象の関係を知ること</dd>
+    <dt>gavaya</dt><dd>ガヴァヤ。牛に似た野生動物</dd>
+    <dt>atyanta / prāya / ekadeśa sādharmya</dt><dd>完全な／大部分の／一部の類似</dd>
+    <dt>saṃjñāsaṃjñisambandha</dt><dd>名と名づけられるものとの関係</dd>
+    <dt>sārūpya</dt><dd>姿が似ていること</dd>
+    <dt>parārtha</dt><dd>他人のためのもの（他人の言葉を前提とする）</dd>
+    <dt>upasaṃhāra</dt><dd>（「そのように」と）結びつけること</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った（Thakur 版の番号より一つ大きい）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第19プラカラナ（スートラ 2.1.45–49）である。第18プラカラナ（スートラ 2.1.40–44）は<a href="nyayavarttika-18-taiyaku.html">第18プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
