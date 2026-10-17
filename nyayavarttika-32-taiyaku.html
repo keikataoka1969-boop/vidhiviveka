@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 32</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-31-taiyaku.html">← プラカラナ31</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>目は黒目か、元素からなるか</a></li><li><a href="#s2"><b>2</b>遍在する感官という説</a></li><li><a href="#s3"><b>3</b>目の光線はなぜ見えないか</a></li><li><a href="#s4"><b>4</b>ガラス越しに見えること</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第32プラカラナ「感官は元素からなる」（スートラ 3.1.32–51、Thakur 版 pp.351–363）</span>
+  <p>認識対象の第三は感官です。感官は何からできているのか。ニヤーヤは、目は火、耳は虚空、というように、感官はそれぞれ元素からなる（<i>bhautika</i>）と考えます。これに対してサーンキヤは、感官は我慢（<i>ahaṅkāra</i>）から生じたもので元素からなるのではない、と説きます。この章の論争の中心は目です。目が元素（火）からなるなら、なぜ山のように大きなものも、遠くのものも見えるのか。目から出る光線は、なぜ見えないのか。</p>
+  <p>Uddyotakara は、遍在する感官から「はたらき」（<i>vṛtti</i>）が泡のように流れ出るというサーンキヤの説を詳しく退けます。そして、目は火からなる光線で、対象に届いて見るのだと論じ、光線が見えないのは、その色が顕在化していない（<i>anudbhūta</i>）からだと説明します。火には、色も触感も顕在化した太陽の光、色だけ顕在化した灯火の光、どちらも顕在化していない目の光線など、四つの種類がある、という整理も示されます。後半では、ガラスや雲母越しにものが見えることを根拠に、目は対象に届かずに見る、という反論が取り上げられ、ガラスは光線を妨げないのだ、と退けられます。</p>
+  <p>原文は論点ごとに要点を抜き出しました（「……」）。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>感官が元素からなることの章<br><small><i>indriyabhautikatvaprakaraṇa</i>。スートラ 3.1.32–51 の注釈。Thakur 版 pp.351–363</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.1.32–51<br><small>疑い、大小の知覚、目の光線、見えない理由、ガラス越しの知覚、鏡と水の映像</small></dd></div>
+    <div><dt>論敵</dt><dd>感官は元素からならず遍在するとする者<br><small>ヒンディー訳の注は、感官を我慢から生じるとするサーンキヤとし、黒目を目そのものとする反論を仏教徒のものとする</small></dd></div>
+    <div><dt>見どころ</dt><dd>火の四つの種類<br><small>§3。太陽の光、灯火の光、水の中の火、目の光線</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.944–977</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.352</span> は Thakur 版の頁。節見出しの <span class="pg">pp.351–352</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。長い議論は要点を抜き出した（<span class="ia">……</span>）</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.1.32–51 の注釈を、テキストの順に4節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">目は黒目か、元素からなるか</a></td><td class="num">pp.351–352</td><td>スートラ 3.1.32。疑いの原因。目は黒目そのものではない</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">遍在する感官という説</a></td><td class="num">pp.352–354</td><td>スートラ 3.1.33–34。大きなものも小さなものも見える。遍在する感官とその「はたらき」の否定。光線と対象の接触</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">目の光線はなぜ見えないか</a></td><td class="num">pp.355–360</td><td>スートラ 3.1.35–3.1.44。見えないものは無いか。顕在化した色。火の四つの種類。夜行動物の目</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">ガラス越しに見えること</a></td><td class="num">pp.360–363</td><td>スートラ 3.1.45–3.1.51。目は届かずに見るか。ガラスは光線を妨げない。鏡と水の映像</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>目は黒目か、元素からなるか</h2><span class="sub"><span class="pg">pp.351–352</span>スートラ 3.1.32。疑いの原因。目は黒目そのものではない</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.351–352 · NS 3.1.32</span>
+  <div class="src deva" lang="sa">कृष्णसारे सत्युपलम्भाद् व्यतिरिच्य चोपलम्भात् संशयः ॥३।१।३२॥<br>अथेदानीमिन्द्रियाणि प्रमेयक्रमेण विचार्यन्ते, किमाव्यक्तिकानि, आहङ्कारिकाणि, आहो भौतिकानीति ? संशयकारणप्रतिपादनार्थं सूत्रम् …… कृष्णसारं भौतिकम्, तस्मिन्ननुपहते विषयोपलब्धिः । कृष्णसारव्यतिरेकेण च विप्रकृष्टदेशावस्थितस्य विषयस्योपलब्धिः । सेयं व्यतिरेकोपलब्धिरभौतिकधर्मः । तदेवमुभयधर्मोपलब्धेः संशय इति । कृष्णसारमेव चक्षुः । तस्मिन् सति भावाद् रूपग्रहणस्य । …… न, प्रदीपादिभिरनेकान्तात् । प्रदीपे सति रूपोपलब्धिर्भवति । न च प्रदीपस्य रूपोपलब्धिरित्यनेकान्तः । यस्य च कृष्णसारं चक्षुः, तस्य सन्निकृष्टविप्रकृष्टयोस्तुल्योपलब्धिप्रसङ्गः । …… विषयीभावादिति चेत् ? …… न, उक्तोत्तरत्वात् । उक्तोत्तरमेतत् प्रत्यक्षसूत्र इति ॥३२॥</div>
+  <div class="tr">黒目があるときに知覚があるから、また、（黒目から）離れたところで知覚があるから、疑いがある。<br>さて今度は、認識対象の順序に従って、感官が考察される。（感官は）未顕現のもの（根本原質）から生じたものか、我慢から生じたものか、元素からなるものか。疑いの原因を示すためのスートラが……である。黒目は元素からなるもので、それが損なわれていなければ対象の知覚がある。また、黒目から離れて、遠い所にある対象の知覚がある。この、離れたところでの知覚は、元素からならないものの性質である。こうして、両方の性質が知覚されるので、疑いがある。（反論）「黒目こそが目である。それがあるときに色が捉えられるからである」。……そうではない。灯火などで外れるからである。灯火があるときに色の知覚があるが、色の知覚は灯火のものではないので、外れる。また、黒目が目だとする者には、近いものと遠いものとが同じように知覚されることになってしまう。……（反論）「（近いものだけが）対象になるからだ」と言うなら。……そうではない。答えはすでに述べたからである。知覚のスートラ（1.1.4）で答えはすでに述べた。</div><div class="exp"><span class="lbl">解説</span><p>感官は何からできているか。サーンキヤの説では、感官は根本原質から我慢を経て生じ、元素からは生じない。ニヤーヤは、感官は元素からなると考えます。疑いの原因は、目の拠り所である黒目は元素（地）からなり、それが損なわれれば見えなくなる一方で、目は黒目から遠く離れた物も見る、ということです。黒目こそが目だという説も退けられます。灯火があれば見えるが灯火が見るわけではないし、黒目が対象と接触せずに見るのなら、近い物も遠い物も同じように見えるはずだからです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、この章の見出しを「感官が元素からならない（我慢から生じる）かどうかの考察」とし、「黒目」を「黒い瞳」と訳します。注は、「未顕現のものから生じた」を「我慢から生じた」の意とし、根本原質→大（知）→我慢→（その変異的な部分から）十一の感官、というサーンキヤの生成論を説明します。Vācaspati によれば、ここには二つの論争があり、一つはサーンキヤとニヤーヤ、もう一つは仏教徒とニヤーヤの論争で、仏教徒にとっては黒目そのものが感官、ニヤーヤにとっては黒目は感官の拠り所にすぎない（TṬ p.521）。「黒目こそが目である」という反論に「仏教徒の論難」と見出しを付けます（Hi. pp.944–945）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「तस्मिन्नुपहते」「व्यतिरेकोपलब्धिर्भौतिकधर्मः」は、文脈から「तस्मिन्ननुपहते」（損なわれていなければ）「…रभौतिकधर्मः」（元素からならないものの性質）と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>遍在する感官という説</h2><span class="sub"><span class="pg">pp.352–354</span>スートラ 3.1.33–34。大きなものも小さなものも見える。遍在する感官とその「はたらき」の否定。光線と対象の接触</span></div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.352–353 · NS 3.1.33</span>
+  <div class="src deva" lang="sa">महदणुग्रहणात् ॥३।१।३३॥<br>अभौतिकानीत्यपरे — महदणुग्रहणात् । महदिति महत्तरं महत्तमं चोच्यते । अण्वित्यणुतरमणुतममिति । तदिदमुभयं चक्षुषोपलभ्यमानं भौतिकत्वं चक्षुषो बाधते । भौतिकं हि यावद् भवति तावदेव व्याप्नोति । अभौतिकं तु व्यापकत्वात् सर्वस्य व्यापकमिति । न, भौतिकेषु प्रदीपादिषु दृष्टत्वात् । …… ननु चाभौतिके विज्ञाने महदणुप्रकाशकत्वं दृष्टम् ? न दृष्टम् । …… ननु च मनो विद्यते ? सत्यं मनो विद्यते, न पुनस्तद्भौतिकं नाप्यभौतिकमिति । एतेनात्मा व्याख्यातः …… अभौतिकं मन इति अभूतात्मकं मन इति यावदुक्तं भवति । मुख्यतस्तु मनो न भौतिकं नाप्यभौतिकमिति ।</div>
+  <div class="tr">（反論）「大きいものと小さいものとが捉えられるからである」。<br>別の人々は、「（感官は）元素からならない」（と言う）。大きいものと小さいものとが捉えられるからである。「大きい」とは、より大きいもの、最も大きいものも言う。「小さい」とは、より小さいもの、最も小さいもの（も言う）。目によって知覚されるこの両方が、目が元素からなることを否定する。元素からなるものは、それ自体の大きさだけに及ぶ。しかし元素からならないものは、遍在するので、すべてに及ぶ、と。そうではない。元素からなる灯火などにも見られるからである。……（反論）「元素からならない知には、大小を照らすことが見られるではないか」。見られない。……（反論）「意はあるではないか」。たしかに意はある。しかしそれは、元素からなるのでもなく、元素からならないのでもない。これによって我も説明された。……「意は元素からならない」と（バーシュヤが言う）のは、「意は元素を本体としない」と言ったことになる。本来の意味では、意は元素からなるのでも、元素からならないのでもない。</div><div class="exp"><span class="lbl">解説</span><p>反論者（ヒンディー訳の注によればサーンキヤ）は、目は山のような大きなものも、ごく小さなものも捉えるので、元素からなる有限の大きさのものではなく、遍在するものだ、と論じます。Uddyotakara は、元素からなる灯火の光も大きな物も小さな物も照らすので、理由は外れる、と答えます。意（<i>manas</i>）や我については、「元素からならない」というのは「元素を本体としない」という意味で言われるのであって、サーンキヤの言う「元素以外のもの（我慢）から生じた」という意味ではない、と区別します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「別の人々」をサーンキヤとし、灯火による反論はニヤーヤ内部の一部の論者の立場からの論駁だ、と TṬ（p.522）を引きます。知は「照らすもの」ではなく「照らすこと（現れ）そのもの」だという点について『タルカバーシャー』を参照させ、捨てる・取る・無視するという知は大きくも小さくもない、と TṬ（p.522）を引きます。Vārttika の作者は意を元素からなるとは考えない、と注します（Hi. pp.946–947）。</p></div></div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">pp.353–354</span>
+  <div class="src deva" lang="sa">अभूतात्मकं व्यापकं चेन्द्रियं प्रतिपद्यमान इदं पर्यनुयोज्यः, व्यवहितार्थग्रहणं कस्मात् न भवतीति ? …… वृत्तिः प्रतिबध्यत इति चेत् ? अथ मन्यसे सत्यं व्यापकमिन्द्रियम्, तस्य तु पुरुषार्थेन हेतुना क्षोभ्यमाणस्य महाह्रदाद् बुद्बुदा इव तद्वृत्तयो निश्चरन्ति, ताः कुड्यादिभिः प्रतिबध्यन्त इति ? न, वृत्तिव्यतिरेकेणेन्द्रियस्य सत्त्वे प्रमाणाभावात् । …… अव्यतिरेकाच्च तदुत्पत्तिविनाशधर्मकत्वम् । …… वृत्तेर्व्यक्तिर्नोत्पत्तिरिति चेत् ? …… नोत्पत्तिविशेषत्वात् । व्यक्तिरुत्पत्तिविशेषः । …… नित्यं व्यापकं चेन्द्रियमभ्युपगच्छतः कारणार्थो हीयते । …… युगपदनेकविज्ञानप्रसङ्गाच्च । …… तस्मादयुक्तं व्यापकमिन्द्रियं नित्यं चेति ॥३३॥</div>
+  <div class="tr">元素を本体とせず遍在する感官を認める者には、次のことを問いただすべきである。（では、）隔てられた対象を捉えないのはなぜか、と。……（反論）「はたらきが妨げられるのだ」と言うなら。（すなわち）こう考えるなら。たしかに感官は遍在する。しかし、我の目的という原因によって揺り動かされた感官から、大きな湖から泡が出るように、そのはたらきが流れ出る。それらが壁などによって妨げられるのだ、と。そうではない。はたらきとは別に感官があることについて、認識手段がないからである。……また、（感官がはたらきと）別でないなら、それ（感官）も生じたり滅したりする性質をもつことになる。……（反論）「はたらきは顕現するのであって、生じるのではない」と言うなら。……そうではない。（顕現は）生起の一種だからである。顕現とは生起の一種である。……常住で遍在する感官を認める者には、原因の意味が失われる。……また、同時に多くの知が生じることになってしまうからである。……だから、感官が遍在し常住であるというのは正しくない。</div><div class="exp"><span class="lbl">解説</span><p>感官が遍在するなら、壁の向こうの物も見えるはずです。反論者は、遍在する感官から、大きな湖から泡が湧き出るように「はたらき」が流れ出て、それが壁で妨げられるのだ、と答えます（この説の主については下段を参照）。Uddyotakara は、はたらきとは別に感官があるという証拠はない、はたらきと感官が同じなら、はたらきとともに感官も生じては滅びることになる、と退けます。「生じる」のではなく「顕現する」のだと言い換えても、顕現も生起の一種にすぎない。常住のものから常住のものが生じるなら、原因と結果の区別もなくなる、と論じます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「感官も同様に元素を本体としない」という主張に「（サーンキヤの疑問）」と見出しを付け、TṬ（p.522）を引きます。「はたらきが妨げられる」という答えの後の反駁に「［ニヤーヤ学者］」と見出しを付けます。「顕現」と「隠没」の議論は、すべてはただ現れたり消えたりするだけだとする因中有果論の考えに向けたものだ、と注します。同時に多くの知が生じるという難点については、サーンキヤは長い揚げ菓子を食べるときのように同時の知を認めるが、順に生じる知もあるので、そこに難点が当てはまる、と説明します（Hi. pp.947–950）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「युगपदेकविज्ञानप्रसङ्गः」「तस्माद्युक्तं व्यापकमिन्द्रियं」は、文脈から「युगपदनेकविज्ञानप्रसङ्गः」「तस्मादयुक्तं…」と読みました。</p></div>
+</div>
+<div class="mula sutra" id="u4">
+  <span class="ref">p.354 · NS 3.1.34</span>
+  <div class="src deva" lang="sa">रश्म्यर्थसन्निकर्षविशेषात्तद्ग्रहणम् ॥३।१।३४॥<br>महदणुग्रहणस्य चान्यथासिद्धेरहेतुः । …… चक्षूरश्मेश्चार्थस्य च सन्निकर्षविशेषात् महदण्वोर्ग्रहणं भवति । तत्र सन्निकर्षमात्रात् सामान्यग्रहणं सन्निकर्षविशेषाद् विशेषग्रहणम् । कः पुनः सन्निकर्षस्य विशेषः ? भूयोऽवयवसन्निकर्षानुग्रहः । …… स च रश्म्यर्थसन्निकर्षविशेषोऽणोर्महतश्च तुल्यो भवतीत्यन्यथा महदण्वोर्ग्रहणं सिध्यति । रश्म्यर्थसन्निकर्ष आवरणलिङ्गः, कुड्यादिव्यवहितानामप्रकाशकत्वात् । अप्राप्यकारित्वे तु न कुड्यादेरावरणस्य सामर्थ्यमस्तीति । अस्ति च चाक्षुषो रश्मिः, यथा प्रदीपरश्मिरिति ॥३४॥</div>
+  <div class="tr">（答え）光線と対象との特定の接触によって、それ（大小）が捉えられるのである。<br>また、大小が捉えられることは、別の仕方で成り立つので、（反論の理由は）理由にならない。……目の光線と対象との特定の接触によって、大小が捉えられる。そのうち、ただの接触からは一般が捉えられ、特定の接触からは特殊が捉えられる。では、接触の「特定」とは何か。より多くの部分との接触に助けられることである。……そして、この光線と対象との特定の接触は、小さいものにも大きいものにも同じようにあるので、別の仕方で大小が捉えられることが成り立つ。光線と対象との接触は、覆いを目印とする（覆いから推理される）。壁などで隔てられたものは照らさないからである。もし（目が対象に）届かずにはたらくなら、壁などの覆いには（目をさえぎる）力がないことになる。そして目の光線はある。灯火の光線のように。</div><div class="exp"><span class="lbl">解説</span><p>大きな物が見えるのは、目から出る光線が物の多くの部分と接触するからです。ただ接触しただけなら「何かある」と一般的にしかわからず、多くの部分と接触すると細部（特殊）までわかる。この仕組みは大きな物にも小さな物にも同じように当てはまるので、遍在する感官を持ち出す必要はない。そして、壁で隔てられた物が見えないことは、目の光線が物に届いてはじめて見えることの証拠だ、と Uddyotakara は論じます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、このスートラをニヤーヤの立場とし、TṬ（p.522）が説く四つの接触（感官の部分と対象の部分など）を紹介して、後代のニヤーヤ・ヴァイシェーシカではこれを「四重の接触」と呼び、大きさはこれによって捉えられる、と『タルカバーシャー』を参照させます。「覆いを目印とする」を所有複合語と分析します（Hi. pp.951–952）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>目の光線はなぜ見えないか</h2><span class="sub"><span class="pg">pp.355–360</span>スートラ 3.1.35–3.1.44。見えないものは無いか。顕在化した色。火の四つの種類。夜行動物の目</span></div>
+<div class="mula sutra" id="u5">
+  <span class="ref">p.355 · NS 3.1.35–36</span>
+  <div class="src deva" lang="sa">तदनुपलब्धेरहेतुः ॥३।१।३५॥<br>आवरणानुमेयत्वे सतीदमाह …… न चाक्षुषो रश्मिर्विद्यत इति सूत्रार्थः । कथमिति ? उपलब्धिलक्षणप्राप्तत्वादनुमानानुपपत्तिः । यत् खलूपलब्धिलक्षणप्राप्तं नोपलभ्यते, तन्नास्ति । …… महदनेकद्रव्यरूपवांश्चाक्षुषो रश्मिः कस्मात् प्रत्यक्षतो नोपलभ्यत इति वाच्यम् । …… एवमशेषोपलब्धिकारणसन्निधाने सति येन नोपलभ्यते तेन गम्यते नास्तीति ॥३५॥<br>नानुमीयमानस्य प्रत्यक्षतोऽनुपलब्धिरभावहेतुः ॥३।१।३६॥<br>यत् प्रत्यक्षतो नोपलभ्यते तदनुमानेनोपलभ्यमानं नास्तीत्ययुक्तं वक्तुम्, यथा चन्द्रमसः परभागस्य पृथिव्याश्चाधोभागस्येति । …… किं पुनरनुमानम् ? अर्वाग्भागवत्त्वमुभयप्रतिपत्तौ । तथा चाक्षुषस्य रश्मेः कुड्याद्यावरणमनुमानं संभवतीति ॥३६॥</div>
+  <div class="tr">（反論）「それ（光線）は知覚されないので、（光線は）理由にならない」。<br>（光線が）覆いから推理されるとしたときに、これを言う。……目の光線は存在しない、というのがスートラの意味である。どのようにか。（光線は）知覚されうるものなので、推理は成り立たない。知覚されうるのに知覚されないもの、それは無い。……大きく、多くの実体からなり、色をもつ目の光線が、なぜ知覚によって捉えられないのか、言わなければならない。……このように、知覚のすべての原因がそろっているのに知覚されないことから、無いことが知られる。<br>（答え）推理されるものについて、知覚によって知覚されないことは、無いことの理由にならない。<br>知覚によって捉えられなくても、推理によって捉えられるものを「無い」と言うのは正しくない。月の向こう側や、大地の下側のように。……その推理とは何か。手前の部分をもつことが、両方（向こう側と下側）を知る（推理である）。同じように、目の光線については、壁などの覆いが推理（の根拠）となりうる。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、光線が本当にあるなら、大きさも色もあるはずなので見えるはずだ、見えないのは無いからだ、と言います（3.1.35）。答えのスートラ（3.1.36）は、推理で知られるものは、知覚されなくても無いとは言えない、と応じます。月の裏側も大地の下側も見えないが、表側があるのだから裏側もあると推理される。目の光線も、壁が視線をさえぎることから推理される、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.35 を「論難のスートラ」とし、「知覚されうる」とは、大きさ、多くの実体からなること、顕在化した色をもつことだ、と注します。3.1.36 の「手前の部分をもつこと」の訳はややぎこちなく、「（論者）双方が認める」と解しています。続く「別の人々」の説は、TṬ（p.523）によれば一部の論者の説で、Gaṅgānātha Jhā はヴァイシェーシカ・スートラ 4.1.6 を参照させる、と注します（Hi. pp.953–954）。</p></div></div>
+</div>
+<div class="mula sutra" id="u6">
+  <span class="ref">pp.356–357 · NS 3.1.37</span>
+  <div class="src deva" lang="sa">द्रव्यगुणधर्मभेदाच्चोपलब्धिनियमः ॥३।१।३७॥<br>अपरे तु — महत्त्वानेकद्रव्यत्वाद्रूपाच्चोपलब्धिः — इत्युपलब्धौ नियमं वर्णयन्ति । …… कस्मात् तर्हि चाक्षुषो रश्मिर्नोपलभ्यते ? उपलब्धिकारणाभावादिति, नैतावदेवोपलब्धिकारणं यदुत महत्त्वानेकद्रव्यरूपाणि, अपि तु रूपग्रहणेन रूपविशेषोऽभिधीयते न रूपमात्रम् । एवं च सूत्रम् — अनेकद्रव्येण द्रव्येण समवायाद्रूपविशेषाच्च रूपोपलब्धिः — इति । अत्र रूपविशेषग्रहणेन रूपधर्म उद्भवसमाख्यातोऽभिधीयते …… उद्भवश्च कार्यगम्यः । यस्याभावाद् विषक्तावयवमाप्यं द्रव्यं हेमन्ते न गृह्यते, तैजसं च ग्रीष्मे, यस्य च भावात् प्रदीपरश्मिरुपलभ्यते, आदित्यरश्मिश्च, स उद्भवो नाम रूपविशेषः । स तस्मिन् नायने रश्मौ रूपविशेषो नास्तीत्यतश्चाक्षुषो रश्मिर्नोपलभ्यत इति । दृष्टश्च तेजसो धर्मभेदः । चतुर्विधं च तेजो भवति — उद्भूतरूपस्पर्शं यथा आदित्यरश्मिः, उद्भूतरूपमनुद्भूतस्पर्शं यथा प्रदीपरश्मिः, उभयं च प्रत्यक्षं रूपस्योद्भूतत्वात् । अनुद्भूतरूपमुद्भूतस्पर्शं यथा वारिस्थं तेजः, अनुद्भूतरूपस्पर्शो यथा नायनो रश्मिः । उभयं चाप्रत्यक्षं रूपस्यानुद्भूतेः ॥३७॥</div>
+  <div class="tr">（答え）また、実体と性質との特性の違いによって、知覚の決まりがある。<br>別の人々は、「大きさ・多くの実体からなること・色から知覚がある」（ヴァイシェーシカ・スートラ 4.1.6 参照）と、知覚についての決まりを説明する。……では、なぜ目の光線は知覚されないのか。知覚の原因がないからである。大きさ・多くの実体からなること・色だけが知覚の原因なのではない。「色」という語によって、ただの色ではなく、特定の色が言われているのである。そして（ヴァイシェーシカの）スートラはこうである。「多くの実体からなる実体に内属することと、特定の色とから、色の知覚がある」と。ここで「特定の色」という語によって、「顕在化」と呼ばれる色の特性が言われている。……顕在化は結果から知られる。それがないために、部分が散らばった水の実体（湯気）は冬には捉えられず、火の実体は夏には（捉えられない）。それがあるために、灯火の光線も、太陽の光線も知覚される。それが顕在化という特定の色である。その特定の色が目の光線にはないので、目の光線は知覚されないのである。また、火の特性の違いが見られる。火には四種類がある。色も触も顕在化したもの、たとえば太陽の光線。色は顕在化し触は顕在化していないもの、たとえば灯火の光線。この二つは、色が顕在化しているので知覚される。色は顕在化せず触は顕在化したもの、たとえば水の中にある火（熱湯の熱）。色も触も顕在化していないもの、たとえば目の光線。この二つは、色が顕在化していないので知覚されない。</div><div class="exp"><span class="lbl">解説</span><p>目の光線が見えない理由の核心です。ヴァイシェーシカは、物が見える条件を、大きさ、多くの部分からなること、色、とします。Uddyotakara は、ここでの「色」は、ただの色ではなく「顕在化した」（<i>udbhūta</i>）色でなければならない、と言います。冬の湯気が見えない（夏には熱気が見えない）のは、色が顕在化していないからです。火には四種類がある、という整理は印象的です。太陽の光（色も熱も感じられる）、灯火の光（色は見えるが熱はそれほど感じない）、熱湯の中の火（熱は感じるが色は見えない）、目の光線（どちらも感じられない）。目の光線は第四の種類なので見えないのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.37 のバーシュヤの例（散らばった水は見えないがその冷たさは感じられ、冬と晩冬の目印になる。色の顕在化しない火は見えないがその熱は感じられ、夏と春の目印になる）を訳し、これは大きさなどがあるのになぜ目の光線が見えないのかへの答えだ、と注します。火の四種類の分類はバーシュヤにもあり、顕在化した色をもたない目の光線は見えない、と TṬ（p.523）を引きます（Hi. pp.955–957）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版の注によれば、引かれる「多くの実体からなる実体に内属することと…」はヴァイシェーシカ・スートラ（Candrānanda 注の版 4.1.9）で、ニヤーヤ・スートラの意味を明らかにするために引かれたものであって、ニヤーヤ・スートラではありません。火の四種類の第三は、OCR テキストでは「अनुद्भूतस्पर्शमनुद्भूतरूपं」と崩れているので、例（熱湯の熱）に合わせて「色は顕在化せず触は顕在化した」と読みました。ヒンディー訳（の底本）はこの「अनेकद्रव्यसमवायाद्रूपविशेषाच्च रूपोपलब्धिः」をニヤーヤ・スートラ 3.1.38 として数えています。このページのスートラ番号はそれに従ったので、以後は Thakur 版より一つ大きくなります。</p></div>
+</div>
+<div class="mula sutra" id="u7">
+  <span class="ref">pp.357–358 · NS 3.1.39</span>
+  <div class="src deva" lang="sa">कर्मकारितश्चेन्द्रियाणां व्यूहः पुरुषार्थतन्त्रः ॥३।१।३९॥<br>शेषं भाष्ये । रूपस्पर्शानभिव्यक्तिश्च व्यवहारप्रक्लृप्त्यर्था । यदि नायनो रश्मिरुद्भूतरूपस्पर्शो भवेत् तेन दृश्यविशेषे …… द्रव्यं दह्येत । अनेकरश्मिसन्निपाते च सति व्यवहितत्वाद् द्रव्यस्यानुपलब्ध्या भवितव्यम् । …… व्यवहारप्रक्लृप्त्यर्थं च नयनस्य रश्मेरनुद्भूतरूपस्पर्शवत्त्वमिति । सर्वद्रव्याणां च विश्वरूपो व्यूहः पुरुषार्थतन्त्रः कर्मकारित इति । कर्म तु धर्माधर्मभूतं चेतनस्योपभोगार्थमिति । अव्यभिचारी तु प्रतीघातो भौतिकधर्मः । भौतिकं चक्षुः कुड्यादिभिः प्रतीघातदर्शनाद् घटादिवदिति । अप्रतीघातादभौतिकमिति चेत् ? …… दृष्टश्चाप्रतीघातः, काचाभ्रपटलस्फटिकान्तरितोपलब्धेरिति । नानेकान्तात् प्रदीपरश्मिवदिति । भौतिकस्याप्यप्रतीघातः, यथा प्रदीपरश्मेरिति । स्थाल्यादिषु पाचकस्य तेजसोऽप्रतीघातादिति ॥३८॥</div>
+  <div class="tr">（答え）また、感官の配置は業によって作られ、我の目的に従う。<br>残り（の説明）はバーシュヤにある。また、色と触が顕在化していないことは、日常の営みを成り立たせるためである。もし目の光線が色も触も顕在化したものだったなら、見る対象が……焼けてしまうだろう。また、多くの光線が集まれば、物は（光線に）隔てられて知覚されないことになろう。……日常の営みを成り立たせるために、目の光線は色も触も顕在化していないのである。そして、すべての実体のさまざまな配置は、我の目的に従い、業によって作られる。業は善業・悪業であり、知性をもつもの（我）の享受のためにある。（Vārttika は続けて言う。）しかし、妨げられることは、外れることのない、元素からなるものの性質である。目は元素からなる。壁などによって妨げられるのが見られるから。壺などのように。（反論）「妨げられないことから、元素からならない（と言える）」と言うなら。……ガラス・雲母・水晶で隔てられたものが知覚されるので、妨げられないことが見られる、と。そうではない。灯火の光線のように、外れるからである。元素からなるものにも、妨げられないことがある。灯火の光線のように。鍋などの中で、煮炊きする火が妨げられないように。</div><div class="exp"><span class="lbl">解説</span><p>なぜ目の光線は見えず、熱くもないのか。それは業によって、生きものの目的にかなうように作られているからだ、とスートラは答えます。もし目の光線が太陽の光のように熱かったら、見る物はすべて焼けてしまうし、見えるものなら、多くの人の視線が集まると物が光線に隠れて見えなくなってしまう。続いて Vārttika は、壁に妨げられることこそ元素からなるものの性質だ、と目が元素からなることの論証を加え、ガラス越しに見えることは、鍋の中まで火が通るのと同じく、元素からなるものでも妨げられない場合がある、と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、TṬ が「多くの光線が集まれば」を「近くにあれば」と読むことを記し（TṬ p.523）、「感官は元素からならない」という反論をサーンキヤの追随者のもの、「外れる」という答えをニヤーヤ学者のものとします。なお、ヒンディー訳は「雲母」（<i>abhrapaṭala</i>）を「雲の集まり」と訳しています（Hi. pp.958–962）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>「しかし、妨げられることは、外れることのない、元素からなるものの性質である」（<i>avyabhicārī tu pratīghāto bhautikadharmaḥ</i>）は、Thakur 版では Vārttika の一部として印刷されています。ヒンディー訳（の底本）の Vārttika では、これは「अव्यभिचाराच्च प्रतीघातो भौतिकधर्मः」としてスートラのように示されていますが、ヒンディー訳の注は、本当はバーシュヤの文であり、『ニヤーヤ・スーチー・ニバンダ』や Viśvanātha の注もスートラに数えない、と記します。</p></div>
+</div>
+<div class="mula sutra" id="u8">
+  <span class="ref">pp.358–359 · NS 3.1.40–3.1.42</span>
+  <div class="src deva" lang="sa">मध्यन्दिनोल्काप्रकाशानुपलब्धिवत्तदनुपलब्धिः ॥३।१।४०॥<br>उपपद्यते चानुपलब्धिः कारणभेदात् …… यथोपलब्धिलक्षणप्राप्तस्य मध्यन्दिने उल्काप्रकाशस्य निमित्तादग्रहणमभिभवात् तथोपलब्धिलक्षणप्राप्तस्य चाक्षुषस्य रश्मेरग्रहणं निमित्ताद् रूपस्यानुद्भूतेरिति ॥<br>न, रात्रावप्यनुपलब्धेः ॥३।१।४१॥<br>मध्यन्दिनोल्काप्रकाशो नोपलभ्यते आदित्यप्रकाशाभिभवादित्ययुक्तम्, सर्वरश्मिवत्त्वप्रसङ्गात् । एवं सति सर्वं लोष्टादि रश्मिवत् प्राप्नोति । …… यदि लोष्टादिरश्मयः स्युः, दिवा आदित्यप्रकाशाभिभवात् नोपलभ्यन्त इति रात्रौ तर्हि उपलभ्येरन् । …… न पुनरेवं चाक्षुषो रश्मिरननुमानः, कुड्यादेरावरणस्य सामर्थ्यादिति ॥<br>बाह्यप्रकाशानुग्रहाद् विषयोपलब्धेरनभिव्यक्तितोऽनुपलब्धिः ॥३।१।४२॥<br>…… दृष्टान्तस्थान एवैतत् सूत्रम् । …… यत् खलु बाह्यप्रकाशानुग्रहमपेक्षते तस्यानुपलब्धी रूपस्यानभिव्यक्तिरिति । …… यथा विषक्तावयवस्याप्यद्रव्यस्य रूपस्यानुद्भूतेरग्रहणम्, तथा चाक्षुषो रश्मिर्बाह्यप्रकाशानुग्रहमपेक्षते, तस्मादस्यापि रूपस्यानुद्भूतेरग्रहणमिति ॥</div>
+  <div class="tr">（答え）真昼に流星の光が知覚されないように、それ（目の光線）は知覚されない。<br>また、原因の違いによって、知覚されないことは成り立つ。……知覚されうる流星の光が、真昼には、ある原因、すなわち（太陽の光に）圧倒されることによって捉えられないように、知覚されうる目の光線も、ある原因、すなわち色が顕在化していないことによって捉えられないのである。<br>（反論）「そうではない。夜にも知覚されないからである」。<br>「真昼に流星の光が知覚されないのは、太陽の光に圧倒されるからだ」というのは正しくない。（そうなら）すべてのものが光線をもつことになってしまうからである。そうだとすれば、土くれなども光線をもつことになる。……もし土くれなどに光線があるなら、昼は太陽の光に圧倒されて知覚されないとしても、夜には知覚されるはずである。……（そういうわけで土くれに光線はない。）しかし、目の光線はそのように推理されないものではない。壁などの覆いに（視線をさえぎる）力があるからである。<br>（答え）外の光の助けによって対象が知覚されるので、（色が）顕現しないことによって知覚されないのである。<br>……このスートラは、まさに例の位置にある。……外の光の助けを必要とするもの、その知覚されないことは、色が顕現しないことによる、ということである。……部分が散らばった水の実体（湯気）は、色が顕在化していないので捉えられないように、目の光線は外の光の助けを必要とするので、これも色が顕在化していないので捉えられないのである。</div><div class="exp"><span class="lbl">解説</span><p>流星は真昼には見えないが、それは太陽の光に圧倒されるからで、流星の光がないからではない。目の光線も、何かの原因で見えないだけだ、とスートラは言います。反論者は、圧倒が原因なら、夜には目の光線が見えるはずだ、と応じます。Uddyotakara は、目の光線が見えないのは圧倒ではなく、色が顕在化していないからだ、と整理します。目は、明かり（外の光）がなければ物を見られないので、それ自体では色を顕わにしない光だ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「流星」を「（星）」と注し、知覚されない「別の原因」は、色と触が顕在化していないことだ、と説明します。3.1.41 について、「夜にも」の「も」によって、土くれの光線は推理によっても知られないことが示される、という TṬ（p.523）を引きます。3.1.42 は、バーシュヤの「（知覚されないことは）成り立つ形をしている」に文法的に続くスートラだ、と TṬ（p.524）を引きます（Hi. pp.962–966）。</p></div></div>
+</div>
+<div class="mula sutra" id="u9">
+  <span class="ref">pp.359–360 · NS 3.1.43–3.1.44</span>
+  <div class="src deva" lang="sa">अभिव्यक्तौ चाभिभवात् ॥३।१।४३॥<br>कस्मात् पुनर्नयनस्य रश्मेरनुपलब्धिकारणमभिभवो नोच्यत इति ? …… यदुद्भूतरूपं बाह्यप्रकाशानुग्रहं च नापेक्षते तदभिभूयते यथा मध्यन्दिने उल्काप्रकाशः । अनुद्भूतरूपश्च नयनो रश्मिः, बाह्यप्रकाशानुग्रहं चापेक्षते । …… सोऽयमुभयविषयोऽभिभवो नायनरश्मावनुपपन्न इति । विप्रतिपत्तिविषयः कृष्णसारं रश्मिमत् द्रव्यत्वे सति रूपोपलब्धौ नियतस्य साधनाङ्गस्य निमित्तत्वात् प्रदीपवदिति । ……<br>नक्तञ्चरनयनरश्मिदर्शनाच्च ॥३।१।४४॥<br>इति दृष्टान्तसूत्रम् । मानुषं चक्षू रश्मिमत् अप्राप्तिस्वभावत्वे सति रूपाद्युपलब्धिनिमित्तत्वात् नक्तञ्चरचक्षुर्वदिति । जातिभेदवदिन्द्रियभेद इति चेत् ? …… न, आवरणसामर्थ्यसामान्यात् । …… इतश्च भौतिकानीन्द्रियाणि प्रतिघातित्वात् घटादिवदिति । भूतं श्रोत्रम्, द्रव्यत्वे सति बाह्यार्थप्रकाशकत्वात् घ्राणादिवदिति ॥</div>
+  <div class="tr">また、（圧倒は）顕現しているものについてあるからである。<br>では、なぜ目の光線が知覚されない原因として圧倒が言われないのか。……色が顕在化していて、外の光の助けを必要としないもの、それが圧倒される。真昼の流星の光のように。しかし目の光線は、色が顕在化しておらず、外の光の助けを必要とする。……このように、（この）二つ（の条件）に関わる圧倒は、目の光線には成り立たない。（論証）争点となっている黒目は光線をもつ。実体でありながら、色の知覚において決まった手段の部分の原因だから。灯火のように。……<br>（答え）また、夜行動物の目の光線が見られるからである。<br>というのは、例を示すスートラである。人の目は光線をもつ。（対象に）届かない性質のものでありながら、色などの知覚の原因だから。夜行動物の目のように。（反論）「種類の違いのように、感官も違うのだ」と言うなら。……そうではない。覆いの力が共通だからである。……この理由からも、感官は元素からなる。妨げられるから。壺などのように。耳は元素である。実体でありながら、外の対象を照らすから。嗅覚などのように。</div><div class="exp"><span class="lbl">解説</span><p>圧倒は、それ自体で光っているものがより強い光にかき消されることなので、自分では光らない目の光線には当てはまらない（3.1.43）。そして、猫のような夜行動物の目が夜に光るのが見えるのだから、目には光線がある（3.1.44）。反論者は、猫と人とは種類が違うので、感官も違うのだろう、と言いますが、Uddyotakara は、壁が視線をさえぎるのは猫でも人でも同じだから、人の目にも光線がある、と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、3.1.43 の「また」を「外の光の助けを必要としないときに」の意とするバーシュヤを訳し、黒目が光線をもつことと目が光線をもつことの二つの論証を「Vārttika の作者の二つの推理」とします（TṬ p.524）。3.1.44 の夜行動物（<i>vṛṣadaṃśa</i>）を注で「猫」とします。耳が元素であることの論証の限定語について、「届いた」は意を除くため、「外の」は内的な苦を知る意を除くため、「実体でありながら」は接触や見えない力などを除くため、と説明します（Hi. pp.966–968）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「सोऽयमुभयविषयोऽतिभवो」は「…अभिभवो」と、「ननरेवं चाक्षुषो रश्मिरनुमानः」は「…रश्मिरननुमानः」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>ガラス越しに見えること</h2><span class="sub"><span class="pg">pp.360–363</span>スートラ 3.1.45–3.1.51。目は届かずに見るか。ガラスは光線を妨げない。鏡と水の映像</span></div>
+<div class="mula sutra" id="u10">
+  <span class="ref">pp.360–361 · NS 3.1.45–3.1.47</span>
+  <div class="src deva" lang="sa">अप्राप्य ग्रहणं काचाभ्रपटलस्फटिकान्तरितोपलब्धेः ॥३।१।४५॥<br>रश्म्यर्थसन्निकर्षविशेषात् तद्ग्रहणमित्ययुक्तम्, अन्यथापि ग्रहणात् । …… तृणादि सर्पद्द्रव्यं काचेऽभ्रपटले वा व्याहन्यते । यदि च चाक्षुषो रश्मिः प्राप्तार्थप्रकाशकः स्यात् काचाभ्रपटलस्फटिकव्यवहितार्थप्रकाशको न स्यात्, अस्ति तु । तस्मात् न प्राप्यकारि चक्षुरिति । अत एव चाभौतिकम् । प्राप्यकारित्वं हि भौतिकधर्मः ॥<br>कुड्याद्यन्तरितानुपलब्धेरप्रतिषेधः ॥३।१।४६॥<br>अप्राप्यकारित्वे इन्द्रियस्य न कुड्याद्यावरणस्य सामर्थ्यमस्तीत्युक्तम् । शेषं भाष्ये ॥<br>अप्रतिघातात् सन्निकर्षोपपत्तिः ॥३।१।४७॥<br>न काचोऽभ्रपटलं वा रश्मिं विष्टभ्नाति । सोऽप्रतिहन्यमानो व्यतिभिद्यार्थेन संबध्यते ॥</div>
+  <div class="tr">（反論）「（目は対象に）届かずに捉える。ガラス・雲母・水晶で隔てられたものが知覚されるからである」。<br>「光線と対象との特定の接触によって、それが捉えられる」というのは正しくない。別の仕方でも捉えられるからである。……草などの動く物は、ガラスや雲母に当たってさえぎられる。もし目の光線が届いた対象を照らすものなら、ガラス・雲母・水晶で隔てられた対象は照らさないはずだ。しかし（実際には）照らす。だから、目は届いてはたらくのではない。まさにそれゆえに、元素からならない。届いてはたらくことは、元素からなるものの性質だからである。<br>（答え）壁などで隔てられたものは知覚されないので、（目が届いてはたらくことは）否定されない。<br>感官が届かずにはたらくなら、壁などの覆いには（さえぎる）力がないことになる、と（すでに）述べた。残り（の説明）はバーシュヤにある。<br>（答え）妨げられないので、接触は成り立つ。<br>ガラスや雲母は光線を止めない。それ（光線）は、妨げられずに（ガラスなどを）通り抜けて、対象と結びつくのである。</div><div class="exp"><span class="lbl">解説</span><p>反論者の最大の論拠は、ガラス越しに物が見えることです。草のかけらのような物はガラスに当たって止まるのに、目はガラスの向こうの物を見る。だから目は物に届かずに見るのであり、届いてはたらくのが元素からなるものの性質である以上、目は元素からならない、というのです。答えは二つ。届かずに見るなら、壁越しにも見えるはずだ（3.1.46）。ガラスや雲母は光線を止めず、光線は通り抜けて物に届くのだ（3.1.47）。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、3.1.45 の前に「（感官が届いてはたらくことの考察）」という小見出しを置き、このスートラを「前主張」とします。3.1.47 の「それ」を光線とし、「通り抜けて」をガラスの内部を通って、と注します（TṬ p.525）（Hi. pp.969–970）。</p></div></div>
+</div>
+<div class="mula sutra" id="u11">
+  <span class="ref">pp.361–362 · NS 3.1.48–3.1.49</span>
+  <div class="src deva" lang="sa">आदित्यरश्मेः स्फटिकान्तरितेऽपि दाह्येऽविघातात् ॥३।१।४८॥<br>यच्च मन्येत न भौतिकस्यास्त्यप्रतिघात इति, सर्वं भौतिकं प्रतीघातधर्मकमिति, तन्न …… आदित्यरश्मेरविघातात्, स्फटिकान्तरितेऽप्यविघातात्, दाह्येऽप्यविघातात् । अविघातादिति च पदाभिसंबन्धभेदाद् वाक्यभेदः । …… कोऽयमविघातः ? अव्यूह्यमानावयवद्रव्यानुप्रवेशः । …… दृष्टं हि कलशे निषिक्तानामपां बहिः शीतस्पर्शस्य ग्रहणम् । न च गुणस्यास्वतन्त्रस्य गुणिनमन्तरेण बहिर्निर्गमनं युक्तमिति । ……<br>नेतरेतरधर्मप्रसङ्गात् ॥३।१।४९॥<br>इतरधर्म इतरत्र प्रसज्यत इति । यद्यविघातश्चक्षूरश्मेः स्फटिकादिभिः, कुड्यादिभिरपि प्राप्नोति । कुड्यादिभिर्वा प्रतीघात इति स्फटिकादिभिरपि प्राप्नोति ॥</div>
+  <div class="tr">（答え）太陽の光線が、水晶に隔てられていても、燃やすべきものに妨げられずに（届く）からである。<br>また、「元素からなるものには妨げられないことはない。元素からなるものはすべて妨げられる性質をもつ」と考える者がいるなら、それは正しくない。……太陽の光線は妨げられないから、水晶に隔てられていても妨げられないから、燃やすべきもの（に届くこと）も妨げられないから（と三通りに読める）。「妨げられないから」という語は、（他の）語との結びつきの違いによって、文が分かれる。……では、この「妨げられないこと」とは何か。部分が押しのけられることのない実体の中に入り込むことである。……実際、壺に注いだ水の冷たさが、外側で感じられるのが見られる。そして、独立しない性質（冷たさ）が、性質をもつもの（水）なしに外へ出ることは正しくない。……<br>（反論）「そうではない。一方の性質が他方にも当てはまってしまうからである」。<br>一方の性質が他方にも当てはまってしまう。もし目の光線が水晶などに妨げられないなら、壁などにも（妨げられないことに）なる。あるいは、壁などに妨げられるなら、水晶などにも（妨げられることに）なる。</div><div class="exp"><span class="lbl">解説</span><p>元素からなるものでも妨げられないことがある例として、太陽の光が水晶（レンズ）を通って燃える物を燃やすことが挙げられます。「妨げられない」とは、物の部分を押しのけずにその中へ入り込むことで、素焼きの壺の水の冷たさが外側で感じられるのも、水が壺の壁に入り込んでいるからだ、と説明されます。反論者は、ガラスに妨げられないなら壁にも妨げられないはずだ、と食い下がります（3.1.49）。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、バーシュヤに従って「妨げられないから」を三つの文に分けて読みます（太陽の光が壺の中の水を温める、灯火の光が水晶の向こうに届く、火が炒り鍋の中のものを焼く）。注は、Gaṅgānātha Jhā がこれを一つの文と読んだことを、Vārttika の「一つの文は多くの意味を知らせない」という原則によって退けます。「妨げられないこと」の二つの定義について、Vācaspati の説明を TṬ（p.526）から引きます。3.1.49 は論難のスートラで、次の 3.1.50 で答えられる、と注します（Hi. pp.971–973）。</p></div></div>
+</div>
+<div class="mula sutra" id="u12">
+  <span class="ref">pp.362–363 · NS 3.1.50–3.1.51</span>
+  <div class="src deva" lang="sa">आदर्शोदकयोः प्रसादस्वाभाव्याद्रूपोपलब्धिवत्तदुपलब्धिः ॥३।१।५०॥<br>नैष दोषः …… आदर्शोदकयोः प्रसादो रूपविशेषः । स च स्वो भवति नियमात् । कः पुनरयं रूपविशेषः ? द्रव्यान्तरासम्पृक्तद्रव्यसमवायः । …… प्रसादस्वभावत्वाद् आदर्शोदकादिषु नयनरश्मिः प्रतिहन्यते । स च प्रतिहतः प्रतिनिवृत्य स्वमुखादिना संबध्यते । तस्य चाग्रसंबन्धाद् यदभिमुखमग्रं तदभिमुखं मुखादि पश्यतीति यथाग्रतो व्यवस्थितस्य पुरुषस्येति । आदर्शमुखग्रहणं तु क्रमेण भवदपि आशुभावात् न विभाव्यत इति …… शेषं भाष्ये ॥<br>दृष्टानुमितानां हि नियोगप्रतिषेधानुपपत्तिः ॥३।१।५१॥<br>प्रमाणस्य तत्त्वविषयत्वात् । …… न हि यथा धूमेनाग्निप्रतिपत्तिः, तथोदकप्रतिपत्तिरपि भवत्विति । …… व्यवहितोपलब्ध्यानुमीयते स्फटिकादिभिरप्रतिघातः, व्यवहितानुपलब्ध्या च कुड्यादिभिः प्रतिघात इति । यदि प्राप्यकारि चक्षुर्भवति, अथ कस्मादञ्जनशलाकादि नोपलभ्यत इति ? न, इन्द्रियेणासंबन्धात् । …… रश्मिरिन्द्रियं नाधिष्ठानम्, न च रश्मिरञ्जनशलाकादिसंबद्ध इति । एवं तावद् भौतिकानीन्द्रियाणीति व्यवस्थितम् ॥<br>॥ इति इन्द्रियभौतिकत्वप्रकरणम् ॥</div>
+  <div class="tr">（答え）鏡と水とに、澄んでいることが本性としてあるので、色が知覚されるように、それ（水晶越しの対象）が知覚されるのである。<br>この誤りはない。……鏡と水の澄んでいることは、特定の色（の性質）である。それは決まっているので、（それら）自身のものである。この特定の色とは何か。別の実体と混じっていない実体に内属することである。……澄んでいることを本性とするので、鏡や水などで、目の光線は跳ね返される。跳ね返された（光線）は戻ってきて、自分の顔などと結びつく。そして、その（光線の）先端と結びつくので、先端が向いている方向に向かって顔などを見るのである。前に立っている人を（見る）ように。鏡と顔を捉えることは、順を追って生じても、速いので気づかれない。……残り（の説明）はバーシュヤにある。<br>（答え）見られたもの・推理されたものについて、（こうあるべきだという）指図や否定は成り立たないからである。<br>認識手段は事実を対象とするからである。……煙から火が知られるように、水も知られるべきだ、ということはない。……隔てられたものが知覚されることから、水晶などによって妨げられないことが推理され、隔てられたものが知覚されないことから、壁などによって妨げられることが推理される。（反論）「もし目が届いてはたらくなら、なぜ（目に入れた）軟膏の棒などが知覚されないのか」。そうではない。感官と結びついていないからである。……光線が感官であって、（黒目という）拠り所が（感官なの）ではない。そして光線は軟膏の棒などと結びついていない。このように、感官は元素からなる、ということが確定した。<br>感官が元素からなることのプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>水晶は通すのに、壁は通さないのはなぜか。答えは、物にはそれぞれの本性がある、ということです。鏡や水は「澄んでいる」本性をもつので、目の光線を跳ね返す。跳ね返った光線が自分の顔に届くので、鏡の中に顔が見える。水晶は光線を通す本性をもち、壁はさえぎる本性をもつ。それは見たこと・推理したことから知られる事実であって、「水晶が通すなら壁も通すべきだ」と指図することはできない、とスートラ 3.1.51 は言います。最後に、目に軟膏を塗る棒が見えないのは、感官は黒目ではなく光線であって、光線が棒に届いていないからだ、と付け加えて章を閉じます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、TṬ が「鏡や水など」を「鏡など」と読み、これは映像の錯覚が生じる順序を示すものだ、と説明する、と記します（TṬ p.526）。錯覚は似ていることから生じ、剣や宝石に顔が黒く映るのは鏡の色に染められるからだ、と注します。「別の実体と混じっていない実体に内属すること」を「澄んでいること」と言い換えます。3.1.51 の「指図」を「そうあれ」、「否定」を「そうあるな」と定義し、軟膏の棒についての問いを反論とします（Hi. pp.974–977）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストのスートラ 3.1.51 の「दृष्टानुमितां」は「दृष्टानुमितानां」と直しました。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>bhautika / abhautika</dt><dd>元素からなる／元素からならない</dd>
+    <dt>āhaṅkārika</dt><dd>我慢から生じた（サーンキヤの感官観）</dd>
+    <dt>kṛṣṇasāra</dt><dd>黒目。目の拠り所</dd>
+    <dt>raśmi</dt><dd>（目の）光線</dd>
+    <dt>vṛtti</dt><dd>（感官の）はたらき</dd>
+    <dt>udbhūta / anudbhūta</dt><dd>顕在化した／顕在化していない（色・触）</dd>
+    <dt>abhibhava</dt><dd>圧倒（より強い光にかき消されること）</dd>
+    <dt>prāpyakāritva</dt><dd>（対象に）届いてはたらくこと</dd>
+    <dt>pratighāta / avighāta</dt><dd>妨げられること／妨げられないこと</dd>
+    <dt>prasāda</dt><dd>澄んでいること（鏡や水の本性）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第3巻）所収の本文と照合して直した。原文は論点ごとに要点を抜き出した（「……」）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った。ヒンディー訳は、Vārttika が引く「अनेकद्रव्यसमवायाद्रूपविशेषाच्च रूपोपलब्धिः」を 3.1.38 と数えるので、Thakur 版の 3.1.38–50 はヒンディー訳では 3.1.39–51 になる。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第32プラカラナ（スートラ 3.1.32–51）である。第31プラカラナ（スートラ 3.1.27–31）は<a href="nyayavarttika-31-taiyaku.html">第31プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
