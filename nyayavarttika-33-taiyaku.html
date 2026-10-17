@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 33</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-32-taiyaku.html">← プラカラナ32</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>感官は皮膚一つか</a></li><li><a href="#s2"><b>2</b>同時にすべては知覚されない</a></li><li><a href="#s3"><b>3</b>感官の対象は五つ</a></li><li><a href="#s4"><b>4</b>五つの拠り所、五つの元素</a></li>
+    <li><a href="#terms">用語集</a></li>
+    <li><a href="nyayavarttika-34-taiyaku.html">プラカラナ34 →</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第33プラカラナ「感官は多数」（スートラ 3.1.52–61、Thakur 版 pp.364–370）</span>
+  <p>感官は一つなのか、多数なのか。ある論者は、皮膚（触覚）こそがただ一つの感官で、目も耳も舌も鼻も皮膚の特殊な部分にすぎない、と言います。どの感官の拠り所も皮膚に覆われているし、皮膚がなければ何も感じられないからです。スートラは、もし感官が一つなら、目の見えない人にも色が見えるはずだし、すべての対象が同時に知覚されるはずだ、とこれを退けます。</p>
+  <p>ついで、ニヤーヤの側から感官が五つであることが論証されます。知（色・音・香・味・触の知）、拠り所、到達の仕方、大きさ、素材（元素）の五つがそれぞれ違う、というのです。Uddyotakara は、スートラ 3.1.56「感官の対象が五つだから」の論法には欠陥があると率直に指摘し、それを推理として成り立つ形に組み直してみせます。最後に、感官がそれぞれの元素からなることが、感官が捉える性質から論証されます。</p>
+  <p>この章の Vārttika は短いので、原文はほぼ全文を載せました。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>感官が多数であることの章<br><small><i>indriyanānātvaprakaraṇa</i>。スートラ 3.1.52–61 の注釈。Thakur 版 pp.364–370</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.1.52–61<br><small>疑い、皮膚一つ説、同時知覚の難点、対象が五つ、五つの違い、元素との同一性</small></dd></div>
+    <div><dt>論敵</dt><dd>皮膚だけを感官とする者<br><small>ヒンディー訳の注はこの論者を特定の学派に帰さない。最後のスートラの注で、サーンキヤの五つの行為器官（手など）は感官ではない、という TṬ を引く</small></dd></div>
+    <div><dt>見どころ</dt><dd>スートラの論法を組み直す<br><small>§3。Uddyotakara は「このスートラは道理に合わない」と言い、正しい推理の形を示す</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.979–1001</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.365</span> は Thakur 版の頁。節見出しの <span class="pg">pp.364–365</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。この章はほぼ全文を載せた</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.1.52–61 の注釈を、テキストの順に4節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">感官は皮膚一つか</a></td><td class="num">pp.364–365</td><td>スートラ 3.1.52–53。疑いの原因の検討。皮膚一つ説とその難点</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">同時にすべては知覚されない</a></td><td class="num">pp.365–367</td><td>スートラ 3.1.54–55。同時知覚の難点。皮膚は一つではない</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">感官の対象は五つ</a></td><td class="num">pp.367–369</td><td>スートラ 3.1.56–59。対象が五つだから。その論法の組み直し。対象が多ければ感官も多いか</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">五つの拠り所、五つの元素</a></td><td class="num">pp.369–370</td><td>スートラ 3.1.60–61。知・拠り所・到達・大きさ・素材の五つ。感官は元素からなる</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>感官は皮膚一つか</h2><span class="sub"><span class="pg">pp.364–365</span>スートラ 3.1.52–53。疑いの原因の検討。皮膚一つ説とその難点</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.364 · NS 3.1.52</span>
+  <div class="src deva" lang="sa">स्थानान्यत्वे नानात्वादवयविनानास्थानत्वाच्च संशयः ॥३।१।५२॥<br>किं पुनरेकमिन्द्रियम्, आहो अनेकमिति ? एके तु …… स्थानान्यत्वे नानात्वं दृष्टम्, यथा बहूनां घटादीनाम् । एकस्य च नानास्थानत्वम्, यथावयविन इति । अनुपपन्नरूपश्चायं संशयः । कथमिति ? …… सोऽयं संशय उभयथा अनुपपन्न इन्द्रियेषु । स्थानेषु तु युक्तः । …… शरीरव्यतिरेकात् सत्त्वाच्च संशयः । शरीरव्यतिरिक्तमुभयथा दृष्टमेकमनेकं च, यथाकाशं घटादि च । सच्चोभयथा दृष्टमेकमनेकं च । तदेवमुभयं चेन्द्रियेषु शरीरव्यतिरेकश्च सत्त्वं च । तेन संदिह्यत इति ॥५२॥</div>
+  <div class="tr">場所が別なら多数であるから、また、一つの全体が多くの場所にあるから、疑いがある。<br>では、感官は一つなのか、多数なのか。ある人々は（疑いの原因を）……（と言う）。場所が別なら多数であることが見られる。多くの壺などのように。また、一つのものが多くの場所にあることも（見られる）。全体のように。（しかし）この疑いは成り立たない形をしている。どのようにか。……このように、この疑いは感官については二通りとも成り立たない。（感官の）場所については成り立つが。……（そうではなく）身体と別であることと、存在することとから、疑いがある。身体と別のものは、一つのものも多数のものも見られる。虚空と壺などのように。存在するものも、一つのものも多数のものも見られる。そして感官には、身体と別であることと存在することの両方がある。それで疑われるのである。</div><div class="exp"><span class="lbl">解説</span><p>スートラの挙げる疑いの原因は、別々の場所にあるもの（多くの壺）は多数だが、一つの全体（一枚の布）も多くの場所にまたがる、ということです。Uddyotakara は、この原因では、感官そのものではなく、感官の「場所」が一つか多数かの疑いにしかならない、と注文をつけ、別の疑いの原因を示します。感官は身体と別のものとして存在するが、身体と別のものには、虚空のように一つのものも、壺のように多数のものもある。だから感官が一つか多数かが疑われる、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、この章の見出しを「感官が一つであることの考察」とします。注は、「ある人々」を、バーシュヤを顧みずにスートラを字義どおりに説明する他の注釈者とし、TṬ の「ある人々はこのスートラをバーシュヤの説とは無関係に字義どおり説明する」を引きます。「場所が別なら」の処格は原因を表す、と TṬ（p.527）を引き、TṬ（p.528）が、感官を対象とする疑いとしてはバーシュヤの説明の方がよく、「身体と別であること」などは Vārttika の作者自身の疑いの種だ、と述べることを紹介します（Hi. pp.979–980）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版はこのスートラを 3.1.51 と数えますが、ヒンディー訳の番号に従って 3.1.52 としました（以下、この章では Thakur 版より一つ大きい）。</p></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.364–365 · NS 3.1.53</span>
+  <div class="src deva" lang="sa">त्वगव्यतिरेकात् ॥३।१।५३॥<br>एकमिन्द्रियम् । किं पुनस्तत् ? त्वगव्यतिरेकात् । कः पुनरयमव्यतिरेकः ? सर्वाधिष्ठानसंबन्धः । न हि किञ्चिदिन्द्रियाधिष्ठानं त्वचा न प्राप्तम् । सति भावो वा । न ह्यसत्यां त्वचि किञ्चिद् विषयग्रहणं भवति । तस्मात् त्वगेकमिन्द्रियम् । नेन्द्रियान्तरार्थानुपलब्धेरिति लोकविरोधः । …… विद्यमाने त्वगिन्द्रिये स्पर्शोपलब्धिलिङ्गे इन्द्रियान्तरार्था रूपादयोऽन्धादिभिरप्युपलभ्येरन् । न तूपलभ्यन्ते । …… अवयवोपघातादिति चेत् ? …… त्वगवयवविशेषधूमोपलब्धिवद् रूपाद्युपलब्धिं ब्रुवता यदुक्तमेकमिन्द्रियमिति तद् व्याहतं भवति । …… यांश्चावयवान् रूपादिग्राहकान् त्वचो मन्यसे, ते किमिन्द्रियात्मका उत नेति ? …… यदीन्द्रियात्मकाः, नैकमिन्द्रियम् । अथेन्द्रियात्मका न भवन्ति, न तर्हि इन्द्रियग्राह्या रूपादय इति ॥५३॥</div>
+  <div class="tr">（反論）「（感官は一つである。すべてが）皮膚と別でないからである」。<br>感官は一つである。では、それは何か。（皮膚である。）皮膚と別でないからである。この「別でない」とは何か。すべての拠り所と結びついていることである。感官の拠り所で、皮膚が達していないものはない。あるいは、（皮膚が）あるときに（知覚が）あること（が「別でない」の意味である）。皮膚がなければ、どんな対象も捉えられない。だから、皮膚が唯一の感官である、と。（答え）そうではない。（そうなら）別の感官の対象が知覚されないこと（の説明がつかない）ので、世間と矛盾する。……触覚の知覚を目印とする皮膚の感官があるかぎり、別の感官の対象である色などが、目の見えない人などにも知覚されるはずである。しかし、知覚されない。……（反論）「（皮膚の）部分が損なわれているからだ」と言うなら。……皮膚の特定の部分による煙（の熱さ）の知覚と同じように、色などの知覚を（皮膚の部分によるものと）言う者は、「感官は一つである」と言ったことと矛盾する。……あなたが色などを捉えると考える皮膚の部分は、感官なのか、そうでないのか。……もし感官なら、感官は一つではない。もし感官でないなら、色などは感官によって捉えられないことになる。</div><div class="exp"><span class="lbl">解説</span><p>皮膚一つ説の論拠は、目も耳も舌も鼻も、すべて皮膚に覆われていて、皮膚がなければ何も感じられない、ということです。Uddyotakara は、皮膚さえあれば何でも知覚できるのなら、目の見えない人にも色が見えるはずだ、と答えます。反論者は、目の見えない人は、色を捉える皮膚の特定の部分が損なわれているのだ、と言い逃れますが、その「部分」が感官なら感官は多数になり、感官でないなら色は感官で捉えられないことになる、という両刀論法で退けられます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「あるいは、あるときに」の「あるいは」は「また」の意だ、と TṬ（p.528）を引きます。「世間と矛盾する」の「世間」を、Vācaspati は「それによって知られるもの、すなわち認識手段」と注するが（TṬ p.528）、訳者は日常の経験という素直な意味と考える、と記します。皮膚の部分という反論には「疑問」と見出しを付け、後のスートラ 3.1.70 を参照させます。注の一部は OCR が崩れています（Hi. pp.980–984）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「स्पर्शोपलब्धिलिङ्गैः」は、文脈から「स्पर्शोपलब्धिलिङ्गे」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>同時にすべては知覚されない</h2><span class="sub"><span class="pg">pp.365–367</span>スートラ 3.1.54–55。同時知覚の難点。皮膚は一つではない</span></div>
+<div class="mula sutra" id="u3">
+  <span class="ref">pp.365–366 · NS 3.1.54</span>
+  <div class="src deva" lang="sa">न युगपदर्थानुपलब्धेः ॥३।१।५४॥<br>…… यस्यैकमिन्द्रियं तस्य युगपदर्थानामुपलब्धिः प्रसज्यते । कथमिति ? आत्मा मनसा संबध्यते, मन इन्द्रियेण, इन्द्रियं सर्वार्थैः सन्निहितैरिति आत्मेन्द्रियमनोऽर्थसन्निकर्षेभ्यो युगपद् बुद्धयः प्रादुर्भवेयुरिति । नानेकेन्द्रियग्राह्याणां युगपदुपलब्धिप्रसङ्गात् । …… अत्र केचित् परिहारं वर्णयन्ति । बुभुत्साभेदात् न युगपदुपलब्धिरिति । ममाप्येवम् । …… करणत्वादित्यन्ये । …… करणस्य किलायं धर्मः, अधिष्ठितमप्यनेकां क्रियां न युगपत् शक्नोति कर्तुम् । …… एवं ब्रुवाण एकेन्द्रियवादी विकल्पतः पर्यनुयोज्यः । यत् तदेकमिन्द्रियं सर्वार्थमिति मन्यसे, तत् किं प्राप्यकारि, आहो नेति ? …… यदि त्वक्, त्वचा अप्राप्तानां रूपाणामग्रहणप्रसङ्गः । अथाप्राप्तं रूपं गृह्णाति, स्पर्शादिष्वप्येवं प्रसङ्गः । …… व्याहतं चैतत्, करणं प्राप्यकारि चाप्राप्यकारि चेति । असाहचर्याच्च न त्वक् । …… इत्यन्धबधिराद्यभावप्रसङ्गः ॥५४॥</div>
+  <div class="tr">（答え）そうではない。（すべての）対象が同時に知覚されることはないからである。<br>……感官が一つだとする者には、対象が同時に知覚されることになってしまう。どのようにか。我は意と、意は感官と、感官は近くにあるすべての対象と結びつくので、我・感官・意・対象の接触から、同時に（多くの）知が生じるはずだからである。（反論）「そうではない。（あなたにも）多くの感官で捉えられるものが同時に知覚されることになってしまうからである」。……これについて、ある人々は、「知りたい欲求が違うので、同時には知覚されない」と答える。（反論者は言う。）「私にとっても同じだ」と。……別の人々は、「（感官は）手段だからだ」と言う。……手段の性質として、（行為者に）統率されていても、多くの動作を同時に行うことはできない、と。……このように言う、感官は一つだとする論者は、選択肢によって問いただされるべきである。あなたがすべてを対象とすると考えるその一つの感官は、（対象に）届いてはたらくのか、そうでないのか。……もし皮膚なら、皮膚が届かない色は捉えられないことになる。もし届かない色を捉えるなら、触などについても同じことになる。……手段が、届いてはたらき、また届かずにはたらく、というのは自己矛盾である。また、ともにあることがないので、皮膚（一つ）ではない。……（そうなら）目の見えない人や耳の聞こえない人がいないことになってしまう。</div><div class="exp"><span class="lbl">解説</span><p>感官が一つで、それがすべての対象と結びつくなら、色も音も香りも同時に知覚されるはずだが、実際にはそうならない（3.1.54）。反論者は、ニヤーヤでも、たとえば目一つで捉えられる多くの色が同時に知覚されることになってしまう、と切り返し、ニヤーヤが持ち出す答え（知りたい欲求の違い、手段の性質）はこちらにも使える、と言います。Uddyotakara は、その一つの感官が届いてはたらくのか、届かずにはたらくのかを問い、どちらでも、あるいは両方だとしても矛盾に陥る、と論じます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.54 を定説のスートラとし、「スートラとの結びつき」を定説との結びつきと読む TṬ（p.529）を引きます。「多くの感官で捉えられるもの」という反論は、それまでの説明を Vārttika が批判するものだ、とします（TṬ p.529）。「半ば」（<i>sāmi</i>）を「半分」と注し（TṬ p.529）、『パリシュッディ』から「ここで言おうとしているのは知が同時であることではなく、対象を一度に捉えることだ」を引きます（Hi. pp.985–987）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストには「युगपदुTheपलब्धि」のような崩れが繰り返し現れるので、「युगपदुपलब्धि」と直しました。また「नैकेन्द्रियग्राह्याणां」は、文脈から「नानेकेन्द्रियग्राह्याणां」と読みました。</p></div>
+</div>
+<div class="mula sutra" id="u4">
+  <span class="ref">p.367 · NS 3.1.55</span>
+  <div class="src deva" lang="sa">विप्रतिषेधाच्च न त्वगेका ॥३।१।५५॥<br>शेषं भाष्ये । एकोपघाते तद्विनाशे वा सर्वानुपलब्धिप्रसङ्गः । …… आवरणानुपपत्तिश्च । यदि त्वगेकमिन्द्रियं भवति नावरणस्य सामर्थ्यमस्तीति व्यवहिताव्यवहितरूपोपलब्धिप्रसङ्गः । दूरान्तिकानुविधानं चोपलब्ध्यनुपलब्ध्योर्न स्यात् । अप्राप्यकारित्वे त्वगिन्द्रियस्यान्तिके ग्रहणं दूरे चाग्रहणमित्येतत् न स्यात् ॥५५॥</div>
+  <div class="tr">また、矛盾するので、皮膚が唯一（の感官）なのではない。<br>残り（の説明）はバーシュヤにある。一つ（の感官）が損なわれたり滅びたりすれば、すべてが知覚されなくなってしまう。……また、覆いが成り立たない。もし皮膚が唯一の感官で（色を、届かずに捉えるので）あれば、覆いには（さえぎる）力がないので、隔てられた色も隔てられていない色も知覚されることになってしまう。また、知覚と非知覚とが、遠い・近いに従うことがなくなってしまう。皮膚の感官が届かずにはたらくなら、近いものは捉え遠いものは捉えない、ということがなくなってしまう。</div><div class="exp"><span class="lbl">解説</span><p>皮膚一つ説のさらなる矛盾です。感官が一つなら、その感官が損なわれればすべてが感じられなくなるはずだが、目が見えなくても音は聞こえる。また、皮膚が色を届かずに捉えるのなら、壁の向こうの物も、遠くの物も、近くの物と同じように見えるはずだ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、このスートラは Viśvanātha の注にも、Gaṅgānātha Jhā に帰される注にもなく、TṬ にも見えないが、『ニヤーヤ・スーチー・ニバンダ』にはある、と記します。「一つが損なわれれば……」の議論は新しい誤りの指摘だ、と注します（Hi. pp.988–989）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>感官の対象は五つ</h2><span class="sub"><span class="pg">pp.367–369</span>スートラ 3.1.56–59。対象が五つだから。その論法の組み直し。対象が多ければ感官も多いか</span></div>
+<div class="mula sutra" id="u5">
+  <span class="ref">pp.367–368 · NS 3.1.56</span>
+  <div class="src deva" lang="sa">इन्द्रियार्थपञ्चत्वात् ॥३।१।५६॥<br>प्रतिषेधाच्च नानात्वसिद्धौ स्थापनाहेतुरप्युपादीयते …… प्रतिषेधादेकत्वसाधनमनुमानं निवर्तते, न पुनरेकत्वमनेकत्वं वा निवर्तत इति । …… तदेवमवीतसिद्धौ वीतदर्शनार्थमिदमुच्यते — इन्द्रियार्थपञ्चत्वात् — इति सूत्रम् । अर्थः प्रयोजनमित्येवमादि भाष्ये । इदं च सूत्रं न कथञ्चन न्यायेन संबध्यते । कथमिति ? विधीयमानोऽर्थः साध्यः पञ्चेन्द्रियाणीति, इन्द्रियार्थपञ्चत्वादित्यसंबद्धम् । अथ प्रयोजनपञ्चत्वम् ? तदप्येवमेव । …… इदं तु सूत्रमेवं स्यात् । रूपरसगन्धस्पर्शशब्देषु नानासाधनक्रियः कर्ता, एकविषयावसितौ विषयान्तरसिद्ध्यै करणान्तरापेक्षित्वात् । यस्य कर्तुरनेको विषयः, तस्यान्यतमविषयावसाये विषयान्तरसिद्धौ साधनान्तरापेक्षित्वं दृष्टम् । यथानेकशिल्पपर्यवदातस्य पुरुषस्य रथक्रियावसाये घटादिक्रियायां करणान्तरापेक्षित्वम् …… तस्माद् रूपरसगन्धस्पर्शशब्देषु नानासाधनक्रियः कर्तेति ॥५६॥</div>
+  <div class="tr">（答え）感官の対象が五つだからである。<br>また、（一つであることの）否定によって多数であることが成立しているところに、（多数であることを）確立する理由も示される。……否定によって退けられるのは、一つであることを論証する推理であって、一つであること、あるいは多数であることそのものが退けられるのではない。……このように、否定による論証（アヴィータ）が成立したところに、肯定による論証（ヴィータ）を示すために、「感官の対象が五つだから」というスートラが言われる。「対象とは目的である」などはバーシュヤにある。しかし、このスートラは、どうしても道理に合わない。どのようにか。論証されるべき、肯定される事柄は「感官は五つである」であり、「感官の対象が五つだから」は（それと）関係がない。また、目的が五つ（だから、と読む）なら、それも同じことである。……このスートラは、むしろ次のようであるべきだろう。「色・味・香・触・音について、（その）行為者は、多くの手段による動作をもつ。一つの対象（の知）が終わったとき、別の対象を成就するために、別の道具を必要とするから。多くの対象をもつ行為者には、一つの対象が終わったとき、別の対象を成就するのに別の手段を必要とすることが見られる。たとえば、多くの技術に通じた人が、車を作り終えて壺などを作るときには、別の道具を必要とするように。……だから、色・味・香・触・音について、行為者は多くの手段による動作をもつ」と。</div><div class="exp"><span class="lbl">解説</span><p>注目すべき一節です。スートラ 3.1.56 は「感官の対象が五つだから、感官は五つ」と論じますが、Uddyotakara は、このスートラは「どうしても道理に合わない」と率直に言います。「対象が五つ」は「感官が五つ」の理由として直接つながらない、というのです。そこで彼は、成り立つ推理の形に組み直します。多くの技術をもつ職人が、車を作り終えて壺を作るときには別の道具に持ち替えるように、色を見た者が音を聞くには別の手段が要る。だから、色・味・香・触・音を知る者は、それぞれ別の手段（感官）をもつ、と。スートラに対してこれほど批判的な態度を見せるのは珍しいことです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「否定の後に、別に確立する理由」という TṬ（p.529）の読みを引き、否定による理由の例として、無我の否定によって生きた身体が我をもつことを示す TṬ の例を挙げます。また、論証されるべきものの否定そのものが論証すべきことである場合には、論証の論駁で足りる、という『パリシュッディ』の説を紹介し、ヴィータとアヴィータの区別は『サーンキヤ・タットヴァ・カウムディー』にも見られる、と記します（Hi. pp.989–992）。</p></div></div>
+</div>
+<div class="mula sutra" id="u6">
+  <span class="ref">pp.368–369 · NS 3.1.57–59</span>
+  <div class="src deva" lang="sa">न, तदर्थबहुत्वात् ॥३।१।५७॥<br>अस्य यथाश्रुत्युत्थानम् । अस्य चार्थ इन्द्रियपञ्चत्वविरोधः । न, विरोधात् । …… नासाधनात् । न मयार्थबहुत्वादिन्द्रियबहुत्वं साध्यते …… यदीन्द्रियार्थपञ्चत्वात् पञ्चेन्द्रियाणि भवन्ति, इन्द्रियार्थबहुत्वाद् बहूनीन्द्रियाणीति प्रसज्यत इति ॥५७॥<br>गन्धत्वाद्यव्यतिरेकाद्गन्धादीनामप्रतिषेधः ॥३।१।५८॥<br>…… गन्धत्वादिभिः स्वसामान्यैः कृतव्यवस्था गन्धादयो न स्वकरणव्यतिरेकेण करणान्तराणि प्रयोजयन्ति । यावत्सु गन्धत्वं वर्तते, तावतामेकसाधनसाध्यत्वात् । यः पुनरपरजातिभेद इष्टानिष्टोपेक्षणीयत्वादिः, नासौ करणान्तरं प्रयोजयति । एवं सर्वत्र । शेषं भाष्ये ॥५८॥<br>विषयत्वाव्यतिरेकादेकत्वम् ॥३।१।५९॥<br>यदि सामान्यं संग्राहकं प्राप्तमिन्द्रियाणां — विषयत्वाव्यतिरेकादेकत्वम् । अस्याप्यर्थोऽविरोध एव । नोक्तोत्तरत्वात् । …… ॥५९॥</div>
+  <div class="tr">（反論）「そうではない。それ（感官）の対象は多数だからである」。<br>これは字義どおりに立てられた（反論である）。その意味は、感官が五つであることへの矛盾の指摘である。（反論者に対して）そうではない。（あなた自身の主張と）矛盾するからである。……（反論者は答える。）「そうではない。（私は）論証していないからである。私は、対象が多数だから感官が多数だと論証しているのではない。……もし感官の対象が五つだから感官が五つなら、感官の対象が多数だから感官も多数になってしまう（と言っているのだ）」。<br>（答え）香性などから離れないので、香などについては、（我々の主張は）否定されない。<br>……香性などのそれぞれの普遍によって区分された香などは、自分（を捉える）手段とは別に、別の手段を必要としない。香性があるかぎりのものは、すべて一つの手段で捉えられるからである。好ましい・好ましくない・どちらでもない、などの別の種類の違いは、別の手段を必要としない。すべてについて同じである。残り（の説明）はバーシュヤにある。<br>（反論）「対象であることから離れないので、（感官は）一つである」。<br>もし（香性などの）普遍が（対象を）まとめるものなら、（対象であることという普遍によって）感官は一つになる。対象であることから離れないから、と。これの意味も、矛盾の指摘にほかならない。そうではない。答えはすでに述べたからである。……</div><div class="exp"><span class="lbl">解説</span><p>反論者は、対象が五つだから感官が五つなら、対象（個々の色や音）は無数にあるのだから感官も無数になるはずだ、と突きます（3.1.57）。答え（3.1.58）は、対象は「香」「色」などの普遍によって五種類にまとめられており、香であるかぎりのものは一つの感官で捉えられる、というものです。すると反論者は、それなら「対象であること」という普遍でまとめれば、感官は一つになる、と言います（3.1.59）。Uddyotakara は、それにはすでに答えた、と退けます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.57 を論難（前主張）のスートラとし、3.1.58 を答えのスートラとします。Vārttika は 3.1.58 を「香性などから離れない」ではなく「香性から離れない」と読む、と注します。バーシュヤの「触は三種である」も訳しています。3.1.59 は疑問で、次の 3.1.60 が定説だ、とします（Hi. pp.992–995）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>五つの拠り所、五つの元素</h2><span class="sub"><span class="pg">pp.369–370</span>スートラ 3.1.60–61。知・拠り所・到達・大きさ・素材の五つ。感官は元素からなる</span></div>
+<div class="mula sutra" id="u7">
+  <span class="ref">pp.369–370 · NS 3.1.60</span>
+  <div class="src deva" lang="sa">न, बुद्धिलक्षणाधिष्ठानगत्याकृतिजातिपञ्चत्वेभ्यः ॥३।१।६०॥<br>…… तत्र बुद्धय एव लक्षणानीत्यस्यार्थो वर्णित इन्द्रियार्थपञ्चत्वादिति । नानेन्द्रियं भिन्नाधिष्ठानत्वात् । यस्याधिष्ठानं भिन्नं तदनेकं दृष्टं यथा घटादि । …… गतिभेदादिन्द्रियभेदो भिन्नगतित्वादिति प्रयोगः पूर्ववत् । आकृतिः परिमाणमियत्ता । स्वस्थानप्रमाणानि घ्राणरसनस्पर्शनानि । चक्षुर्बहिर्विनिःसृतं विषयव्यापि तन्महत् । श्रोत्रं त्वाकाशम्, तदधिष्ठाननियमेन प्रवर्तते । धर्माधर्मसंस्कृतया इष्टानिष्टोपेक्षणीयशब्दसाधनभूतया कर्णशष्कुल्या य आकाशस्य सम्बन्धः, तत्सम्बन्धानुविधाय्याकाशम्, न विवरान्तरेणास्यादिना शब्दमुपलम्भयति । …… जातिरिति योनिं प्रचक्ष्महे । पञ्च खल्विमा इन्द्रिययोनयः पृथिव्यादीनि भूतानि इन्द्रियाणां योनय इति । योनिस्तादात्म्यं न पुनस्तत्कार्यत्वम्, आकाशेऽसम्भवादिति तन्नित्यत्वात् ॥६०॥</div>
+  <div class="tr">（答え）そうではない。知という特徴・拠り所・到達の仕方・大きさ・素材の五つ（の違い）があるからである。<br>……そのうち、「知こそが特徴である」ということの意味は、「感官の対象が五つだから」（の箇所）で述べた。（論証）感官は多数である。拠り所が別々だから。拠り所が別々のものは、多数であることが見られる。壺などのように。……到達の仕方の違いから感官が違う、別々の到達の仕方をもつから、という論証も前と同じである。大きさとは、量、すなわちどれだけの大きさか、である。嗅覚・味覚・触覚は、自分の場所の大きさしかない。目は外へ出て対象に行きわたるので、大きい。耳は虚空であり、その拠り所の決まりに従ってはたらく。善業・悪業によって形づくられ、好ましい・好ましくない・どちらでもない音（を聞くため）の手段である耳の穴と虚空との結びつき、その結びつきに従う虚空（が耳）であり、口などの別の穴によって音を知覚させるのではない。……「素材」とは源のことだ、と我々は言う。地などの五つの元素が、感官の源である。源とは同一性（それと同じ本性であること）であって、それの結果であることではない。虚空（の場合）にはありえないからである。それ（虚空）は常住だからである。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.1.60 は、感官が五つであることを、五つの違いによって示します。①生じる知（色の知、音の知……）が違う。②拠り所（黒目、耳の穴、舌、鼻、皮膚）が違う。③到達の仕方が違う。④大きさが違う。嗅覚・味覚・触覚はその場所の大きさしかないが、目は外へ出て対象に行きわたる。耳は虚空そのもので、業によって形づくられた耳の穴と結びついた部分だけがはたらく。⑤素材（源）が違う。地などの五元素がそれぞれの感官の源です。ただし、耳である虚空は常住で作られたものではないので、「源」は「それから作られた」ではなく「それと同じ本性をもつ」という意味だ、と Uddyotakara は注意します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「別々の」を「決まった」と言い換える TṬ（p.530）を引き、「どちらでもない」音を聞くことも人の目的に入る、と TṬ（p.530）を引きます。耳の聞こえの良し悪しは、虚空ではなく耳の穴が益されたり損なわれたりすることによる、と説明します。この部分のヒンディー訳と注は OCR でかなり崩れています（Hi. pp.995–998）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「इष्टानिष्टोपक्षणीय」「कर्णष्कुल्या」は、それぞれ「इष्टानिष्टोपेक्षणीय」「कर्णशष्कुल्या」と直しました。</p></div>
+</div>
+<div class="mula sutra" id="u8">
+  <span class="ref">p.370 · NS 3.1.61</span>
+  <div class="src deva" lang="sa">भूतगुणविशेषोपलब्धेस्तादात्म्यम् ॥३।१।६१॥<br>कथं पुनर्ज्ञायते भूतप्रकृतीनीन्द्रियाणि नाव्यक्तप्रकृतीनीति ? न, उक्तोत्तरत्वात् । …… भूतगुणविशेषा गन्धरसरूपस्पर्शशब्दा विशेषकत्वाद् विशेषा इत्युच्यन्ते । यस्माद् गन्धेन पृथिव्यादिभ्यो विशिष्यते, रसादिभिरबादय इति । दृष्टो हि बाह्यानामुभयपक्षसंप्रतिपन्नानां पृथिव्यादिभूतानां स्वगुणाभिव्यक्तिनियमः । अस्ति च घ्राणादिभिरपि गन्धादिव्यक्तिनियमः । तेन भूतगुणविशेषोपलब्धेर्भूतप्रकृतीनीन्द्रियाणि । किं किमात्मकमिति ? येन यद्गुणाभिव्यक्तिः । तत्र पार्थिवं घ्राणं गन्धाभिव्यक्तिहेतुत्वात्, बाह्यपार्थिववदिति । एवं शेषेषु ॥६१॥<br>॥ इन्द्रियनानात्वप्रकरणम् ॥</div>
+  <div class="tr">元素の特定の性質が知覚されるので、（感官はそれぞれの元素と）同一の本性をもつ。<br>では、感官が元素を素材とし、未顕現のもの（根本原質）を素材としないことは、どのように知られるのか。（ここでそれを問うのは）正しくない。答えはすでに述べたからである。……元素の特定の性質とは、香・味・色・触・音であり、区別するものなので「特定の」と言われる。香によって地は他（の元素）から区別され、味などによって水などが（区別される）からである。実際、外にある、（我々と相手の）両方が認める地などの元素には、自分の性質を現すことについての決まりが見られる。そして嗅覚などにも、香などを現すことについての決まりがある。それで、元素の特定の性質が知覚されるので、感官は元素を素材とする。どれが何の本性をもつのか。それによってどの性質が現されるか（による）。そのうち、嗅覚は地からなる。香を現す原因だから。外にある地からなるもののように。残り（の感官）についても同様である。<br>感官が多数であることのプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>最後のスートラは、感官がそれぞれの元素からなることを示します。香は地だけの、味は水だけの性質なので、香だけを捉える嗅覚は地から、味だけを捉える味覚は水からなる、というように、捉える性質によって感官の素材がわかる。外の地が香を現すように、嗅覚も香を現すのだから、嗅覚は地からなる、という論証です。こうして、前章の「感官は元素からなる」の議論と合わせて、感官の考察が完結します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「未顕現のもの」を「（原質または我慢）」と補います。注は TṬ（p.530）から、「嗅覚は地からなる。香を現すから。麝香の香りを引き立てる鶏の糞などが地からなるように」という説明を引きます。さらに、だから知覚の感官は五つだけで、手など（サーンキヤの行為器官）は感官ではない、という TṬ（p.531）を引きます。なお、ヒンディー訳の OCR ではこのスートラの頁（p.1000）とその続き（p.999）の順序が入れ替わっています（Hi. pp.999–1000）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>tvak</dt><dd>皮膚（触覚の感官）</dd>
+    <dt>adhiṣṭhāna</dt><dd>（感官の）拠り所</dd>
+    <dt>yugapad upalabdhi</dt><dd>同時の知覚</dd>
+    <dt>bubhutsā</dt><dd>知りたい欲求</dd>
+    <dt>vīta / avīta</dt><dd>肯定による論証／否定による論証</dd>
+    <dt>gati / ākṛti / jāti</dt><dd>到達の仕方／大きさ／素材（源）（スートラ 3.1.60 の用法）</dd>
+    <dt>tādātmya</dt><dd>同一の本性をもつこと</dd>
+    <dt>bhūtaguṇaviśeṣa</dt><dd>元素の特定の性質（香・味・色・触・音）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第3巻）所収の本文と照合して直した。この章はほぼ全文を載せた（「……」は省略箇所）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った（Thakur 版の番号より一つ大きい）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第33プラカラナ（スートラ 3.1.52–61）である。第32プラカラナ（スートラ 3.1.32–51）は<a href="nyayavarttika-32-taiyaku.html">第32プラカラナのページ</a>にある。続く第34プラカラナ（感官の対象の考察、スートラ 3.1.62–73）は<a href="nyayavarttika-34-taiyaku.html">第34プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
