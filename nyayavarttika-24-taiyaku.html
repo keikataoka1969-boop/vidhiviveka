@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 24</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-23-taiyaku.html">← プラカラナ23</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>変化か置換か</a></li><li><a href="#s2"><b>2</b>金の腕輪と文字</a></li><li><a href="#s3"><b>3</b>決まりのなさと文字の「変化」</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第24プラカラナ「音の変化」（スートラ 2.2.40–57、Thakur 版 pp.294–298）</span>
+  <p>サンスクリットでは、<i>dadhi</i>（ヨーグルト）と <i>atra</i>（ここに）が続くと <i>dadhy atra</i> となり、i の音が y に替わります。文法家はこれを、ある所では「変化」（<i>vikāra</i>）、ある所では「置換」（<i>ādeśa</i>）と呼びます。では、i が y へと変化するのか、それとも i が消えて y が代わりに置かれるのか。音（文字）が常住か無常かを論じた前章に続いて、この章は、文字が別の文字に「変化」するという考えを検討します。</p>
+  <p>ニヤーヤの答えは「置換」です。乳がヨーグルトになるように、原質（<i>prakṛti</i>）が変化物になるなら、原質の大小に変化物が従うはず、変化物が元に戻ることはないはず、原質と変化物は決まっているはずだが、i と y の関係はそのどれにも当てはまらない、というのです。反論者は、金が腕輪になってまた金に戻ることなどを挙げて応じますが、退けられます。</p>
+  <p>この章の Vārttika はきわめて短く、Uddyotakara 自身も最後に「この議論はバーシュヤの作者がすでに正しく論じたので、スートラの意味だけを述べた」と言います。そのため、原文は省略せずに全文を載せました。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>音の変化の章<br><small><i>śabdapariṇāmaprakaraṇa</i>。スートラ 2.2.40–57 の注釈。Thakur 版 pp.294–298</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.2.40–57<br><small>文字の「変化」をめぐる疑い、変化説の否定、二つの誤難、「文字の変化」という言い方の意味</small></dd></div>
+    <div><dt>論敵</dt><dd>文字が別の文字に変化すると説く者<br><small>ヒンディー訳の注は、文字を原質と変化物の関係で捉え、変化しつつ常住であるとするサーンキヤへの反論とする。文法家の名は挙げない</small></dd></div>
+    <div><dt>見どころ</dt><dd>金は腕輪になっても金である<br><small>§2。i と y の両方に共通して残る「文字そのもの」はない</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.787–802</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.295</span> は Thakur 版の頁。節見出しの <span class="pg">pp.294–295</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。この章は全文を載せた</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.2.40–57 の注釈を、テキストの順に3節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">変化か置換か</a></td><td class="num">pp.294–295</td><td>スートラ 2.2.40–45。疑い。原質の大小に従わないので変化ではない</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">金の腕輪と文字</a></td><td class="num">pp.295–297</td><td>スートラ 2.2.46–53。元に戻ること、金の例、常住でも無常でも変化しない、二つの誤難</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">決まりのなさと文字の「変化」</a></td><td class="num">pp.297–298</td><td>スートラ 2.2.54–57。原質が決まっていない。「文字の変化」という言い方の意味</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>変化か置換か</h2><span class="sub"><span class="pg">pp.294–295</span>スートラ 2.2.40–45。疑い。原質の大小に従わないので変化ではない</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.294 · NS 2.2.40</span>
+  <div class="src deva" lang="sa">विकारादेशोपदेशात् संशयः ॥२।२।४०॥<br>इति संशयज्ञापनार्थं सूत्रम् ॥४०॥</div>
+  <div class="tr">「変化」と「置換」との教えがあるので、疑いがある。<br>というのは、疑いを知らせるためのスートラである。</div><div class="exp"><span class="lbl">解説</span><p>前提になっているのは、バーシュヤの挙げる <i>dadhi atra</i> → <i>dadhy atra</i> の例です。ある人々は「i が y に変化する」と教え、別の人々は「i の代わりに y が置かれる」と教える。そのどちらが正しいのか、という疑いがこの章の出発点です。Vārttika は、このスートラは疑いを示すためのものだ、と言うだけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、このスートラに「（前主張）」と見出しを付けます。冒頭の注は、音には文字としての音と響きとしての音の二種があるとしたうえで、この節を、文字を原質と変化物の関係で捉え、「変化しつつ常住である」（<i>pariṇāminityatā</i>）とするサーンキヤへの反論と位置づけます。前章で、音が色などとともに物に潜んでいて顕現するというサーンキヤ説を退けたのに続くもの、という説明です。変化と置換の両説を、パーニニの規則「<i>iko yaṇ aci</i>」（i などは母音の前で y などになる）に結びつけますが、文法家の名は挙げません。変化とは、担い手が残ったまま一つの性質が消えて別の性質が現れること（金で、腕輪であることが指輪であることに替わる）、と定義します。バーシュヤが置換の理由を五つ挙げていると数え、<i>as</i> の代わりに <i>bhū</i>、<i>brū</i> の代わりに <i>vac</i> が置かれる例について、<i>bhū</i> が <i>as</i> の変化物でないように、y も i の変化物ではない、と注します。変化を認めなくても、文法の説明は置換によって成り立つ、とも述べます（Hi. pp.787–789）。</p></div></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">p.294 · NS 2.2.41–43</span>
+  <div class="src deva" lang="sa">प्रकृतिविवृद्धौ विकारविवृद्धेः ॥२।२।४१॥<br>इति सूत्रम् । प्रकृत्यनुविधानादिति सूत्रार्थः, विकारे प्रकृत्यनुविधानं दृष्टमिति ॥४१॥<br>न्यूनसमाधिकोपलब्धेर्विकाराणामहेतुः ॥२।२।४२॥<br>इति साधनपक्षे दृष्टान्तमात्रत्वादहेतुः ॥४२॥<br>द्विविधस्यापि हेतोरभावादसाधनं दृष्टान्तः ॥२।२।४३॥<br>द्विविधस्यापि हेतोरभावादसाधनं दृष्टान्तः ॥४३॥</div>
+  <div class="tr">原質が増すと、変化物も増すからである。<br>というのがスートラである。（変化物は）原質に従うから、というのがスートラの意味である。変化物には、原質に従うことが見られる（が、y は i の長短に従わない）。<br>（反論）「変化物は（原質より）小さいもの、等しいもの、大きいものが知覚されるので、（今の理由は）理由にならない」。<br>というのは、論証の側（この反論を独立の論証とみなす場合）としては、ただの実例にすぎないので、理由にならない。<br>（答え）（共通性によるものと相違によるものの）二種の理由のどちらもないので、実例は論証にならない。<br>（Vārttika はスートラをそのまま繰り返す。）</div><div class="exp"><span class="lbl">解説</span><p>綿が多ければ糸も多く、糸が多ければ布も大きい。変化物は原質の大きさに従います。ところが、短い i からも長い ī からも、できる y は同じ長さです。だから y は i の変化物ではない、というのがスートラ 2.2.41 です。反論者は、変化物には原質より小さいもの・等しいもの・大きいものがある（小さな種から大きな木が育つ）と言いますが、それは例を挙げただけで、理由を伴っていない。理由のない例は何も論証しない、とニヤーヤは答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 2.2.41 を定説の側のもの（変化がないことの「別の理由」）とし、「原質」を内属因、「変化物」を結果と訳します。2.2.42 は「前主張の論難」、2.2.43 は「論難の退け」とします。2.2.43 について、バーシュヤが挙げる反例（牛の代わりに馬をつないでも、馬は牛の変化物ではない）を紹介し、2.2.42 を論証とみなす場合の答えが 2.2.43、論難とみなす場合の答えが 2.2.44 だ、と注します（Hi. pp.790–791）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>スートラ 2.2.43 の Vārttika は、OCR テキストでは「द्वि...न्तः」とスートラの冒頭と末尾だけが印字され、スートラを繰り返しただけと見られます。ここではスートラを補って示しました。</p></div>
+</div>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.295 · NS 2.2.44–45</span>
+  <div class="src deva" lang="sa">नातुल्यप्रकृतीनां विकारविकल्पात् ॥२।२।४४॥<br>दूषणपक्षे — नातुल्यप्रकृतीनां विकारविकल्पात् — इत्यसंबद्धम् । अतुल्यायाः प्रकृतेर्विकल्प्यन्ते विकाराः, ह्रस्वदीर्घानुविधानं तु यकारे नास्तीति ॥४४॥<br>द्रव्यविकारवैषम्यवद् वर्णविकारविकल्पः ॥२।२।४५॥<br>यथा द्रव्यभावेन तुल्यायाः प्रकृतेर्विकारविकल्पो भवति, एवं वर्णभावेन तुल्यायाः प्रकृतेर्विकारविकल्पः स्यादिति ॥४५॥</div>
+  <div class="tr">（反論）「（そうでは）ない。等しくない原質の変化物はさまざまだからである」。<br>（これを）論難の側（我々の理由への非難）として、「等しくない原質の変化物はさまざまだから、そうではない」と言うのは、筋が通らない。等しくない原質からはさまざまな変化物ができる（ことは認める）が、y には短・長に従うことがないのだから。<br>（反論）「実体の変化物が（原質と）ふぞろいであるように、文字の変化物もさまざまである」。<br>実体であるという点で等しい原質から、さまざまな変化物ができるように、文字であるという点で等しい原質（i と ī）から、さまざまな変化物ができることもあろう、と。</div><div class="exp"><span class="lbl">解説</span><p>反論者は二度、言い方を変えます。まず、「原質が違えば変化物もいろいろだ」。Uddyotakara は、それは我々の論点に当たらない、と退けます。問題は、i と ī という違う原質から同じ y ができ、y が原質の長短に従わない点だからです。次に、「同じ『実体』でも、いろいろな変化物ができるように、同じ『文字』である i と ī から、同じ y ができてもよい」。これには次のスートラで答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 2.2.44 を答えのスートラ、2.2.45 を「（前主張）」の論難のスートラとします。2.2.44 の Vārttika について、2.2.42 を論難とみなしても筋が通らない、y は i の長短に従わないのだから、と説明します（Hi. pp.791–792）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>スートラ 2.2.44 は、OCR テキストでは「नालुल्य」と誤って印字されているので、「नातुल्य」（等しくない）と直しました。ヒンディー訳は「न, अतुल्यप्रकृतीनां」（そうではない。等しくない原質の…）と区切って読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>金の腕輪と文字</h2><span class="sub"><span class="pg">pp.295–297</span>スートラ 2.2.46–53。元に戻ること、金の例、常住でも無常でも変化しない、二つの誤難</span></div>
+<div class="mula sutra" id="u4">
+  <span class="ref">pp.295–296 · NS 2.2.46–49</span>
+  <div class="src deva" lang="sa">न विकारधर्मानुपपत्तेः ॥२।२।४६॥<br>इति परिहारः ॥४६॥<br>विकारप्राप्तानामपुनरापत्तेः ॥२।२।४७॥<br>इति । यदि विक्रियन्ते वर्णाः, पुनरापत्तिर्न प्राप्नोति ॥४७॥<br>सुवर्णादीनां पुनरापत्तेरहेतुः ॥२।२।४८॥<br>विकारप्राप्तानां पुनरापत्तिदर्शनादनेकान्त इति सूत्रार्थः ॥४८॥<br>न तद्विकाराणां सुवर्णभावाव्यतिरेकात् ॥२।२।४९॥<br>सर्वावस्थं सुवर्णदर्शनम्, न पुनरिकारयकारयोः कश्चिद् वर्णात्मा व्यवस्थितोऽस्ति य इत्वं हित्वा यत्वमापद्यत इति । वर्णत्वाव्यतिरेकाद् वर्णविकाराणामप्रतिषेधः । वर्णविकारा अपि वर्णत्वात् न व्यतिरिच्यन्त इति । अस्ति वर्णत्वं सामान्यमिति । सामान्यवतो धर्मयोगो न सामान्यस्येति परिहारः ॥४९॥</div>
+  <div class="tr">（答え）そうではない。変化物の性質が成り立たないからである。<br>というのが答えである。<br>また、変化物になったものは、（元に）戻らないからである。<br>というのである。もし文字が変化するのなら、（y から i に）戻ることはありえない（が、実際には戻る）。<br>（反論）「金などは（元に）戻るので、理由にならない」。<br>変化物になったものが元に戻ることが見られるので、（理由は）外れる、というのがスートラの意味である。<br>（答え）そうではない。その（金の）変化物は、金であることから離れないからである。<br>（金は）どの状態でも金として見られる。しかし、i と y とには、i であることを捨てて y であることになるような、何らかの文字そのもの（i と y に共通して）存続しているものはない。（反論）「文字であることから離れないので、文字の変化物は否定できない。文字の変化物も、文字であることから離れはしない。文字性という普遍があるのだから」。普遍をもつもの（個物）に性質が結びつくのであって、普遍に（結びつくの）ではない、というのが答えである。</div><div class="exp"><span class="lbl">解説</span><p>乳はヨーグルトになると、もう乳には戻りません。ところが文法では、y が i に戻る場合もある（<i>yaj</i> から <i>iṣṭa</i> になる「サンプラサーラナ」がその例、訳者の補足）。だから文字の関係は変化ではない（2.2.47）。反論者は、金は腕輪になってもまた金の塊に戻せる、と言います（2.2.48）。Uddyotakara の答えは、金の場合は、塊でも腕輪でも「金」がずっと見えているが、i と y には、i であることを捨てて y になる共通の「文字そのもの」が見当たらない、というものです。「文字性」という共通点はあるではないか、と言われても、普遍は変化の担い手にはならない、と退けます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 2.2.46 を「前主張の退け」、2.2.47 を「定説を支えるスートラ」、2.2.48 を論難（理由が外れる）、2.2.49 を定説の側のスートラとします。2.2.49 については、乳がヨーグルトになると乳に戻らない、というバーシュヤの例を紹介します。注目すべきは、「文字であることから離れないので、文字の変化物は否定できない」と「普遍をもつものに性質が結びつくのであって、普遍にではない」の二文です。ヒンディー訳は、これらはバーシュヤと Vārttika にあるが『ニヤーヤ・スーチー・ニバンダ』にはない、と注し、「（Vārttika によればこれはスートラである）」と補って、反論と答えのスートラとして扱います（Hi. pp.792–795）。</p></div></div>
+</div>
+<div class="mula sutra" id="u5">
+  <span class="ref">pp.296–297 · NS 2.2.50–53</span>
+  <div class="src deva" lang="sa">नित्यत्वेऽविकारादनित्यत्वे चानवस्थानात् ॥२।२।५०॥<br>वर्णविकारानुपपत्तिः — नित्यत्वेऽविकारादनित्यत्वे चानवस्थानात् । नित्या वर्णा इति न युक्तो विकारो व्याघातात् । अनित्या वर्णा इति न युक्तो विकारः, अनवस्थितानां विकारादर्शनादिति ॥५०॥<br>नित्यानामतीन्द्रियत्वात् तद्धर्मविकल्पाच्च वर्णविकाराणामप्रतिषेधः ॥२।२।५१॥<br>नित्यानामप्यतीन्द्रियत्वदर्शनात् तद्धर्मविकल्पाच्च वर्णविकाराणामप्रतिषेध इति विकल्पसमा जातिः ॥५१॥<br>अनवस्थायित्वे च वर्णोपलब्धिवत् तद्विकारोपपत्तिः ॥२।२।५२॥<br>इति साधर्म्यसमा जातिः ॥५२॥<br>विकारधर्मित्वे नित्यत्वाभावात् कालान्तरे विकारोपपत्तेश्चाप्रतिषेधः ॥२।२।५३॥<br>उभयोरप्युत्तरम् — विकारधर्मित्वे नित्यत्वाभावात् कालान्तरे विकारोपपत्तेश्चाप्रतिषेधः । नित्या वर्णा विक्रियन्त इति व्याघातो दोषः । उपलभ्यमानस्य चेकारस्य यत्वानुपपत्तेर्वर्णोपलब्धिवदित्यसंबद्धम् ॥५३॥</div>
+  <div class="tr">（答え）（文字が）常住なら変化しないから、無常なら存続しないからである。<br>文字の変化は成り立たない。常住なら変化しないから、無常なら存続しないから。文字は常住だとすれば、変化は正しくない。（常住と変化とは）矛盾するからである。文字は無常だとすれば、変化は正しくない。存続しないものには変化が見られないからである。<br>（反論）「常住なものにも感官を超えたものがあるので、また、その性質がさまざまなので、文字の変化は否定できない」。<br>常住なものにも感官を超えたもの（と感官で捉えられるもの）があることが見られるので、またその性質がさまざまなので、文字の変化は否定できない、というのは「選択肢による同等」という誤難である。<br>（反論）「また、存続しなくても、文字が知覚されるように、その変化も成り立つ」。<br>というのは「共通性による同等」という誤難である。<br>（答え）変化する性質をもつなら常住ではないから、また（存続しないものの変化は）別の時にあることになるから、（我々の主張は）否定されない。<br>（これは）両方への答えである。……「常住の文字が変化する」というのは、矛盾という誤りである。また、知覚されている i が y になることは成り立たないので、「文字が知覚されるように」というのは筋が通らない。</div><div class="exp"><span class="lbl">解説</span><p>文字が常住なら変化しないし、無常（一瞬で消える）なら変化するまで存続しない。どちらにしても「変化」はありえない（2.2.50）。反論者は二つの誤難（<i>jāti</i>）で応じます。①常住なものの中にも、感官で捉えられるもの（普遍）と捉えられないもの（原子）があるように、性質はさまざまだから、変化する常住のものがあってもよい（「選択肢による同等」、5.1.4 で定義される誤難の一種）。②存続しない文字でも知覚されるのだから、存続しなくても変化できる（「共通性による同等」）。Uddyotakara は、①には「常住なものが変化する」は自己矛盾だ、②には、知覚されているその i が y になるわけではない、と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 2.2.50 を定説の側のものとし、バーシュヤの「区切ってつなぐとき」を、つながない形 <i>dadhi + atra</i> のことと注します。2.2.51 と 2.2.52 は「（前主張）」の誤難とし、「誤難を述べる者が反論する」という TṬ（p.467）を引きます。2.2.51 には、感官を超えた常住のもの（原子・虚空）と感官で捉えられる常住のもの（牛性）の例を補います。2.2.53 は「［定説のスートラ］」で、二つの誤難への答えとし、バーシュヤはすでに誤難に答えているので、これはスートラ作者自身の答えだ、と注します（Hi. pp.796–799）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>スートラ 2.2.51 の冒頭は、OCR テキストでは「नित्यामतीन्द्रियत्वात्」とあるので、Vārttika の繰り返しに合わせて「नित्यानामतीन्द्रियत्वात्」と直しました。ヒンディー訳所収の Vārttika も「नित्यानामप्यतीन्द्रियत्वदर्शनात्」と読みます。また、ヒンディー訳では 2.2.52 の Vārttika の繰り返しに「तद्」がなく、2.2.53 の繰り返しは「विकारधर्मित्वेन」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>決まりのなさと文字の「変化」</h2><span class="sub"><span class="pg">pp.297–298</span>スートラ 2.2.54–57。原質が決まっていない。「文字の変化」という言い方の意味</span></div>
+<div class="mula sutra" id="u6">
+  <span class="ref">p.297 · NS 2.2.54–56</span>
+  <div class="src deva" lang="sa">प्रकृत्यनियमात् ॥२।२।५४॥<br>इतश्च वर्णविकारानुपपत्तिः — प्रकृत्यनियमात् । विकारे प्रकृतीनां नियमो दृष्टः । इकारयकारयोस्त्वनियमः । तस्मादनियमात् न विक्रियन्त इति ॥५४॥<br>अनियमे नियमान्नानियमः ॥२।२।५५॥<br>सूत्रार्थोऽनियमो नास्तीति ॥५५॥<br>नियमानियमविरोधादनियमे नियमाच्चाप्रतिषेधः ॥२।२।५६॥<br>अनुज्ञातप्रतिषिद्धयोरेकत्वानुपपत्तेरिति विरोधः सूत्रार्थः । तस्मादनुपलभ्यमानपृथग्धर्मिविशेषाणामादेश इति । यद्येते वर्णा विक्रियेरन्, ततः पृथग्विकारलक्षणेभ्यो धर्मेभ्यो धर्म्युपलभ्येत, न तूपलभ्यते । तस्मात् न वर्णा विक्रियन्त इति ॥५६॥</div>
+  <div class="tr">また、原質が決まっていないからである。<br>この理由からも、文字の変化は成り立たない。原質が決まっていないからである。変化においては、原質が決まっていることが見られる（乳からヨーグルトはできるが、ヨーグルトから乳はできない）。しかし i と y とについては、決まっていない（i から y にも、y から i にもなる）。だから、決まっていないので、（文字は）変化しない。<br>（反論）「決まっていないことにおいて決まっているので、決まっていないのではない」。<br>決まっていないことはない、というのがスートラの意味である。<br>（答え）決まっていることと決まっていないことは矛盾するから、また、決まっていないことにおいて決まっているから、（我々の主張は）否定されない。<br>認められたものと否定されたものとが一つであることは成り立たない、という矛盾がスートラの意味である。だから、（変化物とは）別の有法の特性が知覚されないものについては、置換である。もしこれらの文字が変化するのなら、変化物を特徴づける性質とは別に、（それらを担う）有法が知覚されるはずである。しかし、知覚されない。だから、文字は変化しない。</div><div class="exp"><span class="lbl">解説</span><p>変化では、どちらが原質でどちらが変化物かが決まっています。i と y は、文法上どちらにもなりうるので、原質と変化物の関係ではない（2.2.54）。反論者は、「決まっていない」ということ自体が決まっている（いつも決まっていない）のだから、決まっていないとは言えない、と言葉尻をとらえます（2.2.55）。ニヤーヤは、「決まっている」と「決まっていない」が同じものについて同時に言われることはありえない、と答え（2.2.56）、変化なら、変わっていく性質の下に変わらない担い手（金のような）が知覚されるはずだが、文字にはそれがない、と結論します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 2.2.54 の例として、バーシュヤの <i>vidhyati</i>（<i>vyadh</i> の y がサンプラサーラナで i になる）を挙げ、乳はヨーグルトになるが逆はない、と注します。2.2.55 は「（言葉の詭弁を使う者、前主張）」とし、2.2.56 はそれが言葉の詭弁（<i>vākchala</i>）であることを示す定説のスートラだとします。Vārttika の「別の有法の特性が知覚されないものについては、置換である」を有財釈の複合語と読み、この節の結論とします（Hi. pp.800–801）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストでは、スートラ 2.2.55 は「नानीयमः」、2.2.56 は「विरोधद」と印字されているので、それぞれ「नानियमः」「विरोधाद्」と直しました。</p></div>
+</div>
+<div class="mula sutra" id="u7">
+  <span class="ref">p.298 · NS 2.2.57</span>
+  <div class="src deva" lang="sa">गुणान्तरापत्त्युपमर्दह्रासवृद्धिलेशश्लेषेभ्यस्तु विकारोपपत्तेर्वर्णविकाराः ॥२।२।५७॥<br>अथ विक्रियन्त इत्येवं विकारो भवति — गुणान्तरापत्त्युपमर्दह्रासवृद्धिलेशश्लेषेभ्यस्तु विकारोपपत्तेर्वर्णविकाराः । सूत्रार्थो गुणान्तरापत्त्यादिनादेश इति । अयं च विकारादेशोपदेशविचारो भाष्यकारैरेव सम्यङ् निरूपित इति सूत्रार्थमात्रं वर्णितमिति ॥५७॥<br>॥ शब्दपरिणामप्रकरणम् ॥</div>
+  <div class="tr">しかし、別の性質になること、抑えられること、短くなること、長くなること、わずかになること、付け加わることによって、変化が成り立つので、「文字の変化」（と言われるの）である。<br>では、「変化する」と（言われるのは）、どのような意味で変化があるのか。「しかし、別の性質になること、抑えられること、短くなること、長くなること、わずかになること、付け加わることによって、変化が成り立つので、『文字の変化』（と言われる）」。スートラの意味は、別の性質になることなどによる置換（が「変化」と呼ばれる）ということである。そしてこの、変化と置換の教えについての考察は、バーシュヤの作者がすでに正しく論じたので、スートラの意味だけを述べた。<br>音の変化のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>では、文法家が「文字の変化」と言うのは間違いなのか。最後のスートラは、その言い方を、本当の変化ではなく、置換の六つの型に対する呼び名として認めます。高い音調が低い音調になる（別の性質になる）、ある語幹が別の語幹に替わる（抑えられる）、長母音が短母音に、短母音が長母音や増音に（短くなる・長くなる）、音が落ちる（わずかになる）、音が付け加わる（付け加わる）、といった場合です（例はバーシュヤとヒンディー訳による、訳者の要約）。Uddyotakara は、この議論はバーシュヤですでに尽くされている、と述べて章を閉じます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、TṬ（p.468）の「一つ（の音）が使われず、別のものが使われることが、変化の一般的な定義である」を引きます。六つの型を次のように訳注します。別の性質になる＝高い音調が低い音調になる。抑えられる＝<i>asti</i> の代わりに <i>bhū</i>。短くなる・長くなる＝長母音が短く、短母音が長くなる。わずかになる＝<i>staḥ</i>（<i>as</i> の a が落ちる）。付け加わる＝語幹や接尾辞に挿入音が加わる。Vārttika のスートラの意味の説明は、ヒンディー訳では「<i>guṇāntarāpattyāder ādeśaḥ</i>」（別の性質になることなどの置換）と読まれています（Hi. p.802）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>vikāra / prakṛti</dt><dd>変化物／原質（変化のもと）</dd>
+    <dt>ādeśa</dt><dd>置換。ある音の代わりに別の音を置くこと</dd>
+    <dt>varṇa</dt><dd>文字、音素</dd>
+    <dt>punarāpatti</dt><dd>（元に）戻ること</dd>
+    <dt>niyama / aniyama</dt><dd>決まっていること／決まっていないこと</dd>
+    <dt>vikalpasamā / sādharmyasamā</dt><dd>「選択肢による同等」／「共通性による同等」。誤難（<i>jāti</i>）の名</dd>
+    <dt>varṇatva</dt><dd>文字性。すべての文字に共通する普遍</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。この章は短いので、原文は全文を載せた。頁番号は Thakur 版、写本略号（C）は Thakur 版の脚注による。スートラ番号は Thakur 版とヒンディー訳とで一致する。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第24プラカラナ（スートラ 2.2.40–57）である。第23プラカラナ（スートラ 2.2.13–39）は<a href="nyayavarttika-23-taiyaku.html">第23プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
