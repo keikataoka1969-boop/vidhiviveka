@@ -1,0 +1,1060 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 2</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-1-taiyaku.html">← プラカラナ1</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>認識手段は四つ</a></li><li><a href="#s2"><b>2</b>四つの名の語義</a></li><li><a href="#s3"><b>3</b>順序と混在</a></li><li><a href="#s4"><b>4</b>知覚の定義と接触</a></li><li><a href="#s5"><b>5</b>なぜ接触だけか</a></li><li><a href="#s6"><b>6</b>眼は対象に届くか</a></li><li><a href="#s7"><b>7</b>残りの四語</a></li><li><a href="#s8"><b>8</b>意は感官か</a></li><li><a href="#s9"><b>9</b>五語で一つの定義</a></li><li><a href="#s10"><b>10</b>他学派の知覚説</a></li><li><a href="#s11"><b>11</b>推理と「それにもとづく」</a></li><li><a href="#s12"><b>12</b>三種の推理（1）</a></li><li><a href="#s13"><b>13</b>三種の推理（2）</a></li><li><a href="#s14"><b>14</b>三種の推理（3）</a></li><li><a href="#s15"><b>15</b>残余・一般観察と有無</a></li><li><a href="#s16"><b>16</b>他学派の推理説</a></li><li><a href="#s17"><b>17</b>類比</a></li><li><a href="#s18"><b>18</b>証言とアプールヴァ</a></li><li><a href="#s19"><b>19</b>証言の二種</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第2プラカラナ「認識手段の定義」（スートラ 1.1.3–8、Thakur 版 pp.25–57）</span>
+  <p>第1章で学問書の主題と目的を確かめた Uddyotakara は、ここから四つの認識手段（知覚・推理・類比・証言）の定義に入ります。この章は <i>Nyāyavārttika</i> の中でもとくに論争的な部分です。スートラの定義を語ごとに擁護するだけでなく、仏教の Vasubandhu と Dignāga、ミーマーンサーの Jaimini、サーンキヤの Vārṣagaṇya らの定義を次々に取り上げて批判します。</p>
+  <p>知覚については、「眼は対象に到達せずに見る」という仏教の説への反論（§6）と、Dignāga の「知覚は概念を離れている」（<i>kalpanāpoḍha</i>）への徹底した批判（§10）が見どころです。推理については、「三種の推理」のさまざまな読み方（§12–§14）と、Dignāga の「三相」説への批判（§16）が中心になります。最後に、類比と証言の定義を擁護し、ミーマーンサーの「アプールヴァ（祭式の見えない力）は永遠だ」という説を退けます（§17–§18）。</p>
+  <p>形式は第1章と同じです。解説では、Śrīnivāsa Śāstrī のヒンディー語訳注（1986）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>認識手段の定義の章<br><small><i>pramāṇalakṣaṇaprakaraṇa</i>。スートラ 1.1.3–8 の注釈。Thakur 版 pp.25–57</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>1.1.3–8<br><small>認識手段は四つ（3）、知覚（4）、推理（5）、類比（6）、証言（7）、証言の二種（8）</small></dd></div>
+    <div><dt>論敵</dt><dd>Vasubandhu、Dignāga ほか<br><small>仏教の知覚・推理・類比・証言の説、ミーマーンサーの知覚説とアプールヴァ説、サーンキヤの知覚説・推理説</small></dd></div>
+    <div><dt>見どころ</dt><dd>Dignāga の「概念を離れた知覚」批判<br><small>§10。「言い表せないものを言い表している」という矛盾を突く。§16 の三相説批判とあわせて、ニヤーヤと仏教論理学の対決の原点</small></dd></div>
+    <div><dt>注釈</dt><dd>Vācaspati Miśra『タートパリヤ・ティーカー』<br><small>反論者の名（Vasubandhu、Dignāga、Vārṣagaṇya など）は、多くがヒンディー訳の注に引かれた TṬ の特定による</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注（1986）<br><small>本章は同書 pp.64–140</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.30</span> は Thakur 版の頁。節見出しの <span class="pg">pp.28–29</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りだけを直した。Vārttika が引く Bhāṣya の文は解説で訳した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳の頁</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 1.1.3–8 の注釈を、テキストの順に19節に分けた</span></div>
+  <p>分量の大半は知覚（§4–§10）と推理（§11–§16）が占めます。どちらも前半でスートラの語を一つずつ検討し、後半で他学派の定義を批判する、という構成です。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr class="grp"><td colspan="4">1.1.3　認識手段は四つ</td></tr>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">認識手段は四つ</a></td><td class="num">pp.25–26</td><td>列挙・定義・吟味。区分を述べるのは数を限定するため</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">四つの名の語義</a></td><td class="num">pp.26–27</td><td>「知覚」の複合語。推理は無意味か。手段と結果</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">順序と、混在・棲み分け</a></td><td class="num">pp.27–28</td><td>なぜ知覚が最初か。知覚で問いが止む</td></tr>
+<tr class="grp"><td colspan="4">1.1.4　知覚</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">知覚の定義と六種の接触</a></td><td class="num">pp.28–29</td><td>結合・結合内属……。音はどうやって耳に届くか</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">なぜ感官と対象の接触だけを挙げるか</a></td><td class="num">pp.29–31</td><td>知覚の原因はほかにもある。固有の原因だけを挙げる</td></tr>
+<tr><td class="num">§6</td><td class="k"><a href="#s6">眼は対象に届くか</a></td><td class="num">pp.31–34</td><td>仏教の「眼と耳は対象に届かない」説の四つの論拠と、その反駁</td></tr>
+<tr><td class="num">§7</td><td class="k"><a href="#s7">「知」「言い表せない」「逸脱しない」「確定的」</a></td><td class="num">pp.34–35</td><td>定義の残りの四語。蜃気楼と遠くの煙</td></tr>
+<tr><td class="num">§8</td><td class="k"><a href="#s8">意は感官か</a></td><td class="num">pp.35–37</td><td>楽や苦の知覚を説明するために、意を感官と認める</td></tr>
+<tr><td class="num">§9</td><td class="k"><a href="#s9">五語すべてで一つの定義</a></td><td class="num">pp.37–38</td><td>五語の組み合わせ31通り。全部そろって初めて知覚</td></tr>
+<tr><td class="num">§10</td><td class="k"><a href="#s10">他学派の知覚の定義</a></td><td class="num">pp.38–40</td><td>Vasubandhu、Dignāga、Jaimini、Vārṣagaṇya の定義を退ける</td></tr>
+<tr class="grp"><td colspan="4">1.1.5　推理</td></tr>
+<tr><td class="num">§11</td><td class="k"><a href="#s11">推理と「それにもとづく」</a></td><td class="num">pp.41–43</td><td>三つの分解。証因の再確認（<i>liṅgaparāmarśa</i>）こそ推理</td></tr>
+<tr><td class="num">§12</td><td class="k"><a href="#s12">三種の推理（1）：独自の二つの読み</a></td><td class="num">p.43</td><td>肯定否定・肯定のみ・否定のみ。論証因の五つの特徴</td></tr>
+<tr><td class="num">§13</td><td class="k"><a href="#s13">三種の推理（2）：Bhāṣya の例</a></td><td class="num">pp.43–46</td><td>雲から雨、増水から雨、鷺から水。太陽の運行の推理</td></tr>
+<tr><td class="num">§14</td><td class="k"><a href="#s14">三種の推理（3）：さらに別の読みと、煙から何を推すか</a></td><td class="num">pp.46–48</td><td>数を限定する「三種」。火か、場所か、特別な煙か</td></tr>
+<tr><td class="num">§15</td><td class="k"><a href="#s15">残余推理・一般観察推理と、有と無</a></td><td class="num">pp.48–50</td><td>音は性質である。欲求などは我に属する。内属は独立している</td></tr>
+<tr><td class="num">§16</td><td class="k"><a href="#s16">他学派の推理の定義</a></td><td class="num">pp.50–53</td><td>Vasubandhu、Dignāga の三相説、サーンキヤの七種の関係を退ける</td></tr>
+<tr class="grp"><td colspan="4">1.1.6–8　類比と証言</td></tr>
+<tr><td class="num">§17</td><td class="k"><a href="#s17">類比</a></td><td class="num">pp.53–54</td><td>「牛のようなものがガヴァヤ」。類比は知覚と証言に還元できるか</td></tr>
+<tr><td class="num">§18</td><td class="k"><a href="#s18">証言と、アプールヴァの永遠性批判</a></td><td class="num">pp.54–57</td><td>天界を見た者はいるか。祭式の力は永遠ではない</td></tr>
+<tr><td class="num">§19</td><td class="k"><a href="#s19">証言の二種</a></td><td class="num">p.57</td><td>見える対象と見えない対象。聖仙も異国人も同じ定義</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>認識手段は四つ</h2><span class="sub"><span class="pg">pp.25–26</span>列挙・定義・吟味。区分を述べるのは数を限定するため</span></div>
+<p>第三スートラは「知覚・推理・類比・証言が認識手段である」と述べます。その前置きとして Bhāṣya は、この学問書が「列挙」「定義」「吟味」の三段階で進むと言います。Uddyotakara は、なぜこの三段階なのか、そしてこのスートラがそのどれにあたるのかを確かめます。</p>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.25 · NS 1.1.3</span>
+  <div class="src deva" lang="sa">प्रत्यक्षानुमानोपमानशब्दाः प्रमाणानि ॥१।१।३॥</div>
+  <div class="tr">知覚・推理・類比・証言が、認識手段である。</div><div class="exp"><span class="lbl">解説</span><p>ニヤーヤの四つの認識手段を挙げるスートラです。仏教論理学は知覚と推理の二つだけを認め、ミーマーンサーの Kumārila 派は推定（<i>arthāpatti</i>）と非認識（<i>anupalabdhi</i>）を加えて六つを認めます。ニヤーヤの「四つ」は、その中間に位置します。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「知覚・推理・類比・証言（の四つ）が認識手段である」と訳しています（Hi. p.64）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">p.25</span>
+  <div class="src deva" lang="sa">त्रिविधा चास्य शास्त्रस्य प्रवृत्तिरिति भाष्यम् । प्रवृत्तेस्त्रैविध्यं कुतः ? अर्थस्य तथाभावात् । नामी पदार्था वक्त्रा त्रेधा व्यवस्थाप्यन्ते एवं भवतेति । किं त्वर्थ एवायं तथाभूतो येन त्रेधा भवतीति । नामधेयेन पदार्थमात्रस्याभिधानमुद्देश इत्ययुक्तम्, घ्राणादिसूत्रव्याघातात् । घ्राणरसनचक्षुस्त्वक्श्रोत्राणीन्द्रियाणि [१।१।१२] इति लक्षणमुक्तम् । न चेदं नामधेयेनोद्देशमात्राद् भिद्यते । मात्रग्रहणसामर्थ्यादप्रसङ्गः । पदार्थाभिधानमात्रमित्युक्तम् । न च घ्राणादीनां पदार्थाभिधानमात्रत्वम्, कारकशब्दत्वात् । कारकशब्दा एते घ्राणादीनीति, तस्मान्नोद्देशत्वप्रसङ्गः ।</div>
+  <div class="tr">「この学問書の働きは三種である」というのが Bhāṣya である。働きが三種なのはなぜか。事物がそのようにあるからである。これらの項目は、話者によって「このようであれ」と三種に定められるのではない。そうではなく、事物そのものがそのようなあり方をしていて、そのために三種となるのである。「名称によって項目だけを述べるのが列挙である、というのは適切でない。『鼻・舌・眼・皮膚・耳が感官である』（1.1.12）のスートラと矛盾するからである。（このスートラは）定義として述べられたが、名称による単なる列挙と違わない」（と言うなら）。「だけ」の語を用いた効力によって、その誤りはない。「項目を述べるだけ」と言われたのである。鼻などは、項目を述べるだけのものではない。行為要素の語だからである。「鼻」などは行為要素の語（「それによって嗅ぐもの」）である。だから列挙になってしまうという誤りはない。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya は学問書の三つの働きを定義します。<strong>列挙</strong>（<i>uddeśa</i>）は名前を挙げること。<strong>定義</strong>（<i>lakṣaṇa</i>）は、列挙したものを他から区別する特徴を述べること。<strong>吟味</strong>（<i>parīkṣā</i>）は、定義が正しいかを認識手段で確かめることです。インドの学問書の多くが、この三段階で書かれています。</p><p>反論は、NS 1.1.12「鼻・舌・眼・皮膚・耳が感官である」は名前を並べただけで、列挙と区別がつかない、というものです。Uddyotakara は、この「鼻」（<i>ghrāṇa</i>）などの語は「それによって嗅ぐもの」という働きを含んだ語で、ただの名前ではない、と答えます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は TṬ（p.186）に従い、「名前だけでは認識手段などの真実の知は得られず、定義と吟味によって得られるので、続く本文に意味がある、というのが Bhāṣya の趣旨」と注します。Śrīdhara の『ニヤーヤ・カンダリー』が「この（<i>asya</i>）学問書」の「この」から、三種の働きはニヤーヤの学問書についてであってすべての学問書についてではない、と述べていることも紹介しています（Hi. pp.63–64）。</p></div></div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">pp.25–26</span>
+  <div class="src deva" lang="sa">उद्दिष्टस्य विभागो द्वेधा भवति, लक्षितस्यालक्षितस्य च । लक्षितस्य छलादेः । अलक्षितस्य प्रमाणादेरिति । अथोद्दिष्टविभागद्वारेण सूत्रम्—प्रत्यक्षानुमानोपमानशब्दाः प्रमाणानीति । सूत्रार्थो निगदेनैव व्याख्यातः । उद्दिष्टस्य विभागानर्थक्यम्, व्याघातात् । त्रिविधा चास्य शास्त्रस्य प्रवृत्तिः इत्युक्तम् । उद्दिष्टविभागश्च न त्रिविधायां शास्त्रप्रवृत्तावन्तर्भवति । तस्मादुद्दिष्टविभागो न युक्तः । न, उद्दिष्टविभागस्य उद्देश एवान्तर्भावात् । उद्दिष्टविभाग उद्देश एवान्तर्भवति । कस्मात् ? लक्षणसामान्यात् । समानं लक्षणं नामधेयेन पदार्थाभिधानमात्रमुद्देश इति ।</div>
+  <div class="tr">列挙されたものの区分には二種がある。定義されたものの（区分）と、定義されていないものの（区分）とである。定義されたものの（区分）は、詭弁などの場合である。定義されていないものの（区分）は、認識手段などの場合である。さて、列挙されたものを区分するかたちで、「知覚・推理・類比・証言が認識手段である」というスートラがある。スートラの意味は、読むだけで説明されている。「列挙されたものの区分は無意味である。矛盾するからである。『この学問書の働きは三種である』と言われた。そして列挙されたものの区分は、三種の学問書の働きに含まれない。だから列挙されたものの区分は適切でない」（と言うなら）。そうではない。列挙されたものの区分は、列挙そのものに含まれるからである。なぜか。定義が共通するからである。「名称によって項目だけを述べるのが列挙である」という定義が共通する。</div><div class="exp"><span class="lbl">解説</span><p>「区分」（<i>vibhāga</i>）は、ある項目の下位区分を挙げることです。詭弁のように、まず定義して（NS 1.2.10）それから「詭弁は三種」（1.2.11）と区分する場合と、認識手段のように、まず区分して（1.1.3）それから一つずつ定義する場合とがあります。</p><p>反論者は、区分は列挙・定義・吟味のどれでもないので、三段階の枠組みと矛盾する、と言います。Uddyotakara は、区分も名前を挙げるだけなので列挙の一種だ、と答えます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī はこのブロックを「列挙されたものの区分には二種ある」から訳し、「区分は列挙に含まれる。定義が共通だから。名前で項目だけを述べるのが列挙、という定義は（区分にも）共通する」と訳します（Hi. p.64）。</p></div></div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">p.26</span>
+  <div class="src deva" lang="sa">किं पुनर्विभागस्य प्रयोजनम् ? नियमः । यदि प्रत्यक्षानुमानोपमानशब्दाः प्रमाणानि [१।१।३] इति विभागो न क्रियेत नियमो न गम्येत, चत्वार्येव प्रमाणानीति । लक्षणतश्चतुष्ट्वाधिगतिरिति चेत्—न, लक्षणस्य इतरेतरव्यवच्छेदहेतुत्वात् । स्यादेषा बुद्धिर्लक्षणतः प्रमाणचतुष्ट्वं गम्यत इति, यस्मात् चतुर्णां लक्षणमुक्तमिति । न, लक्षणस्येतरेतरव्यवच्छेदहेतुत्वात् । लक्षणं खलु लक्ष्यं पदार्थं समानासमानजातीयेभ्यो व्यवच्छिनत्ति, नियमं तु न शक्नोति कर्तुमन्यार्थत्वात् । अन्यासम्भवस्य ततोऽनधिगतेः । न हि लक्षणतोऽन्यासम्भवोऽधिगम्यते । ततश्चतुर्णामनभिधाने चतुर्णां लक्षणोपदेशात् स्यात् संशयः—किं विद्यमानानि न लक्षितानि, उताहो अविद्यमानानीति । तस्मात् संशयनिवृत्त्यर्थं युक्तो विभागोद्देश इति ।</div>
+  <div class="tr">では、区分の目的は何か。（数の）限定である。もし「知覚・推理・類比・証言が認識手段である」（1.1.3）という区分がなされなければ、「認識手段は四つだけである」という限定は理解されないだろう。「定義から四つであることが理解される」と言うなら、そうではない。定義は（定義されるものを）互いに区別する原因だからである。（反論者は）こう考えるかもしれない。四つの定義が述べられているのだから、定義から認識手段が四つであることは理解される、と。そうではない。定義は互いに区別する原因だからである。じつに定義は、定義される項目を同類のものと異類のものから区別するが、（数の）限定をすることはできない。別の目的のものだからである。他のものがないことは、それ（定義）からは知られない。定義からは、他のものがないことは知られないのである。だから、（スートラで）四つを（区分として）述べずに四つの定義を教えたなら、「（ほかの認識手段も）存在するが定義されていないのか、それとも存在しないのか」という疑いが生じるだろう。それゆえ、疑いを除くために、区分の列挙は適切である。</div><div class="exp"><span class="lbl">解説</span><p>区分のスートラが必要な理由です。四つの認識手段をそれぞれ定義しても、「認識手段はこの四つだけだ」ということにはなりません。定義は、あるものが何であるかを示しますが、それ以外のものがないことまでは示さないからです。だから「認識手段は四つ」と明示する区分のスートラが要る、というわけです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「スートラ作者は四つの認識手段だけを定義しているので、スートラ作者の考えでは認識手段は四つだけだ、というのが反論の趣旨。答えは、定義の目的は同類・異類のものから区別することなので、数の限定はできない、ということ。四つを名指ししなければ、疑いが生じてしまう」と注します（Hi. pp.64–65）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>四つの名の語義</h2><span class="sub"><span class="pg">pp.26–27</span>「知覚」の複合語。推理は無意味か。手段と結果</span></div>
+<p>Bhāṣya は四つの認識手段の名前を語源的に説明します。「知覚とは、感官の一つひとつが、それぞれの対象に対してはたらくこと」「推理とは、知られた証因によって、あとから（<i>anu</i>）証因をもつものを知ること（<i>māna</i>）」「類比とは、近さ（類似）を知ること」「証言とは、それによって対象が言われるもの」。Uddyotakara はこれらの語源説明を一つずつ検討します。</p>
+<div class="mula" id="u5">
+  <span class="ref">p.26</span>
+  <div class="src deva" lang="sa">अक्षस्याक्षस्य प्रतिविषयं वृत्तिः प्रत्यक्षमिति । अयं च सूत्रविवक्षायाम् अव्ययीभावः समासः । अन्यथा तु वस्तुनिर्देशो न समासः । समासे हि अक्षस्येति षष्ठी न श्रूयेत । कः पुनरत्र समासः ? प्रादिसमासोऽयं द्रष्टव्यः प्रतिगतमक्षं प्रत्यक्षमिति, यथोपगतो गोभिरुपगुरिति । एवमनुमानादिष्वपि द्रष्टव्यम् ।</div>
+  <div class="tr">「感官の一つひとつの、それぞれの対象に対するはたらきが知覚である」（と Bhāṣya は言う）。そしてこの（「知覚」の語）は、スートラで言おうとする（意味の）場合には不変化複合語である。そうでない（Bhāṣya の言い方の）場合は、事柄を指し示したもので、複合語（の分解）ではない。（もし不変化複合語の）複合語（の分解）なら、「感官の」という属格は聞かれないはずだからである。ではここで（形容詞としての「知覚」の）複合語は何か。これは <i>pra</i> などの複合語と見るべきである。「（対象に）向かった感官」が <i>pratyakṣa</i> である。「牛たちに近づいた者」が <i>upagu</i> であるように。推理などについても同様に見るべきである。</div><div class="exp"><span class="lbl">解説</span><p><i>pratyakṣa</i>（知覚）という語の文法的分析です。<i>prati</i>（〜に向かって）＋ <i>akṣa</i>（感官）の複合語ですが、二通りに分析できます。「感官ごとに」という副詞的な不変化複合語（<i>avyayībhāva</i>）か、「感官に向かい合った（もの）」という形容詞的な複合語（<i>prādi-samāsa</i>）か。</p><p>後者なら、<i>pratyakṣa</i> は形容詞なので、「知覚される対象」（<i>pratyakṣo 'rthaḥ</i>）とも「知覚的な知」（<i>pratyakṣaṃ jñānam</i>）とも言えます。実際、サンスクリットでは <i>pratyakṣa</i> がどちらの意味でも使われます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「スートラの『知覚』は不変化複合語（<i>akṣam akṣaṃ prati</i>）だが、ほかの場合は <i>pra</i> などの複合語（<i>pratigatam akṣam</i>）であり、だから『知覚される対象』『知覚的な知』『知覚的な認識』のように、表すものに応じて性・数が変わる」と注します。Bhāṣya の「感官の一つひとつの」は事柄を示しただけで複合語の分解ではない、と説明しています（Hi. pp.65–66）。</p></div></div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">pp.26–27</span>
+  <div class="src deva" lang="sa">मितेन लिङ्गेन लिङ्गिनोऽर्थस्य पश्चान्मानमनुमानमिति न युक्तम्, फलाभावात् । एतस्मिन् व्याख्यानेऽफलम् अनुमानं प्राप्नोति । किं कारणम् ? अर्थस्य मितत्वात् । नैष दोषः । मितेन लिङ्गेन अर्थस्य पश्चान्मानं यतो भवतीति ब्रूमः । भवतु वायमर्थो लैङ्गिकी प्रतिपत्तिरनुमानमिति । ननु च फलाभावो दोष उक्तः ? न दोषः, हानोपादानोपेक्षाबुद्धीनां फलत्वात् ।</div>
+  <div class="tr">「知られた証因によって、証因をもつ対象をあとから知ることが推理である」（という Bhāṣya の説明）は適切でない（と言うなら）。結果がないからである。この説明では、推理は結果のないものになってしまう。なぜか。対象はすでに知られているからである。この誤りはない。我々は、知られた証因によって、対象をあとから知ることがそれから生じるもの（が推理である）、と言う。あるいは、「証因による理解が推理である」というのがこの意味だとしてもよい。「しかし、結果がないという誤りが指摘されたではないか」（と言うなら）。誤りではない。捨てる・取る・放っておく、という判断が結果だからである。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、Bhāṣya の定義「あとから知ること」を「推理＝知ること（結果）」と読み、そうすると推理という認識手段には別の結果がなくなる、と言います。また、山に火があると推理するとき、山そのもの（対象）はすでに見えている、とも言います。</p><p>Uddyotakara の答えは二通りです。（1）推理とは「あとから知ることを生じさせるもの」（手段）であり、結果は火の知である。（2）推理を「証因による理解」（結果としての知）と取っても、その先にさらに「取る・捨てる・放っておく」という判断が結果としてある。第1章 §5 で見た、<i>pramāṇa</i> が手段とも結果とも取れるという問題の続きです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「対象がすでに知られている」を TṬ に従い「有法（山など）が知覚の領域にあるから」と注します。最初の答えの趣旨は「知られていないものの知が推理であり、対象は火そのものではなく、知りたいと思われている性質を伴った火である」という TṬ（p.190）の説明だと紹介しています（Hi. pp.66–67）。</p></div></div>
+</div>
+<div class="mula" id="u7">
+  <span class="ref">p.27</span>
+  <div class="src deva" lang="sa">सर्वं च प्रमाणं स्वविषयं प्रति भावसाधनम्, प्रमितिः प्रमाणमिति । विषयान्तरं प्रति करणसाधनम्, प्रमीयतेऽनेनेति प्रमाणम् । यदि भावसाधनः प्रमाणशब्दः, किं फलम्, विषयस्याधिगतत्वात् ? उक्तं फलं हानादिबुद्धय इति । ज्ञाते तद्भावात् । ज्ञाते खल्वर्थे त्रिविधा बुद्धिर्भवति हेयो वोपादेयो वोपेक्षणीयो वेति । केचित्तु सन्निकर्षमेव प्रत्यक्षं वर्णयन्ति । न तन्न्याय्यम्, प्रमाणाभावात् । सन्निकर्ष एव प्रमाणमिति न प्रमाणमस्ति । उभयं तु युक्तम्, परिच्छेदकत्वात् । उभयं परिच्छेदकं सन्निकर्षो ज्ञानं च । एकान्तवादिनस्तु दोष इति ।</div>
+  <div class="tr">そして、すべての認識手段は、自分の対象に関しては「行為（そのもの）を表す語」である。「認識が認識手段である」ということである。別の対象に関しては「手段を表す語」である。「それによって認識されるもの」が認識手段である、ということである。「もし『認識手段』の語が行為（そのもの）を表すなら、結果は何か。対象はすでに知られているのだから」（と言うなら）。結果は、捨てるなどの判断だと述べた。知られたときにそれ（判断）があるからである。対象が知られると、それについて「捨てるべきだ」「取るべきだ」「放っておいてよい」という三種の判断が生じる。ある人々は、接触だけを知覚（という認識手段）だと説明する。それは正しくない。証拠がないからである。接触だけが認識手段だということに証拠はない。そうではなく、両方が適切である。確定するものだからである。接触と知の両方が確定するものである。一方だけを主張する者には誤りがある。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya は、知覚の「はたらき」（<i>vṛtti</i>）を「接触か、知である」と言います。接触を認識手段とすれば知が結果になり、知を認識手段とすれば「取る・捨てる」の判断が結果になります。</p><p>Uddyotakara はこれを一般化します。どの認識手段も、自分の直接の対象については「知ること」そのものであり、その先の対象については「知る手段」になります。煙の知覚は、煙について見れば知覚の結果ですが、火について見れば推理の手段です。</p><p>「接触だけが知覚だ」と言う人々を Vācaspati は「限定論者」（<i>niyamavādin</i>）と呼びます（TṬ p.191）。Uddyotakara は、接触も知もどちらも認識手段になりうると考え、どちらか一方に限定するのは誤りだとします。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は Bhāṣya の「はたらき」を TṬ に従い「作用」と注し、のちの『タルカバーシャー』の精緻な定義「それから生じ、それから生じるものを生じさせる中間的作用」を紹介します。また Vācaspati は感官も認識手段だとし、知覚的認識に無分別と有分別の二種を認めるので、結果は三つになる、それがのちのニヤーヤで定着した、と注しています（Hi. pp.65–67）。</p></div></div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">p.27</span>
+  <div class="src deva" lang="sa">सामीप्यमानमुपमानमिति न युक्तम्, उपमानस्यान्यथाव्याख्यानात् । समाख्यासंबन्धप्रतिपत्तिरुपमानार्थः [भा. १।१।६] इत्युक्तम्, इदानीं तूच्यते सामीप्यमानमुपमानमिति । ननु व्याघातः ? नास्ति व्याघातः, सामीप्यमानेन समाख्यासंबन्धप्रतिपत्तेरिष्टत्वात् । यस्मादयमुपयुक्तोपमानो गोदर्शी आगमप्रत्ययाहितस्मृतिपूर्वकं गवा सादृश्यं प्रत्यक्षेण प्रतिपद्य अस्य गवयशब्दः संज्ञेति संज्ञासंज्ञिसंबन्धं प्रतिपद्यते, तस्मादव्याघात इति । शब्दविषया प्रतिपत्तिः शाब्दं प्रमाणम् । फलं तदेव ।</div>
+  <div class="tr">「近さ（類似）を知ることが類比である」（という Bhāṣya の説明）は適切でない（と言うなら）。類比は別の仕方で説明されているからである。（Bhāṣya の 1.1.6 の注釈では）「名称と（名づけられるものとの）関係を理解することが類比の目的である」と言われた。ところがここでは「近さを知ることが類比である」と言われる。矛盾ではないか（と言うなら）。矛盾はない。近さを知ることによって名称との関係を理解することが（類比の結果として）意図されているからである。じつに、（「牛のようなものがガヴァヤだ」という）類比（の言葉）を聞いたことのある、牛を見たことのある者が、証言の知によって植えつけられた想起にもとづいて、牛との類似を知覚によって理解し、「これの名称は『ガヴァヤ』という語だ」と、名称と名づけられるものとの関係を理解する。だから矛盾はない。言葉を対象とする理解が、言葉という認識手段である。結果はそれ（捨てるなどの判断）と同じである。</div><div class="exp"><span class="lbl">解説</span><p>類比（<i>upamāna</i>）についても、手段と結果の二つの面があります。類似を知ること（手段）と、それによって「この動物の名前がガヴァヤだ」と知ること（結果）です。Bhāṣya がある箇所では前者を、別の箇所では後者を「類比」と呼んでいても、矛盾ではありません。類比については §17 で詳しく論じられます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、<i>upamāna</i> の語に「手段」としての語源（<i>upamīyate 'nena</i>）と「結果」としての語源（<i>upamīyate</i>）の二つがあることで矛盾が解けると注します。証言についても、Vācaspati は「文の知が手段なら文の意味の知が結果、文の意味の知が手段なら捨てるなどの判断が結果」と二通りの区分を示している、と紹介しています（Hi. p.68）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>順序と、混在・棲み分け</h2><span class="sub"><span class="pg">pp.27–28</span>なぜ知覚が最初か。知覚で問いが止む</span></div>
+<p>なぜ四つの認識手段は「知覚・推理・類比・証言」の順に並ぶのか。二人の先行注釈者の説を退けたうえで、Uddyotakara は「すべての認識手段は知覚にもとづくから、知覚が最初」と答えます。続いて、第1章 §4 で論じた認識手段の混在と棲み分けが再び取り上げられます。</p>
+<div class="mula" id="u9">
+  <span class="ref">pp.27–28</span>
+  <div class="src deva" lang="sa">केचित्तु क्रमे प्रयोजनं वर्णयन्ति, आदौ प्रत्यक्षग्रहणं प्राधान्यात् । तदनन्तरमनुमानं तत्पूर्वकत्वात् । तदनन्तरमुपमानं तत्साधर्म्यात् । तदनन्तरं शब्दो महाविषयत्वादिति । तच्चायुक्तमिति अपरे मन्यन्ते, क्रमाभिधानस्य न्यायप्राप्तत्वात् । न्यायप्राप्तं क्रमाभिधानं क्रमवर्णवृत्तित्वाद् वाच इति । महाविषयतायां च शब्दस्यादावभिधानप्रसङ्ग इति । एतच्चायुक्तम्, क्रमवर्णवृत्तित्वाद् वाचोऽयुगपदभिधानं युक्तम् । पूर्वापराभिधाने तु न साधनमेतत् । तस्मादन्यो न्यायो वक्तव्यः । स चायं न्यायः, प्रत्यक्षं पूर्वं प्राधान्यात् । महाविषयत्वादादौ शब्दोपदेश इति । न, उभयं महाविषयं शब्दः प्रत्यक्षं च । कथमिति ? प्रत्यक्षेणापि सामान्यविशेषतद्वतां ग्रहणम्, शब्देनापीति । तत्र किं शब्दस्यादावुपदेशो भवतु, आहोस्वित् प्रत्यक्षस्येति ? प्रत्यक्षस्येति युक्तम् । किं कारणम् ? सर्वप्रमाणानां प्रत्यक्षपूर्वकत्वादिति ।</div>
+  <div class="tr">ある人々は、順序に目的があると説明する。最初に知覚を挙げるのは、主要だからである。その次に推理（を挙げる）のは、それ（知覚）にもとづくからである。その次に類比（を挙げる）のは、それ（推理）と共通する性質があるからである。その次に証言（を挙げる）のは、対象が広いからである、と。別の人々は、それは不適切だと考える。順序に従って述べることは、道理として当然だからである。言葉は音素が順に現れることによって働くので、順序に従って述べることは道理として当然である。また、対象が広いことを（理由と）するなら、証言を最初に述べることになってしまう、と。これも不適切である。言葉は音素が順に現れることによって働くので、同時に述べられないことは正しい。しかし、何を先に、何を後に述べるかについては、これは根拠にならない。だから別の道理を言わなければならない。その道理とはこうである。知覚が最初なのは、主要だからである。「対象が広いので、証言を最初に教えるべきだ」（と言うなら）。そうではない。証言と知覚の両方とも対象が広いからである。どうしてか。知覚によっても一般・個別・両方をもつものが捉えられるし、証言によっても（捉えられる）からである。では、証言を最初に教えるべきか、それとも知覚を（最初に教えるべき）か。知覚を（最初に）、というのが適切である。なぜか。すべての認識手段は知覚にもとづくからである。</div><div class="exp"><span class="lbl">解説</span><p>注釈の伝統で何度も出てくる「三段構え」の議論です。最初の注釈者（<i>ekadeśin</i>）は四つの理由で順序を説明します。二人目の注釈者は「言葉は順にしか話せないのだから、順序に理由などない」と言います。Uddyotakara は二人目を退け、「順にしか話せない」ことは何を先にするかの説明にはならない、と指摘します。そして自分の答えとして、「推理は以前の知覚を、類比は牛の知覚を、証言は話し手の知覚を前提とする。だからすべての認識手段の土台である知覚が最初」とまとめます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は TṬ（p.191）に従い、三つの立場を「一部の者の説」「別の一部の者の説（による批判）」「Vārttika 作者の説」と見出しを付けて訳し分けています（Hi. p.69）。</p></div></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">p.28</span>
+  <div class="src deva" lang="sa">किं पुनरेतानि प्रमाणानि संप्लवन्ते, अथ प्रतिप्रमेयं व्यवतिष्ठन्त इति ? उभयथा दर्शनम् । तच्च प्रमाणत इत्यत्रैव दर्शितम् । सेयं प्रमितिः प्रत्यक्षपरेति । प्रत्यक्षेणाधिगतेऽर्थे आकाङ्क्षाभावात् तत्परा । यथायं लौकिकोऽमुत्राग्निरित्याप्तोपदेशादग्निं प्रत्याहितप्रत्ययस्तं देशं गच्छति । प्रत्यासीदन् पुनर्धूमविशेषणं धूमाङ्गत्वेन व्यवस्थितं हुतभुजं प्रतिपद्यते । आसन्नतरस्त्विदानीमिन्द्रियार्थसन्निकर्षवशादग्नावग्निप्रत्ययं करोति । तदा निराकाङ्क्षो भवति । तस्मात् प्रधानं प्रत्यक्षमिति । यत्र संप्लवस्तत्रैवम् । यत्र पुनर्व्यवस्था तत्र प्रधानगुणभावो न चिन्त्यत इति ॥३॥</div>
+  <div class="tr">「では、これらの認識手段は混在するのか、それとも認識対象ごとに棲み分けているのか」（と Bhāṣya は問う）。「両方のあり方が見られる」（と答える）。それは「認識手段によって」（の語の注釈）のところですでに示した。「この認識は知覚を最終とする」（と Bhāṣya は言う）。知覚によって対象が知られると、（それ以上の）求めがなくなるので、それ（知覚）を最終とするのである。たとえば、世間の人が「あそこに火がある」という信頼できる人の教えによって火について確信をもち、その場所へ行く。近づいていくと、煙を特徴づけるもの、すなわち煙を伴うものとして確定している火を（推理によって）理解する。さらに近づくと、こんどは感官と対象との接触によって、火について「火だ」という認識をする。そのとき求めがなくなる。だから知覚が主要である。混在があるところでは、このようである。一方、棲み分けがあるところでは、主要・従属の関係は考えられない。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya の有名な例です。遠くの火について、まず人から聞き（証言）、近づいて煙を見て推理し、さらに近づいて自分の目で見る（知覚）。三つの認識手段が同じ火を捉えていますが（混在）、知覚に至ったところで「本当に火があるのか」という問いは止みます。だから混在の場面では知覚が「最終・主要」なのです。</p><p>一方、Bhāṣya は棲み分けの例も挙げます。「天界を望む者はアグニホートラを献じよ」という聖典の言葉で知られる天界は、推理でも知覚でも知られません（証言だけ）。雷鳴から雷雲を推理するときは、知覚も証言も働きません（推理だけ）。目の前の手は、知覚だけで知られます。こうした場合には、どれが主要かという問いはそもそも生じません。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は Bhāṣya の例を全文訳し、「ニヤーヤは混在と棲み分けの両方を認めるが、仏教は棲み分けだけを認める」と再確認します。「煙を伴うもの」の「伴う」（<i>aṅga</i>）は TṬ（p.192）に従い「遍充するもの」と注しています。煙が遍充されるもの、火が遍充するもの、という関係です（Hi. pp.70–71）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>知覚の定義と六種の接触</h2><span class="sub"><span class="pg">pp.28–29</span>結合・結合内属……。音はどうやって耳に届くか</span></div>
+<p>第四スートラは、知覚を五つの語で定義します。Uddyotakara はまず最初の語「感官と対象との接触から生じた」の「接触」（<i>sannikarṣa</i>）を六種に分けます。この六種の接触の理論は、のちのニヤーヤ・ヴァイシェーシカの標準となる重要な説です。</p>
+<div class="mula sutra" id="u11">
+  <span class="ref">p.28 · NS 1.1.4</span>
+  <div class="src deva" lang="sa">इन्द्रियार्थसन्निकर्षोत्पन्नं ज्ञानमव्यपदेश्यमव्यभिचारि व्यवसायात्मकं प्रत्यक्षम् ॥१।१।४॥</div>
+  <div class="tr">感官と対象との接触から生じた知で、言葉で言い表されず、逸脱せず、確定的なもの、それが知覚である。</div><div class="exp"><span class="lbl">解説</span><p>ニヤーヤの知覚の定義です。五つの語はそれぞれ、知覚を他のものから区別する役目をもっています。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>語</th><th>意味</th><th>除外されるもの</th><th>節</th></tr></thead>
+    <tbody>
+      <tr><td class="k"><i>indriyārthasannikarṣotpanna</i></td><td>感官と対象の接触から生じた</td><td>推理・類比・証言（接触から生じない）</td><td class="num">§4–§6</td></tr>
+      <tr><td class="k"><i>jñāna</i></td><td>知である</td><td>楽や苦（接触から生じるが知ではない）</td><td class="num">§7</td></tr>
+      <tr><td class="k"><i>avyapadeśya</i></td><td>言葉で言い表されない</td><td>言葉による知（証言）</td><td class="num">§7</td></tr>
+      <tr><td class="k"><i>avyabhicārin</i></td><td>逸脱しない</td><td>錯覚（蜃気楼を水と見る）</td><td class="num">§7</td></tr>
+      <tr><td class="k"><i>vyavasāyātmaka</i></td><td>確定的である</td><td>疑い（遠くのものを煙か塵か迷う）</td><td class="num">§7</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　知覚の定義の五語。</b>右端は、その語を詳しく論じる本ページの節。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「感官と対象の接触から生じる知で、言葉によって示されず、逸脱がなく、確定的なものが知覚である」と訳しています（Hi. p.72）。</p></div></div>
+</div>
+<div class="mula" id="u12">
+  <span class="ref">pp.28–29</span>
+  <div class="src deva" lang="sa">अथेदानीं विभक्तानां लक्षणवचनमिति लक्षणमुच्यते । तत्र इन्द्रियार्थसन्निकर्षोत्पन्नमित्येवमादि सूत्रम् । सूत्रार्थस्तु समानासमानजातीयविशेषकत्वम् । अथ पदानामर्थः कः ? इन्द्रियार्थसन्निकर्षोत्पन्नमिति, इन्द्रियेणार्थस्य सन्निकर्षाद् यदुत्पद्यते ज्ञानं तत् प्रत्यक्षमिति । इन्द्रियाणि पुनर्वक्ष्यमाणानि, अर्थाश्च । सन्निकर्षः पुनः षोढा भिद्यते, संयोगः संयुक्तसमवायः संयुक्तसमवेतसमवायः समवायः समवेतसमवायो विशेषणविशेष्यभावश्चेति । तत्र चक्षुरिन्द्रियम्, रूपवान् घटादिरर्थः । तेन सन्निकर्षः संयोगः, तयोर्द्रव्यस्वभावत्वात् । अद्रव्येण तु तद्गतरूपादिना संयुक्तसमवायः, यस्मात् चक्षुषा संयुक्ते द्रव्ये रूपादि वर्तत इति । वृत्तिश्च समवायः । एवं रूपादिवृत्तिना सामान्येन संयुक्तसमवेतसमवायः सन्निकर्षः । एवं घ्राणादिषु गन्धवदादिद्रव्येण संयोगः । तत्समवेतेषु गन्धादिषु संयुक्तसमवायः । तद्वृत्तिषु च सामान्येषु संयुक्तसमवेतसमवायः ।</div>
+  <div class="tr">さて今度は、「区分されたものの定義を述べる」ということで、定義が述べられる。そこで「感官と対象との接触から生じた」などのスートラがある。スートラの目的は、同類のものと異類のものから区別することである。では、語の意味は何か。「感官と対象との接触から生じた」とは、感官と対象との接触から生じる知、それが知覚だ、ということである。感官と対象とは後で述べる（1.1.12、1.1.14）。さて接触は六種に分かれる。結合、結合したものへの内属、結合したものに内属するものへの内属、内属、内属するものへの内属、限定するもの・限定されるものの関係である。そのうち、眼が感官であり、色をもつ壺などが対象である。それとの接触は結合である。両者とも実体を本性とするからである。一方、実体でないもの、すなわちそこにある色などとは、結合したものへの内属（という接触）である。眼と結合した実体に色などがあるからである。そして（「ある」という）存在の仕方は内属である。同じように、色などにある普遍とは、結合したものに内属するものへの内属という接触である。同じように、鼻などの場合も、香をもつなどの実体とは結合である。それに内属する香などとは結合したものへの内属である。それらにある普遍とは、結合したものに内属するものへの内属である。</div><div class="exp"><span class="lbl">解説</span><p>ヴァイシェーシカの存在論では、壺のような実体（<i>dravya</i>）に、色のような性質（<i>guṇa</i>）が「内属」（<i>samavāya</i>）という関係で属し、さらに色に「色であること」（色性）という普遍が内属します。感官がこれらを捉えるには、それぞれに応じた経路が必要です。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>接触</th><th>知覚される対象</th><th>例</th></tr></thead>
+    <tbody>
+      <tr><td class="k">1 結合 <i>saṃyoga</i></td><td>実体</td><td>眼が壺に結合する</td></tr>
+      <tr><td class="k">2 結合内属 <i>saṃyuktasamavāya</i></td><td>実体の性質・運動・普遍</td><td>壺の色（眼と結合した壺に内属）</td></tr>
+      <tr><td class="k">3 結合内属内属 <i>saṃyuktasamavetasamavāya</i></td><td>性質の普遍</td><td>色性（壺に内属する色に内属）</td></tr>
+      <tr><td class="k">4 内属 <i>samavāya</i></td><td>音</td><td>耳（＝耳孔の虚空）に音が内属</td></tr>
+      <tr><td class="k">5 内属内属 <i>samavetasamavāya</i></td><td>音の普遍</td><td>音性（耳に内属する音に内属）</td></tr>
+      <tr><td class="k">6 限定関係 <i>viśeṣaṇaviśeṣyabhāva</i></td><td>内属と非存在</td><td>「床に壺がない」の、壺の非存在</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表2　六種の接触。</b>ヒンディー訳の注は、のちのニヤーヤ・ヴァイシェーシカの六種の接触の説は、おそらくこの Vārttika の説明にもとづくと述べる。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、TṬ が三種の接触だけを認める人々を退けていること、プラバーカラ派は結合・結合内属・内属の三種を、バーッタ派は内属を認めないので二種だけを認めることを紹介し、「のちのニヤーヤ・ヴァイシェーシカで示される六種の接触は、おそらく Vārttika 作者の説明に基づく」と注します（Hi. pp.72–73）。</p></div></div>
+</div>
+<div class="mula" id="u13">
+  <span class="ref">p.29</span>
+  <div class="src deva" lang="sa">शब्दे च समवायः । अयं खलु शब्दः संयोगविभागयोनिराद्यः । तत्र कतमः शब्दः संयोगयोनिः कतमश्च विभागयोनिरिति ? आकाशगुणत्वात् शब्दस्याकाशवृत्तिः संयोगः कारणम् । गुणकर्मस्वारब्धव्येषु सापेक्ष इति सापेक्षो न निरपेक्ष इति । किमपेक्षते ? भेर्याकाशसंयोगस्तावत् शब्दस्यासमवायिकारणम्, तस्यानुग्रहे भेरीदण्डसंयोगो दण्डगतवेगापेक्ष इति । यदि पुनर्भेरीदण्डसंयोग एव शब्दस्य कारणं स्यात्, व्यधिकरणः संयोगः शब्दकारणमिति सर्वत्र शब्दस्योत्पत्तिप्रसङ्गः । विभागजविभागाच्च शब्दः । वंशदलविभागानुगृहीताद् वंशदलाकाशविभागाच्छब्द इति । स उत्पन्नः शब्दः सर्वदिक्कानि शब्दान्तराणि करोति । तान्यपि प्रत्येकं शब्दान्तराणि तावत् यावत् कर्णशष्कुलीमानाकाशदेश इति । यः कर्णशष्कुलीमत्याकाशदेशे समवैति, स समवायादुपलभ्यते । तद्गतेषु च सामान्येषु समवेतसमवायादिति । समवाये चाभावे च विशेषणविशेष्यभावादिति । सोऽयं सन्निकर्षशब्दः संयोगसमवायविशेषणविशेष्यभावव्यापकत्वादुपात्त इति । सोऽयं सन्निकर्षः प्रत्यक्षस्य कारणं भवतीति लक्षणत्वेनोच्यते ।</div>
+  <div class="tr">そして音の場合は内属（という接触）である。じつにこの最初の音は、結合と分離とを源とする。そのうち、どの音が結合を源とし、どの音が分離を源とするのか。音は虚空の性質なので、虚空にある結合が原因である。「性質と運動を生じさせるとき、（結合は他に）依存する」（ので）、依存するのであって、依存しないのではない。何に依存するのか。太鼓と虚空との結合が、まず音の非内属因である。それを助けるのが、撥（ばち）の勢いに依存する太鼓と撥との結合である。もし太鼓と撥との結合だけが音の原因だとすると、基体を異にする結合が音の原因となるので、どこにでも音が生じてしまうだろう。また、分離から生じた分離によっても音（は生じる）。竹の割れ片どうしの分離に助けられた、竹の割れ片と虚空との分離から音が（生じる）。その生じた音は、あらゆる方向に別の音を生じさせる。それらも一つひとつが別の音を（生じさせ）、耳孔をもつ虚空の場所に（至る）まで（続く）。耳孔をもつ虚空の場所に内属する（音）、それが内属によって知覚される。そしてそこにある普遍は、内属するものへの内属によって（知覚される）。内属と非存在とは、限定するもの・限定されるものの関係によって（知覚される）。この「接触」の語は、結合・内属・限定関係にわたるので用いられたのである。この接触が知覚の原因となるので、定義として述べられる。</div><div class="exp"><span class="lbl">解説</span><p>音の知覚の説明は、ニヤーヤ・ヴァイシェーシカ独特の音響理論にもとづいています。音は虚空（<i>ākāśa</i>）の性質です。太鼓を打つと、太鼓と虚空の結合から最初の音が生じます。竹を割ると、割れ片と虚空の分離から音が生じます。生じた音は、池に石を投げたときの波紋のように、四方に次々と新しい音を生み出し、ついに耳に届きます。</p><p>耳（聴覚器官）は、耳孔に限定された虚空そのものです。だから耳に届いた音は、耳という実体に性質として内属しています。音の知覚が「内属」という接触によるのはこのためです。最後の「限定関係」は、「床に壺がない」というときの壺の非存在のように、内属や非存在を知覚する場合のための接触です。</p><figure>
+  <div class="scroll">
+  <svg viewBox="0 0 660 190" style="min-width:560px;width:100%" role="img" aria-label="音の伝わり方。太鼓と撥の結合が太鼓と虚空の結合を助けて最初の音が生じ、音が次々と新しい音を生んで耳孔の虚空に至り、内属によって知覚される">
+    <defs><marker id="m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+    <g font-size="12">
+      <rect x="10" y="30" width="150" height="58" rx="10" class="s-band"/>
+      <text x="85" y="54" text-anchor="middle" font-weight="700" class="s-ink">太鼓と撥の結合</text>
+      <text x="85" y="74" text-anchor="middle" font-size="11" class="s-muted">撥の勢いに依存</text>
+      <rect x="190" y="30" width="150" height="58" rx="10" class="s-accsoft"/>
+      <text x="265" y="54" text-anchor="middle" font-weight="700" class="s-acc">太鼓と虚空の結合</text>
+      <text x="265" y="74" text-anchor="middle" font-size="11" class="s-muted">最初の音の非内属因</text>
+      <rect x="370" y="30" width="120" height="58" rx="10" class="s-goldsoft"/>
+      <text x="430" y="54" text-anchor="middle" font-weight="700" class="s-gold">最初の音</text>
+      <text x="430" y="74" text-anchor="middle" font-size="11" class="s-muted">虚空に内属</text>
+      <rect x="520" y="30" width="130" height="58" rx="10" class="s-anssoft"/>
+      <text x="585" y="54" text-anchor="middle" font-weight="700" class="s-ans">耳孔の虚空</text>
+      <text x="585" y="74" text-anchor="middle" font-size="11" class="s-muted">内属によって知覚</text>
+    </g>
+    <path d="M160 59 H188" class="st-muted" stroke-width="1.5" marker-end="url(#m4)"/>
+    <path d="M340 59 H368" class="st-muted" stroke-width="1.5" marker-end="url(#m4)"/>
+    <path d="M490 59 H518" class="st-gold" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#m4)"/>
+    <text x="175" y="108" text-anchor="middle" font-size="11" class="s-muted">助ける</text>
+    <text x="505" y="108" text-anchor="middle" font-size="11" class="s-gold">音が次々に音を生む</text>
+    <g class="st-gold nofill" stroke-width="1.2">
+      <path d="M430 122 m-14 0 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0"/>
+      <path d="M430 122 m-26 0 a26 26 0 1 0 52 0 a26 26 0 1 0 -52 0" stroke-dasharray="3 3"/>
+      <path d="M430 122 m-38 0 a38 38 0 1 0 76 0 a38 38 0 1 0 -76 0" stroke-dasharray="2 4"/>
+    </g>
+    <text x="330" y="180" text-anchor="middle" font-size="11" class="s-muted">竹を割る音は、割れ片どうしの分離 → 割れ片と虚空の分離 から生じる</text>
+  </svg>
+  </div>
+  <figcaption><b>図1　音の発生と伝わり方。</b>音は空気の振動ではなく虚空の性質で、波紋のように「音が音を生む」かたちで耳に届く（<i>vīcītaraṅga</i> の考え方）。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「性質と運動を生じさせるとき依存する」をヴァイシェーシカ・スートラの引用と注し、「音はあらゆる方向に別の音を、耳孔の虚空の場所に至るまで生じさせる」と訳しています（Hi. p.73）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版は <i>vibhāgajavibhāgāc ca śabdaḥ</i>（分離から生じた分離からも音が）と読み、ヒンディー訳の一写本も同じですが、ヒンディー訳本文は <i>vibhāgāc chabdaḥ</i>（分離から音が）と短く読みます。続く竹の例は「割れ片どうしの分離 → 割れ片と虚空の分離 → 音」という二段の分離を述べているので、Thakur 版の読みに従いました。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>なぜ感官と対象の接触だけを挙げるのか</h2><span class="sub"><span class="pg">pp.29–31</span>知覚の原因はほかにもある。固有の原因だけを挙げる</span></div>
+<p>知覚が生じるには、感官と対象の接触のほかにも多くの条件が必要です。我と意の結合、意と感官の結合、光、対象の大きさ……。なぜスートラは接触だけを挙げるのか。Uddyotakara の答えは、§1 の「定義は他から区別するためのもの」という原則に立ち返ります。</p>
+<div class="mula" id="u14">
+  <span class="ref">pp.29–30</span>
+  <div class="src deva" lang="sa">यदीन्द्रियार्थसन्निकर्षः प्रत्यक्षस्य कारणत्वादुपदिश्यते, अत्यल्पमिदमुच्यते । अन्यान्यपि प्रत्यक्षस्य कारणानि बहूनि सन्ति । तान्यपि वक्तव्यानि । तद्यथा—आत्ममनःसंयोगः इन्द्रियमनःसंयोगः विषयप्रकाशसंयोगः विषयस्थं रूपम् विषयसंयोगिस्थं च महत्त्वम् अनेकद्रव्यवत्त्वम् उपलब्धिफलः संस्कार इति । कस्मात् ? तद्भावे भावात् तदभावे चाभावादिति । तद् यदि कारणभावादिन्द्रियार्थसन्निकर्षग्रहणम्, एतान्यपि कारणान्तराणि वक्तव्यानि । न वक्तव्यानि । नेदं कारणावधारणार्थं सूत्रम्, अपि तु समानासमानजातीयविशेषणार्थम् । यत् प्रत्यक्षस्यासाधारणं कारणं तदभिधीयते, न पुनः साधारणं कारणं निवर्त्यत इति ।</div>
+  <div class="tr">「もし感官と対象との接触が、知覚の原因であることによって教えられているのなら、これはあまりに少なく言われている。知覚の原因はほかにもたくさんある。それらも言わなければならない。すなわち、我と意との結合、感官と意との結合、対象と光との結合、対象にある色、対象と結合するもの（眼と光）にある（色）、大きさ、多くの実体からなること、知覚を結果とする潜在力である。なぜか。それがあれば（知覚が）あり、それがなければないからである。だから、もし原因であることによって感官と対象との接触を挙げるのなら、これらの別の原因も言わなければならない」（と言うなら）。言う必要はない。このスートラは原因を限定するためのものではなく、同類のものと異類のものから区別するためのものである。知覚の固有の原因が述べられるのであって、共通の原因が除外されるわけではない。</div><div class="exp"><span class="lbl">解説</span><p>反論者が挙げる知覚の原因は、ニヤーヤ・ヴァイシェーシカの知覚理論の一覧になっています。我と意の結合（どんな認識にも必要）、意と感官の結合（意が感官に付き添わなければ見えない）、光（暗闇では見えない）、対象の色（色のない空気は見えない）、大きさ（原子は見えない）、そして「知覚を結果とする潜在力」（業の力）です。</p><p>Uddyotakara は、§1 と同じく、スートラは原因を網羅するためのものではなく、知覚を推理などから区別するためのものだ、と答えます。だから知覚にだけ固有の原因を一つ挙げれば十分です。我と意の結合などは推理にも共通するので、区別の役に立ちません。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「対象と結合するものにある（色）」を TṬ（p.212）に従い「対象と結合する眼と光の色。光と眼は自身の色によって実体の視覚を生じさせる」と注し、「知覚を結果とする潜在力」は「功徳と罪過を原因とする、顕現と呼ばれる潜在力」（TṬ p.212）と説明します。Bhāṣya も同じ反論と答えを示していることを訳出しています（Hi. pp.74–75）。</p></div></div>
+</div>
+<div class="mula" id="u15">
+  <span class="ref">p.30</span>
+  <div class="src deva" lang="sa">इन्द्रियमनःसंयोगस्तर्हि असाधारणत्वादुपसंख्येयः, न ह्ययमनुमानादिज्ञानानां कारणत्वेन संभवति । न, अनेनैव तस्योक्तत्वात् । इन्द्रियार्थसन्निकर्षग्रहणेन इन्द्रियमनःसंयोग उक्तो वेदितव्यः । किं कारणम् ? उभयोरसाधारणत्वात् । न च यावदसाधारणं कारणं सर्वं तद् वक्तव्यमिति सूत्रार्थः । अपि तु अन्यतरेणापि भिद्यत इत्यन्यतरोपादानम् । इन्द्रियार्थसन्निकर्षग्रहणं वा विशेषकत्वात् । यदिन्द्रियार्थसन्निकर्षादुपजायते विज्ञानं तस्यान्यतरद् विशेषकं भवति । इन्द्रियमर्थो वा तद्विशेषकम्, तेन व्यपदेशात् । यस्मादिदं विज्ञानमिन्द्रियेण वा व्यपदिश्यते अर्थेन वा, रूपविज्ञानमिति वा चक्षुर्विज्ञानमिति वा । न पुनरिन्द्रियमनःसंयोगेन व्यपदिश्यते । न हि भवति रूपालम्बने विज्ञाने मनोविज्ञानमिति । यदा त्वात्ममनःसंयोगान्मानस्यो बुद्धयः संप्रवर्तन्ते तदात्मना व्यपदिश्यन्ते मनसा वा । यच्चासाधारणं कारणं तद् व्यपदेशभाग् भवति । तद्यथा, ऋत्वादिकारणसन्निधानात् प्रादुर्भवन्नङ्कुरो नर्त्वादिभिर्व्यपदिश्यते, अपि त्वसाधारणेन बीजेन व्यपदिश्यते यवाङ्कुर इति, तथेहापीत्यदोषः ।</div>
+  <div class="tr">「それなら、感官と意との結合は固有のものなので、数え入れるべきである。これは推理などの知の原因とはなりえないからである」（と言うなら）。そうではない。これ（感官と対象との接触の語）によって、それ（感官と意との結合）も述べられているからである。感官と対象との接触を挙げることで、感官と意との結合も述べられていると知るべきである。なぜか。両者とも固有のものだからである。そして、固有の原因はすべて言わなければならない、というのがスートラの意味ではない。そうではなく、どちらか一方によっても区別されるので、一方を挙げたのである。あるいは、感官と対象との接触を挙げるのは、（知を）特徴づけるものだからである。感官と対象との接触から生じる知については、そのどちらか（感官か対象か）がそれを特徴づける。感官か対象かがそれを特徴づけるものである。それによって言い表されるからである。この知は、感官によって、あるいは対象によって、「色の知」あるいは「眼の知」と言い表される。しかし感官と意との結合によっては言い表されない。色を対象とする知について「意の知」とは言わないからである。一方、我と意との結合から意の認識が生じるときには、我によって、あるいは意によって言い表される。そして、固有の原因が言い表されるものとなる。たとえば、季節などの原因がそろって生じる芽は、季節などによってではなく、固有の種子によって「大麦の芽」と言い表される。ここでも同じである。だから誤りはない。</div><div class="exp"><span class="lbl">解説</span><p>感官と意の結合は、推理には関わらないので知覚に固有です。それならなぜ挙げないのか。Uddyotakara は二つの理由を示します。（1）固有の原因が二つあるなら、一つを挙げれば区別には足りる。（2）知覚の知は、感官か対象によって名づけられる（「眼の知」「色の知」）。意によって名づけられることはない。原因のうち名前を与えるものが、その結果を特徴づける原因だ、という考え方です。芽が、土や水や季節ではなく、種子によって「大麦の芽」と呼ばれるのと同じです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「我と意の結合から……」の部分について、「ヨーガ行者が我と意の結合によって我に知を得るとき、その知は我や意によって名づけられる」と注します。結論は「知の名づけは固有の原因によってのみなされる。感官と対象の接触は知覚の固有の原因なので、それを挙げるのが適切だ」という整理です（Hi. pp.75–76）。</p></div></div>
+</div>
+<div class="mula" id="u16">
+  <span class="ref">pp.30–31</span>
+  <div class="src deva" lang="sa">इन्द्रियमनसोः संयोगस्य वा अग्रहणम्, भेदेऽभेदात् । यस्मात् प्रत्यक्षज्ञानभेदे इन्द्रियमनःसंयोगो न भिद्यत इति । यद्यभेदादग्रहणं इन्द्रियार्थसन्निकर्षस्यापि तर्ह्यग्रहणम् एकेन्द्रियग्राह्येषु अभेदादिति प्राप्तं यथा शुक्लो गौर्गच्छतीति ? न, उक्तोत्तरत्वात् । उक्तोत्तरमेतत्—नेदं कारणावधारणार्थं सूत्रमिति । अनभ्युपगमाच्च । इन्द्रियमनःसंयोगस्य चाग्रहणं समानत्वात् । केन समानत्वादिति वाच्यम् ? आत्ममनःसंयोगेन समानत्वात् । किं पुनस्तत् ? व्यपदेशाभाव इत्युक्तम् । अतीन्द्रियाधारता वा सामान्यम् । यथा वात्ममनःसंयोगोऽतीन्द्रियाधारः, एवमिन्द्रियमनःसंयोगोऽपीति । विषयावृत्तित्वं वा । यथा वात्ममनःसंयोगो विषयावृत्तिः तथेन्द्रियमनःसंयोगोऽपीति । मनोवृत्तित्वं वा । यथा वात्ममनःसंयोगो मनोवृत्तिरेवमिन्द्रियमनःसंयोगोऽपीति । तस्मादिन्द्रियमनःसंयोगस्यात्ममनःसंयोगसामान्यादन्यतराभिधानेन वा चरितार्थत्वादनभिधानमिति ।</div>
+  <div class="tr">（ある人は言う。）「あるいは、感官と意との結合を挙げないのは、（知覚の知が）違っても違わないからである。知覚の知が（視覚・嗅覚などと）違っても、感官と意との結合は違わないからである」と。「もし違わないから挙げないのなら、感官と対象との接触も挙げないことになる。『白い牛が歩く』のように、一つの感官で捉えられるもの（白さと歩み）については（接触が）違わないから」（と反論されるなら）。そうではない。答えはすでに述べたからである。答えはすでに述べた。このスートラは原因を限定するためのものではない、と。また、（その「違わないから」という答えを我々は）認めないからでもある。「そして感官と意との結合を挙げないのは、共通するからである」（と Bhāṣya は言う）。何と共通するからかを言わなければならない。我と意との結合と共通するからである。ではそれ（共通点）は何か。（知が）言い表されないことだ、と（すでに）述べた。あるいは、超感覚的なものを基体とすることが共通点である。我と意との結合が超感覚的なもの（我と意）を基体とするように、感官と意との結合も（超感覚的なもの、感官と意を基体とする）。あるいは、対象に及ばないこと（が共通点）である。我と意との結合が対象に及ばないように、感官と意との結合もそうである。あるいは、意に属すること（が共通点）である。我と意との結合が意に属するように、感官と意との結合もそうである。だから、感官と意との結合は、我と意との結合と共通するので、あるいは一方を述べれば目的を果たすので、述べられないのである。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya は「感官と意の結合は、我と意の結合と共通するので挙げない」と言います。Uddyotakara はその「共通点」を四つ挙げます。どちらも知に名前を与えない。どちらも目に見えないもの（我・意・感官）を基体とする。どちらも対象には届かない。どちらも意に関わる。つまり、感官と意の結合は、知覚に固有でありながら、知覚を他の知から区別する目印としては役に立たない、ということです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「違っても違わないから」の答えを「一部の者の答えで、定説を立てる者（Uddyotakara）はこれを認めない」と注します。共通点については TṬ（p.214）に従い、主たるものは「言い表されないこと」と「超感覚的なものを基体とすること」の二つで、残りの二つは後者を支える理由だ、と整理しています（Hi. pp.76–77）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>眼は対象に届くか</h2><span class="sub"><span class="pg">pp.31–34</span>仏教の「眼と耳は対象に届かない」説の四つの論拠と、その反駁</span></div>
+<p>「感官と対象との接触」という定義に対して、仏教から根本的な反論が出されます。眼と耳は対象に触れずに（届かずに）はたらく、というのです。これが感官の「不到達説」（<i>aprāpyakāritva</i>）です。ニヤーヤは逆に、眼からは光線のようなものが出て対象に届くと考えます（到達説）。Uddyotakara は仏教の四つの論拠を順に紹介し、一つずつ反駁します。</p>
+<div class="mula" id="u17">
+  <span class="ref">p.31</span>
+  <div class="src deva" lang="sa">इन्द्रियार्थसन्निकर्षोत्पन्नमित्ययुक्तम्, इन्द्रियस्याप्राप्यकारित्वात् । अप्राप्यकारिणी चक्षुःश्रोत्रे इति एके । तत्र च न्यायं ब्रुवते, अप्राप्यकारि चक्षुः सान्तरग्रहणात् पृथुतरग्रहणाच्चेति । सान्तरस्यार्थस्य विप्रकृष्टदेशावस्थितस्य ग्रहणं दृष्टम्, न तु चक्षुषस्तेनार्थेन प्राप्तिरस्ति, भूतविशेषस्येन्द्रियभावात् । य एवायं कृष्णसारलक्षणो भूतविशेषः स बाह्यभूतविशेषप्रसादानुगृहीतस्तत्तृष्णापूर्वककर्मापेक्षः चक्षुरित्युच्यते । तथा चोक्तम्—रूपोपलब्धिसंवर्तकेन कर्मणा तत्तृष्णापूर्वकेण चक्षुरभिनिर्वृत्तमतो रूपोपलब्धेः कारणं भवतीति । एवं शेषेषु । न च भूतविशेषानुगृहीतस्य गोलकस्य प्राप्तिर्विषयेणास्ति । तस्मात् सान्तरग्रहणादप्राप्यकारीति । अपरे तु सान्तर इति ग्रहणं हेतुं वर्णयन्ति । न हि प्राप्यकारिषु घ्राणादिषु सान्तर इति ग्रहणं दृष्टम्, दृष्टं तु चक्षुषि ।</div>
+  <div class="tr">「『感官と対象との接触から生じた』というのは不適切である。感官は（対象に）到達せずに働くからである」。眼と耳とは到達せずに働く、とある人々は言う。そしてそれについて論証を述べる。「眼は到達せずに働く。間隔のあるものを捉えるから、また、より大きいものを捉えるから」と。間隔があり、遠く離れた場所にある対象を捉えることが見られる。しかし眼がその対象に到達することはない。特定の元素が感官だからである。この、黒目を特徴とする特定の元素が、外界の特定の元素（光）の澄明さに助けられ、それへの渇望にもとづく業に依存して、「眼」と呼ばれる。そのように言われている。「色の知覚をもたらす、それへの渇望にもとづく業によって、眼は形成された。だから色の知覚の原因となる」と。残り（の感官）についても同様である。そして、特定の元素に助けられた眼球が対象に到達することはない。だから、間隔のあるものを捉えるので、到達せずに働く、と。別の人々は、「間隔がある」という捉え方を論証因と説明する。到達して働く鼻などでは「間隔がある」という捉え方は見られないが、眼では見られるからである。</div><div class="exp"><span class="lbl">解説</span><p>仏教（説一切有部や Dignāga）の考えでは、眼とは眼球の黒目にある特別な物質（<i>bhūtaviśeṣa</i>）で、そこから何かが飛び出して対象に届くわけではありません。だから遠くの山が、間に空間を隔てたまま見える。これが第一の論拠「間隔のあるものを捉えるから」（<i>sāntaragrahaṇāt</i>）です。</p><p>Vācaspati によれば、これは Dignāga の次の偈にもとづく議論です（TṬ）。「もし（感官が対象に）到達するなら、間隔を捉えることも、（感官より）大きいものを知ることもないだろう。感官は眼球の外にはない。それを治療することなどからそう分かる。たとえ外にあるとしても、遠くの対象を見ることはない。もしあるなら、まぶたを閉じてから開いても見えるだろう」。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、ここで反論する「ある人々」を「Dignāga など論理学派の仏教徒」と特定し、仏教徒は眼と耳を到達せずに働くものとみなすと注します。Vārttika 作者も Vācaspati も名前を挙げないが、TṬ は先の箇所で Dignāga の偈を名指しで引いている、と述べ、その偈を掲げています。「外界の特定の元素」は TṬ に従い「光。その澄明さとは、感官を遮らないこと（壁などはそうではない）」と注しています（Hi. pp.77–79）。</p></div></div>
+</div>
+<div class="mula" id="u18">
+  <span class="ref">p.31</span>
+  <div class="src deva" lang="sa">पृथुतरग्रहणाच्च । राष्ट्रवनादिरूपं च महदुपलभ्यते, न चाक्ष्णोस्तथा पृथ्ववभास इति । दिग्देशव्यपदेशाच्च । यदि प्राप्यकारि चक्षुर्भवेत्, दिग्देशव्यपदेशो न स्यात् । न हि प्राप्यकारिषु घ्राणादिषु एतदस्तीति । सन्निकृष्टविप्रकृष्टयोस्तुल्यकालग्रहणाच्च । यत् खलु गतिमद्भवति तत् तां गतिमभिन्दत् सन्निकृष्टमाशु प्राप्नोति, विप्रकृष्टं चिरेण । शाखाचन्द्रमसोस्तुल्यकालग्रहणं दृष्टम्, तस्मादप्राप्यकारीति ।</div>
+  <div class="tr">「また、より大きいものを捉えるからである。国土や森などの大きな色が知覚されるが、両眼がそれほど大きく現れることはない。また、方角と場所を言い表すからである。もし眼が到達して働くなら、方角と場所を言い表すことはないだろう。到達して働く鼻などには、これはないからである。また、近いものと遠いものとを同時に捉えるからである。じつに、運動するものは、その運動を中断せずに、近いものには早く、遠いものには遅く到達する。（しかし）枝と月とを同時に捉えることが見られる。だから到達せずに働く」と。</div><div class="exp"><span class="lbl">解説</span><p>残りの三つの論拠です。（2）小さな眼で広い国土を一度に見られる。眼が対象に触れるのなら、眼より大きいものは捉えられないはずだ。（3）「あの山は東の方、遠くにある」と方角や距離を言える。匂いについては「東の方の匂い」とは言わない。（4）近くの木の枝と、はるか遠くの月を、同時に見ることができる。眼から何かが飛んでいくのなら、遠い月に届くには時間がかかるはずだ。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>仏教の論拠</th><th>Uddyotakara の反駁</th></tr></thead>
+    <tbody>
+      <tr><td class="k">1 間隔のあるものを捉える</td><td>「到達しないものを捉える」なら主張と同じ（論点先取）。「間隔とともに捉える」なら、その間隔は虚空か、無か、別の実体か、どれも成り立たない。「間隔がある」という感じは、身体を基準にした判断にすぎない</td></tr>
+      <tr><td class="k">2 より大きいものを捉える</td><td>大小にかかわらず、関係があれば対象に応じた大きさの認識が生じる</td></tr>
+      <tr><td class="k">3 方角と場所を言い表す</td><td>これも身体を基準にした判断。感官だけが対象と結びつく場合に、身体からの遠近や方角が意識される</td></tr>
+      <tr><td class="k">4 近くと遠くを同時に捉える</td><td>同時ではない。時間差が速すぎて気づかないだけ（百枚の蓮の花びらを針で一度に突き通すように見える錯覚）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表3　感官の不到達説をめぐる応酬。</b>続く四つのブロックが反駁にあたる。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は四つの論拠を番号を付けて訳し、最後の二つの論拠の出典は確かめられていない、と注します。「中断せずに」（<i>abhindat</i>）は TṬ（p.215）に従い「連続して行いながらも」と注し、<i>abhinandat</i> の読みも可能だろう、と述べています（Hi. pp.78–79）。</p></div></div>
+</div>
+<div class="mula" id="u19">
+  <span class="ref">p.32</span>
+  <div class="src deva" lang="sa">यत् तावत् सान्तरग्रहणादिति, तदयुक्तम्, विकल्पानुपपत्तेः । सान्तरग्रहणमिति कोऽर्थः ? किं तावत् सान्तरस्य ग्रहणमप्राप्तस्य ग्रहणमित्ययमर्थः, आहोस्वित् सहान्तरेण ग्रहणं सान्तरग्रहणमिति ? अस्तु तावत् पूर्वः पक्षः अप्राप्तस्य ग्रहणं सान्तरग्रहणमिति । नन्वयं प्रतिज्ञार्थ एव, ततश्च हेत्वभावः । किं कारणम् ? हेत्वर्थस्य प्रतिज्ञार्थेन आक्षिप्तत्वात् । एतदुक्तं भवति, अप्राप्यकारि चक्षुः, अप्राप्यग्रहणादिति न प्रतिज्ञार्थाद् भिद्यते । अथ ब्रूषे सहान्तरेण ग्रहणमिति । किं तदन्तरं नाम, यच्चक्षुषा विषयेण सहोपलभ्यत इति ? किमाकाशमभावो द्रव्यान्तरं वा ? यद्याकाशम्, तन्न चक्षुषो विषयः । न ह्याकाशं चक्षुर्ग्राह्यम्, अरूपत्वादिति । अथ रूपवद्द्रव्यान्तरमन्तरशब्दवाच्यम्, तस्य व्यवधायकत्वात् तेन सह ग्रहणं न युक्तम् । अथाभावोऽन्तरशब्दवाच्यः ? स स्वतन्त्रश्चक्षुर्विषयो न भवतीति तेन सहोपलब्धावनैकान्तिकम् । न चान्या गतिरस्ति । तस्मात् शून्यमभिधानं सान्तरग्रहणादिति ।</div>
+  <div class="tr">まず「間隔のあるものを捉えるから」（という論拠）は不適切である。（どちらの）選択肢も成り立たないからである。「間隔のある捉え」とは何を意味するのか。「間隔のあるものの捉え」、すなわち「到達していないものの捉え」という意味か、それとも「間隔とともに捉えること」が「間隔のある捉え」なのか。まず前者の立場、「到達していないものの捉え」が「間隔のある捉え」だとしよう。それはまさに主張の意味ではないか。そうすると論証因がないことになる。なぜか。論証因の意味が主張の意味によってすでに含まれているからである。つまり、「眼は到達せずに働く。到達していないものを捉えるから」というのは、主張の意味と違わない。では「間隔とともに捉えること」だと言うなら、眼によって対象とともに知覚される、その間隔とは何か。虚空か、無か、別の実体か。もし虚空なら、それは眼の対象ではない。虚空は色をもたないので眼で捉えられないからである。もし色をもつ別の実体が「間隔」の語の意味なら、それは（視界を）遮るものなので、それとともに（対象を）捉えることは成り立たない。もし無が「間隔」の語の意味なら、それは独立には眼の対象とならないので、それとともに知覚されることを（論証因とするのは）逸脱する。ほかの道はない。だから「間隔のあるものを捉えるから」というのは中身のない言葉である。</div><div class="exp"><span class="lbl">解説</span><p>論拠の言葉の意味を二つに分けて、どちらも成り立たないことを示すジレンマ論法です。「到達していないものを捉える」なら、それは「眼は到達しない」という主張を言い換えただけで、何の証明にもなっていません。「間隔そのものも見えている」なら、その間隔とは何なのか。虚空は色がないので見えないし、色のある物が間にあれば視界は遮られるし、無（何もないこと）はそれだけでは見えません。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「無と一緒に見ることを論証因とするのは逸脱する」について、TṬ（p.216）に従い「仏教徒も皮膚などの感官は到達して働くと認めるが、皮膚によっても『熱くない水』（熱の非存在とともにある水）が捉えられる。だからこの論証因は不定である」と説明します（Hi. p.80）。</p></div></div>
+</div>
+<div class="mula" id="u20">
+  <span class="ref">p.32</span>
+  <div class="src deva" lang="sa">यैरपि विद्वस्यमानैः सान्तरग्रहणादित्यस्य सान्तर इति ग्रहणमित्येतद्व्याख्यानं क्रियते, तदप्ययुक्तम्, सान्तर इति ग्रहणस्यान्यनिमित्तत्वात् । अन्यथैव सान्तर इति ग्रहणं भवति, शरीरावधिनिमित्तत्वात् । शरीरमवधिं कृत्वा सान्तरनिरन्तरे भवतः, न पुनरिन्द्रियप्राप्त्यप्राप्त्यपेक्षे । यत्र शरीरमिन्द्रियं चोभयमर्थेन संबध्यते तत्र निरन्तरमिति ग्रहणं भवति । यत्र पुनः इन्द्रियमात्रे संबन्धः तत्र सान्तर इति । तस्मात् सान्तर इति ग्रहणस्यान्यनिमित्तत्वात् न सान्तरग्रहणादप्राप्यकारित्वं सिध्यतीति । यदपि पृथुतरग्रहणादिति तदप्ययुक्तम्, सम्बन्धमात्रेण महदण्वोर्ग्रहणात् । सम्बन्धमात्रेणैव महति वाणौ वा विषयभेदानुविधायी प्रत्यय उपजायते । तस्मादचोद्यमेतदपीति ।</div>
+  <div class="tr">学者ぶった人々が、「間隔のあるものを捉えるから」を「『間隔がある』という捉え方（があるから）」と解釈することも、また不適切である。「間隔がある」という捉え方は、別の原因によるからである。「間隔がある」という捉え方は、まったく別の仕方で生じる。身体を基準とすることによるからである。身体を基準にして、「間隔がある」「間隔がない」（という捉え方）が生じるのであって、感官が到達するかしないかによるのではない。身体と感官の両方が対象と結びつくところでは「間隔がない」という捉え方が生じる。一方、感官だけが（対象と）結びつくところでは「間隔がある」（という捉え方が生じる）。だから、「間隔がある」という捉え方は別の原因によるので、「間隔のあるものを捉えるから」によって不到達が論証されることはない。「より大きいものを捉えるから」（という論拠）も不適切である。関係があるだけで、大きいものも小さいものも捉えられるからである。関係があるだけで、大きいものについても小さいものについても、対象の違いに従う認識が生じる。だからこれも反論にならない。</div><div class="exp"><span class="lbl">解説</span><p>「間隔がある」と感じるのは、身体が対象から離れているからです。匂いの場合は、匂いの粒子が鼻（身体）まで来るので「間隔がない」と感じます。眼の場合は、眼の光が対象に届いていても、身体は対象から離れているので「間隔がある」と感じます。だから「間隔がある」という感じは、感官が届くかどうかとは関係がない、というのが Uddyotakara の反駁です。</p><p>大きさについても同じです。眼の光が対象全体に広がって関係すれば、対象がどれほど大きくても、その大きさのままに捉えられます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「関係があるだけで」の「だけ」について、TṬ（p.216）に従い、感官と対象、感官の部分と対象、対象の部分と感官、感官の部分と対象の部分という四種の関係を含めるためだと注します。この四種の接触とともに大きさが捉えられる、という説明です（Hi. p.80）。</p></div></div>
+</div>
+<div class="mula" id="u21">
+  <span class="ref">p.33</span>
+  <div class="src deva" lang="sa">यत् पुनरेतदुक्तं दिग्देशव्यपदेशादिति, तदपि शरीरावधिनिमित्तत्वेन प्रत्युक्तम् । यत्रेन्द्रियं शरीरं चार्थेन संबध्यते तत्र दिग्देशव्यपदेशो न भवति, दूरान्तिकानुविधानं वा । यत्र पुनरिन्द्रियमेव केवलं संबध्यते तत्र शरीरमवधिं कृत्वा संयुक्तसंयोगाल्पीयस्त्वं तद्भूयस्त्वं वापेक्षमाणस्य दिग्देशप्रत्ययाः सन्निकृष्टविप्रकृष्टप्रत्ययाश्च भवन्तीति । यत् पुनरेतत् शाखाचन्द्रमसोस्तुल्यकालग्रहणादिति, तदपि न, अनभ्युपगमात् । को हि स्वस्थात्मा शाखाचन्द्रमसोस्तुल्यकालग्रहणं प्रतिपद्यते ? कालभेदस्याग्रहणान्मिथ्याप्रत्यय एष उत्पलदलशतव्यतिभेदवदिति ।</div>
+  <div class="tr">また、「方角と場所を言い表すから」と言われたことも、身体を基準とすることによって退けられた。感官と身体とが対象と結びつくところでは、方角と場所を言い表すことはなく、遠近に従うこともない。一方、感官だけが（対象と）結びつくところでは、身体を基準にして、結合したものとの結合の少なさ、あるいは多さに依存する者に、方角と場所の認識、近い遠いの認識が生じる。また、「枝と月とを同時に捉えるから」と言われたことも、そうではない。（そのことを我々は）認めないからである。正気の人で、誰が枝と月とを同時に捉えると認めるだろうか。時間の違いが捉えられないために生じる誤った認識である。百枚の蓮の花びらを（針で）突き通すように。</div><div class="exp"><span class="lbl">解説</span><p>第四の論拠への答えは印象的です。蓮の花びらを百枚重ねて針で突くと、一瞬で全部突き抜けたように見えます。しかし実際には、針は一枚ずつ順に突き抜けています。時間差が短すぎて気づかないだけです。枝と月も同じで、眼の光は近い枝に先に、遠い月に後に届いているが、その差に気づかないので「同時」と思い込むのだ、というわけです。</p><p>この「百枚の蓮の花びら」（<i>utpalaśatapatravyatibheda</i>）のたとえは、インド哲学で、知覚されない短い時間差を説明するときの定番になりました。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「身体を基準にして、結合したものとの結合の少なさ・多さに依存する」を、「身体を基準として、（感官と）結合したもの（光など）との結合が少ないか多いかに応じて」と訳し、これが第三・第四の論拠への反駁だと見出しを付けています（Hi. p.81）。</p></div></div>
+</div>
+<div class="mula" id="u22">
+  <span class="ref">p.33</span>
+  <div class="src deva" lang="sa">कथं पुनरवगम्यते कालभेदाग्रहणनिमित्त एष युगपत्प्रत्ययो न पुनरेककालग्रहणनिमित्त एवेति ? इदमनुमानम् आवरणानुपपत्तेरिति । यद्यप्राप्यकारि चक्षुर्भवति, न कुड्यकटादेरावरणस्य सामर्थ्यमस्तीत्यावरणानुपपत्तिः स्यात् । न च व्यवहितार्थोपलब्धिरस्ति । तस्मात् नाप्राप्यकारि । दूरान्तिकानुविधानं चानुपलब्ध्युपलब्ध्योर्न स्यात् । अप्राप्य चक्षुरर्थं गृह्णातीति यदिदमर्थस्य दूरेऽग्रहणम् अन्तिके च ग्रहणमुभयमेतत् न स्यात् । दृष्टं तु । तस्मात् नाप्राप्यकारि । विषयीभावादिति चेत्—न, संबन्धव्यतिरेकेण तु विषयीभावानभ्युपगमात् । अथापीदं स्यात् यः चक्षुषो विषयीभवत्यर्थः स उपलभ्यते । यस्तु न भवति नासावुपलभ्यत इति । न च व्यवहितानां दूरावस्थितानां वार्थानां चक्षुषो विषयीभावोऽस्ति, तस्मात् न ते गृह्यन्त इति । तच्च नैवम्, संबन्धव्यतिरेकेण विषयीभावानभ्युपगमात् । कः पुनः संबन्धव्यतिरेकेण विषयीभावः ? केवलं भवतां संज्ञामात्रं भिद्यते नार्थ इति । मयोच्यते संबन्ध इति । भवताभिधीयते विषयीभाव इति । न कश्चिद् विशेष इति ।</div>
+  <div class="tr">では、この同時という認識が、時間の違いを捉えないことによるのであって、同時に捉えることによるのではない、とどうして分かるのか。次の推理による。遮蔽が成り立たなくなるから、と。もし眼が到達せずに働くなら、壁や筵などの遮蔽物に（遮る）力はないことになり、遮蔽が成り立たなくなるだろう。しかし、遮られた対象が知覚されることはない。だから到達せずに働くのではない。また、知覚されないこと・知覚されることが遠近に従うことも、ないことになるだろう。眼が到達せずに対象を捉えるのなら、対象が遠いと捉えられず、近いと捉えられる、ということはどちらもないはずである。しかし実際に見られる。だから到達せずに働くのではない。「（眼の）対象となるかどうかによる」と言うなら、そうではない。関係のほかに対象となることを（我々は）認めないからである。（反論者は）こう言うかもしれない。眼の対象となる事物は知覚され、ならないものは知覚されない。遮られたものや遠くにあるものは眼の対象とならないので、捉えられないのだ、と。それは正しくない。関係のほかに対象となることを認めないからである。関係のほかに「対象となること」とは何なのか。あなた方は名前を変えているだけで、中身は同じである。私は「関係」と言い、あなたは「対象となること」と言う。何の違いもない。</div><div class="exp"><span class="lbl">解説</span><p>到達説の積極的な論拠です。（1）壁の向こうは見えない。眼が対象に届かずに見るのなら、壁が邪魔をする理由がない。（2）遠すぎるものは見えず、近づけば見える。距離が関係するのは、眼が対象に届く必要があるからだ。</p><p>仏教側は、「見えるのは眼の『対象となる』（<i>viṣayībhāva</i>）ものだけだ」と答えるかもしれません。Vācaspati によれば、これは刹那滅論にもとづく仏教の説で、ある瞬間の感官と対象がそれぞれの原因から、特定のものだけを捉えるのにふさわしいあり方で生じる、という考えです（TṬ pp.217–218）。Uddyotakara は、それは「関係」の言い換えにすぎないと切り捨てます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は仏教側の答えを TṬ に従い「自分の原因から、到達していないものだけを捉えるようなふさわしい感官の刹那や対象の刹那が生じる」と説明し、Uddyotakara の答えについて「刹那滅と特殊な変化は後で退けられる。関係のほかに対象となることがあるとはニヤーヤ・ヴァイシェーシカは認めない」と注します（Hi. p.82）。</p></div></div>
+</div>
+<div class="mula" id="u23">
+  <span class="ref">p.34</span>
+  <div class="src deva" lang="sa">अथ प्राप्यकारित्वे चक्षुषः किं प्रमाणम् ? इन्द्रियत्वमेव । प्राप्यकारि चक्षुः इन्द्रियत्वात् घ्राणादिवत् । घ्राणादीन्द्रियं प्राप्यकारि दृष्टम् । तथा च चक्षुः । तस्मात् प्राप्यकारीति । अथ पुनर्न किञ्चिदिन्द्रियं प्राप्यकारि प्रतिपद्यते, तदा सर्वाणि पक्षीकृत्य करणत्वादिति वाच्यम् । करणं वास्यादि प्राप्यकारि दृष्टम् । तथा चेन्द्रियाणि । तस्मात् प्राप्यकारीणीति । अथ पुनर्वैयात्यात् सर्वानेवार्थानप्राप्यकारिणः प्रतिपद्यते, तदा कथम् ? सोऽपि दृष्टसामर्थ्यानां कारणानां सर्वत्र कार्यानुपपत्त्या प्रत्यवस्थेयः । यदि खल्वेतानि कारणानि परस्परप्राप्त्यनपेक्षाणि स्वयमनुपजातशक्तिकानि कार्यान्तरमारभन्त इति कस्मात् कार्यं सर्वत्र न भवतीति वक्तव्यम् । अतो न कारणमप्राप्यकारि अस्तीति । अनेकदण्डचक्राद्युदाहरणं लोक इति । तस्मात् व्यवस्थितमिन्द्रियार्थसन्निकर्षोत्पन्नमिति ।</div>
+  <div class="tr">では、眼が到達して働くことに何の証拠があるのか。感官であること、それ自体である。眼は到達して働く。感官だから。鼻などのように。鼻などの感官は到達して働くことが見られる。眼もそのようである。だから到達して働く。もし（相手が）どの感官も到達して働くとは認めないなら、そのときは、すべて（の感官）を主題として、「手段だから」（という論証因を）言うべきである。手斧などの手段は、到達して働くことが見られる。感官もそのようである。だから到達して働く。もしさらに厚かましくも、あらゆる事物が到達せずに働くと認めるなら、そのときはどうするか。その者にも、能力が見られている原因が、どこにでも結果を生じさせるわけではない、ということによって反論すべきである。もしこれらの原因が、互いに到達することを必要とせず、（到達によって）力が生じていないまま、自分で別の結果を生じさせるのなら、なぜ結果がどこにでも生じないのかを言わなければならない。だから、到達せずに働く原因はない。世間には、棒や轆轤など多くの例がある。それゆえ、「感官と対象との接触から生じた」（という定義）が確定した。</div><div class="exp"><span class="lbl">解説</span><p>到達説の論証は三段階になっています。相手が「鼻や舌は対象に触れてはたらく」と認めるなら、「眼も感官だから同じ」と推理します。相手がどの感官も到達しないと言うなら、「感官は道具だ。斧のような道具は対象に触れてはたらく」と推理します。相手が「どんな原因も触れずにはたらく」とまで言い張るなら、「それならなぜ、壺は陶工の近くでしかできないのか」と問います。陶工の棒と轆轤がまわって粘土に触れるから壺ができる、という世間の常識が最後の根拠です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は TṬ（p.218）を引き、「斧などの道具は木に到達して切る。到達しない場合、原因には本来の能力しかなく、どこにある原因にもそれがあるので、どこにでも結果が生じてしまう。磁石が鉄に触れずに引き寄せる場合も、特定の到達にもとづく特別なはたらきがある。ガラス越しには見えて壁越しには見えないのと同じで、実体とは別に『到達』という性質がある」と注します（Hi. p.83）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの <i>sarvanevārthān</i>、<i>kāryyānupattyā</i> は <i>sarvān evārthān</i>、<i>kāryānupapattyā</i> の誤りとして直しました。Thakur 版の注によれば、写本 C は <i>karaṇam</i> を <i>kāraṇam</i>（原因）と読みます。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §7 ============ -->
+<section id="s7" class="wrap">
+  <div class="sec-head"><span class="sec-no">7</span><h2>「知」「言い表せない」「逸脱しない」「確定的」</h2><span class="sub"><span class="pg">pp.34–35</span>定義の残りの四語。蜃気楼と遠くの煙</span></div>
+<p>知覚の定義の残りの四語が検討されます。とくに「言葉で言い表されない」（<i>avyapadeśya</i>）は、のちに Vācaspati が「無分別知覚」（言葉や概念を伴わない知覚）の根拠と解釈した、解釈史上重要な語です。</p>
+<div class="mula" id="u24">
+  <span class="ref">p.34</span>
+  <div class="src deva" lang="sa">अथ ज्ञानग्रहणं किमर्थम् ? सुखादिव्युदासार्थम् । इन्द्रियार्थसन्निकर्षात् सुखदुःखे अपि भवतः । तद्व्युदासार्थमाह—ज्ञानमिति । तच्चेन्द्रियार्थसन्निकर्षोत्पन्नं ज्ञानं विषयनामधेयेनाभिधीयत इति भाष्यम् । तत्प्रतिषेधार्थमाह—अव्यपदेश्यमिति । यदिदमनुपयुक्तशब्दार्थसम्बन्धस्य विषयभेदानुविधायि ज्ञानं तत् प्रत्यक्षम् । कृतशब्दार्थसम्बन्धस्यापि तदुत्पत्तिकाले तादृगेव । अपरे तु अव्यपदेश्यमित्यनेनानुमानं निराकुर्वन्ति । तच्च नैवम् । कस्मात् ? इन्द्रियार्थसन्निकर्षोत्पन्नमिति वचनात् । न ह्यनुमेयस्येन्द्रियेण सन्निकर्षादनुमानं भवति । अतो न प्रसङ्गोऽनुमान इति ।</div>
+  <div class="tr">では、「知」の語を用いるのは何のためか。楽などを除外するためである。感官と対象との接触から楽や苦も生じる。それを除外するために「知」と言う。「そして、感官と対象との接触から生じたその知は、対象の名前によって言われる」というのが Bhāṣya である。それを否定するために「言葉で言い表されない」と言う。言葉と対象との関係を用いていない者の、対象の違いに従う知、それが知覚である。言葉と対象との関係を学んだ者にとっても、それ（知）が生じる時点では同じである。一方、別の人々は、「言葉で言い表されない」によって推理を除外する。それは正しくない。なぜか。「感官と対象との接触から生じた」と言われているからである。推理は、推理される対象と感官との接触から生じるのではない。だから推理に（定義が）当てはまってしまうことはない。</div><div class="exp"><span class="lbl">解説</span><p>「知」の語は、楽や苦を除外します。おいしいものを口に入れると楽が生じますが、それは知ではなく感情です。</p><p>「言葉で言い表されない」については、Bhāṣya が次の問題を提起しています。「あらゆる事物には名前があり、知覚の知も『色』『味』と名前で言い表される。それなら知覚も言葉による知（証言）になってしまうのではないか」。Bhāṣya の答えは、言葉を知らない子どもでも色を見ることはでき、言葉を知る人でも、見るその瞬間には名前は働いていない、というものです。名前が働くのは、見たものを他人に伝えるときです。</p><p>Uddyotakara もこの理解に従い、「言葉で言い表されない」は、知覚が言葉に依存しないことを示すものと解します。一方、Vācaspati はのちにこの語を、言葉と結びつかない「無分別知覚」を指すものと読みました。ヒンディー訳の注は、スートラ作者や Bhāṣya 作者が無分別・有分別の区別を念頭に置いていたわけではなく、それは Vācaspati の新しい解釈だ、と指摘しています。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は Bhāṣya の議論を「名前のない無分別の知はない、と考える文法学者の説を紹介したもの」と注し、TṬ の「言葉から生じたものが <i>śābda</i>」という語釈を引きます（TṬ p.221）。そして「Vācaspati によれば、この語で無分別知覚が捉えられる。しかしスートラ作者や Bhāṣya 作者が有分別・無分別に目を向けていたわけではなく、これは Vācaspati の着想である」と述べています（Hi. pp.83–85）。</p></div></div>
+</div>
+<div class="mula" id="u25">
+  <span class="ref">pp.34–35</span>
+  <div class="src deva" lang="sa">ग्रीष्मे मरीचय इति भाष्यम् । तत्प्रतिषेधार्थमिदमुच्यते—अव्यभिचारीति । किमिदं व्यभिचारि ? यदतस्मिंस्तदिति भवति । किं पुनरत्र व्यभिचारि, किमर्थः, आहो ज्ञानमिति ? एके तावद् वर्णयन्ति—अर्थस्य व्यभिचारः, अर्थस्तु तथा न भवतीति तद्व्यभिचारात् तद्विषयं ज्ञानमपि व्यभिचारीत्युच्यत इति । तच्च नैवम् । कस्मात् ? अर्थस्य तथाभावात् । यत् तदुदकादिज्ञानमुपजायते मरीचिषु स्पन्दमानेषु न तत्रार्थो व्यभिचरतीति । न हि ते न मरीचयो न वा स्पन्दन्ते, किं तु ज्ञानं व्यभिचरति, अतस्मिंस्तदिति भावादिति । न हि तत्रोदकमस्ति । तांस्तु मरीचीन् इन्द्रियोपघातदोषादिन्द्रियेणालोच्य विपर्येतीति ज्ञानस्य व्यभिचारो नार्थस्येति ।</div>
+  <div class="tr">「夏に陽光の揺らめきが……」というのが Bhāṣya である。それ（を知覚とすること）を否定するために、「逸脱しない」と言われる。この「逸脱する」とは何か。それでないものについて「それだ」と（認識が）生じることである。では、ここで逸脱するのは何か。対象か、それとも知か。まずある人々は、対象の逸脱だと説明する。対象はそのようではない。その（対象の）逸脱によって、それを対象とする知も逸脱すると言われる、と。それは正しくない。なぜか。対象はそのとおりにあるからである。揺らめく陽光について水などの知が生じるとき、そこで対象が逸脱しているのではない。それらが陽光でないのでも、揺らめいていないのでもない。そうではなく、知が逸脱するのである。それでないものについて「それだ」と生じるからである。そこには水はない。（その人は）その陽光を、感官の損傷という欠陥のために、感官によって見て、取り違えるのである。だから、知の逸脱であって、対象の（逸脱）ではない。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya の例は蜃気楼です。「夏、陽光が大地の熱と混じり合って揺らめくのを、遠くにいる人が眼で見て、『水だ』という知が生じる。それも感官と対象の接触から生じるので、知覚になってしまう。だから『逸脱しない』と言う」。</p><p>Uddyotakara は、ここで「誤っている」のは対象か知か、と問います。揺らめく陽光は確かにそこにあり、揺らめいています。対象には何の誤りもありません。誤っているのは、それを「水」と捉えた知のほうです。錯誤の原因は、感官の欠陥（遠すぎる、目が疲れているなど）です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「ある人々」を TṬ（p.225）に従い「一部の者」と注します。「感官によって見て取り違える」について、「無分別知は誤らないが、有分別知は誤る。この観点から Vācaspati はこれを解した。Dharmakīrti の考えでは、感官知にも錯誤がありうる（『ニヤーヤビンドゥ』とその注の知覚の定義を参照）」と述べています（Hi. pp.85–86）。</p></div></div>
+</div>
+<div class="mula" id="u26">
+  <span class="ref">p.35</span>
+  <div class="src deva" lang="sa">दूराच्चक्षुषा ह्ययमर्थं पश्यन्नावधारयतीति भाष्यम् । तद्व्युदासार्थमाह—व्यवसायात्मकमिति । न, संशयस्यानिन्द्रियार्थसन्निकर्षजत्वात् । न हीन्द्रियार्थसन्निकर्षात् संशयज्ञानं भवति, अपि तु मानसः प्रत्ययः । संशीतिः संशय इति । तच्च नैवम् । संशयस्योभयनिमित्तत्वात् । उभयं तु संशयनिमित्तम् आत्मान्तःकरणसंयोग इन्द्रियार्थसन्निकर्षश्चेति । तत्र यदिन्द्रियार्थसन्निकर्षानवधारणपूर्वकं मनसानवधारणं तदिह संबध्यते । तस्य हीन्द्रियार्थसन्निकर्षः कारणमिति । पूर्वं तु न संबध्यते, यदात्मान्तःकरणसंयोगाद् भवति । तस्मादस्ति विषयो विशेषणस्येति युक्तमुक्तं व्यवसायात्मकमिति ।</div>
+  <div class="tr">「じつにこの人は、遠くから眼で対象を見ながら、（それが何かを）確定しない」というのが Bhāṣya である。それを除外するために「確定的」と言う。「そうではない。疑いは、感官と対象との接触から生じるのではないからである。疑いの知は、感官と対象との接触から生じるのではなく、意の認識である。迷うことが疑いである」（と言うなら）。それは正しくない。疑いには二つの原因があるからである。我と内官（意）との結合、および感官と対象との接触の両方が、疑いの原因である。そのうち、感官と対象との接触による未確定にもとづく、意による未確定、それがここで関わる。その（疑いの）原因は、感官と対象との接触だからである。一方、前者、すなわち我と内官との結合から生じる（疑い）は、ここでは関わらない。だから（「確定的」という）限定語には対象があり、「確定的」と言ったのは適切である。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya の例は、遠くに見える何かが「煙か、砂ぼこりか」と分からない場合です。この疑いも感官と対象の接触から生じるので、知覚から除外するために「確定的」の語が要ります。</p><p>反論者は、疑いは意の中で起こるもので、感官からは生じない、と言います。Uddyotakara は、疑いには二種あると答えます。記憶の中で「あれは何だったか」と迷うような、意だけで起こる疑いと、眼で見ながら確定できない疑いです。後者は感官と対象の接触から生じるので、それを除外するために「確定的」の語が必要です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Bhāṣya によれば疑いは感官からも生じる、と注します。一方 Vācaspati は「疑いの知は『逸脱しない』の語によってすでに除外されている」とし、「確定的」は有分別知覚を直接捉えるための語だと解する、これは Vācaspati の新しい着想だ、と指摘しています（TṬ p.225）。Bhāṣya の「まず感官で確定し、あとで意で再確定する」（<i>vyavasāya / anuvyavasāya</i>）の議論も訳出しています（Hi. pp.87–88）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §8 ============ -->
+<section id="s8" class="wrap">
+  <div class="sec-head"><span class="sec-no">8</span><h2>意は感官か</h2><span class="sub"><span class="pg">pp.35–37</span>楽や苦の知覚を説明するために、意を感官と認める</span></div>
+<p>知覚の定義は「感官と対象との接触から生じた」と言います。では、自分の楽や苦、自分の我を知覚する場合はどうなるのか。それらは外界の対象ではなく、眼や耳で捉えられるものでもありません。Bhāṣya と Uddyotakara は、意（<i>manas</i>）を第六の感官と認めることで、この問題を解決します。</p>
+<div class="mula" id="u27">
+  <span class="ref">p.35</span>
+  <div class="src deva" lang="sa">इन्द्रियार्थसन्निकर्षोत्पन्नमित्येवमादिलक्षणम् आत्मादिषु सुखादिषु च नास्ति, मनसोऽनिन्द्रियत्वादतोऽव्यापकमेतत् प्रत्यक्षलक्षणमिति । कथं पुनरिन्द्रियं मनो न भवति ? इन्द्रियसूत्रेऽपठितत्वात् । परिपठितानि घ्राणादीनीन्द्रियाणि, न च तेषु मनः परिपठितम् । तस्मान्मनो नेन्द्रियम् । पृथक् चानभिधानात् नास्ति मनस इन्द्रियत्वे प्रमाणम् । ततश्च नेन्द्रियं मन इति । न चैवं प्रत्यक्षाः सुखादयो भविष्यन्तीति । प्रत्यक्षाश्चैते, नानुमानिकाः लिङ्गाभावात् । न हि लिङ्गमन्तरेणानुमेयोऽर्थो गम्यते । नाप्यन्यत् प्रमाणं प्रतिपादकं सुखादीनाम् । न च तेषामप्रमेयत्वम् । न चान्या गतिरस्ति । तस्मात् कर्तव्यं सुखादीनां प्रत्यक्षेण ग्रहणोपसंख्यानमिति ।</div>
+  <div class="tr">「『感官と対象との接触から生じた』などの定義は、我など、楽などの場合には当てはまらない。意は感官でないからである。だからこの知覚の定義は（すべての知覚に）行き渡らない。では、なぜ意は感官でないのか。感官のスートラに挙げられていないからである。鼻などの感官は列挙されているが、その中に意は挙げられていない。だから意は感官でない。また、（感官として）別に述べられてもいないので、意が感官であることに証拠はない。それゆえ意は感官でない。そうすると、楽などは知覚されないことになる。しかしこれらは知覚されるもので、推理されるものではない。証因がないからである。証因なしに推理される対象は知られない。ほかの認識手段も楽などを知らせるものではない。またそれらが認識されないものだということもない。ほかの道はない。だから、楽などが知覚によって捉えられることを（定義に）付け加えなければならない」（と言うなら）。</div><div class="exp"><span class="lbl">解説</span><p>反論者は定義の「行き渡らなさ」（<i>avyāpti</i>）を指摘します。私は自分の楽しさや痛みを、推理ではなく直接に知っています。それは知覚です。しかし NS 1.1.12 が挙げる感官は鼻・舌・眼・皮膚・耳の五つだけで、意は含まれていません。それなら楽などの知覚は「感官と対象の接触から生じた」とは言えず、定義から漏れてしまう、という反論です。</p><p>反論者の「楽などは認識されないものではない」という一言には背景があります。Vācaspati によれば、Dignāga は「楽などは認識対象でないか、さもなければ意が別の感官ということになる」と述べていました（TṬ p.235）。仏教では楽などは自己認識（<i>svasaṃvedana</i>）によって知られるとしますが、ニヤーヤはそれを認めません。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「我など」と「楽など」を TṬ に従い「常住のもの（我、楽性・苦性など）と無常のもの（楽・苦など）の二群」と説明し、Dignāga の「楽などは認識対象でないか、意が別の感官か」という句を TṬ から引きます。また、Thakur 版の <i>pṛthak ca vidhānāt</i> よりも <i>pṛthak cānabhidhānāt</i>（別に述べられていないから）の読みが適切だ、後の答えもこの読みを前提としている、と注しています（Hi. p.89）。</p></div></div>
+</div>
+<div class="mula" id="u28">
+  <span class="ref">pp.35–36</span>
+  <div class="src deva" lang="sa">कश्चैवमाह—न प्रत्यक्षाः सुखादय इति ? इन्द्रियार्थसन्निकर्षजं प्रत्यक्षमिति वाद्याह । नैष दोषः, मनस इन्द्रियत्वादिन्द्रियार्थसन्निकर्षोत्पन्नं सुखादिज्ञानमिति । यत् तु सूत्रेऽनभिधानं तद् वैधर्म्यात् । किं तद् वैधर्म्यम् ? सर्वविषयत्वासर्वविषयत्वे । सर्वविषयं मनः । असर्वविषयाणीतराणि । सर्वविषयत्वं तु मनसः, स्मृतिकारणसंयोगाधारत्वादात्मवत् । सुखग्राहकसंयोगाधारत्वात् समस्तेन्द्रियाधिष्ठातृत्वाच्च आत्मवत् ।</div>
+  <div class="tr">そもそも誰が「楽などは知覚されない」と言うのか。「知覚は感官と対象との接触から生じる」と言う論者が言うのである。この誤りはない。意は感官なので、楽などの知は感官と対象との接触から生じるからである。スートラで述べられていないのは、性質が異なるからである。その異なる性質とは何か。すべてを対象とするか、すべてを対象とはしないかである。意はすべてを対象とする。他の（感官）はすべてを対象とはしない。意がすべてを対象とすることは、我と同じく、想起の原因である結合のよりどころだからであり、楽を捉える結合のよりどころだからであり、またすべての感官を統括するからである。我と同じように。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の答えは、「意も感官である。ただ他の五つと性質が違うので、同じスートラには入れなかった」というものです。眼は色だけを、耳は音だけを捉えますが、意はあらゆるものに関わります。記憶を生む我と意の結合、楽を知覚する我と意の結合、そして五つの感官すべてを束ねて監督すること。こうした点で、意は外の感官とは違う「内なる感官」（内官、<i>antaḥkaraṇa</i>）なのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は Bhāṣya の説明「外の感官は元素からなり、特定の対象をもち、性質（色など）をそなえて感官となる。意は元素からならず、すべてを対象とし、性質をそなえて感官となるのではない」を訳し、Vārttika 作者はこの三つの違いのうち「すべてを対象とするかどうか」の一点だけを認める、と指摘します（Hi. pp.90–91）。</p></div></div>
+</div>
+<div class="mula" id="u29">
+  <span class="ref">p.36</span>
+  <div class="src deva" lang="sa">भौतिकाभौतिकत्वं तु न, विरोधात् । न हि भौतिकं मनो नाप्यभौतिकमिति । कार्यधर्मावेतौ भौतिकत्वमभौतिकत्वं च । न च कार्यं मनः । तस्मान्न भौतिकं नाप्यभौतिकमिति । श्रोत्रे चासंभवः । यदि भौतिकाभौतिकत्वलक्षणाद् वैधर्म्यादपरिपाठः सूत्रे मनसः, श्रोत्रमपि तर्हि न पठितव्यम्, न हि श्रोत्रं भौतिकं न चाप्यभौतिकमिति । स्वार्थे प्रत्ययाधानमिति चेत्—न, प्रत्ययवैयर्थ्यात् । स्यादेषा बुद्धिः स्वार्थिक एष प्रत्ययो भूतमेव भौतिकमिति । तच्च न, प्रत्ययवैयर्थ्यात् । न हि भौतिकमित्यनेन आकाशे कश्चित् तद्धितार्थो जन्यते । तस्माद् व्यर्थमेतत् स्वार्थे प्रत्ययविधानमिति । यत् पुनरेतत् पृथगभिधानं नास्तीति । न नास्ति, अयुगपज्ज्ञानोपपत्तेरिति । युगपज्ज्ञानानुत्पत्तिर्मनसो लिङ्गम् [१।१।१६] इत्युक्तम् । तेन च प्रतिपादितमेतन्मनसः करणत्वमिति । सगुणानामिन्द्रियभावो वैधर्म्यमित्येतदपि न युक्तम्, श्रोत्रानभिधानप्रसङ्गादेव । तस्मात् सर्वासर्वविषयत्वं वैधर्म्यमित्येतदेव ज्यायः ।</div>
+  <div class="tr">一方、元素からなるか元素からならないか（を異なる性質とするの）は正しくない。矛盾するからである。意は元素からなるのでも、元素からならないのでもない。元素からなること・元素からならないことは、作られたものの性質である。そして意は作られたものではない。だから元素からなるのでも、元素からならないのでもない。また耳には当てはまらない。もし元素からなるか元素からならないかという異なる性質によって意がスートラで挙げられていないのなら、それなら耳も挙げるべきではない。耳も元素からなるのでも、元素からならないのでもないからである。「（<i>bhautika</i> の）接尾辞は自分自身の意味で付けられたのだ」と言うなら、そうではない。接尾辞が無意味になるからである。（反論者は）こう考えるかもしれない。この接尾辞は自分自身の意味のもので、「元素そのもの」が <i>bhautika</i> だ、と。それは正しくない。接尾辞が無意味になるからである。<i>bhautika</i> と言っても、虚空に何の派生の意味も生じないからである。だから、ここで自分自身の意味の接尾辞を立てるのは無意味である。また、「（意は感官として）別に述べられていない」と言われたことについて。述べられていないのではない。「知が同時に生じないこと」によって（述べられている）からである。「知が同時に生じないことが意の証因である」（1.1.16）と言われた。それによって、意が手段であることが示されている。「性質をそなえて感官となることが異なる性質だ」というのも正しくない。耳を挙げないことになってしまうからである。だから、すべてを対象とするかしないかが異なる性質だ、というのが最も適切である。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya が挙げた三つの違いのうち、二つを Uddyotakara は退けます。理由は耳です。ヴァイシェーシカでは、耳は耳孔に限定された虚空そのもので、虚空は永遠の実体なので「作られたもの」ではありません。だから耳は「元素からなる（<i>bhautika</i>、元素から作られた）」とは言えません。それでも耳は外の感官としてスートラに挙げられています。だから「元素からならない」ことを理由に意を除外したとは言えない、という論法です。</p><p>また、NS 1.1.16「知が同時に生じないことが意の証因である」が、意を手段（感官）として規定していると Uddyotakara は指摘します。いくつもの感官が対象に触れていても、知が一度に一つしか生じないのは、意が一つの感官にしか付き添えないからです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vācaspati によれば「元素であること」なら意と感官の違いになりうる（感官は元素で、意はそうでない）ので、Bhāṣya の問題は言葉づかいの欠陥で意図の欠陥ではない、と注します（TṬ p.226）。『パリシュッディ』によれば「性質をそなえること」についても同様だ、と紹介しています（Hi. pp.91–92）。</p></div></div>
+</div>
+<div class="mula" id="u30">
+  <span class="ref">pp.36–37</span>
+  <div class="src deva" lang="sa">तन्त्रान्तरसमाचाराच्च मन इन्द्रियमिति । तन्त्रान्तरेषु मन इन्द्रियमिति पठ्यते । तच्चेह न प्रतिषिद्धम् । अप्रतिषेधादुपात्तं तदिति न, शेषाभिधानवैयर्थ्यदोषात् । शेषाण्यपि इन्द्रियाणि तैः परिपठितानि । तस्मात् तान्यपि न वक्तव्यानि, यद्यप्रतिषेधादुपादानं भवतीति । न, तन्त्रयुक्त्यनवबोधात् । न भवता तन्त्रयुक्तिः परिज्ञायते । परमतमप्रतिषिद्धमनुमतमिति हि तन्त्रयुक्तिः । न च यस्य स्वमतपरिग्रहो नास्ति, तस्य स्वमतं परमतं वा भिद्यते । भवता च परमतानुरोधेन सर्वं स्वमतं निवार्यत इति । तन्निवारणात् स्वमतं परमतमित्येतदेव न स्यात् । तस्मादस्ति मन इन्द्रियं चेति । तदुपपन्नम् इन्द्रियार्थसन्निकर्षोत्पन्नं सुखादिषु ज्ञानमिति व्यापकं लक्षणम् ।</div>
+  <div class="tr">「また、他の学派の慣行からも、意は感官だ（と知られる）」（と Bhāṣya は言う）。他の学派では、意は感官だと説かれている。そしてそれはここ（ニヤーヤ）で否定されていない。「否定されていないので（自説として）採用された、というのは正しくない。残り（の感官）を述べることが無意味になってしまうからである。残りの感官も彼ら（他学派）によって列挙されている。もし否定されていないことで採用されるのなら、それらも述べるべきではない」（と言うなら）。そうではない。学問書の方法を理解していないからである。あなたは学問書の方法を分かっていない。「否定されていない他説は認められている」というのが学問書の方法である。そして、自説を何も立てない者には、自説も他説も区別がない。あなたは他説に従うことによって、自説をすべて排除しようとしている。それを排除すれば、「自説」「他説」ということ自体がなくなってしまうだろう。だから、意はあり、そして感官である。それゆえ、楽などについての知も感官と対象との接触から生じる、ということが成り立ち、定義は（すべての知覚に）行き渡る。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya は「他の学派で意が感官とされ、ニヤーヤがそれを否定していないので、ニヤーヤも認めていると知られる」と言い、これを「学問書の方法」（<i>tantrayukti</i>）の一つとします。「否定されていない他説は認められている」（<i>paramatam apratiṣiddham anumatam</i>）という原則は、Kauṭilya の『アルタシャーストラ』15.1 に挙げられる「学問書の方法」の一つと一致します。</p><p>Vācaspati によれば、反論の「それなら他の感官を述べる必要もない」は Dignāga の句「否定しないことで採用されるなら、他の感官を述べたのは無意味である」にもとづきます（TṬ p.236）。Uddyotakara の答えは、他の感官をまったく挙げなければ、そもそも「自説」がなくなり、何が「否定されていない他説」かも決められない、というものです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「他の学派」について、ヴァイシェーシカ・スートラには意を感官に数えるスートラはないが、『プラシャスタパーダ・バーシュヤ』（知覚の章）とサーンキヤ・カーリカー 27 は意を感官に数える、と注します。「学問書の方法」はカウティリヤ『アルタシャーストラ』15.1 に32種あり、その一つ「他人の言葉で否定されていないものは認められている」（15.1.46）を Bhāṣya はおそらく意味の上で言い換えている、と指摘しています（Hi. pp.92–93）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §9 ============ -->
+<section id="s9" class="wrap">
+  <div class="sec-head"><span class="sec-no">9</span><h2>五語すべてで一つの定義</h2><span class="sub"><span class="pg">pp.37–38</span>五語の組み合わせ31通り。全部そろって初めて知覚</span></div>
+<p>知覚の定義の五語は、一つずつでも知覚の目印になるのか、それとも五つそろって初めて定義になるのか。Uddyotakara は、五語の組み合わせを数え上げ、五語すべてがそろった一つの組み合わせだけが知覚だ、と論じます。</p>
+<div class="mula" id="u31">
+  <span class="ref">p.37</span>
+  <div class="src deva" lang="sa">समस्तमसमस्तं चेति सन्देहः । किमिदं प्रत्यक्षलक्षणं समस्तमाहो असमस्तमिति सन्देहः । कुतः ? उभयथा दर्शनात्, समस्तं च लक्षणं भवति व्यस्तं च । इच्छाद्वेषप्रयत्नसुखदुःखज्ञानान्यात्मनो लिङ्गम् [१।१।१०] इति व्यस्तलक्षणम् । एकशः प्रतिपादकत्वात् । तथा समानानेकधर्मोपपत्तेः [१।१।२३] इत्येवमादि च व्यस्तम् । समस्तं पुनः वचनविघातोऽर्थविकल्पोपपत्त्या छलम् [१।२।१०] । समस्तेनानेन छलं लक्ष्यते । प्रसिद्धसाधर्म्यात् साध्यसाधनमुपमानम् [१।१।६] इति च । लक्षणं चेदम् । अतः सन्देहः, किं समस्तम्, उतासमस्तमिति ?</div>
+  <div class="tr">（この定義は）全体としてか、個々にか、という疑いがある。この知覚の定義は、全体として（一つの定義）なのか、それとも個々に（それぞれが定義）なのか、という疑いである。なぜか。両方のあり方が見られるからである。定義には、全体としてのものも、個々のものもある。「欲求・嫌悪・努力・楽・苦・知が我の証因である」（1.1.10）は個々の定義である。一つひとつが（我を）知らせるからである。同様に、「共通の性質があるから、多くの性質があるから……」（1.1.23）なども個々の（定義）である。一方、全体としてのものは、「意味の選択肢の可能性によって言葉を妨げることが詭弁である」（1.2.10）である。この全体によって詭弁が定義される。また「よく知られたものとの共通性から、論証されるべきものを論証することが類比である」（1.1.6）もそうである。そしてこれ（知覚のスートラ）も定義である。だから、全体としてか、個々にか、という疑いがある。</div><div class="exp"><span class="lbl">解説</span><p>スートラの定義には二つの型があります。我の証因を挙げる NS 1.1.10 は、欲求・嫌悪……の一つひとつが、それだけで我の存在を示します（個々の定義）。詭弁の定義 NS 1.2.10 は、全部の語がそろって一つの定義です（全体としての定義）。知覚の定義はどちらの型なのか、という問いです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「全体として」（<i>samasta</i>）を「すべての語が合わさって」、「個々に」（<i>vyasta</i>）を「別々に」と訳しています（Hi. p.93）。</p></div></div>
+</div>
+<div class="mula" id="u32">
+  <span class="ref">pp.37–38</span>
+  <div class="src deva" lang="sa">समस्तमित्याह । यस्मादेकशोऽनुमानसुखशब्दविपर्ययसंशयज्ञानानि निवर्तन्त इति । यदीन्द्रियार्थसन्निकर्षोत्पन्नमित्येवमाद्येकशः पदमभिधीयते, यो य एकैकेन पदेनार्थः संगृहीतः स स प्रत्यक्षः स्यादिति । तेन पूर्वोक्तानामनुमानादीनां प्रत्यक्षत्वप्रसङ्गः स्यादिति । एवं द्वयोः पदयोरुपादाने पदद्वयेनोपात्तस्य प्रत्यक्षत्वप्रसङ्गः । एवं त्रयाणां पदानामुपादाने तैरुपात्तस्य प्रत्यक्षत्वप्रसङ्गः । एवं चतुर्णां पदानामुपादाने तैरुपात्तस्य प्रत्यक्षत्वप्रसङ्गः । तस्मादेकद्वित्रिचतुष्पदपर्युदासात् पञ्चपदपरिग्रहेण त्रिंशत्कोटीर्व्युदस्य समस्तं लक्षणमित्युच्यते । तत्रैकपदपरिग्रहेण तावत् पञ्च कोटयः । द्विपदपरिग्रहेण दश । त्रिपदपरिग्रहेणापि दशैव । चतुष्पदपरिग्रहेण पञ्च । एकत्रिंशत्तमी पुनः समस्तपरिग्रहेणोपात्तेति । कस्मात् ? विशेषविधिप्रतिषेधयोः शेषप्रतिषेधविध्यभ्यनुज्ञाविषयत्वात् । अयं खलु विशेषविधिः प्रवर्तमानः शेषं प्रतिषेधति, यथा दक्षिणेनाक्ष्णा पश्यतीति । विशेषप्रतिषेधश्च शेषाभ्यनुज्ञाविषयो भवति, यथा वामेनाक्ष्णा न पश्यामीति । तथेहाप्येकदेशाभ्युपगमे शेषप्रतिषेधः, शेषविधानं वा गम्यत इति । व्यवस्थितं प्रत्यक्षमिति ।</div>
+  <div class="tr">全体として（の定義）だ、と（我々は）言う。（五語の）一つひとつによって、推理・楽・言葉（による知）・取り違え・疑いの知が除外されるからである。もし「感官と対象との接触から生じた」などの語が一つずつ述べられるのなら、一つひとつの語によって含まれる対象はどれも知覚になってしまう。そうすると、先に述べた推理などが知覚になってしまう。同じように、二つの語を取れば、二つの語で含まれるものが知覚になってしまう。三つの語を取れば、それらで含まれるものが知覚になってしまう。四つの語を取れば、それらで含まれるものが知覚になってしまう。だから、一つ・二つ・三つ・四つの語（の組み合わせ）を排除し、五つの語を取ることで三十の可能性を除外して、全体としての定義だと言われるのである。そのうち、一つの語を取れば五つの可能性、二つの語を取れば十、三つの語を取っても十、四つの語を取れば五である。そして三十一番目が、全部を取ることによって得られる。なぜか。特定のものの肯定と否定は、（それぞれ）残りの否定と、残りの肯定の容認を対象とするからである。じつに、特定のものの肯定がなされると、残りを否定する。「右の眼で見る」のように。特定のものの否定は、残りの肯定の容認を対象とする。「私は左の眼では見ない」のように。同じようにここでも、一部を認めることで、残りの否定か、残りの肯定かが理解される。（こうして）知覚は確定した。</div><div class="exp"><span class="lbl">解説</span><p>五つの語から選べる組み合わせは、1語なら5通り、2語なら10通り、3語なら10通り、4語なら5通り、5語全部なら1通りで、合計31通りです（2⁵−1＝31）。最初の30通りでは、どれかの語が欠けるので、推理・楽・証言・錯覚・疑いのどれかが紛れ込んでしまいます。五語すべてがそろった31番目だけが、知覚を正しく限定します。</p><p>この組み合わせの網羅は、Uddyotakara の論法の特徴です。Dignāga も、論証因の三相について同じような組み合わせの分析を行っており（§16 参照）、それを逆手に取ったものとも言えます。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>取る語の数</th><th>組み合わせ</th><th>結果</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1語</td><td class="num">5</td><td rowspan="4">どれかの語が欠け、推理・楽・証言・錯覚・疑いのいずれかが紛れ込む（除外される30通り）</td></tr>
+      <tr><td class="num">2語</td><td class="num">10</td></tr>
+      <tr><td class="num">3語</td><td class="num">10</td></tr>
+      <tr><td class="num">4語</td><td class="num">5</td></tr>
+      <tr class="here"><td class="num">5語</td><td class="num">1</td><td>31番目。これだけが知覚</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表4　定義の五語の組み合わせ。</b>ヒンディー訳は30通りの組み合わせをすべて書き出している（Hi. pp.94–95）。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は TṬ（p.237）の「捨てるべき三十の可能性を数え上げる」を引き、1語の5通りから4語の5通りまで、30通りすべてをサンスクリットで列挙しています（Hi. pp.94–95）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §10 ============ -->
+<section id="s10" class="wrap">
+  <div class="sec-head"><span class="sec-no">10</span><h2>他学派の知覚の定義</h2><span class="sub"><span class="pg">pp.38–40</span>Vasubandhu、Dignāga、Jaimini、Vārṣagaṇya の定義を退ける</span></div>
+<p>スートラの定義を擁護し終えた Uddyotakara は、他学派の知覚の定義を批判します。最初は Vasubandhu の『ヴァーダヴィディ』の定義、次に Dignāga の有名な「知覚は概念を離れている」、そしてミーマーンサー・スートラとサーンキヤの Vārṣagaṇya の定義です。反論者の名は本文にはなく、Vācaspati の特定によります。</p>
+<div class="mula" id="u33">
+  <span class="ref">p.38</span>
+  <div class="src deva" lang="sa">अपरे पुनर्वर्णयन्ति—ततोऽर्थाद् विज्ञानं प्रत्यक्षमिति । तत्र, ततोऽर्थादिति, यस्यार्थस्य यद्विज्ञानं व्यपदिश्यते यदि तत एव तद्भवति नार्थान्तरात्, तत् प्रत्यक्षम् । एतेनानुमानादिज्ञानमपक्षिप्तं भवति । न हि तत एव तद्भवति । किं तर्हि ? ततश्चान्यतश्च तद्भवति । अत्र तावदर्थग्रहणं न कर्तव्यम् । ततो विज्ञानमित्युच्यमाने गम्यत एव तदर्थादिति । अवधारणार्थोऽर्थशब्द इति चेत्, स्यान्मतिरेषा अवधारणार्थोऽर्थशब्दो भविष्यतीति, यदुक्तं भवति तत एवेति, तदुक्तं भवति ततोऽर्थादिति । तन्न युक्तम्, एकपदस्याप्यवधारणार्थस्य दृष्टत्वात्, अब्भक्ष इति यथा । एतेनैवानुमानादिव्युदासोऽपि प्रत्युक्तः ।</div>
+  <div class="tr">一方、別の人々は「その対象から（生じる）識が知覚である」と説明する。そのうち「その対象から」とは、ある対象についての識と言い表されるものが、もしまさにその（対象）からだけ生じ、別の対象からは（生じない）なら、それが知覚だ、ということである。これによって推理などの知は除外される。それはまさにその（対象）からだけ生じるのではないからである。ではどうか。それからも、別のものからも生じる。ここで、まず「対象」の語を用いる必要はない。「それから（生じる）識」と言えば、「その対象から」ということは当然理解される。「『対象』の語は限定（「まさに」）のためだ」と言うなら。（反論者は）こう考えるかもしれない。「対象」の語は限定の意味になるだろう、「まさにそれから」と言われるのが、「その対象から」と言われることなのだ、と。それは適切でない。一語でも限定の意味をもつものが見られるからである。「水だけを食べる者」（<i>abbhakṣa</i>）のように。これによって、（「対象」の語で）推理などを除外する（という説）も退けられた。</div><div class="exp"><span class="lbl">解説</span><p>Vācaspati によれば、これは Vasubandhu の知覚の定義です（TṬ p.238）。Vasubandhu は『ヴァーダヴィディ』（論軌）で「知覚とは、その対象から（生じる）識である」と定義しました。推理による火の知は、火そのものからではなく煙から生じるので、知覚から除外されます。</p><p>Uddyotakara はまず言葉の無駄を突きます。「それから」と言えば「その対象から」と分かるので、「対象」の語は要りません。「対象」の語に「まさに」という限定の働きがあると言うなら、そもそもサンスクリットでは一語の中に限定の意味が含まれることがあります（<i>ab-bhakṣa</i> は「水を食べる者」でなく「水<strong>だけ</strong>を食べる者」）。わざわざ別の語を加える必要はない、というのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「別の人々」を TṬ に従い「Vasubandhu」と注し、TṬ の「まずヴァスバンドゥの知覚の定義」という言葉を引いています（Hi. pp.95–96）。</p></div></div>
+</div>
+<div class="mula" id="u34">
+  <span class="ref">pp.38–39</span>
+  <div class="src deva" lang="sa">यत् पुनरेतत् संवृतिज्ञानमनेनापक्षिप्तमिति, तदेतन्न बुध्यामहे कथं तद् अपक्षिप्तमिति । यदि ब्रूषे रूपादिभ्य उत्पन्नं ज्ञानं घटस्य व्यपदिश्यत इति, अतो न ततो भविष्यतीत्यपक्षिप्तमिति, तन्न युक्तम् । न हि रूपादिभ्य उत्पन्नं विज्ञानं घटस्य व्यपदिश्यते । रूपादिभ्य उत्पन्नं रूपादीनां, घटाद् विज्ञानं घटस्येत्यतो न प्रसङ्गः । अथाप्ययं मनोरथो न रूपादिव्यतिरिक्ता घटादय इति मनोमोदकोपभोगमात्रमेतत् । यथा तु तद्व्यतिरिक्ता घटादयः, तथा वक्ष्यामः । सर्वं च स्वविषयाद् विज्ञानं भवतीति ततोग्रहणमनर्थकमिति । ननु च मिथ्याज्ञानमतस्मादपि भवति, न ह्यतस्मात् तद् भवति । किं तर्हि ? अतस्मिंस्तद्भवति । न भवता मिथ्याज्ञानमपि व्यज्ञायि । ततोग्रहणम् अर्थग्रहणं चान्तरेण विज्ञानमात्रमवशिष्यते । तथा च न लक्षणमुक्तं स्यात् । सर्वं च ज्ञानं प्रत्यक्षं स्यात् ।</div>
+  <div class="tr">また、「これ（この定義）によって世俗の知が除外される」と言われることについて。どうしてそれが除外されるのか、我々には分からない。もし「色などから生じた知が壺のものと言い表されるので、それ（壺）からではない、だから除外される」と言うなら、それは適切でない。色などから生じた識は、壺のものとは言い表されない。色などから生じたものは色などのもの、壺から（生じた）識は壺のもの（と言い表される）。だから（定義が当てはまらないという）問題はない。もしまた「壺などは色などとは別にない」という願望があるなら、それは心の中の菓子を食べているだけのことである。壺などが色などとは別にあることは、（後で）述べよう。また、どんな識も自分の対象から生じるので、「それから」の語は無意味である。「しかし、誤った知は、それでないものからも生じるではないか」（と言うなら）。それでないものから生じるのではない。ではどうか。それでないものについて、それ（誤った知）は生じるのである。あなたは誤った知のことも分かっていない。「それから」の語と「対象」の語がなければ、「識」だけが残る。そうすると定義を述べたことにならず、すべての知が知覚になってしまうだろう。</div><div class="exp"><span class="lbl">解説</span><p>仏教によれば、私たちが「壺」と呼んでいるものは、色や形などの微細な構成要素（原子）の集まりに仮に与えた名前にすぎず、本当に実在するのは個々の構成要素だけです。「壺がある」という知は、実在を覆い隠す「世俗の知」（<i>saṃvṛtijñāna</i>）です。Vasubandhu の定義は、壺の知が壺そのものからではなく色などから生じるので、知覚から除外される、と主張します。</p><p>Uddyotakara は、壺は色などとは別の実体として実在するというヴァイシェーシカの立場から反論します。壺が色の集まりにすぎないという考えは「心の中の菓子（<i>manomodaka</i>）を食べているようなもの」、つまり空想だ、と痛烈です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「世俗の知」を TṬ（p.239）に従い、「色などの原子が絶えず生じ、実在として水を運ぶなどのはたらきをする。それらを壺として示す『これは壺だ』という知を世俗という」と説明します（Hi. pp.96–97）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版は <i>saṃvit-jñāna</i> と読める形ですが、写本 C は <i>saṃvṛti-</i>（世俗）と読み、ヒンディー訳本文も <i>saṃvṛtijñāna</i> です。仏教の文脈からも「世俗の知」が適切なので、この読みに従いました。</p></div></div>
+</div>
+<div class="mula" id="u35">
+  <span class="ref">p.39</span>
+  <div class="src deva" lang="sa">यद्यप्येतत्सूत्रं यथाश्रुति भवति, तथापि ग्राह्यग्राहकविज्ञानयोरयुगपद्भावाज्ज्ञानमप्रत्यक्षं स्यात् । नाशोत्पादौ सममिति चेत्—तच्च न, उदाहरणाभावात् । न हि समं नाशोत्पादे किञ्चिदुदाहरणमस्ति । विनष्टश्चार्थः प्रत्यक्ष इति स्यात् । तुल्यमिति चेत्—स्यान्मतिर्भवतां युगपदवस्थाने किमुदाहरणमिति ? तच्च नैवम्, उक्तोत्तरत्वात् । उक्तोत्तरमेतत् स्फटिकादिसूत्रे इति ।</div>
+  <div class="tr">たとえこのスートラ（定義）を字義どおりに認めても、捉えられる（対象）と捉える識とが同時にはないので、（その）知は知覚でないことになるだろう。「（対象の）消滅と（識の）生起は同時だ」と言うなら、それは正しくない。例がないからである。消滅と生起が同時であることの例は何もない。また、滅んだ対象が知覚される、ということになるだろう。「（あなた方にも）同じ（問題がある）」と言うなら。（反論者は）こう考えるかもしれない。（対象と知が）同時に存在することに、あなた方はどんな例があるのか、と。それは正しくない。答えはすでに述べたからである。この答えは「水晶など」のスートラ（3.2.9）で述べた。</div><div class="exp"><span class="lbl">解説</span><p>仏教の刹那滅論を前提にすると、「その対象から生じる識」には時間の問題が生じます。対象が原因で識が結果なら、原因は結果より先にあるはずです。すべてが一瞬で滅びるなら、識が生じたときには、対象はもう滅んでいます。それなら知覚は、すでに存在しないものを捉えることになります。</p><p>Dharmakīrti はこの問題に対して、「時を異にするものがどうして捉えられるのか、と問うなら、知に自らの形を与えうる原因であることこそが『捉えられること』だと（論理学者は）知っている」（PV 2.247）と答えました。Uddyotakara の批判は、こうした仏教の議論に先立つものです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「捉えられる対象は知の原因、捉える知は結果なので、両者は同時にありえない」と注し、Dharmakīrti の『プラマーナ・ヴァールッティカ』2.247 の偈「時を異にするものがどうして捉えられるのか……」を引いています。「水晶など」のスートラは NS 3.2.9 だと示しています（Hi. p.97）。</p></div></div>
+</div>
+<div class="mula" id="u36">
+  <span class="ref">p.39</span>
+  <div class="src deva" lang="sa">अपरे तु मन्यन्ते—प्रत्यक्षं कल्पनापोढमिति । अथ केयं कल्पना ? नामजात्यादियोजना । यत् किल न नाम्नाभिधीयते, न च जात्यादिभिर्व्यपदिश्यते विषयस्वरूपभेदानुविधायि परिच्छेदकमात्मसंवेद्यं तत् प्रत्यक्षमिति । ते इदं प्रष्टव्याः, अथ प्रत्यक्षशब्देन कोऽर्थोऽभिधीयत इति ? यदि प्रत्यक्षम्, कथमवाच्यम् ? अथ न प्रत्यक्षम्, अवाचकस्तर्हि प्रत्यक्षशब्दः । अथ प्रत्यक्षशब्देन सामान्यमुच्यत इति, एतदपि सामान्यं किं प्रत्यक्षव्यतिरेकि, आहोस्विदव्यतिरेकीति ? यदि प्रत्यक्षव्यतिरेकि ? न प्रत्यक्षमुक्तम् । अथाव्यतिरेकि ? कथं नोक्तम् ?</div>
+  <div class="tr">一方、別の人々は「知覚は概念構成を離れている」と考える。では、この概念構成とは何か。名前や類などを結びつけることである。名前によって言われず、類などによって言い表されず、対象そのものの違いに従い、確定させるもので、自己によって知られる、それが知覚だ、というのである。彼らにはこう問うべきである。では、「知覚」の語によってどんな意味が言われるのか。もし知覚（そのもの）なら、どうして（知覚は）言い表せないのか。もし知覚（そのもの）でないなら、それなら「知覚」の語は（知覚を）表さないことになる。もし「知覚」の語によって（知覚の）一般が言われるのだ、と言うなら、その一般もまた、知覚と別のものか、それとも別でないものか。もし知覚と別のものなら、知覚は述べられていない。もし別でないなら、どうして述べられていないのか。</div><div class="exp"><span class="lbl">解説</span><p>Dignāga の有名な知覚の定義「知覚は概念構成（<i>kalpanā</i>）を離れている」（PS 1.3c）です。概念構成とは、見たものに「壺」という名前や「壺であること」という類を結びつけることです。Dignāga によれば、知覚がとらえるのは、名前も類も結びつかない、対象そのものの個別の姿（自相、<i>svalakṣaṇa</i>）だけです。そうした知覚は言葉では言い表せません。</p><p>Uddyotakara の批判は、「言い表せないもの」を言い表している、という自己矛盾を突くものです。「知覚」という語が知覚を表すなら、知覚は言い表せることになる。表さないなら、「知覚は概念を離れている」という定義は何についての定義なのか分からなくなる、というわけです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「別の人々」を TṬ に従い「Dignāga」と注し、「概念構成を離れている」を TṬ（p.241）に従い「意味の上でも本性の上でも概念構成がない知」と説明します。「自己によって知られる」は「自己認識によって、概念構成を離れていることも知られる。『知覚が概念を離れていることは、知覚によってのみ成立する』（PV 2.123）」と注しています（Hi. pp.97–98）。</p></div></div>
+</div>
+<div class="mula" id="u37">
+  <span class="ref">pp.39–40</span>
+  <div class="src deva" lang="sa">कल्पनापोढशब्देनापि यदि प्रत्यक्षमुच्यते, तदा व्याघातः । अथ नोच्यते, तथापि कल्पनापोढशब्दोच्चारणं व्यर्थम् । प्रत्यक्षं कल्पनापोढमिति च वाक्यम् । अथास्य वाक्यस्य कोऽर्थः ? यदि प्रत्यक्षम्, व्याघातः । कथम् ? प्रत्यक्षं कल्पनापोढमिति चानेन वाक्येनाभिधीयते, न चाभिधेयमिति कोऽन्यो भदन्ताद् वक्तुमर्हति ? अथ न प्रत्यक्षमस्यार्थः, वर्णोच्चारणमात्रं तर्ह्येतद्वाक्यं प्रत्यक्षं कल्पनापोढमिति । अनित्यादिशब्दविषयत्वाच्च न सर्वथा अवाच्यम् । अनित्यं प्रत्यक्षं दुःखं शून्यम् अनात्मकं च प्रत्यक्षम् । एषां चेत् शब्दानां विषयतामुपयाति, कथमवाच्यम् ? अथ नोपैति ? न सर्वं संस्कृतमनित्यमित्येतत् तथागतेन आख्यातव्यम् ।</div>
+  <div class="tr">「概念構成を離れた」という語によっても、もし知覚が言われるのなら、矛盾である。もし言われないのなら、「概念構成を離れた」という語を発することは無意味である。そして「知覚は概念構成を離れている」というのは文である。ではこの文の意味は何か。もし知覚なら、矛盾である。どうしてか。「知覚は概念構成を離れている」とこの文によって言われながら、それが言われうるものではない、などということを、大徳（仏教徒）以外の誰が言えるだろうか。もし知覚がこの文の意味でないなら、それならこの「知覚は概念構成を離れている」という文は、音素を発しただけのものである。また、「無常」などの語の対象となるので、まったく言い表せないわけではない。知覚は無常であり、苦であり、空であり、無我である。もし（知覚が）これらの語の対象となるなら、どうして言い表せないのか。もし（対象と）ならないなら、「すべての作られたものは無常である」ということを如来は語るべきではなかったことになる。</div><div class="exp"><span class="lbl">解説</span><p>「大徳」（<i>bhadanta</i>）は仏教の僧への敬称ですが、ここでは皮肉を込めて使われています。「言われているが、言い表せない」という矛盾を平然と主張できるのは仏教徒だけだ、というのです。</p><p>さらに、仏教自身が「すべての作られたもの（有為）は無常・苦・空・無我である」と説いています。知覚もまた作られたものなので、「無常だ」と言葉で言い表されているはずです。知覚が言葉で言い表せないなら、仏陀の根本的な教えが知覚には当てはまらないことになってしまう、という論法です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「『知覚は概念構成を離れている』と言いながら、この文には表すものがない、ということを、仏教徒（<i>bhadanta</i>）以外の誰が言えようか」と訳します。「無常など」については「もし知覚という対象が『知覚』の語の表すものでないなら、あなた方が認識手段として認める『すべては無常』などの聖典の言葉も（知覚を）表さないことになる。どうして認識手段になれるのか」と注しています（Hi. p.98）。</p></div></div>
+</div>
+<div class="mula" id="u38">
+  <span class="ref">p.40</span>
+  <div class="src deva" lang="sa">अथ स्वरूपतो न व्यपदेश्यमित्ययं कल्पनापोढशब्दार्थः ? सर्वेऽर्थास्तर्हि प्रत्यक्षाः प्राप्नुवन्ति । किं कारणम् ? न हि कश्चित् सुशिक्षितोऽपि पदार्थानां स्वरूपं निर्देष्टुं शक्नोति, असामयिकत्वात् । सर्वस्य च वस्तुनो द्वावाकारौ सामान्याकारो विशेषाकारश्च । तत्र वस्तु सामान्येनैव आकारेणाभिधीयते, न विशेषाकारेण । न च तथानभिधानात् नोक्तं भवति । न हि मनुष्यशब्दस्य ब्राह्मणो न वाच्यः । ये तु तस्यासाधारणधर्माः पुरुषान्तरव्यावृत्तप्रत्ययहेतवो न तैः सहाभिधीयते । न च तैः सहानभिधानान्नोक्तो भवतीति । एवं प्रत्यक्षमपि सामान्यविशेषाकारवत्, तस्य विशेषाकारेण नाभिधानम्, सामान्याकारेण त्वभिधानमेव । यदि च विशेषाकारेणानभिधानम्, यत् तल्लक्षणं प्रत्यक्षस्य, न केवलं प्रत्यक्षस्य, त्रैलोक्यस्यैतल्लक्षणम् । एवं च प्रत्यक्षस्य लक्षणं नोक्तं स्यात् ।</div>
+  <div class="tr">もし「本性としては言い表せない」というのが「概念構成を離れた」の語の意味なら、それならあらゆる事物が知覚であることになる。なぜか。どれほどよく学んだ者でも、事物の本性を指し示すことはできないからである。（本性は）約束事の対象ではないからである。そしてあらゆる事物には二つの姿がある。一般の姿と個別の姿である。そのうち事物は一般の姿によってのみ言われ、個別の姿によっては（言われ）ない。しかし、そのように（個別の姿で）言われないからといって、言われていないことにはならない。「人間」の語の表すものにバラモンが入らない、ということはない。ただ、他の人から区別される認識の原因となる、その人に固有の性質とともには言われない。しかし、それとともに言われないからといって、言われていないことにはならない。同じように知覚も、一般と個別の姿をもつ。それは個別の姿によっては言われないが、一般の姿によっては確かに言われる。もし個別の姿によって言われないこと（が知覚の特徴）なら、それは知覚の定義であるだけでなく、三界すべての定義である。そうすると、知覚の定義を述べたことにならないだろう。</div><div class="exp"><span class="lbl">解説</span><p>ここで Uddyotakara は、言葉と事物の関係についての自分の考えを示します。どんな事物も、一般的な面（「人間である」）と個別的な面（「この人に固有の顔つきや声」）をもちます。言葉が表すのは一般的な面だけで、個別的な面そのものは言葉にできません。しかし、だからといって「人間」という語がバラモンを表さないわけではありません。言葉はその人を、一般的な面を通して確かに指しています。</p><p>そうだとすれば、「個別の面では言い表せない」ことはあらゆる事物に当てはまるので、知覚だけの特徴にはなりません。定義は定義されるものに固有でなければならないので、Dignāga の定義は定義として失格だ、というわけです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「本性」を TṬ（p.241）に従い「固有の、他から区別された姿、すなわち自相」と注し、「約束事の対象でない」を「事物の本性（自相）には言葉の約束がなされない。『言葉は対象に触れもしない』」と説明します。「二つの姿」については、「ニヤーヤでは本来、一般・個別・両方をもつもの、の三つの姿があるが、ここでは特殊化された事物の観点から言われている」という TṬ の注を紹介しています（Hi. pp.98–99）。</p></div></div>
+</div>
+<div class="mula" id="u39">
+  <span class="ref">p.40</span>
+  <div class="src deva" lang="sa">अथ कल्पनापोढशब्देन प्रत्यक्षस्य स्वरूपमभिधीयते, एवमपि अनिवृत्तो व्याघातः, स्वरूपं चानभिधेयम्, अनेन च शब्देनोच्यत इति । अथानेन शब्देन नैव किञ्चिदभिधीयते, किमस्य शब्दस्योच्चारणसामर्थ्यं प्रत्यक्षं कल्पनापोढमिति ? अप्रतिपादकत्वान्मूकस्वप्नसदृशमेतत् । एवं यथा यथेदं लक्षणं विचार्यते, तथा तथा न्यायं न सहत इति ।</div>
+  <div class="tr">もし「概念構成を離れた」の語によって知覚の本性が言われるのなら、それでも矛盾はなくならない。本性は言い表せないのに、この語によって言われているからである。もしこの語によって何も言われないのなら、「知覚は概念構成を離れている」というこの言葉を発することに何の力があるのか。何も知らせないのだから、これは啞者の夢のようなものである。このように、この定義を検討すればするほど、それは道理に耐えられない。</div><div class="exp"><span class="lbl">解説</span><p>Dignāga の定義への批判の締めくくりです。「啞者の夢」（<i>mūkasvapna</i>）は、見た本人にも語ることができない夢、つまり誰にも伝わらない無意味なもののたとえです。</p><p>この批判は、のちに Dharmakīrti が知覚の定義に「誤りのない」（<i>abhrānta</i>）を加え、言葉と概念の理論（アポーハ論）を精緻にしていく背景の一つになりました。仏教側からすれば、「言葉は自相を直接は表さないが、他のものの排除（<i>apoha</i>）を通じて間接的に指す」という答えが用意されることになります。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、反論の「この語は（『アシュヴァカルナ』のような）語源的に分析できない固有名で、知覚の本性を表す」という仏教側の意図を補い、Uddyotakara の答えを「仏教の説では言葉は表されるものの本性を言えないのに、『概念構成を離れた』の語で知覚の本性を言っている、これが矛盾だ」と解説しています（Hi. p.99）。</p></div></div>
+</div>
+<div class="mula" id="u40">
+  <span class="ref">p.40</span>
+  <div class="src deva" lang="sa">सत्संप्रयोगे पुरुषस्येन्द्रियाणां बुद्धिजन्म तत्प्रत्यक्षमिति । एतदपि संशयाद्युत्पत्तिनिमित्तत्वादलक्षणमिति । तथा चोक्तं प्रत्यक्षसूत्रं वर्णयद्भिरिति । एतेन प्रत्यक्षमिन्द्रियार्थसन्निकर्षमनःप्रकाशविशेषेषु सत्स्विति प्रत्युक्तम् । तथा श्रोत्रादिवृत्तिरिति । किं कारणम् ? पञ्चपदपरिग्रहेण प्रत्यक्षलक्षणमुक्तम्, यत्रान्यतमपदपरिग्रहो नास्ति, तत् प्रत्यक्षाभासमिति । एवमनेन न्यायेन यान्यप्यनुक्तानि लक्षणानि तान्येतस्मात् लक्षणात् न भिद्यमानानि न लक्षणानीति । व्याख्यातं प्रत्यक्षलक्षणमिति ॥४॥</div>
+  <div class="tr">「存在するものと（感官とが）正しく結びつくとき、人の感官に知が生じること、それが知覚である」（というミーマーンサーの定義がある）。これも、疑いなどが生じる原因となるので、定義になっていない。知覚のスートラを説明するときに（我々は）そのように述べた。これによって、「感官と対象との接触、意、光という特別なものがあるとき、知覚が（ある）」というのも退けられた。同様に、「耳などのはたらき（が知覚である）」というのも。なぜか。（スートラは）五つの語を取ることで知覚の定義を述べた。そのうちのどれか一つの語を取っていないものは、擬似知覚である。このように、この道理によって、（ここで）述べなかった定義も、この定義と違うものなら、定義ではない。知覚の定義は説明された。</div><div class="exp"><span class="lbl">解説</span><p>残りの定義は手短に片づけられます。「存在するものと正しく結びつくとき……」はミーマーンサー・スートラ 1.1.4 です（TṬ p.242）。この定義には「逸脱しない」「確定的」に当たる語がないので、錯覚や疑いも知覚になってしまいます。「耳などのはたらきが知覚」は、Vācaspati によればサーンキヤの Vārṣagaṇya の定義です（TṬ p.242）。中間の「感官と対象の接触、意、光……」が誰の定義かは分かっていません。</p><p>結論は §9 の論理の応用です。五語のどれかを欠く定義は、30通りの不完全な組み合わせのどれかに当たるので、知覚の定義として成り立たない。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「存在するものと正しく結びつくとき」を「ミーマーンサー・スートラ 1.1.4、Jaimini の定義（TṬ p.242）」と注し、Śabara の注「感官と対象が関係するとき人に生じる知、それが知覚」を引きます。「感官と対象との接触、意、光……」の定義については「誰の定義かは、Vārttika・TṬ・『パリシュッディ』からは分からない」、「耳などのはたらき」については「Vārṣagaṇya の定義（TṬ p.242）」と注しています（Hi. p.100）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの <i>tānyatasmāt lakṣaṇāt na bhidyamānāni na lakṣaṇāni</i> は文意が通りにくく、ヒンディー訳本文は <i>tāny etasmāt na bhidyamānāni na-lakṣaṇāni</i> と読みます。Śāstrī は注で「ここに『ない』（<i>na</i>）がなければ、『もしニヤーヤ・スートラの知覚の定義と違うなら、定義ではない』という意味になる」と述べています。和訳はこの趣旨に従いました。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §11 ============ -->
+<section id="s11" class="wrap">
+  <div class="sec-head"><span class="sec-no">11</span><h2>推理と「それにもとづく」</h2><span class="sub"><span class="pg">pp.41–43</span>三つの分解。証因の再確認こそ推理</span></div>
+<p>第五スートラは推理を「それにもとづく三種の推理、すなわち前件をもつもの・残余をもつもの・一般的に見られたもの」と定義します。このスートラは短いのに解釈の幅が非常に広く、Uddyotakara はさまざまな読み方を示します。まず「それにもとづく」（<i>tatpūrvaka</i>）の「それ」が何を指すかを論じ、推理の核心が「証因の再確認」（<i>liṅgaparāmarśa</i>）にあることを明らかにします。</p>
+<div class="mula sutra" id="u41">
+  <span class="ref">p.41 · NS 1.1.5</span>
+  <div class="src deva" lang="sa">अथ तत्पूर्वकं त्रिविधमनुमानं पूर्ववच्छेषवत्सामान्यतोदृष्टं च ॥१।१।५॥</div>
+  <div class="tr">次に、それ（知覚）にもとづく三種の推理がある。前件をもつもの、残余をもつもの、一般的に見られたもの、である。</div><div class="exp"><span class="lbl">解説</span><p>「前件をもつもの」（<i>pūrvavat</i>）、「残余をもつもの」（<i>śeṣavat</i>）、「一般的に見られたもの」（<i>sāmānyatodṛṣṭa</i>）は、それぞれ何を意味するのか。Bhāṣya 自身が二通りの解釈を示し、Uddyotakara はさらに複数の解釈を加えます。これらはインド論理学史上、もっとも多様に解釈されてきた語の一つです。訳語はひとまず字義に従いました。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>解釈</th><th>前件をもつもの</th><th>残余をもつもの</th><th>一般的に見られたもの</th><th>節</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Bhāṣya 第一</td><td>原因から結果（雲から雨）</td><td>結果から原因（増水から雨）</td><td>一般的な共通性から（太陽の運行）</td><td class="num">§13</td></tr>
+      <tr><td class="k">Bhāṣya 第二</td><td>以前に見たとおりに（煙から火）</td><td>消去法（音は性質）</td><td>見えないものとの関係（欲求から我）</td><td class="num">§14–15</td></tr>
+      <tr><td class="k">Uddyotakara 1</td><td colspan="3">肯定否定・肯定のみ・否定のみの三種の推理（「三種」の語だけで読む）</td><td class="num">§12</td></tr>
+      <tr><td class="k">Uddyotakara 2</td><td>所証を遍充する</td><td>同類にある</td><td>異類に見られない</td><td class="num">§12</td></tr>
+      <tr><td class="k">Uddyotakara 3</td><td colspan="3">主題に遍く・同類にある・疑いなく随伴する（証因の三つの特徴）</td><td class="num">§14</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表5　第五スートラのおもな解釈。</b>Uddyotakara は Bhāṣya の第一解釈も、言葉を補ったうえで擁護する。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「次に、それ（知覚）にもとづく三種の推理がある。前件をもつもの、残余をもつもの、一般的に見られたもの」と訳しています（Hi. p.100）。</p></div></div>
+</div>
+<div class="mula" id="u42">
+  <span class="ref">p.41</span>
+  <div class="src deva" lang="sa">अथ तत्पूर्वकं त्रिविधमनुमानमिति । अथेत्यानन्तर्ये । अनुमानविशेषणार्थं सूत्रम् । तत्पूर्वकमनुमानमित्यनेन समानासमानजातीयेभ्योऽनुमानं व्यवच्छिद्यत इति । तानि ते तत् पूर्वं यस्य तदिदं तत्पूर्वकम् । यदा तानीति विग्रहः, तदा समस्तप्रमाणाभिसंबन्धात् सर्वप्रमाणपूर्वकत्वमनुमानस्य वर्णितं भवति । पारम्पर्येण पुनस्तत् प्रत्यक्ष एव व्यवतिष्ठत इति प्रत्यक्षपूर्वकत्वमुक्तं भवति । यदापि विग्रहः ते द्वे पूर्वे यस्येति, ते द्वे प्रत्यक्षे पूर्वे यस्य प्रत्यक्षस्य तदिदं तत्पूर्वकं प्रत्यक्षमिति । कतरे द्वे प्रत्यक्षे ? लिङ्गलिङ्गिसंबन्धदर्शनमाद्यं प्रत्यक्षम्, लिङ्गदर्शनं च द्वितीयम् । बुभुत्सावतो द्वितीयात् लिङ्गदर्शनात् संस्काराभिव्यक्त्यनन्तरकालं स्मृतिः, स्मृत्यनन्तरं च पुनर्लिङ्गदर्शनमयं धूम इति । तदिदमन्तिमं प्रत्यक्षं पूर्वाभ्यां प्रत्यक्षाभ्यां स्मृत्या चानुगृह्यमाणं लिङ्गपरामर्शरूपमनुमानं भवति ।</div>
+  <div class="tr">「次に、それにもとづく三種の推理」（とスートラは言う）。「次に」は（知覚の）直後という意味である。スートラは推理を特徴づけるためのものである。「それにもとづく推理」によって、推理は同類のものと異類のものから区別される。「それら」「その二つ」「それ」が先行するもの、それが「それにもとづく」である。分解が「それら」であるときは、すべての認識手段と関係するので、推理がすべての認識手段にもとづくことが述べられる。しかし間接的には、それは知覚に帰着するので、知覚にもとづくことが言われることになる。また分解が「その二つが先行するもの」であるときは、その二つの知覚が先行する知覚、それがこの「それにもとづく」知覚である。どの二つの知覚か。証因と証因をもつものとの関係を見ることが最初の知覚であり、証因を見ることが二度目である。知ろうと望む者に、二度目の証因の知覚から、潜在印象が呼び起こされた直後に想起が生じ、想起の直後に「これは煙だ」と再び証因を見ることが（生じる）。この最後の知覚が、先行する二つの知覚と想起とに助けられて、証因の再確認というかたちの推理となる。</div><div class="exp"><span class="lbl">解説</span><p>ここで描かれる推理の過程は、のちのニヤーヤの推理論の基本となるものです。</p><figure>
+  <div class="scroll">
+  <svg viewBox="0 0 660 200" style="min-width:560px;width:100%" role="img" aria-label="推理の過程。最初の知覚（かまどで煙と火の関係を見る）、二度目の知覚（山に煙を見る）、想起（煙のあるところに火がある）、三度目の知覚＝証因の再確認（これは火を伴う煙だ）、そして推理知（山に火がある）">
+    <defs><marker id="m11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+    <g font-size="11.5">
+      <rect x="6" y="30" width="118" height="76" rx="10" class="s-band"/>
+      <text x="65" y="52" text-anchor="middle" font-weight="700" class="s-ink">① 最初の知覚</text>
+      <text x="65" y="72" text-anchor="middle" class="s-muted">かまどで煙と火の</text>
+      <text x="65" y="88" text-anchor="middle" class="s-muted">関係を見る</text>
+      <rect x="136" y="30" width="118" height="76" rx="10" class="s-band"/>
+      <text x="195" y="52" text-anchor="middle" font-weight="700" class="s-ink">② 二度目の知覚</text>
+      <text x="195" y="72" text-anchor="middle" class="s-muted">山に煙を見る</text>
+      <rect x="266" y="30" width="118" height="76" rx="10" class="s-goldsoft"/>
+      <text x="325" y="52" text-anchor="middle" font-weight="700" class="s-gold">③ 想起</text>
+      <text x="325" y="72" text-anchor="middle" class="s-muted">「煙のあるところに</text>
+      <text x="325" y="88" text-anchor="middle" class="s-muted">火がある」</text>
+      <rect x="396" y="30" width="128" height="76" rx="10" class="s-accsoft"/>
+      <text x="460" y="52" text-anchor="middle" font-weight="700" class="s-acc">④ 証因の再確認</text>
+      <text x="460" y="72" text-anchor="middle" class="s-muted">「これは（火を伴う）</text>
+      <text x="460" y="88" text-anchor="middle" class="s-muted">煙だ」＝推理</text>
+      <rect x="536" y="30" width="118" height="76" rx="10" class="s-anssoft"/>
+      <text x="595" y="52" text-anchor="middle" font-weight="700" class="s-ans">推理知</text>
+      <text x="595" y="72" text-anchor="middle" class="s-muted">「山に火がある」</text>
+    </g>
+    <path d="M124 68 H134" class="st-muted" stroke-width="1.5" marker-end="url(#m11)"/>
+    <path d="M254 68 H264" class="st-muted" stroke-width="1.5" marker-end="url(#m11)"/>
+    <path d="M384 68 H394" class="st-muted" stroke-width="1.5" marker-end="url(#m11)"/>
+    <path d="M524 68 H534" class="st-acc" stroke-width="2" marker-end="url(#m11)"/>
+    <path d="M65 106 V150 H460 V110" class="st-muted nofill" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#m11)"/>
+    <path d="M195 106 V140" class="st-muted nofill" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <path d="M325 106 V140" class="st-muted nofill" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="330" y="176" text-anchor="middle" font-size="11" class="s-muted">①②③が④を助ける。④の直後に推理知が生じるので、④が「推理」（認識手段）とされる</text>
+  </svg>
+  </div>
+  <figcaption><b>図2　推理の過程。</b>「その二つ（の知覚）にもとづく」とは、①と②の知覚が④に先行すること。④の「証因の再確認」（<i>liṅgaparāmarśa</i>）は、のちのニヤーヤで推理の手段の標準的な説となる。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「次に」を「知覚の直後。知覚が原因で推理が結果」と注し、TṬ（p.309）によれば推理を認識手段と認めない順世派（唯物論者）に対して推理の成立を示している、と述べます。そして「Vārttika 作者は三つの分解を示し、証因の再確認（三度目の証因の知覚）が推理だと述べた。これがのちのニヤーヤで受け入れられた。Vācaspati はこの箇所で仏教論理学の説を論駁している」と注します（Hi. pp.100–101）。</p></div></div>
+</div>
+<div class="mula" id="u43">
+  <span class="ref">pp.41–42</span>
+  <div class="src deva" lang="sa">कः पुनरनुमानार्थः ? अनुमीयतेऽनेनेति करणार्थः । किं पुनरस्य फलम् ? अग्निविषया प्रतिपत्तिरिति । कथं पुनरन्यविषयं करणमन्यविषयां क्रियां करोति ? न हि शाल्यादिविषयस्य मुसलादेः करणस्य श्यामाकेष्वभिहतिर्भवति । न, अनियमात् इत्येके । यद्विषयं करणं तद्विषया क्रियेति न नियमोऽस्ति । दृष्टा हि वृक्षादिविषयस्य छेदनस्यावयवेषु क्रिया । वृक्षश्छिद्यते अवयवेषु छिदा भवति । क्वचित् पुनर्यद्विषयं करणं तद्विषयैव क्रिया । यथा तण्डुलाः पच्यन्ते, पाकस्तेष्वेव । क्वचित् पुनरात्मैव भवति कर्ता करणं च । क्रिया च तस्यैव । तद्यथा वृक्षस्तिष्ठतीति । किमुक्तं भवति ? वृक्षः स्वात्मना तिष्ठतीति । किमुक्तं भवत्यात्मनेति ? यस्मादयं स्वस्थितौ कारकान्तरं न प्रयुङ्क्त इति । एवमन्यविषयस्य करणस्यान्यविषया क्रियेति । क्वचित् पुनर्यद्विषयं प्रमाणं तद्विषयैव क्रिया, यदा स एवार्थः प्रमीयत इति । किं पुनस्तस्य प्रमीयते, प्रमितत्वात् ? प्रमीयते हेयत्वेनोपादेयत्वेनोपेक्षणीयत्वेन वावगम्यत इति । तन्न, प्रमाणफलयोर्विषयभेदानभ्युपगमात् ।</div>
+  <div class="tr">では、「推理」（<i>anumāna</i>）の（語の）意味は何か。「それによって推理されるもの」という手段の意味である。ではその結果は何か。火を対象とする理解である。「では、別のものを対象とする手段が、どうして別のものを対象とする行為をなすのか。米などを対象とする杵などの手段によって、稗が打たれることはない」（と言うなら）。ある人々は言う。「そうではない。決まりがないからである。手段の対象と行為の対象とが同じでなければならない、という決まりはない。木などを対象とする切断の行為が、（木の）部分に起こるのが見られる。木が切られるが、切断は部分に起こる。ある場合には、手段の対象と行為の対象が同じである。米粒が炊かれるとき、炊くことはまさにそれら（米粒）に起こるように。ある場合には、それ自体が行為主体でもあり手段でもあり、行為もそれ自身のものである。『木が立っている』のように。何が言われているのか。木が自分自身によって立っている、ということである。『自分自身によって』とは何が言われているのか。それは自分が立つことに別の行為要素を用いない、ということである。このように、別のものを対象とする手段が、別のものを対象とする行為をなすことがある。ある場合には、認識手段の対象と行為の対象が同じである。同じ対象が（さらに）認識される場合である。すでに認識されているのに、それの何が認識されるのか。捨てるべきもの、取るべきもの、放っておいてよいものとして認識される、すなわち理解されるのである」と。それは正しくない。認識手段と結果とに対象の違いがあることを（我々は）認めないからである。</div><div class="exp"><span class="lbl">解説</span><p>推理の手段が「煙についての知」で、結果が「火についての知」なら、手段と結果で対象が違うではないか、という問題です。ある注釈者は、手段と行為の対象は一致しなくてよい、と例を挙げて答えます。Uddyotakara はこれを退け、認識手段とその結果の対象は一致すると考えます。では煙の知がどうして火の知の手段になるのか。その答えは次のブロックにあります。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「そうではない、決まりがないから」を「一部の者の説で、不定論者」と注し、Uddyotakara の答えについて「証因の知の対象は証因（煙）であるが、それが証因をもつもの（火）についての知を生じさせるので、証因をもつものについての知（の手段）でもある。証因と証因をもつものには本来的な関係があるからだ」と説明します（Hi. pp.101–102）。</p></div></div>
+</div>
+<div class="mula" id="u44">
+  <span class="ref">p.42</span>
+  <div class="src deva" lang="sa">यदा पुनस्तत् पूर्वं यस्य तदिदं तत्पूर्वकमिति, तदा भेदस्याविवक्षितत्वात् लिङ्गलिङ्गिसम्बन्धदर्शनानन्तरलिङ्गदर्शनसम्बन्धस्मृतिभिर्लिङ्गपरामर्शो विशिष्यते, तस्य तत्पूर्वकत्वात् । किं पुनस्तैरनुमीयते ? शेषोऽर्थ इति । अनुमानमित्यत्र किं कारकम् ? भावः करणं वा । यदा भावः, तदा हानादिबुद्धयः फलम् । यदा करणम्, तदा शेषवस्तुपरिच्छेदः फलमिति ।</div>
+  <div class="tr">また、（分解が）「それが先行するもの」であるときは、（三つの）区別を言おうとしないので、証因と証因をもつものとの関係を見ること、それに続く証因を見ること、関係の想起によって、証因の再確認が特徴づけられる。それはそれらにもとづくからである。では、それらによって何が推理されるのか。残りの対象（火など）である。「推理」という語には、どの行為要素（の意味がある）のか。行為そのものか、手段かである。行為そのもののときは、捨てるなどの判断が結果である。手段のときは、残りの事物を確定することが結果である。</div><div class="exp"><span class="lbl">解説</span><p>三つ目の分解「それ（単数）が先行するもの」では、関係の知覚・証因の知覚・関係の想起をまとめて「それ」と呼び、それらにもとづく証因の再確認が推理だ、と読みます。結果は「残りの対象」（<i>śeṣa artha</i>）、つまり知覚で捉えた証因（煙）以外のもの（火）の知です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「残りの対象」について「知覚で知られた証因（煙）の残り、すなわち証因をもつもの（火など）が証因の再確認の対象」と説明し、TṬ（p.312）がこの複合語を一つのまとまった複合語として読んでいることを紹介しています（Hi. pp.102–103）。</p></div></div>
+</div>
+<div class="mula" id="u45">
+  <span class="ref">p.42</span>
+  <div class="src deva" lang="sa">लिङ्गलिङ्गिसम्बन्धस्मृतिर्लिङ्गदर्शनं वेति सन्देहः । एके तावद् वर्णयन्ति—लिङ्गलिङ्गिसम्बन्धस्मृतिरनुमानम्, इतरैर्लिङ्गलिङ्गिसम्बन्धदर्शनादिभिरनुगृह्यमाणा । अपरे पुनर्मन्यन्ते—लिङ्गपरामर्शोऽनुमानम्, इतरैरनुगृह्यमाण इति । वयं तु पश्यामः, सर्वमनुमानम्, अनुमितेस्तन्नान्तरीयकत्वात् । प्रधानोपसर्जनभावविवक्षायां तु लिङ्गपरामर्श इति न्याय्यम् । कः पुनरत्र न्यायः ? आनन्तर्यप्रतिपत्तिः । यस्मात् लिङ्गपरामर्शादनन्तरं शेषार्थप्रतिपत्तिरिति, तस्मात् लिङ्गपरामर्शो न्याय्य इति । स्मृतिर्न प्रधानम् । किं कारणम् ? स्मृत्यनन्तरमप्रतिपत्तेः । न हि भवति यत्र धूममद्राक्षं तत्राग्निमद्राक्षमिति एतस्याश्च स्मृतेरनन्तरं तस्मादग्निरिति शेषार्थग्रह इति युक्तं वक्तुम् । तस्मात् स्मृत्यानुगृह्यमाणो लिङ्गपरामर्शोऽभीष्टार्थप्रतिपादको भवतीति । एवं चोपनयस्यार्थवत्ता । यदि चायं स्मृत्यानुगृहीतो लिङ्गपरामर्शोऽनुमानं भवति, एवं सति उपनयोऽर्थवानिति । एवं च सति वाक्याङ्गत्वमुपनयस्योक्तं भवति । तस्माद् व्यवस्थितमेतत् तत्पूर्वकमनुमानमिति ।</div>
+  <div class="tr">（推理とは）証因と証因をもつものとの関係の想起なのか、それとも証因を見ることなのか、という疑いがある。まずある人々は、「証因と証因をもつものとの関係の想起が、関係を見ることなど他のものに助けられて、推理である」と説明する。別の人々は、「証因の再確認が、他のものに助けられて、推理である」と考える。しかし我々は、すべてが推理だと見る。推理知はそれらなしにはないからである。ただし、主要と従属の関係を言おうとする場合には、証因の再確認（が推理だ）とするのが適切である。ここでの道理は何か。直後に理解が生じることである。証因の再確認の直後に残りの対象の理解が生じるので、証因の再確認が適切である。想起は主要ではない。なぜか。想起の直後には（推理知の）理解が生じないからである。「煙を見たところで火を見た」というこの想起の直後に、「だから火がある」と残りの対象を捉える、と言うのは適切でない。だから、想起に助けられた証因の再確認が、意図した対象を知らせるのである。そしてこうして、適用（の支分）に意味がある。もしこの想起に助けられた証因の再確認が推理なら、そうであってこそ適用に意味がある。そしてそうであってこそ、適用が論証式の支分であることが言われる。それゆえ、「それにもとづく推理」ということが確定した。</div><div class="exp"><span class="lbl">解説</span><p>推理の手段は、想起（「煙のあるところに火がある」）か、それとも証因の再確認（「この山の煙は火を伴う煙だ」）か。Uddyotakara は、すべてが推理に必要だと認めたうえで、主要なものを選ぶなら証因の再確認だ、と答えます。その直後に推理知が生じるからです（§5 の第五の説明「直後に認識が続く」と同じ基準）。</p><p>さらに、論証式の第四支分「適用」（「この山もそのように煙をもつ」）は、まさにこの証因の再確認を言葉にしたものです。証因の再確認が推理の核心だからこそ、適用が論証式に欠かせない支分になる、という指摘は鋭いものです。仏教論理学は論証式を主張・理由・実例の三支（のちには理由と実例の二支）に短縮しましたが、ニヤーヤが五支を守る理由の一つがここにあります。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「ある人々」「別の人々」「我々」を、それぞれ「師の一部に近い者の説」「別の説」「自説」と注し、「自説では、すべてが合わさって推理知の手段となる。どれが主要でどれが従属かを言うなら、証因の再確認が主要で、それが推理である」とまとめます（Hi. pp.103–104）。</p></div></div>
+</div>
+<div class="mula" id="u46">
+  <span class="ref">p.43</span>
+  <div class="src deva" lang="sa">यदि प्रत्यक्षपूर्वकमनुमानं संस्कारे निर्णये च प्रसङ्ग इति । प्रत्यक्षपूर्वको भावनाख्यः स्मृतिहेतुः संस्कारो निर्णयश्च प्रत्यक्षपूर्वकत्वादनुमानं प्रसज्यत इति । नैष दोषः, विज्ञानस्याधिकृतत्वात् । इन्द्रियार्थसन्निकर्षोत्पन्नं ज्ञानमिति ज्ञानाधिकारो वर्तत इति तेन न संस्कारेऽतिप्रसङ्गः । निर्णयस्तूभयथा, कदाचित् प्रमाणं कदाचित् फलम् । स्वविषयपरिच्छेदकत्वात् फलम् । शेषपरिच्छेदकत्वात् प्रमाणमिति ।</div>
+  <div class="tr">「もし推理が知覚にもとづくものなら、潜在印象と決定にも（定義が）当てはまってしまう。知覚にもとづく、『修習』と呼ばれる、想起の原因である潜在印象と、決定とは、知覚にもとづくので、推理になってしまう」（と言うなら）。この誤りはない。識が話題になっているからである。「感官と対象との接触から生じた知」と、知が話題として続いている。だから潜在印象に（定義が）当てはまりすぎることはない。決定は両方である。ある時は認識手段、ある時は結果である。自分の対象を確定するので結果であり、残り（の対象）を確定するので認識手段である。</div><div class="exp"><span class="lbl">解説</span><p>「知覚にもとづく」だけでは、知覚から生じる潜在印象（記憶の痕跡）も推理になってしまう、という反論です。Uddyotakara は、知覚の定義から「知」という語が続いている（<i>adhikāra</i>、話題の継続）ので、ここで言う推理も知に限られる、と答えます。潜在印象は知ではないので除外されます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「識」を TṬ（p.313）に従い「特別な知、すなわち想起とは別の知」と注し、「潜在印象は知覚にもとづいても知ではない。決定は結果のときは認識手段でないので推理でなく、認識手段のときは推理としてもありうる」と説明します（Hi. pp.104–105）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §12 ============ -->
+<section id="s12" class="wrap">
+  <div class="sec-head"><span class="sec-no">12</span><h2>三種の推理（1）：独自の二つの読み</h2><span class="sub"><span class="pg">p.43</span>肯定否定・肯定のみ・否定のみ。論証因の五つの特徴</span></div>
+<p>スートラの「三種」とは何か。Uddyotakara はまず、Bhāṣya にはない自分の読みを二つ示します。どちらも、のちのニヤーヤの論理学の骨格となる重要な説です。</p>
+<div class="mula" id="u47">
+  <span class="ref">p.43</span>
+  <div class="src deva" lang="sa">त्रिविधमिति । अन्वयव्यतिरेकी, अन्वयी, व्यतिरेकी चेति । तत्रान्वयव्यतिरेकी विवक्षिततज्जातीयोपपत्तौ विपक्षावृत्तिः, यथा अनित्यः शब्दः सामान्यविशेषवत्त्वे सत्यस्मदादिबाह्यकरणप्रत्यक्षत्वाद् घटादिवदिति । अन्वयी विवक्षिततज्जातीयवृत्तित्वे सति विपक्षहीनः, यथा सर्वानित्यत्ववादिनामनित्यः शब्दः कृतकत्वादिति । अस्य हि विपक्षो नास्ति । व्यतिरेकी विवक्षितव्यापित्वे सति सपक्षाभावे सति विपक्षावृत्तिः, यथा नेदं जीवच्छरीरं निरात्मकम्, अप्राणादिमत्त्वप्रसङ्गादिति ।</div>
+  <div class="tr">「三種」とは、肯定的・否定的随伴をもつもの、肯定的随伴だけをもつもの、否定的随伴だけをもつもの、である。そのうち、肯定的・否定的随伴をもつもの（の論証因）は、言おうとするもの（主題）とその同類にあって、異類にはないものである。たとえば「音は無常である。普遍と特殊をもち、かつ我々の外的感官で知覚されるから。壺などのように」。肯定的随伴だけをもつものは、主題とその同類にあって、異類を欠くものである。たとえば、すべてが無常だと説く人々にとっての「音は無常である。作られたものだから」。これには異類がないからである。否定的随伴だけをもつものは、主題に遍くあって、同類がなく、異類にはないものである。たとえば「この生きた身体は我をもたないものではない。（もしそうなら）呼吸などをもたないことになってしまうから」。</div><div class="exp"><span class="lbl">解説</span><p>論証因の三分類です。のちのニヤーヤでは「肯定否定両随伴の推理」（<i>anvayavyatirekin</i>）、「肯定随伴のみの推理」（<i>kevalānvayin</i>）、「否定随伴のみの推理」（<i>kevalavyatirekin</i>）として定着します。</p><p>肯定のみの例が面白い点です。「すべては無常」と説く仏教徒にとっては、無常でないもの（異類）が存在しないので、「作られたものだから無常」という論証には否定的随伴（無常でないものには作られたものがない）を示す余地がありません。否定のみの例は、生きた身体に我があることの論証です。我をもつものの実例（同類）を主題の外に示すことはできませんが、「我のないもの（石など）には呼吸がない」という否定的随伴だけで論証できます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「これは Vārttika 作者による Bhāṣya を超えた解釈（TṬ p.313）」と注し、「言おうとするものにあること＝主題所属性、その同類にあること＝肯定的随伴、異類にないこと＝否定的随伴」と対応づけます。肯定のみの推理のニヤーヤ自身の例として「特殊は名指されうる。認識されうるから。普遍のように」を挙げています（Hi. pp.105–106）。</p></div></div>
+</div>
+<div class="mula" id="u48">
+  <span class="ref">p.43</span>
+  <div class="src deva" lang="sa">अथ वा त्रिविधमिति, पूर्ववत् शेषवत् सामान्यतोदृष्टं चेति । पूर्वं साध्यम्, तद् व्याप्त्या यस्यास्तीति तत् पूर्ववत् । साध्यतज्जातीयः शेषः, स यस्यास्ति तत् शेषवत् । पूर्ववन्नाम साध्यव्यापकम् । शेषवदिति तत्समानेऽस्ति । सामान्यतश्चादृष्टम् । चशब्दात् प्रत्यक्षागमाविरुद्धं चेति । एवं चतुर्लक्षणं पञ्चलक्षणमनुमानमिति ।</div>
+  <div class="tr">あるいは「三種」とは、前件をもつもの、残余をもつもの、一般的に見られないもの、である。「前件」とは所証（をもつ主題）であり、それに遍くあるものが「前件をもつもの」である。所証（をもつ主題）と同類のものが「残余」であり、それにあるものが「残余をもつもの」である。「前件をもつもの」とは、所証（をもつ主題）に遍くあるものである。「残余をもつもの」とは、それと同類のものにあるものである。そして「一般的に見られないもの」（<i>sāmānyato 'dṛṣṭa</i>、異類一般には見られないもの）。（スートラの）「そして」の語から、知覚と証言に矛盾しないものも（含まれる）。このように、推理は四つの特徴をもつもの、五つの特徴をもつものである。</div><div class="exp"><span class="lbl">解説</span><p>第二の読みは大胆な語の読みかえです。「前件をもつもの」を「主題（所証をもつもの）に遍く存在する」、「残余をもつもの」を「同類（残り）に存在する」、そして <i>sāmānyatodṛṣṭa</i> を <i>sāmānyato 'dṛṣṭa</i>（一般的に見られない）と分けて「異類には見られない」と読みます。これはちょうど、Dignāga が立てた論証因の三相（主題所属性・同類にあること・異類にないこと）に相当します。</p><p>さらに「そして」の語から「知覚と証言に矛盾しないこと」（否定されていないこと）を読み込み、Vārttika の「そして」からは「対抗論証がないこと」を読み込む（TṬ）。こうして、論証因の五つの特徴（<i>pañcarūpa</i>）が揃います。肯定のみ・否定のみの論証因はそのうち四つ、肯定否定両方の論証因は五つをもつ、というのが「四つの特徴、五つの特徴」の意味です。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>特徴</th><th>スートラの語（Uddyotakara の読み）</th><th>肯否両</th><th>肯のみ</th><th>否のみ</th></tr></thead>
+    <tbody>
+      <tr><td class="k">主題に遍くあること</td><td><i>pūrvavat</i></td><td>○</td><td>○</td><td>○</td></tr>
+      <tr><td class="k">同類にあること</td><td><i>śeṣavat</i></td><td>○</td><td>○</td><td>—</td></tr>
+      <tr><td class="k">異類にないこと</td><td><i>sāmānyato 'dṛṣṭa</i></td><td>○</td><td>—</td><td>○</td></tr>
+      <tr><td class="k">否定されていないこと</td><td>スートラの <i>ca</i></td><td>○</td><td>○</td><td>○</td></tr>
+      <tr><td class="k">対抗論証がないこと</td><td>Vārttika の <i>ca</i>（TṬ）</td><td>○</td><td>○</td><td>○</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表6　論証因の五つの特徴（<i>pañcarūpa</i>）と三種の論証因。</b>肯定のみの論証因には異類がなく、否定のみの論証因には同類がないので、それぞれ四つの特徴をもつ。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「スートラの <i>sāmānyatodṛṣṭa</i> を <i>sāmānyato 'dṛṣṭam</i> と分けて解釈している」と注し、TṬ（p.315）に従って「スートラの『そして』で否定されていないことが、Vārttika の『そして』で対抗論証がないことが示される」と説明します。三種の配分については TṬ の説明（否定されていない・対抗論証がない・主題所属性を三種に共通とし、残りの組み合わせで三種を区別する）を紹介しています（Hi. pp.105–106）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版は「残余」の定義を <i>sādhyatajjātīyaḥ</i>（所証と同類のもの）と読み、ヒンディー訳の一写本は <i>sādhyasajātīyaḥ</i> と読みます（TṬ も同じ）。意味は同じです。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §13 ============ -->
+<section id="s13" class="wrap">
+  <div class="sec-head"><span class="sec-no">13</span><h2>三種の推理（2）：Bhāṣya の例</h2><span class="sub"><span class="pg">pp.43–46</span>雲から雨、増水から雨、鷺から水。太陽の運行の推理</span></div>
+<p>続いて Uddyotakara は、Bhāṣya の第一の解釈を取り上げます。Bhāṣya は「前件をもつもの」を原因から結果の推理、「残余をもつもの」を結果から原因の推理、「一般的に見られたもの」を因果関係にない共通性からの推理とします。Uddyotakara はこの解釈の問題点を指摘しつつ、言葉を補って擁護します。</p>
+<div class="mula" id="u49">
+  <span class="ref">pp.43–44</span>
+  <div class="src deva" lang="sa">अथ वा त्रिविधमिति । पूर्ववत् शेषवत् सामान्यतोदृष्टं चेति । तत्र पूर्ववन्नाम यत्र कारणेन कार्यमनुमीयत इति भाष्यम् । किं पुनरिदमुक्तं भवति कारणेन कार्यमनुमीयत इति ? यदि तावदयमर्थः, कारणदर्शनात् कार्यास्तित्वं प्रतिपद्यत इति ? तन्नास्ति, न हि कारणं गृहीत्वा कश्चित् स्वस्थात्मा कार्यं प्रतिपद्यत इति । तथा च व्याहतं भवतीति । अथ पुनरेवमनुमीयते यत्र कारणं तत्र कार्यमिति ? एतदपि नास्ति, कार्यकारणयोर्भिन्नदेशत्वात् । तन्तवः स्वावयवेषु अंशुषु, पटस्तन्तुष्विति । कारणदर्शनाच्च कार्यमनुमीयत इति ब्रुवाणोऽनुमानमुद्रां भिनत्ति । का पुनरियमनुमानमुद्रा ? नानुपलब्धे न निर्णीते न्यायः प्रवर्तत इति । यदि कारणदर्शनात् कार्यमनुमीयते, अनुपलब्धेऽर्थे न्यायः प्रवर्तत इति स्यात् । तथा च व्याहतं स्यात् ।</div>
+  <div class="tr">あるいは「三種」とは、前件をもつもの、残余をもつもの、一般的に見られたもの、である。そのうち、「前件をもつものとは、原因によって結果が推理される場合である」というのが Bhāṣya である。では「原因によって結果が推理される」とは何を言っているのか。もし「原因を見ることから結果の存在を理解する」という意味なら、それはない。正気の人で、原因を捉えて結果を理解する者はいない。そうすると（経験と）矛盾する。もしまた「原因のあるところに結果がある」と推理するのなら、これもない。結果と原因とは場所を異にするからである。糸は自分の部分である繊維に（あり）、布は糸に（ある）。また、「原因を見ることから結果が推理される」と言う者は、推理の封印を破る。この推理の封印とは何か。「知られていない対象にも、決定された対象にも、ニヤーヤ（推理）は働かない」ということである。もし原因を見ることから結果が推理されるなら、知られていない対象に推理が働くことになるだろう。そうすると矛盾するだろう。</div><div class="exp"><span class="lbl">解説</span><p>「原因から結果を推理する」という Bhāṣya の言い方への疑問です。原因（雲）があっても結果（雨）が生じるとは限りません。また、ヴァイシェーシカでは結果（布）は原因（糸）に内属し、原因は自分の部分（繊維）に内属するので、両者は「同じ場所」にはありません。さらに、推理は「一般的には知られているが、個別には決定されていない」ものに働くはずです（第1章 §9 の「推理の封印」）。まだ存在しない未来の雨は、まったく知られていないので、推理の対象になりえないのではないか、というのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、このブロックに「Bhāṣya の解釈（TṬ p.316）」という見出しを付け、「もし～」から「矛盾するだろう」までを反論として訳しています。「推理の封印」は「推理の決まり（印章）」と訳しています（Hi. pp.106–107）。</p></div></div>
+</div>
+<div class="mula" id="u50">
+  <span class="ref">p.44</span>
+  <div class="src deva" lang="sa">न, अनभ्युपगमात् । क एवमाह कारणदर्शनात् कार्यास्तित्वं प्रतिपद्यत इति ? को वा ब्रवीति यत्र कारणं तत्र कार्यमिति ? कार्यं तु कारणविशेषणत्वेनोपयुक्तं गुणभूतमनुमीयत इति सूत्रार्थः । तथा च न मुद्राभेद इति । एवं शेषवदादिष्वपि व्याख्येयम् । तत्रापि कारणं कार्यस्याङ्गभूतमनुमीयत इति । कथं पुनः शेषशब्देन कार्यमुच्यते ? द्वयोरनुमानभावेनोपक्षिप्तयोः कारणस्योपयोगाद् अनुपयुक्तं कार्यमिति कार्यं शेषशब्दवाच्यम् । उदाहरणम्—मेघोन्नत्या भविष्यति वृष्टिरिति कारणेन कार्यानुमानम् । कथं पुनरस्य प्रयोगः ? वृष्टिमन्त एते मेघाः गम्भीरध्वानवत्त्वे सति बहुबलाकावत्त्वे सति अचिरप्रभावत्त्वे च सति उन्नतत्वात्, तदन्यवृष्टिमन्मेघवदिति ।</div>
+  <div class="tr">そうではない。（そのような説を我々は）認めないからである。誰が「原因を見ることから結果の存在を理解する」と言うのか。また誰が「原因のあるところに結果がある」と言うのか。そうではなく、結果が、原因を特徴づけるものとして用いられ、従属的なものとして推理される、というのがスートラの意味である。そうであれば、封印を破ることにはならない。残余をもつものなどについても、同様に説明すべきである。そこでも、原因が結果に付随するものとして推理される。では、どうして「残余」の語によって結果が言われるのか。（原因と結果の）二つが推理として示されたとき、原因は（前件をもつものの場合に）用いられたので、用いられていない結果が（残り）であり、だから結果が「残余」の語の表すものである。（前件をもつものの）例：「雲が湧き上がるので雨が降るだろう」というのが原因による結果の推理である。ではその論証式はどうなるか。「これらの雲は雨をもつ。深い轟きをもち、多くの鷺を伴い、稲妻を伴い、かつ湧き上がっているから。それとは別の、雨をもつ雲のように」。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の擁護は、推理されるのは結果そのものではなく、「結果を伴った原因」だ、というものです。雲から雨を推理するとき、本当に推理しているのは「この雲は雨をもつ（雨を降らせる）雲だ」ということです。主題は目の前の雲で、雨はその性質（従属的なもの）として推理されます。これなら、主題（雲）は知られており、それが雨をもつかどうかが決まっていないだけなので、推理の封印は破られません。</p><p>論証式に付けられた限定語（深い轟き、多くの鷺、稲妻）にも注意してください。ただ雲が湧き上がっているだけでは、雨にならないこともあります。雨をもたらす雲だけを特定するために、条件が重ねられているのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「我々はどちらの選択肢も認めない。原因の限定語として用いられた従属的な結果が推理されると考える」と答えの趣旨を説明し、論証式を「これらの雲は雨を降らせる。深い轟きをもち、多くの鷺を伴い、稲妻（<i>acirapradhā</i>）を伴いつつ湧き上がっているから」と訳しています（Hi. pp.107–108）。</p></div></div>
+</div>
+<div class="mula" id="u51">
+  <span class="ref">p.44</span>
+  <div class="src deva" lang="sa">नद्याः पूर्णत्वं शेषवदुदाहरणम् । कथं पुनर्नदीपूरो नद्यां वर्तमान उपरिवृष्टिमन्तं देशमनुमापयति, व्यधिकरणत्वात् ? नोपरिवृष्टिमद्देशानुमानं नदीपूरः । किं तर्हि ? नद्या एवोपरिवृष्टिमद्देशसंबन्धित्वमनुमीयते नदीधर्मेणैव । उपरिवृष्टिमद्देशसंबन्धिनी नदी, शीघ्रतरस्रोतस्त्वे सति फलकाष्ठादिवहनवत्त्वे च सति पूर्णत्वात्, तदन्यवृष्टिमत्पूर्णनदीवत् इति । भविष्यति, भूता वेति कालस्याविवक्षितत्वात् यः कश्चित् काल उपादेय इति ।</div>
+  <div class="tr">川が満ちていることが、残余をもつものの例である。「川の増水は川にあるのに、どうして上流の雨の降った地域を推理させるのか。（両者は）基体を異にするのに」（と言うなら）。川の増水は、上流の雨の降った地域を推理させるものではない。ではどうか。川の性質によって、川そのものが上流の雨の降った地域と関係していることが推理されるのである。「この川は上流の雨の降った地域と関係している。流れがより速く、果実や木切れなどを運び、かつ満ちているから。それとは別の、雨のために満ちた川のように」。「（雨が）降るだろう」「降った」というように、時は言おうとされていないので、どんな時でも取ることができる。</div><div class="exp"><span class="lbl">解説</span><p>結果から原因を推理する例です。ここでも Uddyotakara は、推理の主題を工夫します。増水は川の性質で、雨は上流の地域の出来事なので、両者は別の場所にあります。そこで主題を「この川」とし、「この川は雨の降った上流地域とつながっている」という川の性質を推理する、と読みかえます。主題と論証因（増水）が同じ川にあれば、論証因は主題の性質という条件を満たします。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「推理では特定の時が言おうとされているのではなく、ふさわしい時が推理される。原因は常に結果より前にあるからだ」と TṬ（pp.316–317）に従って注します（Hi. p.108）。</p></div></div>
+</div>
+<div class="mula" id="u52">
+  <span class="ref">p.44</span>
+  <div class="src deva" lang="sa">सामान्यतोदृष्टं नाम अकार्यकारणभूतेन यत्राविनाभाविना विशेषणेन विशेष्यमाणो धर्मी गम्यते, तत् सामान्यतोदृष्टम् । यथा बलाकया सलिलानुमानम् । कथं पुनर्बलाकया सलिलानुमानम् ? यावानस्य देशो बलाकयाऽजहद्वृत्तित्वेन प्रसिद्धो भवति, तावन्तमन्तर्भाव्य वृक्षादिकमर्थं पक्षीकृत्य बलाकावत्त्वेन साधयति ।</div>
+  <div class="tr">一般的に見られたものとは、結果でも原因でもない、不可離の限定語によって限定された有法が知られる場合である。それが一般的に見られたものである。たとえば、鷺によって水を推理すること。では、どうして鷺によって水を推理するのか。その（水の）場所のうち、鷺が離れずにいることで知られている範囲を含めて、木などの事物を主題とし、鷺をもつことによって（水をもつことを）論証するのである。</div><div class="exp"><span class="lbl">解説</span><p>三つ目の型は、因果関係によらない不可離の関係にもとづく推理です。Bhāṣya は太陽の運行の推理を例に挙げますが、Uddyotakara はそれを批判し（次のブロック）、自分の例として「鷺から水」を挙げます。鷺は水辺を離れないので、遠くの木に鷺がとまっていれば、その辺りに水があると推理できます。鷺は水の原因でも結果でもありませんが、水と離れずにいます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「不可離であることはすべての論証因に共通なので、前件をもつもの・残余をもつものと区別するために『結果でも原因でもない』と言う」と注します。Bhāṣya の太陽の例は推理として成り立たず残余推理に入ってしまうので、Vārttika 作者は鷺の例を挙げた（TṬ p.317）と説明し、最後の「鷺をもつことによって」は、Gaṅgānātha Jhā によれば「水をもつことによって」と読むのが正しい、と紹介しています（Hi. p.109）。</p></div></div>
+</div>
+<div class="mula" id="u53">
+  <span class="ref">p.45</span>
+  <div class="src deva" lang="sa">अपरे पुनर्मन्यन्ते—सामान्यतोदृष्टम् आदित्यस्य गत्यनुमानमिति । तत्तु न बुद्ध्यामहे कथमनुमीयत इति । यदि तावद् गतिमानादित्य इति अनुमीयते, तत् केन प्रतिपद्यते ? न ह्यादित्यगतेः किञ्चित् संबद्धं लिङ्गमस्ति । न चासंबद्धोऽर्थोऽनुमातुं शक्यते । तथा च सर्वं सर्वेणानुमीयेत । अथापि देशान्तरप्राप्तिर्लिङ्गमिति ? तन्न, अदृष्टत्वात् । न हि सवितुः कश्चिद् देशान्तरप्राप्तिं पश्यति । देशान्तरं खलु आकाशदेशो वा दिग्देशो वा भवेत् । उभयं चाप्रत्यक्षम् । न चान्या गतिरस्ति । तस्माद् देशान्तरप्राप्तिदर्शनमयुक्तम् । सर्वत्र खल्वयमादित्यस्य मण्डलमेव केवलमुपलभते । न च वस्तुमात्रदर्शनादनुमानं युक्तम् । अपि च केनचित् प्रकारेणादित्यस्य गतिः शक्या द्रष्टुम्, उपलब्धिलक्षणप्राप्तत्वात्, न पुनर्देशान्तरप्राप्तिर्नित्यमतीन्द्रियत्वात् । न हि कदाचिदपि प्रत्यक्षाप्रत्यक्षवृत्तिः संयोगो भवति प्रत्यक्षः ।</div>
+  <div class="tr">一方、別の人々は「一般的に見られたものとは、太陽の運行の推理である」と考える。しかしそれがどうして推理されるのか、我々には分からない。もし「太陽は運行する」と推理するのなら、それは何によって理解されるのか。太陽の運行と結びついた証因は何もない。結びついていない対象は推理できない。さもなければ、何でも何によってでも推理されてしまうだろう。「別の場所に達することが証因だ」と言うなら、それは正しくない。見られないからである。太陽が別の場所に達するのを誰も見ない。別の場所とは、虚空の場所か方角の場所かであろう。どちらも知覚されない。ほかの道はない。だから、別の場所に達するのを見ることは成り立たない。人はどこでも太陽の円盤だけを知覚する。単に事物を見るだけで推理することは成り立たない。さらに、太陽の運行はある仕方で見ることができる。知覚の条件を満たしているからである。しかし別の場所に達することは（見ることができ）ない。常に超感覚的だからである。知覚されるものと知覚されないものとにわたる結合は、決して知覚されない。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya の例は、「デーヴァダッタがある場所で見られ、別の場所で見られたら、彼は移動したと分かる。同じように、太陽も東で見られ西で見られるので、見えなくても運行していると分かる」というものです。Uddyotakara はこれを厳しく批判します。太陽が別の「場所」に達したことは見えません。場所とは虚空や方角の一部ですが、虚空も方角も見えないからです。見えるのは、いつもただ太陽の円盤だけです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「別の人々」を「Bhāṣya の解釈者」とし、「知覚の条件を満たす」を TṬ（p.317）に従い「知覚によって捉えられうること」と注しています（Hi. pp.109–110）。</p></div></div>
+</div>
+<div class="mula" id="u54">
+  <span class="ref">p.45</span>
+  <div class="src deva" lang="sa">अथ देवदत्तस्य देशान्तरप्राप्तिदर्शनादादित्यस्य गत्यनुमानं सामान्यतोदृष्टमिति मन्यसे, न केवलमादित्यस्य, सर्वार्थानां गत्यनुमानमेतत् । तर्हि भवानपि गच्छतीत्येवं कस्मात् नानुमिमीषे ? नैवेदम् आदित्यगत्यनुमानं साक्षात् । किं तर्हि ? देशान्तरप्राप्तिमनुमाय तया गत्यनुमानमित्यदोषः । देशान्तरप्राप्तिमानादित्यो द्रव्यत्वे सति क्षयवृद्धिप्रत्ययाविषयत्वे च प्राङ्मुखोपलभ्यत्वे च तदभिमुखदेशसंबन्धादनुत्पन्नपादविहारस्य परिवृत्य तत्प्रत्ययविषयत्वात्, मण्यादिवत् । मण्यादावेतत्सर्वमस्ति । स च देशान्तरप्राप्तिमान् । एवं चादित्यः । तस्माद् देशान्तरप्राप्तिमानिति । अनया तु देशान्तरप्राप्त्या अनुमितया गतिरनुमीयत इति । देशान्तरप्राप्तिमत्त्वे वा साधनम्—देशान्तरप्राप्तिमानादित्यः, अचलचक्षुषो व्यवधानानुपपत्तौ दृष्टस्य पुनर्दर्शनाविषयत्वात् देवदत्तवदिति ।</div>
+  <div class="tr">もしあなたが、デーヴァダッタが別の場所に達するのを見ることから太陽の運行を推理するのが一般的に見られたものだと考えるなら、これは太陽だけでなく、あらゆる事物の運行の推理になってしまう。それなら、「あなたも動いている」とどうして推理しないのか。（正しくは、）これは太陽の運行を直接推理するのではない。ではどうか。別の場所に達することを推理し、それによって運行を推理するのである。だから誤りはない。「太陽は別の場所に達するものである。実体であり、減ったり増えたりするという認識の対象ではなく、東を向いて知覚され、かつ、足を動かしていない者が、その（東の）方を向いた場所との関係から向きを変えて、それ（太陽）の認識の対象となるから。宝石などのように」。宝石などにはこれらすべてがあり、それは別の場所に達するものである。太陽もそうである。だから別の場所に達するものである。そしてこの推理された「別の場所に達すること」によって、運行が推理される。あるいは、別の場所に達することについての（別の）論証：「太陽は別の場所に達するものである。眼を動かさない者にとって、遮るものがないのに、見られたものが再び見られなくなるから。デーヴァダッタのように」。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、太陽の運行を二段階で推理する方法を示します。まず「太陽は場所を移る」ことを推理し、そこから「太陽は動く」と推理します。</p><p>最初の論証式の限定語は、それぞれ反例を除くためのものです。朝、東を向いて太陽を見た人が、その場を動かずに向きを変えて西を向くと、夕方には太陽が目の前にある。これは太陽が場所を移ったからだ、という論証です。「その場を動かずに」は、見る人自身が歩いて移動した場合を除くため、「実体」は性質などを除くため、「増えたり減ったりしない」は、すぐ消えてしまう灯火などを除くためです。二つ目の論証は、眼を動かさず、遮るものもないのに、見えていたものが見えなくなるのは、それが移動したからだ、というものです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は TṬ（p.317）に従い、各限定語の役割を詳しく説明します。「『向きを変えて、その認識の対象となる』だけでは、目の前の柱でも同じことが起こるので不定になる。それを除くために『向きを変えて』。性質などを除くために『実体であり』。すぐ滅びる灯火を除くために『増減の認識の対象でない』。背後の柱を除くために『東を向いて知覚され』。見る人自身が歩いて回り込む場合を除くために『足を動かしていない者の』」。Gaṅgānātha Jhā の解説も参照させています（Hi. pp.110–111）。</p></div></div>
+</div>
+<div class="mula" id="u55">
+  <span class="ref">pp.45–46</span>
+  <div class="src deva" lang="sa">एके तु दिक्प्रत्यक्षत्वेऽनुमानं ब्रुवते—प्रत्यक्षा दिक्, अङ्गुल्यादिव्यपदेशात् चन्द्रवदिति । तच्च न, अरूपत्वात् । अरूपा दिक् कथं बाह्यकरणप्रत्यक्षा भविष्यति ? कथं तर्हि अङ्गुल्या दिग्व्यपदेशः ? दिग्देशसंबन्धिषु वृक्षादिषु दिग्व्यपदेशात् । ये दिग्देशसंबन्धिनो वृक्षादयस्तान् दिगित्युपचरन्ति, आदित्येन सहोपलब्धेः । प्राचीत्ययं शब्द आद्यादित्यदर्शनविशिष्टदिग्देशे वर्तते । तेन आद्येनादित्यदर्शनेन सह यान् वृक्षादीनुपलभन्ते, तान् प्राचीत्युपचरन्ति । उपचर्य चाङ्गुल्या व्यपदिशन्तीति ।</div>
+  <div class="tr">一方、ある人々は、方角が知覚されることについて推理を述べる。「方角は知覚される。指などで指し示されるから。月のように」と。それは正しくない。（方角は）色をもたないからである。色をもたない方角が、どうして外的感官で知覚されるだろうか。では、どうして指で方角を指し示すのか。方角の場所と関係する木などについて、方角を指し示すからである。方角の場所と関係する木などを、比喩的に「方角」と呼ぶ。太陽とともに知覚されるからである。「東」というこの語は、最初に太陽を見ることによって特徴づけられた方角の場所について使われる。その最初の太陽の知覚とともに知覚する木などを、比喩的に「東」と呼ぶ。そして比喩的に呼んで、指で指し示すのである。</div><div class="exp"><span class="lbl">解説</span><p>方角そのものは知覚できない、ということの確認です。「東はあっちだ」と指さすとき、実際に指しているのは、朝日が昇るときに一緒に見える木や山です。それを比喩的に「東」と呼んでいるのです。前のブロックで「場所の移動は見えない」と言ったことの裏づけになっています。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「ある人々」について「誰を指すのかは明らかでない。バーッタ派のミーマーンサー学者も方角を知覚されるものと認める（『マーナメーヨーダヤ』p.160 参照）」と注しています（Hi. p.111）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §14 ============ -->
+<section id="s14" class="wrap">
+  <div class="sec-head"><span class="sec-no">14</span><h2>三種の推理（3）：さらに別の読みと、煙から何を推すか</h2><span class="sub"><span class="pg">pp.46–48</span>数を限定する「三種」。火か、場所か、特別な煙か</span></div>
+<p>Uddyotakara はさらに二つの読みを示します。続いて Bhāṣya の第二の解釈（「以前に見たとおりに」）を取り上げ、そこで出てくる「煙から火を推理する」という定番の例について、仏教側（Dignāga）の分析を紹介しながら、「煙によって推理されるのは何か」を論じます。</p>
+<div class="mula" id="u56">
+  <span class="ref">p.46</span>
+  <div class="src deva" lang="sa">अथ वा त्रिविधमिति लिङ्गस्य प्रसिद्धसदसन्दिग्धतामाह । प्रसिद्धमिति पक्षे व्यापकम् । सदिति सजातीयेऽस्ति । असन्दिग्धमिति सजातीयाविनाभावि । अथ वा त्रिविधमिति नियमार्थम् । अनेकधा भिन्नस्यानुमानस्य त्रिविधेन पूर्ववदादिना संग्रह इति नियमं दर्शयति । कथमनेकधा भिन्नमिति ? अन्वयव्यतिरेकि द्वेधा, सजातीयेऽपि द्वेधा, सदैव सदसच्च । अन्वय्यपि द्वेधैव । एवं व्यतिरेक्येकरूपम्, सपक्षाभावात् । तदिदं पञ्चधा भिन्नमनुमानं कालभेदेन पञ्चदशधा भवति । तदपि पुनः पुरुषभेदानुविधानात् षष्टिभेदं भवति । तस्य त्वान्तर्गणिकोऽनन्तभेद इति । सोऽयमनुमानभेद एवं भिन्नः त्रिविधमित्यनेन संगृहीत इत्यतो नियमार्थं त्रिविधग्रहणमिति ।</div>
+  <div class="tr">あるいは「三種」とは、証因が「よく知られ、存在し、疑いがない」ことを言う。「よく知られた」とは、主題に遍くあることである。「存在する」とは、同類にあることである。「疑いがない」とは、同類と不可離であることである。あるいは「三種」は限定のためである。多様に分かれる推理が、前件をもつものなどの三種によってまとめられる、という限定を示すのである。どうして多様に分かれるのか。肯定否定（の論証因）は二種である。同類にも、常にあるものと、あったりなかったりするものとの二種がある。肯定のみ（の論証因）も二種である。否定のみ（の論証因）は一種である。同類がないからである。この五種に分かれた推理は、時の違いによって十五種になる。それがさらに、人の違いに従って六十種になる。その中の細かい区別は無数である。このように分かれた推理の区別が、「三種」の語によってまとめられる。だから「三種」の語は限定のためである。</div><div class="exp"><span class="lbl">解説</span><p>さらに二つの読みです。第三の読みは、証因の三つの特徴を「よく知られている（主題に遍くある）」「存在する（同類にある）」「疑いがない（同類と不可離）」とするものです。第四の読みは、「三種」を数の限定と取るもので、推理の細分を数え上げます。論証因の型が5種、それに過去・現在・未来の3つの時をかけて15種、さらに人の4種（理解した者・理解していない者・疑う者・誤解する者、第1章 §2）をかけて60種。その細かい区別は無数ですが、すべて三種に収まる、というわけです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「これは Vārttika 作者自身の解釈（TṬ p.318）」と注し、「推理の区別は無数にありうるが、限定のために三種だと言われた。こうして Vārttika 作者は、本性（『それにもとづく』）、数（『三種』）、結果（語源）をめぐる異説を退けた」という TṬ（p.319）の総括を紹介しています（Hi. pp.112–113）。</p></div></div>
+</div>
+<div class="mula" id="u57">
+  <span class="ref">p.46</span>
+  <div class="src deva" lang="sa">पूर्ववदित्युक्तम् । किं पुनरत्र पूर्ववत्, किं कार्यमुत कारणमिति ? यदि पूर्वमस्यास्तीति पूर्ववत्, कार्यं पूर्ववत् प्राप्नोति । ततश्च कारणेन कार्यानुमानमिति व्याघातः । पूर्वमस्यास्तीति पूर्ववदिति ब्रूमः, न पुनः कार्यम् । किं तर्हि ? ज्ञानम् । ज्ञानस्य पूर्वं विषयः । तदिदं ज्ञानं पूर्ववदिति । तेन च कार्यानुमानमिति । एवं शेषवदादिष्वपि तद्विषयाणि ज्ञानानीत्युक्तं भवतीति । अथ वा पूर्ववदिति वतिप्रयोग एषः । यथा पूर्वं प्रत्यक्षेण दृष्टोऽर्थः तथानुमानेनापि तमेवार्थं प्रतिपद्यत इति पूर्ववद् दृष्टो भवति ।</div>
+  <div class="tr">「前件をもつもの」と言われた。ではここで「前件をもつもの」とは何か。結果か、原因か。もし「前件（先行するもの）をもつもの」が <i>pūrvavat</i> なら、結果が <i>pūrvavat</i> になってしまう。そうすると「原因によって結果を推理する」と（いう Bhāṣya と）矛盾する（と言うなら）。「前件をもつもの」が <i>pūrvavat</i> だと我々は言うが、それは結果ではない。ではどうか。知である。知にとって先行するものは対象である。この知が <i>pūrvavat</i> である。そしてそれによって結果が推理される。同じように「残余をもつもの」などについても、それを対象とする知が言われているのである。あるいは、<i>pūrvavat</i> は（「〜のように」を表す）接尾辞 -<i>vat</i> の用法である。以前に知覚によって見た対象のように、推理によってもまさにその対象を理解するので、「以前のように」見られたことになる。</div><div class="exp"><span class="lbl">解説</span><p><i>pūrvavat</i> の -<i>vat</i> は、「〜をもつ」（所有の接尾辞 -<i>vatUP</i>）とも、「〜のように」（比較の接尾辞 -<i>vati</i>）とも読めます。Bhāṣya の第二の解釈「以前のように」は後者の読みです。かまどで煙と火を見たのと同じように、山でも煙から火を知る、ということです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「-<i>vati</i> は行為の同等性に使われる（Pāṇini 5.1.115）ので、以前と同等のものが <i>pūrvavat</i>」と注し、「実例で二つの性質の論証関係を見たのと同じように、主題でその一方の性質を見て他方を推理する。これが行為の同等性である」と説明します（Hi. p.113）。</p></div></div>
+</div>
+<div class="mula" id="u58">
+  <span class="ref">pp.46–47</span>
+  <div class="src deva" lang="sa">अन्ये पुनरन्यथा वर्णयन्ति । यथा तेनैव धूमेन तमेवाग्निं प्रतिपद्यत इति । किं पुनरयं धूमेन प्रतिपद्यते ? किमग्निम्, उत देशम्, उत सत्ताम्, उताग्निमन्तं देशम् ? तत्र न तावदग्निं प्रतिपद्यते, धर्मधर्मिभावानुपपत्तेः । नाग्निर्धूमस्य धर्मः, न वाग्निधर्मो धूमः । प्रतीतत्वाच्चाग्नेर्नानुमेयत्वमस्ति । एतेन सत्ता देशश्च व्याख्यातः, अग्निसत्तायाः प्रतीतत्वाद् देशस्य चेति । अग्निमान् देश इति चेत्—न, धूमस्यातद्धर्मत्वात् । अथापीदं स्यात् अग्निमान् देशो धूमेनानुमीयते ? तच्च नैवम् । कस्मात् ? अतद्धर्मत्वात् । न हि धूमोऽग्निमतो देशस्य धर्मः । न चाग्नेर्देशमात्रसंबन्धो न प्रतीतः । अयमग्निमानिति चेत्—न, तस्यादृष्टत्वात् । देशविशेषोऽग्निमत्तयानुमीयते, न देशमात्रम् । न, तस्यादृष्टत्वात् । न ह्ययं देशविशेषं पश्यति । केवलं शून्यमभिधानमुच्चारयति अयं देशोऽग्निमानिति । न च धूममात्रमग्निप्रतिपादकम्, धूममात्रं चायं पश्यति । अतो न देशविशेषोऽप्यनुमेयः ।</div>
+  <div class="tr">一方、別の人々は別様に説明する。「（以前に見た）その煙によって、その火を理解するように」と。では、この人は煙によって何を理解するのか。火か、場所か、（火の）存在か、それとも火をもつ場所か。そのうち、まず火を理解するのではない。性質と有法の関係が成り立たないからである。火は煙の性質ではなく、煙も火の性質ではない。また火は（かまどですでに）知られているので、推理されるものではない。これによって、（火の）存在と場所も説明された。火の存在も場所も知られているからである。「火をもつ場所（を推理する）」と言うなら、そうではない。煙はその（火をもつ場所の）性質ではないからである。（反論者は）こう考えるかもしれない。煙によって火をもつ場所が推理される、と。それは正しくない。なぜか。その性質ではないからである。煙は火をもつ場所の性質ではない。また、火が場所一般と関係していることが知られていないわけではない。「この（場所）が火をもつ」と言うなら、そうではない。それは見られていないからである。「特定の場所が火をもつものとして推理されるのであって、場所一般ではない」（と言うなら）。そうではない。それは見られていないからである。この人は特定の場所を見ていない。ただ「この場所は火をもつ」と空虚な言葉を発しているだけである。そして煙だけが火を知らせるのではない。この人はただ煙だけを見ている。だから特定の場所も推理されるものではない。</div><div class="exp"><span class="lbl">解説</span><p>ここから議論は込み入ってきます。Vācaspati によれば、「別の人々」は Dignāga です（TṬ）。Dignāga は、煙から推理されるのは何か、という問いを立て、火そのもの、場所そのもの、火の存在、火と場所の関係などの選択肢を検討し、「火をもつ特定の場所」が推理される、と結論しました（PS 2）。</p><p>Uddyotakara は、Dignāga が退けた選択肢と Dignāga 自身の答えを、まとめて退けます。火そのものは煙の性質でない。火をもつ場所という答えについては、煙が上空まで立ちのぼって、もとの場所が見えない場合を考えます。そのとき見えているのは煙だけで、特定の場所は見えていません。見えていない場所について「この場所に火がある」と言うのは空虚な言葉だ、というのです。さらに、仏教の刹那滅論では、場所も刹那ごとに滅びる微細なものの集まりにすぎず、山のような「特定の場所」は実在しないはずだ、という含みもあります。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「別の人々」を TṬ に従い「Dignāga など」と注し、「Dignāga は、煙から別の性質（火）が推理されるのか、火と場所の関係が推理されるのか、という選択肢を退け、火によって特徴づけられた場所が推理されると論証した」と説明して、Dignāga の偈「証因が逸脱しないことは、別のところで性質（所証）とともに見られる。そこで知られたそれを伴うものとして、有法を知らせるであろう」を引きます。そして「Vārttika 作者は、Dignāga が誤りとした選択肢、その他の選択肢、そして Dignāga の説も誤りだと示して、自説を示した」とまとめます（Hi. pp.114–115）。</p></div></div>
+</div>
+<div class="mula" id="u59">
+  <span class="ref">p.47</span>
+  <div class="src deva" lang="sa">अविनाभावेन प्रतिपादयतीति चेत्, अथापीदं स्यात् अविनाभावोऽग्निधूमयोः, अतो धूमदर्शनादग्निं प्रतिपद्यत इति ? न, विकल्पानुपपत्तेः । अग्निधूमयोरविनाभाव इति कोऽर्थः ? किं कार्यकारणभावः, उतैकार्थसमवायः, उत तत्संबन्धमात्रमिति ? अस्तु तावत् पूर्वः कार्यकारणभाव इति । तन्न, अतद्वृत्तित्वात् । न हि धूमोऽग्नौ वर्तते नाप्यग्निर्धूमे, स्वकारणवृत्तित्वात् । अतो न कार्यकारणभावः । नैकार्थसमवायोऽपि, ताभ्यामन्यस्यानारम्भात् । न हि भिन्नजातीयाभ्यां द्रव्यमारभ्यत इति । न च तावप्यन्यत्र वर्तेते स्वकारणवृत्तित्वादित्युक्तम् । संबन्धमात्रं तत्र वर्तत इति चेत् ? तदप्यनुमातुं न शक्यते । कथम् ? यदि तावदेवं कुरुते अस्ति संबन्धोऽग्निधूमयोरिति—तन्न, अप्रतीतत्वात् । अनग्निकस्यापि धूमस्य दर्शनात् न संबन्धानुमानम् । रूपस्पर्शवत् साहचर्यं भविष्यतीति चेत्—न, उभयोर्व्यभिचारो दृष्टः । अनग्निर्धूमो दृष्टः, अधूमश्चाग्निरिति उभयं व्यभिचारि । तस्मात् न साहचर्यमपि । यत्र धूमस्तत्र वह्निरित्यनेनैव प्रत्युक्तम् । न चान्या गतिरस्ति । तस्मात् न धूमेन वह्निरनुमीयत इति ।</div>
+  <div class="tr">「不可離の関係によって知らせるのだ」と言うなら。（反論者は）こう考えるかもしれない。火と煙とには不可離の関係がある。だから煙を見ることから火を理解するのだ、と。そうではない。（どの）選択肢も成り立たないからである。「火と煙とに不可離の関係がある」とは何を意味するのか。原因と結果の関係か、同じものに内属することか、それとも単なる何らかの関係か。まず前者、原因と結果の関係だとしよう。それは正しくない。互いの中にないからである。煙は火の中になく、火も煙の中にない。それぞれ自分の原因の中にあるからである。だから原因と結果の関係ではない。同じものに内属することでもない。その二つから別のものが生じることはないからである。種類の異なるものから実体は生じない。またその二つが（共通の）別のものの中にあるのでもない。それぞれ自分の原因の中にあるからだ、と述べた。「単なる関係がそこにある」と言うなら、それも推理できない。どうしてか。もし「火と煙とに関係がある」と（推理）するのなら、それは正しくない。知られていないからである。火のない煙も見られるので、関係を推理することはできない。「色と触のように、ともにある関係があるだろう」と言うなら、そうではない。両方に逸脱が見られる。火のない煙も見られるし、煙のない火も見られる。両方とも逸脱する。だから、ともにある関係もない。「煙のあるところに火がある」（という遍充）も、これによって退けられた。ほかの道はない。だから、煙によって火が推理されることはない。</div><div class="exp"><span class="lbl">解説</span><p>驚くべきことに、Uddyotakara はここで「煙によって火が推理されることはない」と結論します。「煙のあるところに火がある」という遍充さえ、そのままでは成り立たないと言うのです。</p><p>理由は、「煙」と「火」をそれぞれ一般的に取ると、どちらにも反例があるからです。火のない煙（火が消えたあとに残る煙、かまどから出て遠くへ流れた煙）もあれば、煙のない火（熱した鉄の火）もあります。また、ヴァイシェーシカの存在論では、煙は自分の原因（煙の微粒子）に内属し、火は火の微粒子に内属するので、両者が「同じものの中にある」わけでもありません。では、私たちが日常的に行う「煙から火」の推理はどうなるのか。それが次のブロックの答えです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、ここで検討される三つの選択肢（因果関係、同じものへの内属、単なる関係）を順に見出しを付けて訳し、「同じものに内属すること」を TṬ（p.321）に従い「一つのものの内属、あるいは一つのものにおける内属」と説明しています（Hi. pp.115–116）。</p></div></div>
+</div>
+<div class="mula" id="u60">
+  <span class="ref">pp.47–48</span>
+  <div class="src deva" lang="sa">लोकविरोध इति चेत्, यदि धूमेनाग्निर्नानुमीयते ननु लोको विरुध्यत इति चेत् ? नास्ति विरोधः, धूमविशेषेण अग्निविशेषणस्य धूमस्य प्रतिपाद्यत्वात् । कथं पुनरयमग्निर्धूमविशेषणं भवति ? यदा गुणभूतोऽनुमेयो भवति, अग्निमानयं धूम इति । धूमविशेषेणासाधारणेन प्रतिपद्यते । उभयं च तदा प्रत्यक्षं धूमश्च तद्गताश्च सातत्यसंहत्यूर्ध्वगतिस्वाभाव्यादयो धर्मा इति । ते चैते धूमधर्मा धूमवृत्तयोऽप्रसिद्धं धूमधर्ममनुमापयन्ति । सर्वस्य चानुमेयस्य वस्तुनो धर्मी प्रतिपादकश्च धर्मः प्रसिद्धो भवति । यथा शब्दस्यात्मसत्ता प्रसिद्धा, कृतकत्वं च । धर्मस्त्वनित्यलक्षणोऽप्रसिद्ध इति । तद्विशेषणोऽयमनुमीयत इति ।</div>
+  <div class="tr">「（それでは）世間（の常識）と矛盾する」と言うなら。「もし煙によって火が推理されないのなら、世間と矛盾するではないか」と言うなら。矛盾はない。特別な煙によって、火によって特徴づけられた煙が知らされるからである。では、どうしてこの火が煙の特徴づけとなるのか。（火が）従属的なものとして推理されるときである。「この煙は火をもつ」と。（人は）他にない特別な煙によって（それを）理解する。そのとき、両方が知覚されている。煙と、そこにある、絶え間なさ、濃さ、上昇する本性などの性質とである。そして、煙に属するこれらの煙の性質が、まだ知られていない煙の性質（火をもつこと）を推理させるのである。そして、推理されるすべての事物について、有法と、知らせる性質とはよく知られている。たとえば音について、それ自体の存在はよく知られ、作られたものであることも（よく知られている）。しかし無常という性質は知られていない。それによって特徴づけられたものとして、これ（音）が推理されるのである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の答えはこうです。推理の主題は煙そのもので、推理される性質は「火をもつこと」です。「この煙は火をもつ（火から立ちのぼっている）」。そして論証因は、ただの煙ではなく、「途切れなく、濃く、上に昇っていく」という特別な性質をもった煙です。こうした特別な煙は、火から離れた煙（火が消えたあとの煙など）にはない性質なので、確実に火を示します。</p><p>この分析には二つの狙いがあります。一つは、主題と論証因を同じ一つのもの（目の前の煙）にして、論証因が主題の性質であるという条件を確実に満たすことです。もう一つは、反例を除くために論証因を限定することです。Vācaspati によれば、普通は山の上に煙が立ちのぼるのが見えるので「火をもつ場所」が推理されるが、煙が濃すぎて場所が見えない場合には「この煙は火をもつ」と推理される（TṬ）。Uddyotakara の分析は、そうした場合も含めて推理の構造を一貫して説明するためのものだ、というわけです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「矛盾はない」以下を Vārttika の総括と見なし、TṬ の説明を紹介します。「山の上で煙の筋が絶え間なく昇っているのが見えるところでは、火をもつ場所が推理される。これは世間でよく知られている。しかし、煙が濃いために、あるいは遠いために場所が見えず、空に届く煙だけが見えるところでは、場所を伴わずに見えている特別な煙そのものが、火をもつものとして論証される」。「特別な煙」は TṬ（p.321）に従い「絶え間なさ、上昇などによって、火から逸脱する単なる煙から、火と不可離の煙を区別したもの」と説明しています（Hi. p.116）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §15 ============ -->
+<section id="s15" class="wrap">
+  <div class="sec-head"><span class="sec-no">15</span><h2>残余推理・一般観察推理と、有と無</h2><span class="sub"><span class="pg">pp.48–50</span>音は性質である。欲求などは我に属する。内属は独立している</span></div>
+<p>Bhāṣya の第二の解釈の残り、すなわち「残余をもつもの」＝消去法、「一般的に見られたもの」＝見えないものとの関係にもとづく推理を検討します。続いて Bhāṣya の「知覚は存在するものを対象とし、推理は存在するものと存在しないものを対象とする」という一文を取り上げ、その流れで「内属」（<i>samavāya</i>）が他のものに依存しない独立のものであることを長く論じます。</p>
+<div class="mula" id="u61">
+  <span class="ref">p.48</span>
+  <div class="src deva" lang="sa">शेषवन्नाम परिशेष इति भाष्यम् । न कर्म शब्दः शब्दान्तरहेतुत्वादित्युभयव्यावृत्तेरसाधनम्, न हि शब्दान्तरहेतुत्वं कर्मणि नाकर्मणीति । न, अन्यार्थत्वात् । शब्दान्तरहेतुत्वादित्यस्य समानजातीयारम्भकत्वादित्ययमर्थः । तथा च न दोष इति ।</div>
+  <div class="tr">「残余をもつものとは消去法である」というのが Bhāṣya である。（反論）「『音は運動ではない。別の音の原因だから』というのは、（同類と異類の）両方から外れるので論証にならない。別の音の原因であることは、運動にも、運動でないものにもないからである」。そうではない。（この語には）別の意味があるからである。「別の音の原因だから」とは、「同じ種類のものを生み出すから」という意味である。そうであれば誤りはない。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya の例はこうです。音は存在し、無常なので、実体か性質か運動かのどれかである（普遍・特殊・内属は無常でない）。音は実体ではない（一つの実体＝虚空だけに依存するから）。運動ではない（別の音の原因となるから）。だから残る性質である。これが「残余」による推理、つまり消去法です。</p><p>反論は、「別の音の原因」という論証因は、音以外には見られないので、同類（運動でないもの）にも異類（運動）にもない「共通しない」論証因だ、というものです。Uddyotakara は、論証因の意味を一般化して「同じ種類のものを生み出す」と読めばよい、と答えます。実体（糸）は実体（布）を、性質（糸の色）は性質（布の色）を生み出しますが、運動は運動を生み出しません。こうすれば論証因は同類にあり異類にないので、正しい論証因になります。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は Bhāṣya の例を訳出して「音は存在し無常なので実体・性質・運動のいずれかであることになる。普遍・特殊・内属には存在性も無常性もないので、音がそれらである可能性はない」と説明します。そして Vācaspati の見解として「これは消去法の例ではなく、肯定否定両随伴の推理の例である。消去法とは否定のみの推理の別名で、その例は欲求などが我の性質であることだ」と紹介しています（Hi. p.117）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版は「論証にならない」（<i>asādhanam</i>）と読み、写本 C は「共通しない（論証因）」（<i>asādhāraṇam</i>）と読みます。後者なら、のちの擬似論証因の分類でいう「共通しない不定」を名指していることになります。</p></div></div>
+</div>
+<div class="mula" id="u62">
+  <span class="ref">p.48</span>
+  <div class="src deva" lang="sa">सामान्यतोदृष्टं नाम यत्राप्रत्यक्षे लिङ्गलिङ्गिनोरिति भाष्यम् । लिङ्गलिङ्गिनोः सम्बन्धोऽप्रत्यक्ष इति किं यदानुमीयते तदाप्रत्यक्ष आहो न कदाचिदपि प्रत्यक्ष इति ? यदि यदानुमीयते तदाप्रत्यक्षः, तदा सर्वमनुमानमेवमिति विशेषणमनर्थकम् । अथ न कदाचित् प्रत्यक्षः, कथं तर्हि अनुमानमत्र प्रवर्तते ? व्याहतं च भवति नानुपलब्धे न निर्णीत इति । न, विशेषणभूतस्याप्रत्यक्षस्य सर्वदानुमेयत्वात् । यदितरधर्मदर्शनाद् धर्मिणोऽधिगतिसाधनं तत् सामान्यतोदृष्टम्, यथा इच्छादिभिरात्मा ।</div>
+  <div class="tr">「一般的に見られたものとは、証因と証因をもつものとの（関係が）知覚されない場合である」というのが Bhāṣya である。（反論）「証因と証因をもつものとの関係が知覚されない、というのは、推理されるときに知覚されないのか、それとも一度も知覚されないのか。もし推理されるときに知覚されないのなら、すべての推理がそうなので、限定語は無意味である。もし一度も知覚されないのなら、どうしてそこに推理が働くのか。また、『知られていないものにも、決定されたものにも（推理は働かない）』（という原則）と矛盾する」。そうではない。限定語となる知覚されないもの（我）は、常に推理されるものだからである。別の性質を見ることから有法を知る手段となるもの、それが一般的に見られたもの（の推理）である。欲求などによって我が（推理される）ように。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya によれば、一般的に見られたものの推理は、証因と証因をもつものの関係が知覚されない場合です。煙と火の関係はかまどで見られますが、欲求と我の関係は一度も見られたことがありません。我は知覚されないからです。それでも推理できるのはなぜか。Uddyotakara は、推理の主題を「欲求など」にし、我はその限定語（従属的なもの）として推理される、と答えます。主題（欲求）は内的に知覚されているので、推理の封印には反しません。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「欲求などは意による知覚の対象である。我はその限定語なので、ここでは我に特徴づけられた欲求などが所証である」と注し、推理を「見られたもの」（前件をもつもの・残余をもつもの）と「一般的に見られたもの」の二つに大別する見方も紹介しています（Hi. p.118）。</p></div></div>
+</div>
+<div class="mula" id="u63">
+  <span class="ref">p.48</span>
+  <div class="src deva" lang="sa">इच्छादयः खलु धर्मिणो भवन्ति, आत्मा च विशेषणं गुणभूत इति । इच्छादीनां गुणत्वं प्रतीतो धर्मः । तेन धर्मेण तानेव इच्छादीनात्मगुणविशिष्टाननुमिमीते—परतन्त्रा इच्छादयो गुणत्वाद् रूपवदिति । पारतन्त्र्यमात्रप्रतिपत्तिरस्मादनुमानात्, आत्मतन्त्रता तु कुतः ? आत्मतन्त्रता परिशेषात्, आत्मसंवेद्यत्वाद् बाह्यकरणाप्रत्यक्षत्वाच्च । न पृथिव्यादिषु; पृथिव्यादिगुणाः प्रत्यक्षा ये ते स्वात्मपरात्मप्रत्यक्षा बाह्यकरणप्रत्यक्षाश्च, आत्मप्रत्यक्षास्त्विच्छादयः । तस्मान्न पृथिव्यादिष्वाकाशान्तेषु । न दिक्कालमनःसु, तद्गुणानां तद्वदतीन्द्रियत्वात् । न च द्रव्यान्तरं शिष्यते । आत्मा च शेषः । तस्मात् तत्तन्त्रा इति ।</div>
+  <div class="tr">欲求などが有法であり、我は限定語であって従属的なものである。欲求などが性質であることは、知られている性質である。その性質によって、まさにその欲求などを、我という（基体の）性質によって特徴づけられたものとして推理する。「欲求などは他に依存する。性質だから。色のように」と。この推理からは、他に依存することだけが理解される。では我に依存することは何から（知られる）のか。我に依存することは消去法による。自分（の我）によって感受され、外的感官によって知覚されないからである。地などには（属さ）ない。地などの性質で知覚されるものは、自分の我にも他人の我にも知覚され、外的感官によって知覚される。一方、欲求などは自分の我によってのみ知覚される。だから地から虚空までのものには（属さ）ない。方角・時間・意にも（属さ）ない。それらの性質は、それらと同じく超感覚的だからである。ほかの実体は残っていない。我が残りである。だから（欲求などは）それに依存する。</div><div class="exp"><span class="lbl">解説</span><p>我の存在証明は二段構えです。まず一般的に見られたものの推理によって、「欲求などは性質なので、何かに依存している」ことが分かります。次に消去法によって、その依存先が九つの実体のうちのどれかを絞ります。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>実体</th><th>その性質の特徴</th><th>欲求などの基体か</th></tr></thead>
+    <tbody>
+      <tr><td class="k">地・水・火・風・虚空</td><td>外的感官で知覚され、自分にも他人にも知覚される</td><td>× 欲求は自分にしか知覚されず、外的感官で捉えられない</td></tr>
+      <tr><td class="k">方角・時間・意</td><td>その実体と同じく超感覚的</td><td>× 欲求は（内的に）知覚される</td></tr>
+      <tr class="here"><td class="k">我</td><td>—</td><td>○ 残り（<i>śeṣa</i>）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表7　欲求などの基体を消去法で求める。</b>一般的に見られたものの推理で「何かに依存する」ことを示し、消去法で「我に依存する」ことを示す。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「一般的に見られたものの推理によって欲求などが他に依存することが証明され、それが我の性質であることは消去法の推理によって確定される」と、TṬ（p.323）を参照して注しています（Hi. pp.118–119）。</p></div></div>
+</div>
+<div class="mula" id="u64">
+  <span class="ref">p.49</span>
+  <div class="src deva" lang="sa">सद्विषयं च प्रत्यक्षं सदसद्विषयं चानुमानमिति भाष्यम् । किं तावद् धर्मिणमभिप्रेत्यार्थभेद उत धर्ममिति ? यदि तावद् धर्मिणमभिप्रेत्य, न कदाचिदसद्विषयमनुमानम्; न ह्यनुपलब्धसामान्येऽर्थेऽनुमानं प्रवर्तत इत्युक्तम्, न चासतः सामान्यदर्शनमस्ति । अथ धर्ममभिप्रेत्य ब्रूषे ? धर्मा अपि त्रिविधा भवन्ति—विधीयमानाः, प्रतिषिध्यमानाः, स्वतन्त्राश्चेति । तत्र विधीयमानो धर्मः पृथिव्यां गन्धवत्त्वम्, प्रतिषिध्यमानोऽपामगन्धवत्त्वम्, स्वतन्त्रः समवायिनां समवाय इति ।</div>
+  <div class="tr">「知覚は存在するものを対象とし、推理は存在するものと存在しないものを対象とする」というのが Bhāṣya である。（問い）まず、有法を念頭に置いて対象の違いを（言う）のか、それとも性質を（念頭に置いて言う）のか。もし有法を念頭に置いてなら、推理が存在しないものを対象とすることは決してない。一般的な姿が知られていない対象には推理は働かない、と言われた。そして存在しないものの一般的な姿を見ることはない。では性質を念頭に置いて言うのか。性質にも三種がある。肯定されるもの、否定されるもの、独立したものである。そのうち、肯定される性質とは、地における香をもつことである。否定される性質とは、水における香をもたないことである。独立したものとは、内属するものどもの内属である。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya は、知覚は現在のものしか捉えないが、推理は過去・未来のもの（今は存在しないもの）も捉える、と述べます。Uddyotakara は、推理の主題（有法）は常に存在するものでなければならないので、「存在しないものを対象とする」というのは、推理される性質についての話だと整理します。そして性質を三種に分け、そのうち「否定される性質」（水には香がない、など）を対象とする推理が「存在しないものを対象とする」推理だ、と結論します（次のブロックの最後）。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「ここで『存在するもの』とは現在のもの、『存在しないもの』とは過去・未来のもの」と注し、Vācaspati によれば性質はまず肯定されるものと否定されるものの二種で、肯定されるものがさらに他に依存するものと独立したものに分かれる、と紹介しています（Hi. pp.120, 122）。</p></div></div>
+</div>
+<div class="mula" id="u65">
+  <span class="ref">p.49</span>
+  <div class="src deva" lang="sa">कथं पुनः स्वतन्त्रः समवायः ? समवायान्तराभावात् । यद्धि यत्र वर्तते तद् वृत्त्या तत्र वर्तते; न च समवायान्तरं समवायस्य वृत्तिरस्ति । अथ समवायान्तरं स्यात् समवायस्य, तस्यापि समवायान्तरपरिकल्पनायामनवस्था । अथ नानवस्था, आद्य एव व्यवस्थास्तु । किमिदं श्रद्दधानेन प्रतिपत्तव्यमनाश्रितः समवाय इति, आहोस्वित् न्यायोऽप्यस्ति ? न सन्देहः, अस्त्येव न्यायः—पञ्चपदार्थवृत्तिशब्दवाच्यत्वात् परमाणुवदनाश्रितः समवाय इति न्यायः । अनाश्रितः समवायो व्यापकत्वे सतीहबुद्धिनिमित्तत्वादात्मवत् । यदि पुनराश्रितः समवायः स्यात्, ततः किं स्यात् ? कार्यमनाधारं स्यात् । कथमिति ? पूर्वं तावत् कार्यमात्मानं लभते, पश्चात् कारणेषु समवायेन वर्तत इति प्राग्वृत्तेरनाश्रितं प्राप्नोति ।</div>
+  <div class="tr">では、どうして内属は独立しているのか。別の内属がないからである。あるものがあるところにあるとき、それは（何らかの）存在関係によってそこにある。しかし、内属にとって別の内属という存在関係はない。もし内属に別の内属があるなら、それにもまた別の内属を想定することになり、無限遡及となる。もし無限遡及（を認めないの）なら、最初の（内属）で（遡及が）止まるとすればよい。（問い）「内属は（何ものにも）依存しない、ということは、信じて受け入れるべきことなのか、それとも論証もあるのか」。疑いはない。論証はある。「内属は（何ものにも）依存しない。『五つのカテゴリーに存在関係をもつもの』という語で表されるから。原子のように」というのが論証である（また）「内属は（何ものにも）依存しない。遍在しつつ『ここに』という認識の原因となるから。我のように」。（問い）もし内属が（何かに）依存するなら、どうなるのか。結果が基体をもたないことになる。どうしてか。（その場合）まず結果が自分の存在を得て、その後で原因の中に内属によって存在することになる。だから（原因の中に）存在する前には、（結果は）依存していないことになる。</div><div class="exp"><span class="lbl">解説</span><p>ヴァイシェーシカでは、性質は実体に、全体は部分に、「内属」という関係によって存在します。では内属そのものは何によって基体に存在するのか。また別の内属によるなら、無限に続いてしまいます。だから内属は何ものにも依存しない「独立」のものだ、というのが Uddyotakara の立場です。</p><p>最後の論点は鋭いものです。もし内属が布と糸に依存するなら、内属より先に布が存在していなければなりません。すると布は、内属によって糸に存在する前に、基体なしで存在していたことになります。しかしヴァイシェーシカでは、結果（布）は生じた瞬間から原因（糸）に内属しているはずです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、二つ目の論証（遍在しつつ「ここに」という認識の原因となる）を、最初の論証に満足しなかったために加えられたものとし（TṬ p.324）、無限遡及が誤りとなるのは原因と結果のどちらが先かを確定できない場合だ、という TṬ の説明を紹介しています（Hi. pp.120–121）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストは「信じて受け入れるべきこと」の箇所を <i>āśritaḥ samavāyaḥ</i>（内属は依存する）と読みますが、ヒンディー訳の本文に従い <i>anāśritaḥ</i>（依存しない）としました。最初の論証の論証因 <i>pañcapadārthavṛttiśabdavācyatva</i> は分かりにくい表現です。ヒンディー訳の注は「五つのカテゴリー（実体・性質・運動・普遍・特殊）に存在関係をもつもの」という所有複合語と読むようですが、なぜ原子が実例になるのかは明らかではありません。訳はひとまず字義に従いました。</p></div></div>
+</div>
+<div class="mula" id="u66">
+  <span class="ref">pp.49–50</span>
+  <div class="src deva" lang="sa">समवायश्च कार्यकारणयोर्वर्तत इति वृत्तिरस्य वाच्या, न हि वर्तमानं किञ्चिदवृत्तिमद् दृष्टम् । प्राप्तित्वात् संयोगवद् वर्तत इति चेत्—न, व्याघातात् । प्राप्तिः संयोगः, वर्तत इति, किमियं वृत्तिः प्राप्तिधर्म आहोस्वित् कार्यधर्म इति ? वयं तु ब्रूमः कार्यधर्मो न प्राप्तिधर्म इति । तथा च कार्यान्तराण्यपि प्राप्तिमन्ति सन्तीति । यदि पुनरियं वृत्तिः प्राप्तिधर्मोऽभविष्यत्, प्राप्तेरपि प्राप्त्यन्तरमभविष्यदित्यनवस्थादोषः, प्राप्तेर्वृत्तिमत्त्वात् । न चैनामनवस्थां कश्चित् शक्तः प्रतिपादयितुम्, प्रमाणाभावात् । समवायश्च समवायान्तरेण वर्तत इति ब्रुवाणः शास्त्रं बाधते, तत्त्वं भावेन व्याख्यातम् [वै. सू. ७.२.२८] इति । सम्बन्धिनिवृत्तौ सम्बन्धोऽवतिष्ठत इति न प्रमाणमस्ति । न नास्ति, ख्यातिनिमित्तानां निवृत्तेः—ख्यातिनिमित्तान्यस्य निवर्तन्ते, न समवायः, अकृतकत्वात् । अकृतकः समवाय इति च कार्यस्याधारवत्त्वेनानुमीयते । यद्ययं कृतकः स्यात्, कार्येण सहोपादानादनाश्रितं कार्यं स्यात् । अथ कार्यात् पूर्वं भवति ? तथापि कस्येति वाच्यम् । अथ पश्चाद् भवति ? कार्यानाधारतादोषस्तदवस्थः । तस्मात् स्वतन्त्रः समवाय इति सिद्धम् । तत्र प्रतिषिध्यमानधर्मविषयमनुमानमसद्विषयं, न पुनर्विधीयमानस्वतन्त्रधर्मविषयमिति । भवतीत्यसद्विषयमिति चेत्, भवति जायत इत्येकोऽर्थ इति । न, जायमानार्थानभ्युपगमात् । भवति विद्यत इति । एवं तावद् व्यवस्थितमेतत् तत्पूर्वकमनुमानमिति ।</div>
+  <div class="tr">（反論）「内属は結果と原因とに存在する、というのなら、その存在関係を言わなければならない。存在していながら存在関係をもたないものは見られないからである」。「（内属は）到達（関係）であるから、結合のように（存在関係によって）存在する」と言うなら、そうではない。矛盾するからである。到達とは結合のことである。それが「存在する」というとき、その存在関係は、到達の性質なのか、それとも結果の性質なのか。我々は、結果の性質であって到達の性質ではない、と言う。そうであればこそ、ほかの結果も到達をもつのである。もしこの存在関係が到達の性質であるなら、到達にもさらに別の到達があることになり、無限遡及の誤りとなる。到達が存在関係をもつからである。そしてこの無限遡及を（正しいと）示せる者はいない。認識手段がないからである。また「内属は別の内属によって存在する」と言う者は、「それ（内属が一つであること）は存在性によって説明された」（VS 7.2.28）という論書と矛盾する。（反論）「関係項がなくなっても関係が存続する、ということには認識手段がない」。ない、ということはない。認識の原因がなくなるからである。それ（内属）の認識の原因がなくなるのであって、内属が（なくなるの）ではない。作られたものではないからである。内属が作られたものでないことは、結果が基体をもつことから推理される。もしそれが作られたものなら、結果と一緒に生じるので、結果は（生じる瞬間に）依存していないことになる。もし結果より前に生じるなら、それでも「何の（内属）か」と言わなければならない。もし後で生じるなら、結果が基体をもたないという誤りはそのままである。それゆえ、内属は独立したものだと確定した。そのうち、否定される性質を対象とする推理が、存在しないものを対象とする（推理）であって、肯定される性質や独立した性質を対象とするものはそうではない。（反論）「『（雨が降る）であろう』（<i>bhaviṣyati</i>）というのは存在しないものを対象とする。<i>bhavati</i> と <i>jāyate</i>（生じる）は同じ意味だから」。そうではない。生じつつある対象を（推理の対象として）認めないからである。<i>bhavati</i> は「存在する」（<i>vidyate</i>）（の意味）である。このようにして、「それにもとづく推理」ということが確定した。</div><div class="exp"><span class="lbl">解説</span><p>内属をめぐる議論の続きです。結合（<i>saṃyoga</i>）は性質なので内属によって実体に存在しますが、内属自体は何にも依存しません。また、結果が壊れて関係項（布と糸）がなくなっても、内属そのものは永遠であり、ただそれを認識させる条件がなくなるだけだ、とされます。ヴァイシェーシカの内属は唯一・永遠のもので、「VS 7.2.28」はその根拠となるスートラです。</p><p>最後の <i>bhavati</i> の議論は、雲から雨を推理する例（§13）に関わります。雨は「降るであろう」（<i>bhaviṣyati</i>）もので、今は存在しないのではないか、という反論に対して、Uddyotakara は、推理の対象となるのは「生じつつある」ものではなく、「存在する」ものであり、ここでも推理されるのは「この雲は雨をもつ」という、雲に存在する性質だ、と答えています。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「関係項がなくなっても」以下を「（反論）…［答え］ない、ということはない。その認識の原因が去るのであって、内属は（去ら）ない。作られたものでないから」と訳し、「認識の原因（<i>khyāti</i>）とは知覚のこと。関係項がなくなっても内属はなくならず、内属をもつものがなくなるだけである。内属は永遠である」と注します。「何の（内属）か」には「結果が生じる前には結果が存在しないので、そのときの内属は何の内属なのか」と説明を加えています（Hi. p.122）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §16 ============ -->
+<section id="s16" class="wrap">
+  <div class="sec-head"><span class="sec-no">16</span><h2>他学派の推理の定義</h2><span class="sub"><span class="pg">pp.50–53</span>Vasubandhu、Dignāga の三相説、サーンキヤの七種の関係を退ける</span></div>
+<p>自説を確定したあと、Uddyotakara は他学派の推理の定義を次々と退けます。知覚の場合（§10）と同じく、仏教論理学者の定義が中心です。Vasubandhu の定義に対しては複合語の分析で、Dignāga の三相説に対しては「だけ」（限定辞 <i>eva</i>）の位置の分析で攻撃します。インドの論理学における「限定」（<i>avadhāraṇa</i>）をめぐる議論の、早い時期の例です。</p>
+<div class="mula" id="u67">
+  <span class="ref">p.50</span>
+  <div class="src deva" lang="sa">अपरे तु ब्रुवते—नान्तरीयकार्थदर्शनं तद्विदोऽनुमानमिति । अस्यार्थः—योऽर्थो यमर्थमन्तरेण न भवति, स भवति नान्तरीयकः । नान्तरीयकश्चासावर्थश्चेति नान्तरीयकार्थः । तस्य दर्शनं तद्विदोऽनुमानम्, यस्तं वेद नान्तरीयकोऽयमिति । अत्रार्थग्रहणमतिरिच्यते, न हि नान्तरीयकः स्यान्न चार्थ इति । नान्तरीयकार्थ इति च समासपदमेतत् । तत्र यदि षष्ठीसमासो नान्तरीयकस्यार्थ इति, नान्तरीयकं तावत् कृतकत्वम्, तस्यार्थो धर्मः प्रयोजनं वा ? यदि तावद् धर्मः कृतकत्वस्यार्थः, सत्त्वप्रमेयत्वाभिधेयत्वाद्यनुमानं प्राप्तम् । अथ प्रयोजनम्, अनित्यत्वप्रतिपत्तिर्हेतुः प्राप्तः । अथ बहुव्रीहिः नान्तरीयकोऽर्थो यस्येति, तत्रापि कृतकत्वं नान्तरीयकमिति तद् यस्य स हेतुः प्राप्तः । तच्च कृतकत्वं घटादेः, शब्दस्य, अनित्यत्वस्य वा ? यदि घटादेः, घटादिर्हेतुः प्राप्तोऽनित्यः शब्दो घटादिति । अथ शब्दस्य, शब्दो हेतुः प्राप्नोति, अनित्यः शब्दः शब्दादिति । अथानित्यत्वस्य साधनभावेन कृतकत्वं धर्मः, तथाप्यनित्यः शब्दोऽनित्यत्वादिति हेतुः प्राप्नोति, अनित्यत्वस्यार्थः कृतकत्वमिति । सर्वथा कृतकत्वमनित्यत्वे न हेतुः ।</div>
+  <div class="tr">一方、別の人々は「推理とは、それを知る者が、不可離の対象を見ることである」と言う。その意味は（こうである）。ある対象が、別の対象なしには存在しないとき、それは「不可離のもの」（<i>nāntarīyaka</i>）である。不可離のものであり、かつ対象であるものが「不可離の対象」である。それを、それを知る者、つまり「これは不可離のものだ」と知っている者が見ることが、推理である（と）。ここで「対象」の語は余計である。不可離のものでありながら対象でない、ということはないからである。また、「不可離の対象」は複合語である。そこで、もしそれが属格の複合語で「不可離のものの対象（意味）」なら、不可離のものとはまず作られたものであることである。その「対象（意味）」とは性質か、目的か。もし作られたものであることの性質なら、存在性・認識対象性・名指されうることなど（を見ること）が推理になってしまう。もし目的なら、無常性の理解が論証因になってしまう。もし所有複合語で「不可離の対象をもつもの」なら、ここでも作られたものであることが不可離のものなので、それをもつものが論証因になってしまう。そしてその作られたものであることは、壺などのものか、音のものか、無常性のものか。もし壺などのものなら、壺などが論証因になってしまう。「音は無常である。壺から」と。もし音のものなら、音が論証因になってしまう。「音は無常である。音から」と。もし作られたものであることが、論証手段として無常性の性質なら、それでも「音は無常である。無常性から」という論証因になってしまう。作られたものであることは無常性の「対象（意味するもの）」だから。どのように（読んで）も、作られたものであることは無常性の論証因にならない。</div><div class="exp"><span class="lbl">解説</span><p>「別の人々」の定義は、Vācaspati によれば Dignāga のものとされますが、ヒンディー訳は実際には Vasubandhu の『論軌』（<i>Vādavidhi</i>）の定義だと注しています。不可離のもの（煙）を見て、その関係を知っている者が推理する、というのは、内容としては常識的です。</p><p>Uddyotakara は内容ではなく言葉づかいを攻撃します。<i>nāntarīyakārtha</i> という複合語をどう分解しても、意図した意味にならない、というのです。属格の複合語と取れば「作られたもの（不可離のもの）の性質」になり、存在性など、作られたものがもつどんな性質でも論証因になってしまう。所有複合語と取れば「不可離のもの（作られたものであること）をもつもの」、つまり壺や音そのものが論証因になってしまう、というわけです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「別の人々」について、TṬ は Dignāga の説とするが、実際には Vasubandhu の『論軌』の定義である、と注します（§10 の知覚の定義の場合と同じ指摘）。そして見出しを付けて「『不可離の対象』の複合語の誤り」を属格の複合語・所有複合語の順に訳出しています（Hi. pp.123–124）。</p></div></div>
+</div>
+<div class="mula" id="u68">
+  <span class="ref">pp.50–51</span>
+  <div class="src deva" lang="sa">अथ समानाधिकरणो नान्तरीयकश्चासावर्थश्चेति, तथाप्यसमर्थः समासः, विशेषणविशेष्यनियमासंभवात् । उभयपदव्यभिचारे सति समानाधिकरणो भवति, नीलोत्पलादिवत् । नीलशब्दस्याप्यनेकार्थवृत्तित्वादुत्पलशब्दस्य च तथाभावात् सामानाधिकरण्यं भवति । न पुनरिह नान्तरीयक इत्युक्तेऽस्ति व्यभिचारोऽर्थोऽनर्थ इति, यतोऽर्थग्रहणं समर्थं स्यादिति । एकपदव्यभिचारेऽपि दृष्टं सामानाधिकरण्यम्, यथा पृथिवी द्रव्यमिति । अत्रापि उभयपदव्यभिचारः—प्रधानाङ्गभावस्य भेदेन पृथिवीशब्देन द्रव्यमुच्यते पृथिवीत्वं च, द्रव्यशब्देनापि प्रधानाङ्गविवक्षायां द्रव्यं द्रव्यत्वं च । अत उभयपदव्यभिचारात् पृथिवी द्रव्यमिति युक्तं वक्तुम् । इदं पुनर्न युक्तं नान्तरीयकार्थदर्शनमिति । कस्मात् ? अर्थप्रत्यायनार्थत्वाच्छब्दप्रयोगस्य; अर्थप्रत्यायनार्थं हि शब्दस्य प्रयोगमिच्छन्ति । नान्तरीयक इति चोक्तेऽर्थो गम्यते, अतो न युक्तोऽर्थशब्द इति । तद्विद इति च न युक्तम्, नैवान्यथा नान्तरीयक इति । न हि नारिकेलद्वीपवासिनो धूमदर्शने नान्तरीयकमिति ज्ञानमस्ति । अतस्तद्विद इत्येतदपि न वक्तव्यम् ।</div>
+  <div class="tr">もし同格の（複合語で）「不可離のものであり、かつ対象であるもの」なら、それでもこの複合語は成り立たない。限定語と被限定語の限定関係がありえないからである。両方の語が（互いに）逸脱するときに、同格（の複合語）となる。「青い蓮」などのように。「青い」という語も多くの対象に用いられ、「蓮」という語もそうなので、同格（の複合語）となる。しかしここでは、「不可離のもの」と言ったとき、「対象」か「対象でないもの」かという逸脱はない。それがあれば「対象」の語に意味があるだろうが。（反論）「一方の語だけが逸脱する場合にも同格は見られる。『地は実体である』のように」。そこでも両方の語の逸脱がある。主要と従属の関係の違いによって、「地」の語で実体（としての地）が言われ、また地性（という普遍）も言われる。「実体」の語でも、主要と従属をどう言おうとするかによって、実体と実体性とが（言われる）。だから両方の語が逸脱するので、「地は実体である」と言うのは正しい。しかし「不可離の対象を見ること」は正しくない。なぜか。語を用いるのは対象を知らせるためだからである。人々は、対象を知らせるために語を用いることを望む。「不可離のもの」と言えば対象は知られる。だから「対象」の語は不適切である。また「それを知る者の」というのも不適切である。（関係を知らずに）別様に不可離のものがあるわけではないからである。ココナツ島に住む者には、煙を見ても「（火と）不可離のものだ」という知はない。だから「それを知る者の」というのも言うべきではない。</div><div class="exp"><span class="lbl">解説</span><p>同格の複合語（形容詞＋名詞のような関係）として読んでも、だめだと言います。「青い蓮」が意味をもつのは、青いものは蓮以外にもあり、蓮も青以外の色がありうるからです。「不可離の対象」の場合、不可離のものは必ず対象なので、「対象」を付けても何も限定しません。</p><p>「それを知る者の」に対する批判も興味深いものです。煙と火の関係を知らない人（火を見たことのないココナツ島の住人という、インドの論書でおなじみの例）は、煙を見ても火を推理しません。しかし、だからといって、その人にとって煙が「不可離のもの」でなくなるわけではありません。不可離であることは、それを知る人がいなくても成り立つので、「それを知る者の」は余計だ、というのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「地は実体である」の例について「地は常に実体なので逸脱はないが、実体は地以外にもあるので（一方の語に）逸脱がある、というのが反論の趣旨。答えは、『地』の語は主に地という実体を、従属的に地性という普遍を言うので、そこにも逸脱がある」と説明し、「『対象』の語：不可離のものは必ず対象なので、『不可離のもの』と言えば『対象』は理解される。『対象』の語の使用は無意味」と注します（Hi. p.125）。</p></div></div>
+</div>
+<div class="mula" id="u69">
+  <span class="ref">p.51</span>
+  <div class="src deva" lang="sa">एतेन तादृगविनाभाविधर्मोपदर्शनं हेतुरिति प्रत्युक्तम् । कोऽतिदेशार्थः ? यथा नान्तरीयकार्थदर्शनेऽर्थग्रहणमयुक्तं तथा धर्मग्रहणमपीति । उदाहरणं तु यथा धूमोऽग्नेरिति । एतच्च न संभवतीत्यनेकधा वर्णितम् ।</div>
+  <div class="tr">これによって、「そのような不可離の性質を示すことが論証因である」（という定義）も退けられた。（この）準用の趣旨は何か。「不可離の対象を見ること」で「対象」の語が不適切であるように、「性質」の語も（不適切）である、ということである。また（その定義の）例は「煙が火の（不可離の性質である）ように」というものであるが、これが成り立たないことは何度も述べた。</div><div class="exp"><span class="lbl">解説</span><p>もう一つの定義も、同じ理屈で退けられます。「性質」の語は余計であり、例として挙げられる「煙と火」も、§14 で見たとおり、そのままでは成り立ちません。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「この定義には『それを知る者の』の語がないので、前の定義とは別のものである。誰の定義かは確定できないが、Vācaspati によれば Dignāga とは別の論師の推理の定義である」と注し、TṬ（p.327）を引きます。「準用」（<i>atideśa</i>）は「あるものの性質を別のものに適用すること」と説明しています（Hi. p.126）。</p></div></div>
+</div>
+<div class="mula" id="u70">
+  <span class="ref">p.51</span>
+  <div class="src deva" lang="sa">अपरे तु मन्यन्ते—अनुमेयेऽथ तत्तुल्ये सद्भावो नास्तितासति इत्यनुमानम् । एतेन चानुमेयैकदेशवृत्तिरपि संगृहीत इत्यलक्षणम्, यथा अनित्याः परमाणवो गन्धवत्त्वाद् घटवदिति । अनुमेये सद्भाव इत्यभिधानादप्रसङ्गोऽयम् । नाप्रसङ्गः, एकदेशवृत्तेस्तद्धर्मत्वाद् विपक्षैकदेशवृत्तिवत् । यथा विपक्षैकदेशे वर्तमानो न विपक्षे नास्ति, एवं पक्षैकदेशे वर्तमानो न पक्षे नास्तीत्येतद्व्युदासे यत्नः कर्तव्यः । न, न कर्तव्यः, अवधारणान्निवृत्तेः ।</div>
+  <div class="tr">一方、別の人々は「推理されるもの（主題）とそれと同様のもの（同類）にあり、ないもの（異類）にはないこと」が推理だと考える。これによっては、推理されるものの一部にだけあるもの（論証因）も含まれてしまうので、定義にならない。たとえば「原子は無常である。香をもつから。壺のように」。（反論）「『推理されるものにある』と言っているので、そうはならない」。そうならないことはない。一部にあるものもその（推理されるものの）性質だからである。異類の一部にあるもののように。異類の一部にあるものは、異類にない、とは言えない。同じように、主題の一部にあるものも、主題にない、とは言えない。だからこれを除くために工夫が必要である。（反論）「いや、必要ない。限定（「だけ」）によって除かれるからである」。</div><div class="exp"><span class="lbl">解説</span><p>Dignāga の論証因の三相説です。『正理門論』や『集量論』で知られる偈「推理されるものと、それと同様のものにあり、ないものにはない」は、論証因の三つの条件、①主題にあること、②同類にあること、③異類にないこと、を述べたものです。</p><p>Uddyotakara の第一の批判は、①が「主題全体にあること」を言い表せていない、というものです。「原子は無常である。香をもつから」の場合、香をもつのは地の原子だけで、水・火・風の原子は香をもちません。主題（原子）の一部にしかない論証因です。それでも「主題にある」とは言えてしまう。異類の一部にある論証因が「異類にない」と言えないのと同じことです。仏教側は、「だけ」を補って読めば除ける、と応じます。その「だけ」をどこに置くかが、次のブロックからの論点です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「別の人々」を TṬ に従い Dignāga とし、「Vācaspati によれば、これも Dignāga の説である。いま Dignāga の自分の定義を敷衍するために『推理されるものとそれと同様のものに』という文を出して批判する」と TṬ（p.327）を引きます。偈の和訳にあたる部分は「主題（推理されるもの）と、それと同様のもの、すなわち同類に（論証因が）存在し、異類（ないもの）には存在しないこと、これが推理である」と訳しています（Hi. pp.126–127）。</p></div></div>
+</div>
+<div class="mula" id="u71">
+  <span class="ref">p.52</span>
+  <div class="src deva" lang="sa">अनुमेये सद्भाव इत्यत्रावधारणे द्वे—किमनुमेय एव सद्भावोऽथानुमेये सद्भाव एवेति । किं पुनरनेन पूर्वेणावधारणेन क्रियते—किमसंभवो निवर्त्यते, अथ संभवो ज्ञाप्यते ? उभयथा च नावधारणेनार्थः, विनैव तदधिगतेः; विनाप्यवधारणेनायमर्थो गम्यते, अनुमेये सद्भावोऽसद्भावश्च नेति । न चैकदेशवृत्तिर्निराकृत इत्यवधारणं व्यर्थम्, उत्तरपदबाधा च । अथोत्तरमवधारणमभ्युपगम्यते, तस्य व्याप्तिरर्थः, तथाप्यनुमेयमवधारितं भवति व्याप्त्या न धर्मः, यत एवकरणं ततोऽन्यत्रावधारणमिति । संभवव्याप्त्या चानुमेयं नियतम्, व्याप्त्यव्याप्तिभ्यां च संभवः प्रसृतः । तस्य च द्वौ राशी शिष्यमाणौ, तत्तुल्यो विपरीतश्च । तत्र नास्तितासतीत्यनेन विपरीतान्निवर्त्यताम् । तत्तुल्ये सद्भाव इति किमर्थमारभ्यते ? न ह्यनेनाप्राप्तं किञ्चित् प्राप्यते । तत्तुल्ये च संभवमात्रं विवक्षितमिति, संभवमात्रं च व्याप्त्यव्याप्तिभ्यामनियतेन संभवेन लभ्यते ।</div>
+  <div class="tr">「推理されるものにある」というところには、二つの限定（の仕方）がある。「推理されるものにだけある」のか、それとも「推理されるものに必ずある」のか。では、この前者の限定によって何がなされるのか。（そこに）ありえないことが除かれるのか、それともありうることが知らされるのか。どちらの場合も、限定には意味がない。それなしに理解されるからである。限定がなくても、「推理されるものにあり、ないのではない」という意味は理解される。また、（主題の）一部にあるものは除かれないので、限定は無駄である。さらに後の語と矛盾する。もし後者の限定を認めるなら、その意味は「遍くあること」である。それでも、遍くあることによって推理されるもの（主題）が限定されるのであって、性質（ある）が限定されるのではない。「だけ」が置かれた語とは別の語に限定がかかるからである。そして（論証因が）ありうること・遍くあることによって推理されるものは限定されたが、ありうることは、遍くあることと遍くないこととの両方に広がっている。その残りの二つの領域が、それと同様のもの（同類）と、反対のもの（異類）である。そのうち、反対のものからは「ないものにはない」によって除かれる。では「それと同様のものにある」は何のために言われるのか。これによって、まだ得られていない何かが得られるわけではない。それと同様のものには、ありうることだけが言おうとされている。そしてありうることだけなら、遍くあるか遍くないかを限定しない「ありうること」によって得られる。</div><div class="exp"><span class="lbl">解説</span><p>限定辞「だけ」（<i>eva</i>）をどこに置くかで、意味が変わります。サンスクリットの文法学・論理学では、<i>eva</i> の三つの働きが区別されます。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>置き方</th><th>意味</th><th><i>eva</i> の働き</th><th>Uddyotakara の批判</th></tr></thead>
+    <tbody>
+      <tr><td class="k">推理されるもの<b>だけ</b>にある</td><td>主題以外にはない</td><td>他との結びつきの排除</td><td>同類にあることと矛盾し、主題の一部にあるものも除けない</td></tr>
+      <tr><td class="k">推理されるものに<b>必ず</b>ある</td><td>主題に遍くある</td><td>結びつかないことの排除</td><td>主題は限定できるが、同類の条件が不要になる</td></tr>
+      <tr><td class="k">それと同様のもの<b>だけ</b>にある</td><td>同類以外にはない</td><td>他との結びつきの排除</td><td>主題にあることと矛盾する（狂人の言葉）</td></tr>
+      <tr><td class="k">それと同様のものに<b>必ず</b>ある</td><td>同類全体にある</td><td>結びつかないことの排除</td><td>同類の一部にしかない正しい論証因が除かれる</td></tr>
+      <tr><td class="k">ないものに<b>だけ</b>ない</td><td>異類以外にはある</td><td>他との結びつきの排除</td><td>「角があるから牛」も正しい論証因になる</td></tr>
+      <tr><td class="k"><b>まったく</b>ない、ないものに</td><td>異類にはまったくない</td><td>—</td><td>「ないものに」は言わなくても分かるので無駄</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表8　三相の偈の「だけ」の置き方と、Uddyotakara の批判（u71–u73）。</b>働きの名称は後代の用語で、ヒンディー訳の注による。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「ありえないことが除かれる」を「完全な不可能の排除。『蓮は青い（ことがある）』で、蓮に青がまったくないことが除かれるように」と注し、「<i>eva</i> には三つの意味がある。完全な不可能の排除、他との結びつきの排除、結びつかないことの排除」と説明します。また「後の語と矛盾する」は「推理されるものにだけあるなら、どうして同類にありえようか」という意味だと注しています（Hi. pp.126–127）。</p></div></div>
+</div>
+<div class="mula" id="u72">
+  <span class="ref">p.52</span>
+  <div class="src deva" lang="sa">अथ तत्तुल्ये सद्भाव इत्येतदवधारणार्थमारभ्यते, किं पुनरत्रावधार्यते—किं तत्तुल्य एव सद्भावः, अथ तत्तुल्ये सद्भाव एवेति ? यदि तत्तुल्य एव सद्भाव इति सद्भावोऽवधारितः, तदा पूर्वोत्तरपदे बाधिते भवतः । न हि भवति देवदत्तमेव भोजय यज्ञदत्तं चेति । तथेहापि तत्तुल्य एव सद्भावोऽनुमेये चेत्युन्मत्तवाक्यम् । अथ तत्तुल्ये सद्भाव एव, तत्तुल्यैकदेशवृत्तेरहेतुत्वम्—यस्तज्जातीयस्यैकदेशवृत्तिः प्रयत्नानन्तरीयकत्वादिः, स न हेतुरिति प्राप्तम् ।</div>
+  <div class="tr">もし「それと同様のものにある」が限定のために言われるのなら、ここでは何が限定されるのか。「それと同様のものにだけある」のか、それとも「それと同様のものに必ずある」のか。もし「それと同様のものにだけある」と、「ある」ことが限定されるなら、前の語と後の語が損なわれる。「デーヴァダッタにだけ食事を出せ、そしてヤジュニャダッタにも」とは言わない。同じように、ここでも「それと同様のものにだけあり、推理されるものにも（ある）」というのは狂人の言葉である。もし「それと同様のものに必ずある」なら、それと同様のものの一部にあるものは論証因でなくなる。同じ種類のものの一部にある、努力の直後に生じることなどは、論証因ではないことになってしまう。</div><div class="exp"><span class="lbl">解説</span><p>「同類にだけある」とすると、主題にあることと矛盾します。「同類に必ずある」（同類全体にある）とすると、正しい論証因が除かれてしまいます。たとえば「音は無常である。努力の直後に生じるから」という論証では、無常なもの（同類）のうち、壺などは努力によって生じますが、稲妻などは努力なしに生じます。論証因は同類の一部にしかありませんが、正しい論証因です（Dignāga 自身の九句因でも正しい論証因とされるもの）。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「同類の一部にあるものは論証因でなくなる」の箇所で、Thakur 版などの「それは論証因である」（<i>sa hetuḥ</i>）という読みについて、Gaṅgānātha Jhā に従い「それは論証因でない」（<i>sa na hetuḥ</i>）が正しい読みだと注しています。「『音は無常である。努力の直後に生じるから』では、作られたものであることと努力の直後に生じることの両方が正しい論証因である」とも述べています（Hi. p.128）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキスト（Thakur 版）は <i>prayatnāntarīyakatvādis tena sa hetur iti prāptam</i> と読みますが、意味が通らないため、ヒンディー訳の注（Gaṅgānātha Jhā の提案）に従って <i>sa na hetur iti prāptam</i> と読みました。また OCR の <i>prayatnāntarīyaka</i> は、ここでは文脈から「努力の直後に生じる」（<i>prayatnānantarīyaka</i>）と取りました。</p></div></div>
+</div>
+<div class="mula" id="u73">
+  <span class="ref">p.52</span>
+  <div class="src deva" lang="sa">असति नास्तितेति चासंप्रधार्य प्रोक्तम्, यदसत् स्वयमेव तन्नास्ति । न ह्यसदाधारो भवति यतस्तत्र प्रतिषेधः स्यादिति । एतदपि चावधारणार्थमारभ्यते । किमवधार्यते, नास्तितैवासत्येवेति वा ? यदि तावन्नास्तितैव, असतीति व्यर्थम्, अनुक्तेऽपि तदधिगतेः; अनुक्तेऽप्येतद् गम्यतेऽसति नास्तीति । अथ पुनरसत्येव नास्तिता, गौरयं विषाणित्वादित्येतदपि हेतुः प्राप्नोति; एष ह्यसत्येव नास्ति, न पुनर्नास्त्येव ।</div>
+  <div class="tr">また、「ないものにはない」というのはよく考えずに言われている。ないものは、それ自体が存在しない。存在しないものは基体とならないので、そこでの否定はありえない。そしてこれも限定のために言われるのなら、何が限定されるのか。「まったくない」のか、「ないものにだけない」のか。もし「まったくない」なら、「ないものに」は無駄である。言わなくてもそれが理解されるからである。言わなくても「ないものにはない」ということは理解される。もし「ないものにだけない」なら、「これは牛である。角をもつから」というのも論証因になってしまう。これ（角をもつこと）は、ないもの（牛でないもの）においてだけ欠けるのであって、（牛でないものに）まったくないのではないからである。</div><div class="exp"><span class="lbl">解説</span><p>第三の相「異類にない」への批判です。まず、偈の <i>asati</i>（ないものに）は、文字どおりには「存在しないもの」です。存在しないものは何かの基体になりえないので、「そこに論証因がない」と言うこと自体が意味をなさない、と揚げ足を取ります（仏教側は「所証がないもの」の意味で使っています）。</p><p>さらに限定の位置を検討します。「ないものにだけない」とすると、論証因が欠けるのは異類においてだけ、という意味になります。「これは牛である。角があるから」の場合、角は牛には必ずあり、欠けるのは牛でないもの（馬など）においてだけなので、この条件を満たします。しかし角は水牛など牛でないものにもあるので、これは正しい論証因ではありません。この限定は、異類に論証因が「まったくない」ことを要求しないので、誤った論証因を通してしまう、という批判です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「ないものにはない、というのはよく考えずに言われた。存在しないものは、それ自体がないのである。存在しないものは基体とならないので、そこに（何かがあることの）否定はありえない」と訳し、最後の文を「これはないものにだけない、のではなく、ない、のでもないから」という趣旨で訳しています（Hi. p.128）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>最後の文 <i>eṣa hy asaty eva nāsti, na punar nāsty eva</i> は簡潔で、解釈が分かれえます。和訳は、ヒンディー訳の「これはないものにだけない（のであって）、まったくない、のではない」という訳に従い、「角は牛でないものの一部（馬など）に欠けるだけで、牛でないものにまったくないわけではない」という意味に取りました。</p></div></div>
+</div>
+<div class="mula" id="u74">
+  <span class="ref">pp.52–53</span>
+  <div class="src deva" lang="sa">यद्यप्येकद्विपदपर्युदासेन सप्तिकासंभवे षट्प्रतिषेधमुक्त्वा त्रिपदपरिग्रहेण त्रिलक्षणो हेतुरभिधीयते, एतदपि द्विपदयुक्तयोरन्वयिनोर्हेतुत्वाद् द्विपदयुक्तस्य च व्यतिरेकिण एकस्य हेतुत्वादयुक्तम् । अनभ्युपगतनित्यपक्षस्य कृतकत्वप्रयत्नानन्तरीयकत्वे द्विपदयुक्ते एव विपक्षाभावाद्धेतू भवतः । व्यतिरेक्यपि तत्तुल्यासंभवात् द्विपदयुक्तश्च भवति हेतुश्चेति, यथा नेदं निरात्मकं जीवच्छरीरम्, अप्राणादिमत्त्वप्रसङ्गादिति । अतोऽव्यापकत्वादलक्षणमेतदिति ।</div>
+  <div class="tr">また、（三つの条件のうち）一つや二つの語を除いた組み合わせで、七つの組み合わせがありうる中で六つを否定したうえで、三つの語をすべて取ることによって、三つの特徴をもつ論証因が説かれる（と言う）としても、これも正しくない。二つの語（の条件）だけを満たす肯定のみの（論証因）二つが論証因であり、二つの語だけを満たす否定のみの（論証因）一つも論証因だからである。永遠なものの主張を認めない者にとって、作られたものであることと、努力の直後に生じることとは、異類がないので、二つの語（の条件）だけを満たしながら論証因である。否定のみのものも、それと同様のもの（同類）がありえないので、二つの語だけを満たし、しかも論証因である。たとえば「この生きた身体は我をもたないものではない。（もしそうなら）呼吸などをもたないことになってしまうから」。だから、（正しい論証因を）すべて覆わないので、これは定義ではない。</div><div class="exp"><span class="lbl">解説</span><p>三相説の擁護者は、三つの条件の組み合わせは七通り（一つだけが3通り、二つが3通り、三つ全部が1通り）あり、そのうち三つ揃わない六つにはそれぞれ誤った論証因の例があるので、三つすべてが必要だ、と論じます。Uddyotakara は §12 の自分の三分類を使って反論します。「すべては無常」と説く仏教徒にとって、異類（永遠なもの）は存在しません。すると「作られたものだから」という論証因にとって、「異類にない」という条件はそもそも問題になりません。三つのうち二つの条件しか満たさないのに、正しい論証因です。否定のみの論証因も同様です。だから三相説は、正しい論証因の一部しか覆わない（<i>avyāpaka</i>）定義だ、というのです。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>満たす条件</th><th>ヒンディー訳が挙げる誤った論証の例</th></tr></thead>
+    <tbody>
+      <tr><td class="k">① 主題にある のみ</td><td>音は永遠である。作られたものだから</td></tr>
+      <tr><td class="k">② 同類にある のみ</td><td>音は永遠である。眼で見られるから。普遍のように</td></tr>
+      <tr><td class="k">③ 異類にない のみ</td><td>音は永遠である。存在しないから</td></tr>
+      <tr><td class="k">①＋② のみ</td><td>音は無常である。認識対象だから</td></tr>
+      <tr><td class="k">①＋③ のみ</td><td>音は永遠である。普遍をもちつつ耳で聞かれるから</td></tr>
+      <tr><td class="k">②＋③ のみ</td><td>原子は永遠である。作られたものだから</td></tr>
+      <tr class="here"><td class="k">①＋②＋③</td><td>（正しい論証因）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表9　三つの条件の七つの組み合わせ。</b>例はヒンディー訳の注（Hi. p.129）による。注は NV 1.1.35 と TṬ を参照させる。Uddyotakara は、二つしか満たさない正しい論証因（肯定のみ・否定のみ）があることを指摘して、三相説を退ける。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「七つの組み合わせがありうる中で六つを否定し」（<i>saptikāsaṃbhave ṣaṭpratiṣedhāt</i>）の箇所に、上の六つの例を挙げ、「そこで論証因の定義では、一つや二つの語を除いて三つの語が取られた。こうして七番目の型『主題の性質であり、同類で知られ、異類にない』となる」と注します。そして「『音は無常である。努力の直後に生じるから』では、作られたものであることと努力の直後に生じることの両方が正しい論証因である」と補っています（Hi. pp.129–130）。</p></div></div>
+</div>
+<div class="mula" id="u75">
+  <span class="ref">p.53</span>
+  <div class="src deva" lang="sa">एतेन सम्बन्धादेकस्मात् प्रत्यक्षाच्छेषसिद्धिरनुमानमिति लक्षणं प्रत्युक्तम् । कथमिति ? न ह्येकस्मात् प्रत्यक्षादनुमानं भवति । अथापि सम्बन्धादेकस्मात् प्रत्यक्षादिति ? एतदपि नैव, न ह्ययं तदा सम्बन्धं पश्यति यदानुमिमीते । अथ पूर्वं दृष्टमिति ? तथाप्युपलब्धसम्बन्धस्यानुमानकाले चानुपलब्धलिङ्गस्यानुमानं प्रसज्येत । न चान्या गतिरस्ति । रूपेण च स्पर्शानुमाने स्वदृष्टिव्याकोपः । न ह्ययं रूपस्पर्शयोः सम्बन्धमुपलभते । अथैकार्थसमवायः सम्बन्ध इति, सोऽपि स्वदर्शनव्याघातादयुक्त इति । न हि रूपस्पर्शावेकस्मिन्नर्थे परस्य वर्तेते । यत्र रूपं तत्र स्पर्श इत्येतदपि नास्ति । न क्वचिद् रूपं स्पर्शो वा परस्पराधाराधेयत्वेन स्यादिति चेत्, परस्पराधाराधेयभावेऽपि न रूपं स्पर्शो न स्पर्शो रूपमिति ।</div>
+  <div class="tr">これによって、「関係があるので、一つの知覚から残りを証明することが推理である」という定義も退けられた。どうしてか。一つの知覚から推理が生じることはないからである。また、「関係があるので」を「一つの（関係の）知覚から」と（読む）としても、それもまったく違う。推理するときに、この人は関係を見てはいないからである。もし「以前に見た」（関係から）と言うなら、それでも、関係を以前に知覚した者が、推理のときに証因を知覚していなくても、推理することになってしまうだろう。ほかの道はない。また色によって触を推理する場合には、自分の見解と食い違う。この人（サーンキヤ）は色と触の関係を認識しないからである。（両者の）関係は同じものへの内属だ、と言うなら、それも自分の見解と矛盾するので正しくない。相手（サーンキヤ）にとって、色と触が同じ一つのものに存在する、ということはないからである。「色のあるところに触がある」というのもない。「色と触とが互いに基体と依存者として（ある）」と言うなら、互いに基体と依存者であっても、色は触ではなく、触は色ではない。</div><div class="exp"><span class="lbl">解説</span><p>サーンキヤの推理の定義です。Thakur 版の注によれば、これは Vārṣagaṇya の論書（<i>Ṣaṣṭitantra</i>）の定義です。「関係があるので、一つ（の部分）を知覚して、残り（全体・他の部分）を証明する」という定義で、たとえば果実の色を見て、その触（手触り）を推理するような場合が想定されています。</p><p>Uddyotakara は、「一つの知覚」の「一つ」が知覚にかかるのか関係にかかるのかを問い、どちらでもうまくいかないと示します。さらにサーンキヤの体系では、ニヤーヤ・ヴァイシェーシカのような「実体に内属する性質」という構造をとらないので、色と触の関係をどう説明するのか、と追及します。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「これはサーンキヤの推理の定義である」と TṬ（p.330）を引き、「関係」＝不可離の関係、「残り」＝推理されるもの、と TṬ に従って注します。「色によって触を推理する場合」については「色と触の同一性はない。別々の感官で捉えられ、別々の知の対象だからである。サーンキヤの説では内属という関係はなく、その基体である実体もないので、同じものへの内属は成り立たない」と説明しています（Hi. pp.130–131）。</p></div></div>
+</div>
+<div class="mula" id="u76">
+  <span class="ref">p.53</span>
+  <div class="src deva" lang="sa">एतेन सप्तविधः सम्बन्ध इति प्रत्युक्तम् । न हि कार्यकारणभावादीनां सम्बन्धानां रूपस्पर्शयोरन्यतमः संभवति । तस्मान्न रूपेण स्पर्शानुमानं युक्तम् । अतोऽव्यापकत्वादलक्षणमिति । निष्ठितमनुमानम् ॥५॥</div>
+  <div class="tr">これによって、「関係は七種である」（という説）も退けられた。原因と結果の関係などの（七つの）関係のうちどれも、色と触のあいだにはありえないからである。だから、色によって触を推理することは正しくない。それゆえ、（正しい推理を）すべて覆わないので、（これは）定義ではない。推理（の検討）は終わった。（第五スートラ）</div><div class="exp"><span class="lbl">解説</span><p>サーンキヤは推理の根拠となる関係を七種に数えたと伝えられます。Vācaspati は別の箇所でそれを述べた偈を引用しています。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>#</th><th>関係</th><th>原語</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td class="k">量（全体と部分）</td><td><i>mātrā</i></td></tr>
+      <tr><td class="num">2</td><td class="k">原因（と結果）</td><td><i>nimitta</i></td></tr>
+      <tr><td class="num">3</td><td class="k">結合</td><td><i>saṃyogin</i></td></tr>
+      <tr><td class="num">4</td><td class="k">対立</td><td><i>virodhin</i></td></tr>
+      <tr><td class="num">5</td><td class="k">共在</td><td><i>sahacārin</i></td></tr>
+      <tr><td class="num">6</td><td class="k">所有者と所有物</td><td><i>svasvāmin</i></td></tr>
+      <tr><td class="num">7</td><td class="k">殺されるものと殺すものなど</td><td><i>badhyaghāta</i></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表10　サーンキヤの七種の関係。</b>Vācaspati が引く偈「量・原因・結合・対立・共在によって、また所有者と所有物、殺されるものと殺すものなどによって、サーンキヤの推理は七種である」（TṬ p.306、ヒンディー訳の注による）。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「七種の関係はサーンキヤの説である」という TṬ（p.331）を引き、Vācaspati が別の箇所（TṬ p.306）に引く上の偈を紹介しています。「互いに基体と依存者であっても」については、「机の部分が互いに依存するように相互に依存しても、色と触は同じものへの内属にならない。色や触の存続は互いを原因とするのではなく、（プルシャの）経験と解脱のためだからである」と、サーンキヤの立場から説明しています（Hi. p.131）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §17 ============ -->
+<section id="s17" class="wrap">
+  <div class="sec-head"><span class="sec-no">17</span><h2>類比</h2><span class="sub"><span class="pg">pp.53–54</span>「牛のようなものがガヴァヤ」。類比は知覚と証言に還元できるか</span></div>
+<p>第三の認識手段は類比（<i>upamāna</i>）です。古典的な例は、森の住人から「ガヴァヤ（野牛の一種）は牛のようなものだ」と聞いていた人が、森で牛に似た動物を見て「これがガヴァヤだ」と知る場合です。Dignāga は、類比は知覚と証言に還元できるので独立の認識手段ではない、と批判しました。Uddyotakara はそれに反論します。</p>
+<div class="mula sutra" id="u77">
+  <span class="ref">pp.53–54 · NS 1.1.6</span>
+  <div class="src deva" lang="sa">प्रसिद्धसाधर्म्यात् साध्यसाधनमुपमानम् ॥१।१।६॥<br>अथोपमानम् । प्रसिद्धसाधर्म्यात् साध्यसाधनमुपमानम् । सूत्रार्थः पूर्ववत् । प्रसिद्धसाधर्म्यादिति—प्रसिद्धं साधर्म्यं यस्य, प्रसिद्धेन वा साधर्म्यं यस्य, सोऽयं प्रसिद्धसाधर्म्यो गवयः, तस्मात् साध्यसाधनमिति । समाख्यासम्बन्धप्रतिपत्तिरुपमानार्थः । किमुक्तं भवति ? आगमाहितसंस्कारस्मृत्यपेक्षं सारूप्यज्ञानमुपमानम् । यदा ह्यनेन श्रुतं भवति यथा गौरेवं गवय इति, प्रसिद्धे गोगवयसाधर्म्ये पुनर्गवा गवयसाधर्म्यं पश्यति प्रत्यक्षम्, ततस्तस्य भवत्ययं गवय इति समाख्यासम्बन्धप्रतिपत्तिः ।</div>
+  <div class="tr">類比とは、よく知られたものとの共通性から、論証されるべきものを論証することである。<br>次に類比である。「類比とは、よく知られたものとの共通性から、論証されるべきものを論証することである」。スートラの目的は前と同様である。「よく知られた共通性から」とは、共通性がよく知られているもの、あるいはよく知られたものとの共通性をもつもの、それが「よく知られた共通性をもつ」ガヴァヤであり、それから論証されるべきものを論証する、ということである。名称と（その対象との）関係の理解が、類比の結果である。何が言われているのか。証言によって置かれた潜在印象の想起に依存した、類似性の知が類比である。この人が「牛のように、ガヴァヤはそのようなものだ」と聞いていて、牛とガヴァヤの共通性が知られているとき、さらに牛とガヴァヤの共通性を知覚で見る。すると、その人に「これがガヴァヤだ」という名称と（対象との）関係の理解が生じるのである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の類比の分析は、推理の分析（§11）と同じ構造をとります。①「ガヴァヤは牛のようなものだ」という言葉を聞く（証言）、②その記憶が潜在印象として残る、③森で牛に似た動物を見る（知覚）、④言葉を想起する、⑤「この動物は牛に似ている」という類似性の知が生じる（＝類比、認識手段）、⑥「これがガヴァヤという名の動物だ」という名称と対象の関係の理解が生じる（＝類比の結果）。</p><p>類比の結果は「ガヴァヤが存在すること」や「ガヴァヤが牛に似ていること」ではなく、「ガヴァヤ」という名前がこの動物を指す、という知識です。ここが次のブロックの Dignāga 批判の鍵になります。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は Bhāṣya の訳で「よく知られたものとの共通性から、知らせるべきものを知らせることが類比である。『牛のように、ガヴァヤもそうである』のように」と訳し、「名称と（対象の）関係の理解が類比の結果（目的）である」と続けます。Vārttika の「スートラの目的は前と同様」については、Vācaspati によれば、ここでの「目的」とは同類・異類のものからの区別のこと（TṬ p.357）と注します。Bhāṣya が「よく知られたものとの共通性から」と具格の複合語で読むのに対し、Vārttika は二通りの所有複合語を示すが、矛盾ではない、とも述べています（Hi. pp.132–133）。</p></div></div>
+</div>
+<div class="mula" id="u78">
+  <span class="ref">p.54</span>
+  <div class="src deva" lang="sa">प्रत्यक्षागमाभ्यां नोपमानं भिद्यते । कथमिति ? यदा तावुभौ गोगवयौ प्रत्यक्षं पश्यति, तदायमनेन सरूप इति प्रत्यक्षतः प्रतिपद्यते । यदापि शृणोति यथा गौरेवं गवय इति, तदास्य शृण्वत एव बुद्धिरुपजायते—केचिद् गोधर्मा गवयेऽन्वयिन उपलभ्यन्ते, केचिद् व्यतिरेकिण इति; अन्यथा हि यथा तथेत्येतन्न स्यात् । भूयस्तु सारूप्यं गवा गवयस्येत्येवं प्रतिपद्यते । तस्मान्नोपमानं प्रत्यक्षागमाभ्यां भिद्यत इति । गवा गवयसारूप्यं प्रतिपद्यते गवयसत्तां वेत्यहो प्रमाणाभिज्ञता भदन्तस्य ! गवा गवयसारूप्यप्रतिपत्तेस्तु संज्ञासंज्ञिसम्बन्धं प्रतिपद्यत इति सूत्रार्थः । तस्मादपरिज्ञाय सूत्रार्थं यत्किञ्चिदुच्यते ॥६॥</div>
+  <div class="tr">（反論）「類比は知覚と証言とから区別されない。どうしてか。その人が牛とガヴァヤの両方を知覚で見るときには、『これはあれに似ている』と知覚によって理解する。また『牛のように、ガヴァヤはそのようなものだ』と聞くときには、聞いているそのときに、その人に『牛の性質のうち、ガヴァヤに伴っているものもあれば、伴っていないものもある』という理解が生じる。さもなければ『〜のように、そのように』ということはないだろう。そして『ガヴァヤは牛と大いに似ている』と理解する。だから、類比は知覚と証言とから区別されない」。（類比によって）牛とガヴァヤの類似性を理解する、あるいはガヴァヤの存在を（理解する）とは、なんと尊者は認識手段をよくご存じであることか。そうではなく、牛との類似性の理解から、名とそれが名指すものとの関係を理解する、というのがスートラの意味である。だから、スートラの意味を知らずに、何かを言っているだけである。（第六スートラ）</div><div class="exp"><span class="lbl">解説</span><p>Dignāga の批判（『集量論』）は、類比で得られるのは「ガヴァヤが牛に似ている」という知だが、それは、両方を見れば知覚で、言葉を聞けば証言で得られる、というものです。</p><p>Uddyotakara は皮肉で応じます。「なんと尊者（<i>bhadanta</i>、仏教の師に対する敬称）は認識手段をよくご存じであることか」。類比の結果は「類似性」ではなく「名称と対象の関係」なので、Dignāga はそもそも的を外している、というのです。牛とガヴァヤを見ても、知覚は「似ている」ことを教えるだけで、「これがガヴァヤという名のものだ」とは教えません。言葉を聞いても、まだ目の前にガヴァヤはいないので、「この動物がガヴァヤだ」とは分かりません。両方が組み合わさって初めて得られる知識があり、それが類比だ、というわけです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「なんと認識手段をよくご存じであることか」を「認識手段の正しい知、と嘲笑している」と注し、「<i>bhadanta</i> は仏教の学者に対する敬称」と説明します。そして「Dignāga はスートラの意味を理解せずに、ミーマーンサー学派の類比説を念頭に置いて類比を退けた。だから Vācaspati は『迷える尊者 Dignāga が批判する』（<i>bhrānto bhadanto dignāga ākṣipati</i>）と言う。Bhāṣya に『名称と（対象の）関係の理解が類比の結果である』とはっきり言われているのに、なぜ Dignāga はこれを検討しなかったのかは、考えるべき問題である」と述べています（Hi. pp.134–135）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Dignāga の批判の出典を、ヒンディー訳は『集量論』第4章（TṬ p.356）とします。Dignāga が念頭に置いていたのはミーマーンサーの類比説（「この動物は牛に似ている」から「家の牛もこの動物に似ている」を知る）だった、という見方は、ヒンディー訳の注によるものです。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §18 ============ -->
+<section id="s18" class="wrap">
+  <div class="sec-head"><span class="sec-no">18</span><h2>証言と、アプールヴァの永遠性批判</h2><span class="sub"><span class="pg">pp.54–57</span>天界を見た者はいるか。祭式の力は永遠ではない</span></div>
+<p>第四の認識手段は証言（<i>śabda</i>）、すなわち信頼できる人の教示です。Bhāṣya は「信頼できる人」（<i>āpta</i>）を「対象を直接に知った者」と定義します。すると、天界や祭式の目に見えない力（<i>apūrva</i>）のような、誰も見たことのないものについての教えは証言になりえないのではないか、という反論が出ます。その応答の中で、Uddyotakara はミーマーンサー学派の「アプールヴァは永遠である」という説を、三つの選択肢に分けて退けます。</p>
+<div class="mula sutra" id="u79">
+  <span class="ref">p.54 · NS 1.1.7</span>
+  <div class="src deva" lang="sa">आप्तोपदेशः शब्दः ॥१।१।७॥<br>अथ शब्दः । आप्तोपदेशः शब्दः । न शब्दमात्रमिति सूत्रार्थः । आप्तः खलु साक्षात्कृतधर्मा । साक्षात्करणमर्थस्याप्तिः, तया सह वर्तत इत्याप्तः । स्वर्गापूर्वदेवतादिषूपदेशो न प्राप्नोति, अतीन्द्रियत्वात् । यदि साक्षात्करणमर्थस्याप्तिः, स्वर्गापूर्वदेवतादीन् न कश्चित् पश्यतीति तत्प्रतिपादको व्यवहारो न स्यात् । तस्मादाप्तश्चासावुपदेशश्चेति युक्तम्, नाप्तस्योपदेश इति ।</div>
+  <div class="tr">証言とは、信頼できる人の教示である。<br>次に証言である。「証言とは、信頼できる人の教示である」。単なる言葉（すべてが証言なの）ではない、というのがスートラの意味である。信頼できる人とは、事物を直接に知った者である。対象を直接に知ることが「到達」（<i>āpti</i>）であり、それを伴っている者が「信頼できる人」（<i>āpta</i>）である。（反論）「天界・アプールヴァ・神格などについての教示は、（証言に）当てはまらない。超感覚的だからである。もし対象を直接に知ることが『到達』なら、天界・アプールヴァ・神格などは誰も見ないので、それを教える言語活動はないことになってしまう。だから、『信頼できる（＝適切な）教示』（という同格の複合語）と取るのが正しく、『信頼できる人の教示』ではない」。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、<i>āptopadeśa</i> を「信頼できる人の教示」（属格の複合語）ではなく「適切な教示」（同格の複合語、<i>āpta</i> を「得られた、適切な」と取る）と読むべきだと主張します。天界やアプールヴァ（祭式の行為が生み出し、のちに果報をもたらす目に見えない力）を直接見た人はいないので、「信頼できる人の教示」では、ヴェーダの教えが証言でなくなってしまうからです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「信頼できる人」の三つの特徴（事物を直接に知っていること、見たとおりに伝えようとすること、教示する者であること）を挙げ、Vācaspati がそれを例示にすぎないとして「器官の巧みさ」（<i>karaṇapāṭava</i>）を加えて四つにしたことを紹介します。そして「『適切な教示』と取れというのはサーンキヤの反論」と注し、『サーンキヤ・タットヴァ・カウムディー』（第5頌の注）に「<i>āptaśruti</i> とは、適切な天啓聖典のこと」とあることを引いています（Hi. p.135）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>反論者をヒンディー訳はサーンキヤとし、次のブロックの「どんな論証があるのか」という問いはミーマーンサー学派からのもの、と注します。ミーマーンサーは天界などを直接見るヨーギンの知覚を認めないからです（『マーナメーヨーダヤ』参照）。</p></div></div>
+</div>
+<div class="mula" id="u80">
+  <span class="ref">pp.54–55</span>
+  <div class="src deva" lang="sa">नैष दोषः । न ब्रूमोऽस्मदादीनां प्रत्यक्षाः स्वर्गादय इति, अपि तु यस्य प्रत्यक्षास्तस्योपदेश इति । कः पुनरत्र न्यायः स्वर्गादयः कस्यचित् प्रत्यक्षा इति ? ब्रूमः—सामान्यविशेषवत्त्वात् कस्यचित् प्रत्यक्षा इति । आश्रितत्वात्, यद् यदाश्रितं तत् कस्यचित् प्रत्यक्षमिति । परार्थत्वात्, यत् परार्थं तदपि कस्यचित् प्रत्यक्षमिति । वस्तुत्वादागमविषयत्वाच्च, यद् वस्तु यच्च परस्य कथ्यते तत् कस्यचित् प्रत्यक्षं दृष्टं यथा घटादय इति । अनित्यत्वात् कस्यचित् प्रत्यक्षा इति ।</div>
+  <div class="tr">この誤りはない。我々は、天界などが我々（普通の人）に知覚されると言うのではない。そうではなく、それを知覚する者の教示（が証言だ）と言うのである。では、天界などが誰かに知覚されることについて、どんな論証があるのか。我々は言う。（天界などは）誰かに知覚される。普遍と特殊をもつから。（また）依存するものだから。依存するものは何であれ、誰かに知覚される。（また）他のためのものだから。他のためのものは、誰かに知覚される。（また）事物であり、教えの対象だから。事物であり、他人に語られるものは、誰かに知覚されるのが見られる。壺などのように。（また）無常だから、誰かに知覚される。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、天界などを直接知る者がいることを、いくつもの推理で論証します。普遍と特殊をもつもの、何かに依存するもの、他のためにあるもの、言葉で他人に語られるもの、無常なもの、はいずれも、壺のように誰かに知覚されるものだ、という論法です。ニヤーヤでは、ヨーギン（修行者）や神（のちのニヤーヤでの最高神 <i>īśvara</i>）が、そうした超感覚的な事物を直接知る者と考えられます。</p><p>最後の「無常だから」に対して、ミーマーンサーは「アプールヴァは永遠だ」と反論します。そこから次のブロックの議論が始まります。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「どんな論証があるのか」をミーマーンサー学派の問いとし、それぞれの論証因を論証式の形に整えて訳しています（Hi. pp.135–136）。</p></div></div>
+</div>
+<div class="mula" id="u81">
+  <span class="ref">p.55</span>
+  <div class="src deva" lang="sa">असिद्धमपूर्वस्यानित्यत्वम् ? न, प्रायणानुपपत्तेः । यदि धर्माधर्मौ नित्यौ भवतः, कस्य क्षयात् प्रायणमिति ? यदि पुनरनित्यौ, विपच्यमानयोरुपभोगात् प्रक्षये सति विपच्यमानकर्माशयान्तराभावात् पूर्वशरीरात् प्रच्यवनं मनस उत्तरशरीरोपसंप्राप्तिश्चेति जन्ममरणे स्तः । तस्मादनित्याविति । नित्ये वा अपूर्वे परिकल्पिते तस्य साधारणता असाधारणता वा वक्तव्या । यदि साधारणता, सर्वप्राणिसाधारणोऽभ्युदयः स्यात्, न चान्यन्नियामकमस्ति, क्रियालोपश्चेति । नित्यत्वे व्यञ्जकभेदान्नोभयदोषः—नित्यत्वे साधारणत्वे वा अदृष्टस्य न साधारणोऽभ्युदयदोषो नापि क्रियाविलोपदोषः । कस्मात् ? व्यञ्जकभेदात् । नित्यमप्यपूर्वं योऽभिव्यनक्ति तस्य फलम्, अभिव्यक्त्यर्था च क्रिया । अभिव्यक्त्यर्थत्वाच्च न क्रियालोप इति । येन यदभिव्यज्यते तस्यैव तत्फलप्रदं भवतीति दृष्टम् । न दृष्टम् । न हि देवदत्तप्रकाशितं घटं यज्ञदत्तो न पश्यतीति ।</div>
+  <div class="tr">（反論）「アプールヴァが無常であることは成立していない」。そうではない。死ぬことが成り立たなくなるからである。もし功徳と罪過が永遠なら、何が尽きることによって死ぬのか。しかしもし無常なら、熟しつつある（功徳と罪過の）二つが経験によって尽きたとき、熟しつつある別の業の蓄積がないので、意が前の身体から離れ、次の身体を得る。こうして生と死がある。だから（功徳と罪過は）無常である。あるいは、アプールヴァが永遠だと想定するなら、それが（すべての人に）共通か、共通でないかを言わなければならない。もし共通なら、すべての生き物に共通の繁栄が生じることになり、ほかに（果報を）決めるものはないので、（祭式の）行為が無意味になる。（反論）「永遠であっても、顕現させるものが違うので、両方の誤りはない。不可見力が永遠であり、共通であっても、共通の繁栄という誤りも、行為が無意味になるという誤りもない。なぜか。顕現させるものが違うからである。永遠であっても、アプールヴァを顕現させる者に果報がある。そして行為は顕現のためのものである。顕現のためのものなので、行為が無意味になることはない。あるものによってあるものが顕現させられるとき、それはまさにその者に果報を与える、ということが見られる」。（そのようなことは）見られない。デーヴァダッタが照らし出した壺を、ヤジュニャダッタが見ない、ということはないからである。</div><div class="exp"><span class="lbl">解説</span><p>アプールヴァ（功徳・罪過、ニヤーヤの用語では不可見力 <i>adṛṣṭa</i>）が永遠なら、それが尽きることがないので、身体の寿命も尽きず、人は死なないことになります。ニヤーヤでは、今の身体を与えた業の果報が経験し尽くされたとき、人は死に、次の業の果報のために新しい身体を得ると考えます。</p><p>Vācaspati によれば、アプールヴァが永遠だとする場合には三つの選択肢があります。①全員に共通の一つ、②一人に一つ、③一人に多数。ここではまず①を検討します。全員に共通なら、誰かが祭式を行えば全員が天界に行けてしまいます。ミーマーンサー側は、祭式はアプールヴァを「顕現させる」もので、顕現させた者にだけ果報がある、と答えます。Uddyotakara は、灯火で壺を照らせば、照らした人以外にも壺は見える、と反例を挙げます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「アプールヴァを永遠とすると三つの選択肢がある。(1) 一つで全員に共通か、共通でない場合は (2) 一人に一つか、(3) 一人に多数か（TṬ p.369）。この三つすべてが Vārttika で退けられる」と注しています（Hi. pp.136–137）。</p></div></div>
+</div>
+<div class="mula" id="u82">
+  <span class="ref">pp.55–56</span>
+  <div class="src deva" lang="sa">नित्यस्य वा अपूर्वस्य काभिव्यक्तिः ? किमुपलब्धिः, अथ फलप्रदानसामर्थ्यम्, आहोस्विदावरणापगमः ? यद्युपलब्धिः, सा नास्ति; न हि कदाचिदप्ययमपूर्वं पश्यति, अतीन्द्रियत्वात् । अथ फलप्रदानसामर्थ्यमभिव्यक्तिः, फलप्रदानसामर्थ्यं किमपूर्वम्, अथापूर्वधर्म इति ? यद्यपूर्वम्, न हि किञ्चित् कृतम् । अथापूर्वधर्मः, तद्व्यतिरेकेणाप्यन्यदपूर्वमित्यत्र किं प्रमाणम् ? वयं तु पश्यामः, यतः फलं तदपूर्वमिति । अथावरणापगमोऽभिव्यक्तिः, किमस्यावरणमिति वक्तव्यम् । न ह्यतीन्द्रियाणामर्थानामावरणस्य संभवासंभवौ चिन्त्येते ।</div>
+  <div class="tr">また、永遠なアプールヴァの顕現とは何か。知覚か、果報を与える能力か、それとも覆いが取り除かれることか。もし知覚なら、それはない。この人がアプールヴァを見ることは決してない。超感覚的だからである。もし果報を与える能力が顕現なら、果報を与える能力はアプールヴァ（そのもの）か、それともアプールヴァの性質か。もしアプールヴァ（そのもの）なら、（行為は）何もしなかったことになる。もしアプールヴァの性質なら、それ（果報を与える能力）とは別に、ほかのアプールヴァがある、ということに何の認識手段があるのか。我々はこう見る。果報がそこから生じるもの、それがアプールヴァである、と。もし覆いが取り除かれることが顕現なら、それ（アプールヴァ）の覆いとは何かを言わなければならない。超感覚的な事物について、覆いがありうるかありえないかは考えられないからである。</div><div class="exp"><span class="lbl">解説</span><p>「顕現させる」とはどういうことかを、三つの可能性に分けて退けます。知覚されることではない（アプールヴァは見えない）。果報を与える能力を得ることだとすると、能力がアプールヴァそのものなら、もともと永遠に存在するので行為は何も加えていない。能力がアプールヴァの性質なら、それを生み出すのが行為なので、果報の原因はその能力であり、それとは別の永遠のアプールヴァを想定する根拠はない。覆いが取れることだとすると、見えないものに覆いがあるとはどういうことか、と問います。</p><p>「果報がそこから生じるもの、それがアプールヴァである」という Uddyotakara の言葉は、アプールヴァを行為から生じる無常のものと見るニヤーヤの立場をよく示しています。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「もしアプールヴァ（そのものが果報を与える能力）なら、（顕現させるものは）何もしなかったことになる」と補って訳し、「我々は、果報がそこから生じるもの、それがアプールヴァだと見る」と訳しています（Hi. p.137）。</p></div></div>
+</div>
+<div class="mula" id="u83">
+  <span class="ref">p.56</span>
+  <div class="src deva" lang="sa">एतेन प्रतिपुरुषं नित्यत्वं प्रतिषिद्धं वेदितव्यम् । कथमिति ? तत्रापि क्रियाविलोपो दोषः, व्यञ्जकस्य चासामर्थ्यमिति । उत्कर्षार्था च प्रवृत्तिरयुक्ता, नित्यस्याभेदत्वादिति । व्यञ्जकभेदानुविधानाद् भेद इति चेत्—न, एकस्मिन्नदृष्टत्वात् । अथापीदं स्यात्—एकमप्यपूर्वं व्यञ्जकभेदानुविधानाद् भिन्नमिव भवति, तद्भेदादुत्कर्षापकर्षौ भवत इति । नैतदस्ति, एकस्मिन्नदृष्टत्वात् । न ह्येकं किञ्चिद् व्यञ्जकभेदानुविधायि दृष्टं यत एतदेवं स्यादिति । ननु च खड्गादिभेदान्मुखभेदस्तदनुविधानाद् दृष्टः ? न दृष्ट इति ब्रूमः । किं पुनस्तद् यदि न दृष्टम् ? मिथ्याप्रत्ययः स इति ब्रूमः । भिन्नमिव तत्, न पुनर्भिन्नमेव, एकस्यानेकरूपस्यासंभवात् । न ह्येकमनेकरूपं संभवति । तस्मादपूर्वस्यैकत्वं वा हातव्यमुत्कर्षापकर्षकर्तृत्वं वेति ।</div>
+  <div class="tr">これによって、一人ひとりにとって（一つの永遠なアプールヴァがあるという）永遠性も否定されたと知るべきである。どうしてか。そこでも行為が無意味になるという誤りがあり、顕現させるものに（何かをなす）能力がないからである。また、（果報の）優劣を求めての活動も成り立たない。永遠なものには区別がないからである。（反論）「顕現させるものの違いに従って区別がある」と言うなら、そうではない。一つのものについては（そのようなことは）見られないからである。こう考えるかもしれない。「一つのアプールヴァも、顕現させるものの違いに従って、区別されたもののようになり、その区別によって（果報の）優劣が生じる」と。これはない。一つのものについては見られないからである。一つのものが顕現させるものの違いに従う、ということは見られない。そうであればこのことが成り立つのだが。（反論）「剣などの違いによって、顔の違いがそれに従って見られるではないか」。見られない、と我々は言う。では、見られないのなら、それは何なのか。誤った認識だ、と我々は言う。それは区別されたもののようであって、本当に区別されているのではない。一つのものが多くの姿をもつことはありえないからである。一つのものが多くの姿をもつことはありえない。だから、アプールヴァが一つであることか、（果報の）優劣を生み出すことか、どちらかを捨てなければならない。</div><div class="exp"><span class="lbl">解説</span><p>第二の選択肢、一人に一つの永遠のアプールヴァがある場合です。そうすると、ある人がどれだけ多くの祭式を行っても、アプールヴァは一つで永遠なので変わらず、より大きな果報を得ることはできません。ミーマーンサー側は、一つの顔が剣の刃や鏡などに映ると、映すものによって長く見えたり歪んで見えたりするように、一つのアプールヴァも、顕現させる祭式の違いによって違う果報をもたらす、と答えます。Uddyotakara は、それは映像の錯覚にすぎず、顔そのものが変わるわけではない、と退けます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、この部分を「［第二の選択肢］」という見出しで訳し、「『これによって一人ひとりの（アプールヴァの）永遠性が否定されたと知るべきである』が第二の選択肢の、『一人ひとりに多数で永遠』が第三の選択肢の否定である」と注しています（Hi. pp.137–138）。</p></div></div>
+</div>
+<div class="mula" id="u84">
+  <span class="ref">pp.56–57</span>
+  <div class="src deva" lang="sa">प्रतिपुरुषमनेको नित्य इति अथायं पक्ष आश्रीयते—प्रतिपुरुषमनेकत्वं नित्यत्वं वा अपूर्वस्येति, अनिवृत्तो व्याघातः, प्रायणानुपपत्तिप्रसङ्गदोषः, क्रियाविलोपदोषश्च न व्यावर्तते । अभिव्यक्तश्च फलं ददातीति, किं यदाभिव्यक्तस्तदा फलं ददाति, उत क्रियानिवृत्त्युत्तरकालमिति ? यदि यदाभिव्यक्तस्तदा फलं ददाति, तन्न दृष्टम्; न ह्यश्वमेधक्रियानन्तरमेव स्वर्गप्राप्तिर्भवतीति । अथोत्तरकालम्, असती क्रिया व्यञ्जिका, तया चानुगृह्यमाणः फलं ददातीति चित्रम् । न हि किञ्चिदपूर्वं नाभिव्यक्तमिति सर्वं सर्वदा फलदं स्यात् । अथापि स्वपक्षसंरिरक्षयिषया क्रियानित्यत्वमपि प्रतिपद्येथाः, एवमप्यनिवृत्तो व्याघातः क्रियाविलोपादिक इति । तदेवं यथा यथा अपूर्वस्य नित्यत्वं विचार्यते, तथा तथोपपत्तिं न सहत इति ।</div>
+  <div class="tr">「一人ひとりに多数で永遠」という、この立場が採られる場合、すなわち、アプールヴァが一人ひとりに多数あり、永遠であるとしても、矛盾は除かれない。死ぬことが成り立たなくなるという誤りと、行為が無意味になるという誤りは、なくならない。また、顕現したもの（アプールヴァ）が果報を与えるというが、顕現したそのときに果報を与えるのか、それとも行為が終わったあとの時に（与える）のか。もし顕現したそのときに果報を与えるなら、それは見られない。馬祀祭の行為の直後に天界に到達するわけではないからである。もし後の時なら、存在しない行為が顕現させるものであり、それに助けられて（アプールヴァが）果報を与える、というのは奇妙である。（また、一度顕現したら）顕現していないアプールヴァは一つもないので、すべてが常に果報を与えるものになってしまうだろう。たとえ自説を守りたいために、行為が永遠であることまで認めるとしても、それでも行為の無意味化などの矛盾は除かれない。このように、アプールヴァの永遠性は、考えれば考えるほど、論理に耐えないのである。</div><div class="exp"><span class="lbl">解説</span><p>第三の選択肢、一人に多数の永遠のアプールヴァがある場合も、同じ困難を免れません。さらに時間の問題があります。馬祀祭（アシュヴァメーダ）を行っても、すぐに天界に行けるわけではなく、果報は死後に来ます。そのとき祭式の行為はすでに終わって存在しません。存在しない行為が、どうやってアプールヴァを「顕現させ」続けるのか。ニヤーヤの立場では、行為は無常なアプールヴァ（功徳）を生み出し、それが我に残って、時が来れば果報を生む、と説明できます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「［第三の選択肢］」の見出しのもとで訳し、「存在しない行為が顕現させるものであり、それに助けられて（アプールヴァが）果報を与える、というのは奇妙である」と訳しています（Hi. pp.138–139）。</p></div></div>
+</div>
+<div class="mula" id="u85">
+  <span class="ref">p.57</span>
+  <div class="src deva" lang="sa">आप्तोपदेशः शब्द इति किमाप्तानामविसंवादित्वं प्रतिपाद्यते, आहोस्विदर्थस्य तथाभाव इति ? यद्याप्तानामविसंवादित्वं प्रतिपाद्यते, तदनुमानात् । अथार्थस्य तथाभावः, सोऽपि प्रत्यक्षात् । यदा ह्ययमर्थं प्रत्यक्षत उपलभते तदा तथाभावमर्थस्य प्रतिपद्यत इति । तन्न, सूत्रार्थापरिज्ञानात् । नायं सूत्रार्थ आप्तोपदेशः शब्द इति, अपि त्विन्द्रियसम्बद्धासम्बद्धेष्वर्थेषु या शब्दोल्लेखेन प्रतिपत्तिः सा आगमस्यार्थः । तस्मादसम्बद्धोऽयं विकल्पः ॥७॥</div>
+  <div class="tr">（反論）「『証言とは信頼できる人の教示である』というとき、信頼できる人々が（事実と）食い違わないことが示されるのか、それとも対象がそのとおりであることが（示されるの）か。もし信頼できる人々が食い違わないことが示されるなら、それは推理による。もし対象がそのとおりであることなら、それも知覚による。この人が対象を知覚によって認識するとき、対象がそのとおりであることを理解するからである」。それは正しくない。スートラの意味を知らないからである。「証言とは信頼できる人の教示である」ということの意味は、これ（反論者の言うこと）ではない。そうではなく、感官と結びついた対象、また結びついていない対象について、言葉の想起を伴って生じる理解、それが証言の結果である。だからこの選択肢（の提示）は的外れである。（第七スートラ）</div><div class="exp"><span class="lbl">解説</span><p>Dignāga は、証言を推理に含めました（『集量論』第2章「信頼できる人の言葉は食い違わないという共通性から、推理であることになる」）。信頼できる人の言葉を信じるのは、「この人の言葉はこれまで食い違わなかった」という推理による、というのです。</p><p>Uddyotakara は、類比の場合（§17）と同じく、「スートラの意味を知らない」と退けます。証言の結果は、「この人は信頼できる」とか「対象が言われたとおりだ」という知ではなく、言葉を手がかりに対象を理解することそのものです。「信頼できる人」という語は、その言葉が逸脱しないことを示すために置かれているにすぎません。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「Dignāga は証言を推理に含めた。『信頼できる人の言葉が食い違わないという共通性から、推理であることになる』（TṬ pp.370–371、『集量論』第2章）」と注し、「対象がそのとおりであること」を「言葉に合致した対象を得ること」（TṬ p.371）と説明します。「感官と結びついた、また結びついていない対象」は TṬ によれば「見える対象と見えない対象」の意味で、「教示とは言葉であり、その結果は文の意味の知、語の意味の想起は中間の働き。『信頼できる人』という語は、言葉が逸脱しないことを示すために取られた」と TṬ（p.371）に従って説明しています（Hi. p.139）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §19 ============ -->
+<section id="s19" class="wrap">
+  <div class="sec-head"><span class="sec-no">19</span><h2>証言の二種</h2><span class="sub"><span class="pg">p.57</span>見える対象と見えない対象。聖仙も異国人も同じ定義</span></div>
+<p>プラカラナの最後は、証言を二種に分けるスートラです。Bhāṣya は「この世で対象が見られるもの」と「来世で（対象が）理解されるもの」に分けますが、Uddyotakara はこれを数の限定と取り、さらに話し手の違いによる分け方も示します。</p>
+<div class="mula sutra" id="u86">
+  <span class="ref">p.57 · NS 1.1.8</span>
+  <div class="src deva" lang="sa">स द्विविधो दृष्टादृष्टार्थत्वात् ॥१।१।८॥<br>स द्विविध इति नियमार्थम् । अनेकधा भिन्न आगमः प्रत्यक्षानुमानविषयतायामेव व्यवतिष्ठत इति । वक्तृभेदेन वा द्वैविध्यं दृष्टादृष्टार्थप्रवक्तृत्वात्—प्रत्यक्षत उपलब्धोऽर्थो दृष्टार्थः, अनुमानत उपलब्धोऽर्थोऽदृष्टार्थ इति । ऋष्यार्यम्लेच्छानामेतत् समानं लक्षणमिति, सर्वेषामागमेन व्यवहारदर्शनादनियमः । एवं चत्वार्येतानि प्रमाणानि यैर्देवमनुष्यतिरश्चां व्यवहाराः प्रकल्प्यन्त इति ॥८॥<br>॥ प्रमाणलक्षणप्रकरणम् ॥</div>
+  <div class="tr">それ（証言）は二種である。見られた対象をもつものと、見られない対象をもつものだからである。<br>「それは二種である」とは、限定のためである。さまざまに分かれる証言も、知覚の対象であるか推理の対象であるか、のどちらかに収まる、ということである。あるいは、話し手の違いによって二種である。見られた対象を説く者と、見られない対象を説く者とがいるからである。知覚によって認識された対象が「見られた対象」、推理によって認識された対象が「見られない対象」である。「これは聖仙・アーリヤ人・異国人に共通の定義である」（と Bhāṣya は言う）。すべての人に証言による言語活動が見られるので、（話し手についての）限定はない。このように、これら四つの認識手段があり、それらによって神々・人間・動物の言語活動（日常の営み）が成り立つ。（第八スートラ）<br>認識手段の定義のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>証言の二分類について、Bhāṣya は「この世で対象が見られるもの（日常の言葉）」と「来世で理解されるもの（天界などを説くヴェーダの言葉）」と説明し、その目的を、「見られた対象をもつ証言だけが認識手段だ」と考える人（唯物論者）に対して、見られない対象をもつ証言も認識手段であることを示すため、としています。</p><p>Uddyotakara の第二の読みは、話し手が対象を知覚で知ったか、推理で知ったかによる区別です。そして Bhāṣya の「聖仙・アーリヤ人・異国人に共通の定義」という言葉を受けて、信頼できる人かどうかは身分や出自で決まるのではない、と念を押します。異国人（<i>mleccha</i>、ヴェーダの文化の外の人々）であっても、事物を知り、正しく伝えようとする人の言葉は証言です。最後に「四つの認識手段によって、神々・人間・動物の営みが成り立つ」と述べて、第二プラカラナを閉じます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「感官と結びついたもの、結びついていないもの」＝見えるもの・見えないもの（TṬ p.371）と注し、「Bhāṣya によれば、ここで対象が見える証言が見られた対象をもつもの、それ以外の天界などが見られない対象をもつもの。Vārttika 作者は話し手の違いによる二つの意味も示した。一つは知覚によって見る者が話し手であるもの、もう一つは話し手が推理によって対象を知るもの」と説明しています。Bhāṣya の「こうして聖仙の言葉と世俗の言葉が分けられる」という一句については「検討を要する」と注しています（Hi. p.140）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>pramāṇa / pramā / pramātṛ / prameya</dt><dd>認識手段／認識／認識主体／認識対象</dd>
+    <dt>pratyakṣa / anumāna / upamāna / śabda (āgama)</dt><dd>知覚／推理／類比／証言</dd>
+    <dt>vibhāga / lakṣaṇa / parīkṣā</dt><dd>列挙（区分）／定義／検討</dd>
+    <dt>saṃplava / vyavasthā</dt><dd>（認識手段の）混在／棲み分け</dd>
+    <dt>indriya / artha / sannikarṣa</dt><dd>感官／対象／接触</dd>
+    <dt>saṃyoga / samavāya</dt><dd>結合／内属。内属は性質と実体、全体と部分などの不可分の関係で、唯一・永遠・独立とされる</dd>
+    <dt>saṃyuktasamavāya など</dt><dd>六種の接触。結合・結合したものへの内属・結合したものに内属するものへの内属・内属・内属したものへの内属・限定関係</dd>
+    <dt>prāpyakārin / aprāpyakārin</dt><dd>対象に届いて働く／届かずに働く（感官）</dd>
+    <dt>avyapadeśya / avyabhicārin / vyavasāyātmaka</dt><dd>言葉で名指されない／逸脱しない／確定を本質とする（知覚の定義の限定語）</dd>
+    <dt>manas</dt><dd>意。内的感官。一度に一つの知しか生じないことからその存在が推理される</dd>
+    <dt>svalakṣaṇa / sāmānyalakṣaṇa</dt><dd>個別の特徴／一般的な特徴。仏教論理学の二種の対象</dd>
+    <dt>kalpanāpoḍha</dt><dd>分別（概念構成）を離れたもの。Dignāga の知覚の定義</dd>
+    <dt>tatpūrvaka</dt><dd>それ（知覚）にもとづく。推理の定義の語</dd>
+    <dt>liṅga / liṅgin / liṅgaparāmarśa</dt><dd>証因（煙など）／証因をもつもの（火など）／証因の再確認（推理の手段）</dd>
+    <dt>pakṣa (anumeya) / sapakṣa / vipakṣa</dt><dd>主題（推理されるもの）／同類／異類</dd>
+    <dt>sādhya / sādhana / hetu</dt><dd>所証／論証手段／論証因</dd>
+    <dt>vyāpti / avinābhāva / nāntarīyaka</dt><dd>遍充／不可離の関係／不可離のもの</dd>
+    <dt>pūrvavat / śeṣavat / sāmānyatodṛṣṭa</dt><dd>前件をもつもの／残余をもつもの／一般的に見られたもの（推理の三種）</dd>
+    <dt>anvayavyatirekin / kevalānvayin / kevalavyatirekin</dt><dd>肯定否定の随伴をもつもの／肯定的随伴だけをもつもの／否定的随伴だけをもつもの</dd>
+    <dt>trairūpya / pañcarūpya</dt><dd>論証因の三相（主題所属性・同類にあること・異類にないこと）／五つの特徴（さらに否定されていないこと・対抗論証がないこと）</dd>
+    <dt>pariśeṣa</dt><dd>消去法。可能性を順に否定して残りを確定する推理</dd>
+    <dt>avadhāraṇa (eva)</dt><dd>限定（「だけ」「必ず」）。置く位置によって意味が変わる</dd>
+    <dt>upanaya</dt><dd>適用。論証式の第四支分。証因の再確認を言葉にしたもの</dd>
+    <dt>samākhyāsambandha / saṃjñāsaṃjñisambandha</dt><dd>名称と（対象との）関係／名と名指されるものとの関係。類比の結果</dd>
+    <dt>gavaya</dt><dd>ガヴァヤ。牛に似た野生の動物。類比の定番の例</dd>
+    <dt>āpta / āptopadeśa</dt><dd>信頼できる人（事物を直接に知り、正しく伝えようとする者）／その教示</dd>
+    <dt>apūrva / adṛṣṭa</dt><dd>アプールヴァ（ミーマーンサー）／不可見力（ニヤーヤ・ヴァイシェーシカ）。行為が生み出し、のちに果報をもたらす目に見えない力</dd>
+    <dt>abhivyakti / vyañjaka</dt><dd>顕現／顕現させるもの</dd>
+    <dt>dṛṣṭārtha / adṛṣṭārtha</dt><dd>見られた対象をもつ（証言）／見られない対象をもつ（証言）</dd>
+    <dt>bhadanta</dt><dd>尊者。仏教の師に対する敬称。Uddyotakara はしばしば皮肉を込めて用いる</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR テキストには誤りが多いため、Śrīnivāsa Śāstrī のヒンディー訳（<i>Nyāya Vārtika of Udyotakara</i>, Part 1, Ghaziabad: Indo-Vision, 1986）に収められた本文と照合して、明らかな誤りを直した。直した箇所のうち意味に関わるものは「解釈の分かれる箇所」に記した。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。Thakur 版は Bhāṣya を載せないので、Vārttika が引く Bhāṣya の文は解説で要約・訳出した。</p>
+  <p>和訳は試訳である。解説はヒンディー訳の訳文と注に大きく拠っている。TṬ（Vācaspati Miśra『タートパリヤ・ティーカー』）の説と頁数、Dignāga・Vasubandhu などの出典の同定は、ヒンディー訳の注が引くものを紹介したもので、TṬ や仏教論理学の原典そのものは参照していない。後代のニヤーヤの用語や論争への言及など、本文やヒンディー訳にない補足は、そうと分かるように書いた。このページが扱うのは第2プラカラナ（スートラ 1.1.3–8）である。第1プラカラナ（スートラ 1.1.1–2）は<a href="nyayavarttika-1-taiyaku.html">第1プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
