@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 9</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-8-taiyaku.html">← プラカラナ8</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>擬似理由の列挙</a></li><li><a href="#s2"><b>2</b>176の区分</a></li><li><a href="#s3"><b>3</b>不定</a></li><li><a href="#s4"><b>4</b>矛盾</a></li><li><a href="#s5"><b>5</b>問題相似・所証相似・時過</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第9プラカラナ「擬似理由の定義」（スートラ 1.2.4–9、Thakur 版 pp.155–168）</span>
+  <p>論証式の理由が正しくないとき、それは「擬似理由」（<i>hetvābhāsa</i>）と呼ばれます。理由のように見えるが理由ではないもの、です。ニヤーヤ・スートラはそれを五つに分けます。不定・矛盾・問題相似・所証相似・時過です。</p>
+  <p>Uddyotakara はこの章で、理由が主題・同類例・異類例にどう分布するかを組み合わせて、正しい理由と擬似理由を 176 通りに、さらに細かくは 2032 通りに数え上げます。仏教論理学の「九句因」（理由と同類・異類の関係による九通りの分類）と比べられる、ニヤーヤ独自の網羅的な分類です。</p>
+  <p>この章も、参照してきたヒンディー語訳注の範囲外です。解説は Thakur 版の本文にもとづく訳者の説明です。数え上げの例は長いので、原文は要点を抜き出しました（「……」）。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>擬似理由の定義の章<br><small><i>hetvābhāsalakṣaṇaprakaraṇa</i>。スートラ 1.2.4–9 の注釈。Thakur 版 pp.155–168</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>1.2.4–9<br><small>列挙（4）、不定（5）、矛盾（6）、問題相似（7）、所証相似（8）、時過（9）</small></dd></div>
+    <div><dt>論敵</dt><dd>仏教の論理学者ほか<br><small>「相違決定」を不定に含める説、「問題相似」を不定に含める説、「時過」を支分の順序の誤りとする説</small></dd></div>
+    <div><dt>見どころ</dt><dd>16 × 3 の分類<br><small>§2。理由が主題全体にあるか一部にあるかないか、同類例・異類例にどうあるか</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>参照なし<br><small>手元のヒンディー訳第1巻の範囲外</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは文脈から直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.157</span> は Thakur 版の頁。節見出しの <span class="pg">pp.155–156</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りを文脈から直した。長い議論は要点を抜き出した（<span class="ia">……</span>）</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。ヒンディー訳の範囲外なので、本文にもとづく訳者の説明</div>
+    <div><b>解釈の分かれる箇所</b>異読や、OCR テキストを直した箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 1.2.4–9 の注釈を、テキストの順に5節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">擬似理由の列挙</a></td><td class="num">pp.155–156</td><td>擬似理由はなぜ理由のように見えるのか。何通りあるのか</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">176の区分</a></td><td class="num">pp.156–162</td><td>理由の分布による 16 × 3 の分類。2032 通りへの展開。相違決定の否定</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">不定</a></td><td class="num">pp.162–164</td><td>「不定」の否定辞の意味。不共不定も含まれる。問題相似は不定ではない</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">矛盾</a></td><td class="num">pp.164–165</td><td>認めたことと矛盾する理由。主張と理由の矛盾</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">問題相似・所証相似・時過</a></td><td class="num">pp.165–168</td><td>残る三つの擬似理由と、それぞれの誤った解釈</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>擬似理由の列挙</h2><span class="sub"><span class="pg">pp.155–156</span>擬似理由はなぜ理由のように見えるのか。何通りあるのか</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.155–156 · NS 1.2.4</span>
+  <div class="src deva" lang="sa">सव्यभिचारविरुद्धप्रकरणसमसाध्यसमकालातीता हेत्वाभासाः ॥१।२।४॥<br>हेतुलक्षणाभावादहेतवो हेतुसामान्याद्धेतुवदवभासमानाः त इमे सव्यभिचारविरुद्धप्रकरणसमसाध्यसमकालातीता हेत्वाभासाः । किं पुनर्हेतुभिरहेतूनां सामान्यम्, येन हेतुवदवभासन्त इति ? प्रतिज्ञानन्तरं प्रयोगः सामान्यम् । यथैव हेतवः प्रतिज्ञानन्तरं प्रयुज्यन्ते, एवं हेत्वाभासा अपीत्येतत् सामान्यम् । अन्यतमलिङ्गधर्मानुविधानं वा । यद् वा यत्साधकस्य लिङ्गस्य त्रैलक्षण्यं धर्मस्तत्रैकतमधर्मानुविधानम्, द्विलक्षणस्यान्यतरधर्मानुविधानं वा विवक्षितम् । साधकासाधकत्वे तु विशेषः । हेतोः साधकत्वं धर्मः, असाधकत्वं हेत्वाभासस्य । किं पुनस्तत् ? समस्तलक्षणोपपत्तिरसमस्तलक्षणोपपत्तिश्च ।</div>
+  <div class="tr">擬似理由とは、ばらつきのあるもの（不定）・矛盾するもの・問題相似・所証相似・時を過ぎたもの（時過）である。<br>理由の特徴がないので理由ではないが、理由と共通のところがあるので理由のように見える。それがこれら、不定・矛盾・問題相似・所証相似・時過という擬似理由である。では、理由でないものと理由とに共通のところとは何か。それによって理由のように見えるのだが。主張の直後に用いられることが共通である。理由が主張の直後に用いられるように、擬似理由もそうである。これが共通のところである。あるいは、（理由の）特徴のどれか一つに従っていること（が共通である）。すなわち、論証する証因には三つの特徴がある、そのうちのどれか一つに従っていること、あるいは二つの特徴をもつ（証因）のどちらか一方に従っていることが、意図されている。しかし、論証するかしないかに違いがある。論証することは理由の性質であり、論証しないことは擬似理由の性質である。それは何か。特徴がすべて揃っていることと、すべては揃っていないことである。</div><div class="exp"><span class="lbl">解説</span><p>正しい理由は三つの特徴（主題にあること、同類例にあること、異類例にないこと）をすべて備えます。ただし、同類例や異類例がそもそも存在しない場合は、二つで足ります（第二プラカラナで扱われた肯定のみ・否定のみの推論）。擬似理由は、特徴の一部を備えているので理由のように見えるが、すべては備えていない、というわけです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>冒頭の「理由でないもの」は、OCR テキストの <span lang="sa" class="deva">हेतुलक्षणाभावादेतवो</span> を <span lang="sa" class="deva">हेतुलक्षणाभावादहेतवो</span> と直して読みました。</p></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">p.156</span>
+  <div class="src deva" lang="sa">कः पुनरस्य सूत्रस्यार्थः ? विभागोद्देशो नियमार्थ इत्युक्तम् । किं पुनरनेन विभागोद्देशेन नियन्तव्यम् ? अनेकधा प्रसृतस्य हेतुहेत्वाभासस्य विस्तारः संक्षेप्य इति । कियता पुनर्भेदेनायं हेतुहेत्वाभासः प्रसृत इति ? कालपुरुषवस्तुभेदानुविधानेनापरिसंख्येयः । सामान्यतः साध्यवस्तूपग्रहेण हेतुहेत्वाभासभेदः प्रपञ्च्यमानः षट्सप्ततिशतम् । तत्र साध्यव्यापकधर्मभेदः षोडशधा । साध्यैकदेशवृत्तिधर्मोऽप्येवम् । एवं साध्यावृत्तिधर्मभेद इति । विशेषणविशेष्यासिद्धिभेदाच्चतुःषष्टिः । एवं समर्थासमर्थविशेषणविशेष्यभेदादिति ।</div>
+  <div class="tr">では、このスートラの意味は何か。区分の列挙は限定のためだ、と言われた。この区分の列挙によって何が限定されるのか。さまざまに広がっている理由と擬似理由の広がりが、まとめられるべきである。では、理由と擬似理由はどれだけの区分に広がっているのか。時・人・事物の違いに従えば、数えきれない。一般的に、論証されるべき事物（主題）を取り上げて、理由と擬似理由の区分を詳しく述べれば、176 である。そのうち、論証されるべきもの（主題）の全体にある性質の区分が 16 通り。主題の一部にある性質も同様（16 通り）。主題にない性質の区分も同様（16 通り）。限定語の不成立と被限定語の不成立の区分によって 64。同様に、限定語と被限定語が有効か無効かの区分によって（64）である。</div><div class="exp"><span class="lbl">解説</span><p>数え方は次のとおりです。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>区分</th><th>数</th></tr></thead>
+    <tbody>
+      <tr><td>主題の全体にある理由 × 同類例・異類例での分布</td><td class="num">16</td></tr>
+      <tr><td>主題の一部にある理由 × 同</td><td class="num">16</td></tr>
+      <tr><td>主題にない理由 × 同</td><td class="num">16</td></tr>
+      <tr><td>限定語・被限定語の不成立による区分</td><td class="num">64</td></tr>
+      <tr><td>限定語・被限定語の無効による区分</td><td class="num">64</td></tr>
+      <tr><td class="k">計</td><td class="num">176</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　176 通りの数え方。</b>Thakur 版 p.156 による。</figcaption>
+</figure><p>ここで「論証されるべきもの」（<i>sādhya</i>）と言われているのは、後の論理学の用語では「主題」（<i>pakṣa</i>）にあたります。「論証されるべきものの全体にある」とは、理由が主題の全体にあるということです。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>176の区分</h2><span class="sub"><span class="pg">pp.156–162</span>理由の分布による 16 × 3 の分類。2032 通りへの展開。相違決定の否定</span></div>
+<div class="mula" id="u3">
+  <span class="ref">pp.156–157</span>
+  <div class="src deva" lang="sa">तत्र साध्यव्यापकधर्मभेदानां षोडशानामुदाहरणानि । तत्र<br>१. साध्यतज्जातीयविपक्षव्यापकः, प्रमेयत्वान्नित्योऽनित्यो वेति ।<br>२. साध्यतज्जातीयव्यापको विपक्षैकदेशवृत्तिः, गौरयं विषाणित्वात् ।<br>३. साध्यतज्जातीयव्यापको विपक्षावृत्तिः, अनित्यः शब्द उत्पत्तिधर्मकत्वात् ।<br>४. साध्यव्यापकस्तज्जातीयावृत्तिर्विपक्षव्यापकः, नित्यः शब्द उत्पत्तिधर्मकत्वात् ।<br>…… <br>६. साध्यव्यापकस्तज्जातीयविपक्षावृत्तिः, नित्यः शब्दः सामान्यविशेषवत्त्वे सति श्रावणत्वात् ……<br>७. साध्यव्यापकस्तज्जातीयैकदेशवृत्तिर्विपक्षव्यापकश्च, अगौरयं विषाणित्वात् ।<br>८. साध्यव्यापकस्तज्जातीयविपक्षैकदेशवृत्तिः, नित्यः शब्दोऽस्पर्शवत्त्वात् ।<br>९. साध्यव्यापकस्तज्जातीयैकदेशवृत्तिर्विपक्षावृत्तिः, अनित्यः शब्दः सामान्यविशेषवतोऽस्मदादिबाह्यकरणप्रत्यक्षत्वात् ।<br>१०. साध्यतज्जातीयव्यापकोऽविद्यमानविपक्षः सिद्धान्तभेदाश्रयणेनैकान्तवादिनः, अनित्यः शब्द उत्पत्तिधर्मकत्वात् ।<br>……<br>१५. साध्यव्यापकोऽविद्यमानसजातीयो विपक्षावृत्तिः, नेदं निरात्मकं जीवच्छरीरम्, अनिन्द्रियाधिष्ठानत्वप्रसङ्गात् ।<br>१६. पक्षव्यापकोऽविद्यमानसपक्षविपक्षः, सर्वं नित्यं प्रमेयत्वात् ।<br>त एते पक्षव्यापकाः षोडश । एषां पञ्च हेतवः । शेषा हेत्वाभासाः । तत्रान्वयव्यतिरेकिणौ द्वौ विपक्षावृत्ती तृतीयनवमौ । एकान्तवादिनोऽन्वयिनावेव दशमैकादशौ । व्यतिरेकी पञ्चदश इति ।</div>
+  <div class="tr">そのうち、主題の全体にある性質の 16 の区分の例（は次のとおり）。<br>1. 主題とその同類と異類の全体にある。「認識対象だから、常住である、あるいは無常である」。<br>2. 主題とその同類の全体にあり、異類の一部にある。「これは牛である。角をもつから」。<br>3. 主題とその同類の全体にあり、異類にない。「音は無常である。生じる性質をもつから」。<br>4. 主題の全体にあり、その同類になく、異類の全体にある。「音は常住である。生じる性質をもつから」。<br>……<br>6. 主題の全体にあり、その同類にも異類にもない。「音は常住である。普遍と特殊をもち、耳で聞かれるものだから」……<br>7. 主題の全体にあり、その同類の一部にあり、異類の全体にある。「これは牛ではない。角をもつから」。<br>8. 主題の全体にあり、その同類と異類の一部にある。「音は常住である。触れられる性質をもたないから」。<br>9. 主題の全体にあり、その同類の一部にあり、異類にない。「音は無常である。普遍と特殊をもち、我々などの外的感官で知覚されるから」。<br>10. 主題とその同類の全体にあり、異類が存在しない。定説の違いによって、（すべては無常だと）一方的に説く者にとって。「音は無常である。生じる性質をもつから」。<br>……<br>15. 主題の全体にあり、同類が存在せず、異類にない。「この生きている身体は我をもたないのではない。（もしそうなら）感官の拠り所でないことになってしまうから」。<br>16. 主題の全体にあり、同類も異類も存在しない。「すべては常住である。認識対象だから」。<br>以上が主題の全体にある 16 である。このうち五つが（正しい）理由であり、残りは擬似理由である。そのうち、肯定・否定の両方による（理由）は、異類にない二つ、第三と第九である。一方的に説く者にとって、肯定のみの（理由）は第十と第十一である。否定のみの（理由）は第十五である。</div><div class="exp"><span class="lbl">解説</span><p>同類例（<i>sapakṣa</i>、所証の性質をもつもの）に理由が「全体にある・一部にある・ない・同類例が存在しない」の4通り、異類例（<i>vipakṣa</i>、所証の性質をもたないもの）にも同じ4通りがあるので、4 × 4 = 16 です。これを表にすると次のようになります。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>同類例 ＼ 異類例</th><th>全体にある</th><th>一部にある</th><th>ない</th><th>存在しない</th></tr></thead>
+    <tbody>
+      <tr><td class="k">全体にある</td><td>1</td><td>2</td><td><b>3 理由</b></td><td><b>10 理由</b></td></tr>
+      <tr><td class="k">一部にある</td><td>7</td><td>8</td><td><b>9 理由</b></td><td><b>11 理由</b></td></tr>
+      <tr><td class="k">ない</td><td>4</td><td>5</td><td>6</td><td>12</td></tr>
+      <tr><td class="k">存在しない</td><td>13</td><td>14</td><td><b>15 理由</b></td><td>16</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表2　主題の全体にある理由の16区分。</b>数字は本文の番号。太字が正しい理由。</figcaption>
+</figure><p>同類例・異類例が「存在する」場合の 3 × 3 = 9 の区分（1–9）は、仏教論理学で Dignāga が立てた「九句因」と同じ枠組みです。九句因でも、正しい理由は異類例にないもののうち、同類例の全体または一部にあるもの（Uddyotakara の第3と第9）の二つです（訳者の補足）。Uddyotakara は、これに同類例や異類例が「存在しない」場合を加えて、ニヤーヤの肯定のみ・否定のみの推論を位置づけています。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストでは、第3・第6・第9の「異類にない」（<span lang="sa" class="deva">विपक्षावृत्तिः</span>）がしばしば「異類にある」（<span lang="sa" class="deva">विपक्षवृत्तिः</span>）となっています。例と、最後のまとめ（「異類にない二つ、第三と第九」）から、「ない」と直しました。第1の <span lang="sa" class="deva">साध्यजातीयानिव्यापकः</span> も、表の構成から <span lang="sa" class="deva">साध्यतज्जातीयविपक्षव्यापकः</span> と直しました。いずれも訳者の判断です。</p></div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">pp.157–160</span>
+  <div class="src deva" lang="sa">अथ साध्यैकदेशवृत्तयः, १. साध्यैकदेशवृत्तिस्तज्जातीयविपक्षव्यापकः, पृथिव्यप्तेजोवाय्वाकाशान्यनित्यान्यगन्धवत्त्वात् । …… एते च साध्यैकदेशवृत्तयः षोडश यथोक्ताः सर्वे हेत्वाभासाः । अथ साध्यावृत्तयः, १. साध्यावृत्तिस्तज्जातीयविपक्षव्यापकः, अनित्या पृथिवी अगन्धवत्त्वात् । …… त एते षोडश साध्यावृत्तयो हेत्वाभासाः ।</div>
+  <div class="tr">次に主題の一部にあるもの（の16）。1. 主題の一部にあり、その同類と異類の全体にある。「地・水・火・風・虚空は無常である。香りをもたないから」。……これら主題の一部にある 16 は、述べたとおり、すべて擬似理由である。次に主題にないもの（の16）。1. 主題になく、その同類と異類の全体にある。「地は無常である。香りをもたないから」。……これら主題にない 16 は擬似理由である。</div><div class="exp"><span class="lbl">解説</span><p>主題の一部にしかない理由（香りをもたないことは、地にはなく、水・火・風・虚空にだけある）や、主題にまったくない理由（地は香りをもつ）は、同類例・異類例での分布がどうであっても、正しい理由になりません。理由は主題の全体になければならない、という第一の特徴を欠くからです。</p></div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">pp.160–162</span>
+  <div class="src deva" lang="sa">विशेषणविशेष्यासिद्धिभेदाच्चतुःषष्टिभेदा भवन्तीत्युक्तम् । तत् कथम् ? …… अनित्यः शब्दोऽनभिधेयत्वे सति प्रमेयत्वादिति विशेषणासिद्धः । प्रमेयत्वे सत्यनभिधेयत्वादिति विशेष्यासिद्धः । …… एवमसमर्थविशेषणासमर्थविशेष्याश्चतुःषष्टिरेव द्रष्टव्याः, यथानित्यः शब्दः कृतकत्वे सति प्रमेयत्वात्, प्रमेयत्वे सति कृतकत्वादिति । …… एषां तूदाहरणानि हेत्वाभासवार्त्तिके द्रष्टव्यानि, स्वयं चाभ्यूह्यानि । त एते हेतवो हेत्वाभासाश्चासङ्कीर्णविशेषणविशेष्यभेदेन द्वे सहस्रे द्वात्रिंशके । असिद्धादिसमुच्चयेनानन्तो भेद इति ।</div>
+  <div class="tr">限定語の不成立と被限定語の不成立の区分によって 64 の区分があると言われた。それはどのようにか。……「音は無常である。名指されえないものでありながら認識対象であるから」は限定語が不成立のもの。「認識対象でありながら名指されえないものだから」は被限定語が不成立のもの。……同様に、限定語が無効なもの、被限定語が無効なものも 64 と見るべきである。たとえば「音は無常である。作られたものでありながら認識対象であるから」「認識対象でありながら作られたものだから」。……これらの例は『擬似理由のヴァールッティカ』に見るべきであり、また自分で推し量るべきである。これら理由と擬似理由は、限定語と被限定語の区分を混ぜなければ、2032 である。不成立などを組み合わせれば、区分は無限である。</div><div class="exp"><span class="lbl">解説</span><p>「Xでありながら Yだから」という限定つきの理由の誤りです。限定語 X（名指されえないこと）が音に成り立たない場合や、限定語・被限定語のどちらかが論証に役立たない場合（「作られたもの」だけで無常は論証できるので、「認識対象」は余計）が、さらに分類されます。</p><p>「『擬似理由のヴァールッティカ』（<i>Hetvābhāsavārttika</i>）」は、詳しい例を載せた書として言及されています。Uddyotakara 自身の別の著作か、別人の書かは、本文からはわかりません。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この部分は数え上げが複雑で、OCR テキストにも乱れが多いので、要点だけを抜き出しました。2032 という総数の内訳は本文から完全には再構成できませんでした。</p></div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">pp.161–162</span>
+  <div class="src deva" lang="sa">त एते विद्यमानसाध्यव्यापकाव्यापकधर्माः प्रपञ्चत उक्ताः । तत्र मुख्यासिद्धभेदाः षोडश । त एते पक्षावृत्तयः । अनैकान्तिकास्त्वसङ्कीर्णा मुख्यतः षडेव । साध्यव्यापकवर्गे विरुद्धाश्चत्वार एव । …… केचित् तु विरुद्धाव्यभिचारिणमनैकान्तिकं वर्णयन्ति । तन्न, असत्त्वात् । नायमस्तीत्युक्तम् । उपेत्य तस्य पञ्चविंशतिधा भेदः, पञ्चानां हेतूनां सरूपासरूपप्रतिबन्धात् पञ्च पञ्चका भवन्ति । तेषां तु सर्वेषां नोदाहरणानि सन्तीति तेन नोदाह्रियन्ते । …… लक्षणत एव पञ्चत्वं गम्यत इति चेत् ? …… नानर्थकम्, लक्षणस्येतरेतरव्यवच्छेदकत्वात् । इतरेतरव्यवच्छेदकं लक्षणम्, न पुनर्नियमार्थम् । न हि नियमो लक्षणेन गम्यत इति ॥४॥</div>
+  <div class="tr">これら、主題の全体にある性質と一部にある性質とが詳しく述べられた。そのうち、主要な不成立の区分は 16 である。それらは主題にないものである。不定は、混ざらないものとしては、主要には六つだけである。主題の全体にあるものの組のうち、矛盾は四つだけである。……ある人々は、相違決定（矛盾するが逸脱しないもの）を不定と説明する。それは正しくない。存在しないからである。それが存在しないことは述べた。（仮に）認めるとしても、それは 25 通りに分かれる。五つの理由（正しい理由）が、同じ形のものと異なる形のものとで対立するので、五の五組になる。しかしそのすべてに例があるわけではないので、例は挙げない。……（反論）「（五つという数は、各擬似理由の）定義からだけで知られる（ので、このスートラは無意味だ）」と言うなら。……無意味ではない。定義は互いを区別するものだからである。定義は互いを区別するものであって、（数を）限定するためのものではない。限定は定義によっては知られない。（第四スートラ）</div><div class="exp"><span class="lbl">解説</span><p>「相違決定」（<i>viruddhāvyabhicārin</i>）は、同じ主題について、それぞれ正しく見える二つの理由が矛盾する結論を導く場合です。仏教論理学では Dignāga がこれを不定の一種に数えたとされます（訳者の補足）。Uddyotakara は、二つの正しい理由が矛盾する結論を導くことはありえない（どちらかが誤っている）として、その存在を認めません。仮に認めても、五つの正しい理由どうしの組み合わせで 5 × 5 = 25 通りになるが、実際の例はない、と付け加えます。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの <span lang="sa" class="deva">विरुद्धव्यभिचारिणमैकान्तिकं</span> を <span lang="sa" class="deva">विरुद्धाव्यभिचारिणमनैकान्तिकं</span> と直して読みました。「それが存在しないことは述べた」がどこを指すかは、本文からは特定できません。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>不定</h2><span class="sub"><span class="pg">pp.162–164</span>「不定」の否定辞の意味。不共不定も含まれる。問題相似は不定ではない</span></div>
+<div class="mula sutra" id="u7">
+  <span class="ref">p.162 · NS 1.2.5</span>
+  <div class="src deva" lang="sa">अनैकान्तिकः सव्यभिचारः ॥१।२।५॥<br>तेषाम्, अनैकान्तिकः सव्यभिचारः । एकस्मिन्नन्ते नियत ऐकान्तिकः, विपर्ययादनैकान्तिकः । कः पुनरयं व्यभिचारः ? साध्यतज्जातीयानावृत्तित्वम् । यत् खलु साध्यतज्जातीयवृत्तित्वे सत्यन्यत्र वर्तते तद् व्यभिचारि । तद्वृत्तित्वं व्यभिचारः । सर्वोऽयं पदार्थभेदोऽन्तद्वयेऽवतिष्ठते, अन्यत्र प्रमेयात् । नित्यश्चानित्यश्च व्यापकश्चाव्यापकश्च इत्येवमादिः । तत्र यो हेतुरापन्न उभावन्तावाश्रित्य प्रवर्तते सोऽनैकान्तिकः ।</div>
+  <div class="tr">ばらつきのあるもの（<i>savyabhicāra</i>）とは、不定（<i>anaikāntika</i>）である。<br>それら（擬似理由）のうち、ばらつきのあるものは不定である。一方の端に限定されているものが「一方に定まった」（<i>aikāntika</i>）であり、その逆なので「不定」である。では、この「ばらつき」とは何か。主題とその同類だけにあるのではないことである。主題とその同類にありながら、他（異類）にもあるもの、それがばらつきのあるものである。そこ（異類）にあることが、ばらつきである。このすべての事物の区別は、認識対象を除いて、二つの端に分かれる。常住と無常、遍在と非遍在、などのように。そのうち、理由が両方の端に依拠してはたらくなら、それは不定である。</div><div class="exp"><span class="lbl">解説</span><p>スートラは、「ばらつきのあるもの」（<i>savyabhicāra</i>）という擬似理由の名前を、「不定」（<i>anaikāntika</i>）という語で定義します。「認識対象であること」は常住なものにも無常なものにもあるので、それを理由に「音は常住である」と言っても、どちらの端にも決まりません。事物はすべて二つの端に分かれるが、「認識対象」だけは例外で、すべてのものが認識対象です。</p></div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">pp.162–163</span>
+  <div class="src deva" lang="sa">अनैकान्तिक इति किं पुनरयं पर्युदास उत प्रसज्यप्रतिषेध इति ? किं चातः ? यदि पर्युदासः, सर्वानैकान्तिकता—ऐकान्तिकादन्योऽनैकान्तिक इति ब्रुवतः सर्वोऽनैकान्तिकः प्राप्तः । एवं चैको हेत्वाभास इति प्राप्तम् । अथ प्रसज्यप्रतिषेधः ? तथाप्यैकान्तिकाभावोऽनैकान्तिक इति प्राप्तम् । तस्य च व्यभिचारोऽर्थो नास्तीत्ययुक्तोऽनैकान्तिको हेत्वाभासः । नायं पर्युदासपक्षः किं तु प्रसज्यप्रतिषेधः । प्रसज्यप्रतिषेधेऽभाव इति चेत्—नाभावो धर्मविशेषकत्वात् । धर्मोऽयं विशिष्यते, य एकान्ते सन्नियतो धर्म इति न भवति, न पुनरयमभावः । …… अब्राह्मणवदिति । यथाब्राह्मणशब्दः प्रसज्यप्रतिषेधविषयत्वेन प्रवर्तमानो यदुत्तरं पदं तत् प्रतिषेधति न पुनरयमभावं प्रतिपादयति, तथेहापीत्यदोषः ।</div>
+  <div class="tr">では、「不定」（<i>an-aikāntika</i>）というのは、限定的否定（<i>paryudāsa</i>）か、命題の否定（<i>prasajyapratiṣedha</i>）か。それでどうなるのか。もし限定的否定なら、すべてが不定になる。「一方に定まったもの以外のものが不定である」と言う者には、（正しい理由以外の）すべてが不定になってしまう。そうすると、擬似理由は一つになってしまう。では命題の否定か。それでも、「一方に定まったものの非存在が不定である」ということになってしまう。そして非存在には「ばらつき」という意味はないので、不定という擬似理由は成り立たない。（答え）これは限定的否定の立場ではなく、命題の否定である。「命題の否定なら非存在になる」と言うなら、非存在ではない。性質を限定するからである。ここで限定されるのは性質であり、「一方の端に限定された性質ではない」（ということである）。これは非存在ではない。……「非バラモン」のように。「非バラモン」という語は、命題の否定として用いられて、後に続く語（「バラモン」）を否定するのであって、非存在を表すのではない。ここも同様である。だから誤りはない。</div><div class="exp"><span class="lbl">解説</span><p>サンスクリット文法学でいう二種の否定の議論です。限定的否定（<i>paryudāsa</i>）は「〜以外のもの」を表し、命題の否定（<i>prasajyapratiṣedha</i>）は「〜ではない」という否定そのものを表します。「不定」を「一方に定まった理由以外のもの」と取ると、すべての擬似理由が「不定」になってしまう。Uddyotakara は命題の否定と取りつつ、それは「何もない」という非存在ではなく、「（この理由は）一方の端に限定されていない」という性質の否定だ、と答えます。</p></div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">pp.163–164</span>
+  <div class="src deva" lang="sa">उदाहरणम्—नित्यः शब्दोऽस्पर्शत्वात् । …… अव्यापकत्वादलक्षणमेतदिति चेत्—अथापीदं स्यादैकान्तिकलक्षणेन न सर्वोऽनैकान्तिको व्याप्यते यथासाधारण इति । न, अनेनैव संग्रहात् । कथमिति ? व्यावृत्तिद्वारेणाभिधीयमानोऽयमुभयान्तव्यावृत्तेरनैकान्तिक इति । अपरे पुनः प्रकरणसममनैकान्तिक एवान्तर्भावयन्ति । कथमिति ? नित्य आत्मा शरीरादन्यत्वादिति । शरीरात् किलान्यन्नित्यमनित्यं च दृष्टम्, अतोऽनैकान्तिक इति । तैस्तु न लक्षणव्यभिचारोऽवगतो नोदाहरणव्यभिचार इति । …… वक्ष्यमाणकं च प्रकरणसमस्य लक्षणमीक्षितव्यम् ॥५॥</div>
+  <div class="tr">例。「音は常住である。触れられる性質をもたないから」。……（反論）「（この定義は）すべてに及ばないので定義ではない。すなわち、こう考えるかもしれない。（両方にあるという）不定の定義では、すべての不定が覆われない。たとえば不共（不定）のように」と言うなら、そうではない。これ（この定義）によって含まれるからである。どのようにか。（不共不定は）除外を通じて述べられると、両方の端から除外されているので、不定である。また別の人々は、問題相似を不定に含める。どのようにか。「我は常住である。身体とは別のものだから」（という例で）。身体とは別のものは、常住なもの（虚空など）も無常なもの（壺など）も見られるので、不定である、というのである。しかしこの人々は、定義の逸脱も、例の逸脱も理解していない。……後で述べる問題相似の定義を見るべきである。（第五スートラ）</div><div class="exp"><span class="lbl">解説</span><p>「触れられる性質をもたないこと」は、常住な虚空にも無常な知にもあるので、音が常住であることの理由になりません。これが典型的な不定です。</p><p>「不共不定」（<i>asādhāraṇa</i>）は、理由が主題にだけあって、同類例にも異類例にもない場合です（表2の第6）。両方にあるのではなく、両方にないのだから、この定義に入らないのでは、という反論に対して、Uddyotakara は、どちらの端からも除外されているので、やはりどちらにも定まらない、と答えます。</p><p>「我は常住である。身体とは別のものだから」を問題相似の例とし、それを不定に含める人々は、例を見て「不定の例だ」と判断しただけで、定義から考えていない、と批判されます。問題相似の正しい例は §5 で示されます。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>矛盾</h2><span class="sub"><span class="pg">pp.164–165</span>認めたことと矛盾する理由。主張と理由の矛盾</span></div>
+<div class="mula sutra" id="u10">
+  <span class="ref">pp.164–165 · NS 1.2.6</span>
+  <div class="src deva" lang="sa">सिद्धान्तमभ्युपेत्य तद्विरोधी विरुद्धः ॥१।२।६॥<br>कोऽस्य सूत्रस्यार्थः ? अभ्युपगतार्थविरोधी विरुद्धः । एवं च सर्वानुक्तविरुद्धसंग्रहः । यावान् कश्चिद् विरुद्धभेदः सर्वोऽसावनेन संगृहीतः, यस्मादभ्युपगतं बाधते, अभ्युपगतेन वा बाध्यते । नन्वेवमेको हेत्वाभासो विरुद्धः प्राप्नोति ? सत्यमेक एव हेत्वाभासो विरुद्धः । तस्य तु सामान्येन विरुद्धत्वेन संगृहीतस्य पञ्चधोपदेशः, यथा प्रमेयमित्यनेन षोडश पदार्था इति । पृथगभिधानं तर्हि विरुद्धस्य न कर्तव्यम् ? न न कर्तव्यम् । सामान्यतोऽधिगतस्य विशेषज्ञापनार्थम् । …… तस्मादनैकान्तिकादिषु निमित्तद्वयसमावेशात् संज्ञाद्वयसमावेशः । विवक्षिततज्जातीयान्यवृत्तित्वेनानैकान्तिकत्वम्, हेतुविषयस्वरूपबाधारूपेण तु विरुद्धः । एवं सर्वत्र ।</div>
+  <div class="tr">矛盾とは、定説を認めたうえで、それと矛盾するものである。<br>このスートラの意味は何か。認めた事柄と矛盾するものが矛盾（という擬似理由）である。そしてこのように（解すれば）、述べられていないすべての矛盾が含まれる。矛盾の区分がどれだけあっても、そのすべてがこれによって含まれる。認めたことを否定するか、認めたことによって否定されるからである。（反論）「そうすると、擬似理由は矛盾一つになってしまうのではないか」。たしかに擬似理由は矛盾一つである。しかし、一般に「矛盾」として含まれるそれが、五通りに教えられるのである。「認識対象」という語によって十六の範疇が（含まれる）ように。（反論）「では、矛盾を別に述べるべきではない」。述べるべきでない、ということはない。一般に知られたものの特殊を知らせるためである。……だから、不定などには二つの根拠が重なるので、二つの名前が重なる。意図された（主題の）同類以外にもあることによって不定であり、理由の対象の本性を否定するという形では矛盾である。どこでも同様である。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、すべての擬似理由は、広い意味では「矛盾」だと認めます。誤った理由は、何らかの点で論者が認めていることと矛盾するからです。それでも五つを区別するのは、一般的なものの中の特殊を知らせるためで、「認識対象」がすべての範疇を含むのに、あらためて十二の認識対象を数えるのと同じだ、と説明します。</p></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">p.165</span>
+  <div class="src deva" lang="sa">उदाहरणम्—तदेतत् त्रैलोक्यं व्यक्तेरपैति, नित्यत्वप्रतिषेधात् । अपेतमप्यस्ति, विनाशप्रतिषेधादिति । विनाशप्रतिषेधादित्यनेन वाक्येन नित्यमभ्यनुज्ञातं नित्यत्वप्रतिषेधादित्यनेन प्रतिषिद्धम् । एते ते वाक्ये परस्परार्थबाधिते, तयोश्च परस्परार्थबाधा विरोधः । प्रतिज्ञाहेत्वोर्वा विरोधः । …… हेतुविरोधोदाहरणम्, नित्यः शब्द उत्पत्तिधर्मकत्वादिति । प्रतिज्ञाविरोधस्योदाहरणम्, नास्त्यात्मेति । प्रतिज्ञाहेतुविरोधोदाहरणम्, गुणव्यतिरिक्तं द्रव्यम्, अर्थान्तरस्यानुपलब्धेरिति । हेतुविरोधोदाहरणम्, नास्त्येको भावः, समूहे भावशब्दप्रयोगादिति । समूह इति ब्रुवाणेनैकोऽभ्युपगतो भावो भवति, एकत्वसमुच्चयो हि समूह इति ॥६॥</div>
+  <div class="tr">例。「この三界は顕現から退く。常住であることが否定されるから。退いても存在する。消滅が否定されるから」。「消滅が否定されるから」というこの文によって常住が認められ、「常住であることが否定されるから」というこの文によって（常住が）否定される。この二つの文は互いの意味を否定し合っている。そして二つの文が互いの意味を否定し合うことが、矛盾である。あるいは、主張と理由の矛盾である。……理由の矛盾の例は「音は常住である。生じる性質をもつから」。主張の矛盾の例は「我は存在しない」（と言うこと）。主張と理由の矛盾の例は「実体は性質とは別のものである。（性質とは）別のものが知覚されないから」。理由の矛盾の例は「単一の存在者はない。集まりに『存在者』という語が用いられるから」。「集まり」と言う者は、単一の存在者を認めていることになる。集まりとは、単一のものの集合だからである。（第六スートラ）</div><div class="exp"><span class="lbl">解説</span><p>最初の例は、ニヤーヤ・バーシュヤも挙げるサーンキヤ学派の説です（Thakur 版の脚注は『ヨーガ・バーシュヤ』3.13 を参照させています）。世界は顕現した状態から退く（だから常住ではない）が、退いても存在し続ける（だから消滅しない）。この二つの理由は互いに矛盾します。</p><p>「我は存在しない」と主張すること自体が、主張する「我」を前提している、という例も興味深いところです。最後の例は、「単一の存在者はなく、集まりだけがある」という仏教の説に対して、集まりを言うことがすでに単一のものを認めている、という批判と読めます（訳者の補足）。</p></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>問題相似・所証相似・時過</h2><span class="sub"><span class="pg">pp.165–168</span>残る三つの擬似理由と、それぞれの誤った解釈</span></div>
+<div class="mula sutra" id="u12">
+  <span class="ref">pp.165–166 · NS 1.2.7</span>
+  <div class="src deva" lang="sa">यस्मात् प्रकरणचिन्ता स निर्णयार्थमपदिष्टः प्रकरणसमः ॥१।२।७॥<br>कस्मात् प्रकरणचिन्ता ? तत्त्वानुपलब्धेः । यस्मादुपलब्धतत्त्वेऽर्थे निवर्तते चिन्ता, तस्मात् सामान्येनाधिगतस्य या विशेषतोऽनुपलब्धिः सा प्रकरणचिन्तां प्रवर्तयतीति । उदाहरणम्—नित्यः शब्दोऽनित्यधर्मानुपलब्धेः, अनित्यः शब्दो नित्यधर्मानुपलब्धेः । अत एव प्रकरणमित्यतो न हेतुः । …… उभयधर्मानुपलब्धावन्यतरधर्मोपादानं प्रकरणसमस्यार्थः । यत्र खलूभयविशेषानुपलब्धिस्तत्रान्यतरविशेषस्योपादानं यत् प्रकरणापनोदाय स प्रकरणसमो हेत्वाभासः । …… शरीरादन्यत्वं तु न सूत्रार्थः । …… शरीरादन्यत्वं चानैकान्तिकम् । अतश्च न सूत्रार्थः ॥७॥</div>
+  <div class="tr">問題相似とは、問題についての思案（の原因）となるものが、決定のために（理由として）述べられたものである。<br>何によって問題についての思案があるのか。真実が知られないことによってである。真実が知られた事柄については思案はやむので、一般的には知られているものが特殊としては知られないこと、それが問題についての思案を引き起こす。例。「音は常住である。無常なものの性質が知られないから」「音は無常である。常住なものの性質が知られないから」。（これは）まさに問題（を引き起こしたもの）なので、理由ではない。……両方の性質が知られないときに、一方の性質を取り上げることが、問題相似の意味である。両方の特殊が知られないところで、一方の特殊を、問題を取り除くために取り上げるもの、それが問題相似という擬似理由である。……「身体とは別のものであること」（を例にするの）は、スートラの意味ではない。……そして「身体とは別のものであること」は不定である。だからスートラの意味ではない。（第七スートラ）</div><div class="exp"><span class="lbl">解説</span><p>音が常住か無常かが問題になっているのは、どちらの決め手も見つからないからです。その「決め手が見つからないこと」を、一方の結論の理由にすることはできません。反対側の結論の理由にも同じように使えてしまうからです。</p><p>Uddyotakara は、「身体とは別のもの」を問題相似の例とする解釈をはっきり退けています（§3 も参照）。それは問題相似ではなく、ただの不定だ、というわけです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>「身体とは別のものであること」を例とする解釈が誰のものかは、本文からは特定できません。原文は要点を抜き出しました。</p></div>
+</div>
+<div class="mula sutra" id="u13">
+  <span class="ref">pp.166–167 · NS 1.2.8</span>
+  <div class="src deva" lang="sa">साध्याविशिष्टः साध्यत्वात् साध्यसमः ॥१।२।८॥<br>साध्येनाविशिष्टो यः साधनधर्मः साध्यवत् प्रज्ञापयितव्यः स साध्यसमो हेत्वाभासः । तस्योदाहरणम्—द्रव्यं छाया गतिमत्त्वादिति । यथैव द्रव्यत्वं छायायाः साध्यं तथा गतिमत्त्वमपीति । …… सति द्रव्यभावे छायाया देशान्तरे दर्शनं समर्थं स्यात् । द्रव्यभावश्चासिद्धः । तस्मादाश्रयासिद्धोऽयं हेतुः । अभ्युपेत्य देशान्तरे दर्शनम्, तस्यान्यथासिद्धेरसिद्धः । …… आवरणसन्तानादसन्निधिसन्तानस्तेजस इति । आवरके द्रव्ये सर्पति तेजसोऽसन्निधिविशिष्टं द्रव्यं यद् यदुपलभ्यते तत्तच्छायेत्युच्यते । सोऽयमसिद्धस्त्रेधा भवति—प्रज्ञापनीयधर्मसमानः, आश्रयासिद्धः, अन्यथासिद्धश्चेति । …… ॥८॥</div>
+  <div class="tr">所証相似とは、論証されるべきものであるので、論証されるべきもの（所証）と変わらないものである。<br>論証されるべきものと変わらない論証の性質で、論証されるべきものと同じく知らされなければならないもの、それが所証相似という擬似理由である。その例。「影は実体である。運動をもつから」。影が実体であることが論証されるべきであるように、運動をもつことも（論証されるべきである）。……実体であるならば、影が別の場所に見られることは（運動を論証する）力をもつだろう。しかし実体であることは成立していない。だから、この理由は基体が不成立である。別の場所に見られることを認めたとしても、それは別の仕方で成り立つので、不成立である。……覆うものが連続することによって、光が近くにないことが連続する（のである）。覆う実体が動くとき、光が近くにないことによって限定された実体が、次々に知覚される。それが「影」と言われる。この不成立は三通りである。知らされるべき性質と同じもの、基体が不成立のもの、別の仕方で成り立つもの、である。……（第八スートラ）</div><div class="exp"><span class="lbl">解説</span><p>影は動くように見えますが、影そのものが動いているのではなく、光をさえぎる物が動くにつれて、光の届かない場所が次々に移っていくだけです。だから「運動をもつ」ことは、「影は実体である」ことと同じく論証が必要で、理由になりません。所証相似は、後の論理学の「不成立」（<i>asiddha</i>）にあたり、Uddyotakara はそれを三つに分けています。</p></div>
+</div>
+<div class="mula sutra" id="u14">
+  <span class="ref">pp.167–168 · NS 1.2.9</span>
+  <div class="src deva" lang="sa">कालात्ययापदिष्टः कालातीतः ॥१।२।९॥<br>यस्यापदिश्यमानस्य कालात्ययेनैकदेशो युज्यते, स एकदेशात्ययात् कालात्ययापदिष्टः कालातीत इत्युच्यते । उदाहरणम्—नित्यः शब्दः संयोगव्यङ्ग्यत्वादिति । उपलब्धिकाले संयोगो नास्ति, सोऽयं संयोगो हेतुविशेषत्वेनोपात्त उपलब्धिकालमत्येति । यदोपलभ्यते तदा संयोगो नास्ति, दारुपरशुसंयोगनिवृत्तौ शब्दोपलब्धिरिति । …… अवयवविपर्यासवचनमपि न सूत्रार्थः सामर्थ्यात् । न हि पश्चादभिधीयमानो हेतुरुदाहरणसाधर्म्यादित्येतद्धेतुलक्षणं जहाति । अजहद्धेतुलक्षणं न हेत्वाभासो भवितुमर्हतीति । अवयवविपर्यासवचनमप्राप्तकालमिति निग्रहस्थानमुक्तम् । …… तस्मादवयवविपर्यासवचनं न सूत्रार्थः, न समीकृताभिधानमिति ॥९॥<br>॥ हेत्वाभासलक्षणप्रकरणम् ॥</div>
+  <div class="tr">時過とは、時を過ぎて述べられたものである。<br>述べられるもの（理由）の一部が時を過ぎて結びつく、その一部が時を過ぎるので「時を過ぎて述べられたもの」、すなわち時過と言われる。例。「音は常住である。結合によって顕現されるものだから」。（音が）知覚される時には、結合はない。理由の限定として取り上げられたこの結合は、知覚の時を過ぎている。（音が）知覚されるとき、結合はない。木と斧の結合が終わったときに音が知覚されるのである。……（反論として、時過を）支分の順序を逆にして述べることとするのも、スートラの意味ではない。（理由の）力のためである。後で述べられた理由が、「例との共通性によって」という理由の特徴を捨てるわけではない。理由の特徴を捨てていないものは、擬似理由にはなりえない。支分の順序を逆にして述べることは、「時にかなわないもの」という敗北の立場として述べられている。……だから、支分の順序を逆にして述べることはスートラの意味ではなく、（主張が）均衡させられた後に述べることも（スートラの意味では）ない。（第九スートラ）<br>擬似理由の定義のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>遠くで木を斧で割るのを見ると、斧が当たるのが見えてから、少し遅れて音が聞こえます。音が聞こえるときには、もう斧と木の結合はありません。だから、音は結合によって（もとからあったものが）顕現される、という理由は成り立たない、というわけです。（後のニヤーヤでは、時過は「否定されたもの」<i>bādhita</i> と理解されるようになります。訳者の補足。）</p><p>「時を過ぎて」を、論証式の支分を正しい順序より後に述べることと解する説も退けられます。順序の誤りは論証の中身の誤りではなく、言い手の誤りであり、「時にかなわないもの」（NS 5.2.11）という敗北の立場として別に扱われている、というのが理由です。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの <span lang="sa" class="deva">दारुप्रश्न दारुपरशुसंयोग</span> は重複と見て <span lang="sa" class="deva">दारुपरशुसंयोग</span> と読みました。中略した部分では、主張を「音は（常に）存続する」と取ると、この理由は不定にならない、という議論があります。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>hetvābhāsa</dt><dd>擬似理由。理由のように見えるが、理由の特徴をすべては備えていないもの</dd>
+    <dt>savyabhicāra / anaikāntika</dt><dd>ばらつきのあるもの／不定。主題の同類以外（異類）にもある理由</dd>
+    <dt>asādhāraṇa</dt><dd>不共（不定）。主題にだけあり、同類にも異類にもない理由</dd>
+    <dt>viruddha</dt><dd>矛盾。認めたことと矛盾する理由</dd>
+    <dt>viruddhāvyabhicārin</dt><dd>相違決定。矛盾する結論を導く二つの理由が並び立つ場合。Uddyotakara は存在を認めない</dd>
+    <dt>prakaraṇasama</dt><dd>問題相似。問題の原因（決め手の欠如）を理由にするもの</dd>
+    <dt>sādhyasama</dt><dd>所証相似。それ自体が論証を要する理由。後の「不成立」</dd>
+    <dt>kālātīta / kālātyayāpadiṣṭa</dt><dd>時過。時を過ぎて述べられた理由</dd>
+    <dt>sapakṣa / vipakṣa</dt><dd>同類例（所証の性質をもつもの）／異類例（もたないもの）</dd>
+    <dt>āśrayāsiddha / anyathāsiddha</dt><dd>基体が不成立のもの／別の仕方で成り立つもの</dd>
+    <dt>paryudāsa / prasajyapratiṣedha</dt><dd>限定的否定（〜以外のもの）／命題の否定（〜ではない）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。この章は、これまで参照してきた Śrīnivāsa Śāstrī のヒンディー訳（第1巻）の範囲外なので、OCR の誤りは文脈から判断して直し、意味に関わるものは「解釈の分かれる箇所」に記した。長い議論の原文は要点を抜き出した（「……」）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。</p>
+  <p>和訳は試訳であり、解説は本文にもとづく訳者の説明である。九句因や相違決定を Dignāga に結びつけるのは一般的な理解による訳者の補足で、本文やここで参照した資料による特定ではない。このページが扱うのは第9プラカラナ（スートラ 1.2.4–9）である。第8プラカラナ（スートラ 1.2.1–3）は<a href="nyayavarttika-8-taiyaku.html">第8プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
