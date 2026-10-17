@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 14</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-13-taiyaku.html">← プラカラナ13</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>定義は不完全か</a></li><li><a href="#s2"><b>2</b>我と意の扱い</a></li><li><a href="#s3"><b>3</b>感官と対象の接触が主要な原因</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第14プラカラナ「知覚の定義の吟味」（スートラ 2.1.21–30、Thakur 版 pp.194–200）</span>
+  <p>認識手段が存在することが一般的に確かめられたので、次は個々の認識手段の吟味です。最初は知覚です。第1章の知覚の定義（1.1.4）は「感官と対象の接触から生じた知」でした。しかし知覚が生じるには、我（<i>ātman</i>）と意（<i>manas</i>）の結合、感官と意の結合も必要です。それを言わない定義は不完全ではないか、というのが反論です。</p>
+  <p>Uddyotakara は繰り返し答えます。この定義は、知覚の原因をすべて挙げるためのものではなく、知覚を推理など他の認識手段から区別する、知覚に固有の原因を述べるためのものだ、と。我と意の結合は、推理など、あらゆる知に共通の原因なので、定義に入れる必要はありません。</p>
+  <p>解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>知覚の定義の吟味の章<br><small><i>pratyakṣalakṣaṇaparīkṣāprakaraṇa</i>。スートラ 2.1.21–30 の注釈。Thakur 版 pp.194–200</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.1.21–30<br><small>反論（21–23）、答え（24–28）、再反論（29）、答え（30）</small></dd></div>
+    <div><dt>論敵</dt><dd>スートラ内の反論者<br><small>知覚の定義が原因をすべて挙げていないと批判する</small></dd></div>
+    <div><dt>見どころ</dt><dd>定義は原因の一覧ではない<br><small>§1、§3。他から区別する固有の原因だけを言えばよい</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.502–520 ごろ</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.195</span> は Thakur 版の頁。節見出しの <span class="pg">pp.194–196</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.1.21–30 の注釈を、テキストの順に3節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">定義は不完全か</a></td><td class="num">pp.194–196</td><td>我と意の結合が抜けている。方角・時間・虚空も原因になるのか</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">我と意の扱い</a></td><td class="num">pp.196–197</td><td>我と意は、知の徴表として含意されている</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">感官と対象の接触が主要な原因</a></td><td class="num">pp.197–200</td><td>眠っている人、気をとられた人。三スートラは矛盾しないか。意を動かすもの</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>定義は不完全か</h2><span class="sub"><span class="pg">pp.194–196</span>我と意の結合が抜けている。方角・時間・虚空も原因になるのか</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.194–195 · NS 2.1.21</span>
+  <div class="src deva" lang="sa">प्रत्यक्षलक्षणानुपपत्तिरसमग्रवचनात् ॥२।१।२१॥<br>अथेदानीं सामान्यतोऽधिगतानां विशेषपरीक्षा । तत्र प्रत्यक्षमादावुक्तम्, तत् परीक्ष्यत इति । …… यदिदं भवता प्रत्यक्षलक्षणमुच्यत इन्द्रियार्थसन्निकर्षोत्पन्नमिति, तदसमग्रम् । कस्मात् ? अन्यान्यपि प्रत्यक्षस्य कारणानि सन्ति, तानि नोक्तानि, यथात्ममनःसंयोग इत्येवमादीनि । अथेन्द्रियार्थसन्निकर्षोत्पन्नमित्येतल्लक्षणमिति ? लक्षणमप्येतन्न भवति । कस्मात् ? उत्पत्तिकारणापदेशात् । …… न च कारणापदेशो वस्तुनो लक्षणम् । न हि घटादेः कार्यस्य मृत्पिण्डादिक्रमोत्पत्तिस्तल्लक्षणमिति । न, उभयथाप्यदोषात् । …… कारणपक्षे तावदुक्तं भवति नेदं कारणावधारणार्थं सूत्रमिति, अपि तु प्रत्यक्षस्य प्रमाणस्य यदसाधारणमनुमानादिव्यवच्छेदकं तदुक्तमिति, नात्ममनःसंयोगादिषु प्रसङ्गः ।</div>
+  <div class="tr">（反論）「知覚の定義は成り立たない。（原因を）すべては述べていないからである」。<br>さて今、一般的に確かめられた（認識手段）の個別の吟味である。そのうち知覚が最初に述べられたので、それが吟味される。……（反論者）「あなたが述べる知覚の定義、『感官と対象の接触から生じた』というのは、すべてを（述べて）いない。なぜか。知覚にはほかにも原因があるのに、それらが述べられていない。たとえば我と意の結合などである。（あるいは）もし『感官と対象の接触から生じた』というのが定義だというなら、これは定義でもない。なぜか。生じる原因を述べているからである。……原因を述べることは、事物の定義ではない。壺などの結果が粘土の塊などから順に生じることは、その（壺の）定義ではないように」。そうではない。どちらの仕方でも誤りはないからである。……まず（これを）原因（の記述）とする立場では、こう言われている。このスートラは原因を限定するためのもの（原因をすべて挙げるもの）ではなく、知覚という認識手段に固有で、推理などから区別するもの、それを述べたのである、と。だから、我と意の結合などに（話が）及ぶことはない。</div><div class="exp"><span class="lbl">解説</span><p>反論は二段構えです。原因の記述としては、我と意の結合などが抜けていて不完全。定義としては、そもそも「何から生じたか」は定義にならない。Uddyotakara は、どちらと見ても問題はないと答えます。続くブロックで、定義と見る立場の答えも示されます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、2.1.21–22 をともに反論のスートラとし、定義には「原因」と「本性」の二つの面がある（TṬ p.372）が、どちらと取っても不完全だ、というのが反論の趣旨だと注します。さらに、Vācaspati を引いて、定説（ニヤーヤの立場）では、これは定義のスートラであり、原因とする立場への答えは「議論のための議論」（<i>prauḍhivāda</i>）として述べられたにすぎない、と補います（TṬ p.373 か。OCR 不鮮明）。これは Vārttika の本文自体が言っていることではありません（Hi. pp.502–504）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">p.195</span>
+  <div class="src deva" lang="sa">इन्द्रियमनःसंयोगस्तर्ह्युपसंख्येयः—यद्यसाधारणकारणत्वादिन्द्रियार्थसन्निकर्षस्य ग्रहणम्, नन्वेतस्मादेवेन्द्रियमनःसन्निकर्षोऽप्युपसंख्येय इति । न, उक्तत्वात् । उक्तमत्रापि, न यावत्साधारणं कारणं तत्सर्वं वक्तव्यमिति, अपि त्वन्यतरग्रहणेनापि विशेषितमेतत् । लक्षणपक्षेऽपि न दोषः, असाधारणत्वादिन्द्रियार्थसन्निकर्षस्येति । इन्द्रियार्थसन्निकर्षः प्रत्यक्षोत्पादकत्वात् कारणं च, समानासमानजातीयेभ्यो विशेषकत्वाल्लक्षणं चेति ॥२१॥</div>
+  <div class="tr">（反論）「では、感官と意の結合も数え入れるべきである。もし固有の原因なので感官と対象の接触を取り上げるのなら、まさに同じ理由で、感官と意の接触も数え入れるべきではないか」。そうではない。（すでに）述べたからである。ここでも、（知覚に）固有の原因だからといってそのすべてを述べるべきではない、と述べた。そうではなく、どちらか一つを取り上げることによっても、これ（知覚）は限定される。定義とする立場でも誤りはない。感官と対象の接触は（知覚に）固有だからである。感官と対象の接触は、知覚を生み出すので原因であり、同類のもの（他の知）とも異類のものとも区別するので定義でもある。（第二十一スートラ）</div><div class="exp"><span class="lbl">解説</span><p>感官と意の結合も、推理などにはない知覚に固有の原因です。それでも挙げないのは、知覚を他から区別するには、固有の原因のうちどれか一つを挙げれば十分だからです。また、感官と対象の接触は、知覚を生み出す原因であると同時に、知覚を他の知から区別する特徴（定義）でもある、と Uddyotakara は言います。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「同類のもの」を推理など（他の認識手段）、「異類のもの」を疑いなど（認識手段でない知）と補って訳します（Hi. pp.504–505）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>「固有の原因だからといってそのすべてを」の原文は <span lang="sa" class="deva">न यावत्साधारणं कारणं तत्सर्वं वक्तव्यम्</span>（共通の原因のすべてを述べるべきではない）とも読めます。文脈から、ここでは「固有の（<i>asādhāraṇa</i>）」の意味に取りました。ヒンディー訳の注もこの箇所を <span lang="sa" class="deva">न यावदसाधारणम्</span> と引いています（Hi. p.505）。Thakur 版の読みのままなら「（知覚と他の知に）共通の原因をすべて述べる必要はない」となり、我と意の結合についての答えになります。</p></div>
+</div>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.195 · NS 2.1.22</span>
+  <div class="src deva" lang="sa">नात्ममनसोः सन्निकर्षाभावे प्रत्यक्षोत्पत्तिः ॥२।१।२२॥<br>अर्थतो वाभिधानमात्ममनःसंयोगस्येन्द्रियमनःसंयोगस्य च । कथमिति ? ज्ञानोत्पत्तिदर्शनात् । नासंयुक्ते द्रव्ये संयोगजस्य गुणस्योत्पत्तिरिति । मनःसंयोगानपेक्षं चेन्द्रियं प्रवर्तेतेति युगपदनेकोपलब्धिः स्यात्, न तु भवति । अतो मनःसन्निकर्षोऽपि कारणमिति । तदिदं सूत्रमुक्तभाष्यम् । …… आत्ममनसोः सन्निकर्षाभावे नोत्पद्यते बुद्धिः, इन्द्रियार्थसन्निकर्षाभाववदिति । न, उक्तोत्तरत्वात् । उक्तोत्तरमेतत्—नेदं कारणावधारणार्थं सूत्रम्, अपि तु विशिष्टकारणवचनमिति ॥२२॥</div>
+  <div class="tr">（反論）「我と意の接触がなければ、知覚は生じない」。<br>あるいは、我と意の結合や感官と意の結合は、意味のうえで（すでに）述べられている。どのようにか。知が生じるのが見られるからである。結合していない実体に、結合から生じる性質が生じることはない。また、もし感官が意との結合を必要とせずにはたらくなら、多くの知覚が同時に生じるだろう。しかしそうはならない。だから、意との接触も原因である。このスートラは、（その趣旨が）バーシュヤで述べられている。……（反論者）「我と意の接触がなければ、知は生じない。感官と対象の接触がない場合と同じである」。そうではない。答えはすでに述べた。答えはすでに述べられている。このスートラは原因を限定するためのものではなく、特定の原因を述べるものだ、と。（第二十二スートラ）</div><div class="exp"><span class="lbl">解説</span><p>知は我の性質で、我と意の結合から生じます。結合していないものに、結合から生じる性質が生じることはありません。また、意を必要としないなら、目と耳と鼻が同時に対象をとらえて、多くの知覚が一度に生じるはずですが、実際にはそうなりません（第三プラカラナの意の徴表）。だから我と意の結合、感官と意の結合が原因であることは、ニヤーヤも認めています。問題は、それを定義に入れるかどうかだけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「あるいは、意味のうえで述べられている」を第二の答えと位置づけ、すべての原因がそろって結果を生むので、知覚知は我・意・感官・対象の接触から生じる、と Vācaspati を引いて注します（TṬ p.373; Hi. pp.505–506）。</p></div></div>
+</div>
+<div class="mula sutra" id="u4">
+  <span class="ref">pp.195–196 · NS 2.1.23</span>
+  <div class="src deva" lang="sa">दिग्देशकालाकाशेष्वप्येवं प्रसङ्गः ॥२।१।२३॥<br>ये तु सति भावात् कारणभावं वर्णयन्ति—यस्मात् किलेन्द्रियार्थसन्निकर्षे सति ज्ञानं भवत्यसति च न भवति, तस्मादिन्द्रियार्थसन्निकर्षः कारणमिति—तेषां दिग्देश……प्रसङ्गः । दिग्देशकालाकाशेषु सत्स्वपि ज्ञानं भवति, सति भावात् तान्यपि कारणमिति प्राप्तम् । कतमेन पुनर्न्यायेन दिगाद्यकारणम् ? सामर्थ्यानुपलब्धेः । न हि ज्ञानोत्पत्तौ दिगादेः सामर्थ्यमुपलभ्यते, तस्मादकारणम् । …… नित्यं दिगादि व्यापकं चेति नित्यत्वाद् व्यापकत्वाच्च न शक्यः सन्निधिः परिवर्जयितुमिति तत्र कारणभावे हेतुर्वक्तव्यः । न हि सन्निधिमात्रं हेतुत्वे कारणम् । …… यथा चान्द्रमसं रूपं विना तेजःस्पर्शेनौष्ण्येन प्रकाशयति, अपवरकादिस्थितं चौष्ण्यं विना रूपेण न प्रकाशयति, एवमात्मेन्द्रियमनोऽर्थसन्निकर्षेभ्यो ज्ञानं भवन्न दिगादिभ्यो भवति सन्निधिमात्रत्वात्, इतरेषां च सामर्थ्यदर्शनादिति ॥२३॥</div>
+  <div class="tr">（反論）「方角・場所・時間・虚空についても同じことになってしまう」。<br>ある人々は、「あるときにある」ことから原因であることを説明する。「感官と対象の接触があるときに知があり、ないときにはない。だから感官と対象の接触は原因である」と。その人々に対して「方角・場所……同じことになってしまう」（と言う）。方角・場所・時間・虚空があるときにも知はある。あるときにあるのだから、それらも原因になってしまう。では、どんな論理によって方角などは原因でないのか。（知を生む）力が見られないからである。知が生じることに方角などの力は見られない。だから原因ではない。……方角などは常住で遍在するので、常住で遍在するがゆえに、そばにあることを避けることはできない。だから、それが原因であることについては理由を述べなければならない。単にそばにあるだけでは、原因であることの根拠にはならないからである。……月の色は、火の触感である熱なしに（ものを）照らし、物置などにある熱は色なしには照らさない。同じように、知は我・感官・意・対象の接触から生じるのであって、方角などからではない。（方角などは）単にそばにあるだけであり、ほかのもの（我など）には力が見られるからである。（第二十三スートラ）</div><div class="exp"><span class="lbl">解説</span><p>「XがあるときにYがある」というだけでは、XがYの原因だとは言えません。方角・時間・虚空は常住で遍在するので、知が生じるときにも必ずそこにありますが、それは避けようがないからで、知を生む力があるからではない。Uddyotakara は火の例を出します。火には色（光）と触感（熱）がありますが、ものを照らすのは色の方です。月の光は熱くないのに照らし、暗い物置の熱は照らさないからです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、このスートラを、反論者と定説の論者の両方に向けた「中立の第三者」の発言と解します。その人は「あるときにある」（肯定的随伴）だけで原因を判断しているが、原因は肯定と否定の随伴の両方で決まる、という趣旨です。方角などは常住で遍在するので否定的随伴がなく、原因ではない、と注し、後代の精密な原因の定義では方角などは「別の仕方で成り立つもの」（<i>anyathāsiddha</i>）とされる、と付け加えます。火の「色」は「顕現し、圧倒されていない色」と補っています（Hi. pp.506–508）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>我と意の扱い</h2><span class="sub"><span class="pg">pp.196–197</span>我と意は、知の徴表として含意されている</span></div>
+<div class="mula sutra" id="u5">
+  <span class="ref">pp.196–197 · NS 2.1.24</span>
+  <div class="src deva" lang="sa">ज्ञानलिङ्गत्वादात्मनो नानवरोधः ॥२।१।२४॥<br>यद्येवमात्ममनःसंयोगस्तर्ह्युपसंख्येयः । नोपसंख्येयः, गम्यमानत्वात् । केन गम्यमानत्वात् ? ज्ञान……रोधः । ज्ञानमात्मलिङ्गमित्युक्तम् । तेनात्ममनःसंयोगोऽनुक्तोऽप्यनुमेयः । कथं पुनर्ज्ञानमात्मनो लिङ्गम् ? तद्गुणत्वात् । गुणभावासिद्धिरिति चेत् ? …… न, आत्मसमवायात् सुखादिवदिति । न हि द्रव्यं कर्म वात्मनि समवैति, तस्मान्न द्रव्यं न कर्म । आत्मनि च समवायो ज्ञानस्य सुखादिवत्, तस्मादात्मगुणः । न पृथिव्यादिगुणः, स्वसंवेद्यत्वात् । यत् प्रत्यक्षं स्वसंवेद्यं न तत् पृथिव्यादिगुणो भवति, यच्च प्रत्यक्षं स्वपरसंवेद्यं तत् पृथिव्यादिगुणः, यथा रूपादि । न चैवं ज्ञानम्, तस्मादात्मगुण इति । उक्तं चात्र । किमुक्तम् ? न यावत् प्रत्यक्षस्य कारणं सर्वं तद् वक्तव्यमिति ॥२४॥</div>
+  <div class="tr">（答え）知は我の徴表なので、（我が）含まれていないのではない。<br>（反論）「もしそうなら、我と意の結合を数え入れるべきだ」。数え入れる必要はない。（すでに）理解されるからである。何によって理解されるのか。「知は我の徴表なので、含まれていないのではない」。知は我の徴表だと（第1章で）言われた。だから我と意の結合は、述べられなくても推理されるのである。では、どうして知が我の徴表なのか。その性質だからである。（反論）「性質であることが成立していない」と言うなら。……そうではない。我に内属するからである。楽などのように。実体や運動は我に内属しない。だから（知は）実体でも運動でもない。そして知は、楽などのように我に内属する。だから我の性質である。地などの性質ではない。自分だけが知りうるものだからである。知覚されるもので、自分だけが知りうるものは、地などの性質ではない。知覚されるもので、自分にも他人にも知りうるものは、地などの性質である。色などのように。知はそうではない。だから我の性質である。また、これについてはすでに述べた。何をか。知覚の原因のすべてを述べるべきではない、と。（第二十四スートラ）</div><div class="exp"><span class="lbl">解説</span><p>ここからスートラ自身の答えです。知は我の性質であり、我の存在を示す徴表です（1.1.10）。知覚が知である以上、我と意の結合が原因であることは、言わなくてもわかる、というわけです。Uddyotakara は、知が我の性質であることを論証します。色や形は自分にも他人にも知覚できますが、自分の知や楽しみは自分にしか直接知覚できません。だから知は、地などの物質の性質ではなく、我の性質です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「理解される」（含意される）とは、ニヤーヤが認めない暗示（<i>vyañjanā</i>）によるのではなく、ある意味が語で述べられると別の意味が明らかになるのだ、と注します。「我に内属するから」については、Vācaspati が「音のように」、結果として遍在する実体に内属するものは性質だ、と説明していることを紹介します（TṬ p.374）。「自分だけが知りうる」は「自分の我が心による知覚によって知りうる」と訳し、色は多くの人が知覚できるが、楽は本人しか知らない、と注します（TṬ pp.374–375; Hi. pp.508–510）。</p></div></div>
+</div>
+<div class="mula sutra" id="u6">
+  <span class="ref">p.197 · NS 2.1.25</span>
+  <div class="src deva" lang="sa">तदयौगपद्यलिङ्गत्वाच्च न मनसः ॥२।१।२५॥<br>अथेन्द्रियमनःसन्निकर्षः कस्मान्नाभिधीयत इति ? तद……मनसः । युगपज्ज्ञानानुत्पत्तिर्मनसो लिङ्गमित्युक्तम्, तेन मनसोऽप्यवरोध इति । न, युगपदनुत्पत्तिसूत्रस्यान्यार्थत्वात् । …… अन्यार्थं तत्सूत्रम्, न पुनस्तेन ज्ञानकारणत्वं मनसोऽभिधीयते । अन्यार्थस्यापि तदर्थप्रकाशकत्वमुपपत्तिसामर्थ्यात् । यद्यपि तस्मिन् सूत्रे न मनसो ज्ञानकारणत्वं साक्षादुक्तम्, तथाप्युपपत्तिसामर्थ्याज्ज्ञानकारणता मनस इति गम्यते । न हि ज्ञानं स्वतन्त्रं न च चक्षुरादि स्वतन्त्रमिति ॥२५॥</div>
+  <div class="tr">また、それ（知）が同時に生じないことが（意の）徴表なので、意も（含まれていないのでは）ない。<br>では、なぜ感官と意の接触は述べられないのか。「また、それが同時に生じないことが……意も」。「知が同時に生じないことは意の徴表である」（NS 1.1.16）と言われた。だから意も含まれている。（反論）「そうではない。『同時に生じない』というスートラは別の意味のものだからである。……そのスートラは別の意味のもので、それによって意が知の原因であることが述べられているのではない」。別の意味のものでも、道理の力によって、その意味を明らかにする。そのスートラでは、意が知の原因であることは直接には述べられていないが、道理の力によって、意が知の原因であることが理解される。知は独立しておらず、目なども独立していないからである。（第二十五スートラ）</div><div class="exp"><span class="lbl">解説</span><p>意についても同様です。第1章の意の定義（1.1.16）は、「知が同時に生じないこと」を意の徴表としていました。そこでは直接には意の存在の論証が目的でしたが、そこから、感官が意と結びついて初めて知が生じる、ということも理解されます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「同時に生じない」のスートラを 1.1.16 とし、それは本来、認識対象としての意の本性を述べるためのもの（TṬ p.375）だが、道理の力によって意が知の原因であることも示す、と注します。訳文では「意と感官の接触があって初めて知が生じる」と補っています（Hi. pp.510–511）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>感官と対象の接触が主要な原因</h2><span class="sub"><span class="pg">pp.197–200</span>眠っている人、気をとられた人。三スートラは矛盾しないか。意を動かすもの</span></div>
+<div class="mula sutra" id="u7">
+  <span class="ref">pp.197–198 · NS 2.1.26</span>
+  <div class="src deva" lang="sa">प्रत्यक्षनिमित्तत्वाच्चेन्द्रियार्थयोः सन्निकर्षस्य स्वशब्देन वचनम् ॥२।१।२६॥<br>अथ कस्मादिन्द्रियार्थसन्निकर्षोऽभिधीयते, कथं च नात्ममनःसन्निकर्ष इन्द्रियमनःसन्निकर्षो वेति ? …… इन्द्रियार्थसन्निकर्षः प्रत्यक्षस्यैव निमित्तम्, आत्ममनःसन्निकर्षः प्रत्यक्षस्यान्यस्य चेति । इन्द्रियार्थसन्निकर्षेण समानत्वादिन्द्रियमनःसंयोगो वक्तव्यः—यदि साधारणत्वादात्ममनःसंयोगस्य नाभिधानम्, इन्द्रियमनःसंयोगोऽसाधारणत्वादिन्द्रियार्थसन्निकर्षवद् वक्तव्यः । नेदं कारणावधारणार्थमित्युक्तम् । न च यावत्साधारणं सर्वं तद् वक्तव्यम्, अपि तु साधारणं न वक्तव्यमित्ययं सूत्रार्थः ॥२६॥</div>
+  <div class="tr">また、感官と対象の接触は知覚の（固有の）原因なので、（それだけが）その語によって述べられる。<br>では、なぜ感官と対象の接触が述べられ、我と意の接触や感官と意の接触は（述べられ）ないのか。……感官と対象の接触は知覚だけの原因であり、我と意の接触は知覚にもほかの（知）にも（共通の原因）である。（反論）「感官と対象の接触と同じなので、感官と意の結合も述べるべきである。もし共通なので我と意の結合を述べないのなら、感官と意の結合は固有なので、感官と対象の接触と同じく述べるべきである」。これ（スートラ）は原因を限定するためのものではない、と述べた。また、（固有の原因の）すべてを述べるべきだというのではない。そうではなく、共通の（原因）は述べるべきではない、というのがこのスートラの意味である。（第二十六スートラ）</div><div class="exp"><span class="lbl">解説</span><p>スートラ 2.1.26–28 の三つは、感官と対象の接触だけが定義に入る理由を挙げます。第一の理由は、それが知覚にだけある原因だからです。我と意の接触は推理や言葉による知にも共通です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vārttika の結論を「固有の原因をすべて言う必要はなく、共通の原因を言わない、というのがスートラの趣旨だ」と訳します。注ではさらに、感官と対象の接触はすべての知覚にあるので挙げられ、我と意の接触は推理などにもあるので広すぎ、感官と意の接触は心による知覚（<i>mānasa pratyakṣa</i>）にはないので狭すぎる、と説明します。この最後の点は Vārttika の本文にはない補足です（Hi. pp.511–512）。</p></div></div>
+</div>
+<div class="mula sutra" id="u8">
+  <span class="ref">p.198 · NS 2.1.27–28</span>
+  <div class="src deva" lang="sa">सुप्तव्यासक्तमनसां चेन्द्रियार्थयोः सन्निकर्षनिमित्तत्वात् ॥२।१।२७॥<br>इन्द्रियार्थसन्निकर्षस्य प्राधान्यप्रदर्शनपरमिदं सूत्रम् । शेषं भाष्ये ॥२७॥<br>तैश्चापदेशो ज्ञानविशेषाणाम् ॥२।१।२८॥<br>प्राधान्ये च हेत्वन्तरम्—तैश्चा……णाम् । यस्मादिदं प्रत्यक्षज्ञानमुत्पद्यमानं विषयेण वा कारणेन वेन्द्रियेण व्यपदिश्यत इति । यच्चासाधारणं तेन व्यपदेशो दृष्टः, यथा यवाङ्कुर इति ॥२८॥</div>
+  <div class="tr">また、眠っている人や（ほかに）気をとられている人にも、感官と対象の接触が（知覚の）原因となるからである。<br>このスートラは、感官と対象の接触が主要であることを示すためのものである。残り（の説明）はバーシュヤにある。（第二十七スートラ）<br>また、それら（感官と対象）によって、知の種類が名づけられるからである。<br>主要であることについての、もう一つの理由である。「それらによって……」。この知覚知は、生じるとき、対象によって、あるいは原因である感官によって名づけられる（「色の知」「目の知」）。そして、固有のものによって名づけられるのが見られる。「麦の芽」のように。（第二十八スートラ）</div><div class="exp"><span class="lbl">解説</span><p>第二の理由は、眠っている人が大きな音で目を覚ますときや、何かに気をとられている人が急に触れられて気づくときのように、意が対象に向かっていなくても、感官と対象の接触が強ければ知覚が生じることです（バーシュヤの説明）。感官と対象の接触が主要な原因だ、というわけです。第三の理由は、知覚が「色の知覚」「目による知覚」のように、対象や感官によって名づけられることです。芽は、土や水ではなく、固有の原因である麦の種によって「麦の芽」と呼ばれるのと同じです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、眠りとは意が「プリータト」という脈管に入った状態なので、眠りは意に属する、と注します。また、スートラの「感官と対象の」と分けた言い方は、対象の鋭さや強さを示すためだ、と解します。「麦の芽」の例については、芽は土・水・風なども原因なのに、固有の原因である種によって名づけられる、と注します（TṬ pp.375–376; Hi. pp.513–515）。</p></div></div>
+</div>
+<div class="mula sutra" id="u9">
+  <span class="ref">pp.198–199 · NS 2.1.29</span>
+  <div class="src deva" lang="sa">व्याहतत्वादहेतुः ॥२।१।२९॥<br>व्याहतत्वादित्यनेन त्रिसूत्रीं प्रत्याचष्टे—प्रत्यक्षनिमित्तत्वाच्चेन्द्रियार्थयोः सन्निकर्षस्य, सुप्तव्यासक्तमनसां चेन्द्रियार्थयोः सन्निकर्षनिमित्तत्वात्, तैश्चापदेशो ज्ञानविशेषाणाम् इति । इयं किल त्रिसूत्र्यात्ममनःसन्निकर्षस्य ज्ञानकारणत्वं प्रतिषेधतीति व्याहतमिदं भवति—ज्ञानलिङ्गत्वादात्मनो नानवरोधः, तदयौगपद्यलिङ्गत्वाच्च न मनसः इति । मनःसंयोगानपेक्षायां च युगपज्ज्ञानोत्पत्तिप्रसङ्ग इति दृष्टव्याघातः । अथ मा भूद् व्याघात इति सर्वं ज्ञानमात्ममनःसंयोगादुत्पद्यते, चोद्यावस्थमेवैतत्—कस्मादात्ममनःसंयोगो नाभिधीयत इति ? अत्रोक्तम् । किमुक्तम् ? नेदं कारणावधारणार्थं सूत्रमिति, अपि तु विशिष्टकारणवचनमिति ॥२९॥</div>
+  <div class="tr">（反論）「矛盾しているので、（それらは）理由ではない」。<br>「矛盾しているので」というこの（スートラ）によって、三つのスートラ、すなわち「感官と対象の接触は知覚の原因なので」「眠っている人や気をとられている人にも、感官と対象の接触が原因となるので」「それらによって知の種類が名づけられるので」を退ける。（反論者は言う。）「この三スートラは我と意の接触が知の原因であることを否定しているので、『知は我の徴表なので含まれていないのではない』『それが同時に生じないことが徴表なので、意も』と矛盾する。また、意との結合を必要としないなら、知が同時に生じることになってしまうので、見られた事実とも矛盾する。もし矛盾がないように、すべての知は我と意の結合から生じる（と認める）なら、『なぜ我と意の結合が述べられないのか』という問いは残ったままである」。これについてはすでに述べた。何をか。このスートラは原因を限定するためのものではなく、特定の原因を述べるものだ、と。（第二十九スートラ）</div><div class="exp"><span class="lbl">解説</span><p>反論者は、2.1.26–28 の三スートラが、感官と対象の接触を「主要な原因」とすることで、我と意の結合を原因から外しているように見える、と指摘します。それなら、我と意も含意されているとした 2.1.24–25 と矛盾する、と。Uddyotakara は、ここでも同じ答えを繰り返します。定義は、原因をすべて挙げるものではなく、知覚に固有の原因を述べるものだ、と。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、反論者が三スートラを「感官と対象の接触だけが原因だ」と言うものと受け取っている、と注します。本文の <span lang="sa" class="deva">इष्टव्याघातः</span> は、Vācaspati に従って「見られた事実（知が同時に生じないこと）との矛盾」（<span lang="sa" class="deva">दृष्टव्याघातः</span>）と読んで訳しています（TṬ p.377; Hi. pp.516–517）。</p></div></div>
+</div>
+<div class="mula sutra" id="u10">
+  <span class="ref">pp.199–200 · NS 2.1.30</span>
+  <div class="src deva" lang="sa">नार्थविशेषप्राबल्यात् ॥२।१।३०॥<br>यापीयं त्रिसूत्री प्रत्यक्षनिमित्तत्वाच्चेन्द्रियार्थयोः सन्निकर्षस्येत्येवमादिः, इयमपि नार्थ……ल्यात् । नानया त्रिसूत्र्यात्ममनःसंयोगस्य कारणभावः प्रतिषिध्यते, अपि तु प्राधान्यमिन्द्रियार्थसन्निकर्षस्योपपाद्यते । प्राधान्यं चोपपादयन्त्या नात्ममनःसंयोगः प्रतिषिद्धो भवति । मनसि क्रियाकारणाभिधानं—सुप्तव्यासक्तमनसां चेन्द्रियार्थयोः सन्निकर्षनिमित्तत्वादित्यभिधानेनात्ममनःसंयोगोऽपि कारणमित्युक्तम्, तत्र मनसि क्रियाकारणं वाच्यमिति । अथ सुखदुःखोपभोगस्यादृष्टनिमित्तत्वाददृष्टं कारणम् । यथैवात्मनि गुणान्तरमिच्छाजनितं प्रयत्नलक्षणं क्रियाहेतुः, तथात्मनि संस्कारो धर्माधर्मसमाख्यातो वर्तते, तेन प्रेरितं मनः संयुज्यते विभज्यते वा । …… न हि धर्माधर्मावन्तरेणाणौ मनसि च कश्चिदन्यः क्रियाहेतुरादौ संभवतीत्यतोऽदृष्टं कारणमिति । एवं तावत् समधिगतं प्रत्यक्षलक्षणम् ॥३०॥<br>॥ प्रत्यक्षलक्षणपरीक्षाप्रकरणम् ॥</div>
+  <div class="tr">（答え）そうではない。特定の対象が強いからである。<br>「感官と対象の接触は知覚の原因なので」などという三スートラも、「そうではない。特定の対象が強いからである」。この三スートラによって、我と意の結合が原因であることが否定されるのではなく、感官と対象の接触が主要であることが示されるのである。そして主要であることを示すことによって、我と意の結合が否定されるのではない。意における運動の原因を述べること（が必要である）。「眠っている人や気をとられている人にも、感官と対象の接触が原因となるので」と述べることで、我と意の結合も原因であることが言われた。そこで、意における運動の原因を述べなければならない。（それは）楽と苦の経験は見えない力（<i>adṛṣṭa</i>）を原因とするので、見えない力が原因である。我には、欲求から生じる努力という別の性質が運動の原因としてあるのと同じく、我には、功徳と罪過と呼ばれる潜在的なはたらきがある。それによって動かされて、意は（感官と）結合し、あるいは離れる。……功徳と罪過なしには、原子大の意に、最初に運動の原因となるものはほかにありえない。だから、見えない力が原因である。このように、まず知覚の定義が確かめられた。（第三十スートラ）<br>知覚の定義の吟味のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>眠っている人が大きな音で目を覚ますとき、音（対象）が強いので、感官と対象の接触が主要な原因になります。しかしそのときにも、意が耳と結合しなければ知覚は生じません。では、眠っている人の意を、誰が耳のほうへ動かしたのか。本人は眠っていて、動かそうと努力していません。Uddyotakara は、それは見えない力（<i>adṛṣṭa</i>）、すなわち過去の行為による功徳と罪過だ、と答えます。楽や苦を経験させるのは過去の行為の結果なので、その経験のきっかけになる意の運動も、見えない力によって引き起こされる、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vārttika の「功徳と罪過と呼ばれる潜在的なはたらき」を「功徳と罪過という潜在的なはたらき（見えない力）」と訳し、「最初に」を「創造の最初に」と解します。創造の最初には、見えない力が原子と意に運動を起こす、という説明です。また、ヨーガ・スートラでは見えない力の結果は生まれ・寿命・経験の三つだけなのに、意を動かすことまで見えない力に帰してよいのか、という疑問を立て、Vācaspati に従って、見えない力の主な目的は経験であり、経験には意が対象に向かうことが必要だからよい、と答えます（TṬ p.376; Hi. pp.517–520）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストではスートラ番号が「1.1.27」などと乱れ、スートラ 2.1.27 の <span lang="sa" class="deva">सुप्त</span> が <span lang="sa" class="deva">सुम</span>・<span lang="sa" class="deva">सु</span> となっています。ヒンディー訳に従って直しました。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>indriyārthasannikarṣa</dt><dd>感官と対象の接触。知覚に固有の原因</dd>
+    <dt>ātmamanaḥsaṃyoga</dt><dd>我と意の結合。すべての知に共通の原因</dd>
+    <dt>indriyamanaḥsaṃyoga</dt><dd>感官と意の結合</dd>
+    <dt>sādhāraṇa / asādhāraṇa</dt><dd>共通の／固有の（原因）</dd>
+    <dt>kāraṇāvadhāraṇa</dt><dd>原因の限定（すべての原因を確定すること）</dd>
+    <dt>sannidhimātra</dt><dd>単にそばにあること</dd>
+    <dt>svasaṃvedya</dt><dd>自分だけが知りうる</dd>
+    <dt>suptavyāsaktamanas</dt><dd>眠っている人、（ほかに）気をとられている人</dd>
+    <dt>adṛṣṭa</dt><dd>見えない力。功徳と罪過</dd>
+    <dt>prābalya</dt><dd>（対象の）強さ</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。長い議論の原文は要点を抜き出した（「……」）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第14プラカラナ（スートラ 2.1.21–30）である。第13プラカラナ（スートラ 2.1.8–20）は<a href="nyayavarttika-13-taiyaku.html">第13プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
