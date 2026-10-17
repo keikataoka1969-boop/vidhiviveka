@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 5</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-4-taiyaku.html">← プラカラナ4</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>定説の定義と区分</a></li><li><a href="#s2"><b>2</b>四種の定説</a></li><li><a href="#s3"><b>3</b>定説は主張と同じか</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第5プラカラナ「論証の拠り所である定説の定義」（スートラ 1.1.26–31、Thakur 版 pp.98–102）</span>
+  <p>十六の主題の六番目は「定説」（<i>siddhānta</i>）です。論争する者は、それぞれ自分の学派の確立した説をもっています。どの学派も認める説、ある学派だけが認める説、ある説を証明すると自動的に証明される説、議論のために仮に認める説。スートラはこの四種を区別します。定説は論証の拠り所なので、この章は「論証の拠り所である定説」（<i>nyāyāśrayasiddhānta</i>）の章と呼ばれます。</p>
+  <p>短い章ですが、二つの論点があります。一つは、定義のスートラと区分のスートラがあるのは重複ではないか、という問題（§1）。もう一つは、「定説」とは結局「主張」（<i>pakṣa</i>）の言いかえではないか、という仏教側の主張への反論です（§3）。</p>
+  <p>形式はこれまでの章と同じです。解説では、Śrīnivāsa Śāstrī のヒンディー語訳注（1986）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>論証の拠り所である定説の定義の章<br><small><i>nyāyāśrayasiddhāntalakṣaṇaprakaraṇa</i>。スートラ 1.1.26–31 の注釈。Thakur 版 pp.98–102</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>1.1.26–31<br><small>定説の定義（26）、四種の区分（27）、全学派共通の定説（28）、特定の学派の定説（29）、帰結としての定説（30）、仮に認める定説（31）</small></dd></div>
+    <div><dt>論敵</dt><dd>仏教ほか<br><small>定説を「主張」の同義語とする説。Bhāṣya の「仮に認める定説」の説明も退ける</small></dd></div>
+    <div><dt>見どころ</dt><dd>「定説」と「主張」の違い<br><small>§3。確立した説と、論証されるべき主張とは同じではない</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注（1986）<br><small>本章は同書 pp.241–255 ごろ</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.99</span> は Thakur 版の頁。節見出しの <span class="pg">pp.99–101</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りだけを直した。Vārttika が引く Bhāṣya の文は解説で訳した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 1.1.26–31 の注釈を、テキストの順に3節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">定説の定義と区分</a></td><td class="num">pp.98–99</td><td>定義のスートラと区分のスートラは重複か</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">四種の定説</a></td><td class="num">pp.99–101</td><td>共通・特定・帰結・仮定。実例との違い</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">定説は主張と同じか</a></td><td class="num">pp.101–102</td><td>「尊者の同義語の巧みさ」。定説と推定の違い</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>定説の定義と区分</h2><span class="sub"><span class="pg">pp.98–99</span>定義のスートラと区分のスートラは重複か</span></div>
+<p>定説については二つのスートラが続きます。1.1.26 は「定説とは、学説を拠り所とするものの承認の確立である」と定義し、1.1.27 は「それは四種である」と区分します。反論者は、どちらかが余計で、どちらかは聖者（スートラ作者）のものではないのではないか、とまで言います。</p>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.98 · NS 1.1.26</span>
+  <div class="src deva" lang="sa">तन्त्राधिकरणाभ्युपगमसंस्थितिः सिद्धान्तः ॥१।१।२६॥<br>इदमित्थंभूतं चेति भाष्यम् । इदमिति सामान्यतोऽधिगममाह, इत्थंभूतं चेति विशेषतः । एतदुक्तं भवति, सामान्यविशेषवदर्थाभ्यनुज्ञा सिद्धान्त इति । अस्यार्थस्य प्रदर्शनार्थं तन्त्राधिकरणाभ्युपगमसंस्थितिः सिद्धान्त इति सूत्रम् । किं पुनरिदं सूत्रं लक्षणार्थमाहो विभागार्थमिति ? किं चातः ? यदि लक्षणार्थं, तन्त्राधिकरणग्रहणं न कर्तव्यम्, एतावद् भवत्वभ्युपगमव्यवस्था सिद्धान्त इति । अथ विभागार्थम्, सर्वतन्त्रप्रतितन्त्रग्रहणं कर्तव्यम्, प्रतिज्ञादिवत् । यथा प्रतिज्ञाहेतूदाहरणोपनयनिगमनान्यवयवाः [१.१.३२] इति समस्ताभिधानम्, एवं सर्वतन्त्रप्रतितन्त्राधिकरणाभ्युपगमसंस्थितिरिति वक्तव्यम्, लक्षणार्थं च सूत्रान्तरं वक्तव्यम् ॥२६॥</div>
+  <div class="tr">定説とは、学説を拠り所とする（事柄の）承認の確立である。<br>「『これは（ある）』『これはこのようである』と」というのが Bhāṣya である。「これは」は一般的な理解を言い、「このようである」は特殊的な（理解を言う）。一般と特殊をもつ事柄を認めることが定説だ、ということが言われている。この意味を示すために、「定説とは、学説を拠り所とする（事柄の）承認の確立である」というスートラがある。（反論）「ではこのスートラは定義のためか、区分のためか。それでどうなるのか、と言えば、もし定義のためなら、『学説を拠り所とする』という語を入れるべきではない。『承認の確立が定説である』とだけすればよい。もし区分のためなら、『全学派の』『特定の学派の』という語を入れるべきである。論証支分などの場合のように。『主張・理由・実例・適用・結論が論証支分である』（NS 1.1.32）とまとめて述べるように、『全学派・特定の学派・帰結・承認の確立』と言うべきであり、定義のためには別のスートラを言うべきである」。（第二十六スートラ）</div><div class="exp"><span class="lbl">解説</span><p>反論者は、1.1.26 の「学説を拠り所とする」（<i>tantrādhikaraṇa</i>）が、1.1.27 の区分の語（「全学派」<i>sarvatantra</i>、「特定の学派」<i>pratitantra</i>、「帰結」<i>adhikaraṇa</i>、「承認」<i>abhyupagama</i>）と同じ語を含むことに目をつけます。定義なら余計な語が入っており、区分なら不完全だ、というのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「Bhāṣya 作者は定説の定義のスートラを示さないまま定説一般の定義を述べた。Vārttika 作者は『これは』などでそれを説明した」と注し、Bhāṣya は「学説」（<i>tantra</i>）を「論書」と解するが、Vācaspati は「それによって認識対象が確かめられるもの」として「認識手段」と解する（TṬ p.502）と紹介しています（Hi. pp.241–243）。</p></div></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.98–99 · NS 1.1.27</span>
+  <div class="src deva" lang="sa">स चतुर्विधः सर्वतन्त्रप्रतितन्त्राधिकरणाभ्युपगमसंस्थित्यर्थान्तरभावात् ॥१।१।२७॥<br>सर्वतन्त्रप्रतितन्त्राधिकरणाभ्युपगमसंस्थित्यर्थान्तरभावादित्यस्य सूत्रस्यान्योऽर्थो वक्तव्यः । अथेदं विभागार्थम्, तथापि पूर्वसूत्रं परित्याज्यम् । अथ विभक्तानां पुनर्विभागः, त्रिविधा चास्य शास्त्रस्य प्रवृत्तिरिति व्याहतम् । विभागश्च नियमार्थः, विभक्तानां पुनर्विभागः किमर्थः ? यदि नियमार्थः, आद्येन सूत्रेण कृतत्वान्न प्रयोजनमस्तीति । तस्मात् पूर्वमुत्तरं वा सूत्रमनार्षमिति । न, नानार्थत्वात्, आद्यस्य लक्षणार्थत्वादुत्तरस्य च विभागार्थत्वादिति । विभागस्तु नियमार्थ इत्युक्तम् । एतेनानेकधा भिन्नस्य सिद्धान्तस्य चतुर्धा संग्रह इति नियमं दर्शयति । अथाद्यं सूत्रं कथं लक्षणार्थमिति ? तन्त्राधिकरणानामर्थानामभ्युपगम इति सूत्रार्थः । तन्त्रमधिकरणं येषामर्थानां ते भवन्ति तन्त्राधिकरणाः, तेषामभ्युपगमसंस्थितिरित्थंभावव्यवस्था धर्मनियमः सिद्धान्तो भवतीति । किमुक्तं भवति ? योऽर्थोऽशास्त्रितस्तस्याभ्युपगमो न सिद्धान्त इति ॥२७॥</div>
+  <div class="tr">それは四種である。全学派（の定説）・特定の学派（の定説）・帰結（としての定説）・承認（としての定説）の確立という別々の事柄があるからである。<br>（反論）「『全学派・特定の学派・帰結・承認の確立という別々の事柄があるから』というこのスートラには、別の意味を言わなければならない。もしこれが区分のためなら、それでも前のスートラは捨てるべきである。もし区分されたものをさらに区分するのなら、『この学問書の進み方は三種（列挙・定義・吟味）である』（という Bhāṣya の言葉）と矛盾する。区分は限定のためである。区分されたものをさらに区分するのは何のためか。もし限定のためなら、最初のスートラでなされているので、目的がない。だから、前のスートラか後のスートラか（どちらか）は、聖者のものではない」。そうではない。（二つのスートラは）目的が異なるからである。最初のものは定義のためであり、後のものは区分のためである。区分は限定のためである、と述べた。これ（後のスートラ）によって、さまざまに分かれる定説が四種にまとめられる、という限定を示すのである。では最初のスートラはどうして定義のためなのか。「学説を拠り所とする事柄の承認」というのがスートラの意味である。学説を拠り所とする事柄、それが「学説を拠り所とするもの」であり、それの承認の確立、すなわち「このようである」という確定、性質の限定が、定説である。何が言われているのか。学説（の裏づけ）のない事柄の承認は、定説ではない、ということである。（第二十七スートラ）</div><div class="exp"><span class="lbl">解説</span><p>「前後どちらかのスートラは聖者のものではない」という反論は大胆です。Uddyotakara は、1.1.26 は定義、1.1.27 は区分と、目的が違うので重複ではないと答えます。定義のスートラの「学説を拠り所とする」という語は、学説の裏づけのない単なる思いつきを定説から除くためのものです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「学説（の裏づけ）のない」（<i>aśāstrita</i>）を TṬ（p.502）に従い「認識手段に裏づけられていない」と注し、「そうなると、認識手段に裏づけられていない仏教の定説などは定説でなくなってしまうのではないか、という問題について、TṬ は『（その学派が）認識手段に裏づけられていると思い込んでいるもの』もここでは含まれる、と説明する」と紹介しています（Hi. pp.243–244）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストは答えの冒頭を <i>nānārtham</i> と読みます。文脈から「そうではない。目的が異なるからである」（<i>na, nānārthatvāt</i> の趣旨）と取りました。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>四種の定説</h2><span class="sub"><span class="pg">pp.99–101</span>共通・特定・帰結・仮定。実例との違い</span></div>
+<p>続く四つのスートラが、四種の定説をそれぞれ定義します。Uddyotakara の注は短いものが多いのですが、全学派共通の定説と「実例」（第四プラカラナ §11）との違い、そして「仮に認める定説」の Bhāṣya の説明への批判が目を引きます。</p>
+<figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>種類</th><th>原語</th><th>定義（スートラ）</th><th>例</th></tr></thead>
+    <tbody>
+      <tr><td class="k">全学派共通の定説</td><td><i>sarvatantrasiddhānta</i></td><td>どの学派とも矛盾しない（1.1.28）</td><td>認識手段は認識対象を確かめる手段である</td></tr>
+      <tr><td class="k">特定の学派の定説</td><td><i>pratitantrasiddhānta</i></td><td>同じ学派では成立し、他の学派では成立しない（1.1.29）</td><td>感官は元素から成る（ニヤーヤ・ヴァイシェーシカ）／元素から成らない（サーンキヤ）</td></tr>
+      <tr><td class="k">帰結としての定説</td><td><i>adhikaraṇasiddhānta</i></td><td>それが証明されると他の事柄も証明される（1.1.30）</td><td>「感官とは別に知る者がいる」の証明から、感官が複数であることなども帰結する</td></tr>
+      <tr><td class="k">承認としての定説</td><td><i>abhyupagamasiddhānta</i></td><td>吟味されていないことを認めて、その特殊を吟味する（1.1.31）</td><td>意は感官である（スートラに明言されないがニヤーヤが認める）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　四種の定説。</b>例は Bhāṣya と Vārttika による。</figcaption>
+</figure>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.99 · NS 1.1.28</span>
+  <div class="src deva" lang="sa">सर्वतन्त्राविरुद्धस्तन्त्रेऽधिकृतोऽर्थः सर्वतन्त्रसिद्धान्तः ॥१।१।२८॥<br>सर्वेषां संप्रतिपत्तिविषयः सर्वतन्त्रसिद्धान्तः, यथा प्रमाणानि प्रमेयसाधनानीति । न दृष्टान्तात् सर्वतन्त्रसिद्धान्तो भिद्यते, तत्राप्यविप्रतिपत्तिरिहापीति ? भिद्यत इत्याह—दृष्टान्तस्तु वादिप्रतिवादिभ्यामेव निश्चितः, न चैवं सर्वतन्त्रसिद्धान्त इति । अनुमानागमयोराश्रयो दृष्टान्तो, न सर्वतन्त्रसिद्धान्त इति । यद्यनुमानागमयोराश्रयो दृष्टान्त इति, प्रत्यक्षेऽपि प्रसङ्गः ? प्रत्यक्षमप्यनुमानागमयोराश्रयः, तत्कारणत्वात् । अर्थो दृष्टान्तोऽवगम्यमानत्वात्—यः प्रत्यक्षस्य विषयः सोऽर्थो दृष्टान्त इति । अधिगतोऽर्थः कथ्यत इत्यनुमानागमयोराश्रयः, अधिगमसाधनं च प्रत्यक्षम् । तस्मान्न प्रत्यक्षे प्रसङ्गः ॥२८॥</div>
+  <div class="tr">全学派の定説とは、すべての学派と矛盾せず、（自分の）学説で扱われる事柄である。<br>全学派の定説とは、すべての人が一致して認める事柄である。たとえば「認識手段は認識対象を確かめる手段である」。（反論）「全学派の定説は実例と違わない。そこ（実例）でも対立がなく、ここでも（対立がない）」。違う、と（我々は）言う。実例は立論者と反論者の二人によってだけ確定されているが、全学派の定説はそうではない。（また）実例は推理と証言の拠り所であるが、全学派の定説はそうではない。（反論）「もし実例が推理と証言の拠り所なら、知覚にも（実例であることが）当てはまってしまう。知覚も推理と証言の拠り所である。その原因だからである」。実例は事物である。（それは）理解されるものだからである。知覚の対象である事物、それが実例である。理解された事物が述べられるので、（実例は）推理と証言の拠り所である。そして知覚は理解の手段である。だから知覚に（実例であることが）当てはまることはない。（第二十八スートラ）</div><div class="exp"><span class="lbl">解説</span><p>実例も全学派の定説も「争いのない事柄」ですが、実例はその論争の当事者二人が一致していればよく、全学派の定説はすべての学派が認めているものです。また、実例は推理（「かまどのように」）や証言の拠り所となる具体的な事物ですが、全学派の定説は一般的な命題です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「Vārttika 作者は、全学派の定説と実例との違いを二つ示した。(1) 実例は立論者と反論者によってのみ確定されるが、全学派の定説はすべての人によって確定される。(2) 実例は推理と証言の拠り所である」と整理し、TṬ の「推理と証言は関係の把握に依拠し、関係の把握がなされるところが実例である」を紹介しています。Bhāṣya の例は「鼻などは感官である、香などは感官の対象である…」です（Hi. pp.244–246）。</p></div></div>
+</div>
+<div class="mula sutra" id="u4">
+  <span class="ref">p.100 · NS 1.1.29</span>
+  <div class="src deva" lang="sa">समानतन्त्रसिद्धः परतन्त्रासिद्धः प्रतितन्त्रसिद्धान्तः ॥१।१।२९॥<br>सामान्यविशेषतद्वतां नियमेनाभ्युपगमः प्रतितन्त्रसिद्धान्त इति, यथा भौतिकानीन्द्रियाणीति योगानाम्, अभौतिकानीति साङ्ख्यानामिति ॥२९॥</div>
+  <div class="tr">特定の学派の定説とは、同じ学派では成立し、他の学派では成立しないものである。<br>普遍・特殊・それらをもつものを、限定して承認することが、特定の学派の定説である。たとえば、「感官は元素から成る」というのはヨーガ（＝ニヤーヤ・ヴァイシェーシカ）の人々の（定説）であり、「元素から成らない」というのはサーンキヤの人々の（定説）である。（第二十九スートラ）</div><div class="exp"><span class="lbl">解説</span><p>注意すべきは「ヨーガの人々」（<i>yogāḥ</i>）という呼び方です。ヒンディー訳は、Bhāṣya と Vārttika のこの文脈での「ヨーガの人々」を、パタンジャリのヨーガ学派ではなく、ニヤーヤ・ヴァイシェーシカの人々と解しています。感官が元素から成るというのは、第三プラカラナ §8 で見たニヤーヤの説で、サーンキヤは感官が自我意識から生じるとします。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は Bhāṣya の特定の学派の定説の例（「無からは何も生じない、有は滅びない…」がサーンキヤ、「無が生じ、生じたものは滅びる…」が「ヨーガの人々」）を訳し、後者の「ヨーガの人々」を「ニヤーヤ・ヴァイシェーシカの信奉者」と訳しています。「同じ学派」は TṬ（p.503）に従い「ニヤーヤ学派にとってはニヤーヤの論書、他の学派はサーンキヤなどの論書」と注し、「『同じ学派』は考察を要する」と付け加えています（Hi. pp.245–247）。</p></div></div>
+</div>
+<div class="mula sutra" id="u5">
+  <span class="ref">p.100 · NS 1.1.30</span>
+  <div class="src deva" lang="sa">यत्सिद्धावन्यप्रकरणसिद्धिः सोऽधिकरणसिद्धान्तः ॥१।१।३०॥<br>वाक्यार्थसिद्धौ तदनुषङ्गी योऽर्थः सोऽधिकरणसिद्धान्त इति । अस्योदाहरणं भाष्ये—इन्द्रियव्यतिरिक्तो ज्ञाता दर्शनस्पर्शनाभ्यामेकार्थग्रहणादिति ॥३०॥</div>
+  <div class="tr">帰結としての定説とは、それが成立すると、別の事柄も成立するものである。<br>文の意味（主張）が成立したとき、それに付随する事柄、それが帰結としての定説である。その例は Bhāṣya に（ある）。「知る者は感官とは別である。見ることと触れることによって同じ一つの対象を捉えるから」と。（第三十スートラ）</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya の例では、「知る者は感官とは別だ」と証明されると、それに付随して、感官が複数あること、感官はそれぞれ決まった対象をもつこと、知る者は対象を捉える手段として感官をもつこと、なども成立します。主張そのものに付随して成立する説が、帰結としての定説です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「それが成立すると」の「それが」を「論証されるもの、あるいは論証因の（成立）」と TṬ（p.504）に従って注し、「付随する」を「結びついた、内に含まれた、不可離の」と言いかえています（Hi. pp.247–248）。</p></div></div>
+</div>
+<div class="mula sutra" id="u6">
+  <span class="ref">pp.100–101 · NS 1.1.31</span>
+  <div class="src deva" lang="sa">अपरीक्षिताभ्युपगमात् तद्विशेषपरीक्षणमभ्युपगमसिद्धान्तः ॥१।१।३१॥<br>अपरीक्षिताभ्युपगमादिति सूत्रम् । अपरीक्षितोऽसूत्रितः । योऽर्थः सूत्रेषु नोपनिबद्धः शास्त्रे चाभ्युपगतः सोऽभ्युपगमसिद्धान्त इति, यथा नैयायिकानां मन इन्द्रियमिति, वैशेषिकाणां नैयायिकानां च श्रोत्रमाकाशमिति । अपरीक्षितः शास्त्रानभ्युपगतः, स्वबुद्ध्यतिशयचिख्यापयिषया परबुद्ध्यवज्ञानाच्च प्रवर्तत इति ? तन्न युक्तम् । कुतः ? परावज्ञानस्यायुक्तत्वात् । यदि तावत् परस्यासामर्थ्यं बुद्ध्वा नायं समर्थ इत्येवं प्रवर्तते, तदानेन न परः प्रतिपादितो भवति, किं तु विप्रतिपादितः; यश्चाज्ञः किं तस्य प्रतिपादयितव्यम् ? अथ परिज्ञातसामर्थ्यं पुरुषमवजानाति, तदपि न, अतिशयबुद्धिमतोऽवज्ञानस्यायुक्तत्वात् । तस्मान्नायं सूत्रार्थोऽशास्त्रिताभ्युपगमः सिद्धान्त इति ।</div>
+  <div class="tr">承認としての定説とは、吟味されていないものを認めることから、その特殊を吟味することである。<br>「吟味されていないものを認めることから」というのがスートラである。「吟味されていない」とは「スートラで述べられていない」ということである。スートラには取り込まれていないが、論書では認められている事柄、それが承認としての定説である。たとえば、ニヤーヤ学者にとっての「意は感官である」、ヴァイシェーシカ学者とニヤーヤ学者にとっての「耳は虚空である」。（反論）「『吟味されていない』とは『論書で認められていない』ことであり、（承認としての定説は）自分の知性の優越を示そうとして、また相手の知性を侮って、行われるのだ」。それは正しくない。なぜか。相手を侮ることは正しくないからである。もし相手に能力がないと知って「この人は能力がない」として（論争を）行うなら、その人は相手に（何かを）知らせたのではなく、誤って知らせたのである。無知な人に何を知らせるべきだろうか。もし能力が分かっている人を侮るのなら、それもない。優れた知性をもつ人を侮るのは正しくないからである。だから、「論書（の裏づけ）のないものを認めることが定説だ」というのは、スートラの意味ではない。</div><div class="exp"><span class="lbl">解説</span><p>ここで退けられているのは、Bhāṣya 自身の説明です。Bhāṣya は承認としての定説を、「論書で認められていない事柄を（仮に）認めて論じること」であり、「自分の知性の優越を示し、相手の知性を侮るために行われる」と説明しました（たとえば「音が実体だとしよう。では常住か無常か」と仮に認めて議論する場合）。Uddyotakara は、相手を侮るために論じるという動機は認められないと退け、承認としての定説とは「スートラには明言されていないが、学派として認めている説」（意は感官である、など）のことだ、と読みかえます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は Bhāṣya の説明「吟味されていない事柄を認める。たとえば、音は実体だとして、それが常住か無常かを吟味する場合…（それは）論書で認められていないもので、自分の知性の優越を示し、相手の知性を侮るために行われる」を訳し、Vārttika がこれを退けて、スートラに述べられていないが論書で認められているもの、と読むことを示しています（Hi. pp.248–250）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>反論の部分（「『吟味されていない』とは『論書で認められていない』…」）は、Bhāṣya の文をそのまま引いたものです。Uddyotakara は Bhāṣya の作者を名指しせずに、その説明を退けています。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>定説は主張と同じか</h2><span class="sub"><span class="pg">pp.101–102</span>「尊者の同義語の巧みさ」。定説と推定の違い</span></div>
+<p>最後に、定説という主題そのものを不要とする説が取り上げられます。ある人々は「すべて主張（<i>pakṣa</i>）にすぎない」と言い、別の人々は「定説は主張の同義語だ」と言います。Uddyotakara は、行為の役割を表す語と、ものそのものを表す語の違いを使って反論し、仏教の論者（「尊者」）を皮肉ります。</p>
+<div class="mula" id="u7">
+  <span class="ref">p.101</span>
+  <div class="src deva" lang="sa">सर्व एवायं पक्षः स्वमुखेनार्थापत्त्या वाभिधीयत इति किमनेनातिविस्तृतेनेति केचित् । पक्षपर्याय एव सिद्धान्त इत्यपरे—पक्षस्य किलायं पर्यायः सिद्धान्त इति । पक्षः सिद्धान्तपर्याय इति न बुध्यामहे । सिद्धान्त इत्युपपन्नप्रमाणकोऽयमर्थ इति तत्प्रत्ययादभ्युपगमः; पक्ष इत्यन्यतरवादिसंप्रतिपन्नस्यान्यतरं प्रति कर्मतया वस्तुनो यदुपादानं स पक्षः । यश्च कारकशब्दो यश्च वस्तुशब्दो नैतौ पर्यायौ, तद्यथा परशुश्छेदनमिति । परशुरिति कदाभिधीयते ? यदा पुरुषव्यापारनिरपेक्षं वस्तु सन्निधीयमानतयावतिष्ठते । छेदनमिति च यदोद्यम्योद्यम्य दारुणि निपात्यते तदाभिधीयते । तावेतौ छेदनपरशुशब्दौ वस्तुनः क्रियासंबन्धासंबन्धापेक्षौ प्रवर्तेते इति । तथा सर्वे कारकशब्दा न द्रव्यमात्रे न वा क्रियामात्रे प्रवर्तन्ते, किं तु क्रियासाधने क्रियाविशेषयुक्त इति । कारकशब्दश्च पक्षो न सिद्धान्तः, स कथं पर्यायो भविष्यतीति ? सर्वतन्त्रसिद्धान्तश्च पक्षपर्याय इति—अहो पर्यायशब्दे कौशलं भदन्तस्य ! पक्षो विचारणायामिष्टोऽर्थ इति चाभिधीयते, अविचारणीयश्चार्थः पक्षेऽन्तर्भवतीति चित्रम् ।</div>
+  <div class="tr">ある人々は言う。「これはすべて、主張が、それ自体の言葉によって、あるいは推定によって述べられているのだ。だからこのように長々と（定説を論じて）何になろう」と。別の人々は言う。「定説は主張の同義語にほかならない。この定説は主張の同義語なのだ」と。主張が定説の同義語だということは、我々には理解できない。「定説」とは、「この事柄は認識手段によって成り立っている」という確信から承認することである。「主張」とは、論者の一方が認めた事物を、他方に対して（論証の）対象として取り上げること、それが主張である。行為要素を表す語と、ものを表す語とは同義語ではない。たとえば「斧」と「切断（の道具）」のように。いつ「斧」と言われるのか。人のはたらきと関係なく、ものとして置かれてあるときである。そして「切断の（道具）」とは、繰り返し振り上げて木に打ち下ろすときに言われる。この「切断の（道具）」と「斧」という二つの語は、ものが行為と関係しているか、関係していないかに応じて用いられる。同じように、すべての行為要素を表す語は、単なる実体にも単なる行為にも用いられず、行為の手段として特定の行為と結びついたものに（用いられる）。そして「主張」は行為要素を表す語であり、「定説」はそうではない。それがどうして同義語になろうか。また、全学派の定説も主張の同義語だ（ということになる）とは。なんと尊者は同義語について巧みなことか。主張とは考察において望まれる事柄だと言われながら、考察すべきでない事柄が主張に含まれる、とは奇妙なことだ。</div><div class="exp"><span class="lbl">解説</span><p>「定説」は確立した説そのものを指し、「主張」はそれを論争の場で相手に向けて証明の対象として持ち出すときの呼び方です。同じ斧でも、置いてあるときは「斧」、木を切っているときは「切断の道具」と呼ばれるように、「主張」は論争という行為の中での役割を表す語であって、ものそのものの名ではない、というのです。</p><p>さらに、全学派の定説（誰もが認める説）は論争の対象にならないので、主張にはなりえません。「主張とは考察で望まれる事柄」と自分で定義しながら、考察の必要のないものまで主張に含めるのは奇妙だ、と皮肉ります。「尊者」（<i>bhadanta</i>）は第二プラカラナ §17 と同じく仏教の論者への呼びかけです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、二つの反論を「（反論）定説として述べられたこれはすべて、主張が直接に、あるいは推定によって述べられたものである。だからこの長い説明に何の益があろう、とある人々は言う。別の人々は、主張の同義語こそが定説だと言う」と訳し、答えを「主張は、一方の論者が認めた事物を他方に対して（論証の）対象として取り上げることである」と訳しています（Hi. pp.250–252）。</p></div></div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">pp.101–102</span>
+  <div class="src deva" lang="sa">अथ पुनः सर्वतन्त्रसिद्धान्तं न प्रतिपद्यते, तेनापि सर्वतन्त्रसिद्धान्तं निह्नुवानेन तदसत्त्वप्रतिपादको न्यायोऽभ्युपेयः । यश्चासौ न्यायस्याभ्युपगमः स सर्वतन्त्रसिद्धान्त इति व्याहतं भवति सर्वतन्त्रसिद्धान्तो नास्तीति । अथ न्यायमपि न प्रतिपद्येत, अनिवृत्तो व्याघातो वचनेऽवचने च । यदि तावन्न्यायो नास्तीति ब्रवीति, प्रतिपादयति च नास्ति चेति व्याहतम् । अथ न ब्रवीति, अवचनेऽस्यार्थो न सिध्यति, तस्मात् सर्वतन्त्रसिद्धान्तो नास्तीति व्याहतम् ।</div>
+  <div class="tr">もしまた（その人が）全学派の定説（の存在）を認めないなら、全学派の定説を否定するその人も、それが存在しないことを示す論証を認めなければならない。そしてその論証を認めること、それが全学派の定説である。だから「全学派の定説は存在しない」というのは矛盾する。もし論証も認めないなら、言っても言わなくても矛盾は除かれない。もし「論証は存在しない」と言うなら、（論証によって）示しながら「（論証は）ない」と言うので矛盾する。もし言わないなら、言わないのでは、その人の言いたいことは成立しない。だから「全学派の定説は存在しない」というのは矛盾する。</div><div class="exp"><span class="lbl">解説</span><p>全学派の定説を否定する者も、その否定を論証しようとする限り、「論証によって事柄が確かめられる」ということを認めざるをえません。それこそが全学派の定説（「認識手段は認識対象を確かめる手段である」）です。論証そのものを否定すれば、その否定を伝える手段もなくなる。第1プラカラナ冒頭の懐疑論批判と同じ論法です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「論証」（<i>nyāya</i>）を「推理・論証」と訳し、「言っても言わなくても矛盾」の部分を見出しを付けて訳し分けています（Hi. pp.252–253）。</p></div></div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">p.102</span>
+  <div class="src deva" lang="sa">इदं च तावद् भवान् प्रष्टव्यो जायते—किं पक्षः सिद्धान्तसामान्यं भवति, अथ संग्रहः पक्षशब्देन सिद्धान्तस्य, अथ सिद्धान्तस्य पक्षशब्दः पर्याय इति ? तद् यदि तावत् सिद्धान्तसामान्यं, तन्नास्ति, अव्यापकत्वात् । न हि पक्षः सर्वतन्त्रसिद्धान्तं व्याप्नोति, असाध्यत्वात् । यथा सत्ता द्रव्यगुणकर्माणि व्याप्नोतीति व्यापकत्वात् सामान्यं भवति, न चैवं पक्ष इति । पर्यायशब्दोऽपि न भवतीत्युक्तम् । यदि च पक्षः सिद्धान्त इति पर्यायः, सर्वतन्त्रसिद्धान्तः साध्यो जायते; सर्वतन्त्रसिद्धान्तः साध्यश्चेति व्याघातः । अर्थापत्तितोऽधिकरणसिद्धान्तस्याभेद इति चेत् ? अथापि मन्येथा अर्थापत्तितोऽधिकरणसिद्धान्तो न भिद्यत इति ? भिद्यते । वाक्यार्थप्रतिपत्तौ तद्विपरीतवाक्यार्थप्रतिपत्तिरर्थापत्तिः, वाक्यानुषङ्गी योऽर्थः सोऽधिकरणसिद्धान्त इति ॥३१॥<br>॥ न्यायाश्रयसिद्धान्तलक्षणप्रकरणम् ॥</div>
+  <div class="tr">そしてまず、あなたにこう問わなければならない。主張は定説の一般（類）なのか、それとも「主張」の語によって定説がまとめられるのか、それとも「主張」の語は定説の同義語なのか。もし定説の一般なら、それはない。（すべてを）覆わないからである。主張は全学派の定説を覆わない。（全学派の定説は）論証されるべきものではないからである。存在性が実体・性質・運動を覆うので、覆うものとして一般（類）となるようには、主張はそうではない。同義語でもないことは、すでに述べた。もし「主張」と「定説」が同義語なら、全学派の定説が論証されるべきものになってしまう。全学派の定説であり、しかも論証されるべきものである、というのは矛盾する。（反論）「推定（<i>arthāpatti</i>）と帰結としての定説とは違わない」と言うなら。こう考えるかもしれない。「推定と帰結としての定説とは違わない」と。違う。文の意味を理解したとき、それと反対の文の意味を理解することが推定であり、文に付随する事柄が帰結としての定説である。（第三十一スートラ）<br>論証の拠り所である定説の定義のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>最初の反論者が「主張が、それ自体の言葉によって、あるいは推定によって述べられる」と言ったことへの、最後の答えです。帰結としての定説は推定と同じではないか、という問いに、Uddyotakara は区別を示します。推定（ここでは、「雲がなければ雨は降らない」と聞いて「雲があれば雨が降る」と知るような、反対の意味の理解）と、主張に付随して成立する事柄（帰結としての定説）とは別のものだ、というのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「主張は定説の一般か、定説をまとめるものか、同義語か」という三つの選択肢を見出しを付けて訳し、最後の推定との区別を「文の意味を理解したとき、それと反対の文の意味を理解することが推定である」と訳しています（Hi. pp.253–255）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>siddhānta</dt><dd>定説。学説の裏づけのもとに承認された確立した説</dd>
+    <dt>tantra / tantrādhikaraṇa</dt><dd>学説（論書。Vācaspati は認識手段と解する）／学説を拠り所とする（事柄）</dd>
+    <dt>abhyupagama / saṃsthiti</dt><dd>承認／確立（「このようである」という確定）</dd>
+    <dt>sarvatantrasiddhānta</dt><dd>全学派の定説。すべての学派が認める説</dd>
+    <dt>pratitantrasiddhānta</dt><dd>特定の学派の定説。同じ学派では成立し、他の学派では成立しない説</dd>
+    <dt>adhikaraṇasiddhānta</dt><dd>帰結としての定説。ある主張の成立に付随して成立する説</dd>
+    <dt>abhyupagamasiddhānta</dt><dd>承認としての定説。Vārttika ではスートラに明言されていないが学派として認める説</dd>
+    <dt>pakṣa</dt><dd>主張。論者の一方が認める事柄を、他方に対して論証の対象として取り上げたもの</dd>
+    <dt>kārakaśabda / vastuśabda</dt><dd>行為要素を表す語／ものを表す語</dd>
+    <dt>arthāpatti</dt><dd>推定。ある文の意味から、それと反対の文の意味を理解すること</dd>
+    <dt>yogāḥ</dt><dd>（この文脈で）ニヤーヤ・ヴァイシェーシカの人々（ヒンディー訳による）</dd>
+    <dt>bhadanta</dt><dd>尊者。仏教の師に対する敬称。Uddyotakara は皮肉を込めて用いる</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR テキストには誤りが多いため、Śrīnivāsa Śāstrī のヒンディー訳（<i>Nyāya Vārtika of Udyotakara</i>, Part 1, Ghaziabad: Indo-Vision, 1986）に収められた本文と照合して、明らかな誤りを直した。直した箇所のうち意味に関わるものは「解釈の分かれる箇所」に記した。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。Thakur 版は Bhāṣya を載せないので、Vārttika が引く Bhāṣya の文は解説で要約・訳出した。</p>
+  <p>和訳は試訳である。解説はヒンディー訳の訳文と注に大きく拠っている。TṬ（Vācaspati Miśra『タートパリヤ・ティーカー』）の説と頁数は、ヒンディー訳の注が引くものを紹介したもので、TṬ そのものは参照していない。ヒンディー訳の頁は、OCR テキストの頁表示が欠けている箇所では前後から推定した。このページが扱うのは第5プラカラナ（スートラ 1.1.26–31）である。第4プラカラナ（スートラ 1.1.23–25）は<a href="nyayavarttika-4-taiyaku.html">第4プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
