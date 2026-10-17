@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 12</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-11-taiyaku.html">← プラカラナ11</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>なぜ疑いから吟味するのか</a></li><li><a href="#s2"><b>2</b>疑いの定義への反論</a></li><li><a href="#s3"><b>3</b>答え</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第12プラカラナ「疑いの吟味」（スートラ 2.1.1–7、Thakur 版 pp.174–179）</span>
+  <p>第2章から、第1章で列挙・定義された範疇の「吟味」（<i>parīkṣā</i>）が始まります。列挙の順なら最初は認識手段のはずですが、ニヤーヤ・スートラは先に「疑い」（<i>saṃśaya</i>）を吟味します。吟味はすべて疑いから始まるからです。</p>
+  <p>スートラ 2.1.1–5 は、第1章の疑いの定義（1.1.23）への反論です。「共通の性質を確かめたら、それは確かな知であって疑いではない」「異説があるといっても、異説を知ることは確かな知だ」などと論じます。スートラ 2.1.6 がそれにまとめて答え、2.1.7 は、ほかの吟味でも同じように答えよ、と教えます。</p>
+  <p>この章から、ふたたび Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）を参照できます。解説ではそれと、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>疑いの吟味の章<br><small><i>saṃśayaparīkṣāprakaraṇa</i>。スートラ 2.1.1–7 の注釈。Thakur 版 pp.174–179</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.1.1–7<br><small>反論（1–5）、答え（6）、吟味一般への教え（7）</small></dd></div>
+    <div><dt>論敵</dt><dd>スートラ内の反論者<br><small>疑いの定義の五つの原因それぞれを否定する</small></dd></div>
+    <div><dt>見どころ</dt><dd>確かな知から不確かな知が生じるか<br><small>§2、§3。共通の性質を「確かめる」ことが、なぜ「確かでない」知（疑い）を生むのか</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.435–453 ごろ</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.175</span> は Thakur 版の頁。節見出しの <span class="pg">pp.174–175</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.1.1–7 の注釈を、テキストの順に3節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">なぜ疑いから吟味するのか</a></td><td class="num">pp.174–175</td><td>列挙の順を変える理由。疑いとは何か</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">疑いの定義への反論</a></td><td class="num">pp.175–176</td><td>スートラ 2.1.1–5。五つの原因それぞれへの否定</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">答え</a></td><td class="num">pp.176–179</td><td>スートラ 2.1.6–7。反論を一つずつ退ける</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>なぜ疑いから吟味するのか</h2><span class="sub"><span class="pg">pp.174–175</span>列挙の順を変える理由。疑いとは何か</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.174 · NS 2.1.1</span>
+  <div class="src deva" lang="sa">समानानेकधर्माध्यवसायादन्यतरधर्माध्यवसायाद्वा न संशयः ॥२।१।१॥<br>त्रिविधा चास्य शास्त्रस्य प्रवृत्तिः, उद्देशो लक्षणं परीक्षा चेत्युक्तम् । तत्रोद्देशलक्षणे पूर्वाध्याय एव व्याख्याते, परीक्षा वर्तिष्यत इति । तत्र यथोद्देशस्तथा लक्षणं तथा परीक्षेति स्थानवतां परीक्षावचनमिति । पूर्वं प्रमाणमुद्दिष्टं लक्षितं च, पूर्वमेव तत् परीक्ष्यत इत्यवसरप्राप्तानि तानि विलङ्घ्य संशयः परीक्ष्यते, किमर्थं क्रमभेदः ? परीक्षाङ्गत्वात् पूर्वं संशयः परीक्ष्यते । तथा चोक्तम्—विमृश्य पक्षप्रतिपक्षाभ्यामर्थावधारणं निर्णयः [१।१।४१] इति ।</div>
+  <div class="tr">共通の性質や多くの性質を確かめることからも、どちらか一方の性質を確かめることからも、疑いは（生じ）ない。<br>この学問書のはたらきは三種である。列挙・定義・吟味である、と言われた。そのうち列挙と定義とは前の章ですでに説明された。（これから）吟味がなされる。そこで、列挙のとおりに定義があり、そのとおりに吟味がある、というのが、順序をもつもの（範疇）について吟味を述べることである。認識手段は先に列挙され、定義された。だからそれが先に吟味されるはずである。（問い）「そのように順番が来ている（認識手段）を飛び越えて疑いが吟味されるのは、なぜ順序を変えるのか」。吟味の要素なので、先に疑いが吟味されるのである。そのように「疑ったうえで、主張と反主張とによって事柄を確定することが決定である」（NS 1.1.41）と言われている。</div><div class="exp"><span class="lbl">解説</span><p>第1章で十六の範疇が「列挙」され「定義」されました。第2章からは「吟味」です。列挙の順なら、最初は認識手段の吟味のはずですが、吟味（考察）はどれも疑いから始まるので、その前提となる疑いを先に吟味する、というわけです。第七プラカラナで読んだ「決定」の定義（1.1.41）が根拠として引かれます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、ここで吟味されるのは「疑いの定義」であって疑いそのものではない、と注します。疑いそのものを吟味するのなら、その吟味のためにさらに疑いが必要になり、無限遡及に陥るからです。「順序をもつもの」（<i>sthānavatām</i>）の <i>sthāna</i> を「順序」（<i>krama</i>）と解しています（Hi. p.435）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">pp.174–175</span>
+  <div class="src deva" lang="sa">ननु चोक्तम्—नायं निर्णये नियमो विमृश्य पक्षप्रतिपक्षाभ्यां सर्वत्र निर्णय इति, वादे पक्षप्रतिपक्षाभ्यामेव, शास्त्रे च विमर्शवर्जमिति । शास्त्रे चायं विचारः, तस्मान्न संशयपूर्वक इति । संशयपूर्वको हि विचारस्तर्कविषय एव, नायं तर्कविषय इति । सत्यम्, न निर्णये नियमः, विचारे हि नियमः । निर्णय एवं चान्यथा च, विचारः संशयपूर्वक एव । यदप्युक्तं वादे शास्त्रे च विमर्शवर्जमिति, वादिप्रतिवादिनावधिकृत्य तदुक्तम् । शास्त्राभ्युपगमे च वादिप्रतिवादिनोर्न संशयः, उभयोर्निश्चितत्वात् । …… तत्र वादिप्रतिवादिनौ तावद् विचारयतः किं नित्यसाधनं बलीयः, आहोऽनित्यसाधनमिति । शास्त्रेऽपि च विचारः साधनस्य सामर्थ्यासामर्थ्यपरिज्ञानार्थम्, तत्र च संशय इति । तस्मात् संशयपूर्वक एव विचारः ।</div>
+  <div class="tr">（反論）「しかし、こう言われたではないか。『どこでも疑ったうえで主張と反主張とによって決定がある、という決まりは決定にはない。論議では主張と反主張とによってだけ（決定し）、学問書では疑いなしに（決定する）』と。そしてこれは学問書における考察である。だから疑いを前提としない。疑いを前提とする考察は吟味（<i>tarka</i>）の領域のものだけであり、これは吟味の領域ではない」。そのとおり、決定には決まりはない。しかし考察には決まりがある。決定はこのように（疑いを経て）も、別の仕方でもあるが、考察は疑いを前提とするものだけである。また「論議と学問書では疑いなしに」と言われたのは、論者と反論者とについて言われたのである。学問書を認めている場合、論者と反論者には疑いはない。両者とも確信しているからである。……そこで論者と反論者は、「常住を論証するもの（理由）の方が強いのか、無常を論証するものの方が強いのか」と考察する。学問書においても、考察は論証が有効か無効かを知るためであり、そこには疑いがある。だから、考察は疑いを前提とするものだけである。</div><div class="exp"><span class="lbl">解説</span><p>第七プラカラナ（決定の章）で、決定はいつも疑いを経るわけではない、と言われていました。Uddyotakara はそれを認めつつ、決定と考察とを区別します。決定には疑いを経ないものもあるが、考察（吟味）はかならず疑いから始まる。論議の当事者はそれぞれ自説を確信していても、「どちらの論証が強いか」という点では疑いがある、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、反論の趣旨を「吟味は学問書の中で行われており、学問書の吟味は疑いを前提としない。また、ここには事柄の順序（<i>arthakrama</i>）もないので、列挙の順を変える理由がない」とまとめます（Hi. p.436）。</p></div></div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">p.175</span>
+  <div class="src deva" lang="sa">तन्मूलकत्वात् परीक्षाविधेः संशयः पूर्वं परीक्ष्यत इति । तत्र संशयो वस्तुस्वरूपानवधारणात्मकः प्रत्ययः । निरुक्तिव्याघात इति चेत्—अनवधारणात्मकश्च प्रत्ययश्चेति व्याहतम् । न, प्रत्ययस्य स्वरूपानवधारणात्—अव्यवच्छेदात्मकं स्वरूपमस्य परिच्छिद्यते, न पुनरनेन विषयस्वरूपमवधार्यत इति ।</div>
+  <div class="tr">吟味の手順はそれ（疑い）を根本とするので、疑いが先に吟味されるのである。さて、疑いとは、事物の本性を確定しないことを本質とする知である。（反論）「語の説明が矛盾する。『確定しないことを本質とする』と『知である』とは矛盾する」と言うなら、そうではない。（疑いは）知の本性を確定しない（のではない）からである。これ（疑い）の、（対象を）区別しないという本性は確定されるが、これによって対象の本性が確定されるのではない。</div><div class="exp"><span class="lbl">解説</span><p>「確定しない知」は自己矛盾ではないか、という反論です。答えは、疑いという知がどんなものかは確かに知られている（「迷っている」ことは自分でわかる）が、疑いによって対象がどうであるかは確定されない、というものです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、第1章では疑いを「<i>saṃśītiḥ saṃśayaḥ</i>」（揺れ動くことが疑い）と説明していたのに、ここでは「確定しないことを本質とする知」と説明している、そこに矛盾があるという反論だ、と注します。また、疑いも知であり、心による知覚（<i>mānasa pratyakṣa</i>）によって知られるが、対象を確定させるものではない、と補います（Hi. p.437）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>疑いの定義への反論</h2><span class="sub"><span class="pg">pp.175–176</span>スートラ 2.1.1–5。五つの原因それぞれへの否定</span></div>
+<div class="mula" id="u4">
+  <span class="ref">p.175</span>
+  <div class="src deva" lang="sa">सोऽयं संशयः समानधर्मोपपत्तेरित्येवमादिभ्यः । तस्याक्षेपः समानानेकधर्माध्यवसायादित्येवमादि सूत्रम् । तस्य यथाश्रुत्युत्थानमिति । समानस्य धर्मस्याध्यवसायात् संशयो न समानधर्ममात्रात्—उपलभ्यमानो धर्मः संशयहेतुरिति । धर्मधर्मिग्रहणे वा संशयाभाव इति—समानमनयोर्धर्ममुपलभ इति धर्मधर्मिग्रहणे क्व संशय इति । धर्मिणोऽर्थान्तरभावाद्वा न संशयः—न ह्यन्यस्मिन्नुपलब्धेऽन्यत्र संशय इति । अथवा न समानधर्माध्यवसायः संशयस्य कारणम्, व्यवच्छेदात्मकत्वात् संशये च तदभावादिति ।</div>
+  <div class="tr">この疑いは「共通の性質が成り立つことから……」など（NS 1.1.23）（によって定義された）。それへの論難が、「共通の性質や多くの性質を確かめることから……」などのスートラである。それは（スートラの語の）聞こえるとおりに（反論として）立てられたものである。（1）共通の性質を確かめることから疑いが生じるのであって、共通の性質があるだけからではない。（すなわち）知覚される性質が疑いの原因である（という定義なら、確かめることは疑いではなく確定である）。（2）あるいは、性質と有法とを把握しているなら、疑いはない。「この二つの共通の性質を私は知覚する」と、性質と有法を把握しているなら、どこに疑いがあろうか。（3）あるいは、有法は（性質とは）別のものなので、疑いはない。あるものが知覚されたとき、別のものについて疑いが生じることはないからである。（4）あるいは、共通の性質を確かめることは疑いの原因ではない。（確かめることは対象を）区別することを本質とし、疑いにはそれがないからである。</div><div class="exp"><span class="lbl">解説</span><p>第1章の疑いの定義（1.1.23）は、疑いの原因として、①共通の性質、②多くの（固有の）性質、③異説、④知覚の不確定、⑤非知覚の不確定、を挙げていました。スートラ 2.1.1 は、そのうち①②について、「共通の性質を確かめたら、それは確定であって疑いではない」と反論します。</p><p>たとえば、薄暗がりで杭か人かわからないものを見るとき、「高さと幅がある」という杭と人に共通の性質は確かに見えています。確かに見えている（確定している）ものから、どうして確定しない知が生じるのか、というのがこの反論の要点です。Uddyotakara は、バーシュヤに従って、この反論を四通りに説明します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、スートラには「共通の性質を確かめることから疑いはない」「多くの性質を確かめることから疑いはない」「どちらか一方の性質を確かめることから疑いはない」の三文が含まれる、と整理します（Hi. p.436）。また、バーシュヤの第一の説明（「共通の性質を確かめることから疑いが生じる」）は、「確かめることから疑いはない」と言うスートラと合わないように見え、Uddyotakara の「聞こえるとおりに立てられた」という言葉も、Vācaspati の注も、この不整合に気づいていたのだろう、と述べます（Hi. p.437）。第二の説明については「杭と人とその性質を直接見ている人には、疑いは生じない」と Vācaspati を引き（TṬ p.355）、第四の説明については「確定は不確定を生まない。結果は原因に似るからである」と引きます（TṬ p.358）（Hi. pp.438–439）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>「聞こえるとおりに立てられた」（<span lang="sa" class="deva">यथाश्रुत्युत्थानम्</span>）は、スートラの反論を、定義（1.1.23）の語（「共通の性質」）を文字どおりに取って立てたもの、と解しました。Śāstrī も「文字どおり（<i>śabdaśaḥ</i>）に立てた」と訳しています（Hi. p.437）。</p></div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">p.175</span>
+  <div class="src deva" lang="sa">एतेनानेकधर्माध्यवसायादिति व्याख्यातम् । अधिगतानधिगतयोर्न संशयः—अधिगते वस्तुनि संशयो न युक्तः, निर्णीतत्वात्; नानधिगते, अदृष्टत्वात् । न समानधर्माध्यवसायादेव संशयः, सत्यप्यभावात्—सत्यपि समानधर्माध्यवसाये न दृष्टः संशयः, यथा कृतकत्वाच्छब्दे । न समानधर्माध्यवसायादेव संशयोऽन्यथापि भावात्—अन्यथापि दृष्टः संशयः, यथा विरुद्धाव्यभिचारिधर्मद्वयसन्निपाते । तत्त्वानुपलब्धेश्च संशयः, यथा प्रकरणसमे । एकवृत्तित्वाच्च न समानः—एकवृत्तिरयं धर्मः, न चैकवृत्तिः समानो भवितुमर्हतीति । एतेन विप्रतिपत्त्यव्यवस्थाध्यवसायादिति प्रत्युक्तम् ॥१॥</div>
+  <div class="tr">これによって「多くの性質を確かめることから」も説明された。（さらに反論は続く。）知られたものにも知られないものにも疑いはない。知られた事物について疑うのは正しくない。決定されているからである。知られないもの（について）も（疑いは）ない。見られていないからである。共通の性質を確かめることからだけ疑いが生じるのではない。（それが）あっても（疑いが）ないからである。共通の性質を確かめても、疑いが見られないことがある。たとえば、作られたものであることから、音について（疑いがないように）。共通の性質を確かめることからだけ疑いが生じるのではない。別の仕方でも（疑いが）あるからである。別の仕方でも疑いが見られる。たとえば、相違決定の二つの性質が集まるとき。また、真実が知られないことからも疑いがある。たとえば問題相似のとき。また、（性質は）一つのものにあるので、共通ではない。この性質は一つのものにあり、一つのものにあるものは共通ではありえない。これによって、「異説と不確定を確かめることから」も退けられた。（第一スートラ）</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、スートラの反論をさらに補強する論点を並べます。最後の「一つのものにあるので共通ではない」とは、目の前のものの高さと幅は、目の前のもの一つにあるのであって、杭と人の両方にあるのではない、ということです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「一つのものにある」の性質を、高さと幅（<i>ārohapariṇāha</i>）と解し、「杭の高さと幅と、人の高さと幅とは別々なのに、どうして両者に共通なのか」と、Vācaspati に拠って注します。また、「問題相似のとき」の「問題相似」（<i>prakaraṇasama</i>）を、後代の用語で「反対の理由をもつもの」（<i>satpratipakṣa</i>）と訳しています（Hi. p.439）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの <span lang="sa" class="deva">विरुद्धव्यभिचारि</span> は、ヒンディー訳所収の本文に従って <span lang="sa" class="deva">विरुद्धाव्यभिचारि</span>（相違決定）と直しました。第九プラカラナ §2 で、Uddyotakara は相違決定を擬似理由として認めていませんでしたが、ここでは反論者の言葉の中に出てきます。</p></div>
+</div>
+<div class="mula sutra" id="u6">
+  <span class="ref">p.176 · NS 2.1.2–5</span>
+  <div class="src deva" lang="sa">विप्रतिपत्त्यव्यवस्थाध्यवसायाच्च ॥२।१।२॥<br>न विप्रतिपत्त्यव्यवस्थाध्यवसायादिति प्रागुक्तम् । विप्रतिपत्त्यव्यवस्थाध्यवसायात् संशयो न विप्रतिपत्तिमात्रादव्यवस्थामात्राद्वा ॥२॥<br>विप्रतिपत्तौ च संप्रतिपत्तेः ॥२।१।३॥<br>न विप्रतिपत्तिरस्तीति सूत्रार्थः ॥३॥<br>अव्यवस्थात्मनि व्यवस्थितत्वाच्चाव्यवस्थायाः ॥२।१।४॥<br>अव्यवस्था न विद्यत इति सूत्रार्थः ॥४॥<br>तथात्यन्तसंशयस्तद्धर्मसातत्योपपत्तेः ॥२।१।५॥<br>समानधर्मादीनां धर्माणां सातत्यान्नित्यः संशय इति सूत्रार्थः ॥५॥</div>
+  <div class="tr">また、異説と不確定を確かめることからも（疑いはない）。<br>「異説と不確定を確かめることから（疑いは）ない」ということは先に述べた。異説と不確定を確かめることから疑いが生じるのであって、異説だけから、あるいは不確定だけからではない。（第二スートラ）<br>また、異説（を知ること）においては、（それは）一致した理解だからである。<br>異説はない、というのがスートラの意味である。（第三スートラ）<br>また、不確定は自らにおいて確定しているからである。<br>不確定は存在しない、というのがスートラの意味である。（第四スートラ）<br>そうすると、その性質が持続するので、終わりのない疑いになる。<br>共通の性質などの性質が持続するので、疑いがいつまでも続くことになる、というのがスートラの意味である。（第五スートラ）</div><div class="exp"><span class="lbl">解説</span><p>反論の続きです。「我はある」と言う学派と「我はない」と言う学派があると知ることは、それ自体は確かな知（一致した理解）であって、疑いではない。「不確定」も、不確定であることにおいては確定している。さらに、共通の性質はいつまでもあるので、それが疑いの原因なら、疑いはいつまでも終わらない、というものです。Uddyotakara の注は、どれも一行で趣旨を示すだけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、第三スートラについて「異説（を知ること）も、一つの事物についての反対の性質を対象とする知であり、一致した理解（<i>sampratipatti</i>）である。それから疑いが生じるなら、知から疑いが生じることになる」と注します（Hi. pp.440–441）。第五スートラの「そうすると」（<i>tathā</i>）については、スートラの一部ではなくバーシュヤの語だとする人もいる、と注します（Hi. p.442）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストではスートラ番号が「2.1.12」「2.1.13」などと乱れています。ヒンディー訳に従って 2.1.2–5 としました。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>答え</h2><span class="sub"><span class="pg">pp.176–179</span>スートラ 2.1.6–7。反論を一つずつ退ける</span></div>
+<div class="mula sutra" id="u7">
+  <span class="ref">pp.176–177 · NS 2.1.6</span>
+  <div class="src deva" lang="sa">यथोक्ताध्यवसायादेव तद्विशेषापेक्षात् संशये नासंशयो नात्यन्तसंशयो वा ॥२।१।६॥<br>अस्योत्तरम्—यथोक्ता……वा । न, सूत्रार्थापरिज्ञानादिति सूत्रार्थः । यत् पुनरेतद् धर्मधर्मिग्रहणे संशयाभाव इति, तन्नापरिज्ञानात्—न ब्रूमो योऽसौ धर्म्युपलभ्यते तस्य धर्ममुपलभ इति, अपि तु यौ मया पूर्वं स्थाणुपुरुषावुपलब्धौ तयोरयं समानो धर्म उपलभ्यत इति । एतेनैकवृत्तित्वादिति परिहृतम् ।</div>
+  <div class="tr">述べられたとおりの（性質の）確定から、その特殊を求めるときに疑いがあるので、疑いがないことにも、終わりのない疑いにもならない。<br>これ（反論）への答えが「述べられたとおりの……」である。（反論は）正しくない。スートラの意味を理解していないからである、というのがスートラの意味である。また、「性質と有法とを把握しているなら疑いはない」と言われたが、それは正しくない。理解していないからである。我々は、「知覚されているこの有法の性質を私は知覚する」と言うのではなく、「私が以前に知覚した杭と人、その二つの共通の性質が（今）知覚される」と言うのである。これによって「一つのものにあるので」（という反論）も退けられた。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 2.1.6 は、定義の中の「特殊を求める」（<i>viśeṣāpekṣa</i>）という語が鍵だと答えます。共通の性質を確かに見ていても、それが杭か人かを決める特殊（枝か手足か）を求めている限り、疑いは生じる。特殊が見つかれば疑いは終わるので、終わりのない疑いにもならない。</p><p>Uddyotakara は個々の反論に答えていきます。「共通の性質」とは、目の前のものにある性質が、以前に見た杭と人の両方の性質に似ている、ということであって、目の前のもの一つにある性質が杭と人に共有されている、ということではない。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、このスートラを、反論のすべてに答える「定説のスートラ」と位置づけます。単に共通の性質があるだけで疑いが生じるとは言っていない、疑いの定義は過少・過大・不可能の誤りのないように立てられている、と注します（Hi. pp.442–443）。また、バーシュヤが「共通の性質」という語で「共通の性質の確定」を意味していると説明するのに、「煙によって火が推理される」と言えば「煙を見ることによって」の意味だ、という例を挙げることを訳出しています（Hi. p.444）。</p></div></div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">p.177</span>
+  <div class="src deva" lang="sa">यत् पुनरेतत् नार्थान्तराध्यवसायादन्यत्र संशय इति, तन्न, अनभ्युपगमात् । अपरे—नार्थान्तरभावमात्रं मया संशयहेतुत्वेनोपादीयते, किं त्वर्थान्तरविशेषः । कः पुनरसौ विशेषः ? धर्मधर्मिभावः—धर्मे उपलब्धे धर्मिणि संशय इति परिहारं मन्यन्ते, न पुना रूपस्पर्शयोर्धर्मधर्मिभाव इति । अयं च न परिहार इति पश्यामः । किं कारणम् ? अर्थान्तरभावस्यानिवृत्तेः । यथैव रूपस्पर्शयोरर्थान्तरभावः, तथा धर्मधर्मिणोरपीति न युक्तोऽर्थान्तरदर्शनादर्थान्तरे संशयः । अत्रापि तदेवोत्तरम्, नानभ्युपगमादिति—न ब्रूमोऽर्थान्तरदर्शनादर्थान्तरे धर्मिणि संशयः, अपि तु समानधर्मादिविशिष्टधर्मिदर्शनाद् विशेषवति धर्मिण्येव संशय इति ।</div>
+  <div class="tr">また、「別のものを確かめることから、他のものについて疑いが生じることはない」と言われたが、それは正しくない。（我々はそれを）認めていないからである。別の人々は、「私は、単に別のものであることを疑いの原因として取り上げるのではなく、別のものの特殊（な関係）を（取り上げるのである）。その特殊とは何か。性質と有法の関係である。性質が知覚されたとき、有法について疑いが生じる。色と触感とには性質と有法の関係はない」と（答えれば）答えになると考える。我々は、これは答えにならないと見る。なぜか。別のものであることがなくならないからである。色と触感が別のものであるのと同じく、性質と有法も（別のもの）である。だから（その答えでは）、別のものを見ることから別のものについて疑いが生じるのは正しくない（ということが残る）。ここでも同じ答えである。（我々はそれを）認めていないからである。我々は、別のものを見ることから別のもの（である）有法について疑いが生じると言うのではない。そうではなく、共通の性質などによって限定された有法を見ることから、特殊をもつ（はずの）有法そのものについて疑いが生じる、と言うのである。</div><div class="exp"><span class="lbl">解説</span><p>反論（3）「性質を見て、別のものである有法を疑うことはありえない」への答えです。ある人々は「性質と有法は特別な関係にあるからよい」と答えますが、Uddyotakara はそれでは不十分だとします。彼自身の答えは、私たちは性質だけを見ているのではなく、性質をもった有法（目の前のもの）そのものを見ており、その同じ有法について「杭か人か」を疑うのだ、というものです。見る対象と疑う対象は別ではありません。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「別の人々」の答えを、色を見ても触感について疑いが生じないのは、色と触感の間に性質と有法の関係がないからだ、という意味に訳します（Hi. pp.445–446）。</p></div></div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">p.177</span>
+  <div class="src deva" lang="sa">यदप्येतत् सारूप्याभावादिति । विशेषानवधारणमुभयोः सारूप्यम्—यथैव समानधर्मदर्शनेन विशेषो नावधार्यते, तथा संशयेनापीति । कारणसद्भावाच्च कार्यसद्भाव इति न सारूप्यनिर्देशोऽयम्, अपि तु कार्यकारणधर्मनिर्देशः । तथा च कार्यान्तरेष्वप्येतदस्तीति । न हि किञ्चित् कार्यं कारणसद्भावमन्तरेण संभवतीति । एतेनानेकधर्माध्यवसायादिति प्रतिषेधः परिहृतः । …… यत् पुनरेतदधिगतानधिगतयोरभावादिति, न, समानार्थापरिज्ञानादिति । न ब्रूमोऽन्यस्मिन्नधिगतेऽन्यत्र संशय इति, अपि तु सामान्यतोऽधिगते धर्मिणि विशेषानवधारणात्मकः प्रत्ययः संशय इति ।</div>
+  <div class="tr">また、「（原因と結果が）似ていないから」（確定から疑いは生じない）と言われたが、特殊を確定しないことが両者の似ているところである。共通の性質を見ることによって特殊が確定されないように、疑いによっても（特殊は確定されない）。また、「原因があることから結果がある」（というバーシュヤの言葉）は、似ていることを示すのではなく、結果と原因一般の性質を示すのである。だからこれはほかの結果にもある。どんな結果も原因の存在なしにはありえないからである。これによって、「多くの性質を確かめることから」という否定も退けられた。……また、「知られたものにも知られないものにも（疑いは）ない」と言われたが、そうではない。（我々の言う）意味を理解していないからである。我々は、あるものが知られたときに別のものについて疑いが生じる、と言うのではない。そうではなく、一般的には知られている有法について、特殊を確定しないという知、それが疑いだ、と言うのである。</div><div class="exp"><span class="lbl">解説</span><p>反論（4）「確定から不確定は生じない（原因と結果は似ているはずだ）」への答えです。共通の性質を見ることも、疑いも、「特殊を確定しない」という点では似ている、と Uddyotakara は答えます。目の前のものの高さと幅は確かに見えていても、それは杭か人かを決めない。ここでバーシュヤは「原因があるとき結果がある、ということが原因と結果の似ている点だ」と説明しますが、Uddyotakara は、それはあらゆる因果関係に当てはまる一般的な性質で、「似ている」ことの説明にはならない、と批判しています。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Uddyotakara がバーシュヤの説明を「結果と原因の性質を示すだけ」とみなしたことを指摘し、Vācaspati もバーシュヤの説明は過大適用（<i>ativyāpti</i>）になると見ている、と注します（Hi. pp.446–447）。</p></div></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">pp.177–178</span>
+  <div class="src deva" lang="sa">यत् पुनरेतत् सत्यप्यभावादिति, न, समानार्थापरिज्ञानात् । न हि कृतकत्वं समानो धर्मः, अन्यथा समानधर्मस्याभिधानात् । समानो धर्म इति यो विवक्षिततज्जातीयान्यवृत्तिः स समानः, न पुनः कृतकत्वमेवम् । यत् पुनरेतत् न समानधर्माध्यवसायादेवान्यथापि दर्शनादिति, तन्न, प्रतिषेधादनवधारणाच्च । विरुद्धाव्यभिचारिधर्माध्यवसायात् संशय इति प्रतिषिद्धमेतत् । न चैतदवधार्यते समानधर्माध्यवसायादेव नान्यस्मादिति, अन्यस्मादपि संशयोऽनेकधर्माध्यवसायादित्युक्तम् । अनवधारणेनैव तत्त्वानुपलब्धिरिति प्रत्युक्तम् ।</div>
+  <div class="tr">また、「（共通の性質を確かめることが）あっても（疑いが）ないから」と言われたが、そうではない。「共通」の意味を理解していないからである。作られたものであることは共通の性質ではない。共通の性質は別の仕方で述べられているからである。「共通の性質」とは、意図されたもの（主題）とその同類とそれ以外のもの（異類）とにある（性質）、それが共通である。作られたものであることはそうではない。また、「共通の性質を確かめることからだけ（疑いが生じるの）ではない。別の仕方でも見られるから」と言われたが、それは正しくない。否定したからであり、また限定していないからである。「相違決定の性質を確かめることから疑いが生じる」ということは（すでに）否定した。また、「共通の性質を確かめることからだけで、ほかのものからではない」と限定してはいない。ほかのものからも、すなわち多くの性質を確かめることからも疑いが生じる、と言った。限定していないことによって、「真実が知られないこと（からも疑いが生じる）」という（反論）も退けられた。</div><div class="exp"><span class="lbl">解説</span><p>疑いを生む「共通の性質」とは、主題と同類例と異類例のすべてにある性質のことで、第九プラカラナの不定の理由と同じ構造です。「作られたものであること」は音（主題）と壺（同類例）にはあるが、虚空（異類例）にはないので、共通の性質ではなく、疑いも生じない。また、疑いの原因は共通の性質だけだと限定していないので、「別の仕方でも疑いが生じる」という反論は当たらない、と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī も「共通の性質とは、主題（<i>pakṣa</i>）・同類例（<i>sapakṣa</i>）・異類例（<i>vipakṣa</i>）にある性質であり、作られたものであることは主題と同類例にしかないので、そうではない」と注します（Hi. p.448）。</p></div></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">pp.178–179</span>
+  <div class="src deva" lang="sa">विप्रतिपत्त्यव्यवस्थाध्यवसायादेवेत्यनेनैव प्रत्युक्तम् । नैवं ब्रूमो विप्रतिपत्तिमात्रादव्यवस्थामात्राद्वा संशय इति । न चाव्यवस्थातः संशयः, उपलब्ध्यनुपलब्ध्यव्यवस्थायाः पूर्वपदविशेषणत्वात् । …… यत् पुनरेतद् विप्रतिपत्तौ च संप्रतिपत्तेरिति, न, संज्ञान्यथात्वादर्थस्यानन्यथात्वात् । यस्माद् विप्रतिपत्तिशब्दार्थस्य निमित्तान्तरसन्निपातेन संप्रतिपत्तिरिति नाम कृतम्, न तावता विप्रतिपत्तिर्नास्ति । विप्रतिपत्तेस्तु तथाभावात् संशयहेतुत्वमिति । यत् पुनरेतदव्यवस्थात्मनि व्यवस्थितत्वाच्चाव्यवस्थाया नाव्यवस्थास्तीति, तदपि न, व्याघातात् । अव्यवस्था नास्ति, अव्यवस्थात्मनि च व्यवस्थितेति व्याघातः । न च निमित्तान्तरसन्निपातेनार्थस्य संज्ञान्तरकरणमर्थस्य तथाभावं बाधते । यथाभूत एवार्थः संज्ञान्तरकरणे, तथाभूत एवाकरणेऽपीति ।</div>
+  <div class="tr">「異説と不確定を確かめることから（疑いはない）」ということも、これ（と同じ答え）によって退けられた。我々は、異説だけから、あるいは不確定だけから疑いが生じる、とは言わない。また、不確定から（単独で）疑いが生じるのではない。知覚と非知覚の不確定は、前の語（異説など）を限定するからである。……また、「異説においては一致した理解だから」と言われたが、そうではない。名前が違っても、事柄は違わないからである。「異説」という語の意味するものに、別の根拠が加わることによって「一致した理解」という名がつけられても、それで異説がなくなるわけではない。異説はそのようなもの（異説）であるから、疑いの原因になるのである。また、「不確定は自らにおいて確定しているので、不確定はない」と言われたが、それも正しくない。自己矛盾だからである。「不確定はない」と言いながら「不確定は自らにおいて確定している」と言うのは矛盾である。また、別の根拠が加わることによって事柄に別の名をつけても、事柄のあり方は損なわれない。事柄は、別の名をつけてもそのとおりであり、つけなくてもそのとおりである。</div><div class="exp"><span class="lbl">解説</span><p>「異説を知ることは確かな知（一致した理解）だ」と言っても、それは同じ事柄を別の観点から名づけ直しただけで、異説があるという事実は変わりません。同じく、「不確定は不確定であることにおいて確定している」と言っても、不確定があることを認めているのだから、「不確定はない」とは言えない、と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vācaspati を引いて、同じ知が、対象の点から見れば異説（<i>vipratipatti</i>）であり、知そのものの点から見れば一致した理解（<i>sampratipatti</i>）である、と注します（Hi. p.450）。</p></div></div>
+</div>
+<div class="mula sutra" id="u12">
+  <span class="ref">pp.178–179 · NS 2.1.7</span>
+  <div class="src deva" lang="sa">यत् पुनरेतत् तथात्यन्तसंशयस्तद्धर्मसातत्योपपत्तेरिति, तदपि न, सूत्रार्थापरिज्ञानादित्युक्तम् । नायं समानधर्मादिभ्य एव संशयः, किं तु तद्विषयादध्यवसायादुपलब्ध्यनुपलब्ध्यव्यवस्थाने च सति विशेषस्मृतिसहितात् । एवं च नासंशयो नाप्यत्यन्तसंशयः । अन्यतरधर्माध्यवसायादिति चायुक्तम्, नैव तस्मात् संशय इति । न हि कदाचिदन्यतरधर्माध्यवसाये सति संशयः, अन्यतरधर्माध्यवसायस्य निर्णयहेतुत्वादिति ॥६॥<br>यत्र संशयस्तत्रैवमुत्तरोत्तरप्रसङ्गः ॥२।१।७॥<br>कोऽस्य सूत्रस्यार्थः ? स्वयं न संशयः प्रतिषेद्धव्यः । परेण तु संशये प्रतिषिद्धे एवमुत्तरं वाच्यमिति शिष्यं शिक्षयति ॥७॥<br>॥ संशयपरीक्षाप्रकरणम् ॥</div>
+  <div class="tr">また、「そうすると、その性質が持続するので、終わりのない疑いになる」と言われたが、それも正しくない。スートラの意味を理解していないからだ、と言った。この疑いは、共通の性質などからだけ（生じるの）ではない。そうではなく、それを対象とする確定から、知覚と非知覚が不確定であるとき、特殊の想起をともなって（生じるのである）。そうであれば、疑いがないことにも、終わりのない疑いにもならない。また、「どちらか一方の性質を確かめることから」（という反論）も正しくない。それ（どちらか一方の性質の確定）から疑いが生じるとは（我々は）言わないからである。どちらか一方の性質を確かめたときに疑いが生じることは決してない。どちらか一方の性質の確定は、決定の原因だからである。（第六スートラ）<br>疑いがあるところでは、このように次々と（同じ議論が）適用される。<br>このスートラの意味は何か。自分から疑いを否定すべきではない。しかし相手によって疑いが否定されたときには、このように答えるべきである、と弟子に教えるのである。（第七スートラ）<br>疑いの吟味のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>疑いは、共通の性質などの一つの原因からではなく、①共通の性質などの確定、②知覚・非知覚が決め手にならないこと、③（杭の枝や人の手足のような）特殊の想起、がそろったときに生じます。特殊が見つかれば疑いは終わるので、終わりのない疑いにはなりません。</p><p>スートラ 2.1.7 は、ほかの範疇を吟味するときにも、疑いの存在を否定されたら同じように答えよ、という教えです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、疑いの原因は一つではなく、多くの原因がそろって初めて疑いが生じる、Uddyotakara は定義のスートラ（1.1.23）に示された疑いのすべての原因をここに挙げている、と注します（Hi. p.452）。バーシュヤは第七スートラについて、「疑いを前提とする吟味は、学問書でも議論でも、どこでもこのように答えるべきである。だから、すべての吟味に及ぶので、最初に疑いが吟味された」と述べます（Hi. p.453）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>saṃśaya</dt><dd>疑い。事物の本性を確定しない知</dd>
+    <dt>uddeśa / lakṣaṇa / parīkṣā</dt><dd>列挙／定義／吟味</dd>
+    <dt>adhyavasāya</dt><dd>確かめること、確定</dd>
+    <dt>samānadharma / anekadharma</dt><dd>共通の性質／多くの（固有の）性質</dd>
+    <dt>vipratipatti / sampratipatti</dt><dd>異説（相反する見解）／一致した理解</dd>
+    <dt>vyavasthā / avyavasthā</dt><dd>確定／不確定（知覚・非知覚が決め手にならないこと）</dd>
+    <dt>viśeṣāpekṣa</dt><dd>特殊を求めること。疑いの定義の鍵となる語</dd>
+    <dt>viśeṣasmṛti</dt><dd>特殊の想起</dd>
+    <dt>sthāṇu / puruṣa</dt><dd>杭／人。疑いの定番の例</dd>
+    <dt>ārohapariṇāha</dt><dd>高さと幅。杭と人に共通の性質</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第12プラカラナ（スートラ 2.1.1–7）である。第11プラカラナ（スートラ 1.2.18–20）は<a href="nyayavarttika-11-taiyaku.html">第11プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
