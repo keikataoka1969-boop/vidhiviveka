@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 21</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-20-taiyaku.html">← プラカラナ20</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>ヴェーダは誤っているか</a></li><li><a href="#s2"><b>2</b>ヴェーダの文の三種</a></li><li><a href="#s3"><b>3</b>ヴェーダの権威の根拠</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第21プラカラナ「特定の言葉の吟味」（スートラ 2.1.58–69、Thakur 版 pp.251–260）</span>
+  <p>言葉一般が認識手段であることが示されたので、次は特定の言葉、すなわちヴェーダの権威が吟味されます。反論者は、ヴェーダには三つの欠陥があると言います。①偽り：息子を望む者のための祭式（プトレーシュティ）を行っても息子が生まれないことがある。②矛盾：火の献供（アグニホートラ）を「日の出後に」「日の出前に」と定めながら、それぞれを非難する文もある。③重複：同じ讃歌を三度唱えよと定める。</p>
+  <p>スートラは、①結果が出ないのは祭式を行う人や手順の欠陥による、②非難は選んだ時を守らない者に向けられたもの、③繰り返しは意味のある「再述」である、と答えます。そして最後に、ヴェーダの権威は、医学書（アーユルヴェーダ）の権威と同じく、それを説いた信頼できる人（<i>āpta</i>）の権威にもとづく、と結論します。Uddyotakara はさらに、ヴェーダを常住・作者なしとするミーマーンサー学派の説を退け、ヴェーダも人の言葉であり、伝承が途切れないという意味で「常住」と言われるにすぎない、と論じます。</p>
+  <p>解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>特定の言葉の吟味の章<br><small><i>śabdaviśeṣaparīkṣāprakaraṇa</i>。スートラ 2.1.58–69 の注釈。Thakur 版 pp.251–260。第2章第1日課の最後</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.1.58–69<br><small>ヴェーダへの論難（58）、答え（59–61）、文の区分（62–67）、権威の根拠（68–69）</small></dd></div>
+    <div><dt>論敵</dt><dd>ヴェーダの権威を否定する論者、ヴェーダを常住とする論者<br><small>ヒンディー訳の注は、ヴェーダ常住説をミーマーンサーのものとする</small></dd></div>
+    <div><dt>見どころ</dt><dd>ヴェーダは医学書と同じ<br><small>§3。権威の根拠は常住性ではなく、説いた人の信頼性</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.663–693 ごろ</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.252</span> は Thakur 版の頁。節見出しの <span class="pg">pp.251–255</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。長い議論は要点を抜き出した（<span class="ia">……</span>）</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.1.58–69 の注釈を、テキストの順に3節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">ヴェーダは誤っているか</a></td><td class="num">pp.251–255</td><td>スートラ 2.1.58–61。偽り・矛盾・重複の論難とその答え</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">ヴェーダの文の三種</a></td><td class="num">pp.255–257</td><td>スートラ 2.1.62–67。規定・讃辞・再述。再述と重複の違い</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">ヴェーダの権威の根拠</a></td><td class="num">pp.257–260</td><td>スートラ 2.1.68–69。信頼できる人の三条件。ヴェーダ常住説の否定</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>ヴェーダは誤っているか</h2><span class="sub"><span class="pg">pp.251–255</span>スートラ 2.1.58–61。偽り・矛盾・重複の論難とその答え</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.251–252 · NS 2.1.58</span>
+  <div class="src deva" lang="sa">तदप्रामाण्यमनृतव्याघातपुनरुक्तदोषेभ्यः ॥२।१।५८॥<br>तदित्यधिकृतशब्दाभिधानाच्छब्दविशेषाधिकारः । यस्मात् प्राप्तमपि प्रकरणेन शब्दं तच्छब्देन पुनरभिधत्ते, तेन ज्ञापयति शब्दविशेषं प्रतीयं चिन्ता, न तु शब्दमात्रं प्रति । …… अप्रामाण्यमर्थस्याप्रत्यायकत्वम् । अनृतत्वमयथार्थाभिधानम् । व्याघातः पदयोर्वाक्ययोर्वासहसंभवः । पुनरुक्तं पूर्वाभिहितार्थाभिधानम् । उदाहरणानि भाष्ये । तत्रानृतत्वे हेतुः फलादर्शनम् । अग्निहोत्रं जुहुयादिति विधिवाक्यम्, अस्य व्याघातः कालासंभवेनोदितानुदितसमयाध्युषितप्रतिषेधात् । …… प्रथमोत्तमयोः सामिधेन्योस्त्रिरभिधानं पुनरुक्तम् । …… दृष्टान्तत्वेनैतानि वाक्यान्युपन्यस्यैककर्तृकत्वेन शेषवाक्यानामप्रमाणत्वमिति ॥५८॥</div>
+  <div class="tr">（反論）「それ（ヴェーダ）は認識手段ではない。偽り・矛盾・重複の欠陥があるからである」。<br>「それ」という語は、主題となっている言葉を指すので、（ここでは）特定の言葉が主題である。文脈によって言葉が（主題として）得られているのに、「それ」という語で再び言うのは、この考察が特定の言葉についてのものであって、言葉一般についてのものではないことを示すためである。……「認識手段ではない」とは、対象を知らせないことである。「偽り」とは、ありのままでないことを言うことである。「矛盾」とは、二つの語あるいは二つの文が両立しないことである。「重複」とは、先に言われた事柄を（再び）言うことである。例はバーシュヤにある。そのうち、偽りの理由は、結果が見られないことである。「アグニホートラを献ぜよ」という規定の文がある。これには、日の出後・日の出前・（星の消えた）明け方（の献供）がそれぞれ非難されているので、（献供してよい）時がないという矛盾がある。……最初と最後のサーミデーニー（讃歌）を三度唱えよというのは重複である。……（反論者は）これらの文を例として挙げ、作者が同じなので残りの文も認識手段ではない（と論じる）。（第五十八スートラ）</div><div class="exp"><span class="lbl">解説</span><p>反論者はヴェーダの三つの欠陥を挙げます（例はバーシュヤ）。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>欠陥</th><th>例</th><th>答え</th></tr></thead>
+    <tbody>
+      <tr><td class="k">偽り</td><td>息子を望む者の祭式を行っても息子が生まれないことがある</td><td>祭式・行う人・手段の欠陥による（2.1.59）</td></tr>
+      <tr><td class="k">矛盾</td><td>献供の時を定めながら、日の出後・日の出前・明け方の献供をそれぞれ非難する</td><td>選んだ時を守らない者への非難（2.1.60）</td></tr>
+      <tr><td class="k">重複</td><td>最初と最後の讃歌を三度唱えよ</td><td>意味のある再述（2.1.61）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　ヴェーダへの三つの論難と答え。</b>スートラ 2.1.58–61 とバーシュヤによる。</figcaption>
+</figure>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、ここでの反論者の学派を特定せず、ヴェーダの権威への「論難」とだけ呼びます。「主題となっている言葉」はヴェーダのことで、学問書は至福を目指し、至福はヴェーダの権威と切り離せないからだ、と Vācaspati を引きます（TṬ p.421）。息子を望む祭式は結果が目に見えるもの、アグニホートラは結果（天界）が来世にある目に見えないものなので、目に見える結果の規定が外れるなら、目に見えない結果の規定も偽りだと推理される、という反論の構造を説明します。昼や午後は「日の出後」に含まれるので別の時ではない、とも注します（TṬ p.421; Hi. pp.663–666）。</p></div></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.252–253 · NS 2.1.59</span>
+  <div class="src deva" lang="sa">न कर्मकर्तृसाधनवैगुण्यात् ॥२।१।५९॥<br>यत् तावदनृतत्वादप्रमाणं वेदवाक्यानि फलादर्शनादिति, तदत्र संप्रधार्यम्—किं फलादर्शनं वेदवाक्यानामप्रमाणत्वात्, आहो कर्मकर्तृसाधनवैगुण्यादिति । वयं तु ब्रूमः कर्मकर्तृसाधनवैगुण्यादिति । …… न चेयमिष्टिर्मात्रा साक्षात् पुत्रकारणत्वेनाभ्युपगम्यते, अपि तु पितराविष्ट्या संप्रयुज्यमानौ पुत्रं जनयतः । तत्र न ज्ञायते किं पित्रोरसाद्गुण्यात् पुत्रजन्म न भवति, आहोस्विदिष्टेरसाद्गुण्यादिति । …… उभयथा दृष्टत्वात् सन्देह इति चेत्—न, अभ्युपेतहानेः । …… पूर्वं भवताभ्यधायि वेदोऽप्रमाणमिति, अधुना त्वभिधीयते सन्दिग्धं प्रमाणत्वमिति । एवं च ब्रुवता पूर्वो वादस्त्यक्तो भवति । …… तत्सहकारित्वाच्चोपदेशो दारुमथनवदिति । …… यथाग्निकामो दारुणी मथ्नीयादित्युपदेशः, तत्र च कर्तृकर्मणोर्वैगुण्यादग्निर्न भवतीति नोपदेशवैयर्थ्यम्, तथेहापीत्यदोषः ॥५९॥</div>
+  <div class="tr">（答え）そうではない。祭式・行う人・手段の欠陥によるからである。<br>まず、「結果が見られないので、偽りであるから、ヴェーダの文は認識手段ではない」と言われたが、ここで検討すべきである。結果が見られないのは、ヴェーダの文が認識手段でないからか、それとも祭式・行う人・手段の欠陥によるのか。我々は、祭式・行う人・手段の欠陥による、と言う。……この祭式だけが、直接に息子の原因として認められているのではない。そうではなく、祭式と結びついた父母が息子を生むのである。そこでは、父母の欠陥によって息子が生まれないのか、祭式の欠陥によるのかはわからない。……（反論）「どちらの場合も見られるので、疑いがある」と言うなら、そうではない。（自分の）認めたことを捨てることになるからである。……あなたは先に「ヴェーダは認識手段ではない」と言ったのに、今は「認識手段であることは疑わしい」と言っている。そう言えば、前の主張を捨てたことになる。……また、（祭式は）それ（父母）を助けるものなので、（それを）教えるのである。木をこすり合わせること（による火起こし）のように。……「火を望む者は二本の木をこすり合わせよ」という教えがあるが、そこで行う人や行為の欠陥によって火が起きなくても、その教えが無駄になるのではない。ここも同様である。だから誤りはない。（第五十九スートラ）</div><div class="exp"><span class="lbl">解説</span><p>息子を望む者の祭式を行っても息子が生まれないのは、ヴェーダが偽りだからではなく、祭式の手順・行う人・用いる手段（真言・聖草・薪など）のどこかに欠陥があるからかもしれない。祭式は息子の唯一の原因ではなく、父母の結合を助ける原因にすぎない。火起こしの教えも、こすり方が悪くて火がつかなくても、教えが偽りだとは誰も言わない、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、祭式の欠陥を「補助的な手順をきちんと行わないこと」（TṬ p.422）、行う人の欠陥を「学識がなく行いの悪い者」と説明し、「清められていない」手段の例を Vācaspati から引きます。「真言の無力」とは、真言を手段とする祭式の無力のことだ、と注します（TṬ p.423）。Vārttika の答えを (क) 補助原因としての教え（火起こし）、(ख) 原因がそろえば結果が見られること、(ग) 反論の理由が主題全体に及ばないこと、と区切って訳しています（Hi. pp.667–671）。</p></div></div>
+</div>
+<div class="mula sutra" id="u3">
+  <span class="ref">pp.253–254 · NS 2.1.60</span>
+  <div class="src deva" lang="sa">अभ्युपेत्य कालभेदे दोषवचनात् ॥२।१।६०॥<br>यत् पुनरेतद् व्याघातदोषादिति । …… न व्याघातः । अग्न्याधानकाल एवायं नियमपरिग्रहः, उदिते होतव्यमनुदिते होतव्यं समयाध्युषिते होतव्यमिति । सोऽयमभ्युपेत्य कालं यदातिक्रामति, तदाभ्युपेतकालातिक्रमान्निन्द्यते । निन्दावचने च न व्याघातः । …… एवं पूर्वोत्तरे च वाक्ये संगते भवतः, हवनमनूद्य कालविशेषविधानादिति ॥६०॥</div>
+  <div class="tr">（答え）（ある時を）選んだうえで、時を違えたときの欠陥を述べているからである。<br>また、「矛盾の欠陥があるから」と言われたが、……矛盾はない。聖火を設置するときに、「日の出後に献ずべし」「日の出前に献ずべし」「明け方に献ずべし」と（どれか一つの）決まりを選ぶのである。選んだ時を（後で）踏み越えるとき、選んだ時を踏み越えたことによって非難される。そして非難の言葉には矛盾はない。……このように、前の文（献供の規定）と後の文（時の非難）とは整合する。献供を再び述べて、特定の時を定めるのだからである。（第六十スートラ）</div><div class="exp"><span class="lbl">解説</span><p>アグニホートラを行う人は、聖火を設置するときに、日の出後・日の出前・明け方のどれかを自分の献供の時として選びます。ヴェーダの非難の文は、選んだ時を守らずに別の時に献供する者に向けられたもので、すべての時の献供を禁じているのではありません。だから矛盾はない、という答えです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、日の出後などの文は規定であって禁止ではなく、一つの文が両方の規定を禁じることはない、と注します。Vārttika の「その文は行うべきでない」の箇所について、Vācaspati は「その文の意味は行うべきでない」と読んでおり、Vārttika の本文はここで崩れている、と判断しています（TṬ p.424; Hi. pp.671–673）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストではスートラ番号が「2.1.57」〜「2.1.68」となっています。ヒンディー訳に従って 2.1.58–69 としました。</p></div>
+</div>
+<div class="mula sutra" id="u4">
+  <span class="ref">pp.254–255 · NS 2.1.61–62</span>
+  <div class="src deva" lang="sa">अनुवादोपपत्तेश्च ॥२।१।६१॥<br>यत् पुनरेतत् पुनरुक्तदोषादिति, न पुनरुक्तदोषः, अनुवादोपपत्तेः । पुनरुक्तं नाम तस्यैवार्थस्यानङ्गीकृतविशेषस्य यत् पुनर्वचनम् । अनुवादस्तु पुनःश्रुतिसामान्यादङ्गीकृतविशेषस्यार्थस्य वादः । …… पुत्रकामेष्ट्यादिवाक्यानि प्रमाणं, वेदैकदेशत्वात्, भूमिरावपनं महदिति वाक्यवत् । इतश्च पदादिनियमात्, द्वादश मासाः संवत्सर इति वाक्यवत् । इतश्च वक्तृविशेषाभिहितत्वाद्, अग्निर्हिमस्य भेषजमित्यादिवाक्यवत् ॥६१॥<br>वाक्यविभागस्य चार्थग्रहणात् ॥२।१।६२॥<br>समस्तानि वा वेदवाक्यानि पक्षीकृत्याभिधीयन्ते—प्रमाणं वेदवाक्यान्यर्थविभागवत्त्वाद् मन्वादिवाक्यवत् । ……॥६२॥</div>
+  <div class="tr">（答え）また、再述が成り立つからである。<br>また、「重複の欠陥があるから」と言われたが、重複の欠陥はない。再述が成り立つからである。重複とは、特別な（意図の）加わらない同じ事柄を、再び言うことである。一方、再述とは、再び聞かれる点では共通でも、特別な（意図の）加わった事柄を言うことである。……（そして我々の論証。）「息子を望む者の祭式などの文は認識手段である。ヴェーダの一部だから。「大地は大きな苗床である」という文のように」。また、語などの決まりがあるからである。「十二か月が一年である」という文のように。また、特定の話し手によって述べられたからである。「火は寒さの薬である」などの文のように。（第六十一スートラ）<br>また、文の区分によって意味が捉えられるからである。<br>あるいは、すべてのヴェーダの文を主題として（こう）言われる。「ヴェーダの文は認識手段である。意味の区分をもつから。マヌなどの文のように」。……（第六十二スートラ）</div><div class="exp"><span class="lbl">解説</span><p>重複と再述の違いは、繰り返しに意味があるかどうかです。讃歌を三度唱えるのは、ただの繰り返しではなく、特定の目的（祭式の完全さなど）のためです。Uddyotakara は続けて、ヴェーダの文が認識手段であることの論証を示します。「火は寒さの薬である」のように、ヴェーダの中には誰でも確かめられる真実の文がある。同じ作者の文なら、確かめられない文も信頼できる、という論法です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、最初と最後の讃歌を三度唱えることで、サーミデーニー讃歌が全部で十五になる、という祭式上の目的を説明します。Vārttika が続けて示す三つの論証は Uddyotakara 自身の推理だ、と注します。最初の例は所収本文では <span lang="sa" class="deva">भूमिरावपनं महत्</span>（大地は大きな苗床である）と読みます。また、『ニヤーヤ・ターットパリヤ・ディーピカー』はスートラ 2.1.62 を欠く、と注します（Hi. pp.673–676）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>ヴェーダの文の三種</h2><span class="sub"><span class="pg">pp.255–257</span>スートラ 2.1.62–67。規定・讃辞・再述。再述と重複の違い</span></div>
+<div class="mula sutra" id="u5">
+  <span class="ref">pp.255–256 · NS 2.1.63–66</span>
+  <div class="src deva" lang="sa">विध्यर्थवादानुवादवचनविनियोगात् ॥२।१।६३॥<br>…… त्रिधा खलु ब्राह्मणवाक्यानि भवन्ति, विधिवचनान्यर्थवादवचनान्यनुवादवचनानि च ॥६३॥<br>विधिर्विधायकः ॥२।१।६४॥<br>यद् वाक्यं विधायकं चोदकं स विधिः । विधिस्तु नियोगोऽनुज्ञा वा । यद्वाक्यं विधत्त इदं कुर्यादिति स नियोगः । अनुज्ञा तु यत् कुर्वाणकमनुजानाति तदनुज्ञावाक्यम् । ……॥६४॥<br>स्तुतिर्निन्दा परकृतिः पुराकल्प इत्यर्थवादः ॥२।१।६५॥<br>एषामुदाहरणानि भाष्ये ॥६५॥<br>विधिविहितस्यानुवचनमनुवादः ॥२।१।६६॥<br>विध्यनुवचनं चानुवादो विहितानुवचनं च । पूर्वः शब्दानुवादः, परोऽर्थानुवादः । यथा पुनरुक्तं द्विविधं, शब्दपुनरुक्तमर्थपुनरुक्तं च । शब्दपुनरुक्तमनित्योऽनित्य इति । अर्थपुनरुक्तमनित्यो निरोधधर्मक इति ॥६६॥</div>
+  <div class="tr">（ヴェーダの文は）規定・讃辞・再述という言葉の用い分けによって（区分される）。<br>……ブラーフマナの文は三種である。規定の文、讃辞の文、再述の文である。（第六十三スートラ）<br>規定とは、命じるものである。<br>命じる、促す文が規定である。規定は、命令か許可かである。「これをせよ」と命じる文が命令である。許可とは、（すでに）行っている人に許すもの、それが許可の文である。……（第六十四スートラ）<br>讃辞とは、称賛・非難・他人の行い・昔の話である。<br>それらの例はバーシュヤにある。（第六十五スートラ）<br>再述とは、規定によって定められたものを再び言うことである。<br>再述には、規定（の言葉）を再び言うことと、定められたもの（の内容）を再び言うこととがある。前者は語の再述、後者は意味の再述である。重複にも二種類あるように。語の重複と意味の重複である。語の重複は「無常である、無常である」。意味の重複は「無常である、滅する性質をもつ」。（第六十六スートラ）</div><div class="exp"><span class="lbl">解説</span><p>ヴェーダの祭式文献（ブラーフマナ）の文は三つに分けられます。①規定（<i>vidhi</i>）：「〜せよ」と命じる文。②讃辞（<i>arthavāda</i>）：規定を勧めるための文で、称賛・非難・他人（の行い）の例・昔の話の四種がある。③再述（<i>anuvāda</i>）：規定されたことを再び言う文。讃辞はそれ自体では何も命じないので、文字どおりに取ると偽りに見えることがありますが、規定を支える役割をもちます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「規定」を「行為を促すもの」（<i>codaka</i>）とし、規定には命令と許可の二種があり、手段であることがほかの規定から得られていないときは命令、すでに得られているときは許可だ、と Vācaspati を引いて説明します（TṬ pp.427–428）。讃辞のうち称賛は信頼を生み行為を促すため、非難は避けさせるためだ、とし、「他人の行い」を「他の人が行った異なる規定を述べること」、「昔の話」を「伝承を伴う規定」と訳しています（TṬ p.428; Hi. pp.676–680）。</p></div></div>
+</div>
+<div class="mula sutra" id="u6">
+  <span class="ref">pp.256–257 · NS 2.1.67–68</span>
+  <div class="src deva" lang="sa">नानुवादपुनरुक्तयोर्विशेषः शब्दाभ्यासोपपत्तेः ॥२।१।६७॥<br>…… प्रतीतार्थशब्दाभ्यासोऽनुवादपुनरुक्तयोः सामान्यम् । …… अतः प्रतीतार्थशब्दाभ्यासादुभयमसाध्विति ॥६७॥<br>शीघ्रतरगमनोपदेशवदभ्यासान्नाविशेषः ॥२।१।६८॥<br>यथा शीघ्रं गम्यतां शीघ्रतरं गम्यतामिति च तरपा क्रियातिशयोऽभिधीयते, तथानुवादलक्षणेनाभ्यासेन क्रियातिशयोऽभिधीयत इति । …… आद्ये पचेति शब्दप्रयोगे पाको निवर्तनीय इति पक्तुः प्रत्ययो भवति । द्वितीयात् तु पचेति शब्दादवधारणप्रत्ययो भवति, मयैव पक्तव्यमिति । सातत्यप्रत्ययो वा भवति, सततं मया पक्तव्यमिति । अध्येषणप्रत्ययो वा भवति, मामेवायमधिकुरुत इति । आशुप्रत्ययो वा भवति, आशु मया पक्तव्यमिति । …… पुनरुक्ते तु न कश्चिद् विशेषो गम्यत इत्यस्ति महान् विशेषः पुनरुक्तानुवादयोः ॥६८॥</div>
+  <div class="tr">（反論）再述と重複とには違いがない。語の繰り返しが成り立つからである。<br>……すでに意味の知られた語を繰り返すことが、再述と重複に共通である。……だから、すでに意味の知られた語を繰り返すので、どちらもよくない。（第六十七スートラ）<br>（答え）「もっと速く行け」という教えのように、繰り返しによって違いがないのではない。<br>「速く行け」「もっと速く行け」と（言うとき）、比較級の接尾辞によって行為の程度の大きさが言われるように、再述という形の繰り返しによって行為の程度の大きさが言われるのである。……最初の「料理せよ」という語が用いられると、料理する人には「料理を仕上げるべきだ」という知が生じる。二度目の「料理せよ」という語からは、「私こそが料理すべきだ」という限定の知が生じる。あるいは「ずっと料理すべきだ」という継続の知が生じる。あるいは「この人は私にこそ任せている」という依頼の知が生じる。あるいは「早く料理すべきだ」という速さの知が生じる。……しかし重複では、何の違いも知られない。だから、重複と再述とのあいだには大きな違いがある。（第六十八スートラ）</div><div class="exp"><span class="lbl">解説</span><p>「料理して、料理して」と二度言われたとき、二度目の言葉は無駄ではありません。「ほかの人ではなくあなたが」「休まずに」「あなたに頼んでいる」「急いで」などのニュアンスを加えます。日本語の「早く早く」にも通じる観察です。重複はそうした新しい意味を何も加えない繰り返しなので、欠陥です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、スートラ 2.1.67 を「再述の目的を理解せずに立てられた反論」とします。繰り返しには特別な意味を伝える例が多い、として「村ごとに美しい」（すべての村が、という網羅の意味）などを挙げ、話し手と聞き手とが同じ知をもつので、聞き手の知は誤りではない、と注します（Hi. pp.680–683）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>ヴェーダの権威の根拠</h2><span class="sub"><span class="pg">pp.257–260</span>スートラ 2.1.68–69。信頼できる人の三条件。ヴェーダ常住説の否定</span></div>
+<div class="mula sutra" id="u7">
+  <span class="ref">pp.257–258 · NS 2.1.69</span>
+  <div class="src deva" lang="sa">मन्त्रायुर्वेदप्रामाण्यवच्च तत्प्रामाण्यमाप्तप्रामाण्यात् ॥२।१।६९॥<br>किं पुनः प्रतिषेधहेतूद्धारादेव प्रमाणता वेदवाक्यानां सिद्धा ? न । किं कारणम् ? न साधनमन्तरेण सिद्धिरस्तीति । …… यथा मन्त्रायुर्वेदवाक्यानि पुरुषविशेषाभिहितत्वात् प्रमाणम्, तथा वेदवाक्यानीति पुरुषविशेषाभिहितत्वं हेतुः । किमायुर्वेदस्य प्रामाण्यम् ? यत् तदायुर्वेदेनोपदिश्यत इदं कृत्वेष्टमधिगच्छतीदं कृत्वानिष्टं जहातीति, तस्यानुष्ठीयमानस्य तथाभावोऽविपर्ययः, एतत् प्रामाण्यम् । किं कृतमेतत् ? आप्तप्रामाण्यकृतम् । किं पुनराप्तानां प्रामाण्यम् ? साक्षात्कृतधर्मता—यं ते पदार्थमुपदिशन्ति स तैः साक्षात्कृतो भवतीति । भूतदया च—यस्मै चोपदिशन्ति तं प्रत्येषामनुकम्पा भवति । यथापरिज्ञातार्थचिख्यापयिषा चास्य भवति । एतेन त्रिविधेन विशेषणेन विशिष्टो वक्ताप्तः । तेन य उपदेशः क्रियते स प्रमाणमिति । …… लौकिकमपि वाक्यमनेनैव त्रिप्रकारेण विशेषणेन विशिष्टस्य वक्तुः प्रमाणं भवति ।</div>
+  <div class="tr">そして、真言や医学書が認識手段であるように、それ（ヴェーダ）も認識手段である。信頼できる人が認識手段だからである。<br>では、否定の理由を取り除いただけで、ヴェーダの文が認識手段であることが成立するのか。そうではない。なぜか。論証なしに成立することはないからである。……真言や医学書の文が、特定の人によって述べられたので認識手段であるように、ヴェーダの文もそうである。特定の人によって述べられたことが理由である。医学書の、認識手段であることとは何か。医学書によって「これをすれば望むものを得る、これをすれば望まないものを避ける」と教えられること、それを実行するとそのとおりになり、逆にならないこと、これが認識手段であることである。それは何によるのか。信頼できる人が認識手段であることによる。では、信頼できる人が認識手段であるとはどういうことか。①事柄を直接に見ていること。彼らが教える事柄は、彼らによって直接に見られている。②生きものへの慈しみ。彼らが教える相手に対して、彼らは憐れみをもつ。③（そして）知ったとおりの事柄を知らせようとする意欲がその人にある。この三つの特徴をもつ話し手が、信頼できる人である。その人のする教えが認識手段である。……世間の文も、この三つの特徴をもつ話し手のものであれば、認識手段となる。</div><div class="exp"><span class="lbl">解説</span><p>否定論をすべて退けても、それだけでヴェーダの権威が証明されるわけではない、と Uddyotakara はまず断ります。積極的な論証は、医学書との類比です。医学書の教えを実行すれば、そのとおりの効果がある。その信頼性は、医学書を説いた人の信頼性にもとづく。信頼できる人の条件は三つ。①事柄を自分で直接見て知っていること、②聞き手への慈しみ、③知ったとおりに伝えようとする意欲です。ヴェーダも、この条件を備えた人によって説かれたので認識手段である。ヴェーダの権威を作者のない永遠性に求めるミーマーンサー学派とは対照的な考え方です（訳者の補足）。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、否定の理由を取り除いただけでは権威は証明されないので、主な理由は信頼できる人の権威だ、と注します。「意味の区分をもつこと」は権威の可能性を示すだけで、ブッダなどの作った聖典にも当てはまるので決定的な理由ではない、と Vācaspati を引きます（TṬ pp.430–431）。Vācaspati は信頼できる人の条件に「感官の確かさ」を加えて四つとし、「特定の人」を「ヴェーダを作った尊い方」、すなわち神（<i>Īśvara</i>）と解している、と注します（TṬ pp.431–432）。ここでの「真言」は、バーシュヤに従えば毒や悪霊を防ぐ呪文のことだが、その意味は検討を要する、とも述べます（Hi. pp.683–688）。</p></div></div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">pp.258–260</span>
+  <div class="src deva" lang="sa">पौरुषेयत्वमसिद्धं नित्यत्वादिति चेत् ? अथ मन्यसे नित्यानि वेदवाक्यानि, नित्यत्वाच्चैषां प्रामाण्यम्, तस्मात् पौरुषेयत्वमसिद्धम् । न, असिद्धत्वात् । …… यदि न नित्यानि कथं प्रमाणम् ? प्रतिपादकत्वात् प्रमाणं न नित्यत्वात् । …… तस्माद् युक्तमर्थविभागवत्त्वादनित्यत्वं लौकिकवाक्यवदिति । …… दर्शनस्य परार्थत्वादिति चेत् ? …… न हि नारिकेलद्वीपवासिनोऽप्रसिद्धगोशब्दस्य गोशब्दश्रवणात् ककुदादिमदर्थप्रतिपत्तिर्भवति । …… वाच्यवाचकभावलक्षणस्तु पौरुषेयः सम्बन्धः, स च कृतक इति, स च संसारानादित्वाल्लोकतोऽवगम्यते । …… अथ योऽयमभिलापो नित्या वेदा इति, स कथम् ? सम्प्रदायाविच्छेदात् । तान्येव वेदवाक्यानि मन्वन्तरचतुर्युगान्तरेषु सम्प्रदायाभ्यासाविच्छेदेन प्रवर्तन्ते । तदपेक्षया लौकिकाः शब्दान् प्रयुञ्जते नित्या वेदा इति, यथा नित्याः सरितो नित्याः पर्वता इति । एतच्च मन्वादिवाक्येषु समानम् । …… अनित्यत्वे सति सम्प्रदायाभ्यासाविच्छेदान्नित्यत्वोपचार इति ॥६९॥<br>॥ शब्दविशेषपरीक्षाप्रकरणम् ॥<br>॥ इत्यौद्योतकरे न्यायवार्त्तिके द्वितीयाध्यायस्य प्रथमाह्निकम् ॥</div>
+  <div class="tr">（反論）「（ヴェーダが）人によって作られたことは成立していない。常住だからである」と言うなら。（すなわち）あなたがこう考えるなら。「ヴェーダの文は常住であり、常住であることによって認識手段である。だから人によって作られたことは成立しない」。そうではない。（常住性が）成立していないからである。……（反論）「もし常住でないなら、どうして認識手段なのか」。知らせるので認識手段なのであって、常住だからではない。……だから、意味の区分をもつので、世間の文と同じく（ヴェーダの文は）無常である、というのが正しい。……（反論）「（語を）見ること（発すること）は他人のためだから」（語は常住でなければならない）と言うなら。……ココナツの島に住む人で、「牛」という語を知らない人は、「牛」という語を聞いても、こぶなどをもつ（牛という）意味を知らない。……表すものと表されるものとの関係は、人によって作られたものであり、それは作られたものである。そしてそれは、輪廻に始まりがないので、世間から知られる。……では、「ヴェーダは常住である」というこの言い方はどうしてあるのか。伝承が途切れないからである。同じヴェーダの文が、マヌの時代や四つのユガが移り変わる中で、伝承と学習が途切れることなく続いている。それをもとに、世間の人々は「ヴェーダは常住だ」と言う。「川は常住だ」「山は常住だ」と言うように。そしてこれは、マヌなどの文にも同じである。……（ヴェーダは）無常でありながら、伝承と学習が途切れないので、常住と比喩的に言われるのである。（第六十九スートラ）<br>特定の言葉の吟味のプラカラナ（終わり）。<br>Uddyotakara のニヤーヤ・ヴァールッティカの第2章第1日課（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>ミーマーンサー学派は、ヴェーダは作者をもたず常住であり、それゆえ誤りがない、と説きます。Uddyotakara はこれを退けます。言葉は「常住だから」ではなく「知らせるから」認識手段なのであり、ヴェーダの文も、世間の文と同じく、意味の区分をもち、音素からなり、耳で聞かれるので無常です。語と意味の関係も人の取り決めであり、それは輪廻に始まりがないので、太古から世間で伝えられてきた。「ヴェーダは常住だ」という言い方は、川や山が「いつもある」と言われるのと同じく、伝承が途切れずに続いていることを比喩的に言ったものにすぎない、というのが結論です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、ミーマーンサーはヴェーダを常住で作者がないゆえに認識手段とし、ニヤーヤは信頼できる人が説いたゆえに認識手段とする、と対比します。「（語を）見ることは他人のためだから」はミーマーンサー・スートラ 1.1.18 だと注します。「常住の認識手段はない」と言う「ある人々」は「はっきりしないが、おそらく仏教の説」とし、Dharmakīrti の「認識手段とは欺かない知である」（『プラマーナ・ヴァールッティカ』）を引いています（TṬ p.434）。最後の「マヌなどの文にも同じ」について、マヌの言葉も常住なのかは「検討を要する」と疑問を残しています（Hi. pp.688–693）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この部分の後半（ヴェーダの常住性をめぐる論証）は長いので、要点を抜き出しました。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>anṛta / vyāghāta / punarukta</dt><dd>偽り／矛盾／重複</dd>
+    <dt>putreṣṭi</dt><dd>息子を望む者の祭式</dd>
+    <dt>agnihotra</dt><dd>アグニホートラ。朝夕の火の献供</dd>
+    <dt>sāmidhenī</dt><dd>サーミデーニー。聖火に薪をくべるときの讃歌</dd>
+    <dt>vidhi / arthavāda / anuvāda</dt><dd>規定／讃辞／再述</dd>
+    <dt>stuti / nindā / parakṛti / purākalpa</dt><dd>称賛／非難／他人の行い／昔の話（讃辞の四種）</dd>
+    <dt>āpta</dt><dd>信頼できる人。直接知・慈しみ・伝える意欲をもつ</dd>
+    <dt>sākṣātkṛtadharmatā</dt><dd>事柄を直接に見ていること</dd>
+    <dt>sampradāyāvicchheda</dt><dd>伝承が途切れないこと</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。長い議論の原文は要点を抜き出した（「……」）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った（Thakur 版の番号より一つ大きい）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第21プラカラナ（スートラ 2.1.58–69）で、これで第2章第1日課が終わる。第20プラカラナ（スートラ 2.1.50–57）は<a href="nyayavarttika-20-taiyaku.html">第20プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
