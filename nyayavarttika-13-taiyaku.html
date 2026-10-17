@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 13</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-12-taiyaku.html">← プラカラナ12</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>三時不成立の論難</a></li><li><a href="#s2"><b>2</b>否定そのものの矛盾</a></li><li><a href="#s3"><b>3</b>三時の区別と天秤</a></li><li><a href="#s4"><b>4</b>認識手段は何で知られるか</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第13プラカラナ「認識手段の一般的吟味」（スートラ 2.1.8–20、Thakur 版 pp.179–194）</span>
+  <p>疑いの吟味に続いて、いよいよ認識手段そのものが吟味されます。最初の問いは、そもそも認識手段は存在するのか、です。反論者は言います。認識手段が対象より前にあっても、後にあっても、同時にあっても、認識は成り立たない。だから三つの時のどれでも認識手段は成り立たない、と。</p>
+  <p>この「三時不成立」の議論は、仏教の Nāgārjuna の『廻諍論』（<i>Vigrahavyāvartanī</i>）に見られる議論とよく似ています（訳者の補足）。ニヤーヤ・スートラは、その否定自体も三時のどれでも成り立たないはずだ、と切り返します。Uddyotakara はさらに、「認識手段はない」と主張することが、認識手段を前提にしていることを繰り返し示します。</p>
+  <p>後半では、「認識手段」と「認識対象」という名は、同じものが状況によってどちらにもなる（天秤は重さを量る手段でもあり、量られる対象でもある）こと、そして認識手段も認識手段によって知られるが、無限遡及にはならないことが論じられます。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>認識手段の一般的吟味の章<br><small><i>sāmānyena pramāṇaparīkṣāprakaraṇa</i>。スートラ 2.1.8–20 の注釈。Thakur 版 pp.179–194</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.1.8–20<br><small>三時不成立（8–11）、その否定（12–14）、三時の区別（15）、天秤（16）、認識手段の認識（17–20）</small></dd></div>
+    <div><dt>論敵</dt><dd>認識手段を否定する論者<br><small>ヒンディー訳の注（Vācaspati に拠る）は中観派とする。§3 では仏教の刹那滅論者</small></dd></div>
+    <div><dt>見どころ</dt><dd>自分の指を燃やす男<br><small>§2。「認識手段はない」と言う者は、その言葉自体の力を失う</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.454–502 ごろ</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.180</span> は Thakur 版の頁。節見出しの <span class="pg">pp.179–182</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。長い議論は要点を抜き出した（<span class="ia">……</span>）</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.1.8–20 の注釈を、テキストの順に4節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">三時不成立の論難</a></td><td class="num">pp.179–182</td><td>認識手段は前・後・同時のどれでも成り立たない、という反論と、その主張の自己矛盾</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">否定そのものの矛盾</a></td><td class="num">pp.182–185</td><td>否定も三時のどれでも成り立たない。自分の言葉が認識手段を前提にしている</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">三時の区別と天秤</a></td><td class="num">pp.185–191</td><td>前・後・同時の実例。天秤の喩え。行為の要素を表す語。刹那滅論への反論</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">認識手段は何で知られるか</a></td><td class="num">pp.191–194</td><td>灯火の喩え。自分で自分を知ること。無限遡及の否定</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>三時不成立の論難</h2><span class="sub"><span class="pg">pp.179–182</span>認識手段は前・後・同時のどれでも成り立たない、という反論と、その主張の自己矛盾</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.179 · NS 2.1.8</span>
+  <div class="src deva" lang="sa">प्रत्यक्षादीनामप्रामाण्यं त्रैकाल्यासिद्धेः ॥२।१।८॥<br>अथेदानीमवसरप्राप्तानि प्रमाणानि परीक्ष्यन्त इति । किं पुनरेषां परीक्ष्यम् ? आदौ तावत् संभवः—किं प्रमाणानि सन्त्युत न सन्तीति, सदसतोः सामान्यात् प्रमेयत्वाद् विशेषादर्शनाच्च संशयः । व्युदस्य संशयं परः पक्षपरिग्रहेण प्रत्यवतिष्ठते—प्रत्यक्षादीनामप्रामाण्यं त्रैकाल्यासिद्धेरिति । अस्यार्थः—त्रिष्वपि कालेषु प्रमाणानि नार्थं साधयन्तीति ॥८॥</div>
+  <div class="tr">知覚などは認識手段ではない。三つの時のどれでも成り立たないからである。<br>さて今、順番が来た認識手段が吟味される。では、それらの何が吟味されるべきか。まず最初に、（それらが）ありうるかである。「認識手段はあるのか、ないのか」と。あるものにもないものにも共通する「認識対象であること」から、また（どちらかを決める）特殊が見られないことから、疑いが生じる。疑いを退けて、相手は（一方の）主張を引き受けて反論する。「知覚などは認識手段ではない。三つの時のどれでも成り立たないからである」と。その意味は、三つの時のどれにおいても認識手段は対象を成立させない、ということである。（第八スートラ）</div><div class="exp"><span class="lbl">解説</span><p>前のプラカラナで見たとおり、吟味は疑いから始まります。認識手段については、まず「あるのかないのか」が疑われます。あるものもないものも、どちらも「認識対象」になりうるので、それだけではどちらとも決まらないからです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vācaspati に従って、この反論者を中観派（<i>Mādhyamika</i>）とします。中観派は、認識手段を含む世界のすべてを「考察に耐えないもの」（<i>vicārāsaha</i>）とみなし、認識手段は世間の言語慣習によってだけ成り立ち、考察すればその存在は証明されない、と考える、と注します。なお、「相手は」（<i>paraḥ</i>）の語には疑問符を付けて訳しています。「共通する」性質は、あるものにもないものにもある「認識対象であること」だと補います（Hi. pp.454–455）。</p></div></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.179–180 · NS 2.1.9–11</span>
+  <div class="src deva" lang="sa">पूर्वं हि प्रमाणसिद्धौ नेन्द्रियार्थसन्निकर्षात् प्रत्यक्षोत्पत्तिः ॥२।१।९॥<br>नेन्द्रियार्थसन्निकर्षेण ज्ञानमुत्पद्यत इति सूत्रार्थे व्याघातो दोषः, यदि पूर्वं ज्ञानं नेन्द्रियार्थसन्निकर्षस्तस्य कारणमिति । यदुक्तमिन्द्रियार्थसन्निकर्षोत्पन्नं ज्ञानमिति, तद् व्याहन्यते ॥९॥<br>पश्चात्सिद्धौ न प्रमाणेभ्यः प्रमेयसिद्धिः ॥२।१।१०॥<br>न प्रमाणनिमित्ता प्रमेयसंज्ञेति व्याहतम् । प्रमाणान्तरेण प्रमेयमात्मानं लभत इति न प्रमाणायत्ता प्रमेयसिद्धिः ॥१०॥<br>युगपत्सिद्धौ प्रत्यर्थनियतत्वात् क्रमवृत्तित्वाभावो बुद्धीनाम् ॥२।१।११॥<br>इन्द्रियार्थानां बुद्धीनां च सन्निपाते सति युगपद्भावे सति क्रमवृत्तित्वं दृष्टं न स्यादिति व्याघातो दोषः । अयुगपज्ज्ञानोत्पत्तिरिति चोक्तम्, तद् व्याहन्यत इति ।</div>
+  <div class="tr">（反論）「もし認識手段が先に成立するなら、感官と対象の接触から知覚が生じることはない」。<br>（このスートラの意味は）感官と対象の接触によって知が生じることはない、ということである。もし知が先にあるなら、感官と対象の接触はその原因ではない。（そうすると）「感官と対象の接触から生じた知」（NS 1.1.4）と言われたことと矛盾する、という誤りになる。（第九スートラ）<br>「もし後で成立するなら、認識手段から認識対象が成立することはない」。<br>（そうすると）「認識対象」という名は認識手段を根拠とするものではなくなり、矛盾する。認識対象は（認識手段とは）別のものによって自らを得ることになり、認識対象の成立は認識手段に依存しないことになる。（第十スートラ）<br>「もし同時に成立するなら、（知は）それぞれの対象に限定されているので、知が順に生じることはなくなる」。<br>感官と対象と知とが集まって同時にあるなら、（知が）順に生じるのが見られることはなくなってしまう、という矛盾の誤りになる。また「知は同時には生じない」（NS 1.1.16）と言われた、それと矛盾する。</div><div class="exp"><span class="lbl">解説</span><p>反論者の三つのジレンマです。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>認識手段が</th><th>反論</th><th>矛盾するニヤーヤの説</th></tr></thead>
+    <tbody>
+      <tr><td class="k">対象より前</td><td>まだ対象と接触していないのに知がある</td><td>知覚は感官と対象の接触から生じる（1.1.4）</td></tr>
+      <tr><td class="k">対象より後</td><td>対象は認識手段なしにすでに成立している</td><td>認識対象は認識手段によって知られるもの</td></tr>
+      <tr><td class="k">対象と同時</td><td>すべての対象の知が一度に生じてしまう</td><td>知は同時には生じない（1.1.16）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　三時不成立の論難。</b>スートラ 2.1.9–11 と Vārttika による。</figcaption>
+</figure>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、第九スートラを「認識手段が先なら、知覚の定義（感官と対象の接触から生じる）と矛盾する」、第十スートラを「認識対象であることは認識手段に依存するので、認識手段と結びつく前に認識対象ではありえない」と説明し、第十一スートラには、見られる事実との矛盾と、スートラとの矛盾の両方がある、と注します（Hi. pp.455–457）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストではスートラ番号が「1.1.10」「1.1.11」などと乱れ、スートラ 2.1.8 の <span lang="sa" class="deva">त्रैकाल्यासिद्धेः</span> も <span lang="sa" class="deva">त्रैकाल्यसिद्धेः</span> となっています。ヒンディー訳に従って直しました。</p></div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">pp.180–181</span>
+  <div class="src deva" lang="sa">अत्र समाधिः । उपलब्धिहेतोरुपलब्धिविषयस्य चार्थस्य पूर्वापरसहभावानियमादिति वाक्यस्यासिद्धतोद्भावनमर्थः । प्रत्यक्षादीनामप्रामाण्यमिति च प्रतिज्ञापदयोर्व्याघातः । प्रत्यक्षादीनि नार्थं साधयन्तीत्ययमर्थः । अयं च व्याहतः । कथमिति ? प्रत्यक्षादीनि च नार्थं साधयन्तीति च, यथेदं वस्तु नोपलभ्यत इति—इदं च नोपलभ्यते चेति व्याघातः । …… न ह्येते प्रत्यक्षादिशब्दा अर्थसाधकभावमन्तरेण कृतार्था भवन्तीति । धर्मप्रतिषेधाच्च प्रत्यक्षाद्यभ्युपगमः । प्रत्यक्षादीनामप्रामाण्यमित्येवं ब्रुवता न प्रत्यक्षादीनि प्रतिषिद्धानि, अपि तु प्रमाणत्वं धर्म इति । …… प्रत्यक्षादीनामभावः प्रतिपाद्यः । प्रत्यक्षादीनि च न सन्तीति केनाभावं प्रतिपादयसि ? न हि प्रत्यक्षाद्यभावेऽन्यः प्रतिपादनोपायः कश्चिदस्तीति ।</div>
+  <div class="tr">ここで（Uddyotakara の）答え。（この論難の）意味は、（バーシュヤの）「知覚の原因と、知覚の対象である事柄とには、前・後・同時の決まりがないので」という文が成り立たないことを示すことである。（まず）「知覚などは認識手段ではない」という主張の二つの語が矛盾する。「知覚などは対象を成立させない」というのがその意味である。そしてこれは矛盾している。どのようにか。「知覚など」と「対象を成立させない」とは（矛盾する）。「このものは知覚されない」と言うのと同じである。「このもの」（と指すこと）と「知覚されない」とは矛盾する。……「知覚」などの語は、対象を成立させるという性質なしには意味をなさないからである。また、性質を否定するので、知覚などを認めていることになる。「知覚などは認識手段ではない」と言う者は、知覚などを否定しているのではなく、認識手段であるという性質を（否定しているのである）。……（もし知覚などそのものを否定するなら）知覚などの非存在を（相手に）知らせなければならない。知覚などがないと言うなら、何によって非存在を知らせるのか。知覚などがなければ、知らせる手段はほかにないからである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の最初の反撃は、主張そのものの自己矛盾です。「知覚」（<i>pratyakṣa</i>）という語は、もともと対象を知らせるものを意味します。「知覚は対象を知らせない」というのは、「この（目の前の）ものは見えない」と言うのと同じく、言葉の中で矛盾しています。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī の注は、「この矛盾」を、反論者が知覚などが認識手段でないことを推理によって論証しようとしている（推理も「知覚など」の一つなのに）、という点に見ています。Vārttika の文面は、「知覚」などの語が対象を成立させる性質なしには意味をなさない、という点に矛盾を見ているので、注の説明は少しずれています。ただし訳文は Vārttika の文面どおりです。「認識手段であること」（<i>prāmāṇya</i>）の否定については、「王の家来ではない」と言っても王を否定しないように、性質を否定しても認識手段そのものは残る、と注します（Hi. pp.458–461）。</p></div></div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">pp.181–182</span>
+  <div class="src deva" lang="sa">विशेषप्रतिषेधाच्च प्रमाणान्तराभ्यनुज्ञा । प्रत्यक्षादीनामप्रामाण्यमित्येवं ब्रुवता प्रत्यक्षादिव्यतिरेकि प्रमाणमभ्यनुज्ञातं भवति, व्यर्थं वा विशेषणम् । …… यश्चायं हेतुस्त्रैकाल्यासिद्धिरिति, अयमपि व्यधिकरणस्त्रिकालविषयत्वादिति । त्रिकालस्य भावस्त्रैकाल्यम्, तस्यासिद्धिरिति न प्रमाणधर्मः । अथायमर्थस्त्रिष्वपि कालेषु प्रमाणानि नार्थं साधयन्तीति, तथापि हेत्वर्थो नास्ति, प्रतिज्ञार्थेनाक्षिप्तत्वात् । …… अनभ्यनुज्ञाने च व्यवहारानुपपत्तिरिति विरोधो दोषः । यश्च त्रैकालिकं प्रमाणप्रमेयव्यवहारं न प्रतिपद्यते तस्य पाचकमानयेत्येवमादिलोकव्यवहारो विरुध्यते । …… अथानेन प्रत्यक्षादीनां किं क्रियते ? किं संभवो निवर्त्यते, अथासंभवो ज्ञाप्यत इति ? …… संभवो निवर्त्यत इत्येवं ब्रुवाणेन प्रमाणान्यभ्युपगतानि भवन्ति, न ह्यसतो निवृत्तिः । …… अथासंभवो ज्ञाप्यत इति चेत् ? प्रमाणलक्षणप्राप्तस्तर्हि प्रतिषेधः ॥११॥</div>
+  <div class="tr">また、特定のもの（知覚など）を否定するので、別の認識手段を認めることになる。「知覚などは認識手段ではない」と言う者は、知覚など以外の認識手段を認めていることになる。さもなければ、（「知覚など」という）限定語が無駄になる。……また、「三つの時のどれでも成り立たないから」というこの理由も、基体を異にする。三つの時を対象とするからである。「三時性」（<i>traikālya</i>）とは三つの時のあり方であり、その不成立は認識手段の性質ではない。もし「三つの時のどれにおいても認識手段は対象を成立させない」という意味なら、それでも理由の意味がない。主張の意味によって含まれているからである。……また、（三時の区別を）認めないなら、日常の言語活動が成り立たないという矛盾の誤りがある。三つの時にわたる認識手段と認識対象の言語活動を認めない者には、「料理人（<i>pācaka</i>）を連れて来い」などという世間の言語活動が矛盾する。……では、これ（否定）によって知覚などに何がなされるのか。（すでにある）存在が取り除かれるのか、それとも非存在が知らされるのか。……「存在が取り除かれる」と言う者は、認識手段を認めていることになる。ないものを取り除くことはないからである。……「非存在が知らされる」と言うなら、その否定は認識手段の定義にあてはまる（すなわち認識手段である）ことになる。（第十一スートラ）</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、論難の主張・理由のあらゆる面を突きます。とくに最後の論点は鋭いものです。「認識手段はない」という否定の言葉は、何をするのか。すでにある認識手段を消し去るのなら、まず認識手段があることを認めている。認識手段がないことを相手に知らせるのなら、その言葉自体が「知らせる手段」、すなわち認識手段になってしまう。</p><p>「料理人」の例は、§3 でふたたび取り上げられます。料理人は、いま料理していなくても「料理人」と呼ばれる。同じように、認識手段も、いま知らせていなくても「認識手段」と呼ばれうる、ということです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、否定が「存在を取り除く」なら否定は「作り出す原因」（<i>kāraka-hetu</i>）、「非存在を知らせる」なら「知らせる原因」（<i>jñāpaka-hetu</i>）だ、と Vācaspati を引いて整理します（TṬ p.361）。「料理人」の例については、名の根拠が三つの時のどれにでもあるのでなければ、これから料理する人を「料理人」と呼べなくなる、と説明します（Hi. pp.461–464）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>否定そのものの矛盾</h2><span class="sub"><span class="pg">pp.182–185</span>否定も三時のどれでも成り立たない。自分の言葉が認識手段を前提にしている</span></div>
+<div class="mula sutra" id="u5">
+  <span class="ref">pp.182–183 · NS 2.1.12</span>
+  <div class="src deva" lang="sa">त्रैकाल्यासिद्धेः प्रतिषेधानुपपत्तिः ॥२।१।१२॥<br>अयमपि प्रतिषेधस्त्रिष्वपि कालेषु नोपपन्न इत्ययं सूत्रार्थः । त्रैकाल्यासिद्धेः प्रतिषेधानुपपत्तिरित्येवमभिधानेनाभ्युपगतं भवति प्रत्यक्षादीनामप्रामाण्यं त्रैकाल्यासिद्धेरिति ? नैष दोषः, तस्य स्ववचनव्याघातचोदनात् । स्ववचनव्याघातो मया चोद्यते, नाभ्युपगम्यते । कथमिति ? यत् खलु त्रिष्वपि कालेष्वसाधकं तदसाधनमिति ब्रुवता प्रतिषेधस्यासाधकत्वं स्वाचैवाभ्युपगतं भवति । यथा नाम कश्चित् स्वाङ्गुलिज्वालया परं दिधक्षुः, स च परं दहेन्मा वा, स्वाङ्गुलिदाहं तावदनुभवतीति ।</div>
+  <div class="tr">（答え）三つの時のどれでも成り立たないので、否定は成り立たない。<br>この否定も、三つの時のどれにおいても成り立たない、というのがスートラの意味である。（反論）「『三つの時のどれでも成り立たないので、否定は成り立たない』と言うことで、『知覚などは認識手段ではない。三つの時のどれでも成り立たないから』（という論理）を認めたことになるのではないか」。この誤りはない。それ（このスートラ）は、（相手の）自分の言葉との矛盾を指摘するものだからである。私は（相手の）自分の言葉との矛盾を指摘しているのであって、（その論理を）認めているのではない。どのようにか。「三つの時のどれにおいても成立させないものは、成立させる手段ではない」と言う者は、否定（の言葉）が（何も）成立させないことを自ら認めていることになる。ちょうど、ある人が自分の指の炎で相手を焼こうとして、相手を焼くか焼かないかはともかく、まず自分の指が焼けるのを味わうようなものである。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 2.1.12 は、相手の論理をそのまま相手に返します。否定の言葉も、否定される対象より前・後・同時のどれかにあるはずで、相手の論理に従えば、どれでも成り立たない。Uddyotakara はこれを「自分の指の炎で相手を焼こうとする男」に喩えます。相手を焼けるかどうかより先に、まず自分の指が焼ける、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vācaspati を引いて、このスートラは相手の自己矛盾を指摘するもので、論者自身の説ではない、と注します（TṬ p.361）。また、否定は「知らせる」ことしかできず、認識手段を取り除くことはできない、と補います（Hi. pp.464–465）。</p></div></div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">pp.183–184</span>
+  <div class="src deva" lang="sa">यश्चायं प्रतिषेधः प्रत्यक्षादीनि नार्थं साधयन्तीति, किमयं प्रत्यक्षादीनां सामर्थ्यप्रतिषेधः, उत सत्ताप्रतिषेधः ? …… प्रत्यक्षादीनि न सन्तीति च नास्तिना समानाधिकरणः प्रत्यक्षादिशब्दो न प्रत्यक्षादीनामभावं शक्नोति प्रतिपादयितुम् । न ह्ययं नास्तिना घटशब्दः समानाधिकरणो घटाभावं प्रतिपादयति, अपि तु गेहघटसंयोगं वा सामर्थ्यं वा कालविशेषं वा घटस्य प्रतिषेधति । एवमनेनापि प्रमाणसमानाधिकरणेन नास्तिना प्रमाणानां नाभावः शक्यः प्रतिपादयितुम् । …… प्रमाणानि न सन्तीति प्रतिजानानः पर्यनुयोज्यः, कथं न सन्तीति ? यदि प्रमाणं ब्रवीति, व्याघातः । अथ न ब्रवीति, अर्थोऽस्य न सिध्यति । तदेवमेतद् वाक्यं यावद् यावद् विचार्यते, तावत् तावत् प्रविलीयत इति ॥१२॥</div>
+  <div class="tr">また、「知覚などは対象を成立させない」というこの否定は、知覚などの能力の否定か、存在の否定か。……また、「知覚などはない」と、「ない」と同じ基体に置かれた「知覚など」という語は、知覚などの非存在を知らせることはできない。「（壺は）ない」と同じ基体に置かれた「壺」という語は、壺の非存在を知らせるのではなく、壺の、家との結合か、能力か、特定の時かを否定するのである。同じように、認識手段と同じ基体に置かれたこの「ない」によっても、認識手段の非存在を知らせることはできない。……「認識手段はない」と主張する者には、「どうしてないのか」と問いただすべきである。もし（その根拠として）認識手段を述べるなら矛盾である。もし述べないなら、その主張は成立しない。このように、この文は、考察すればするほど溶けて消えていく。（第十二スートラ）</div><div class="exp"><span class="lbl">解説</span><p>「壺はない」と言うとき、私たちは壺というものの存在そのものを否定しているのではなく、「（この家に）壺はない」「（今は）壺はない」のように、ある場所や時との関係を否定しています。同じように、「認識手段はない」という文も、認識手段一般の非存在を言うことはできない、と Uddyotakara は論じます。</p><p>最後の一文、「この文は、考察すればするほど溶けて消えていく」は、この章の議論をよく表しています。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「有法の否定にはどんな論理もない」を、有法を推理で否定すれば理由が基体不成立になるから、と説明します（TṬ p.361）。「壺はない」の例では、壺があるのに「壺はない」と言うのは、たとえば水を運ぶ能力を否定しているのだ、と Vācaspati を引きます（TṬ p.362）。「どのように・誰に・誰が」の三つの問いは、それぞれ認識手段・知らされる者・知らせる者に向けられたものだ、と注します（Hi. pp.465–468）。</p></div></div>
+</div>
+<div class="mula sutra" id="u7">
+  <span class="ref">pp.184–185 · NS 2.1.13</span>
+  <div class="src deva" lang="sa">सर्वप्रमाणप्रतिषेधाच्च प्रतिषेधानुपपत्तिः ॥२।१।१३॥<br>त्रैकाल्यासिद्धेरित्यस्य हेतोरुदाहरणमुपादीयते न वा ? यद्युपादीयते, तदा व्याघातो भवति । …… सोऽयं हेतुः सर्वैः प्रमाणैर्विप्रतिषिद्धो विरुद्धो भवति—सिद्धान्तमभ्युपेत्य तद्विरोधी विरुद्धः [१।२।६] इति । …… बुद्धिविवक्षाप्रयत्नवाय्वीरणताल्वभिघातोष्ठस्पन्दादीनवर्जयन् बुद्ध्या वाक्यमुच्चारयसि, स्थाणुकण्टकसर्पादींश्च परिहरन् पादविहरणादि करोषि । ते एते वाक्यप्रवृत्ती प्रमाणप्रतिषेधान्न संभवत इति ॥१३॥</div>
+  <div class="tr">また、すべての認識手段を否定するので、否定は成り立たない。<br>「三つの時のどれでも成り立たないから」というこの理由に、例が取り上げられるのか、取り上げられないのか。もし取り上げられるなら、矛盾になる。……この理由は、すべての認識手段と対立するので、矛盾（という擬似理由）である。「矛盾とは、定説を認めたうえで、それと矛盾するものである」（NS 1.2.6）。……（あなたは）知・話す意図・努力・息を送り出すこと・口蓋を打つこと・唇を動かすことなどを避けずに、知によって文を発し、杭や棘や蛇などを避けながら足を運ぶ。その（文を発することと歩くことという）二つの行為は、認識手段を否定するなら、ありえない。（第十三スートラ）</div><div class="exp"><span class="lbl">解説</span><p>相手が論証に例を挙げれば、例は知覚などによって知られているので、認識手段を認めたことになります。そもそも、言葉を話すことも、道の蛇を避けて歩くことも、認識手段に頼っています。認識手段を否定する人は、自分の生活そのものと矛盾している、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、この理由はすべての認識手段と対立し、主題が否定されるので擬似認識手段になる、と注します。なお、「避けずに」（<i>avarjayan</i>）について、注では Vācaspati に従って「取り上げて」（<i>upādadānaḥ</i>）の意味としながら、訳文では「避けずに」（<i>varjit na kartā huā</i>）と訳しており、注と訳が少し食い違っています（TṬ p.362; Hi. pp.469–470）。</p></div></div>
+</div>
+<div class="mula sutra" id="u8">
+  <span class="ref">p.185 · NS 2.1.14</span>
+  <div class="src deva" lang="sa">तत्प्रामाण्ये वा न सर्वप्रमाणविप्रतिषेधः ॥२।१।१४॥<br>अथ स्ववाक्याश्रितप्रमाणव्यतिरेकेण प्रमाणानि प्रतिषिध्यन्ते, एवं च सति न सर्वं प्रमाणं प्रतिषिद्धं भवति । यश्च न्यायः स्ववाक्याश्रितप्रमाणाभ्युपगमे स एवान्यवाक्याश्रितप्रमाणाभ्युपगमेऽपीति । वीत्ययमुपसर्गो विशेषप्रतिषेधे न व्याघाते । …… यच्चेदं वाक्यं प्रत्यक्षादीनामप्रामाण्यं त्रैकाल्यासिद्धेरिति, किमिदं प्रमाणस्वरूपमथ न ? यदि प्रमाणस्वरूपम्, तदा व्याघातः । अथ न, तथापि नानेन कश्चिदर्थः प्रतिपाद्यत इति व्यर्थम् ॥१४॥</div>
+  <div class="tr">あるいは、それ（自分の言葉の根拠）が認識手段であるなら、すべての認識手段の否定にはならない。<br>もし、自分の文が依拠する認識手段を除いて、認識手段が否定されるのなら、そうであれば、すべての認識手段が否定されたことにはならない。そして、自分の文が依拠する認識手段を認める理屈は、他人の文が依拠する認識手段を認める（理屈）でもある。（スートラの <i>vipratiṣedha</i> の）<i>vi</i> という接頭辞は、特定のものの否定の意味であって、矛盾の意味ではない。……また、「知覚などは認識手段ではない。三つの時のどれでも成り立たないから」というこの文は、認識手段のあり方をしているのか、していないのか。もし認識手段のあり方をしているなら、矛盾である。もししていないなら、それによって何も知らされないので、無意味である。（第十四スートラ）</div><div class="exp"><span class="lbl">解説</span><p>もし相手が「自分の言葉の根拠になる認識手段だけは認める」と言うなら、すべての認識手段を否定したことにはなりません。そして、自分の言葉の根拠になる認識手段を認める理屈は、他人の言葉の根拠になる認識手段にも同じように当てはまります。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vācaspati に従って、この認識手段の一般的吟味は、認識手段を否定する中観派への反論だと注します。<i>vipratiṣedha</i> の <i>vi</i> は「特殊」の意味で、ある認識手段は認め、ある認識手段は否定する、という特定の否定を表す、と説明します（TṬ p.363; Hi. pp.470–472）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>三時の区別と天秤</h2><span class="sub"><span class="pg">pp.185–191</span>前・後・同時の実例。天秤の喩え。行為の要素を表す語。刹那滅論への反論</span></div>
+<div class="mula sutra" id="u9">
+  <span class="ref">pp.185–186 · NS 2.1.15</span>
+  <div class="src deva" lang="sa">त्रैकाल्याप्रतिषेधश्च शब्दादातोद्यसिद्धिवत् तत्सिद्धेः ॥२।१।१५॥<br>यत्तत् पूर्वमुक्तमुपलब्धिहेतोरुपलब्धिविषयस्य चार्थस्य पूर्वापरसहभावानियमाद् यथादर्शनं विभागवचनमिति, तदुत्थानज्ञापनार्थमिति । …… एकां च विधामुदाहरति—शब्दादातोद्यसिद्धिवदिति । शेषयोस्तु विधयोर्यथोक्ते उदाहरणे वेदितव्ये । यथा पूर्वसिद्धमातोद्यं पश्चात्सिद्धेन शब्देनानुमीयते, वीणा वाद्यते वेणुः पूर्यत इति । …… सहभावे उदाहरणम्—धूमदर्शनादग्निं धूमविशेषणं प्रतिपद्यते । पूर्वसिद्ध उपलब्धिहेतुरादित्यः पश्चात्सिद्धानां घटादीनां प्रकाशक इति ॥१५॥</div>
+  <div class="tr">また、三つの時（の成立）は否定されない。音から楽器が成立するように、それ（認識手段による認識対象）が成立するからである。<br>前に（バーシュヤで）「知覚の原因と、知覚の対象である事柄とには、前・後・同時の決まりがないので、見られたとおりに区別して述べる」と言われた、その（議論の）出どころを知らせるためである。……（スートラは三つのうち）一つの型の例を挙げる。「音から楽器が成立するように」と。残りの二つの型については、（バーシュヤで）述べられた例のとおりに知るべきである。先に成立している楽器が、後で成立する音によって推理される。「ヴィーナーが奏でられている」「笛が吹かれている」と。……同時の例。煙を見ることから、煙によって限定された火を知る。（また）先に成立している知覚の原因である太陽が、後で成立する壺などを照らす。（第十五スートラ）</div><div class="exp"><span class="lbl">解説</span><p>実際には、認識手段と対象の時間関係には決まりがなく、前・後・同時のどれもありえます。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>関係</th><th>例</th></tr></thead>
+    <tbody>
+      <tr><td class="k">認識手段が後</td><td>先にある楽器（ヴィーナー、笛）が、後で生じる音によって推理される</td></tr>
+      <tr><td class="k">同時</td><td>煙と火とが同時にあり、煙を見て火を知る</td></tr>
+      <tr><td class="k">認識手段が先</td><td>先にある太陽が、後で作られた壺などを照らして見せる</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表2　認識手段と対象の時間関係。</b>スートラ 2.1.15 の Vārttika による。</figcaption>
+</figure>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、この説明はすでにバーシュヤ（2.1.11 の注）で述べられていたのに、なぜここで繰り返すのか、という問いに対して、Vārttika は、あのバーシュヤの説明がこのスートラにもとづくもので、スートラから外れた説ではないことを示すためだ、と答えている、と解します（TṬ p.364; Hi. pp.472–474）。</p></div></div>
+</div>
+<div class="mula sutra" id="u10">
+  <span class="ref">p.186 · NS 2.1.16</span>
+  <div class="src deva" lang="sa">प्रमेया च तुलाप्रामाण्यवत् ॥२।१।१६॥<br>प्रमाणं प्रमेयमिति चेयं समाख्या समावेशेन वर्तते समाख्यानिमित्तवशात् । …… प्रमाणप्रमेयसंज्ञयोर्निमित्तमुपलब्धिसाधनत्वमुपलब्धिविषयत्वं च । यदा पुनरेकं वस्त्वनेकनिमित्तसंबन्धि भवति, तदा कथम् ? तदा निमित्ततन्त्रत्वात् समाख्याया वस्त्वनेकेन निमित्तेन संबन्धे सत्यनेकशब्दाभिलाप्यम् । …… यथा गुरुत्वपरिमाणज्ञानसाधनं तुलाद्रव्यं समाहारगुरुत्वस्येयत्तापरिच्छेदनिमित्तत्वात् प्रमाणम्, सुवर्णादिना च परिच्छिद्यमानेयत्तैषा तुलेति परिच्छेदविषयत्वेन व्यवतिष्ठमाना प्रमेयम् । उदाहरणमात्रं चैतत् । …… यथा च प्रमाणप्रमेयसमाख्ये तथा सर्वे कारकशब्दा निमित्तसमावेशनियमेन वर्तन्ते ।</div>
+  <div class="tr">また、（認識手段は）認識対象でもある。天秤が（重さを量る）手段であるように。<br>「認識手段」「認識対象」というこの名は、名の根拠に従って、（同じものに）重ねて用いられる。……「認識手段」「認識対象」という名の根拠は、知覚の手段であることと、知覚の対象であることである。では、一つの事物が多くの根拠と結びつくとき、どうなるか。そのときは、名は根拠に依存するので、事物は多くの根拠と結びつけば、多くの語で呼ばれる。……たとえば、天秤という物は、重さの量を知る手段であり、まとめた（品物の）重さの程度を確定する原因なので、認識手段である。（しかし）金などによって確定されるとき、「この天秤はこれだけ（の重さ）である」と、確定の対象としてあるので、認識対象である。これは例にすぎない。……そして、「認識手段」「認識対象」という名と同じく、すべての行為の要素を表す語（<i>kāraka</i>）は、根拠が重なるという決まりに従って用いられる。</div><div class="exp"><span class="lbl">解説</span><p>天秤は品物の重さを量るときには「量る手段」ですが、天秤そのものの重さを金の分銅で量るときには「量られる対象」です。同じように、知覚などの認識手段も、それ自体が知られるときには認識対象になります。名前は、そのものの役割に応じてつけられる、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、一貫して <i>tulā</i> を「天秤」ではなく「分銅（おもり）」（<i>bāṭ</i>）と訳します。分銅は金を量る手段だが、分銅の正しさが疑われるときには金によって確かめられる、という読みです。また、Vācaspati に従って、これは認識手段と認識対象の言語慣習を勝義には実在しないとする中観派への答えだ、と注します（TṬ p.364）。スートラの読みについては、<i>prameyā ca</i> と <i>prameyatā ca</i> の二つがあり、意味は変わらないとします（Hi. pp.474–476）。</p></div></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">pp.186–187</span>
+  <div class="src deva" lang="sa">तथा च लौकिकमुदाहरणम्—एकमनेकेन कारकशब्देनाभिधीयते । वृक्षस्तिष्ठतीति स्वस्थितौ स्वातन्त्र्यात् कर्ता । किं पुनर्वृक्षस्य स्वस्थितौ स्वातन्त्र्यम् ? कारकान्तरानपेक्षितत्वम् । न हि वृक्षस्तिष्ठन् स्वस्थितौ कारकान्तरं प्रयुङ्क्ते । …… पूर्वापरप्रत्ययैकविषयता वा स्थितिः । यद्वस्तु प्राक् प्रसिद्धं पुनर्निमित्तान्तरसन्निपाते सत्युपलभ्यते, यत् तस्यानेकायुगपत्कालप्रत्ययविषयत्वं सा स्थितिः ।</div>
+  <div class="tr">そして世間の例がある。一つのものが多くの行為の要素を表す語で呼ばれる。「木が立っている」と言うとき、（木は）自分が立っていることにおいて独立しているので、行為者（<i>kartṛ</i>）である。木が自分が立っていることにおいて独立しているとは何か。ほかの行為の要素を必要としないことである。木は立っているとき、自分が立っていることにおいて、ほかの行為の要素をはたらかせることはない。……あるいは、「立っていること」（存続）とは、前の知と後の知とが同じ一つの対象をもつことである。先に知られていた事物が、ふたたび別の条件がそろったときに知覚される。それが同時ではない多くの時点の知の対象であること、それが存続である。</div><div class="exp"><span class="lbl">解説</span><p>サンスクリット文法学では、行為に関わるものを六つの「行為の要素」（<i>kāraka</i>）に分けます。行為者・対象・手段・受け手・起点・場所です。Uddyotakara は、同じ一本の木が、文によって六つのどれにもなることを示します（表3）。そのうち最初の例「木が立っている」の「立っている」の意味を論じる中で、「存続とは、時を隔てた知が同じものを対象とすること」と定義します。これが、次のブロックの刹那滅論との論争につながります。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>要素</th><th>例文</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td class="k">行為者</td><td>木が立っている</td><td>立つことにおいて独立している</td></tr>
+      <tr><td class="k">対象</td><td>（人が）木を見る</td><td>見る行為が得ようとするもの</td></tr>
+      <tr><td class="k">手段</td><td>木で月を示す</td><td>木を捉えた直後に月を知る</td></tr>
+      <tr><td class="k">受け手</td><td>木に水を注ぐ</td><td>注がれる水によって達せられるもの</td></tr>
+      <tr><td class="k">起点</td><td>木から（葉が）落ちる</td><td>落ちるものが離れるとき、とどまるもの</td></tr>
+      <tr><td class="k">場所</td><td>木に鳥たちが（いる）</td><td>鳥が落ちないことの原因</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表3　一本の木と六つの行為の要素。</b>Thakur 版 pp.187–189 による。</figcaption>
+</figure>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vācaspati を引いて、他の行為の要素を必要とする者は「はたらかせる者」としてだけ独立しており、必要としない者は完全に独立している、と注します（TṬ pp.365–366）。「立っている」の意味を、(1) 動きの停止、(2) 存在、(3) 家との関係、(4) 折れていないこと、(5) 前後の知が同じ対象をもつこと＝再認、と整理しています。「対象」については、Vācaspati がこれを「自分以外のものに属する行為の結果をもつこと」と精密にしていることを紹介します（TṬ p.368）（Hi. pp.476–482）。</p></div></div>
+</div>
+<div class="mula" id="u12">
+  <span class="ref">pp.187–188</span>
+  <div class="src deva" lang="sa">चक्रभ्रान्तिप्रदीपप्रत्ययवन्मिथ्याप्रत्ययः स इति चेत्—न, प्रमाणाभावात् । अथ मन्यसे नैव किञ्चिद् वस्त्वयुगपत्कालानेकप्रत्ययविषयो भवति । यदि न भवति, कथं तर्हि स एवायं वृक्षस्तिष्ठतीति प्रत्ययः ? …… दृष्टोऽन्यत्वेऽप्यवस्थितप्रत्ययः, चक्रं भ्रमत्तिष्ठतीति प्रदीपो ज्वलंस्तिष्ठतीति । अनवस्थितेषु नानाभूतेषु चक्रभ्रान्तिप्रदीपादिषु य एते तद्भावप्रत्यया अतस्मिंस्तदिति मिथ्याप्रत्यया एते । यथा चैते मिथ्याप्रत्यया एवं वृक्षादिस्थितिश्चापीति । न, प्रमाणाभावात् । न हि भवता प्रमाणं किञ्चिद् वृक्षादीनां नानात्वस्थापकमभिधीयत इति । मिथ्याप्रत्ययाश्च सम्यक्प्रत्ययानुकारेण भवन्तीति क्वचित् सम्यक्प्रत्यया इति वक्तव्यम् । अथ भवतः कालान्तरावस्थाने किं प्रमाणम् ? उक्तं प्रमाणम्, रूपरसगन्धस्पर्शप्रत्ययानामेकानेकनिमित्तत्वं प्रतिसन्धानादिति ।</div>
+  <div class="tr">（反論）「それ（存続の知）は、回る火の輪や灯火の知のように、誤った知である」と言うなら、そうではない。認識手段がないからである。（反論者は）こう考えるかもしれない。「どんな事物も、同時ではない多くの時点の知の対象にはならない」と。もしならないなら、では「まさにこの木が立っている」という知はどうしてあるのか。……（反論）「別のものであっても、存続しているという知が見られる。『輪が回り続けている』『灯火が燃え続けている』と。存続していない、別々の、回る火の輪や灯火などについての、この『それである』という知は、それでないものをそれと（見る）誤った知である。これらが誤った知であるのと同じく、木などの存続（の知）もそうである」。そうではない。認識手段がないからである。あなたは木などが（刹那ごとに）別々であることを立証する認識手段を何も述べていない。また、誤った知は正しい知をまねて生じるので、どこかに正しい知があると言わなければならない。（反論）「では、あなたにとって、別の時点にも存続していることの認識手段は何か」。認識手段はすでに述べた。色・味・香り・触感の知が、一つのものと多くのものを原因とすることは、（それらを）結びつけること（再認）による（と第一章で述べた）。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、すべては刹那ごとに生じては滅する（刹那滅）と考える立場です。火のついた棒を回すと輪が見え、灯火は刹那ごとに別の炎なのに同じ炎が燃え続けているように見える。それと同じく、「同じ木が立ち続けている」という知も誤りだ、というのです。</p><p>Uddyotakara の答えは二つです。第一に、木が刹那ごとに別のものだと示す認識手段はない。第二に、誤った知は正しい知をまねて生じるのだから、火の輪が誤りだと言えるためには、どこかに正しい「存続」の知がなければならない。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、この反論を「仏教徒の反論と答え」と見出しを付けて訳し、火のついた棒を回すと、接触が終わった後も輪が回っているという知が残る、と注します（TṬ p.366）。続く議論について、Vācaspati は中観派の立場から読んでいる（原因は結果の時まで存続しない）が、「縁って」（<i>pratītya</i>）の語は仏教の学派によって意味が異なる、と注意を促しています（TṬ p.367; Hi. pp.482–486）。</p></div></div>
+</div>
+<div class="mula" id="u13">
+  <span class="ref">pp.189–191</span>
+  <div class="src deva" lang="sa">एवं च सति न द्रव्यमात्रं कारकं न क्रियामात्रम् । …… सामान्यं च कारकाणां क्रियानिमित्तत्वम् । …… यदि क्रियासंबन्धनिमित्तकः कारकशब्दप्रयोगः, पचत्येव पाचकशब्दः प्रवर्तेत, नापाक्षीत् पाचकः पक्ष्यतीति वा पाचक इति । न, शक्तेस्त्रैकाल्यावस्थानात् । शक्तिस्त्रिष्वपि कालेष्ववतिष्ठते । शक्त्यपेक्षश्चातीतानागतयोः कारकशब्दव्यपदेशः—पचत्यपाक्षीत् पक्ष्यतीति । …… का पुनरियं शक्तिः ? क्रियाकर्तृव्यतिरिक्तः कर्तृधर्मः । सामर्थ्यमुपायपरिज्ञानं च क्रियासंबन्धेन व्यज्यते । यदोपायपरिज्ञानं सामर्थ्यं क्रियासंबन्धः, तदा मुख्यः शब्दः प्रवर्तते पचति पाचक इति । यदा तु क्रियासंबन्धमन्तरेणोपायपरिज्ञानसामर्थ्यमात्रोपादानेऽन्यतमवैकल्यात् पाचकशब्दः प्रवर्तते, तदोपचारादपाक्षीत् पाचकः पक्ष्यति पाचक इति । कारकशब्दश्चायं प्रमाणं प्रमेयमिति । कुतः ? क्रियाविशेषयोगात् । यथैवामी पाचकादिशब्दाः क्रियाविशेषयोगे सति प्रवर्तन्ते, तथा प्रमाणप्रमेयशब्दावपीति ॥१६॥</div>
+  <div class="tr">そうであれば、行為の要素とは、単なる実体でも単なる行為でもない。……そして、行為の要素に共通なのは、行為の原因であることである。……（反論）「もし行為の要素を表す語が行為との結びつきを根拠として用いられるなら、『料理人』（<i>pācaka</i>）という語は、料理しているときにだけ用いられるはずで、『料理した料理人』『料理するだろう料理人』とは（言えない）」。そうではない。能力（<i>śakti</i>）は三つの時にわたって存続するからである。能力は三つの時のどれにおいても存続する。そして過去と未来について行為の要素を表す語で呼ぶのは、能力に依拠している。「料理する」「料理した」「料理するだろう」と。……では、この能力とは何か。行為とも行為者とも別の、行為者の性質である。（すなわち）力と方法の知識とが、行為との結びつきによって現れる。方法の知識と力と行為との結びつきがあるとき、「料理している料理人」と、本来の（意味の）語が用いられる。しかし、行為との結びつきなしに、方法の知識と力だけがあり、（三つのうち）一つが欠けているときに「料理人」の語が用いられるなら、それは転用によって「料理した料理人」「料理するだろう料理人」と（言われるの）である。そして、「認識手段」「認識対象」というのも、行為の要素を表す語である。なぜか。特定の行為と結びつくからである。「料理人」などの語が特定の行為と結びつくときに用いられるのと同じく、「認識手段」「認識対象」の語もそうである。（第十六スートラ）</div><div class="exp"><span class="lbl">解説</span><p>§1 で予告された「料理人」の例です。料理人は、料理していないときにも「料理人」と呼ばれます。料理する力と方法の知識をもち続けているからです。同じように、認識手段も、いま対象を知らせていなくても、知らせる能力がある限り「認識手段」と呼ばれる。だから、「認識手段が対象より前にあれば、まだ何も知らせていないので認識手段ではない」という三時不成立の論難は成り立たない、というのがこの長い議論の結論です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、ニヤーヤでは能力（<i>śakti</i>）は独立した範疇ではなく、実体が行為をなしうることだ、と注します。能力とは「方法の知識」と「力」であり、手のない人は斧を使えない、と Vācaspati を引きます（TṬ p.369）。また、実体だけでは行為の要素ではないという点は中観派も言うが、ニヤーヤは行為の要素を想像上のものとは考えず、「主要な行為を成し遂げ、副次的な行為と結びつくもの」と定義する、と注します（TṬ p.368; Hi. pp.486–489）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この部分では、表3の六つの行為の要素の定義と、文法学者 Pāṇini のスートラ（1.4.23、1.4.50 など）が引かれます。原文は要点を抜き出しました。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>認識手段は何で知られるか</h2><span class="sub"><span class="pg">pp.191–194</span>灯火の喩え。自分で自分を知ること。無限遡及の否定</span></div>
+<div class="mula sutra" id="u14">
+  <span class="ref">p.191 · NS 2.1.17–18</span>
+  <div class="src deva" lang="sa">प्रमाणतः सिद्धेः प्रमाणानां प्रमाणान्तरसिद्धिप्रसङ्गः ॥२।१।१७॥<br>अस्ति भोः कारकशब्दानां निमित्तसमावेशान्नियमः, प्रत्यक्षादीनि प्रमाणानि संवेद्यमानानि च प्रमेयमुपलब्धिविषयत्वात् । तत्रेदं चिन्त्यते, किमेतानि प्रत्यक्षादीनि स्वोपलब्धौ प्रत्यक्षादिव्यतिरिक्तं प्रमाणान्तरं प्रयोजयन्ति, अथ निःसाधनैव प्रमाणोपलब्धिरिति । …… प्रमाणविषयायाः सिद्धेर्यदि प्रमाणं साधनम्, प्रमाणान्तरं प्राप्नोति । प्रत्यक्षादीनां साध्यत्वान्न साध्यं साधनं भवतीति ॥१७॥<br>तद्विनिवृत्तेर्वा प्रमाणसिद्धिवत् प्रमेयसिद्धिः ॥२।१।१८॥<br>अथ प्रमाणमन्तरेण निःसाधनैव प्रमाणेषूपलब्धिः ? …… यथा प्रमाणानि स्वोपलब्धौ निवर्तन्ते, एवं प्रमेयसिद्धावपीति ॥१८॥</div>
+  <div class="tr">（反論）「もし認識手段が認識手段によって成立するなら、認識手段には（さらに）別の認識手段による成立が必要になってしまう」。<br>（反論者）「なるほど、行為の要素を表す語は根拠が重なるという決まりがある。知覚などは認識手段であり、知られるときには、知覚の対象なので認識対象である。そこで考えるべきは、これら知覚などは、自分が知られるために、知覚など以外の別の認識手段をはたらかせるのか、それとも認識手段の知覚は手段なしにあるのか、である。……認識手段を対象とする成立に、もし認識手段が手段なら、別の認識手段が必要になる。知覚などは成立させられるもの（所証）だからであり、成立させられるものは成立させる手段にはならないからである」。（第十七スートラ）<br>「あるいは、それ（別の認識手段）がなくてよいなら、認識手段の成立と同じく、認識対象の成立も（認識手段なしにあることになる）」。<br>（反論者）「では、認識手段における知覚は、認識手段なしに、手段なしにあるのか。……認識手段が自分の知覚において（認識手段を）必要としないように、認識対象の成立においても（必要としないことになる）」。（第十八スートラ）</div><div class="exp"><span class="lbl">解説</span><p>天秤の喩えで、認識手段も認識対象になることが認められました。では、認識手段はどんな認識手段によって知られるのか。別の認識手段によってなら、それをまた別の認識手段で知る必要があり、無限に続く。認識手段なしに知られるのなら、対象も認識手段なしに知られてよいことになり、認識手段はいらなくなる。これが反論者の新たなジレンマです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、第十七スートラについて、同じ種類の別の認識手段で知られるなら、あるいは別の種類の認識手段で知られるなら、認識手段の区分（四つ）と矛盾するか無限遡及になり、自分で自分を知るなら自己作用の矛盾になる、と整理します（Hi. pp.489–490）。</p></div></div>
+</div>
+<div class="mula sutra" id="u15">
+  <span class="ref">pp.191–193 · NS 2.1.19</span>
+  <div class="src deva" lang="sa">न, प्रदीपप्रकाशसिद्धिवत् तत्सिद्धेः ॥२।१।१९॥<br>प्रदीपप्रकाशो घटाद्युपलब्धिसाधनस्याङ्गत्वात् प्रमाणम्, स च प्रत्यक्षादिभिरेवोपलभ्यते । नासावात्मोपलब्धौ प्रत्यक्षादिव्यतिरेकि प्रमाणं प्रयोजयति, तैरेवोपलभ्यते । तथा प्रमाणान्यपि प्रत्यक्षादिभिरेवोपलप्स्यन्त इति । दृष्टान्तमात्रमेतत् । कोऽत्र न्याय इति ? अयं न्याय उच्यते—प्रत्यक्षादीनि स्वोपलब्धौ प्रमाणान्तराप्रयोजकानि, परिच्छेदसाधनत्वात्, प्रदीपवत् । …… तेनैव तस्याग्रहणमिति चेत् ? …… नैष दोषः, अर्थभेदस्य लक्षणसामान्यात् प्रमाणलक्षणेनानेकोऽर्थः संगृहीतः । तत्र केनचित् कस्यचिद् ग्रहणमित्यदोषः । यथोद्धृतेनोदकेनाशयस्थस्य । …… न चायमेकान्तो न तेनैव तस्य ग्रहणं भवतीति । भवत्यपि कदाचित् स एव ज्ञाता ज्ञेयो भवति, यदात्मानं जानीत इति । …… यथैव ज्ञाता सुखादिसंबन्धापेक्षस्तद्विशेषमात्मानं प्रतिपद्यतेऽहं सुख्यहं दुःखी चेति, तथा प्रमाणमपि प्रमाणविषयत्वेनावतिष्ठमानं प्रमेयमिति । …… सर्वमिदं सच्चासच्च प्रत्यक्षादीनामेव विषयः । तस्मात् प्रत्यक्षादिभिरेवोपलभ्यत इति ॥१९॥</div>
+  <div class="tr">（答え）そうではない。灯火の光の成立のように、それ（認識手段）が成立するからである。<br>灯火の光は、壺などの知覚の手段の一部なので、認識手段である。そしてそれは知覚などによってこそ知覚される。それは自分が知覚されるために、知覚など以外の認識手段をはたらかせない。それら（知覚など）によってこそ知覚される。同じように、認識手段も知覚などによってこそ知覚されるだろう。これは例にすぎない。ここでの論理は何か。こういう論理が述べられる。「知覚などは、自分が知覚されるために別の認識手段をはたらかせない。確定の手段だからである。灯火のように」。……（反論）「（そうすると）それ自身によってそれが把握されることになるのではないか」と言うなら。……この誤りはない。別々の事柄が、定義が共通なので、認識手段の定義によって多くの事柄がまとめられている。そのうち、あるもので別のものを把握するのである。だから誤りはない。（井戸から）汲み上げた水によって、（井戸の）底にある水を（知る）ように。……また、「それ自身によってそれが把握されることはない」というのも決まったことではない。同じ知る者が知られるものになることもある。自分自身を知るときのように。……知る者が、楽などとの結びつきに応じて、「私は楽しい」「私は苦しい」と、その特殊をもつ自分を知るように、認識手段も認識手段の対象としてあるときには、認識対象である。……あるものもないものも、このすべては知覚などの対象である。だから（認識手段も）知覚などによってこそ知覚される。（第十九スートラ）</div><div class="exp"><span class="lbl">解説</span><p>灯火は壺を照らして見せますが、灯火そのものを見るために別の灯火はいりません。灯火は、壺を見るのと同じ目（知覚）で見られます。同じように、知覚や推理などの認識手段も、知覚や推理などによって知られ、それ以外の特別な認識手段を必要としません。</p><p>「それ自身によってそれが知られるのは不合理だ」という反論に対しては、同じ「知覚」という名でまとめられていても、知る知覚と知られる知覚は別々のものだ、と答えます。井戸から汲んだ水を見て、井戸の底の水もこうだと知るのと同じです。さらに、我が自分自身を「私は楽しい」と知るように、同じものが知る者にも知られるものにもなることさえある、と付け加えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、論証の理由として五つ（確定の手段であること、普遍と特殊をもつこと、知られうること、依存すること、手段であること）が挙げられていると整理します。「汲み上げた水」の例については、Vārttika の「それ自身によってそれを、ではなく、そのようなものによってそのようなものを」を「वैसे के द्वारा वैसे का」と訳しています。我が自分を知る点については、Vācaspati を引いて、我が「知られるもの」と呼ばれるのは、「私は楽しい」の知の中に我が現れるからだ、と注します（TṬ pp.370–371; Hi. pp.491–497）。</p></div></div>
+</div>
+<div class="mula sutra" id="u16">
+  <span class="ref">pp.193–194 · NS 2.1.20</span>
+  <div class="src deva" lang="sa">क्वचिन्निवृत्तिदर्शनादनिवृत्तिदर्शनाच्च क्वचिदनेकान्तः ॥२।१।२०॥<br>अपरे तु हेतुविशेषपरिग्रहमन्तरेण दृष्टान्तमात्रं प्रदीपप्रकाशसूत्रेणोपाददते । यथा किल प्रदीपप्रकाशः प्रदीपान्तरप्रकाशमन्तरेण गृह्यते, तथा प्रमाणान्यपि प्रमाणान्तरमन्तरेण ग्रहीष्यन्त इति । तान् प्रतीदमुच्यते—क्वचि……कान्तः । यथा प्रदीपप्रकाशस्तथा प्रमाणानि, न पुनर्यथा स्थाल्यादिरूपं तथा प्रमाणानीति कोऽत्र नियमहेतुः ? …… विशेषहेतुपरिग्रहे सत्युपसंहाराभ्यनुज्ञानादप्रतिषेधः । …… प्रत्यक्षादीनां प्रत्यक्षादिभिरुपलब्धावनवस्थेति चेत् ? …… नैष दोषः, संवित्तिविषयसंवित्तिनिमित्तोपलब्ध्या व्यवहारसिद्धेः । …… न त्वनवस्थासाधनीयं किञ्चित् प्रयोजनमस्ति, येनायं प्रयुक्तोऽनवस्थामापादयेत् । तस्मात् प्रत्यक्षादिभिः प्रत्यक्षादीनामुपलब्धिः, न चानवस्थेति । एवं तावत् सामान्यतः समधिगतमेतत् सन्ति प्रमाणानि प्रमेयसाधनानीति ॥२०॥<br>॥ सामान्येन प्रमाणपरीक्षाप्रकरणम् ॥</div>
+  <div class="tr">（反論）「あるところでは止むのが見られ、あるところでは止まないのが見られるので、（例は）一定しない」。<br>一方、別の人々は、特定の理由を取り上げずに、灯火の光のスートラによって例だけを取り上げる。「灯火の光が別の灯火の光なしに把握されるように、認識手段も別の認識手段なしに把握されるだろう」と。その人々に対してこう言われる。「あるところでは止むのが見られ……一定しない」と。「認識手段は灯火の光のようなものであって、鍋などの色のようなものではない」という決まりの理由は何か。……（答え）特定の理由を取り上げれば、（例への）当てはめが認められるので、否定はされない。……（反論）「知覚などが知覚などによって知覚されるなら、無限遡及になる」と言うなら。……この誤りはない。知の対象と知の原因とを知覚することによって、言語活動が成り立つからである。……無限遡及によって成し遂げられるべき目的は何もない。その目的に駆られて、この人が無限遡及に陥るような目的は（ない）。だから、知覚などは知覚などによって知覚され、しかも無限遡及はない。このように、まず一般的に、「認識対象を成立させる認識手段は存在する」ということが確かめられた。（第二十スートラ）<br>認識手段の一般的吟味のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 2.1.20 は、灯火の喩えを単なる例として使うことへの反論です。灯火は別の灯火なしに見えるが、鍋の色は灯火なしには見えない。認識手段が灯火に似ているのか鍋の色に似ているのか、例だけでは決まらない。Uddyotakara は、だからこそ前のスートラで「確定の手段だから」という理由を挙げたのだ、と答えます。理由があれば、例は単なる類比ではなく論証になります。</p><p>無限遡及の反論への答えも実際的です。私たちは、知の対象（認識対象）と知の原因（認識手段）とを知ればそれで日常の活動ができる。認識手段を知る認識手段を、さらに知る認識手段を……と求める必要は、どんな目的のためにもない。だから無限遡及は起こらない、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「別の人々」を、Vācaspati に従って「ニヤーヤの一部の先生たち」（<i>ācāryadeśīya</i>）、おそらくバーシュヤ以前の解釈者と注します。一方、Gaṅgānātha Jhā は、認識手段の真理性はそれ自体で成り立つとするヴェーダーンタやミーマーンサーの論者と見ている、と紹介します。また、このスートラはバーシュヤの文とする伝承もある、と注します。「この誤りは生じない」については、Vācaspati が「別の誤りは生じる」と言うのに対して、Śāstrī は、Vārttika は「一定しない」という誤りが生じないと言っているだけで、別の誤りを示唆しているのではない、と異を唱えています（TṬ p.372; Hi. pp.497–502）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>traikālyāsiddhi</dt><dd>三時不成立。認識手段が対象より前・後・同時のどれでも成り立たないこと</dd>
+    <dt>svavacanavyāghāta</dt><dd>自分の言葉との矛盾</dd>
+    <dt>samākhyā / nimitta</dt><dd>名／（名の）根拠</dd>
+    <dt>kāraka</dt><dd>行為の要素。行為者（kartṛ）・対象（karman）・手段（karaṇa）・受け手（sampradāna）・起点（apādāna）・場所（adhikaraṇa）</dd>
+    <dt>sthiti</dt><dd>存続。時を隔てた知が同じものを対象とすること</dd>
+    <dt>śakti</dt><dd>能力。行為とも行為者とも別の、行為者の性質</dd>
+    <dt>upacāra</dt><dd>転用</dd>
+    <dt>tulā</dt><dd>天秤。量る手段でも量られる対象でもあるものの例</dd>
+    <dt>pradīpaprakāśa</dt><dd>灯火の光。別の灯火なしに見られるものの例</dd>
+    <dt>anavasthā</dt><dd>無限遡及</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。長い議論の原文は要点を抜き出した（「……」）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。三時不成立の議論を Nāgārjuna の『廻諍論』と比べるのは訳者の補足である。このページが扱うのは第13プラカラナ（スートラ 2.1.8–20）である。第12プラカラナ（スートラ 2.1.1–7）は<a href="nyayavarttika-12-taiyaku.html">第12プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
