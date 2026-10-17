@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 15</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-14-taiyaku.html">← プラカラナ14</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>知覚は推理か</a></li><li><a href="#s2"><b>2</b>部分の集まりだけなら</a></li><li><a href="#s3"><b>3</b>全体があるなら</a></li><li><a href="#s4"><b>4</b>知覚と推理の違い</a></li><li><a href="#s5"><b>5</b>全体は部分にどうあるか</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第15プラカラナ「知覚は推理か」（スートラ 2.1.31–33、Thakur 版 pp.200–208）</span>
+  <p>木を見るとき、私たちに見えているのは手前の一面だけです。裏側も中も見えていない。それなのに「木だ」と知るのは、煙を見て火を知るのと同じく、一部から全体を推理しているのではないか。だから知覚は推理の一種だ、というのがこの章の反論です。</p>
+  <p>Uddyotakara はこの問いを、「全体」（<i>avayavin</i>）は部分とは別にあるのか、という存在論の問題に結びつけます。もし木が部分の集まりにすぎないなら、そもそも「木」の知が成り立たない。もし部分とは別の全体としての木があるなら、それは手前の部分とともに直接見えている。どちらにしても、木の知は推理ではない、というのが彼の答えです。章の後半では、全体が部分の中に「全部で」あるのか「一部で」あるのか、という全体否定論者の有名な論難に答えます。</p>
+  <p>解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>知覚が推理であるかの吟味の章<br><small><i>pratyakṣasyānumānatvaparīkṣāprakaraṇa</i>。スートラ 2.1.31–33 の注釈。Thakur 版 pp.200–208</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.1.31–32<br><small>反論（31）、答え（32–33）</small></dd></div>
+    <div><dt>論敵</dt><dd>全体（有分）を認めない論者<br><small>ヒンディー訳の注は仏教の集合説（毘婆沙師など）とする</small></dd></div>
+    <div><dt>見どころ</dt><dd>全体は部分に「全部で」あるか「一部で」あるか<br><small>§5。問いそのものが一つのものには当てはまらない</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.521–544 ごろ</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.201</span> は Thakur 版の頁。節見出しの <span class="pg">pp.200–201</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。長い議論は要点を抜き出した（<span class="ia">……</span>）</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.1.31–33 の注釈を、テキストの順に5節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">知覚は推理か</a></td><td class="num">pp.200–201</td><td>一部を捉えて木を知るのは推理だ、という反論。「一部から何を知るのか」という問い</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">部分の集まりだけなら</a></td><td class="num">pp.201–203</td><td>全体を認めないと、「木」の知も「手前・向こう側」の知も成り立たない</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">全体があるなら</a></td><td class="num">p.204</td><td>全体は手前の部分と同じく直接知覚される</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">知覚と推理の違い</a></td><td class="num">pp.204–205</td><td>スートラ 2.1.32。一部を捉えることも知覚である。両者の違い</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">全体は部分にどうあるか</a></td><td class="num">pp.205–208</td><td>スートラ 2.1.33。「全部でか一部でか」の論難への答え。見える部分と見えない部分</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>知覚は推理か</h2><span class="sub"><span class="pg">pp.200–201</span>一部を捉えて木を知るのは推理だ、という反論。「一部から何を知るのか」という問い</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.200 · NS 2.1.31</span>
+  <div class="src deva" lang="sa">प्रत्यक्षमनुमानमेकदेशग्रहणादुपलब्धेः ॥२।१।३१॥<br>अतः परमिदानीं प्रत्यक्षस्यानुमानेऽन्तर्भावं कुर्वाण इदमाह—प्रत्यक्ष……लब्धेः । यदिदमिन्द्रियार्थसन्निकर्षादुत्पद्यते ज्ञानमयं वृक्ष इति, एतत् किल प्रत्यक्षम्, तत्त्वनुमानमेव । कस्मात् ? एकदेशग्रहणाद् वृक्षोपलब्धेः । एकदेशमयं गृहीत्वा वृक्षमुपलभते, न चैकदेशो वृक्षः । तत्र यथान्यस्य दर्शनादन्यस्मिन् प्रतिपत्तिरनुमानम्, एवमेकदेशग्रहणाद् वृक्षप्रतिपत्तिरनुमानमिति । तद्यथा धूमं गृहीत्वाग्निप्रतिपत्तिः, एवमेकदेशं गृहीत्वा वृक्षप्रतिपत्तिरिति ।</div>
+  <div class="tr">（反論）「知覚は推理である。一部を捉えることから知覚するからである」。<br>これより後、今度は、知覚を推理の中に含めようとして、こう言う。「知覚は……知覚するからである」と。（反論者）「感官と対象の接触から生じる『これは木だ』という知、これは知覚だと言われるが、実は推理にほかならない。なぜか。一部を捉えることから木を知覚するからである。この人は一部を捉えて木を知覚する。しかし一部は木ではない。そこで、あるものを見ることから別のものを知るのが推理であるように、一部を捉えることから木を知ることも推理である。たとえば、煙を捉えて火を知るように、一部を捉えて木を知るのである」。</div><div class="exp"><span class="lbl">解説</span><p>反論の構造は単純です。推理とは、見えているもの（煙）から見えていないもの（火）を知ることです。木を見るときも、見えている一部（手前の面）から、見えていない全体（木）を知っている。だから知覚も推理だ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、反論者を、全体（<i>avayavin</i>）を認めず部分だけを実在とする論者とし、知覚される部分と推理される部分とを結びつけて木の知が生じるのだから、それは推理だ、という趣旨だと説明します。この立場では、認識手段を四つに分けるスートラも成り立たなくなる、と補います（Hi. p.521）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">pp.200–201</span>
+  <div class="src deva" lang="sa">न, यथासंभवं विकल्पानुपपत्तेः । एकदेशग्रहणादर्थान्तरं प्रतिपद्यत इति, किं तदर्थान्तरं यदेकदेशग्रहणात् प्रतिपद्यते ? अवयवसमूहपक्षे तावदवयवान्तराणि, द्रव्यान्तरोत्पत्तिपक्षे तानि चावयवी चेति । यदि तावदवयवसमूहमात्रं वृक्षमधिकृत्योच्यते, एतस्मिन् पक्षे गृह्यमाणावयवव्यतिरेकेण यान्यगृह्यमाणान्यवयवान्तराणि स वृक्षः । अथ द्रव्यान्तरोत्पत्तिपक्ष आश्रीयते, तथाप्यर्वाग्भागव्यवहितान्यवयवान्तराण्यर्थान्तरं च स वृक्ष इति । किं पुनरत्रैकदेशग्रहणादयं प्रतिपद्यते ? किं तावदवयवान्तराणि, अथ द्रव्यान्तरमिति ।</div>
+  <div class="tr">そうではない。可能な限りの選択肢のどれも成り立たないからである。「一部を捉えることから別のものを知る」と言うが、一部を捉えることから知る、その別のものとは何か。部分の集まり（だけを認める）立場では、ほかの部分である。別の実体が生じる（と認める）立場では、それら（ほかの部分）と全体とである。もし部分の集まりだけを木として言うなら、この立場では、捉えられている部分以外の、捉えられていないほかの部分、それが木である。もし別の実体が生じる立場を取るなら、その場合も、手前の部分に隠されたほかの部分と、（部分とは）別のものと、それが木である。では、ここでこの人は、一部を捉えることから何を知るのか。ほかの部分か、それとも別の実体か。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、反論者に「一部から何を知るのか」と問い返し、二つの立場に分けて検討します。木は部分（根・幹・枝・葉、究極的には原子）の集まりにすぎないとする立場（§2）と、部分から部分とは別の新しい実体である全体（<i>avayavin</i>）が生じるとするニヤーヤ・ヴァイシェーシカの立場（§3）です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、部分の集まりの立場は、仏教の「集合説」（<i>saṅghātavāda</i>）ではっきりした形をとる、と注します。目に見える世界は原子の集まりであり、特定の形に並んだ原子が「壺」と呼ばれる、という説です。一方、全体の立場はニヤーヤの書物に説かれる、と対比し、ここから反論の論駁が始まる、とします（Hi. pp.521–522）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>部分の集まりだけなら</h2><span class="sub"><span class="pg">pp.201–203</span>全体を認めないと、「木」の知も「手前・向こう側」の知も成り立たない</span></div>
+<div class="mula" id="u3">
+  <span class="ref">p.201</span>
+  <div class="src deva" lang="sa">अवयवसमूहपक्षे तावद् वृक्षबुद्धेरभावः, परभागस्यावृक्षत्वादर्वाग्भागवत् । यथैवायमर्वाग्भागो न वृक्षः, एवं मध्यपरभागावपि न वृक्षः । सेयमवयवसमूहपक्षेऽवृक्षे वृक्षबुद्धिरुत्पद्यमाना निर्विषया । अर्वाग्भागः परभागो मध्यभाग इत्येतच्च नास्ति । कथम् ? भाग इत्यवयवस्यैतन्नाम । यः पुनरर्थान्तरमवयविनं न प्रतिपद्यते, तस्यावयव इति निरभिधेयं वाक्यम् । …… अथैकदेशो भाग इत्युच्यते, कोऽयमेकदेशः ? एकदेशो ह्यवयविन आधारः । अवयविनं च प्रत्याचक्षाणेनैकदेशोऽपि प्रत्याख्यातः । अथाकार्यकारणभूतानां परस्परप्रत्यासत्त्युपग्रहेणैकदेशावस्थानमवयवार्थः ? अहो शब्दार्थकौशलम् । अकार्यकारणभूताश्च परस्परप्रत्यासत्त्युपग्रहेण च वर्तन्त इति, न च परस्परोपकारं कुर्वन्ति, अवयवाश्चाभिधीयन्त इति चित्रम् ।</div>
+  <div class="tr">まず、部分の集まり（だけを認める）立場では、木の知がなくなる。向こう側の部分は、手前の部分と同じく、木ではないからである。この手前の部分が木でないように、真ん中の部分も向こう側の部分も木ではない。だから、部分の集まりの立場では、木でないものについて生じる木の知は、対象をもたない。また、「手前の部分」「向こう側の部分」「真ん中の部分」ということもない。どのようにか。「部分」とは、構成要素の名である。（部分とは）別のものである全体を認めない者にとっては、「構成要素」という語は指すものがない。……もし「部分とは一部（<i>ekadeśa</i>）のことだ」と言うなら、この「一部」とは何か。一部とは、全体の拠り所である。全体を否定する者は、一部をも否定したことになる。（反論）「互いに因果関係にないものが、互いの近さによってまとまり、一か所にあること、それが構成要素の意味である」。なんと語の意味に巧みなことか。互いに因果関係にないのに、互いの近さによってまとまってあり、互いに助け合うこともないのに、構成要素と呼ばれるとは、不思議なことだ。</div><div class="exp"><span class="lbl">解説</span><p>部分の集まりだけを認める立場では、どの部分も木ではないのだから、「これは木だ」という知は、何にも対応しない知になってしまいます。さらに、「手前の部分」「向こう側の部分」という言い方自体が、それが何かの部分であること、つまり全体があることを前提しています。「構成要素（<i>avayava</i>）」は「全体（<i>avayavin</i>）」の相関語なので、全体を否定すれば構成要素も言えなくなる、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「一部」（<i>ekadeśa</i>）を Vācaspati に従って「一つの場所」と分解し、場所が拠り所であるのは、そこに全体が拠っているときだけだが、仏教徒は全体を認めない、と注します（TṬ p.377）。「なんと語の意味に巧みなことか」は反論者への皮肉（<i>upahāsa</i>）だとし、ものが互いに近くにある規則的な関係は、一つの結果の原因どうし（粘土・棒・ろくろ）、一つの原因の結果どうし（色・味・香り）、原因と結果（火と煙）の三つで、因果関係にないものには規則的な近さはない、と Vācaspati を引きます（TṬ p.377）。部分が互いに助け合うのは全体の拠り所としてだけだ、とも補います（TṬ pp.377–378; Hi. pp.524–525）。</p></div></div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">pp.201–202</span>
+  <div class="src deva" lang="sa">अपरे त्वर्वाग्भागदर्शनेन परभागानुमानं कृत्वा प्रतिसन्धानप्रत्ययजामवृक्षे वृक्षबुद्धिमध्यवस्यन्ति । एतस्मिन्नपि पक्षे वृक्षबुद्धेरभाव एव । कथम् ? अर्वाग्भागस्य परभागस्य चावृक्षत्वात् । न चावृक्षप्रतिसन्धानजा वृक्षबुद्धिरुत्पत्तुमर्हतीति । न चैतस्मिन् पक्षेऽनुमानं भवतीति । …… यदि तावदेवमनुमिमीते वृक्षोऽयमर्वाग्भागवत्त्वात्, कतमोऽसौ वृक्षः यस्यार्वाग्भागवत्त्वं धर्मः ? …… न च धर्मिण्यनुपलब्धेऽनुमानं प्रवर्तते । …… किं चार्वाग्भागमयं गृहीत्वा किमन्यदनुमिमीते ? अयमर्वाग्भागः परभागवानिति न युक्तमनुमातुम्, अर्वाग्भागस्य परभागवत्त्वासंभवात् । न ह्यर्वाग्भागः परभागवान्, भागस्य भागाभावात् । …… यच्च तदर्वाग्भागदर्शनं न तस्य लिङ्गलिङ्गिसम्बन्धस्मृत्यनुग्रहोऽस्ति, संबद्धयोरर्वाग्भागपरभागयोरदृष्टत्वात् । …… नित्यमर्वाग्भागेन परभागस्य व्यवधानात्, नित्यमर्वाग्भागमेव केवलमुपलभते परभागं तु न कश्चन ।</div>
+  <div class="tr">一方、別の人々は、手前の部分を見ることによって向こう側の部分を推理し、（両者を）結びつける知から生じる木の知を、木でないものについて確定する。この立場でも、木の知はやはりない。どのようにか。手前の部分も向こう側の部分も木ではないからである。木でないものを結びつけることから生じる知が、木の知になることはありえない。また、この立場では推理（もありえない）。……もし「これは木である。手前の部分をもつから」と推理するなら、手前の部分をもつことを性質とする、その木とは何か。……有法が知覚されていないのに、推理ははたらかない。……また、この人は手前の部分を捉えて、ほかに何を推理するのか。「この手前の部分は向こう側の部分をもつ」と推理するのは正しくない。手前の部分が向こう側の部分をもつことはありえないからである。手前の部分は向こう側の部分をもたない。部分には部分がないからである。……また、その手前の部分を見ることには、証因と証因をもつものとの関係の想起による助けがない。結びついた手前の部分と向こう側の部分とが（一緒に）見られたことがないからである。……向こう側の部分は、つねに手前の部分によって隠されているので、人はいつも手前の部分だけを知覚し、向こう側の部分は誰も（同時には）見ない。</div><div class="exp"><span class="lbl">解説</span><p>「手前を見て向こう側を推理し、両者を結びつけて木と知る」という説への反論です。推理が成り立つには、①推理の対象となる有法（ここでは木）が知られていること、②証因と推理されるものとの結びつきが以前に見られ、それが想起されること、が必要です。煙と火の結びつきは台所などで見られていますが、ある木の手前の部分と向こう側の部分とが結びついているところを、同時に見ることは決してできません。だから、この推理は成り立たない、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、この「別の人々」がどの仏教の師の説かは「はっきりしない」と注し、訳文でも「दूसरे (?)」と疑問符を付けています。部分の集まりの立場の中の第二の説と位置づけます。「関係は結びついている」（<i>satyaṃ saṃbaddhau</i>）は、議論のために認めること（<i>abhyupagamavāda</i>）だ、と Vācaspati を引きます（TṬ p.378; Hi. pp.525–528）。</p></div></div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">pp.202–203</span>
+  <div class="src deva" lang="sa">यच्चेदमुच्यते प्रतिसन्धानप्रत्यया वृक्षबुद्धिरिति, तदयुक्तम् । …… अर्वाग्भागपरभागयोश्चावृक्षभूतयोर्या वृक्षबुद्धिः, सातस्मिंस्तदिति प्रत्ययः । अतस्मिंस्तदिति प्रत्ययो नानुमानाद् भवितुमर्हतीति, प्रमाणस्य यथाभूतार्थपरिच्छेदकत्वात् । यश्चायमतस्मिंस्तदिति प्रत्ययः स प्रधानानुकारेण भवतीति वृक्षबुद्धेः प्रधानं वक्तव्यम् । …… प्रधानं च नास्ति, वृक्षस्यानभ्युपगमात् । …… परमाणुषु तथासन्निविष्टेष्वर्वाग्भागपरभागवृक्षादिप्रत्यया इति चेत् ? …… न, तथाशब्दस्यार्थानभिधानात् । तथासन्निविष्टेष्वित्येतदभिधानं प्रवर्तते पूर्वप्रसिद्धौ सत्याम् । न च परमाणुषु पूर्वापरभागादिशब्दप्रवृत्तेर्बीजमस्ति । यथाप्रसिद्धे गवि गवयस्तथारूप इति । एवं तावदवयवसमूहपक्षे वृक्षबुद्धेरभाव इत्युक्तम् ।</div>
+  <div class="tr">また、「木の知は（部分を）結びつける知である」と言われるが、それは正しくない。……木でない手前の部分と向こう側の部分とについての木の知は、それでないものをそれと（見る）知である。それでないものをそれと見る知は、推理から生じることはありえない。認識手段は、事物をあるがままに確定するものだからである。また、それでないものをそれと見る知は、本物にならって生じるのだから、木の知の（ならう）本物を言わなければならない。……しかし本物はない。木を認めないからである。……（反論）「そのように配置された原子について、手前の部分・向こう側の部分・木などの知がある」と言うなら。……そうではない。「そのように」という語は（何も）意味を表さないからである。「そのように配置された」という言い方は、先に知られたもの（の配置）があるときに用いられる。（ガヴァヤという動物について）「よく知られた牛のように、ガヴァヤはそのような姿をしている」と言うように。しかし原子については、前後の部分などの語が用いられる根拠がない。このように、部分の集まりの立場では、木の知がないことが述べられた。</div><div class="exp"><span class="lbl">解説</span><p>全体を認めない論者は、最終的には「木の形に配置された原子」に「木」「手前」「向こう側」という言葉が用いられるだけだ、と言うでしょう。Uddyotakara は、「（木の）ように配置された」という言い方は、すでに木というものが知られていて初めて意味をもつ、と答えます。ガヴァヤを知らない人に「牛のような姿だ」と教えられるのは、牛がすでに知られているからです（第六プラカラナの類比を参照）。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「認識手段は事物をあるがままに確定するものだから」の箇所で、推理は誤った知（<i>bhrānta</i>）であっても認識手段だとする Dignāga の学派の説を挙げ、それはニヤーヤでは認められない、と注します（TṬ p.379）。「本物にならって」の「本物」（<i>pradhāna</i>）は「主要なもの、正しい知の対象」、「ならって」は「同じ形で」と説明し、誤った知はつねに正しい知を前提とする、とします。「そのように」の議論については、部分の配置が実在して「前の部分」などの語の根拠として見られていれば「そのように」も意味をもつが、仏教の立場では、すべては部分をもたない原子の集まりなので、そうした根拠はどこにもない、と注します（Hi. pp.528–530）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>全体があるなら</h2><span class="sub"><span class="pg">p.204</span>全体は手前の部分と同じく直接知覚される</span></div>
+<div class="mula" id="u6">
+  <span class="ref">p.204</span>
+  <div class="src deva" lang="sa">द्रव्यान्तरोत्पत्तिपक्षे तु नावयव्यनुमेयः, प्रत्यक्षत्वादर्वाग्भागवत् । यथैवायमर्वाग्भागमिन्द्रियसंबद्धं प्रत्यक्षत उपलभते, तथा वृक्षमपीति नानुमेयो वृक्षः । अथेन्द्रियसंबद्धमपि वृक्षमनुमेयमेव प्रतिपद्यसे, वृक्षवदर्वाग्भागोऽप्यनुमेयः प्रसज्यते । तथा च व्याहतं भवत्यर्वाग्भागमयं गृहीत्वा वृक्षं प्रतिपद्यत इति । सर्वमेवानुमानमित्येतस्मिन्नपि च पक्षेऽनुमानाभावः, प्रत्यक्षतोऽनधिगतत्वाद् धर्मिणः । …… कः पुनः सामान्यतोदृष्टस्य प्रत्यक्षपूर्वकादनुमानाद् विशेषः ? …… प्रत्यक्षपूर्वकं त्रिकप्रसिद्धौ प्रवर्तते साध्यसाधनधर्म्युपलम्भे । …… यत् पुनः साधनधर्मं धर्मिणं चोपलभ्यात्यन्तपरोक्षं धर्मान्तरमनुमिमीते तत् सामान्यतोदृष्टमिति । भवत्पक्षे तु न सामान्यतोदृष्टानुमानाद् वृक्षबुद्धिर्न प्रत्यक्षपूर्वकाद्, धर्मिणोऽनभ्युपगमात्, प्रत्यक्षप्रतिषेधाच्चेति ॥३१॥</div>
+  <div class="tr">一方、別の実体が生じる（と認める）立場では、全体は推理されるものではない。手前の部分と同じく、知覚されるものだからである。この人が感官と結びついた手前の部分を知覚によって知るのと同じく、木をも（知覚によって知る）。だから木は推理されるものではない。もし感官と結びついた木を推理されるものだと考えるなら、木と同じく手前の部分も推理されるものになってしまう。そうすると、「この人は手前の部分を捉えて木を知る」ということと矛盾する。また「すべては推理である」というこの立場でも、推理はない。有法が知覚によって知られていないからである。……では、「一般的に見られたもの」による推理は、知覚にもとづく推理とどう違うのか。……知覚にもとづく推理は、三つのもの、すなわち所証・証因・有法が知覚されているときにはたらく。……一方、証因である性質と有法とを知覚して、まったく知覚できない別の性質を推理するのが、「一般的に見られたもの」（による推理）である。しかしあなたの立場では、木の知は「一般的に見られたもの」による推理からも、知覚にもとづく推理からも（生じ）ない。有法を認めず、知覚を否定するからである。（第三十一スートラ）</div><div class="exp"><span class="lbl">解説</span><p>ニヤーヤの立場では、全体としての木は、部分とは別の実体として存在し、感官と結びついた手前の部分の上に、そのまま知覚されます。だから推理する必要はありません。また、すべてを推理だと言えば、推理の出発点になる知覚がなくなり、推理そのものも成り立たなくなります。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「一般的に見られたもの」の問いを、それでは有法についての知覚もないのではないか、という問う側の混乱だと Vācaspati を引いて説明します。また、仏教の立場では手前の部分も向こう側の部分も木もすべて原子で、原子は感官を超えるので何も知覚されず、木の知は推理からも生じない、と結論をまとめます（Hi. pp.531–532）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>知覚と推理の違い</h2><span class="sub"><span class="pg">pp.204–205</span>スートラ 2.1.32。一部を捉えることも知覚である。両者の違い</span></div>
+<div class="mula sutra" id="u7">
+  <span class="ref">pp.204–205 · NS 2.1.32</span>
+  <div class="src deva" lang="sa">न, प्रत्यक्षेण यावत् तावदप्युपलम्भात् ॥२।१।३२॥<br>विरुद्धश्चायं हेतुरेकदेशग्रहणाद् वृक्षोपलब्धेरिति । कथमिति ? न, ……लम्भात् । प्रत्यक्षमनुमानमित्येवं ब्रुवता प्रत्यक्षमपह्नूयते । प्रत्यक्षापह्नवाच्च यदेकदेशग्रहणं प्रत्यक्षं तद् व्याहतं भवति । …… न चेदं प्रतिज्ञायते सर्वं प्रत्यक्षस्य विषयः, किं तु यावदिन्द्रियार्थसन्निकर्षादुपलभ्यते तावत् प्रत्यक्षस्य विषय इति । अथापि न प्रत्यक्षमनुमानं प्रकारवत्त्वात् । प्रकारवदनुमानम्, अप्रकारवत् प्रत्यक्षम् । …… त्रिकालविषयत्वाच्च नानुमानं प्रत्यक्षम् । त्रिकालविषयमनुमानम्, न चैवं प्रत्यक्षमिति । लिङ्गलिङ्गिसम्बन्धस्मृत्यनपेक्षत्वाच्च नानुमानं प्रत्यक्षम् । …… इतश्च न प्रत्यक्षस्यानुमानत्वप्रसङ्गः, तत्पूर्वकत्वात् । प्रत्यक्षपूर्वकमनुमानम्, न तु प्रत्यक्षम् । …… इन्द्रियसंबद्धाच्च, न चेन्द्रियस्यानुमेयेनार्थेन सन्निकर्षादुत्पद्यते ज्ञानं यदनुमानमित्युच्यते । सोऽयं प्रमाणदृष्टः प्रत्यक्षानुमानयोरेकत्वमासञ्जयता भेदः प्रत्याख्यायत इति ।</div>
+  <div class="tr">（答え）そうではない。知覚によって、（少なくとも）それだけのもの（一部）は知覚されるからである。<br>また、「一部を捉えることから木を知覚するので」というこの理由は矛盾している。どのようにか。「そうではない。……知覚されるからである」。「知覚は推理である」と言う者は、知覚を否定している。そして知覚を否定するので、一部を捉えるという知覚と矛盾することになる。……また、「すべてが知覚の対象である」と主張しているのではない。感官と対象の接触から知覚されるだけのものが知覚の対象である、と（主張しているのである）。さらにまた、知覚は推理ではない。（推理は）型をもつからである。推理は型をもち、知覚は型をもたない。……また、三つの時を対象とするので、推理は知覚ではない。推理は三つの時を対象とするが、知覚はそうではない。また、証因と証因をもつものとの関係の想起を必要としないので、知覚は推理ではない。……また、それ（知覚）を前提とするので、知覚が推理であることにはならない。推理は知覚を前提とするが、知覚はそうではない。……また、感官と結びついたものから（生じるので）。推理と呼ばれる知は、推理されるべき対象と感官との接触から生じるのではない。知覚と推理とを同一だとする者は、認識手段によって見られたこの違いを否定しているのである。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 2.1.32 は、反論者自身が「一部を捉える」と言っていることを突きます。一部を捉えることは知覚にほかならないのだから、知覚を否定する反論者の理由は自分の主張と矛盾する（矛盾という擬似理由）。Uddyotakara は、知覚と推理の違いを列挙します。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>観点</th><th>推理</th><th>知覚</th></tr></thead>
+    <tbody>
+      <tr><td class="k">型</td><td>前件・後件・一般的に見られたもの、などの型をもつ</td><td>型をもたない</td></tr>
+      <tr><td class="k">時</td><td>過去・現在・未来を対象とする</td><td>現在だけを対象とする</td></tr>
+      <tr><td class="k">想起</td><td>証因と所証の関係の想起を必要とする</td><td>必要としない</td></tr>
+      <tr><td class="k">前提</td><td>知覚を前提とする</td><td>推理を前提としない</td></tr>
+      <tr><td class="k">感官</td><td>対象と感官は接触しない</td><td>感官と結びついた対象から生じる</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　知覚と推理の違い。</b>スートラ 2.1.32 の Vārttika による。</figcaption>
+</figure>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、このスートラは反論の理由が「不成立」であり「矛盾」でもあることを示す、と注し、Vācaspati の「両端に輪のある縄」（<i>ubhayataḥpāśā rajjuḥ</i>、どちらに転んでも縛られる）という言葉を引きます。バーシュヤの説明では理由は不成立、Vārttika の説明では矛盾でもあり、Vācaspati は両方を説明する、と対比しています（TṬ p.380）。Vārttika が挙げる知覚と推理の違いを (1)〜(5) と番号を付けて訳し、本文も「推理は型をもつ、知覚は型をもたない」（<span lang="sa" class="deva">अप्रकारवत्त्वात्</span>）と読んでいます（Hi. pp.532–535）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「推理と同じく型をもつ（<span lang="sa" class="deva">अनुमानप्रकारवत्</span>）」は、対比の文脈から「知覚は型をもたない」（<span lang="sa" class="deva">अप्रकारवत् प्रत्यक्षम्</span>）と直して読みました。OCR テキストのスートラ番号「2.1.13」も 2.1.31 に直しました。</p></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>全体は部分にどうあるか</h2><span class="sub"><span class="pg">pp.205–208</span>「全部でか一部でか」の論難への答え。見える部分と見えない部分</span></div>
+<div class="mula sutra" id="u8">
+  <span class="ref">p.205 · NS 2.1.33</span>
+  <div class="src deva" lang="sa">न चैकदेशोपलब्धिरवयविसद्भावात् ॥२।१।३३॥<br>यदिदं भवताभिधीयत एकदेशग्रहणादयं वृक्षं प्रतिपद्यत इति, तदनुपपन्नम् । यस्मादेकदेशोपलब्धिस्तत्सहचरितावयव्युपलब्धिश्च । न हीन्द्रियेण सन्निकृष्यमाण एकदेशे तत्सहचरितोऽवयवी न सन्निकृष्टः । तेन यथैकदेशः स्वसन्निकर्षादुपलभ्यते, एवमवयव्यपि स्वसन्निकर्षादुपलभ्यते । …… किं कारणम् ? महदनेकद्रव्यवत्त्वरूपाण्युपलम्भकानि । तान्येकदेशवदेकदेशिन्यपि वर्तन्ते । तस्मादेकदेश उपलभ्यते नैकदेशीत्ययुक्तम् ।</div>
+  <div class="tr">また、全体が存在するので、（ただ）一部だけを知覚するのではない。<br>あなたが「この人は一部を捉えることから木を知る」と言うのは、成り立たない。一部の知覚は、それとともにある全体の知覚でもあるからである。感官によって一部が接触されるとき、それとともにある全体が接触されないことはない。だから、一部が自分（と感官と）の接触によって知覚されるのと同じく、全体も自分の接触によって知覚される。……なぜか。大きさと、多くの実体（部分）をもつことと、色とが、知覚させるもの（知覚の条件）である。それらは一部にあるのと同じく、一部をもつもの（全体）にもある。だから、「一部は知覚されるが、一部をもつもの（全体）は知覚されない」というのは正しくない。</div><div class="exp"><span class="lbl">解説</span><p>ヴァイシェーシカ・スートラ（4.1.6）によれば、ものが知覚されるための条件は、大きさがあること、多くの部分からなること、色があることです。手前の部分がこれらを備えて見えているなら、同じ条件を備えた全体の木も、同じように見えている、というのが Uddyotakara の論点です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、これを定説の論者の発言とし、ただし『ニヤーヤ・スーチー・ニバンダ』はこれをスートラに数えていない、と注します。知覚の条件については、ヴァイシェーシカ・スートラ「大きさと多くの実体をもつことと色とから知覚がある」を引きます（Hi. pp.535–536）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版はこの文をスートラとせず、スートラ 2.1.32 の Vārttika の一部として印刷しています。ヒンディー訳は通行のスートラ番号どおりこれを 2.1.33 とするので、それに従いました。このため、以後のスートラ番号は Thakur 版の番号より一つずつ大きくなります。</p></div></div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">pp.205–206</span>
+  <div class="src deva" lang="sa">नावयविन उपलब्धिर्युक्ता । कस्मात् ? विकल्पानुपपत्तेः । अयं खल्ववयव्यवयवेषु वर्तमान एकस्मिन् कृत्स्नो वा वर्तते, एकदेशेन वा ? किं चातः ? यद्येकस्मिन् कृत्स्नो वर्तते, शेषावयववैयर्थ्यम् । …… एकद्रव्यश्चासाववयवी भवन् नोपलभ्येत, महदनेकद्रव्यवत्त्वस्योपलम्भकत्वात् । …… नाप्येकदेशेन वर्तते, न ह्यस्य कारणव्यतिरेकेणान्य एकदेशाः सन्ति । …… अशेषावयवोपलब्धिरपि नास्ति, मध्यपरभागयोरर्वाग्भागेन व्यवधानात् । तेनावयविनो न ग्रहणविकल्पो नापि वृत्तिविकल्पः ।</div>
+  <div class="tr">（反論）「全体の知覚は正しくない。なぜか。選択肢のどれも成り立たないからである。この全体は部分にあるとき、一つ（の部分）に全部であるのか、一部によってあるのか。それでどうなるのか。もし一つ（の部分）に全部であるなら、残りの部分が無駄になる。……また、その全体は一つの実体（部分）をもつものになるので、知覚されないだろう。大きさと多くの実体をもつことが知覚の条件だからである。……また、一部によってあるのでもない。それには、原因（部分）以外に別の一部はないからである。……また、（見ている人には）すべての部分の知覚もない。真ん中の部分と向こう側の部分は、手前の部分によって隠されているからである。だから、全体の把握についての選択肢も、（部分における）あり方についての選択肢も成り立たない」。</div><div class="exp"><span class="lbl">解説</span><p>全体を否定する論者の有名な論難です。全体（布）は部分（糸）のそれぞれに「全部で」あるのか、「一部ずつ」あるのか。一本の糸に布の全部があるなら、ほかの糸は不要になる。一部ずつあるなら、布には糸以外の「一部」があることになるが、布の一部とは糸のことなので、結局、布は糸と別のものではなくなる。どちらも成り立たないので、全体は存在しない、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vācaspati を要約して、一つのものが多くのものにあるのは、「全部で」なら各部分にまるごと、「一部で」なら花を貫く糸のように、のどちらかであり、全部であるならほかにはなく、一部であるならその一部にまた一部が要って無限遡及になる、という論難だと説明します。「把握についての選択肢」は全体がすべての部分によって把握されるか一つの部分によってか、「あり方についての選択肢」は各部分に全部であるか一部であるか、と区別しています。なお、訳文の「だから、全体の把握についての選択肢も……成り立たない」では、最初の否定が抜けて意味が逆になっており、誤植か OCR の脱落と思われます（Hi. pp.536–539）。</p></div></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">pp.206–207</span>
+  <div class="src deva" lang="sa">एकस्मिन् कृत्स्नैकदेशशब्दासंभवादप्रश्नः । किमवयव्येकदेशेन वर्तते, अथ कृत्स्नो वर्तत इति न युक्तः प्रश्नः । नावयवी कृत्स्नो नैकदेशः । कृत्स्नमिति खल्वनेकस्याशेषस्याभिधानम्, एकदेश इति चानेकत्वे सति कस्यचिदभिधानम् । ताविमौ कृत्स्नैकदेशशब्दावेकस्मिन्नवयविन्यनुपपन्नौ । कथं तर्ह्यवयवेष्ववयवी वर्तत इति ? आश्रयाश्रयिभावेन । आश्रितोऽवयवी, आश्रया अवयवा इति । …… का पुनरियं वृत्तिः ? एकस्यानेकत्राश्रितभावलक्षणा प्राप्तिः । अपि चैकमनेकत्र वर्तत इति प्रतिजानानो नानुयोक्तव्यः—किमेकदेशेन वर्तत उत सर्वात्मनेति । कस्मात् ? उभयेन व्याघातात् । …… अनुयोगस्याधिकरणबाधकत्वात् । …… एवं सर्वेष्वनेकद्रव्यवृत्तिषु संख्यापृथक्त्वसंयोगविभागसामान्यादिष्वनुयोगाधिकरणव्यावृत्तिदोषो वक्तव्यः ।</div>
+  <div class="tr">（答え）一つのものには「全部」「一部」という語はありえないので、（それは）問いにならない。「全体は一部によってあるのか、全部であるのか」というのは正しい問いではない。全体は「全部」でも「一部」でもない。「全部」とは、多くのものの残りのないことを言い、「一部」とは、多くのものがあるときにそのうちのいくつかを言う。この「全部」「一部」という二つの語は、一つである全体には当てはまらない。では、全体はどのように部分にあるのか。拠り所と拠るものの関係によってである。全体は拠るものであり、部分は拠り所である。……では、この「ある」（<i>vṛtti</i>）とは何か。一つのものが多くのものに拠っているという形の結びつきである。また、「一つのものが多くのものにある」と主張する者に、「一部によってあるのか、全体としてあるのか」と問いただすべきではない。なぜか。どちらにしても（問いが）自己矛盾するからである。……問いが、（問いの）基体を否定するからである。……同じように、多くの実体にあるすべてのもの、すなわち数（二など）・別異性・結合・分離・普遍などについても、問いの基体がなくなってしまうという誤りを指摘すべきである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の答えは、問いの立て方そのものが誤っている、というものです。「全部」「一部」は、多くのものからなるものについてだけ言える言葉です。全体はそれ自体としては一つのものなので、「全部であるか一部であるか」と問うことはできません。全体は、部分を拠り所として、それに拠ってある。それだけです。</p><p>さらに、この問いは、「一つのものが多くのものにある」こと自体を否定してしまう。「全部で」と答えれば、各部分にそれぞれ全体があることになって「多くのものが多くのものに」となり、「一部で」と答えても同じことになる。つまり、問いが問いの前提（一つのものが多くのものにある）を壊してしまう。数の「二」や、結合（二つのものにまたがる）や、普遍（多くの個物にある）も同じ構造なので、この論難を認めれば、それらもすべて否定されてしまう、と Uddyotakara は指摘します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、性質についての選択肢（音は常住か無常か）は有法を否定しないので問うてよいが、有法そのものを否定してしまう選択肢を立てると、理由の基体不成立（<i>āśrayāsiddha</i>）になる、と注します。また、花を貫く糸は、一部によってでも全部でもなく「それ自身として」花にある、全体も同じだが、糸には糸自身の部分があるのに対して全体には自分の一部がない、という独自の喩えを添えています。拠り所と拠るものの関係は、世間の経験で確かめられる、と Vācaspati を引きます（TṬ pp.381–382; Hi. pp.539–542）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この部分の後半（問いが基体を否定する議論）は、OCR テキストの乱れが大きく、原文は要点を抜き出しました。</p></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">pp.207–208</span>
+  <div class="src deva" lang="sa">ग्रहणाग्रहणभेदाद् भेदोऽवयववदिति चेत् ? यथा गृह्यमाणानामगृह्यमाणानां चावयवानां भेदः, तथावयविनोऽपि गृह्यमाणागृह्यमाणावयवाश्रितस्य भेदः प्राप्तः, ततश्च नैकोऽवयवी । न, भेद एकस्मिन्नपि दर्शनात् । एकस्मिन्नपि गृह्यमाणे ग्रहणमग्रहणं च दृष्टं देवदत्तादिवत् । यथा देवदत्तादिः केनचित् सह गृह्यते केनचित् सह न गृह्यते, न तावता तस्य भेदः, तथावयविनोऽपीत्यदोषः । …… मध्यभागपरभागौ न गृहीताविति चेत्—न, तयोरवयविनोऽन्यत्वात् । …… यथार्वाग्भागेन सहावयविन इन्द्रियप्राप्तिरुपलब्धिनिमित्तमस्ति, नैवं मध्यभागपरभागाभ्यां सह । तस्मादर्वाग्भागेन सहोपलभ्यते, न मध्यभागपरभागाभ्यामिति । अवयवसमूहपक्षे तु सर्वथा वृक्षबुद्धेरभावः । …… सेयमेकदेशग्रहणसहचरिता वृक्षबुद्धिर्द्रव्यान्तरोत्पत्तिपक्षे कल्पते, न समुदायमात्र इति ॥३३॥<br>॥ प्रत्यक्षस्यानुमानत्वपरीक्षाप्रकरणम् ॥</div>
+  <div class="tr">（反論）「捉えられるか捉えられないかの違いによって、部分と同じく（全体にも）違いがある」と言うなら。（すなわち）捉えられる部分と捉えられない部分とが別々であるように、捉えられる部分と捉えられない部分とに拠る全体も別々になってしまう。そうすると全体は一つではない（というのである）。そうではない。一つのものにも違い（捉えられることと捉えられないこと）が見られるからである。一つのものについても、捉えられることと捉えられないことが見られる。デーヴァダッタなどのように。デーヴァダッタなどは、ある人とともに（その人と一緒に）捉えられ、ある人とともには捉えられないが、それによって（デーヴァダッタが）別々になるのではない。全体も同様である。だから誤りはない。……（反論）「真ん中の部分と向こう側の部分は捉えられていない」と言うなら、そうではない。それらは全体とは別のものだからである。……手前の部分とともに、全体には感官との接触という知覚の原因があるが、真ん中の部分や向こう側の部分とともにはそうではない。だから（全体は）手前の部分とともに知覚され、真ん中の部分や向こう側の部分とともには（知覚され）ない。一方、部分の集まりの立場では、どうしても木の知はない。……このように、一部を捉えることにともなう木の知は、別の実体が生じる立場でこそ成り立つのであって、単なる集まり（の立場）では（成り立た）ない。（第三十三スートラ）<br>知覚が推理であるかの吟味のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>最後の反論は、木の手前は見えて裏側は見えないなら、「見える木」と「見えない木」の二つがあることになる、というものです。Uddyotakara は、一人の人が、ある人と一緒にいるところを見られ、別の人と一緒にいるところは見られなかったとしても、その人が二人になるわけではない、と答えます。木の全体は、手前の部分とともに見られ、裏側の部分とともには見られない。見られていないのは裏側の部分であって、全体としての木は見られている、というのが結論です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「捉えられるか捉えられないかの違い」を「矛盾する性質の結合」（<i>viruddhadharmasaṃsarga</i>）の一例とし、Vācaspati がここで「存在するものはすべて部分をもたない。知のように」という仏教の論証を引き、捉えられる／捉えられない、動く／動かない、などの矛盾する性質の結合をその理由として紹介している、と注します（TṬ p.384）。最後の部分の集まりの立場への反論については、この説は「集合説」として知られ、毘婆沙師（<i>Vaibhāṣika</i>）がはっきり認める、と注します（TṬ pp.387–388; Hi. pp.542–544）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>avayava / avayavin</dt><dd>部分（構成要素）／全体（部分をもつもの、有分）</dd>
+    <dt>ekadeśa / ekadeśin</dt><dd>一部／一部をもつもの（全体）</dd>
+    <dt>avayavasamūha</dt><dd>部分の集まり。全体を認めない立場</dd>
+    <dt>dravyāntarotpatti</dt><dd>別の実体（全体）が部分から生じること。ニヤーヤ・ヴァイシェーシカの立場</dd>
+    <dt>arvāgbhāga / madhyabhāga / parabhāga</dt><dd>手前の部分／真ん中の部分／向こう側の部分</dd>
+    <dt>pratisandhāna</dt><dd>結びつけ（る知）</dd>
+    <dt>atasmiṃs tad iti pratyayaḥ</dt><dd>それでないものをそれと見る知（誤った知）</dd>
+    <dt>kṛtsna / ekadeśa</dt><dd>全部で／一部で（全体が部分にあるあり方の選択肢）</dd>
+    <dt>āśrayāśrayibhāva</dt><dd>拠り所と拠るものの関係</dd>
+    <dt>vṛtti</dt><dd>（あるものが別のものに）あること</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。長い議論の原文は要点を抜き出した（「……」）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第15プラカラナ（スートラ 2.1.31–33）である。第14プラカラナ（スートラ 2.1.21–30）は<a href="nyayavarttika-14-taiyaku.html">第14プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
