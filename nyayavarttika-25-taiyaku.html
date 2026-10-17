@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 25</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-24-taiyaku.html">← プラカラナ24</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>語とは何か</a></li><li><a href="#s2"><b>2</b>個物説と形態説</a></li><li><a href="#s3"><b>3</b>普遍説と普遍の擁護</a></li><li><a href="#s4"><b>4</b>三つすべてが語の意味</a></li><li><a href="#s5"><b>5</b>アポーハ説批判</a></li><li><a href="#s6"><b>6</b>個物・形態・普遍の定義</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第25プラカラナ「語の表示力」（スートラ 2.2.58–69、Thakur 版 pp.298–318）</span>
+  <p>「牛」という語は何を指すのでしょうか。目の前のこの牛（個物、<i>vyakti</i>）か、頭・四肢などの決まった形（形態、<i>ākṛti</i>）か、すべての牛に共通する牛性（普遍、<i>jāti</i>）か。第二巻の最後を飾るこの章は、インドの意味論の中心問題を扱います。スートラは、個物説・形態説・普遍説をそれぞれ立てては退け、最後に「三つすべてが語の意味である」と結論し、三つを定義します。</p>
+  <p>Uddyotakara の注釈の山場は二つあります。一つは、普遍は個物とは別に実在するのか、という問いに答えて、普遍を守る議論（§3）。もう一つは、語は普遍を直接表すのではなく「他のものの排除」（<i>anyāpoha</i>、アポーハ）を表すのだ、という仏教の言語理論への詳しい批判（§4–§5）です。「牛」の意味が「牛でないものではない」ことだとすれば、まず「牛」がわからなければ「牛でないもの」もわからないではないか。この章は、ニヤーヤによるアポーハ説批判の古典として知られます。</p>
+  <p>章が長いので、原文は論点ごとに要点を抜き出しました（「……」）。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>語の表示力の考察の章<br><small><i>śabdaśaktiparīkṣāprakaraṇa</i>。スートラ 2.2.58–69 の注釈。Thakur 版 pp.298–318。第2巻の最後</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.2.58–69<br><small>語の定義、個物説・形態説・普遍説、三つすべてが語の意味であること、三つの定義</small></dd></div>
+    <div><dt>論敵</dt><dd>普遍の実在を否定し、語の意味を「他の排除」とする論者<br><small>ヒンディー訳の注は、TṬ に従ってこの論者を仏教徒（他の排除を説く者）とする。Dignāga の名は挙げない</small></dd></div>
+    <div><dt>見どころ</dt><dd>「牛」の意味は「牛でないものの排除」か<br><small>§5。肯定的な意味がなければ、否定もできない</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.803–855</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.300</span> は Thakur 版の頁。節見出しの <span class="pg">pp.298–300</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。長い議論は要点を抜き出した（<span class="ia">……</span>）</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.2.58–69 の注釈を、テキストの順に6節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">語とは何か</a></td><td class="num">pp.298–300</td><td>スートラ 2.2.58–59。語の定義、名詞と動詞。語の意味についての疑い</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">個物説と形態説</a></td><td class="num">pp.300–302</td><td>スートラ 2.2.60–63。個物説とその否定、転用の例、形態説</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">普遍説と普遍の擁護</a></td><td class="num">pp.302–306</td><td>スートラ 2.2.64。土の牛。普遍は個物と別に実在するか</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">三つすべてが語の意味</a></td><td class="num">pp.306–311</td><td>スートラ 2.2.65–66。主と従の関係。「有る」という語をめぐる論争</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">アポーハ説批判</a></td><td class="num">pp.312–316</td><td>スートラ 2.2.66 の続き。「他の排除」は語の意味になりえない</td></tr>
+<tr><td class="num">§6</td><td class="k"><a href="#s6">個物・形態・普遍の定義</a></td><td class="num">pp.316–318</td><td>スートラ 2.2.67–69。三つの定義と、普遍の存在の論証</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>語とは何か</h2><span class="sub"><span class="pg">pp.298–300</span>スートラ 2.2.58–59。語の定義、名詞と動詞。語の意味についての疑い</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.298 · NS 2.2.58</span>
+  <div class="src deva" lang="sa">ते विभक्त्यन्ताः पदम् ॥२।२।५८॥<br>ते वर्णा यथादर्शनं विकृता विभक्त्यन्ताः पदसंज्ञका भवन्ति । अर्थप्रत्ययस्तर्हि न प्राप्नोति ? न न प्राप्नोति । अन्त्यवर्णप्रत्ययात् पूर्ववर्णप्रतिसन्धानप्रत्ययापेक्षादर्थप्रत्यय इति । विभक्तिर्द्वयी, नामिकी चाख्यातिकी च । नामिकी स्वादयः, आख्यातिकी तिबादयः । तया विशेष्यमाणं पदं द्वेधा भवति, नाम चाख्यातं च । …… यथा ब्राह्मण इति …… क्रियाकालयोगाभिधायि क्रियाप्रधानमाख्यातं पचतीति यथा । यदि द्वयी विभक्तिः, उपसर्गनिपातास्तर्हि न पदसंज्ञकाः ? न, नाम्नि अन्तर्भावात् । उपसर्गनिपाता नाम्ना संगृहीताः, यस्मादाह — अव्ययाल्लोपः — इति, तेन सुबन्तत्वात् तेनैव संगृहीता इति ॥५८॥</div>
+  <div class="tr">それら（文字）が、格語尾・人称語尾で終わるものが語である。<br>それらの文字が、見られるとおりに変化して（置換されて）、語尾で終わるものが「語」と呼ばれる。（反論）「では、意味の理解は得られない（一つ一つの文字は瞬時に消えるのだから）」。得られないのではない。最後の文字の知覚から、前の文字を結びつける知に依存して、意味の理解がある。語尾には二種類がある。名詞の（語尾）と動詞の（語尾）とである。名詞の（語尾）は su などであり、動詞の（語尾）は tip などである。それによって限定される語は二通りになる。名詞と動詞とである。……たとえば「バラモン」（という名詞）のように。……動作と時との結びつきを表し、動作を主とするのが動詞である。たとえば「料理する」のように。（反論）「もし語尾が二種類なら、接頭辞や不変化辞は語と呼ばれないことになる」。そうではない。名詞に含まれるからである。接頭辞と不変化辞は名詞に含まれる。（パーニニが）「不変化詞の後では（格語尾は）脱落する」と言うからである。それによって、格語尾で終わるものなので、それ（名詞）に含まれる。</div><div class="exp"><span class="lbl">解説</span><p>前章で論じた文字が集まって、語尾をもつと「語」（<i>pada</i>）になります。文字は一つずつ消えていくのに、どうして語の意味がわかるのか。最後の文字を聞いたとき、前の文字の記憶がそれと結びついて意味が理解される、と答えます。語は名詞と動詞の二種で、接頭辞や不変化辞も、パーニニ 2.4.82 によって格語尾が脱落したものとみなされるので、名詞に含まれる、と説明されます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は「見られるとおりに」を「学問（文法学）に従って」と訳し、TṬ（p.472）がこれを「認識手段に従って」と注すると記します。Śāstrī は、ニヤーヤは文法家のスポータ（文字とは別の、意味を担う語の本体）を認めないが、文法の手続きは受け入れる、と説明し、語は語尾で終わる文字の集まりにほかならない、と注します。反論「意味の理解は得られない」は、TṬ（p.472）によればスポータを説く者の考えです。答えは、最後の文字の知に、前の文字の記憶が加わって、約束（語と意味の取り決め）が想起されることだ、と説明します。「動作を主とする」は、名詞を定義から除くために加えられた、と注します（Hi. pp.803–806）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">pp.299–300</span>
+  <div class="src deva" lang="sa">पदेन व्यवहार इति पदार्थश्चिन्त्यते । …… तस्मात् गौरित्यस्य पदस्यार्थश्चिन्त्यते । न पदार्थाधिगतिर्विशेषेऽनवस्थानात् । न हि पदे उच्चरिते कश्चिद् विशेषो गम्यते । तस्मात् पदमवाचकमिति ? न, पदस्य विशेषाविषयत्वात् । क एवमाह पदेन विशेषो गम्यत इति ? अपि तु सामान्यवर्ति पदम्, विशेषवर्ति च वाक्यम् । …… यथा गौरिति सामान्याधिगतौ तिष्ठति गच्छतीति विशेषश्रुत्या विशेषो गम्यत इति । …… यदा पुनः क्रियाप्रधानं पदं गोर्भावो गोत्वमिति, तदापि गौरङ्गभूतो विशेषकत्वाद् गम्यते प्रधानं गोत्वमिति । तदेवं प्रधानोपसर्जनभावस्यानियमेन गोत्वमिति च पदे गौरिति चोभयं गम्यत इति ।</div>
+  <div class="tr">語によって日常の営みがある。それで語の意味が考察される。……だから、「牛」という語の意味が考察される。（反論）「語によって意味は理解されない。特定のもの（個物）にとどまらないからである。語が発せられても、何も特定のものは理解されない。だから語は（意味を）表さない」。そうではない。語は特定のものを対象としないからである。誰が「語によって特定のものが理解される」と言ったか。そうではなく、語は一般に関わり、文は特定のものに関わるのである。……たとえば「牛」と言って一般が理解されたとき、「立っている」「歩いている」という特定の語によって特定のもの（この牛）が理解されるように。……また、「牛であること」「牛性」のように、性質（普遍）を主とする語の場合にも、牛は限定するものとして従として理解され、主として牛性が理解される。このように、主と従の関係が決まっていないので、「牛性」という語にも「牛」という語にも、両方が理解されるのである。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、「牛」と言っても特定の牛は指せないのだから、語は何も表さない、と言います。Uddyotakara は、語はもともと一般に関わり、特定のものは「（その牛が）立っている」のように文によって定まる、と答えます。さらに、「牛」という語でも「牛性」という語でも、牛（もの）と牛性（普遍）の両方が理解され、どちらが主でどちらが従かは場合によって変わる、と述べます。この「主と従の関係は決まっていない」（<i>pradhānopasarjanabhāvasyāniyama</i>）という考えが、章の結論の鍵になります。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、名詞が他の語に「行きわたる」とは、文の中で名詞が多いという意味だとします（TṬ p.473）。「（特定のものに）とどまらない」の「とどまる」を「確定」と注します（TṬ p.474）。「語は一般を、文は特定のものを表す」と注し、Vārttika の「文」を本文どおりに読みますが、訳文では OCR の「表されるもの」に従っている箇所があります（Hi. pp.805–806）。</p></div></div>
+</div>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.300 · NS 2.2.59</span>
+  <div class="src deva" lang="sa">व्यक्त्याकृतिजातिसन्निधावुपचारात् संशयः ॥२।२।५९॥<br>यस्मादयं गोशब्दो व्यक्त्याकृतिजातिष्वविनाभावेन वर्तमानासु प्रयुज्यते, अविनाभाववृत्तिश्च सन्निधिः, अतो न ज्ञायते किं व्यक्तिः पदार्थः, उत आकृतिः, उत जातिरिति ॥५९॥</div>
+  <div class="tr">個物・形態・普遍がともにあるところで（語が）用いられるので、疑いがある。<br>この「牛」という語は、個物・形態・普遍が離れずにあるところで用いられ、そして「ともにある」とは離れずにあることだから、語の意味は個物なのか、形態なのか、普遍なのか、わからない。</div><div class="exp"><span class="lbl">解説</span><p>どの牛にも、その牛という個物、牛の形、牛性という普遍が、いつもそろっています。だから「牛」という語がそのどれを指しているのか、すぐには決められない。これが章の問いです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、Vārttika はこれをスートラとしては示していない（『ニヤーヤ・スーチー・ニバンダ』とバーシュヤはスートラとする）と記します。TṬ（p.475）の「そのうち一つを語の意味とするために、Vārttika の作者は『個物か』と言う」を引き、以下、三つを一つずつ退けてから、三つ全部が語の意味だという定説を述べる、と章の流れを示します（Hi. p.807）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>個物説と形態説</h2><span class="sub"><span class="pg">pp.300–302</span>スートラ 2.2.60–63。個物説とその否定、転用の例、形態説</span></div>
+<div class="mula sutra" id="u4">
+  <span class="ref">p.300 · NS 2.2.60–61</span>
+  <div class="src deva" lang="sa">याशब्दसमूहत्यागपरिग्रहसंख्यावृद्ध्यपचयवर्णसमासानुबन्धानां व्यक्तावुपचाराद् व्यक्तिः ॥२।२।६०॥<br>शब्दस्य प्रयोगसामर्थ्यात् पदार्थविधारणमिति प्रयोगप्रदर्शनार्थं याशब्दादिसूत्रम् । नामी याशब्दादयो जातौ प्रयुज्यन्ते । कस्मात् ? अभेदात् । एका जातिः । तस्या विशेषणमनर्थकम् । …… आकृतेरप्यविधायकमेतत् न भवति, निष्क्रियत्वादाकृतेः । न हि निष्क्रिया गच्छति तिष्ठति वेति । …… द्रव्यं व्यक्तिरिति नार्थान्तरम् । तिष्ठतिशब्दसन्निहितेन गोशब्देन व्यक्तिरभिधीयत इति ॥६०॥<br>न, तदनवस्थानात् ॥२।२।६१॥<br>तत्प्रतिषेधार्थं सूत्रम् …… नानेन गोशब्देन व्यक्तिमात्रं शुद्धमुच्यते । यद्ययं व्यक्तिमात्राभिधायकोऽभविष्यत्, तेन यस्यां कस्याञ्चिद् व्यक्तौ प्रत्ययोऽभविष्यदिति सूत्रार्थः ॥६१॥</div>
+  <div class="tr">（反論）「『～であるところの』という語、集まり、与えること、受け取ること、数、増加、減少、色、複合語、子孫（を表す語）が、個物について用いられるので、（語の意味は）個物である」。<br>語の用いられ方の力によって語の意味が決められる、というので、用いられ方を示すために「『～であるところの』という語」などのスートラがある。これらの「～であるところの」という語などは、普遍については用いられない。なぜか。区別がないからである。普遍は一つである。それに限定語をつけても意味がない。……これ（「立っている」など）は、形態についても規定するものにならない。形態には動作がないからである。動作のないものが歩いたり立っていたりすることはない。……実体と個物とは別のものではない。「立っている」という語とともにある「牛」という語によって、個物が表される。<br>（答え）そうではない。それ（個物）は定まらないからである。<br>それ（個物説）を否定するためのスートラである。……この「牛」という語によって、ただの個物だけが言われるのではない。もしこれが個物だけを表すなら、それによって、どんな個物についても（「牛」という）理解が生じるはずだ、というのがスートラの意味である。</div><div class="exp"><span class="lbl">解説</span><p>個物説の論拠は、私たちの言葉の使い方です。「立っている（ところの）牛」「牛の群れ」「牛を与える」「十頭の牛」「白い牛」のような言い方は、すべて個々の牛について言われる。普遍（牛性）は一つしかないので、数えたり与えたりできないし、形態は動かないので「立つ」「歩く」とは言えない。これに対して答えのスートラは、個物にはそれを「牛」にする決まりがないので、語がただ個物を表すなら、馬にも人にも「牛」と言えてしまう、と退けます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 2.2.60 を「個物を説く者」の側のものとし、「色」を「色合い」、「子孫」を「同じものを生むこと」と訳します。バーシュヤの例（「医者に牛を与える」「カウンディニヤの牛」「十頭の牛」「牛が大きくなった」「白い牛」「牛が牛を生む」など）を紹介し、普遍は生じないので「子孫」は普遍には当てはまらない、と注します。2.2.61 の「定まらないから」を「決まりがないから」と言い換え、「どんな個物にも理解が生じてしまう」という説明は Vārttika 独自の読みだ、と注します（Hi. pp.808–810）。</p></div></div>
+</div>
+<div class="mula sutra" id="u5">
+  <span class="ref">p.301 · NS 2.2.62</span>
+  <div class="src deva" lang="sa">सहचरणस्थानतादर्थ्यवृत्तमानधारणसामीप्ययोगसाधनाधिपत्येभ्यो ब्राह्मणमञ्चकटराजसक्तुचन्दनगङ्गाशाटकान्नपुरुषेष्वतद्भावेऽपि तदुपचारः ॥२।२।६२॥<br>यदि व्यक्तिर्न पदार्थः, कथं व्यक्तौ प्रयोगो या गौस्तिष्ठतीत्येवमादिः ? निमित्तादतद्भावेऽपि तदुपचारः । …… अतच्छब्दस्य तच्छब्देनाभिधानमुपचारः । यथा यष्टिकाशब्देन द्रव्यविशेषोऽभिधीयते । यष्टियोगात् पुनः साहचर्याद् ब्राह्मणोऽभिधीयते यष्टिकां प्रवेशयेति । …… किं पुनरुपचारबीजं यष्टिका ब्राह्मण इति ? …… यष्टिकायां तावदयं यष्टिकाशब्दो जातिनिमित्तः । यष्टिकात्वं जातिः । …… साहचर्यात् संयुक्तसमवेतां जातिमध्यारोप्य ब्राह्मणं यष्टिकेत्याह । एवं शेषाण्युपचारबीजानि स्वयमुत्प्रेक्षणीयानीति ॥६२॥</div>
+  <div class="tr">（答え）ともにあること、場所、そのためであること、ふるまい、量ること、支えること、近さ、結びつき、手段、支配によって、バラモン、寝台、敷物、王、麦粉、栴檀、ガンジス河、衣、食物、人について、そのものでなくても、その（語の）転用がある。<br>もし個物が語の意味でないなら、「立っているところの牛」などのように、どうして個物について用いられるのか。（答え）理由があれば、そのものでなくても、その（語の）転用がある。……そのもの（を表す語）でない語で、そのものを表すことが転用である。たとえば「杖」という語で、特定の実体（杖）が表される。しかし、杖との結びつき、すなわち、ともにあることによって、「杖を入れよ」と（言って）バラモンが表される。……では、「杖」がバラモン（を表す）という転用の種は何か。……まず、杖における「杖」という語は、普遍を根拠とする。杖性が普遍である。……ともにあることによって、（杖と）結合したもの（杖）に内属する普遍（杖性）を（バラモンに）重ね合わせて、バラモンを「杖」と言うのである。残りの転用の種も、このように自分で考えるべきである。</div><div class="exp"><span class="lbl">解説</span><p>個物が語の本来の意味でないなら、「この牛が立っている」と言えるのはなぜか。スートラは、言葉はしばしば本来の意味でないものに「転用」されることを、十の例で示します。杖を持ったバラモンを「杖（さん）を入れよ」と言う（ともにある）、寝台の上の人々を「寝台が叫ぶ」と言う（場所）、王のようにふるまう者を「王」と言う（ふるまい）、ガンジス河の岸の牛舎を「ガンジスの牛舎」と言う（近さ）、などです（例の説明はバーシュヤによる）。Uddyotakara は、転用の根拠を、杖に結びついた杖性という普遍を、バラモンに重ね合わせることだ、と分析します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、十の根拠に番号を付けて訳し、「杖」「量」「ふるまい」などの語を説明します。「敷物（を作るための葦）」については、作られる目的語の一種だとして、文法学の目的語の七分類（『ヴァーキヤ・パディーヤ』）を引き、TṬ（p.476）の議論を紹介します。バーシュヤの結論は、語は本来普遍を表し、ともにあることや結びつきによって個物に用いられる、ということだと注します。「杖をもつ者」と言えば本来の用法なのに、なぜ「杖」と言うのか、という反論を前主張、杖に結合したものに内属する杖性をバラモンに重ね合わせる、という答えを定説とします（Hi. pp.811–813）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストでは、このスートラと次のスートラの番号が「१२१६२」「१२१६३」と崩れて印字されています。</p></div>
+</div>
+<div class="mula sutra" id="u6">
+  <span class="ref">pp.301–302 · NS 2.2.63</span>
+  <div class="src deva" lang="sa">आकृतिस्तदपेक्षत्वात् सत्त्वव्यवस्थासिद्धेः ॥२।२।६३॥<br>यदि तर्हि गौरिति पदस्य न व्यक्तिरर्थः, अस्तु तर्हि …… आकृतिः पदार्थः । कस्मात् ? तदपेक्षत्वात् सत्त्वव्यवस्थायाः । गौरश्वः पुरुष इत्येवमादिसत्त्वव्यवस्थामाकृत्यपेक्षं सिध्यति । …… अत्रापि तदेवोपस्थितम्, न तदनवस्थानादिति । यस्य च जात्या योगः, स गोशब्दस्य विषयः, नाकृतिर्जात्ययोगात् । कस्य पुनर्जातियोगः ? नियतावयवव्यूहस्यावयविनः । …… अन्यपदार्थेन बहुव्रीहिणा अवयव्यभिधीयत इति ॥६३॥</div>
+  <div class="tr">（反論）「形態である。生きものの区別の成立は、それに依存するからである」。<br>では、もし「牛」という語の意味が個物でないなら、それなら……形態が語の意味である。なぜか。生きものの区別がそれに依存するからである。「牛」「馬」「人」などの生きものの区別は、形態に依存して成り立つ。……（答え）ここでも同じこと（「それは定まらないからではない」という答え）が当てはまる。そして、普遍と結びつくものが「牛」という語の対象であり、形態は（その対象では）ない。普遍と結びつかないからである。では、何が普遍と結びつくのか。部分の配置が決まった全体（物）である。「部分の配置が決まったもの」は、別のものを意味の中心とする所有複合語（<i>bahuvrīhi</i>）によって、全体を表す。</div><div class="exp"><span class="lbl">解説</span><p>形態説の論拠は、牛と馬と人を区別するのは形だ、ということです。Uddyotakara は、普遍（牛性）と結びつくのは形そのものではなく、決まった形に部分が配置された全体（牛という物）だ、と答えます。形態は、牛性を知らせる目印にすぎない、ということです（§6 のスートラ 2.2.68 に続きます）。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 2.2.63 を「形態説の確立」とし、「生きもの」を「実体または生きもの」と訳します。形態を、生きものの部分とその部分の決まった配置とするバーシュヤの定義を紹介し、TṬ が形態説を退ける理由を二つ（個物説と同じく無限で外れること、普遍との結びつきがないこと）挙げる、と注します（Hi. pp.814–815）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>普遍説と普遍の擁護</h2><span class="sub"><span class="pg">pp.302–306</span>スートラ 2.2.64。土の牛。普遍は個物と別に実在するか</span></div>
+<div class="mula sutra" id="u7">
+  <span class="ref">pp.302–303 · NS 2.2.64</span>
+  <div class="src deva" lang="sa">व्यक्त्याकृतियुक्तेऽप्यप्रसङ्गात् प्रोक्षणादीनां मृद्गवके जातिः ॥२।२।६४॥<br>अस्तु तर्हि जातिः पदार्थः । …… यस्मात् मृद्गवके व्यक्त्याकृती स्तः, न च तत्र प्रोक्षणादीनि प्रयुज्यन्ते । न हि गामानय, गां प्रोक्षय, गां देहीति मृद्गवके प्रैषसंप्रतिपत्ती भवतः, यदभावात् तत्र न संप्रत्ययः स गोशब्दस्यार्थः । कस्य चाभावात् न तत्र संप्रत्ययः ? जातेः । …… अथ मृद्गवके गोशब्दः कुतः ? आकृतिसामान्याच्चित्रादिवदिति । सर्वगतेति चेत् ? …… तन्न, अनभ्युपगमात् । न सर्वगतत्वं जातेरभ्युपगम्यते, अपि तु स्वविषये सर्वत्र वर्तत इति सर्वगतेत्युच्यते । कः पुनर्गोत्वस्य स्वो विषयः ? यत्र गोत्वं वर्तते । …… न हि ककुदादिमदर्थव्यतिरेकेण गोत्वस्य व्यक्तिरिति ।</div>
+  <div class="tr">（反論）「普遍である。個物と形態とを備えた土の牛についても、（牛を）清めることなどが当てはまらないからである」。<br>では、普遍が語の意味であるとしよう。……土の牛には個物と形態とがあるのに、そこでは清めることなどは用いられない。土の牛について「牛を連れてこい」「牛を清めよ」「牛を与えよ」と命じたり、それを受け入れたりすることはない。それがないので、そこで（「牛」という）理解がないもの、それが「牛」という語の意味である。では、何がないので、そこで理解がないのか。普遍である。……では、土の牛について「牛」という語があるのはなぜか。形態が共通なので、絵などと同じように（転用されるのである）。（反論）「（普遍は）遍在する（ので土の牛にもある）」と言うなら。……そうではない。（我々は普遍が遍在するとは）認めないからである。普遍が（文字どおり）すべてに行きわたっているとは認めない。そうではなく、自分の対象のすべてにあるので、「遍在する」と言われるのである。では、牛性の自分の対象とは何か。牛性があるところである。……こぶなどをもつもの（牛）を離れて、牛性が現れることはないのである。</div><div class="exp"><span class="lbl">解説</span><p>粘土で作った牛の像には、個物（その像）も、牛の形もあります。それでも、祭式で「牛を清めよ」と言われて土の牛を清める人はいない。土の牛に欠けているのは牛性という普遍だけなので、普遍こそが「牛」という語の意味だ、というのが普遍説の論拠です。土の牛を「牛」と呼ぶのは、絵の牛と同じく、形が似ているための転用です。普遍は「遍在する」と言われるが、それは文字どおりどこにでもあるという意味ではなく、自分の対象（すべての牛）に行きわたっているという意味だ、と Uddyotakara は補います。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、普遍だけを語の意味とするのはミーマーンサー学派だ、とします。「清める」を「マントラを唱えて水を注ぐこと」と訳します。「遍在する」について、ニヤーヤは普遍を遍在するとみなすと一般に考えられているが、Vārttika はそれを否定している、と注目します（Hi. pp.816–818）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストは「मृद्वके」（土の牛）と印字していますが、通常の形「मृद्गवके」と直しました。また Thakur 版は「केन सर्वगतत्वं」の「केन」を「न」の誤りと注しており、それに従いました。ヒンディー訳所収の Vārttika は、スートラを「…युक्तेष्वप्रसङ्गात्」と読みます。</p></div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">pp.303–304</span>
+  <div class="src deva" lang="sa">न हि पिण्डेभ्योऽर्थान्तरं गोत्वम्, पिण्डान्तरालेष्वग्रहणादिति केचित् । तन्न, विकल्पानुपपत्तेः । …… किमिदं पिण्डान्तरालम् ? किमाकाशम्, आहोस्विदभावः, उत द्रव्यान्तरमिति ? यद्याकाशम्, न तत्र गोत्वम् । न ह्याकाशं गौरिति । …… विशेषप्रत्ययानामाकस्मिकत्वाच्च । अयं च पिण्डप्रत्ययव्यतिरेकभाक् प्रत्यय उपजायमानो निमित्तान्तराद् भवति । …… यथा वस्त्रचर्मकम्बलेषु नीलप्रत्यय इति । आकृतिसामान्यादिति चेत् ? …… न, पिण्डवदसाधारणत्वादाकृतेः । …… अथ पिण्डव्यतिरिक्तं सामान्यं नाभ्युपगम्यते, तथाप्येकसामान्यनिराकरणात् समानप्रत्ययबीजमन्यद् वक्तव्यं स्यात् । न ह्यसति सामान्ये समानप्रत्ययं पश्याम इति ।</div>
+  <div class="tr">ある人々は言う。「牛性は（個々の牛の）体と別のものではない。体と体の間で捉えられないからである」。それは正しくない。選択肢が成り立たないからである。……この「体と体の間」とは何か。虚空か、非存在か、別の実体か。もし虚空なら、そこに牛性はない（のは当然である）。虚空は牛ではないのだから。……また、特定の知は理由なしには生じないからである。この、体の知とは別の（「牛だ、牛だ」という）知が生じるのは、別の原因によってである。……たとえば、布・皮・毛布について「青い」という知が（それぞれの物とは別の、青という性質によって生じる）ように。（反論）「形態が共通だから（その知が生じるのだ）」と言うなら、……そうではない。形態は、体と同じく、（それぞれに）固有だからである。……もし体とは別の普遍を認めないとしても、一つの普遍を否定したのだから、「同じだ」という知の種を別に言わなければならない。普遍がないのに「同じだ」という知を見ることはないからである。</div><div class="exp"><span class="lbl">解説</span><p>普遍の実在を否定する「ある人々」は、牛性が牛と別にあるなら、牛と牛の間にも見えるはずだが見えない、と言います。Uddyotakara は、牛と牛の間は虚空か何もない所か別の物であり、そこが牛でない以上、牛性がないのは当然だ、と答えます。そして、別々の牛を見て「牛だ、牛だ」と同じ知が生じるには、個々の体とは別の原因が必要だ、と論じます。布も皮も毛布も「青い」と見えるのは、それぞれとは別の青という性質があるからです。形が似ているから、という答えも、一頭の牛の形はその牛だけのものなので、別の牛にはない、と退けられます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「ある人々」を仏教徒とし、仏教徒にとって普遍は究極的には実在せず、分別（概念的な構成）によって作られた空虚なものだ、と説明します（Hi. pp.818–819）。</p></div></div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">pp.304–306</span>
+  <div class="src deva" lang="sa">सूत्रव्याघात इति चेत् ? …… सामान्यविशेषेषु सामान्यविशेषाभावात् तत एव ज्ञानम् [वै. सू. ८.५] इति । न, सूत्रार्थापरिज्ञानात् । …… पाचकादिशब्दवदिति चेत् ? …… न, हेत्वर्थापरिज्ञानात् । …… यद्यनेकार्थवृत्ति गोत्वं तत् किं प्रतिपिण्डं परिसमाप्त्या वर्तते, अथैकदेशेनेति ? …… न, विकल्पानभ्युपगमात् । …… गोत्वस्यावयविसमुदायत्वानभ्युपगमात् । …… कथं तर्हि गोत्वं गोषु वर्तते ? आश्रयाश्रयिभावेन । कः पुनराश्रयाश्रयिभावः ? समवायः । …… गव्यगवि वृत्त्यभावादिति चेत् ? …… न, विकल्पानभ्युपगमात् । न गवि गोत्वम्, नागवि । प्राग् गोत्वात् नासौ गौर्नाप्यगौरिति । …… यदैव वस्तु तदैव गोत्वेनाभिसम्बध्यत इत्यनास्पदो विकल्पः । एतेन सत्तासम्बन्धस्य सदसद्विकल्पो व्याख्यातः । …… तस्मादुपपन्ना जातिः । न चासौ मृद्गवक इति यदभावात् तत्रासंप्रत्ययः स पदार्थ इति ॥६४॥</div>
+  <div class="tr">（反論）「（普遍どうしの間にも『普遍だ、普遍だ』という同じ知があるので、普遍の上にも普遍を認めるなら）スートラと矛盾する。『普遍・特殊には普遍・特殊がないので、まさにそれから（「普遍だ」という）知がある』（ヴァイシェーシカ・スートラ 8.5）と（ある）から」と言うなら。そうではない。スートラの意味を理解していないからである。……（反論）「『料理人』などの語のように（普遍がなくても同じ知がある）」と言うなら。……そうではない。（我々の）理由の意味を理解していないからである。……（反論）「もし牛性が多くのものにあるなら、それは一つ一つの体に完全にあるのか、それとも一部分であるのか」。……そうではない。（そのような）選択肢を（我々は）認めないからである。……牛性が全体や集まりであることを認めないからである。……では、牛性はどのように牛にあるのか。拠り所と拠るものとの関係によってである。拠り所と拠るものとの関係とは何か。内属である。……（反論）「牛にも、牛でないものにも、ありえないから」と言うなら。……そうではない。（そのような）選択肢を認めないからである。牛に牛性（が結びつく）のでも、牛でないものに（結びつく）のでもない。牛性（と結びつく）前に、それは牛でも牛でないものでもない。……ものがあるちょうどそのときに、牛性と結びつく。だから、その選択肢は根拠がない。これによって、存在性との結びつきについての「有るものか、無いものか」という選択肢も説明された。……だから、普遍は成り立つ。そしてそれ（普遍）は土の牛にはない。それがないので、そこに（「牛」という）理解がないもの、それが語の意味である。</div><div class="exp"><span class="lbl">解説</span><p>普遍を否定する側の古典的な難問が次々に退けられます。①牛性はそれぞれの牛に丸ごとあるのか、一部ずつあるのか。答え：丸ごと・一部という区別は、全体と部分をもつものについての言葉で、普遍には当てはまらない。普遍は内属によって個物にある。②牛性は、すでに牛であるものに結びつくのか（なら牛性は不要）、牛でないものに結びつくのか（なら馬も牛になる）。答え：牛は、生じたまさにその瞬間に牛性と結びつくのであって、その前に「牛」か「牛でないもの」かである何かがあるのではない。同じ答えが、「存在性は有るものに結びつくのか、無いものに結びつくのか」という難問にも当てはまります。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「料理人」の同じ知は、料理の主な担い手であるという類似によるものだと説明します。「全部か一部か」という問いを出すのは仏教の前主張者だとし、普遍は全体でも集まりでもないので問いが成り立たない、と Vārttika の答えをまとめます（Hi. pp.819–825）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>引かれるヴァイシェーシカ・スートラは、Thakur 版の注によれば Candrānanda 注の版の 8.5 です。ヒンディー訳では、この引用の番号は OCR が崩れて一定しません。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>三つすべてが語の意味</h2><span class="sub"><span class="pg">pp.306–311</span>スートラ 2.2.65–66。主と従の関係。「有る」という語をめぐる論争</span></div>
+<div class="mula sutra" id="u10">
+  <span class="ref">p.306 · NS 2.2.65–66</span>
+  <div class="src deva" lang="sa">नाकृतिव्यक्त्यपेक्षत्वाज्जात्यभिव्यक्तेः ॥२।२।६५॥<br>जातेरभिव्यक्तिराकृतिव्यक्ती अपेक्षते । व्यक्त्याकृती इति प्राप्ते प्राधान्यादाकृतेः पूर्वनिपातः । …… न चागृह्यमाणायामाकृतौ व्यक्तौ च जातिमात्रं शुद्धं शब्दाद् गम्यते, तस्मात् न जातिरेव पदार्थः ॥६५॥<br>व्यक्त्याकृतिजातयस्तु पदार्थः ॥२।२।६६॥<br>…… तुशब्दो विशेषणार्थः । किं विशिष्यते ? प्रधानोपसर्जनभावस्यानियमेन पदार्थत्वम् । यदा भेदविवक्षा विशेषगतिश्च गौस्तिष्ठति, गौर्निषण्णेति तदा व्यक्तिः पदार्थः, अङ्गं जात्याकृती । …… यदा पुनर्भेदो न विवक्षितः, सामान्यगतिश्च तदा जातिः पदार्थः । यथा गौर्न पदा स्प्रष्टव्येति । …… क्व पुनराकृतेः प्राधान्यं दृष्टम् ? यथा पिष्टकमय्यो गावः क्रियन्तामिति ।</div>
+  <div class="tr">（答え）そうではない。普遍が現れることは、形態と個物とに依存するからである。<br>普遍が現れることは、形態と個物とに依存する。（複合語は）「個物・形態」となるはずのところ、形態が主なので（スートラでは）前に置かれている。……形態と個物とが捉えられないのに、ただの普遍だけが語から理解されることはない。だから、普遍だけが語の意味なのではない。<br>しかし、個物・形態・普遍が語の意味である。<br>……「しかし」という語は、区別するためである。何が区別されるのか。主と従の関係が決まっていない仕方で、（三つが）語の意味であることである。区別を言おうとし、特定のものが理解されるとき、たとえば「牛が立っている」「牛が座っている」のときは、個物が語の意味（の主）であり、普遍と形態は従である。……区別が言おうとされず、一般が理解されるとき、たとえば「牛を足で触れてはならない」のときは、普遍が語の意味（の主）である。……では、形態が主であることは、どこに見られるか。たとえば「粉で牛を作れ」のように。</div><div class="exp"><span class="lbl">解説</span><p>普遍は、形と個物を通してしか知られないので、普遍だけが語の意味だとも言えない（2.2.65）。そこで結論のスートラ 2.2.66 は、「個物・形態・普遍の三つが語の意味である」と言います。Uddyotakara は、三つのうちどれが主になるかは文脈で決まる、と説明します。「牛が立っている」では個物が主、「牛を足で触れてはならない」（すべての牛について）では普遍が主、「粉で牛（の形）を作れ」では形態が主です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 2.2.65 を、普遍だけを語の意味とする説を定説の側が退けるもの、とします。「形態が前に置かれている」については、母音の少ない語を前に置くパーニニ 2.2.34 の規則に反して、形態が主なので前に置かれた、と注します。2.2.66 は「（定説）」で、三つのどれか一つだけを語の意味とする「一つに限る論者」に対するもの、とし、TṬ（pp.477–478）を参照させます（Hi. pp.825–827）。</p></div></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">pp.307–308</span>
+  <div class="src deva" lang="sa">न व्यक्त्याकृतिजातयः पदार्थ इति केचित् । कुतः ? विकल्पानुपपत्तेः । सदित्येतदेव पदं व्यापकत्वादुपादाय चिन्त्यते, सदित्यनेन पदेन जातिर्वाभिधीयते, पिण्डो वा, संबन्धो वा, जातिमान् वार्थः ? तत्र न तावत् जातिरभिधीयते भेदार्थैरभिन्नविभक्तिकत्वात् । …… सच्छब्दः पिण्डानां वाचको भवतीति न युक्तम्, पिण्डानामानन्त्यात् । …… सच्छब्दश्रवणात् द्रव्यगुणकर्मणीति परिप्लवते बुद्धिः । …… तद्वति च न गुणसारूप्यात् प्रत्ययसंक्रान्तिः, यथा स्वामिशब्दस्य भृत्ये । न गुणोपरागात्, यथा नीलः स्फटिक इति । क्रमवृत्त्यभावाच्च । युगपदसंभवाच्च । अयथार्थज्ञानोत्पत्तिप्रसङ्गाच्च । …… तस्मादन्यार्थापोहकृतश्रुतिरिति । अन्यशब्दार्थापोहं स्वार्थे कुर्वती श्रुतिरभिधत्त इति ।</div>
+  <div class="tr">ある人々は言う。「個物・形態・普遍が語の意味なのではない。なぜか。選択肢が成り立たないからである。（すべてに及ぶので）『有る』という語を取り上げて考察しよう。この『有る』という語によって表されるのは、普遍（存在性）か、個々の物か、（両者の）関係か、普遍をもつものか。そのうち、まず普遍は表されない。区別されたもの（実体など）を表す語と同じ格語尾をとるからである。……『有る』という語が個々の物を表す、というのは正しくない。個々の物は無限だからである。……『有る』という語を聞くと、知は実体・性質・運動の間をさまよう。……また、それ（普遍）をもつもの（を表すの）でもない。性質が似ていることによる知の移り変わりはないからである。召使いに『主人』という語が（用いられる）ようには。性質に染められることによって（でも）ない。『青い水晶』のようには。また、順に（普遍からその担い手へ）はたらくことはないから。同時に（両方を表すこと）もありえないから。また、誤った知が生じてしまうからである。……だから、（語の）聞こえは、他の意味を排除することによって作られている。他の語の意味の排除を、自らの意味について行いながら、語の聞こえは（意味を）表すのである」。</div><div class="exp"><span class="lbl">解説</span><p>ここで「ある人々」の長い反論が引かれます。「有る」（<i>sat</i>）という語が何を表すかを、普遍・個物・関係・普遍をもつものの四つの選択肢で検討し、どれも成り立たないと論じ、だから語は肯定的に何かを表すのではなく、「他の語の意味の排除」（アポーハ）によって意味を表すのだ、と結論します。最後の一文は、仏教の論理学者 Dignāga の『プラマーナ・サムッチャヤ』第5章に見られる文として知られます（訳者の補足）。ヒンディー訳は「ある人々」を仏教徒とし、TṬ（p.478）の「ここで他の排除を説く者を登場させる」を引きますが、Dignāga の名は挙げません。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、仏教徒にとって語の意味は他の排除（「それでないものから区別されること」）であり、「牛」は「牛と異なるものと異なること」を伝える、と説明します。個物は無限なので約束を立てられない、という論点について、独自相（<i>svalakṣaṇa</i>）には約束を設けられないから、という TṬ（p.479）を引きます。「無限」「外れ」という論点は、後の詩論書（『カーヴィヤ・プラカーシャ』など）にも現れる、と付記します（Hi. pp.827–830）。</p></div></div>
+</div>
+<div class="mula" id="u12">
+  <span class="ref">pp.308–309</span>
+  <div class="src deva" lang="sa">अत्रास्माभिर्व्यक्त्याकृतिजातयः पदार्थ इति प्रधानोपसर्जनभावस्यानियमेन व्यवस्थापितम् । एकान्तवादिनश्चैते दोषा इति । …… यत् तावत् सत्ताशब्दः सत्ताया न वाचक इति, तन्न, व्याघातात् । …… भवदभिप्रायेणाभिधीयत इति चेत् ? …… न, व्याघातान्निवृत्तेः । सदित्येवमादीनि पदानि लोकप्रसिद्धानि । तानि केषु अर्थेषु वर्तन्त इत्युभयोर्विचारः । …… यच्चेदमुच्यते त्वया परिकल्पिताः सत्तादिशब्दा इति, तदपि न, परिकल्प्यविषयानभिधानात् । …… यथा स्थाणौ पुरुष इति । यदि चामी सत्तादिशब्दाः परिकल्पिता भवन्ति, प्रधानमेषां वाच्यम् । न हि निष्प्रधानं परिकल्प्यं पश्याम इति ।</div>
+  <div class="tr">これについて、我々は、主と従の関係が決まっていない仕方で、個物・形態・普遍が語の意味であると確立した。これらの誤りは、（三つのうち一つだけを語の意味とする）一面的な論者に当てはまるものである。……まず、「『存在性』という語は存在性を表さない」というのは、正しくない。自己矛盾だからである。……（反論）「あなたがたの考えに合わせて（『存在性』という語を）言っているのだ」と言うなら。……そうではない。矛盾から逃れられないからである。「有る」などの語は、世間でよく知られている。それらがどのような意味で用いられるかが、（我々と君と）両者の考察（の対象）である。……また、「（『存在性』などの語は）君たちが仮に設けたものだ」と言うのも正しくない。仮に設けたものの対象を言っていないからである。……たとえば、杭を人と（見誤る）ように（、仮に設けることには本物の人が前提となる）。もしこれらの「存在性」などの語が仮に設けたものなら、それらには主となる（本来の）意味があるはずである。主となるものなしに仮に設けたものを、我々は見ないからである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の反論が始まります。まず、反論者の批判は、個物・形態・普遍のどれか一つだけを語の意味とする「一面的な論者」には当たるが、三つを主従の決まらない形で認めるニヤーヤには当たらない、と言います。次に、「『存在性』という語は存在性を表さない」と言うのは、その語を使いながら否定しているので自己矛盾だ、と指摘します。さらに、それらは仮に設けた言葉にすぎないと言うなら、杭を人と見誤るにも本物の人を知っていることが必要なように、仮の言葉にも本来の意味が前提になる、と論じます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、TṬ が「これらの誤りは（我々には）ない」の箇所を別の形で読むことを記し、「あなたがたの考えに合わせて」の読みや、杭と人の例について TṬ（p.480）を引きます（Hi. pp.830–831）。</p></div></div>
+</div>
+<div class="mula" id="u13">
+  <span class="ref">pp.309–311</span>
+  <div class="src deva" lang="sa">यत्पुनरेतत् भेदार्थैर्भिन्नविभक्तिकत्वादिति, तन्न, समानार्थापरिज्ञानात् । न ब्रूमः सत्ताशब्देन द्रव्यशब्दस्य सामानाधिकरण्यम्, अपि तु सत्तायाः प्रधानसाधनवाचिना सच्छब्देन द्रव्यगुणकर्माण्यभिधीयन्ते । …… उभयोः सद्द्रव्यशब्दयोरेकविषयत्वात् । …… अस्माकं तु द्रव्यगुणकर्माणि सत्ताविशेषणान्यभिधीयन्ते । यत्र यत्र सत्तां पश्यति तत्र तत्र सच्छब्दं प्रयुङ्क्ते । एका च सत्ता । …… तस्माद् भेदानामानन्त्यं न दोषः । …… सदिति चायमभिधानशब्दः, कस्तस्याभिधेयः ? योऽस्मात् प्रतीयते, स तस्यार्थ इति । …… सत्ता तद्योगोऽर्थान्तरमिति त्रयोऽर्थाः । तत् प्रधानोपसर्जनभावस्यानियमेन विवक्षायां प्रधानं साधनं गम्यते, अङ्गं सत्ता तद्योगश्च । …… यत् पुनरेतत् तद्वति च न गुणसारूप्यात् प्रत्ययसंक्रान्तिः, यथा स्वामिशब्दस्य भृत्य इति । …… एवं हि कुहेतुतानिरासाद् व्यवस्थितं व्यक्त्याकृतिजातयः पदार्थ इति ।</div>
+  <div class="tr">また、「区別されたものを表す語と同じ格語尾をとるから」というのも正しくない。同じ対象（という意味）を理解していないからである。我々は、「存在性」という語と「実体」という語とが同じ対象をもつ、と言うのではない。そうではなく、存在性の主たる担い手を表す「有る」という語によって、実体・性質・運動が表されるのである。……「有る」と「実体」という二つの語は同じ対象をもつからである。……我々にとっては、存在性によって限定された実体・性質・運動が表されるのである。（人は）存在性を見るところではどこでも「有る」という語を用いる。そして存在性は一つである。……だから、区別されたものが無限であることは誤りではない。……そして「有る」というのは表示する語である。それが表すものは何か。それから理解されるもの、それがその意味である。……存在性、それとの結びつき、（それをもつ）別のもの、という三つの意味がある。主と従の関係が決まっていない仕方で言おうとするとき、主として担い手が理解され、従として存在性とその結びつきが（理解される）。……また、「召使いに『主人』という語が（用いられる）ように、性質が似ていることによる知の移り変わりはない」と言ったことも……。このように、誤った理由が取り除かれたので、個物・形態・普遍が語の意味であると確立された。</div><div class="exp"><span class="lbl">解説</span><p>反論者の四つの選択肢への答えです。「有る」という語は、存在性そのものではなく、存在性をもつもの（実体・性質・運動）を主として表し、存在性とその結びつきを従として表す。だから「有る実体」のように同じ格で並べられる。個々の物は無限でも、それらを「有る」と呼ぶ根拠である存在性は一つなので、無限であることは問題にならない。こうして、反論者の誤った理由がすべて退けられ、三つが語の意味であることが確立された、と述べます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「有る」と「実体」が同じ対象をもつことについて、「成立」とは「理解」のことだ、という TṬ（p.481）を引きます。「無限だから」の論証については、語を主題にすれば、ものの性質である無限は理由にならず、個物を主題にすれば肯定・否定の例がない、と Vārttika の議論を整理します。TṬ（p.482）を引いて、「これによって」とは「三つの意味を表すことによって」の意だとします（Hi. pp.832–838）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この部分の Thakur 版の柱には、「शब्दशक्तिप्रकाश(िका)प्रकरणम्」と、章の名が別の形で印字された頁があります。</p></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>アポーハ説批判</h2><span class="sub"><span class="pg">pp.312–316</span>スートラ 2.2.66 の続き。「他の排除」は語の意味になりえない</span></div>
+<div class="mula" id="u14">
+  <span class="ref">pp.312–313</span>
+  <div class="src deva" lang="sa">न जातिशब्दो भेदानां वाचक इति विशेषणानर्थक्यम् । न हि कश्चित् शब्दो भवता भेदानां वाचकत्वेनाभ्युपगम्यते । …… विरोधाच्च । …… अथ मन्यसे परमतव्यपेक्षयैतदुच्यते …… न, अनभ्युपगमात् । न हि नः कश्चित् तान्त्रिकोऽस्ति यो जातिशब्दवाच्यान् भेदान् प्रतिपद्यते । …… अवाचकत्वे च शब्दानां प्रतिज्ञाहेत्वोर्व्याघातः । न जातिशब्दो भेदानां वाचक इति प्रतिज्ञा, हेतुरानन्त्यादिति । उभयं च वचनात्मकमिति । उभयस्यावाचकत्वाद् व्याघातः । शब्दांश्चावाचकान् प्रतिपद्यमानेन लौकिकप्रतिपादनोपायोऽन्यो वक्तव्यः । …… उपचारतो न व्याघात इति चेत् ? …… न चान्यापोहपक्षे उपचारो युक्तः, उभयोः प्रधानशब्दत्वात् । यथा सिंहशब्दः सिंहे वर्ततेऽसिंहरूपव्युदासेन, तथा माणवकेऽपीति तुल्यरूपत्वात् । तस्मात् नोपचार इति ।</div>
+  <div class="tr">「普遍の語は区別されたもの（個物）を表さない」と言うのは、限定語が無意味である。あなたは、どんな語も区別されたものを表すとは認めないのだから。……また、矛盾だからである。……（反論）「他の人の説を考慮してこれを言っているのだ」と考えるなら、……そうではない。（そのような説を誰も）認めないからである。我々の（学派の）専門家の中に、普遍の語が表すのは区別されたものだ、と考える人は誰もいない。……また、語が（何も）表さないなら、主張と理由とが矛盾する。「普遍の語は区別されたものを表さない」が主張、「無限だから」が理由である。両方とも言葉からできている。両方とも（何も）表さないのだから、矛盾する。また、語が表さないと考える者は、世間で（他人に）知らせる別の手段を言わなければならない。……（反論）「転用としてなら矛盾しない」と言うなら、……他の排除の立場では、転用は成り立たない。（本来の意味と転用の意味の）両方が主となる語だからである。「ライオン」という語が、ライオンについて、ライオンでないものの姿を排除することによって用いられるのと同じく、（勇敢な）少年についても（そうであり）、同じ形だからである。だから、転用はない。</div><div class="exp"><span class="lbl">解説</span><p>ここからアポーハ説そのものへの批判です。①何も積極的に表さないと言う者が「普遍の語は個物を表さない」と言うのは、限定語が無意味になる。②語が何も表さないなら、その主張を述べている言葉も何も表さないので、主張そのものが自己矛盾に陥る。③転用の言い方も説明できない。勇敢な少年を「ライオン」と呼ぶのは転用だが、アポーハ説では、本物のライオンも少年も「ライオンでないもの」の排除という同じ仕方で指されるので、本来の意味と転用の意味の区別がなくなってしまう。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、仏教徒は他の排除と呼び、ミーマーンサー学派は普遍と呼ぶが、排除は本当の意味での普遍ではない、と述べます。「ライオン」の例について TṬ（p.491）を引き、「主張と理由が矛盾する」を、主張と理由がともに言葉であることによる矛盾と説明します（Hi. pp.839–843）。</p></div></div>
+</div>
+<div class="mula" id="u15">
+  <span class="ref">pp.314–315</span>
+  <div class="src deva" lang="sa">यत् पुनरेतद् अन्यशब्दार्थापोहः शब्दार्थ इति, तदप्ययुक्तं विधानतः शब्दार्थासंभवे सत्याद्याप्रतिपत्तेः । …… यथा गौरिति पदस्यार्थोऽगौर्न भवति । यावच्चागां न प्रतिपद्यते, न तावद् गवि प्रतिपत्तिर्युक्ता, यावच्च गां न प्रतिपद्यते, न तावदगवीत्युभयप्रतिपत्त्यभावः । यश्चायमन्यापोहः अगौर्न भवतीति गोशब्दस्यार्थः स किं भावोऽथाभाव इति ? यदि भावः, किं गौरगौरिति ? यदि गौः, नास्ति विवादः । अथागौः, गोशब्दस्यागौरर्थ इत्यहो शब्दार्थकौशलम् । अथाभावः, तन्न युक्तम्, प्रैषसंप्रतिपत्त्योरविषयत्वात् । …… अन्यापोहश्च शब्दार्थ इत्ययुक्तम्, अव्यापकत्वात् । …… न ह्यसर्वं नाम किञ्चिदस्ति, यत् सर्वशब्देन निवर्त्येत ।</div>
+  <div class="tr">また、「他の語の意味の排除が語の意味である」というのも正しくない。肯定的に（定める）語の意味がないなら、最初の理解がないからである。……たとえば「牛」という語の意味は「牛でないものではない」（ということになる）。牛でないものを理解しないうちは、牛についての理解は正しくない。牛を理解しないうちは、牛でないものについての（理解も正しくない）。こうして両方の理解がないことになる。また、この「牛でないものではない」という他の排除が「牛」という語の意味だとすれば、それは存在するもの（<i>bhāva</i>）か、非存在か。もし存在するものなら、牛か、牛でないものか。もし牛なら、論争はない。もし牛でないものなら、「牛」という語の意味が牛でないものだとは、なんと見事な語の意味の理解であることか。もし非存在なら、それは正しくない。命令と（その）受け入れの対象ではないからである。……また、「他の排除が語の意味である」というのは正しくない。（すべての語に）当てはまらないからである。……「すべてでないもの」というものは何もないので、それが「すべて」という語によって退けられることはないからである。</div><div class="exp"><span class="lbl">解説</span><p>アポーハ説への中心的な批判です。①循環：「牛」の意味が「牛でないものの排除」なら、「牛でないもの」を知らなければ「牛」はわからない。しかし「牛でないもの」を知るには、まず「牛」がわかっていなければならない。②排除そのものは何か：存在するものなら、それは牛（なら我々と同じ）か牛でないもの（なら「牛」の意味が牛でないものになる、と皮肉ります）。非存在なら、「牛を連れてこい」と言われて非存在を連れてくる人はいない。③適用範囲：「すべて」という語には、排除すべき「すべてでないもの」がない。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「なんと見事な語の意味の理解であることか」を皮肉と訳し、「牛でないもの」とは馬などだという TṬ（p.491）を引きます。「命令」を「命じること・送り出すこと」、「受け入れ」を「正しい理解」と説明し、「牛を連れてこい」の例を挙げます。「すべて」の議論については、仏教徒は部分と別の全体を認めないので、「すべて」は個々の「一」の集まりにすぎず、自分の意味を排除してしまう、と注します（Hi. pp.843–845）。</p></div></div>
+</div>
+<div class="mula" id="u16">
+  <span class="ref">pp.315–316</span>
+  <div class="src deva" lang="sa">क्रियारूपत्वाच्चापोहस्य विषयो वक्तव्यः । अगौर्न भवतीति अयमपोहः किं गोविषयः, अथागोविषय इति ? …… न हि खदिरे छिद्यमाने पलाशे छिदा भवति । …… योऽयमपोहो गवि स किं गोर्व्यतिरिक्त आहोस्विदव्यतिरिक्त इति ? …… अयं चापोहः प्रतिवस्त्वेकोऽनेको वेति वक्तव्यम् । यद्येकः, अनेकगोसंबन्धी च, गोत्वं तदिति । …… इदं च तावत् प्रष्टव्यो भवान् किमयमपोहो वाच्योऽथावाच्य इति । …… नीलोत्पलशब्दयोश्च …… समानाधिकरणार्थश्चान्यापोहवादिना वाच्यः । …… यस्य पुनर्विधीयमानः शब्दार्थः तस्य जातिगुणविशिष्टं नीलोत्पलशब्दाभ्यां द्रव्यमुच्यते …… तदेवमयमन्यापोहो यथा यथा विकल्प्यते, तथा तथा प्रमाणवृत्तं बाधत इति ॥६६॥</div>
+  <div class="tr">また、排除は動作の形をしているので、その対象を言わなければならない。「牛でないものではない」というこの排除は、牛を対象とするのか、牛でないものを対象とするのか。……カディラの木を切っているときに、パラーシャの木に切れ目ができることはない。……牛にあるこの排除は、牛と別のものか、別でないものか。……また、この排除は、一つ一つのものについて一つか、多数か、と言わなければならない。もし一つで、多くの牛と関係するなら、それは牛性である。……また、まず、あなたに次のことを問わなければならない。この排除は（語によって）表されるのか、表されないのか。……また、「青い」「蓮」という語について……他の排除を説く者は、（二つの語が）同じ対象をもつことの意味を言わなければならない。……しかし、肯定的に定められた語の意味を（認める）者にとっては、「青い」「蓮」という二つの語によって、普遍（蓮性）と性質（青）とで限定された実体が表される。……このように、この他の排除は、どのように選択肢を立てて考えても、そのたびに、認識手段のはたらきと矛盾するのである。</div><div class="exp"><span class="lbl">解説</span><p>さらに選択肢による論駁が重ねられます。排除が牛を対象とするなら、牛の上で牛が否定されることになる。牛でないものを対象とするなら、カディラの木を切ってパラーシャの木に傷がつかないように、牛でないものへの排除で牛がわかるはずはない。排除が牛と別のものなら性質になり、別でないなら牛そのものにすぎない。すべての牛に共通する一つの排除なら、それは名前を変えた牛性である。「青い蓮」で二つの語が同じものを指すことも、アポーハ説では説明できない。こうして、アポーハ説はどう考えても認識手段と矛盾する、と章の中心議論が締めくくられます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、排除の対象を目的語（<i>karma</i>）と注し（TṬ p.491）、ある動作が一つのものに属しながら別のものを対象とする、という反論者の考えを紹介します（TṬ pp.491–492）。「多数」という語については、一でない数の一般が原因であって排除ではない、と TṬ（p.492）によって補います。「このように」以下を、アポーハ批判全体の結びとします（Hi. pp.846–848）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この部分は選択肢による論駁が細かく続くので、要点を抜き出しました。</p></div>
+</div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>個物・形態・普遍の定義</h2><span class="sub"><span class="pg">pp.316–318</span>スートラ 2.2.67–69。三つの定義と、普遍の存在の論証</span></div>
+<div class="mula sutra" id="u17">
+  <span class="ref">pp.316–317 · NS 2.2.67</span>
+  <div class="src deva" lang="sa">व्यक्तिर्गुणविशेषाश्रयो मूर्तिः ॥२।२।६७॥<br>कथं पुनर्ज्ञायते नाना व्यक्त्याकृतिजातय इति । …… व्यक्त्याकृतिजातीनां भेदो लक्षणभेदात् । …… तत्र व्यज्यत इति व्यक्तिः इन्द्रियग्राह्येति । यद् द्रव्यमुपलब्धिलक्षणप्राप्तं स्पर्शपर्यन्तानां गुणानामाश्रयः, तत् मूर्च्छितावयवत्वात् मूर्तिरिति चोच्यते व्यक्तिरिति च । एतत् तु न बुध्यामहे किमियमवयविद्रव्यस्य लक्षणम्, आहो पदार्थत्वेन त्रयाणां प्रसक्तानां जात्याकृतिव्यवच्छेदकं व्यक्तिलक्षणमिति । वयं तु ब्रूमः, नात्रावयवी व्यवच्छेद्योऽपि तु जात्याकृतिपदव्यतिरिक्तस्य व्यक्तिपदस्यार्थो वक्तव्य इति । …… गुणविशेषग्रहणं किमर्थम् ? गुणशब्देन संगृहीताया आकृतेर्निराकरणार्थम् । आकृतिः संयोगविशेषः । …… एवं च प्रतिपदं व्यक्तिलक्षणं सिध्यति । एवं च रूपाद्याकाशाद्यवरोधः । ……॥६७॥</div>
+  <div class="tr">個物とは、特定の性質の拠り所である、形をもつもの（<i>mūrti</i>）である。<br>では、個物・形態・普遍が別々のものであることは、どのように知られるのか。……個物・形態・普遍の違いは、定義の違いによる。……そのうち、「現される」ので個物（<i>vyakti</i>）、つまり感官で捉えられるもの、である。知覚されうる実体で、触覚までの性質の拠り所であるもの、それは部分が凝り固まっているので「形をもつもの」とも「個物」とも言われる、と（バーシュヤは言う）。しかし、我々には、これが全体である実体の定義なのか、それとも語の意味として持ち込まれた三つのうち、普遍と形態から区別する個物の定義なのか、わからない。我々はこう言う。ここで区別すべきなのは全体ではなく、「普遍」「形態」という語とは別の「個物」という語の意味を言わなければならないのだ、と。……「特定の性質」と言うのは何のためか。「性質」という語に含まれてしまう形態を除くためである。形態とは特定の結合（という性質）だからである。……こうして、個物の定義は語ごとに成り立つ。こうして、色など（の性質）や虚空など（の実体）も含まれる。</div><div class="exp"><span class="lbl">解説</span><p>最後の三つのスートラは、個物・形態・普遍を定義します。バーシュヤは、個物を「触覚までの性質の拠り所である、形をもつ実体」と説明しますが、Uddyotakara は、それでは物体（全体）の定義になってしまう、と注文をつけます。ここで必要なのは、語の意味としての「個物」を普遍や形態から区別する定義だ、というのです。そこで「特定の性質」という語を工夫して読み、形態（特定の結合）を除き、色などの性質や虚空のような形のない実体も、それぞれの語にとっての「個物」に含まれるようにします。「白い」という語の個物は個々の白さだ、ということです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「形をもつもの」を「互いに結びついた部分をもつもの」と訳します。注は、バーシュヤと Vārttika の見解の違いを指摘します。バーシュヤでは個物は「現される（感官で捉えられる）もの」なので虚空などは個物ではないが、Vārttika では虚空や、上へ投げるなどの運動も個物に含まれる。重さなどは一般的な性質だが、ものを区別するので「特定の性質」と呼ばれる、と TṬ（p.493）を引きます。「語ごとに」についても TṬ（p.494）を引きます。この章の初めのバーシュヤの問い「三つが別々であることはどう知られるか」とその Vārttika（Thakur 版 p.316）は、三つは初め成立したものとして述べられ、ここで定義される、と注します（Hi. pp.849–852）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストはスートラを「व्यक्तिगुणविशेषाश्रयो」と印字していますが、Vārttika の繰り返しに合わせて「व्यक्तिर्गुणविशेषाश्रयो」と直しました。</p></div>
+</div>
+<div class="mula sutra" id="u18">
+  <span class="ref">p.317 · NS 2.2.68</span>
+  <div class="src deva" lang="sa">आकृतिर्जातिलिङ्गाख्या ॥२।२।६८॥<br>जातिर्जातिलिङ्गानि च प्रख्यायन्ते यया तामाकृतिं विद्यात् । …… नियतावयवव्यूहाः खल्ववयवा जातिमनुमापयन्ति । शिरःपाण्यादिमदाकारसामान्येन गोत्वं व्यज्यते । …… कदाचित् पुनरियमाकृतिः पदार्थत्वं जहाति । क्व पुनर्जहाति ? यत्राकृतिव्यङ्ग्या जातिर्न भवति । यथा मृत् सुवर्णं रजतमिति । आकृतौ नियमो न जातौ । सर्वाकृतिर्जातिलिङ्गमिति न पुनः सर्वा जातिराकृत्या लिङ्ग्यते ॥६८॥</div>
+  <div class="tr">形態とは、普遍とその目印を知らせるものと呼ばれる。<br>普遍と普遍の目印とが知らされるもの、それを形態と知るべきである。……部分の配置が決まった部分が、普遍を推理させる。頭・四肢などをもつ形が共通であることによって、牛性が現される。……しかし、この形態が語の意味であることをやめる場合もある。どこでやめるのか。普遍が形態によって現されないところである。たとえば「土」「金」「銀」のように。（決まりは）形態についての決まりであって、普遍についてのものではない。すべての形態は普遍の目印であるが、すべての普遍が形態によって知らされるのではない。</div><div class="exp"><span class="lbl">解説</span><p>形態とは、普遍を知らせる目印です。頭や四肢の決まった配置を見て、牛性がわかる。ただし、土・金・銀のような素材の普遍は、決まった形によっては知られない（土は壺にも煉瓦にもなる）。だから、すべての形態は普遍の目印だが、すべての普遍が形態で知られるわけではなく、そういう語では形態は語の意味に入らない、と Uddyotakara は補います。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、Viśvanātha の注から「牛性などの普遍の目印は、喉袋などの特定の形である」を引きます。牛性は知覚されるが、普遍を疑う人のためにこの推理が示される、と説明し、土・金などでは普遍は特定の色などによって現される、と TṬ（p.494）を引きます（Hi. pp.852–853）。</p></div></div>
+</div>
+<div class="mula sutra" id="u19">
+  <span class="ref">p.318 · NS 2.2.69</span>
+  <div class="src deva" lang="sa">समानप्रसवात्मिका जातिः ॥२।२।६९॥<br>यया भिन्नान्यनेकानि वस्तूनि इतरेतरतोऽनुवृत्तिव्यावृत्तिप्रत्ययहेतुभावेन व्यवतिष्ठन्ते सा जातिः । यथेमानि कुण्डानीत्यनुवर्तन्ते, नेमानि कुण्डानीति व्यावर्तन्ते, तदेकं सन्निमित्तमनुवृत्तिव्यावृत्तिकारणं यत् तत् सामान्यविशेषः सा जातिरिति । …… जातिमन्तरेणापि समानप्रत्ययो दृष्टः, यथा पाचकादिषु । तस्माद् व्यवस्थितं व्यक्त्याकृतिजातयः पदार्थ इति । गवादिष्वनुवृत्तिप्रत्ययो दृष्टः पिण्डव्यतिरिक्तात् निमित्तात् भवति विशेषवत्त्वात् नीलादिप्रत्ययवदिति । गोतोऽर्थान्तरं गोत्वं भिन्नप्रत्ययविषयत्वाद् रूपस्पर्शप्रत्ययवत् । गोतोऽर्थान्तरं गोत्वं व्यपदेशशब्दविषयत्वात् चैत्राश्ववत् । ……॥६९॥<br>॥ शब्दशक्तिपरीक्षाप्रकरणम् ॥</div>
+  <div class="tr">普遍とは、同じものを生むことを本質とするものである。<br>それによって、区別された多くの物が、互いに（同じだと）続く知と、（違うと）区別される知の原因であるという仕方で、成り立つもの、それが普遍である。たとえば「これらは鉢である」と（鉢どうしは）続き、「これらは鉢ではない」と（ほかのものから）区別される。その一つの、存在する原因で、続くことと区別されることの原因であるもの、その普遍かつ特殊が普遍である。……普遍がなくても同じだという知は見られる。「料理人」などについてのように。（だから、普遍の定義は同じ知の原因であることだが、同じ知がすべて普遍によるのではない。）だから、個物・形態・普遍が語の意味であることが確立した。（論証）牛などについて見られる、続く知は、体とは別の原因から生じる。特定の知だから。青などの知のように。牛性は牛とは別のものである。別の知の対象だから。色と触の知のように。牛性は牛とは別のものである。（「牛の牛性」のように）区別して言う語の対象だから。チャイトラの馬のように。……<br>語の表示力の考察のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>普遍とは、別々のものに「同じだ」という知を生み、ほかのものから「違う」という知を生むものです。鉢はどれも「鉢だ」とわかり、皿とは区別される。ただし、「料理人」のように、普遍なしで（料理するという動作によって）同じ名で呼ばれる場合もあるので、「同じだという知」すべてが普遍によるわけではない。最後に Uddyotakara は、普遍が個物とは別に実在することを、三つの論証式でまとめて、章と第二巻を閉じます。「チャイトラの馬」は、所有者と所有物が別であるように、「牛の牛性」と言えば牛と牛性は別だ、という例です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、決まりは一方向で、普遍はいつも同じ知を生むが、同じ知を生むものがすべて普遍なのではない、と説明します。また、スートラの作者は普遍だけを知っていたが、バーシュヤの作者がヴァイシェーシカの「普遍かつ特殊」を持ち込んだ、という見方を示し、ヴァイシェーシカ・スートラ 1.2.5–6 とプラシャスタパーダを参照させます。最初の論証のヒンディー訳本文は「体とは別の目印から」と読みます。ヒンディー訳では、Vārttika の最後に、第2篇の内容をまとめる偈（疑い、認識手段の考察とその確定、音の本質、言葉が認識手段であること、語の意味が述べられた）と奥書が置かれています。バーシュヤの第2篇の奥書は、2.2.69 のバーシュヤの直後にあります（Hi. pp.854–855）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>pada / vibhakti</dt><dd>語／語尾（格語尾・人称語尾）</dd>
+    <dt>nāman / ākhyāta</dt><dd>名詞／動詞</dd>
+    <dt>vyakti / ākṛti / jāti</dt><dd>個物／形態／普遍</dd>
+    <dt>pradhāna / upasarjana</dt><dd>主／従。三つのうちどれが主となるかは文脈で決まる</dd>
+    <dt>upacāra</dt><dd>転用（本来の意味でないものを、ある根拠によってその語で呼ぶこと）</dd>
+    <dt>anuvṛtti / vyāvṛtti</dt><dd>（同じだと）続く知／（違うと）区別される知</dd>
+    <dt>samavāya</dt><dd>内属。普遍が個物にある関係</dd>
+    <dt>anyāpoha</dt><dd>他の排除（アポーハ）。語は「他のものではない」ことを表す、とする説</dd>
+    <dt>sattā</dt><dd>存在性。最も上位の普遍</dd>
+    <dt>mūrti</dt><dd>形をもつもの</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。章がきわめて長いので、原文は論点ごとに要点を抜き出した（「……」）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号は Thakur 版とヒンディー訳とで一致する。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第25プラカラナ（スートラ 2.2.58–69）で、第2巻（第二篇）はここで終わる。第24プラカラナ（スートラ 2.2.40–57）は<a href="nyayavarttika-24-taiyaku.html">第24プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
