@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 20</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-19-taiyaku.html">← プラカラナ19</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>言葉は推理か</a></li><li><a href="#s2"><b>2</b>言葉と意味の関係</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第20プラカラナ「言葉一般の吟味」（スートラ 2.1.50–57、Thakur 版 pp.245–251）</span>
+  <p>四つ目の認識手段は言葉（<i>śabda</i>）、すなわち信頼できる人の教え（1.1.7）です。反論者は、言葉も、見えないものを見えるもの（聞こえる語）から知るのだから推理の一種だ、と言います。語と意味とのあいだには関係があり、その関係を知って語から意味を知るのは、煙と火の関係を知って煙から火を知るのと同じだ、というのです。</p>
+  <p>ニヤーヤの答えは二段です。第一に、天界や見えない力のような、知覚も推理も届かないものを私たちが知るのは、語そのものからではなく、「信頼できる人が言った」ということからである。第二に、語と意味との関係は、火と煙のような自然の結びつき（<i>svābhāvika</i>）ではなく、人々の取り決め（<i>samaya</i>）である。「火」と言っても口が焼けないのがその証拠です。</p>
+  <p>解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>言葉一般の吟味の章<br><small><i>śabdasāmānyaparīkṣāprakaraṇa</i>。スートラ 2.1.50–57 の注釈。Thakur 版 pp.245–251</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.1.50–57<br><small>言葉は推理だ（50–52）、答え（53）、語と意味の関係はない（54）、関係はある（55）、取り決めによる（56–57）</small></dd></div>
+    <div><dt>論敵</dt><dd>言葉を推理とする論者、語と意味の自然の関係を説く論者<br><small>ヒンディー訳の注は、言葉を推理に含める説をヴァイシェーシカと仏教、自然の関係の説をミーマーンサーとする</small></dd></div>
+    <div><dt>見どころ</dt><dd>「火」と言っても口は焼けない<br><small>§2。語と意味の関係は自然のものではなく取り決め</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.646–663 ごろ</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.246</span> は Thakur 版の頁。節見出しの <span class="pg">pp.245–248</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.1.50–57 の注釈を、テキストの順に2節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">言葉は推理か</a></td><td class="num">pp.245–248</td><td>スートラ 2.1.50–53。言葉は認識手段でない、推理だ、という論証とその反駁</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">言葉と意味の関係</a></td><td class="num">pp.248–251</td><td>スートラ 2.1.54–57。自然の関係の否定。取り決め</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>言葉は推理か</h2><span class="sub"><span class="pg">pp.245–248</span>スートラ 2.1.50–53。言葉は認識手段でない、推理だ、という論証とその反駁</span></div>
+<div class="mula" id="u1">
+  <span class="ref">pp.245–246</span>
+  <div class="src deva" lang="sa">अथावसरप्राप्तः शब्दः परीक्ष्यते । कः पुनरयं शब्दः ? आप्तोपदेशः शब्द इत्युक्तम् । तस्याक्षेपः—न शब्दः प्रमाणम्, सत्यप्यप्रमितेः । यस्माद् विद्यमानोऽप्ययं शब्दोऽश्रूयमाणो न प्रतिपत्तिहेतुः, प्रतिपत्तिहेतुश्च प्रमाणमिति । विषयाभावाच्च । न च प्रत्यक्षानुमानविषयव्यतिरेकी विषयः शब्दस्यास्ति, न चाविषयं प्रमाणमिति । अविज्ञानात्मकत्वाच्च न प्रमाणम् । …… बाह्यकरणप्रत्यक्षत्वाच्च घटादिवदेव न प्रमाणम् । आत्मन्यसमवायान्न घटादिवदेव प्रमाणम् । आकाशगुणत्वात् तत्संख्यादिवन्न प्रमाणम् । यत् तावत् सत्यप्यप्रमितेरिति, तन्न, असिद्धत्वात् । …… यत् पुनरेतदविज्ञानात्मकत्वाद् बाह्यकरणग्राह्यत्वादात्मन्यसमवायाच्चेति, न, अनेकान्तात् प्रदीपवत् । प्रदीपे एतत् सर्वमस्ति, प्रमाणं च प्रदीपः प्रत्यक्षाङ्गत्वादित्युक्तम् । …… यथाकाशे यत् परिमाणं तन्महत्प्रत्ययकर्तृत्वात् प्रमाणं भवति, तस्मादाकाशगुणत्वादित्ययमप्यहेतुः ।</div>
+  <div class="tr">さて、順番が来た言葉が吟味される。では、この言葉とは何か。「信頼できる人の教えが言葉である」（1.1.7）と言われた。それへの論難（がある）。（反論者）「言葉は認識手段ではない。（言葉が）あっても知が生じないからである。言葉は、存在していても、聞かれなければ知の原因ではない。そして認識手段とは知の原因である。また、対象がないからである。知覚と推理の対象とは別の対象が言葉にはない。対象のない認識手段はない。また、知を本質としないので認識手段ではない。……外的感官で知覚されるので、壺などと同じく認識手段ではない。我に内属しないので、壺などと同じく認識手段ではない。虚空の性質なので、その数などと同じく認識手段ではない」。まず、「あっても知が生じないから」というのは正しくない。（理由が）成立していないからである。……また、「知を本質としないから」「外的感官で捉えられるから」「我に内属しないから」というのは、正しくない。灯火の場合のように外れるからである。灯火にはこれらすべてがあるが、灯火は知覚の一部なので認識手段だ、と述べた。……虚空にある大きさは、「大きい」という知を生むので認識手段（の一部）になる。だから「虚空の性質だから」というのも理由ではない。</div><div class="exp"><span class="lbl">解説</span><p>スートラの前に、Uddyotakara は、言葉はそもそも認識手段ではない、という論証をいくつか取り上げます。言葉（音）は聞かれなければ何も知らせない、知を本質としない、耳で知覚される外的な対象である、などです。答えは、灯火（第十三プラカラナ §4）の例です。灯火も知ではなく外的な対象ですが、ものを見る手段なので、認識手段（の一部）と呼ばれます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、スートラとバーシュヤはまず言葉が推理に含まれるかを検討するのに対し、Vārttika は導入部でまず言葉がそもそも認識手段かを検討し、六つの反対理由を挙げる、と整理します。①の理由が不成立なのは、すべての言葉が認識手段なのではなく、聞かれ、語と意味の関係が想起されている言葉だけが認識手段だからだ、と注します。虚空の大きさ（最大の大きさ）も虚空の性質でありながら、虚空の大きさや常住性を知る手段になる、と補っています（Hi. pp.646–648）。</p></div></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.246–247 · NS 2.1.50–52</span>
+  <div class="src deva" lang="sa">अनुमानं शब्दः स्मृत्यपेक्षितत्वात् । …… त्रिकालविषयत्वाच्च । …… अन्वयव्यतिरेकोपपत्तेश्च । यदन्वयव्यतिरेकि तदनुमानं दृष्टम्, यथा धूमविशेषदर्शनमग्निमद्धूमविशेषप्रतिपत्तौ । तथा च शब्दोऽन्वयव्यतिरेकाभ्यामेवार्थं प्रतिपादयति, तस्मादनुमानम् । इतश्च शब्दोऽनुमानम्—शब्दोऽनुमानमर्थस्यानुपलब्धेरनुमेयत्वात् ॥२।१।५०॥ प्रत्यक्षेणानुपलभ्यमानार्थविषयत्वादिति सूत्रार्थः ॥५०॥<br>उपलब्धेरद्विप्रवृत्तित्वात् ॥२।१।५१॥<br>इतश्चानुमानम् । प्रमाणान्तरभावे उपलब्धिभेदो दृष्टः, यथा प्रत्यक्षेऽनुमाने च, अन्यथा हि प्रत्यक्ष उपलब्धिरन्यथानुमाने, न त्वेवं शब्द इति । तस्मान्न प्रमाणान्तरम् ॥५१॥<br>सम्बन्धाच्च ॥२।१।५२॥<br>सम्बद्धार्थप्रतिपादकत्वाच्चेति सूत्रार्थः । सम्बद्धार्थप्रतिपादकमनुमानम्, तथा च शब्द इति ॥५२॥</div>
+  <div class="tr">（反論者）「言葉は推理である。想起を必要とするからである。……また、三つの時を対象とするからである。……また、肯定と否定の随伴が成り立つからである。肯定と否定の随伴をもつものは推理であることが見られる。特定の煙を見ることが、火をもつ特定の煙を知ることにおいて（そうである）ように。言葉もまた、肯定と否定の随伴によってこそ意味を知らせる。だから推理である」。また、次の理由でも言葉は推理である。「言葉は推理である。意味は知覚されず、推理されるものだからである」。知覚によって知覚されない対象をもつからだ、というのがスートラの意味である。（第五十スートラ）<br>「（両者の）知覚の起こり方が二通りでないからである」。<br>次の理由でも（言葉は）推理である。別の認識手段であれば、知覚の仕方の違いが見られる。知覚と推理のように。知覚では一つの仕方で知り、推理では別の仕方で（知る）。しかし言葉はそうではない。だから別の認識手段ではない。（第五十一スートラ）<br>「また、関係があるからである」。<br>関係している対象を知らせるからだ、というのがスートラの意味である。推理は関係している対象を知らせる。言葉もそうである。（第五十二スートラ）</div><div class="exp"><span class="lbl">解説</span><p>言葉を推理とする論証がまとめて示されます。言葉の理解は語と意味の関係の想起を必要とし、過去・未来のことも語り、肯定と否定の随伴（この語があればこの意味、なければなし）によって意味を知らせる。そしてスートラ 2.1.50–52 は、①言葉の対象は知覚されない、②言葉による知と推理による知とで知り方に違いがない、③語と意味とのあいだには関係がある、の三つを理由に挙げます。どれも、言葉の理解を「煙から火を知る」のと同じ構造と見る論証です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、言葉を推理に含めるのはヴァイシェーシカと仏教だ、と注します。また、Vārttika がバーシュヤにない理由（想起を必要とする、三つの時を対象とする、肯定と否定の随伴）を加えていることを指摘します。スートラ 2.1.51 の「二通りでない」は「知り方の区別がない」こと、と解しています（Hi. pp.648–650）。</p></div></div>
+</div>
+<div class="mula sutra" id="u3">
+  <span class="ref">pp.247–248 · NS 2.1.53</span>
+  <div class="src deva" lang="sa">आप्तोपदेशसामर्थ्याच्छब्दादर्थसंप्रत्ययः ॥२।१।५३॥<br>यत् तावत् स्मृत्यपेक्षत्वादनुमानं शब्द इति, तन्न, अनैकान्तिकत्वात् । अनुमानेऽपि स्मृत्यपेक्षित्वमस्ति, यथा संशये यथा तर्के यथोपमान इति । एतेन त्रिकालविषयत्वं प्रत्युक्तम् । यत् पुनरेतदन्वयव्यतिरेकोपपत्तेरिति, अन्वयव्यतिरेकोपपत्तिः प्रत्यक्षेऽपि, यथा यत्र घटस्तत्र घटज्ञानम्, यत्र नास्ति तत्र तदभाव इति । यत् पुनरेतदनुपलभ्यमानार्थविषयत्वादिति, सत्यम्, अनुपलभ्यमानार्थविषयमनुमानम् । न पुनः स्वर्गापूर्वदेवताद्यर्थेषु लौकिकस्य प्रत्यक्षमनुमानं वा, अपि त्वाप्तोपदेशसामर्थ्याच्छब्दादर्थसंप्रत्ययः । न ह्ययं शब्दमात्रात् स्वर्गादीन् प्रतिपद्यते, किं तु पुरुषविशेषाभिहितत्वेन प्रमाणत्वं प्रतिपद्यते, तथाभूताच्छब्दात् स्वर्गादीन् प्रतिपद्यते । न चैवमनुमाने । तस्मान्नानुमानं शब्द इति । शब्दं चोल्लिखन्ती प्रतिपत्तिः शब्दान्नानुमानादिति, एतेनाद्विप्रवृत्तित्वं व्याख्यातम् ।</div>
+  <div class="tr">（答え）信頼できる人の教えの力によって、言葉から意味が知られる。<br>まず、「想起を必要とするので言葉は推理である」と言われたが、それは正しくない。外れるからである。推理以外にも、想起を必要とすることはある。疑い、吟味、類比のように。これによって「三つの時を対象とするから」も退けられた。また、「肯定と否定の随伴が成り立つから」と言われたが、肯定と否定の随伴は知覚にもある。壺があるところに壺の知があり、ないところにはそれがないように。また、「知覚されない対象をもつから」と言われたが、それはそのとおり、推理は知覚されない対象をもつ。しかし、天界・見えない力・神々などの対象については、世間の人には知覚も推理もない。そうではなく、信頼できる人の教えの力によって、言葉から意味が知られるのである。この人は、単なる言葉から天界などを知るのではなく、特定の人が述べたものであることによって（その言葉が）認識手段であると知り、そのような言葉から天界などを知るのである。推理ではそうではない。だから言葉は推理ではない。また、言葉を思い浮かべる（形の）知は、言葉からのものであって推理からのものではない。これによって、「知覚の起こり方が二通りでないから」（という反論）も説明された（退けられた）。</div><div class="exp"><span class="lbl">解説</span><p>答えの核心は、言葉が知らせる対象の中には、知覚も推理も届かないもの（天界、行為の見えない結果、神々）がある、という点です。それを私たちが知るのは、「信頼できる人が言った」と知っているからです。煙から火を推理するときには、煙を「誰が言ったか」は関係ありません。だから言葉は推理ではない。また、言葉による知は「〜と（誰々が）言った」という形で言葉そのものを思い浮かべる点で、推理による知と形が違う、とも付け加えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、これを定説のスートラとし、言葉は信頼できる人が語ったときにのみ認識手段であり、推理にはこの条件がない、と注します。「言葉を思い浮かべる知」については、「天界を望む者はアグニホートラを献ぜよ」のような知は信頼できる人の言葉からだけ生じ、推理によっては得られない、と例を挙げています。「意味が知られる」（<i>saṃpratyaya</i>）は「正しい知（あるいは意味への信頼）」と訳します（Hi. pp.651–653）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>言葉と意味の関係</h2><span class="sub"><span class="pg">pp.248–251</span>スートラ 2.1.54–57。自然の関係の否定。取り決め</span></div>
+<div class="mula" id="u4">
+  <span class="ref">p.248</span>
+  <div class="src deva" lang="sa">यत् पुनरेतत् सम्बन्धाच्चेति । अस्ति शब्दार्थयोः सम्बन्धोऽनुज्ञातः, अस्ति च प्रतिषिद्धः । वाच्यवाचकभावलक्षणः सम्बन्धोऽनुज्ञातः, अस्य शब्दस्यायमर्थो वाच्य इति । यः पुनरयं स्वाभाविकः शब्दार्थयोः सम्बन्ध इति कैश्चिदभ्युपगम्यते, स प्रतिषिद्धः । न स्वाभाविकः शब्दार्थयोः सम्बन्धोऽस्ति । कथं नास्ति ? प्रमाणतोऽनुपलब्धेः । तत्र प्रत्यक्षेण तावच्छब्दार्थसम्बन्धानुपलब्धिरतीन्द्रियविषयत्वात् । यस्माच्छब्दस्यातीन्द्रियोऽप्यर्थो विषयः, तस्मान्न प्रत्यक्षेणोपलब्धिरिति ।</div>
+  <div class="tr">また、「関係があるから」と言われた（ことについて）。語と意味との関係には、（我々が）認めるものと、否定するものとがある。「この語のこの意味が表されるものだ」という、表すものと表されるものとの関係は認められる。しかし、ある人々が認める「語と意味との自然の関係」は否定される。語と意味との自然の関係はない。どうしてないのか。認識手段によって知られないからである。まず、知覚によっては語と意味との関係は知られない。（語は）感官を超えたものをも対象とするからである。語は感官を超えた意味をも対象とするので、（その関係は）知覚によっては知られない。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、語と意味の「関係」を二つに分けます。「この語はこの意味を表す」という表示関係は認める。しかし、ある人々（ヒンディー訳の注はミーマーンサー学派とする）が説く、語と意味とのあいだにもともと備わった「自然の関係」は認めない。推理の根拠となる煙と火の関係は自然の関係です。言葉の関係が自然のものでないなら、言葉の理解は推理ではない、という論証になります。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、語と意味の関係には、同一性・接触（結びつき）・表示関係の三つが考えられ、前の二つが「自然の関係」でニヤーヤはそれを認めない、と整理します。そして「自然の関係とは常住の関係で、ミーマーンサーが認めるもの」と注します。ニヤーヤ・ヴァイシェーシカは取り決めにもとづく表示関係だけを認め、後代のニヤーヤはその取り決めを神（<i>Īśvara</i>）によるものとする、とも補っています（Hi. pp.653–654）。</p></div></div>
+</div>
+<div class="mula sutra" id="u5">
+  <span class="ref">pp.248–250 · NS 2.1.54</span>
+  <div class="src deva" lang="sa">पूरणप्रदाहपाटनानुपलब्धेश्च सम्बन्धाभावः ॥२।१।५४॥<br>अनुमानेनोपलप्स्यत इति चेत् ? नानुमानेनापि, विकल्पानुपपत्तेः । शब्दो वार्थदेशमुपसंपद्यते, अर्थो वा शब्ददेशम्, उभयं वा । न तावदर्थः शब्ददेशमुपसंपद्यते, पूरणप्रदाहपाटनानुपलब्धेः—पूरणप्रदाहपाटनानुपलब्धेश्च सम्बन्धाभावः । आस्यैकदेशस्थानकरणोच्चारणीयः शब्द इत्यन्नाग्न्यसिशब्दोच्चारणे पूरणप्रदाहपाटनानि गृह्येरन् । …… अथ शब्दोऽर्थान्तिकमुपसंपद्यते, तस्याप्यनुपपत्तिर्व्याघातात् । …… यदि सर्वशब्दा एव वितत्यावस्थिताः स्थानकरणादिनिमित्तसन्निधाने सति व्यज्यन्त इति मन्यसे, सर्वार्थानामुपलब्धिः प्राप्ता । …… इतश्च स्वाश्रयादन्येन न सम्बन्धी शब्दो गुणत्वात् । …… न चानुमानं शब्दः, स्वपरात्मप्रत्यायकत्वात् । यत् स्वपरात्मप्रत्यायकं तदनुमानं न भवति, यथा प्रदीपः । प्रदीपो येन क्रियते, तस्याप्युपलब्धिसाधनं भवति, इतरस्यापि । शब्दोऽप्येवम् । तस्मान्नानुमानमिति ॥५४॥</div>
+  <div class="tr">また、満たすこと・焼くこと・切ることが知覚されないので、（自然の）関係はない。<br>（反論）「（関係は）推理によって知られるだろう」と言うなら、推理によっても（知られ）ない。（どの）選択肢も成り立たないからである。語が意味の場所に至るのか、意味が語の場所に至るのか、両方か。まず、意味が語の場所に至るのではない。満たすこと・焼くこと・切ることが知覚されないからである。「また、満たすこと・焼くこと・切ることが知覚されないので、関係はない」。語は口の一部（という場所）で、発音器官によって発せられるものなので、「食べ物」「火」「剣」という語を発すると、（口が）満たされ、焼かれ、切られることが知覚されるだろう（が、そうはならない）。……もし語が意味のそばに至るなら、それも成り立たない。矛盾だからである。……もしあなたが、すべての語は（虚空のように）広がって存在し、発音の場所や器官などの条件がそろうと顕現する、と考えるなら、すべての意味が知られることになってしまう。……また、語は性質なので、自分の拠り所（虚空）以外のものと関係しない。……また、言葉は推理ではない。自分自身と他のものとを知らせるからである。自分自身と他のものとを知らせるものは推理ではない。灯火のように。灯火は、それを灯した人にも知覚の手段になり、ほかの人にもなる。言葉も同様である。だから推理ではない。（第五十四スートラ）</div><div class="exp"><span class="lbl">解説</span><p>スートラ 2.1.54 は、反論者の言う「関係」が、もし物理的な結びつき（結合）のようなものなら、という前提で論じます。もし「食べ物」という語がその意味である食べ物と結びついているなら、「食べ物」と言えば口が満たされ、「火」と言えば口が焼け、「剣」と言えば口が切れるはずだ、という有名な議論です。逆に語が意味のところへ行くのでもなく、すべての語がどこにでもあるのでもない。語は虚空の性質なので、虚空以外のものとは結びつかない、と Uddyotakara は補強します。</p><p>Thakur 版の配置では、言葉と推理との違いをまとめる「自分自身と他のものとを知らせる」という論証も、ここに置かれています。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、このスートラを「（口が）満たされ、焼かれ、裂かれることが知覚されないので、（接触という）関係はない」と訳し、「接触という」を補います。「発音の場所」は喉・口蓋など、「器官」は特定の努力だ、と文法学を参照させます。「言葉が意味に内属することは経験されない」と Vācaspati を引き（TṬ p.417）、「伝承から知られる」の「伝承」は語源学（<i>nirukta</i>）などを指す、と注します。また、Vācaspati は <span lang="sa" class="deva">अथ नागच्छति</span>（もし行かないなら）と読む、と異読を挙げています（Hi. pp.654–658）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版は、スートラ 2.1.53 の Vārttika の途中（「また、『関係があるから』と言われた……」以下）に「第五十二スートラ」の番号を置き、続く議論をスートラ 2.1.54 の前後に分けて印刷しています。ここでは、ヒンディー訳の番号に合わせてブロックを分けました。</p></div>
+</div>
+<div class="mula sutra" id="u6">
+  <span class="ref">p.250 · NS 2.1.55–56</span>
+  <div class="src deva" lang="sa">शब्दार्थव्यवस्थानादप्रतिषेधः ॥२।१।५५॥<br>यदि शब्दार्थावसम्बद्धौ स्याताम्, शब्दार्थप्रत्ययव्यवस्थानं न स्यात् । शब्दः सम्बद्धोऽर्थं प्रतिपादयति, प्रत्यायनीयहेतुत्वात्, प्रदीपवत् । …… प्रत्ययो वा पक्षीकर्तव्यः—सम्बद्धाभ्यां शब्दार्थाभ्यां वस्तुप्रत्ययो भवति नियमात्, कुण्डलीति प्रत्ययवदिति ॥५५॥<br>न, सामयिकत्वाच्छब्दार्थसंप्रत्ययस्य ॥२।१।५६॥<br>न सम्बन्धकारितं शब्दार्थव्यवस्थानम् । किं तर्हि ? समयकारितम् । कः पुनरयं समयः ? अभिधानाभिधेयनियमनियोगः । तस्मिन्नुपयुक्ते शब्दार्थव्यवस्था भवति । कश्चिच्च सम्बन्धोऽनुज्ञात इति यदवोचाम, समयं तदवोचाम इति । …… अयं च वाच्यवाचकभावलक्षणः सम्बन्धः स्वाभाविकशब्दार्थसम्बन्धवादिनाभ्यनुज्ञेयः । न हि स्वाभाविकसम्बन्धवादिनोऽनुपयुक्तशब्दार्थसम्बन्धस्य शब्दश्रवणाद् विशेषप्रत्ययो भवति । स पुनः समयः कुतः प्रत्येतव्यः ? पदज्ञानाल्लोकतश्चेति । …… लोकतश्च समयो बोद्धव्यः । मात्रादींस्तेषु तेष्वर्थेषु तांस्ताञ्छब्दान् प्रयुञ्जानानुपलभ्य सोऽपि तथैव शिक्षितस्तानेव शब्दांस्तेषु तेष्वर्थेषु प्रयुङ्क्ते, न पुनरेनं कश्चिल्लिपिमिव शिक्षयतीति ॥५६॥</div>
+  <div class="tr">（反論）語と意味（の結びつき）が確定しているので、（関係を）否定することはできない。<br>もし語と意味とが関係していなかったら、語と意味の知の確定はないだろう。「語は、関係して意味を知らせる。知らされるべきものの原因だからである。灯火のように」。……あるいは、知を主題とすべきである。「関係している語と意味とから、ものの知が生じる。決まっているからである。『耳飾りをつけた人』という知のように」。（第五十五スートラ）<br>（答え）そうではない。語から意味を知ることは取り決めによるからである。<br>語と意味の確定は、（自然の）関係によって作られるのではない。では何によってか。取り決めによって作られる。この取り決めとは何か。「この名はこのものを指す」という決まりの定めである。それを用いるとき、語と意味の確定がある。「ある関係は認められる」と前に言ったのは、取り決めのことを言ったのである。……そして、この表すものと表されるものとの関係は、自然の関係を説く者も認めざるをえない。自然の関係を説く者にとっても、語と意味の関係を（まだ）用いていない人は、語を聞いても特定の意味を知らないからである。では、その取り決めは何によって知られるのか。語の知識（文法学）と世間からである。……また、世間から取り決めが知られる。母などが、それぞれの対象にそれぞれの語を用いるのを見て、その人もそのように学び、同じ語を同じ対象に用いる。誰かが文字を教えるように、（語と意味を一つずつ）教えるのではない。（第五十六スートラ）</div><div class="exp"><span class="lbl">解説</span><p>語と意味の結びつきが一定しているのは、取り決め（<i>samaya</i>）によるのであって、自然の関係によるのではありません。その証拠に、自然の関係を説く人でも、語の意味を習っていない人は、その語を聞いても意味がわからないことを認めざるをえない。火に触れれば誰でも熱いのとは違います。取り決めは、文法学と、世間の人々の言葉づかいから学ばれます。子どもは母親などがものを指して言葉を使うのを見て、言葉を覚える。文字のように一つずつ教わるのではない、という観察も印象的です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、スートラ 2.1.55 を反論者のスートラとし、関係があるからこそ一定の意味が理解されるのだ、という趣旨だと注します。取り決め（<i>samaya</i>）は「この語からこの意味を知るべし」あるいは「この語はこの意味を表す」という決まりで、Vācaspati はこれを神が定めたものとし（TṬ p.418）、後代のニヤーヤ・ヴァイシェーシカもそう考える、と注します。自然の関係を説く「ミーマーンサー学者や文法学者」も、関係は知られて初めて意味を伝えると認めざるをえない、と補います。「語の知識」は Vācaspati に従って文法学（<i>vyākaraṇa</i>）と解します（TṬ pp.418–420; Hi. pp.659–662）。</p></div></div>
+</div>
+<div class="mula sutra" id="u7">
+  <span class="ref">p.251 · NS 2.1.57</span>
+  <div class="src deva" lang="sa">जातिविशेषे चानियमात् ॥२।१।५७॥<br>न स्वाभाविकः शब्दार्थसम्बन्धः । यदि स्वाभाविकः शब्दार्थयोः सम्बन्धोऽभविष्यत्, न जातिविशेषे शब्दार्थव्यवस्थाभविष्यत् । अस्ति तु यथाकामं प्रयोगः । जातिविशेषे यथाकामं प्रयोगो दृष्टः । न पुनः स्वाभाविकेन सम्बन्धेन सम्बद्धानां जातिविशेषे व्यभिचारो दृष्टः । न हि प्रदीपोऽस्माकमन्यथा प्रकाशयत्यन्यथा जातिविशेष इति । जातिविशेषशब्देन पुनर्देशोऽभिधीयत इति ॥५७॥<br>॥ शब्दसामान्यपरीक्षाप्रकरणम् ॥</div>
+  <div class="tr">また、特定の集団では（語の用法が）決まっていないからである。<br>語と意味の関係は自然のものではない。もし語と意味の関係が自然のものであったなら、特定の集団ごとに（異なる）語と意味の確定はなかっただろう。しかし、（集団ごとに）好きなように使われている。特定の集団では好きなように使われているのが見られる。しかし、自然の関係で結ばれたもの（火と熱など）については、特定の集団で外れることは見られない。灯火は、我々には（ある）仕方で照らし、特定の集団には別の仕方で（照らす）ということはない。「特定の集団」という語によって、地域が言われているのである。（第五十七スートラ）<br>言葉一般の吟味のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>同じものを地域によって違う言葉で呼び、同じ言葉が地域によって違うものを指す（バーシュヤは、聖仙・アーリヤ・異民族の言葉の違いを例に挙げます）。灯火はどこでも同じように照らすが、言葉は地域によって違う。これも、語と意味の関係が自然のものではなく、取り決めであることの証拠です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、アーリヤの人々は「ヤヴァ」を大麦の意味で、異民族はプリヤング（粟の一種）の意味で使う、というバーシュヤの例を挙げ、異民族もアーリヤの土地に住めば「ヤヴァ」を大麦の意味で使うので、Vārttika は「特定の集団」を「地域」と解したのだ、と注します（Hi. pp.662–663）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>śabda / āptopadeśa</dt><dd>言葉／信頼できる人の教え</dd>
+    <dt>vācyavācakabhāva</dt><dd>表すものと表されるものの関係（表示関係）</dd>
+    <dt>svābhāvika sambandha</dt><dd>自然の関係（語と意味にもともと備わった関係）</dd>
+    <dt>samaya</dt><dd>取り決め。「この名はこのものを指す」という決まり</dd>
+    <dt>pūraṇa / pradāha / pāṭana</dt><dd>満たすこと／焼くこと／切ること</dd>
+    <dt>svarga / apūrva</dt><dd>天界／（祭式の）見えない結果</dd>
+    <dt>jātiviśeṣa</dt><dd>特定の集団（地域）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った（Thakur 版の番号より一つ大きい）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第20プラカラナ（スートラ 2.1.50–57）である。第19プラカラナ（スートラ 2.1.45–49）は<a href="nyayavarttika-19-taiyaku.html">第19プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
