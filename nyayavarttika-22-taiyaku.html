@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 22</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-21-taiyaku.html">← プラカラナ21</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>認識手段は四つだけか</a></li><li><a href="#s2"><b>2</b>要請は外れるか</a></li><li><a href="#s3"><b>3</b>非存在の知</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第22プラカラナ「認識手段は四つであることの吟味」（スートラ 2.2.1–12、Thakur 版 pp.261–267）</span>
+  <p>第2章第2日課は、認識手段の数の問題から始まります。ニヤーヤは知覚・推理・類比・言葉の四つを認めますが、ほかの学派はさらに、伝承（<i>aitihya</i>）・要請（<i>arthāpatti</i>）・包含（<i>sambhava</i>）・非存在（<i>abhāva</i>）も認識手段だと言います。</p>
+  <p>スートラ 2.2.2 の答えは、それらは認識手段ではあるが、別の認識手段ではない、というものです。伝承は言葉に、要請・包含・非存在は推理に含まれます。続いて、要請は外れるから認識手段ではない、非存在は対象がないから認識手段ではない、という二つの反論が取り上げられます。</p>
+  <p>解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>認識手段は四つであることの吟味の章<br><small><i>pramāṇacatuṣṭvaparīkṣāprakaraṇa</i>。スートラ 2.2.1–12 の注釈。Thakur 版 pp.261–267</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.2.1–12<br><small>四つではない（1）、含まれる（2）、要請（3–6）、非存在（7–12）</small></dd></div>
+    <div><dt>論敵</dt><dd>認識手段を八つとする論者など<br><small>ヒンディー訳の注は、要請を別の認識手段とするのをミーマーンサー、八つを認めるのをプラーナ学者とする</small></dd></div>
+    <div><dt>見どころ</dt><dd>「昼に食べない」と言えば夜に食べる<br><small>§1。要請は推理の一種</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.694–713 ごろ</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.262</span> は Thakur 版の頁。節見出しの <span class="pg">pp.261–263</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.2.1–12 の注釈を、テキストの順に3節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">認識手段は四つだけか</a></td><td class="num">pp.261–263</td><td>スートラ 2.2.1–2。伝承・要請・包含・非存在。言葉と推理に含まれる</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">要請は外れるか</a></td><td class="num">pp.264–265</td><td>スートラ 2.2.3–6。雲があっても雨が降らない</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">非存在の知</a></td><td class="num">pp.266–267</td><td>スートラ 2.2.7–12。印のない衣を持ってこい</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>認識手段は四つだけか</h2><span class="sub"><span class="pg">pp.261–263</span>スートラ 2.2.1–2。伝承・要請・包含・非存在。言葉と推理に含まれる</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.261 · NS 2.2.1</span>
+  <div class="src deva" lang="sa">न चतुष्ट्वमैतिह्यार्थापत्तिसंभवाभावप्रामाण्यात् ॥२।२।१॥<br>प्रत्यक्षानुमानोपमानशब्दाः प्रमाणानि [१।१।३] इति सूत्रम् । तस्याक्षेपः—न चतुष्ट्वमैतिह्यार्थापत्तिसंभवाभावप्रामाण्यात् । अस्यार्थः—अयथार्थोऽयं प्रमाणोद्देश इति, न चत्वार्येव प्रमाणान्यैतिह्यार्थापत्तिसंभवाभावा अपि प्रमाणानीति । संशयव्युदासार्थं वैतिह्यादय उपक्षिप्य प्रतिषिध्यन्ते । …… विधिन्यूनतापरिहारार्थं वा प्रकरणम् । …… प्रत्यक्षादिष्वन्तर्भावप्रदर्शनार्थं वा । …… सिद्धत्वादनारम्भः ? …… न, अवधारणप्रयोजनस्येतः सिद्धेः । येन न्यायेन चत्वार्येव प्रमाणानीत्येतदवस्थाप्यते, स न्याय इह प्रकरणे वर्ण्यते । तस्मादारभ्यमेवेति ।</div>
+  <div class="tr">（反論）「四つではない。伝承・要請・包含・非存在も認識手段だからである」。<br>「知覚・推理・類比・言葉が認識手段である」（1.1.3）というスートラがある。それへの論難が「四つではない……」である。その意味は、「この認識手段の列挙は正しくない。認識手段は四つだけではなく、伝承・要請・包含・非存在も認識手段である」ということである。（このプラカラナの目的は、）疑いを取り除くために、伝承などを取り上げて否定することである。……あるいは、（教えるべきことの）不足を避けるためのプラカラナである。……あるいは、（伝承などが）知覚などに含まれることを示すためである。……（反論）「（四つであることは）すでに成立しているので、（このプラカラナは）始める必要がない」。そうではない。（「四つだけ」という）限定の目的は、ここから成立するからである。認識手段は四つだけである、ということが確立される論理が、このプラカラナで述べられる。だから、始めるべきである。</div><div class="exp"><span class="lbl">解説</span><p>第1章の列挙（1.1.3）は認識手段を四つとしました。ほかの学派の認める四つを加えると八つになります。このプラカラナの目的について Uddyotakara はいくつかの説明を挙げ、「四つだけ」という限定の根拠をここで論証する、と結びます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、第1日課が認識手段とは何かを吟味したのに対し、第2日課はそれが四つであることなどの性質を吟味する、と注します。また、Vārttika はこのプラカラナの目的を六つ挙げていると整理します。疑いの原因となる学派の違いについて、Vācaspati に従って、仏教とヴァイシェーシカは二つ（知覚・推理）、サーンキヤ・ヨーガは三つ（＋言葉）、プラバーカラ派ミーマーンサーは五つ（＋類比・要請）、バッタ派は六つ（＋非存在）、プラーナ学者は八つ（＋伝承・包含）を認める、とまとめています（TṬ p.435; Hi. pp.694–698）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">p.262</span>
+  <div class="src deva" lang="sa">किमिदमैतिह्यं नाम ? अनिर्दिष्टप्रवक्तृकं प्रवादपारम्पर्यम्, इति होचुर्वृद्धाः कथयन्ति । अर्थादापत्तिरर्थापत्तिः । आपत्तिः प्राप्तिः प्रसङ्गः । यस्मिन् वाक्येऽभिधीयमानादर्थादन्योऽर्थ आपद्यते सार्थापत्तिः । यथासत्सु मेघेषु वृष्टिर्न भवतीति, किमत्रार्थादापद्यते ? सत्सु भवतीति । संभवो नामाविनाभाववर्तिनः पदार्थस्य ग्रहणादन्यस्य सत्ताविज्ञानम्, यथा द्रोणस्य सत्ताग्रहणादाढकस्य सत्तेति । अभावः प्रत्यनीकस्य ग्रहणात् तद्विरोधिनो ग्रहणम्, यथा विधारके वाय्वभ्रसंयोगे सति गुरुत्वप्रतिबन्धादपामपातः प्रसिद्धः, तदपामपातेन विरोधिनं वाय्वभ्रसंयोगं प्रतिपद्यत इति ॥१॥</div>
+  <div class="tr">伝承とは何か。「話し手が示されない、言い伝えの連なり」である。「昔の人々はこう言った、と語られる」（というようなもの）である。要請（<i>arthāpatti</i>）とは、事柄から（別の事柄が）帰結することである。帰結とは、到達、付随である。ある文において、述べられた事柄から別の事柄が帰結する、それが要請である。たとえば「雲がないときには雨は降らない」と言えば、ここで事柄から何が帰結するか。「（雲が）あるときには降る」ということである。包含とは、離れずにあるものを捉えることから、別のものの存在を知ることである。たとえば、ドローナ（の量）があることを捉えることから、アーダカ（の量）があることを（知る）ように。非存在とは、対立するものを捉えることから、それと対立するものを捉えることである。たとえば、（雨を）支える風と雲の結合があると、重さが妨げられて水が落ちないことが知られている。その水が落ちないことによって、（それと）対立する風と雲の結合を知る、というように。（第一スートラ）</div><div class="exp"><span class="lbl">解説</span><p>四つの「追加の認識手段」の定義と例です。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>認識手段</th><th>定義</th><th>例</th><th>含まれるもの</th></tr></thead>
+    <tbody>
+      <tr><td class="k">伝承（<i>aitihya</i>）</td><td>話し手のわからない言い伝え</td><td>「昔の人はこう言った」</td><td>言葉</td></tr>
+      <tr><td class="k">要請（<i>arthāpatti</i>）</td><td>述べられたことから別のことが帰結する</td><td>雲がなければ降らない → 雲があれば降る</td><td>推理</td></tr>
+      <tr><td class="k">包含（<i>sambhava</i>）</td><td>大きい量の存在から、それに含まれる小さい量を知る</td><td>1ドローナがあれば、（その4分の1の）1アーダカもある</td><td>推理</td></tr>
+      <tr><td class="k">非存在（<i>abhāva</i>）</td><td>あるものを捉えて、それと対立するものを知る</td><td>雨が降らない → 雲を風が支えている</td><td>推理</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　四つの「追加の認識手段」。</b>スートラ 2.2.1–2 の Vārttika による。</figcaption>
+</figure>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、非存在の例について、雨が落ちないことが風と雲の結合の知を生むので、ここでは非存在そのものが認識手段になっている、と注します。訳文では「目的が違えば別の認識手段だ」とする論について、「（認識手段の）八つという数もなくなる」と訳し、八つを認める（プラーナ学者の）立場を念頭に置いた反論だと読める形にしています（Hi. pp.696–698）。</p></div></div>
+</div>
+<div class="mula sutra" id="u3">
+  <span class="ref">pp.262–263 · NS 2.2.2</span>
+  <div class="src deva" lang="sa">शब्द ऐतिह्यानर्थान्तरभावादनुमानेऽर्थापत्तिसंभवाभावानर्थान्तरभावाच्चाप्रतिषेधः ॥२।२।२॥<br>तान्येतान्यैतिह्यादीन्येवंभूतानि लक्षणाभेदादेतेष्वेवान्तर्भवन्तीति न पृथगुच्यन्ते । विषयाभावाच्च । …… अथ प्रयोजनभेदाद् भेदं प्रतिपद्यसे ? एवं तर्ह्यष्टत्वं निवर्तते । …… शब्द ऐतिह्यमन्तर्भवति, समानलक्षणत्वात् । …… कथमर्थापत्तिरनुमानेन संगृह्यते ? द्वयोरेकतरप्रतिषेधस्य द्वितीयाभ्यनुज्ञाविषयत्वात् । यत्र यत्र द्वयोर्वस्तुनोरेकतरद् वस्तु प्रतिषिध्यते, तत्र तत्र द्वितीयाभ्यनुज्ञा दृष्टा, यथा दिवा न भुङ्क्त इत्यभिधानाद् रात्रौ भुङ्क्त इति गम्यते । एके तु ब्रुवते नेयमर्थापत्तिर्दिवा न भुङ्क्त इति । …… तस्मादुभयोः सामर्थ्यप्राप्तयोरेकतरप्रतिषेधे द्वितीयाभ्यनुज्ञानादनुमानमेवार्थापत्तिः । कतमदनुमानम् ? सामान्यतोदृष्टम् । एतेन संभवाभावौ व्याख्यातौ । …… तदेवमन्तर्भावात् पृथगनुपदेश इति ॥२॥</div>
+  <div class="tr">（答え）伝承は言葉と別のものではなく、要請・包含・非存在は推理と別のものではないので、（四つであることの）否定は成り立たない。<br>このような伝承などは、定義が違わないので、これら（四つ）に含まれる。だから別に述べられない。また、対象がないからでもある。……もし目的が違うので別の（認識手段）だと考えるなら、そうすると八つということもなくなる（目的の違いに応じて無数になる）。……伝承は言葉に含まれる。定義が同じだからである。……では、要請はどのようにして推理に含まれるのか。二つのうち一方が否定されると、もう一方が認められるからである。二つの事柄のうち一方が否定されるところでは、もう一方が認められることが見られる。たとえば「昼には食べない」と言えば、「夜に食べる」ことが理解されるように。ある人々は、「昼には食べない」というのは要請ではない、と言う。……だから、（文脈によって）可能な二つのうち一方が否定されると、もう一方が認められるので、要請は推理にほかならない。どの推理か。「一般的に見られたもの」（による推理）である。これによって、包含と非存在も説明された。……このように、（四つに）含まれるので、別には教えられないのである。（第二スートラ）</div><div class="exp"><span class="lbl">解説</span><p>要請を推理に含める論理は、「二つの可能性のうち一方が否定されれば、もう一方が成り立つ」という一般的な関係にもとづく推理だ、というものです。ミーマーンサー学派の有名な例「太ったデーヴァダッタは昼に食べない（だから夜に食べている）」の構造です。目的が違えば別の認識手段だというなら、認識手段は八つにとどまらず、目の用途の数だけ増えてしまう、という反論も鋭いところです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、伝承の作者が信頼できる人でなければ言葉には含まれない、と Vācaspati を引きます（TṬ p.436）。また、スートラとバーシュヤは非存在を推理に含めるが、後代のニヤーヤ・ヴァイシェーシカは知覚に含める、と注します。「昼には食べない」を要請と認めない「ある人々」については「誰かは言いがたい」としつつ、バッタ派の見解も同じだと注します。「一般的に見られたもの」による推理とは、推理されるものと推理するものとの間に因果関係のない場合だ、と Vācaspati を引きます（TṬ p.437; Hi. pp.699–702）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>「昼には食べない」は要請ではない、とする「ある人々」の議論は、「昼にはまったく食べない」か「昼に限って食べない」かの解釈をめぐる細かいものなので、要点を抜き出しました。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>要請は外れるか</h2><span class="sub"><span class="pg">pp.264–265</span>スートラ 2.2.3–6。雲があっても雨が降らない</span></div>
+<div class="mula sutra" id="u4">
+  <span class="ref">pp.264–265 · NS 2.2.3–4</span>
+  <div class="src deva" lang="sa">अर्थापत्तिरप्रमाणमनैकान्तिकत्वात् ॥२।२।३॥<br>सत्यमेतानि प्रमाणानि, न तु प्रमाणान्तराणीत्युक्तम् । तत्रार्थापत्तेः प्रमाणभावाभ्यनुज्ञा नोपपद्यते । …… यथा मेघेष्वसत्सु वृष्टिर्न भवति, सत्सु भवतीत्यर्थादापन्नम्, सत्स्वप्येकदा न भवतीत्यनैकान्तिक्यर्थापत्तिः । …… वयमपि ब्रूमोऽनैकान्तिक्यप्रमाणमिति । …… ॥३॥<br>अनर्थापत्तावर्थापत्त्यभिमानात् ॥२।२।४॥<br>…… नेयमर्थापत्तिरनैकान्तिकी—सत्सु मेघेषु वृष्टिर्भवतीति । सेयमनैकान्तिकी कथम् ? न सत्सु भवत्येव, अपि तु सत्स्वेव भवतीति । यत् तु सत्सु मेघेषु वृष्टिर्न भवतीति, कारणप्रतिबन्धोऽसौ, न तदर्थापत्तेः प्रमेयम् । किं पुनरस्याः प्रमेयम् ? कारणे सति कार्यं भवतीति । …… यद्यसत्यपि कारणे कार्यमुत्पद्यते, तत्तु न दृष्टमिति न कदाचिदनैकान्तिकत्वम् ॥४॥</div>
+  <div class="tr">（反論）「要請は認識手段ではない。外れるからである」。<br>「これらは認識手段ではあるが、別の認識手段ではない」と言われた。そこで（反論者は言う）、「要請が認識手段であると認めることは成り立たない。……『雲がないときには雨は降らない』から、『（雲が）あるときには降る』ことが事柄から帰結するが、（雲が）あっても降らないことがあるので、要請は外れる」。……（答え）我々も「外れる（要請）は認識手段ではない」と言う。……（第三スートラ）<br>（答え）要請でないものを要請と思い込んでいるからである。<br>……この要請は外れない。「雲があるときには雨が降る」（という要請）。これがどうして外れるのか。「雲があれば必ず降る」のではなく、「雲があるときにだけ降る」ということなのである。雲があっても雨が降らないのは、原因が妨げられているのであって、それは要請の対象ではない。では、それ（要請）の対象は何か。「原因があるときに結果がある」ということである。……もし原因がないのに結果が生じるなら（外れることになるが）、それは見られないので、決して外れることはない。（第四スートラ）</div><div class="exp"><span class="lbl">解説</span><p>「雲がなければ雨は降らない」から帰結するのは、「雲があれば必ず降る」ではなく、「降るのは雲があるときだけだ」ということです。雲があっても降らないのは、風が雲を支えているなど原因が妨げられているからで、要請が外れているのではありません。反論者は、要請でないもの（「雲があれば必ず降る」）を要請だと思い込んでいる、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vārttika が反論の理由の誤りを四つ（認めること、理由がないこと、矛盾、無意味）指摘していると整理し、訳文で (क)〜(घ) と記号を付けています。スートラ 2.2.4 については、Vācaspati の「自分の見解で退けた後、スートラの論駁を述べる」を引き、原因が妨げられる例として、月長石が日長石の火を妨げる例を挙げます（TṬ pp.437–438; Hi. pp.702–705）。</p></div></div>
+</div>
+<div class="mula sutra" id="u5">
+  <span class="ref">p.265 · NS 2.2.5–6</span>
+  <div class="src deva" lang="sa">प्रतिषेधाप्रामाण्यं चानैकान्तिकत्वात् ॥२।२।५॥<br>योऽयं भवता प्रतिषेधः क्रियतेऽर्थापत्तिर्न प्रमाणमनैकान्तिकत्वादिति, अयमप्यनैकान्तिकः । …… यस्मादर्थापत्तेर्विशेषः प्रतिषिध्यते, नार्थापत्तिमात्रम्, तेन सत्ताप्रतिषेधादनैकान्तिको भवतीति ॥५॥<br>तत्प्रामाण्ये वा नार्थापत्त्यप्रामाण्यम् ॥२।२।६॥<br>…… यदि स्वविषयतज्जातीयान्यवृत्तिमनैकान्तिकं मन्यसे, अर्थापत्तिरपि तर्ह्यनैकान्तिकी न भवति, न ह्यसति कारणे क्वचिदपि कार्यमुत्पद्यमानं दृष्टमिति । तदिदं सूत्रं व्याघातदेशनार्थम् । …… अथाबुद्ध्वैकान्तिकानैकान्तिकव्यवहारमिदमुच्यते, अर्थापत्तिरप्रमाणमनैकान्तिकत्वादिति, तदुपेक्षया वर्तितव्यम्, नोन्मत्तवाक्यानि प्रतिसमाधेयानीति ॥६॥</div>
+  <div class="tr">（答え）また、（あなたの）否定も外れるので、認識手段でないことになる。<br>あなたのする否定、「要請は認識手段ではない。外れるから」というのも外れる。……要請の特定のもの（外れるもの）が否定されるのであって、要請一般ではない。だから、（要請の）存在を否定しないので、（この否定は）外れるのである。（第五スートラ）<br>あるいは、それ（否定）が認識手段であるなら、要請も認識手段でないことにはならない。<br>……もしあなたが、自分の対象と同類のもの以外にもあるものを「外れる」と考えるなら、要請も外れないことになる。原因がないのに結果が生じるのは、どこにも見られないからである。このスートラは、（相手の）矛盾を示すためのものである。……もし、「外れる」「外れない」という言葉づかいを理解せずに「要請は認識手段ではない。外れるから」と言うのなら、それは無視して済ませるべきである。狂人の言葉に答える必要はない。（第六スートラ）</div><div class="exp"><span class="lbl">解説</span><p>スートラは、反論者の否定そのものに同じ論法を返します。外れる要請があるからすべての要請が認識手段でないと言うなら、同じく、外れる否定があるので、あなたの否定も認識手段でないことになる、と。Uddyotakara は最後に、「外れる」という語の意味さえ理解していない人の言葉なら「狂人の言葉に答える必要はない」と、珍しく強い言葉で結んでいます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、反論者の主張は要請の権威を否定するだけで要請の存在を否定しないので、その主張自体が「外れる」ものになる、と注します。また、ミーマーンサーでは要請は別の認識手段とされ、そのバーシュヤ（シャバラの名は出していません）が「生きていると知られているチャイトラが家にいないので外にいる」という例を挙げるが、これは推理にすぎない、と注します（Hi. pp.706–708）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>非存在の知</h2><span class="sub"><span class="pg">pp.266–267</span>スートラ 2.2.7–12。印のない衣を持ってこい</span></div>
+<div class="mula sutra" id="u6">
+  <span class="ref">p.266 · NS 2.2.7–8</span>
+  <div class="src deva" lang="sa">नाभावप्रामाण्यं प्रमेयासिद्धेः ॥२।२।७॥<br>नाभावः प्रमाणं विषयाभावात् । यदविषयं तदप्रमाणम्, यथा गोशब्दोऽश्वप्रतिपादने । तथा चाभावः, तस्मादप्रमाणम् । कश्चैवमाहाभावः प्रमाणमिति ? अपि त्वभावविषया प्रतिपत्तिः प्रमाणम्, तया प्रमीयत इति । कः पुनरस्या विषयः ? अभाव इत्युक्तम् ॥७॥<br>लक्षितेष्वलक्षणलक्षितत्वादलक्षितानां तत्प्रमेयसिद्धिः ॥२।२।८॥<br>तत्रानेकधा भिन्नस्याभावप्रपञ्चस्योदाहरणार्थं सूत्रम् …… अलक्षितानि वासांस्यानयेति प्रयुक्त उभयसन्निधौ येषु वासःसु लक्षणानि न पश्यति, तानि लक्षणाभावेनैव प्रतिपद्यते, प्रैषसंप्रत्यययोरेकविषयत्वात् । प्रतिपद्य चानयति । प्रतिपत्तिहेतुश्च प्रमाणम् । तस्मात् सिध्यत्यभावस्य प्रमाणत्वम् ॥८॥</div>
+  <div class="tr">（反論）「非存在は認識手段ではない。対象が成立しないからである」。<br>「非存在は認識手段ではない。対象がないからである。対象のないものは認識手段ではない。馬を知らせるときの『牛』という語のように。非存在もそうである。だから認識手段ではない」。（答え）いったい誰が「非存在が認識手段だ」と言ったのか。そうではなく、非存在を対象とする知が認識手段なのであり、それによって知られる、と（言うのである）。では、その（知の）対象は何か。非存在だ、と言った。（第七スートラ）<br>（答え）印のつけられたもののうちで、印のないことによって区別されるので、印のないものについて、それ（非存在）が対象として成立する。<br>そこで、さまざまに分かれる非存在の広がりを例示するために、このスートラがある。……「印のない衣を持ってこい」と命じられた人は、両方（印のある衣とない衣）がそばにあるとき、印が見えない衣を、まさに印の非存在によって知る。命令と理解が同じ対象をもつからである。そして知って、持ってくる。知の原因は認識手段である。だから、非存在が認識手段であることは成立する。（第八スートラ）</div><div class="exp"><span class="lbl">解説</span><p>「非存在は対象がないから認識手段ではない」という反論に、Uddyotakara はまず言葉の訂正で答えます。認識手段なのは非存在そのものではなく、非存在を対象とする知だ、と。スートラは日常の例を示します。印のある衣とない衣が並んでいるとき、「印のない衣を持ってこい」と言われた人は、印がないことを見て、正しい衣を持ってくる。非存在も知の対象になり、行動を導く、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vārttika が非存在そのものではなく非存在を対象とする知を認識手段としている点を指摘し、ここから後の「確かな知の手段が認識手段である」という定義が発展した、と注します。「命令と理解が同じ対象をもつ」とは、命令の言葉と聞き手の知とが同じ衣を対象とすることだ、と補います（Hi. pp.708–709）。</p></div></div>
+</div>
+<div class="mula sutra" id="u7">
+  <span class="ref">pp.266–267 · NS 2.2.9–12</span>
+  <div class="src deva" lang="sa">असत्यर्थे नाभाव इति चेन्नान्यलक्षणोपपत्तेः ॥२।२।९॥<br>…… न ब्रूमो यद् यत्र भवति, तत्र तन्न भवतीति, अपि तु लक्षितानि वासांस्युपलभमान इतराणि लक्षणाभावविशिष्टानि प्रतिपद्यत इति । ……॥९॥<br>तत्सिद्धेरलक्षितेष्वहेतुः ॥२।२।१०॥<br>यानि तानि लक्षितेषु वासःसु लक्षणानि, तानि न कस्यचिन्न सन्तीति । यानि च सन्ति तेषामभावो व्याहतः । अत्रोक्तं नापरिज्ञानादिति ॥१०॥<br>न लक्षणावस्थितापेक्षसिद्धेः ॥२।२।११॥<br>…… न ब्रूमो यानि भवन्ति तेषां तत्रैवाभाव इति, अपि तु केषुचिल्लक्षणान्यवस्थितान्यपेक्ष्य येषु तानि न भवन्ति, तानि लक्षणाभावेन प्रतिपद्यत इति ॥११॥<br>प्रागुत्पत्तेरभावोपपत्तेश्च ॥२।२।१२॥<br>अभावद्वैतं खलु भवति, प्रागुत्पत्तेरविद्यमानता, ऊर्ध्वं च विनाशादविद्यमानतेति । तत्र योऽयं विनाशादभावो लक्षणानामलक्षितेषु वासःसु सोऽनुपपन्नः, नेतर इति । असत्यर्थे नाभावः, तत्सिद्धेरलक्षितेष्वहेतुः इति चोभे अप्येते छलसूत्रे । छलस्योक्तमुत्तरम्—ज्ञात्वाज्ञात्वा वा, असम्बद्धमज्ञानं वा । तस्मादप्रयोज्यं छलमिति ॥१२॥<br>॥ प्रमाणचतुष्ट्वपरीक्षाप्रकरणम् ॥</div>
+  <div class="tr">（反論）「対象がないところには非存在はない」と言うなら、そうではない。別のもの（印のある衣）の印が成り立つからである。<br>……我々は、あるところにあるものが、そこにない、と言うのではない。そうではなく、印のつけられた衣を知覚する人が、ほかの（衣）を、印の非存在によって限定されたものとして知る、と言うのである。……（第九スートラ）<br>（反論）「それ（印）は（印のある衣で）成立しているので、印のない衣については理由にならない」。<br>（反論者）「印のある衣にある印は、どこにもないのではない。あるものの非存在を言うのは矛盾である」。これについては、「（あなたは我々の言うことを）理解していない」と（すでに）言った。（第十スートラ）<br>（答え）そうではない。（印のある衣に）ある印に依存して（非存在が）成立するからである。<br>……我々は、あるものがまさにそこにない、と言うのではない。そうではなく、あるもの（衣）にある印に依存して、それがない（衣）を、印の非存在によって知る、と言うのである。（第十一スートラ）<br>また、生じる前の非存在が成り立つからである。<br>非存在には二つがある。生じる前の非存在と、滅した後の非存在である。そのうち、印のない衣について、印の、滅した後の非存在は成り立たないが、もう一方（生じる前の非存在）は（成り立つ）。……「対象がないところには非存在はない」「それは成立しているので、印のない衣については理由にならない」という二つのスートラは、どちらも詭弁のスートラである。詭弁への答えはすでに述べた。知っていても知らなくても、（答えは）無関係か無知かである。だから、詭弁を用いるべきではない。（第十二スートラ）<br>認識手段は四つであることの吟味のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、「印の非存在」と言っても、印はある衣にはちゃんとあるのだから、それを「ない」と言うのは矛盾だ、と揚げ足を取ります。答えは、印のない衣について「（ここに）印はない」と言うのであって、印のある衣の印がないと言うのではない、というものです。印のない衣には、まだ一度も印がつけられていないので、「生じる前の非存在」がある。Uddyotakara は、反論の二つのスートラを「詭弁」と断じ、第十プラカラナの詭弁への答えを参照させています。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、スートラ 2.2.9 の前半を反論（非存在とは滅した後の非存在だけだ）、後半を答え（相互の非存在や生じる前の非存在も成り立つ）と分けます。また、非存在は実際には四種（相互の非存在と、生じる前・滅した後・絶対の非存在）だが、ここでは文脈上二つだけが言われている、と Vācaspati を引きます（TṬ p.440）。二つの「詭弁のスートラ」は、それぞれ一般化の詭弁と言葉の詭弁にあたる、と注します（Hi. pp.710–713）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>aitihya</dt><dd>伝承。話し手のわからない言い伝え</dd>
+    <dt>arthāpatti</dt><dd>要請。述べられたことから別のことが帰結すること</dd>
+    <dt>sambhava</dt><dd>包含。大きい量から含まれる小さい量を知ること</dd>
+    <dt>abhāva</dt><dd>非存在（を知ること）</dd>
+    <dt>droṇa / āḍhaka</dt><dd>ドローナ／アーダカ。穀物の量の単位（1ドローナ＝4アーダカ）</dd>
+    <dt>antarbhāva</dt><dd>（ほかの認識手段に）含まれること</dd>
+    <dt>prāgabhāva / pradhvaṃsābhāva</dt><dd>生じる前の非存在／滅した後の非存在</dd>
+    <dt>lakṣita / alakṣita</dt><dd>印のつけられた／印のない（衣）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第22プラカラナ（スートラ 2.2.1–12）である。第21プラカラナ（スートラ 2.1.58–69）は<a href="nyayavarttika-21-taiyaku.html">第21プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
