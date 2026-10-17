@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 4</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-3-taiyaku.html">← プラカラナ3</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>疑いの定義</a></li><li><a href="#s2"><b>2</b>「共通の性質の把握」</a></li><li><a href="#s3"><b>3</b>すべての語が揃って定義</a></li><li><a href="#s4"><b>4</b>固有の性質から</a></li><li><a href="#s5"><b>5</b>相反する二つの論証因</a></li><li><a href="#s6"><b>6</b>見解の対立</a></li><li><a href="#s7"><b>7</b>五種の疑いという解釈</a></li><li><a href="#s8"><b>8</b>疑いの対象は有法</a></li><li><a href="#s9"><b>9</b>他学派の疑いの定義</a></li><li><a href="#s10"><b>10</b>定義か原因の列挙か</a></li><li><a href="#s11"><b>11</b>目的と実例</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第4プラカラナ「論証の前提の定義」（スートラ 1.1.23–25、Thakur 版 pp.83–97）</span>
+  <p>ニヤーヤ・スートラの十六の主題のうち、認識手段と認識対象に続くのが、疑い・目的・実例です。この章の名前「論証の前提部分の定義」（<i>nyāyapūrvāṅgalakṣaṇa</i>）が示すとおり、これらは論証（<i>nyāya</i>）が始まる前に揃っていなければならない条件です。疑いがなければ吟味は始まらず、目的がなければ誰も吟味しようとせず、論者双方が認める実例がなければ論証は成り立ちません。</p>
+  <p>分量のほとんどは疑いの定義（スートラ 1.1.23）に費やされます。スートラの長い複合語の一語一語が何を言っているのか、なぜそのすべてが必要なのかが、細かく検討されます。見どころは、「互いに矛盾する二つの論証因がどちらも正しい場合」（<i>viruddhāvyabhicārin</i>）に疑いが生じる、という説への批判です（§5）。Uddyotakara は、そのような事態を認めればすべての推理の根が断たれる、と強く退けます。</p>
+  <p>形式はこれまでの章と同じです。解説では、Śrīnivāsa Śāstrī のヒンディー語訳注（1986）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>論証の前提の定義の章<br><small><i>nyāyapūrvāṅgalakṣaṇaprakaraṇa</i>。スートラ 1.1.23–25 の注釈。Thakur 版 pp.83–97</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>1.1.23–25<br><small>疑い（23）、目的（24）、実例（25）</small></dd></div>
+    <div><dt>論敵</dt><dd>Bhāṣya、仏教ほか<br><small>疑いを五種とする Bhāṣya の解釈、相反する二つの論証因による疑いを認める説、仏教の疑いの定義、目的を「世間的なもの」とする説</small></dd></div>
+    <div><dt>見どころ</dt><dd>相反する二つの正しい論証因はありうるか<br><small>§5。のちのインド論理学で大きな問題となる「相違決定」をめぐる早い時期の議論</small></dd></div>
+    <div><dt>注釈</dt><dd>Vācaspati Miśra『タートパリヤ・ティーカー』<br><small>反論者の特定や語の説明の多くは、ヒンディー訳の注に引かれた TṬ による</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注（1986）<br><small>本章は同書 pp.207–241</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.84</span> は Thakur 版の頁。節見出しの <span class="pg">pp.84–85</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りだけを直した。Vārttika が引く Bhāṣya の文は解説で訳した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳の頁</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 1.1.23–25 の注釈を、テキストの順に11節に分けた</span></div>
+  <p>疑いのスートラは、疑いの原因として、①共通の性質の把握、②固有の性質の把握、③見解の対立、の三つを挙げ、それに「認識と非認識が定まらないこと」「特殊を求めること」という条件を加えます。Uddyotakara の基本的な読みは「疑いは三種」で、残りの語はすべての疑いに共通の条件だ、というものです。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr class="grp"><td colspan="4">1.1.23　疑い</td></tr>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">疑いの定義</a></td><td class="num">pp.83–84</td><td>確定しない「認識」とは矛盾か。「共通の」とは「似た」の意味</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">「共通の性質の把握」</a></td><td class="num">pp.84–85</td><td>「把握」は「認識」の意味。区別の原因にならない性質</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">すべての語が揃って定義</a></td><td class="num">pp.85–87</td><td>一語でも欠ければ、疑いでないものまで入る</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">固有の性質から</a></td><td class="num">pp.87–89</td><td>「多くのものから区別する性質」。音は分離から生じる</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">相反する二つの論証因</a></td><td class="num">pp.89–91</td><td>両方正しい相反する論証因は、すべての推理を壊す</td></tr>
+<tr><td class="num">§6</td><td class="k"><a href="#s6">見解の対立</a></td><td class="num">pp.91–92</td><td>対象の側の原因と、知る者・話し手の側の原因</td></tr>
+<tr><td class="num">§7</td><td class="k"><a href="#s7">五種の疑いという解釈</a></td><td class="num">pp.92–93</td><td>Bhāṣya の読みを退ける。疑いは本性としては一種</td></tr>
+<tr><td class="num">§8</td><td class="k"><a href="#s8">疑いの対象は有法</a></td><td class="num">pp.93–94</td><td>性質を見て有法を疑う。「特殊の想起」の対象</td></tr>
+<tr><td class="num">§9</td><td class="k"><a href="#s9">他学派の疑いの定義</a></td><td class="num">pp.94–95</td><td>カナーダの定義は取り込み、仏教の定義は退ける</td></tr>
+<tr><td class="num">§10</td><td class="k"><a href="#s10">定義か原因の列挙か</a></td><td class="num">pp.95–96</td><td>固有の原因を挙げた。なぜ誤認は挙げないのか</td></tr>
+<tr class="grp"><td colspan="4">1.1.24–25　目的と実例</td></tr>
+<tr><td class="num">§11</td><td class="k"><a href="#s11">目的と実例</a></td><td class="num">pp.96–97</td><td>目的は「世間的なもの」か。実例は類比や実例支分と同じか</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>疑いの定義</h2><span class="sub"><span class="pg">pp.83–84</span>確定しない「認識」とは矛盾か。「共通の」とは「似た」の意味</span></div>
+<p>疑いのスートラは、ニヤーヤ・スートラの中でも特に長い複合語でできています。Uddyotakara はまず、スートラ全体の構造を示し、「疑いは確定しない認識だ」と言うことが矛盾ではないかという反論に答えます。続いて、最初の語「共通の性質」の「共通」が何を意味するかを確かめます。</p>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.83–84 · NS 1.1.23</span>
+  <div class="src deva" lang="sa">समानानेकधर्मोपपत्तेर्विप्रतिपत्तेरुपलब्ध्यनुपलब्ध्यव्यवस्थातश्च विशेषापेक्षो विमर्शः संशयः ॥१।१।२३॥<br>प्रमेयानन्तरं प्राप्तिः संशयस्य, स्थानवतो लक्षणवचनमिति । या प्रमेयानन्तरं क्रमप्राप्तिः साभिधीयत इति । समानानेकधर्मोपपत्तेरिति सूत्रम् । तत्र समानधर्मोपपत्तेरनेकधर्मोपपत्तेर्विप्रतिपत्तेश्च त्रिविध एव संशय इतरपदविशेषणाद् भवतीति सूत्रार्थः । तत्र विषयस्वरूपानवधारणात्मकः प्रत्ययः संशयः । समानधर्मादिभ्य उत्पन्नो विषयस्य विशेषं नावधारयति यः प्रत्ययः स संशय इत्युच्यते ।</div>
+  <div class="tr">疑いとは、共通の性質の把握、（多くのものから区別する）固有の性質の把握、見解の対立から、そして認識と非認識が定まらないことから（生じる）、特殊を求める、（対立する二つの選択肢の間での）揺れ動く考察である。<br>認識対象の次に疑いの順番が来る。（スートラの順序で）場所を得たもの（疑い）の定義を述べる、ということである。認識対象の次に順番として来ることが（ここで）述べられる。「共通の…の把握から」というのがスートラである。共通の性質の把握から、固有の性質の把握から、見解の対立から、疑いはまさに三種であり、（それは）ほかの語による限定によって生じる、というのがスートラの意味である。そのうち、対象の本性を確定しないことを本質とする認識が疑いである。共通の性質などから生じ、対象の特殊を確定しない認識、それが疑いと言われる。</div><div class="exp"><span class="lbl">解説</span><p>典型的な例は、夕暮れに遠くに立つ細長いものを見て、「あれは杭か、人か」と迷う場合です。杭と人に共通する「高さ」は見えていますが、杭に特有の性質（鳥の巣、枝の跡）も、人に特有の性質（手足の動き）も見えません。そして心は「杭か人か」を確かめようとしています。スートラはこの状況を分析して、次のような構造で疑いを定義します。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>スートラの語</th><th>意味</th><th>Uddyotakara の位置づけ</th></tr></thead>
+    <tbody>
+      <tr class="grp"><td colspan="3">疑いの三つの原因（疑いは三種）</td></tr>
+      <tr><td class="k"><i>samānadharmopapatti</i></td><td>共通の性質の把握</td><td>①（杭と人に共通の高さ）</td></tr>
+      <tr><td class="k"><i>anekadharmopapatti</i></td><td>固有の性質の把握</td><td>②（音にだけある性質）</td></tr>
+      <tr><td class="k"><i>vipratipatti</i></td><td>見解の対立</td><td>③（「我はある」「我はない」）</td></tr>
+      <tr class="grp"><td colspan="3">すべての疑いに共通の条件</td></tr>
+      <tr><td class="k"><i>upalabdhyanupalabdhyavyavasthā</i></td><td>認識と非認識が定まらないこと</td><td>見えたものが本当にあるのか、見えないものが本当にないのか、決まらない</td></tr>
+      <tr><td class="k"><i>viśeṣāpekṣa</i></td><td>特殊を求めること</td><td>区別する特徴を（想起しつつ）求めている</td></tr>
+      <tr><td class="k"><i>vimarśa</i></td><td>揺れ動く考察</td><td>疑いの本性</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　疑いのスートラの構造（Uddyotakara の読み）。</b>Bhāṣya は「認識が定まらない」「非認識が定まらない」もそれぞれ独立の原因と見て五種の疑いを説く（§7）。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī はスートラを「共通の性質の把握、固有の性質の把握、見解の対立、認識の不確定、非認識の不確定から生じる、特殊を求める考察が疑いである」と訳しています（Hi. pp.207–209）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">p.84</span>
+  <div class="src deva" lang="sa">प्रत्ययोऽनवधारणात्मकश्चेति व्याहतम् । प्रत्ययस्यैतत् प्रत्ययत्वं यदुत विषयस्वरूपावधारणात्मकं नाम । न चेदयं विषयस्वरूपमवधारयति, प्रत्ययत्वं तर्हि व्याहतं भवति । न, स्वरूपप्रत्यायनात् । स्वरूपमस्य प्रतीयते, न पुनरयं विषयस्वरूपमवधारयति, अतश्च संशयः । प्रतीयत इति हि प्रत्यय इत्युच्यते ।</div>
+  <div class="tr">（反論）「認識であり、しかも確定しないことを本質とする、というのは矛盾している。認識が認識であるとは、まさに対象の本性を確定することを本質とすることである。もしこれが対象の本性を確定しないなら、認識であることと矛盾する」。そうではない。（疑いにおいても）本性は知られるからである。これ（対象）の本性は知られる。しかしこれ（疑い）は、対象の（特殊な）本性を確定しない。だから疑いである。「知られる」ということで「認識」と言われるのである。</div><div class="exp"><span class="lbl">解説</span><p>「認識」（<i>pratyaya</i>）という語を「確定的な認識」と取れば、「確定しない認識」は矛盾した言い方です。Uddyotakara は、認識とは広く「何かが知られること」であり、疑いでも対象の本性（高さのある何か）は知られている、と答えます。確定しないのは、それが杭か人かという特殊な本性です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「この反論は、<i>pratyaya</i> の語が確定的な知を表すと考えてなされている」と注し、答えについて「<i>pratyaya</i> は確定的な知ではなく知一般を意味する。『実際には <i>pratyaya</i> の語は知の同義語であり、知性という普遍は疑いなどにもあるので矛盾はない』（TṬ）」と紹介しています。そして「認識には、対象の本性だけの知と、その対象についての確定的な知という二つのはたらきがある。最初の知の後に疑いが生じる」と補っています（Hi. pp.209–210）。</p></div></div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">p.84</span>
+  <div class="src deva" lang="sa">समानशब्दः साधारणार्थः, समानस्य धर्मस्योपपत्तेरिति साधारणस्येति यावत् । किं पुनरत्र साधारणम्, किं गुण आहो सामान्यमिति ? यदि गुणः, स न साधारणः । कस्मात् ? एकद्रव्यवृत्तित्वात् परिमाणस्य । एकद्रव्यवृत्ति परिमाणम्, तत् कथं साधारणं भविष्यतीति ? सामान्यमपि न युक्तम्, द्रव्यावृत्तित्वात् । न ह्यूर्ध्वत्वं द्रव्ये वर्तते । किं तर्हि ? गुणे परिमाणे । न चोर्ध्वत्वं परिमाणे वर्तमानं सामान्यं द्रव्ये संशयं कर्तुमुत्सहते । कस्मात् ? गुणस्यावधारितत्वात्; यद्वृत्ति सामान्यं सोऽर्थोऽवधारित इति । न, साधारण्यस्यान्यथा व्याख्यानात् । न ब्रूमो गुणः साधारण इति, नापि सामान्यम्, अपि तु सादृश्यार्थः समानार्थः । यावहमर्थौ पूर्वमद्राक्षं तयोर्यो धर्म ऊर्ध्वत्वलक्षणो वर्तते, तेन धर्मेण सदृशोऽयं धर्म उपलभ्यत इति । तस्योपपत्तिरध्यवसायः । यदुक्तं भवति सदृशस्य धर्मस्योपलब्धिः, तदुक्तं भवति समानस्य धर्मस्योपपत्तिरिति । कस्मात् पुनरेवमेव नोच्यते समानधर्मोपलब्धेरिति ? अनुक्तमपि यस्मादेतद् गम्यते, गम्यमानस्य चाभिधानं व्यर्थम् ।</div>
+  <div class="tr">「共通の」という語は「共有された」という意味であり、「共通の性質の把握から」とは「共有された（性質の把握から）」ということである。（反論）「では、ここで共有されたものとは何か。性質か、それとも普遍か。もし性質なら、それは共有されたものではない。なぜか。（高さという）大きさは一つの実体にだけ存在するからである。大きさは一つの実体に存在する。それがどうして共有されたものでありえようか。普遍も正しくない。実体に存在しないからである。高さ（という普遍）は実体には存在しない。ではどこにか。性質である大きさにである。そして大きさに存在する高さという普遍は、実体（杭か人か）について疑いを生じさせることはできない。なぜか。性質（大きさ）は確定されているからである。普遍が存在するその対象（大きさ）は確定されている」。そうではない。「共有された」ことを別様に説明するからである。我々は、性質が共有されているとも、普遍がそうだとも言わない。そうではなく、「共通の」とは「似た」という意味である。「以前に私が見た二つの対象（杭と人）に、高さを特徴とする性質がある。その性質に似たこの性質が認識される」ということである。その把握が確認（である）。「似た性質の認識」と言われることが、「共通の性質の把握」と言われているのである。（反論）「では、なぜそのまま『共通の性質の認識から』と言わないのか」。言わなくてもそれは理解されるからであり、理解されることを述べるのは無駄だからである。</div><div class="exp"><span class="lbl">解説</span><p>ヴァイシェーシカの存在論を前提にした細かい議論です。「高さ」が性質（大きさ）だとすると、それはこの杭（またはこの人）にだけある個別のもので、杭と人に「共有」されてはいません。普遍（高さ性）だとすると、それは大きさという性質に属し、実体についての疑いを直接生み出しません。Uddyotakara は、「共通の性質」とは文字どおり共有される一つのものではなく、「以前に見た杭と人の高さに似た高さ」のことだ、と答えます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「共通の」を「似た」の意味に取ることを示し、「把握」（<i>upapatti</i>）について、本来は存在を表す語だが、ここでは認識を表すと注しています（Hi. pp.210–211）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>「共通の性質の把握」</h2><span class="sub"><span class="pg">pp.84–85</span>「把握」は「認識」の意味。区別の原因にならない性質</span></div>
+<p>「共通の性質の把握」の「把握」（<i>upapatti</i>）は、もとは「存在すること、成り立つこと」を意味する語です。Uddyotakara は、これがなぜ「認識」の意味になるのかを、いくつもの説明で示します。また、「区別の原因とならない」という限定を加えるべきだという提案を退けます。</p>
+<div class="mula" id="u4">
+  <span class="ref">pp.84–85</span>
+  <div class="src deva" lang="sa">केन पुनरेतद् गम्यत इति ? विशेषापेक्ष इति वचनेन । कथम् ? विशेषापेक्षा आकाङ्क्षा, सा चानुपलभ्यमाने विशेषे युक्ता । यदि चायं विशेषं न पश्यति, विशेषानुपलब्धेर्गम्यत एतत् सामान्यं पश्यतीति । अथ पुनरयं न सामान्यं न विशेषं पश्येत्, तदा विशेषापेक्ष इति व्यर्थं वचनं स्यात् । एतेन सामर्थ्येन गम्यते सामान्यमुपलभत इति । अथ वोपलब्धिपर्याय एवोपपत्तिशब्द इति । उपपत्तिः प्रमाणगम्यता, सा चोपलब्धिः । यः पुनरनुपलभ्यमानसद्भावो धर्मः, सोऽविद्यमानवद् भवति । का पुनर्विद्यमानस्याविद्यमानेन समानता ? प्रमाणानालम्बनत्वम् । अविद्यमानं प्रमाणस्यालम्बनं न भवति, तदप्यनुपलब्धिलक्षणप्राप्तमिति । विषयशब्देन वा विषयिणं प्रत्ययमाह—समानधर्मोपपत्तिशब्देन वा विषयी प्रत्ययोऽभिधीयत इति । लौकिकं वा न्यायमनेन वाक्येनानुरुध्यति, यथा लोके वक्तारो भवन्ति धूमेनाग्निरनुमीयत इति । न च वाक्ये दर्शनशब्दः श्रूयते, अर्थप्रत्यायकत्वाद्वाक्ये दर्शनशब्दमनुजानाति धूमं दृष्ट्वाग्निरनुमीयत इति ।</div>
+  <div class="tr">（問い）「では、これ（認識の意味であること）は何によって理解されるのか」。「特殊を求める」という言葉によってである。どうしてか。特殊を求めることは欲求であり、それは特殊が認識されていないときにこそ成り立つ。もしこの人が特殊を見ていないなら、特殊が認識されていないことから、「この人は普遍（共通の性質）を見ている」ということが理解される。もしこの人が普遍も特殊も見ていないなら、「特殊を求める」という言葉は無駄になろう。この（言葉の）力によって、「普遍（共通の性質）を認識している」ことが理解される。あるいは、「把握」の語はまさに「認識」の同義語である。「把握」とは、認識手段によって知られうることであり、それは認識である。また、存在しても認識されない性質は、存在しないのと同じである。では、存在するものと存在しないものとの共通性とは何か。認識手段の対象とならないことである。存在しないものは認識手段の対象とならず、それ（認識されない性質）もまた、非認識を特徴とするもの（と同じ）になる。あるいは、対象（を表す）語によって、対象をもつ認識を言っている。すなわち、「共通の性質の把握」という語によって、（それを）対象とする認識が言われている。あるいは、この文で世間の言い方に従っている。世間で人々が「煙によって火が推理される」と言うように。その文には「見る」という語は聞かれないが、（文が）意味を知らせるものなので、「煙を見て火が推理される」という「見る」の語を（補うことを）認めるのである。</div><div class="exp"><span class="lbl">解説</span><p>「共通の性質が存在すること」ではなく「共通の性質を認識すること」が疑いの原因だ、ということを、四つの説明で示します。①スートラの「特殊を求める」という語から逆算できる。②「把握」はもともと「認識手段で知られること」の意味。③対象を表す語で、その対象の認識を表す（換喩）。④世間でも「煙で火を推理する」と言い、「煙を見て」を省略する。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「把握」の語について「存在を表す語でありながら、自分の表す対象（存在）によって認識を暗示する」と注し、最後の説明については「世間の言い方にもとづく転義である（TṬ p.477）」と注しています（Hi. pp.211–212）。</p></div></div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">p.85</span>
+  <div class="src deva" lang="sa">अव्यवच्छेदहेतोरिति वक्तव्यम् । यदिदं समानधर्मोपपत्तेरिति पदम्, एतस्मिन्नव्यवच्छेदहेतोः समानस्य धर्मस्योपपत्तेरिति वक्तव्यम् । न हि केवला समानधर्मोपपत्तिः संशयकारणं भवति, अन्यथा कृतकत्वादपि संशयः स्यात् । समानं हि कृतकत्वं सर्वानित्यानामिति, व्यवच्छेदहेतुत्वान्न भवति । न, समानार्थापरिज्ञानात् । व्यवच्छेदहेतुश्च समानश्च धर्म इति न युज्यते । व्यवच्छेदहेतुर्नाम विवक्षिततज्जातीयवृत्तित्वे सति यो विजातीयावृत्तिः स व्यवच्छेदहेतुः, तस्य च समानार्थता नास्ति । समानो हि नाम विवक्षिततज्जातीयवृत्तित्वे सत्यन्यजातीयवृत्तिः । तस्मादव्यवच्छेदहेतोरिति न वक्तव्यम् ।</div>
+  <div class="tr">（反論）「『区別の原因とならない』と言うべきである。この『共通の性質の把握から』という語に、『区別の原因とならない共通の性質の把握から』と言うべきである。単なる共通の性質の把握が疑いの原因となるのではない。さもなければ、『作られたものであること』からも疑いが生じることになろう。作られたものであることは、すべての無常なものに共通であるが、区別の原因であるので（疑いの原因とは）ならない」。そうではない。「共通の」の意味を理解していないからである。「区別の原因」であり、かつ「共通の性質」である、ということはありえない。区別の原因とは、言おうとするもの（主題）とその同類にあり、異類にはないものである。それには「共通」の意味はない。「共通」とは、言おうとするものとその同類にあり、かつ別の種類（異類）にもあるものである。だから「区別の原因とならない」と言う必要はない。</div><div class="exp"><span class="lbl">解説</span><p>「作られたものであること」は、壺にも布にも共通しますが、「音は無常である。作られたものだから」という論証では、疑いではなく確定を生みます。だから「区別の原因とならない共通の性質」と限定すべきだ、という提案です。Uddyotakara は、スートラの「共通の」は論理学的な意味で使われており、同類と異類の両方にある性質（杭と人の両方にある高さ）を指すので、同類にだけある「作られたもの」はそもそも含まれない、と答えます。第二プラカラナ §12 の論証因の分類がここで生きています。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「区別の原因」を「同類と異類からの区別」と説明し、反論の趣旨を「作られたものであることは無常なものすべてに共通なので、疑いの原因になってしまう」と補っています（Hi. p.212）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>すべての語が揃って定義</h2><span class="sub"><span class="pg">pp.85–87</span>一語でも欠ければ、疑いでないものまで入る</span></div>
+<p>スートラの各語は、それぞれ単独で疑いの原因なのか、それとも揃って初めて原因なのか。Uddyotakara は、すべてが揃って初めて定義になることを、一つや二つの語を除いた場合にどんな不都合が生じるかを順に示して証明します。第二プラカラナ §16 の三相説批判と同じ論法です。</p>
+<div class="mula" id="u6">
+  <span class="ref">p.85</span>
+  <div class="src deva" lang="sa">सोऽयं साधारणो धर्म उपलभ्यमानः संशयहेतुः, किं केवल इति ? न केवलः । किं तर्हि ? उपलब्ध्यनुपलब्ध्यव्यवस्थातश्च—यदि चोपलब्ध्यनुपलब्धी न व्यवस्थिते भवत इति । किमेतावन्मात्रं साधनमिति ? नेत्युच्यते । यदि च विशेषाकाङ्क्षा भवति समानधर्ममुपलभते, उपलब्ध्यनुपलब्धी न व्यवतिष्ठेते इदन्तया नेदन्तया वा, विशेषाकाङ्क्षायां च सत्यामर्थसन्देहो भवतीति ।</div>
+  <div class="tr">この共有された性質は、認識されると疑いの原因となるが、それだけでか。それだけではない。ではどうか。「認識と非認識が定まらないことから」、すなわち認識と非認識が定まっていないなら、である。これだけが手段か。そうではない、と（スートラは）言う。もし特殊を求める欲求があるなら、（である）。共通の性質を認識し、認識と非認識が「これである」とも「これでない」とも定まらず、特殊を求める欲求があるとき、対象についての疑いが生じるのである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の読みでは、「認識と非認識が定まらないこと」と「特殊を求めること」は、三つの原因それぞれにかかる共通の条件です。見えているものが本当にあるのか（蜃気楼の水のように、見えてもないことがある）、見えないものが本当にないのか（地中の水のように、見えなくてもあることがある）が決まらないこと、そして区別する特徴を求めていること。この二つが揃ったときに、共通の性質の認識から疑いが生じます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は Bhāṣya の説明（認識の不確定：蜃気楼の水のように、存在しないものも認識される。非認識の不確定：地中の水のように、存在するものも認識されない）を訳し、Vārttika の読みでは、これらが三つの原因それぞれの限定となることを示しています（Hi. pp.212–213）。</p></div></div>
+</div>
+<div class="mula" id="u7">
+  <span class="ref">pp.85–86</span>
+  <div class="src deva" lang="sa">किमिदं समस्तं कारणमुतासमस्तमिति ? समस्तमिति ब्रूमः । यदि समानधर्मोपपत्तेरिति केवलमुच्येत, उपलब्धविशेषस्यापि सामान्योपलब्धिरस्तीति तदापि संशयः स्यात् । यदि पुनरुपलब्ध्यनुपलब्ध्यव्यवस्थातश्च संशय इत्येतावदुच्येत, अनुपलब्धसामान्यस्यापि क्वचिदुपलब्ध्यनुपलब्ध्यव्यवस्थास्तीति संशयः स्यात् । विशेषापेक्ष इत्येतावति चोच्यमानेऽनुपलब्धसामान्यस्यापि क्वचिद् विशेषस्मृतिरस्तीति संशयः स्यात् । एवं समानधर्मोपपत्तेरुपलब्ध्यनुपलब्ध्यव्यवस्थातश्चेति पदद्वयेऽपि नौयानप्रेङ्खादिगतस्य न भवति संशयः । एवमुपलब्ध्यनुपलब्ध्यव्यवस्थातो विशेषापेक्ष इति पदद्वये विधीयमानेऽत्यन्तानुपलब्धसामान्येऽर्थे संशयः स्यात् । एवं समानधर्मोपपत्तेर्विशेषापेक्ष इति चोच्यमाने सामान्यधर्मदर्शने सत्यपि विशेषापेक्षायां च सत्यामुपलब्ध्यनुपलब्ध्यव्यवस्थानान्न भवति संशयः । एवं च यदयं द्रष्टा दृष्टपूर्वं सामान्यविशेषवन्तमर्थमुपलभते, तत्र चोपलब्ध्यनुपलब्धी व्यवस्थिते भवतः । सोऽयं द्रष्टा तस्मात् स्थानाद् यदापैति, ततोऽस्यापगमाद् विषयविप्रकर्षान्निमित्तादल्पविषया विशेषा नावभासन्ते, महाविषयं सामान्यमवभासते; उपलब्ध्यनुपलब्धी पुनर्व्यवस्थिते भवतः, विशेषानुस्मृतिश्चास्ति, न च सन्दिह्यते । तस्मादेकद्विपदपर्युदासेन समस्तं लक्षणमुच्यत इति ।</div>
+  <div class="tr">この原因は、揃ったものか、揃わないものか。揃ったものだ、と我々は言う。もし「共通の性質の把握から」とだけ言うなら、特殊を認識している者にも普遍（共通の性質）の認識はあるので、その場合にも疑いが生じることになろう。もし「認識と非認識が定まらないことから疑いがある」とだけ言うなら、普遍を認識していない者にも、ときには認識と非認識が定まらないことがあるので、疑いが生じることになろう。「特殊を求める」とだけ言うなら、普遍を認識していない者にも、ときには特殊の想起があるので、疑いが生じることになろう。同じように、「共通の性質の把握から」と「認識と非認識が定まらないことから」の二つの語でも、舟や乗り物、ぶらんこなどに乗っている者には疑いは生じない。同じように、「認識と非認識が定まらないことから」と「特殊を求める」の二つの語を規定しても、普遍がまったく認識されていない対象について疑いが生じることになろう。同じように、「共通の性質の把握から」と「特殊を求める」と言っても、共通の性質を見て特殊を求めていても、認識と非認識が定まっているので、疑いは生じない。たとえば、見る者が、以前に見た、普遍と特殊をもつ対象を認識し、そこでは認識と非認識が定まっている。その見る者がその場所から離れると、離れたことにより、対象が遠くなるという原因から、範囲の小さい特殊は現れず、範囲の大きい普遍が現れる。しかし認識と非認識は定まっており、特殊の想起もあるが、疑いは生じない。だから、一つや二つの語を除くこと（の不都合）によって、揃った定義が述べられるのである。</div><div class="exp"><span class="lbl">解説</span><p>どの語を欠いても困ることを、一つずつ示します。最後の例が分かりやすいでしょう。自分の家の柱を、近くでよく見て知っている人が、遠ざかると、柱の細かい特徴は見えなくなり、高さという共通の性質だけが見えます。特殊を求める心もあるかもしれません。それでも「あれは柱だ」と分かっていて、疑いは起きません。「見えたものがある」ことが確定しているからです。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>残す語</th><th>欠ける語</th><th>不都合（疑いでないのに疑いになる／疑いなのに説明できない）</th></tr></thead>
+    <tbody>
+      <tr><td class="k">共通の性質の把握</td><td>不定・特殊を求める</td><td>特殊を見ている人にも共通の性質は見えているので、疑いになってしまう</td></tr>
+      <tr><td class="k">認識・非認識の不定</td><td>共通の性質・特殊を求める</td><td>共通の性質を見ていない人にも不定はあるので、疑いになってしまう</td></tr>
+      <tr><td class="k">特殊を求める</td><td>共通の性質・不定</td><td>共通の性質を見ていない人にも特殊の想起はあるので、疑いになってしまう</td></tr>
+      <tr><td class="k">共通の性質＋不定</td><td>特殊を求める</td><td>舟やぶらんこに乗って（見るものに関心がない）人には疑いが生じない</td></tr>
+      <tr><td class="k">不定＋特殊を求める</td><td>共通の性質</td><td>共通の性質がまったく見えていない対象にも疑いが生じてしまう</td></tr>
+      <tr><td class="k">共通の性質＋特殊を求める</td><td>不定</td><td>遠ざかった柱の例。認識が定まっていれば疑いは生じない</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表2　一つや二つの語を除いた場合の不都合（u7）。</b>すべての語が揃ったとき初めて疑いの定義になる。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、それぞれの場合を見出しを付けて訳し分け、「舟や乗り物、ぶらんこなどに乗っている者」の例について「その人は動いているために、岸の木などの共通の性質を見て、認識と非認識も定まらないが、特殊を求めていないので疑わない」と補っています（Hi. pp.213–215）。</p></div></div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">pp.86–87</span>
+  <div class="src deva" lang="sa">समानधर्मोपपत्तेरुपलब्ध्यनुपलब्ध्यव्यवस्थातश्च विशेषापेक्ष इति चैकैकपदपर्युदासः, समानधर्मोपपत्तेरुपलब्ध्यनुपलब्ध्यव्यवस्थातश्च समानधर्मोपपत्तेर्विशेषापेक्ष इति चोपलब्ध्यनुपलब्ध्यव्यवस्थातो विशेषापेक्ष इति च द्विपदपर्युदासः कृतः समस्तपदपरिग्रहेण । यस्मात् समानधर्मोपपत्तेरुपलब्ध्यनुपलब्ध्यव्यवस्थातश्च विशेषापेक्षो विमर्शः संशय इत्याह, तेन ज्ञापयति समस्तमेतल्लक्षणमिति । विमर्श इति—नानार्थावमर्शनं विमर्शः, उभावर्थौ स्पृशतीव । संशीतिः संशय इति भावसाधनम्, करणसाधनं वा संशेतेऽनेनात्मेति, सुप्त इव भवति । क उपमार्थः ? अर्थानवधारणमुपमार्थः । एतेनानेकधर्मोपपत्तेर्विप्रतिपत्तेश्चेति व्याख्यातम् । कोऽतिदेशार्थः ? यथाद्ये पक्षे त्रिपदपरिग्रहेणैकद्विपदपर्युदासः कृतः, तथाद्यानन्तरयोरपि द्रष्टव्यमिति ।</div>
+  <div class="tr">（「共通の性質の把握から」「認識と非認識が定まらないことから」「特殊を求める」の）一つ一つの語を除くこと、また（「共通の性質の把握」と「不定」、「共通の性質の把握」と「特殊を求める」、「不定」と「特殊を求める」の）二つの語を除くことは、すべての語を取ることによってなされた（＝除かれた）。（スートラ作者は）「共通の性質の把握から、認識と非認識が定まらないことから、特殊を求める揺れ動く考察が疑いである」と言うので、それによってこの定義が揃ったものであることを知らせるのである。「揺れ動く考察」とは、複数の対象に触れることが揺れ動く考察である。二つの対象に触れるかのようである。「疑い」（<i>saṃśaya</i>）とは、疑うこと、という行為の意味であるか、あるいは「これによって我が疑う（横たわる）」という手段の意味であり、（我が）眠っているかのようになる。何の比喩か。対象を確定しないことの比喩である。これによって、「固有の性質の把握から」「見解の対立から」も説明された。この準用の趣旨は何か。最初の場合に、三つの語を取ることによって一つや二つの語を除くことがなされたように、最初に続く二つ（の原因）の場合にも見るべきである、ということである。</div><div class="exp"><span class="lbl">解説</span><p>疑い（<i>saṃśaya</i>）の語源は、動詞 <i>śī</i>「横たわる」に接頭辞 <i>sam</i> がついたものです。Uddyotakara は「疑うとき、我は眠っているかのようだ」と、対象を確定できない状態を眠りにたとえます。また、二つの選択肢（杭と人）の両方に「触れる」かのように揺れ動くのが「揺れ動く考察」（<i>vimarśa</i>）です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「揺れ動く考察」を「複数の対象を考えること。二つの対象に触れるかのよう」と訳し、「疑い」の語源について「行為の意味（疑うこと）、あるいは手段の意味（それによって我が、眠っている者のように、対象を確定しない）」と説明しています（Hi. pp.215–216）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>固有の性質から</h2><span class="sub"><span class="pg">pp.87–89</span>「多くのものから区別する性質」。音は分離から生じる</span></div>
+<p>疑いの第二の原因 <i>anekadharmopapatti</i> は、字義どおりには「多くの（<i>aneka</i>）性質の把握」です。しかし Bhāṣya 以来、これは「固有の性質」の意味に読まれてきました。Uddyotakara は、「多くの性質」と読む説を退け、なぜ <i>aneka</i>（多くの）が「固有の」の意味になるのかを説明します。</p>
+<div class="mula" id="u9">
+  <span class="ref">p.87</span>
+  <div class="src deva" lang="sa">अनेकधर्मोपपत्तेः संशय इति—अनेकस्यानेकश्च धर्म इति केचित् । अनेकस्य धर्मोऽनेकधर्मः—अनेकस्य द्रव्यगुणकर्मलक्षणस्य संयोगजत्वं धर्मः; अनेकश्च धर्मः संयोगजत्वनिर्गुणत्वनिष्क्रियत्वक्षणिकत्वानि शब्दे । तदेवमनेकधर्मोपपत्तेः संशय इति केचित् । तदयुक्तम्, समानधर्मोपपत्तेरित्यनेनैव चरितार्थत्वात् । समानधर्मोपपत्तेरित्यनेनैव यश्चैकोऽनेकवृत्तिर्यश्चानेक एकवृत्तिः स लभ्यत इति चरितार्थत्वात्, न पुनरनेकधर्माभिधानेन प्रयोजनमस्तीति । अथानेकधर्मशब्दस्य कोऽर्थः ? असाधारणो धर्म इति । कथं पुनरसाधारणो धर्मोऽनेकधर्म इत्यनेन समासपदेनाभिधीयते ? समानासमानजातीयविशेषकत्वात् । समानजातीयमसमानजातीयं चानेकम्, तस्माद् विशेषो विशेषको धर्मः—अनेकस्माद् विशेषोऽनेकधर्म इति । तस्य चानेकस्य धर्मो यथास्वं सोऽयमनेकधर्मः ।</div>
+  <div class="tr">「固有の性質の把握から疑いがある」について、ある人々は「多くのものの性質、また多くの性質」（の意味）だと言う。「多くのものの性質」とは、実体・性質・運動という多くのものの、結合から生じることという性質である。「多くの性質」とは、音における、結合から生じること・性質をもたないこと・運動をもたないこと・刹那的であることである。このように、多くの性質の把握から疑いがある、とある人々は（言う）。それは正しくない。「共通の性質の把握から」によって、すでに意味が尽くされているからである。「共通の性質の把握から」によって、多くのものにある一つ（の性質）も、一つ（のもの）にある多く（の性質）も得られるので、意味が尽くされており、「多くの性質」を述べる目的はない。では、「多くの性質」の語の意味は何か。共有されない（固有の）性質である。では、どうして共有されない性質が、「多くの性質」という複合語によって表されるのか。同類と異類から区別するものだからである。同類と異類とが「多く」であり、それから区別するもの、区別する性質が、「多くから区別する（性質）」として「多くの性質」である。そして、その多くのもの（同類と異類）の、それぞれに応じた性質、それがこの「多くの性質」である。</div><div class="exp"><span class="lbl">解説</span><p>例で考えましょう。音は、ヴァイシェーシカの体系では、実体か性質か運動か、議論の余地があります。もし音に、実体にも性質にも運動にもない、音にだけある性質（固有の性質）が見つかったら、それは音が三つのうちのどれであるかを決める手がかりになりません。どれとも共通しないからです。だから「音は実体か、性質か、運動か」という疑いが生じます。これが「固有の性質からの疑い」です。</p><p>では、なぜ「固有の」が <i>aneka</i>（多くの）という語で表されるのか。Uddyotakara は、「多く（同類と異類）から区別する性質」を縮めた言い方だ、と説明します。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「『多くの性質』の語の意味は、共有されない性質である。TṬ（p.478）によれば、これは Bhāṣya の説明にもとづいて言われている」と注します。「同類と異類から区別するもの」の説明については「同類と異類が『多く』であり、多くから区別される性質が、転義によって『多くの性質』と言われる。この説明では『区別する』を補わなければならない（TṬ p.479）」と注し、次の「その多くのものの…性質」は転義のもう一つの根拠だ、と説明しています（Hi. pp.216–218）。</p></div></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">pp.87–88</span>
+  <div class="src deva" lang="sa">एकानेकप्रत्ययहेतुर्वा धर्मोऽनेकधर्मः, यत एष प्रत्ययो भवतीदमेकमिदमनेकमिति । तत्रैकप्रत्ययहेतुरभेदः, अनेकप्रत्ययहेतुर्धर्मो विशेषः, यथा शब्दस्य विभागजत्वम् । सामान्यविशेषसमवायेभ्यः शब्दस्य सदादिना विशेषेण निर्भक्तस्य, तस्मिंस्तु द्रव्यं गुणः कर्म वेति विभागजत्वात् संशयः । न हि द्रव्यगुणकर्मणामन्यतमद् विभागाज्जायमानं दृष्टं सर्वत्रासंभवात् । विभागजत्वं संशयं करोति सर्वतो व्यावृत्तेरिति । ननु च विभागजो विभागो विद्यते गुणः ? सत्यम्, अनभ्युपगतविभागजविभागस्यैतदेवं भवति । यः पुनरभ्युपगतविभागजविभागस्तस्यायं निर्णयहेतुः—गुणः शब्दो विभागजत्वाद् विभागजविभागवदिति । अस्तु वा तस्यापि विभागजविभागासमवायिकारणकत्वाद्—विभागजविभागासमवायिकारणकः शब्दो नान्यः पदार्थ इति । तदेवं विभागजत्वं विभागजविभागासमवायिकारणकत्वं वा नर्ते शब्दं संभवतीति सर्वतो व्यावृत्तेः संशयहेतुः, तुल्यजातीयेष्वर्थान्तरभूतेषु च विशेषस्योभयथा दृष्टत्वादिति ।</div>
+  <div class="tr">あるいは、「一つ」と「多く」という認識の原因となる性質が「多くの性質」である。それによって「これは一つ」「これは多く（とは別）」という認識が生じる。そのうち、「一つ」という認識の原因は非別異であり、「多く（とは別）」という認識の原因となる性質が特殊である。たとえば、音が分離から生じることのように。音は、存在性などの特徴によって、普遍・特殊・内属からは区別されるが、それ（音）について、「実体か、性質か、運動か」という疑いが、分離から生じることによって（生じる）。実体・性質・運動のどれ一つとして、分離から生じるものは見られない。どこにもありえないからである。分離から生じることは、すべて（のもの）から外れているので、疑いを生じさせる。（反論）「分離から生じる分離という性質があるではないか」。そのとおり。（しかし）これ（音が分離から生じるから疑いがある、ということ）は、分離から生じる分離を認めない者にとってそうなのである。分離から生じる分離を認める者にとっては、これは決定の原因である。「音は性質である。分離から生じるから。分離から生じる分離のように」と。あるいは、その人にとっても、（音は）分離から生じる分離を非内属因とすることによって（疑いの原因となる）としてもよい。「分離から生じる分離を非内属因とするのは音であって、ほかのカテゴリーではない」と（いうように）。このように、分離から生じること、あるいは分離から生じる分離を非内属因とすることは、音以外にはありえないので、すべてから外れていることによって、疑いの原因となる。同類のものの間でも別の事物の間でも、特殊は両様に見られるからである。</div><div class="exp"><span class="lbl">解説</span><p>具体例として「音は分離から生じる」が挙げられます。竹を割るとき、竹の二つの部分が分離することで音が生じます。ところが、実体・性質・運動のうち、分離から生じるものは（音以外に）ありません。この固有の性質は、音が三つのどれかを決める手がかりにならないので、疑いを生じさせます。</p><p>ヴァイシェーシカには「分離から生じる分離」（手が木から離れるとき、手と木の分離から、身体と木の分離が生じる）という性質を認める説があり、それを認める人にとっては「分離から生じる」は性質（音と、分離から生じる分離）だけにある性質となり、決定の手がかりになります。それでも、「分離から生じる分離を非内属因とする」という、さらに限定した性質なら音にしかないので、やはり疑いの原因になる、と Uddyotakara は付け加えます。Uddyotakara は、こうした学説の違いも視野に入れています。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「『一つ』と『多く』の認識の原因となる性質」について「（同類と異類との）別異と非別異の認識の原因、という意味（TṬ p.479）。これは Vārttika 作者自身の説明である」と注し、「分離から生じることは、分離から生じる音同士の間では非別異の原因だが、ほかの実体・性質・運動からの別異の原因である」と説明しています。音が存在性によって普遍などから区別されることについては TṬ を引いています（Hi. pp.218–219）。</p></div></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">p.88</span>
+  <div class="src deva" lang="sa">समानधर्मोपयोगाद् वासमानोऽनेकधर्मो भवति । यद् वा द्वयस्यापि संशयकारणत्वेनोपनीतस्य समानधर्मस्यासमानस्य च, समानधर्मस्योपयोगादनुपयुक्तोऽसमानः सोऽनेकशब्दस्य विषयविशेष इति । कस्मात् पुनरेवमेव नोच्यते समानासमानधर्मोपपत्तेरिति ? नैवं शक्यं भवितुम्, अनेकस्माद् व्यावृत्तो यो धर्मः सोऽनेकधर्म इत्ययं विग्रहो न लभ्यते । लाघवं च प्रयोजनम्—एकाक्षरापचयाल्लाघवं प्रयोजनमाश्रित्यैवमभिधानं वा । यद्यनेकधर्मार्थोऽसाधारणार्थः, असाधारणश्च धर्मः संशयकारणमिति, नेदं निरात्मकं जीवच्छरीरमप्राणादिमत्त्वप्रसङ्गादित्ययमप्यसाधारणत्वात् संशयहेतुः प्राप्तः ? नैष दोषः । यथैव साधारणो धर्मः संशयहेतुरिति नान्वयिनः साधारणत्वे सति संशयहेतुत्वं भवति, अन्वयाव्यभिचारात्; एवं व्यतिरेकिणोऽपि सत्यप्यसाधारणत्वे विपर्ययसम्बन्धस्याव्यभिचाराद्धेतुभाव इति । तस्मान्नैकवृत्तित्वमनेकवृत्तित्वं वा संशयकारणत्वे निर्णयकारणत्वे वा हेतुः । किं तर्हि ? साधारणासाधारणत्वे सति व्यभिचाराव्यभिचारौ संशयनिर्णयहेतू । यो व्यभिचारी स संशयहेतुः, योऽव्यभिचारी स निर्णयहेतुरिति ।</div>
+  <div class="tr">あるいは、共通の性質が（先に）用いられたので、共通でないものが「多くの性質」となる。すなわち、疑いの原因として挙げられた二つ、共通の性質と共通でない性質のうち、共通の性質は（スートラで）用いられたので、用いられていない共通でないものが、「多くの」の語の特別な対象である。（問い）「では、なぜそのまま『共通の性質と共通でない性質の把握から』と言わないのか」。そうはなりえない。「多くのものから外れた性質が『多くの性質』である」というこの分解が得られないからである。また、簡潔さという目的もある。あるいは、一音節減らすことによる簡潔さという目的に基づいて、このように言われたのである。（反論）「もし『多くの性質』の意味が共有されない（性質）の意味であり、共有されない性質が疑いの原因だとすると、『この生きた身体は我をもたないものではない。（もしそうなら）呼吸などをもたないことになってしまうから』という（論証因）も、共有されないので、疑いの原因となってしまう」。この誤りはない。共有された性質が疑いの原因だといっても、肯定的随伴のみの（論証因）は、共有されていても疑いの原因とはならない。肯定的随伴に逸脱がないからである。同じように、否定的随伴のみの（論証因）も、共有されていなくても、逆の関係（否定的随伴）に逸脱がないので、論証因となる。だから、一つのものにあることも、多くのものにあることも、疑いの原因あるいは決定の原因となる理由ではない。ではどうか。共有されていることや共有されていないことがあっても、逸脱と非逸脱が、疑いと決定の原因である。逸脱するものが疑いの原因であり、逸脱しないものが決定の原因である。</div><div class="exp"><span class="lbl">解説</span><p>重要な一般化です。「生きた身体には我がある。呼吸などがあるから」の論証因「呼吸」は、生きた身体にしかない固有の性質ですが、正しい論証因です（第二プラカラナ §12 の「否定的随伴のみの論証因」）。逆に、「認識対象であること」はすべてのものに共通ですが、肯定的随伴のみの論証因として正しく働く場合があります。だから、疑いと確定を分けるのは「共通か固有か」ではなく、「逸脱するかしないか」だ、というのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「この誤りはない」以下の答えについて「逸脱と非逸脱が、疑いと決定を区別する原因である」と注し、写本の異読（「肯定的随伴に逸脱がないから」）も紹介しています（Hi. pp.220–221）。</p></div></div>
+</div>
+<div class="mula" id="u12">
+  <span class="ref">pp.88–89</span>
+  <div class="src deva" lang="sa">यदि तर्ह्युभयोर्व्यभिचारित्वात् संशयहेतुत्वम्, ननु समानधर्मोपपत्तेरित्यनेनैव गतमेतत्, गतार्थत्वान्न संशयकारणत्वेन पृथगुपादेयमिति ? सत्यम्, न व्यभिचारितामन्तरेणान्यत् संशयकारणम्, अपि तु व्यभिचारितायां सत्यां विधीयमानव्यभिचारः प्रतिषिध्यमानव्यभिचारश्चेति भेदः । समानधर्मोपपत्तेरित्यनेन विधीयमानस्य व्यभिचार उपदिश्यते, अनेकधर्मोपपत्तेरित्यनेन प्रतिषिध्यमानो व्यभिचार इति । एतावता च भेदेन पृथगभिधानम् ।</div>
+  <div class="tr">（反論）「では、もし両方とも逸脱するので疑いの原因となるのなら、それは『共通の性質の把握から』によってすでに言われている。すでに意味が尽くされているので、（固有の性質を）疑いの原因として別に挙げる必要はない」。そのとおり。逸脱以外に疑いの原因はない。しかし、逸脱があるとき、肯定されるもの（性質がある、ということ）の逸脱と、否定されるもの（性質がない、ということ）の逸脱という違いがある。「共通の性質の把握から」によっては、肯定されるものの逸脱が説かれ、「固有の性質の把握から」によっては、否定されるものの逸脱が（説かれる）。この違いによって、別々に述べられるのである。</div><div class="exp"><span class="lbl">解説</span><p>共通の性質（高さ）は「杭にもある、人にもある」という肯定のかたちで逸脱し、固有の性質（分離から生じる）は「実体にもない、性質にもない、運動にもない」という否定のかたちで逸脱します。どちらも逸脱ですが、そのかたちの違いによって、スートラは二つを別々に挙げた、というのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「肯定されるものの逸脱」「否定されるものの逸脱」を、それぞれ共通の性質と固有の性質に対応させて訳しています（Hi. p.221）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>相反する二つの論証因</h2><span class="sub"><span class="pg">pp.89–91</span>両方正しい相反する論証因は、すべての推理を壊す</span></div>
+<p>ある人々は、<i>anekadharma</i> を別様に読み、「互いに矛盾しながら、どちらも逸脱しない二つの性質が一つのものに現れること」が疑いの原因だと説きました。たとえば音は「耳で聞かれる」（だから常住だ、という論証が可能）と同時に「作られたもの」（だから無常だ、という論証が可能）でもある。どちらの論証因も逸脱しないので、音が常住か無常か疑いが生じる、というのです。のちの仏教論理学で「相違決定」（<i>viruddhāvyabhicārin</i>）と呼ばれる事態です。Uddyotakara はこれを徹底的に退けます。</p>
+<div class="mula" id="u13">
+  <span class="ref">p.89</span>
+  <div class="src deva" lang="sa">नञः पर्युदासविषयत्वादव्यभिचारिधर्मद्वयोपनिपातोऽनेकधर्म इति केचित् । एके त्वनेकधर्मोपपत्तेरित्यन्यथा व्याचक्षते—एकस्मादन्योऽनेकधर्म इति । एवं च विरुद्धाव्यभिचारिधर्मद्वयोपनिपातो लभ्यते, यं प्रति तर्कमाहुः । स च संशयहेतुः, यथा श्रावणत्वकृतकत्वे शब्दस्येति । तदयुक्तम्, असंभवात् । न ह्यव्यभिचारिणौ विरुद्धावेकस्मिन्नर्थे धर्मौ संभवतः, वस्तुनो द्वैरूप्यासंभवात् । यद्युभावव्यभिचारिणौ स्याताम्, एकं वस्तु द्वयात्मकं भवेत्, न चैतदस्ति । तस्मान्नोभावव्यभिचारिणाविति ।</div>
+  <div class="tr">ある人々は、「否定辞（<i>a-</i>）は相対的否定を対象とするので、『多くの性質』とは、逸脱しない二つの性質が（一つのものに）現れることである」と言う。またある人々は、「固有の性質の把握から」を別様に説明する。「一つから別のもの（＝もう一つ）が『多くの性質』である」と。そうすると、互いに矛盾し逸脱しない二つの性質が現れることが得られる。それに対して（論争者たちは）吟味を述べる。そしてそれが疑いの原因である。たとえば、音について、耳で聞かれることと作られたものであることのように（と言う）。それは正しくない。ありえないからである。互いに矛盾し、しかもどちらも逸脱しない二つの性質が、一つの対象にあることはありえない。事物が二つの本性をもつことはありえないからである。もし二つとも逸脱しないなら、一つの事物が二つの本性をもつことになろう。しかしそうではない。だから、二つとも逸脱しないということはない。</div><div class="exp"><span class="lbl">解説</span><p>例の二つの論証は次のとおりです。①「音は常住である。耳で聞かれるから。音性（という普遍）のように」。②「音は無常である。作られたものだから。壺のように」。①を主張する人（ミーマーンサー学派など）と②を主張する人（ニヤーヤ学派・仏教など）がいて、どちらの論証も形式的には欠陥がないように見えます。そのとき、聞く人には「音は常住か無常か」という疑いが生じる、というのが反論者の主張です。</p><p>Uddyotakara の答えは原理的です。一つの事物が常住でもあり無常でもあることはありえない。だから、矛盾する結論を導く二つの論証因が「両方とも逸脱しない」ことはありえず、少なくとも一方は誤っているはずだ、というのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、この部分を「互いに矛盾し逸脱しない（二つの論証因）からの疑い」という見出しで訳し、反論者の説明を「一つから別のもの、すなわち二つ目の性質」と補っています（Hi. pp.221–222）。</p></div></div>
+</div>
+<div class="mula" id="u14">
+  <span class="ref">p.89</span>
+  <div class="src deva" lang="sa">न चायं प्रयोगो युक्तः । कथमिति ? यदि तावदेवं प्रयुङ्क्ते यथा प्राक्तनो हेतुस्तथायमपीति, प्रसिद्धेन व्यपदेशा भवन्तीति सिद्धं पूर्वस्य हेतुत्वम्, विरुद्धार्थप्रतिपत्तिबाधितत्वादुत्तरस्यानभिधानम् । अथैवं क्रियते यथेदं द्वितीयमनुमानं न भवति तथा प्राक्तनमपीति ? एवमपि प्रतिपन्नं द्वितीयस्यानुमानस्यासाधकत्वम् । अथ विरुद्धधर्मावेकत्र संभवत इति संभवान्न विरुद्धौ ? कश्च विरुद्धार्थः—किं सहासंभवः, आहो विरुद्धार्थसाधकत्वम्, अथ स्वरूपमिति ? यदि सहासंभवो विरोधः, स नास्ति, दर्शनात् । अथ विरुद्धार्थसाधकत्वं विरोधः, तदपि न युक्तम्, वस्तुनो द्वयात्मकत्वासंभवात् । यदि विरुद्धार्थसाधकत्वमनयोर्धर्मयोर्भवेत्, एकं वस्तु द्वयात्मकमापद्यते । अथ स्वरूपमनयोर्विरुद्धमिति, न किञ्चिद् बाधितं भवति—यस्मात् कृतकत्वं न श्रावणत्वं श्रावणत्वं वा न कृतकत्वम्, तस्मान्न संशय इति ।</div>
+  <div class="tr">また、この（二つの論証の）用い方は正しくない。どうしてか。もし（第二の論者が）「前の論証因と同じように、これも（正しい論証因だ）」と用いるなら、「（比較は）よく知られたものによって言い表される」ので、前の（論証因）が論証因であることは確立している。（すると）後の（論証因）は、矛盾する対象の理解によって否定されるので、言うべきでない。もし「この第二の推理が（正しい推理で）ないように、前の（推理）もそうでない」と（用いる）なら、そうしても、第二の推理が論証しないことは認められている。もし「矛盾する二つの性質が一か所にありうる。ありうるので、矛盾していない」（と言う）なら、「矛盾」とは何の意味か。ともにありえないことか、矛盾する対象を論証することか、それとも本性（の違い）か。もしともにありえないことが矛盾なら、それはない。（二つが一か所にあるのが）見られるからである。もし矛盾する対象を論証することが矛盾なら、それも正しくない。事物が二つの本性をもつことはありえないからである。もしこの二つの性質に矛盾する対象を論証する力があるなら、一つの事物が二つの本性をもつことになる。もし二つの本性が（互いに）矛盾する、というなら、何も否定されない。作られたものであることは耳で聞かれることではなく、耳で聞かれることは作られたものであることではないからである。だから疑いはない。</div><div class="exp"><span class="lbl">解説</span><p>二つの論証因の「矛盾」とは何かを問い詰めます。①一か所にともにありえないこと、なら、現に音には両方がある。②矛盾する結論を論証すること、なら、一つの事物が常住でもあり無常でもあることになり、ありえない。③性質としての本性が違うこと、なら、「作られたもの」と「耳で聞かれる」が別の性質であるのは当然で、何の問題もない。どの意味でも、疑いの原因にはならない、というわけです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「矛盾」の三つの意味を見出しを付けて訳し分けています（Hi. pp.222–223）。</p></div></div>
+</div>
+<div class="mula" id="u15">
+  <span class="ref">pp.89–90</span>
+  <div class="src deva" lang="sa">उपेत्य वा विरोधं यदि विरुद्धार्थाभ्यां कृतकत्वश्रावणत्वाभ्यां शब्दे संशयः क्रियते, स विशेषादर्शनादुपजातः कस्य दर्शनान्निवर्तेत ? न हि विशेषदर्शने सति विशेषाकाङ्क्षास्ति, यथोपलब्धसामान्यस्य विशेषाकाङ्क्षेति । प्रत्यक्षतो निवर्तिष्यत इति चेत्—न, योऽनुमानाभ्यां सन्निपतिताभ्यामर्थे संशयः स प्रत्यक्षदर्शनान्निवर्तिष्यत इति न युक्तम्, प्रत्यक्षाविषयत्वात् । नायमर्थः प्रत्यक्षस्य विषयः किं शब्दो नित्योऽथानित्य इति । आगमान्निवर्तिष्यत इति चेत्—न, आगमस्य च विचार्यमाणत्वात् । आगम एवायं विचार्यते किं शब्दो नित्योऽथानित्य इति । न चायं प्रत्यक्षविषयो नागमविषयः, अनुमानाभ्यां चायं परिच्छेत्तुमशक्यः । सोऽयमनिवर्त्यः संशयः प्राप्तः । भवतु, किं नो बाध्यते ? कथं न बाध्यते, यदा वस्त्वन्तरपरिच्छेदकमनुमानं न भवति, यथानित्या बुद्धिः कृतकत्वादिति ? इदं खलु कृतकत्वं शब्दे दृष्टम्, स चानवधारितस्वभावो नित्योऽनित्य इति; तथा चोपलभ्यमानं कृतकत्वमन्यत्र बुद्ध्यादौ संशयहेतुरिति सर्वमनुमानमनित्यत्वसाधनं न स्यात् । सर्वं चानुमानमयं न्यायो बाधत इति । यश्च न्यायोऽनुमानमूलमुच्छिनत्ति, नासौ न्यायविदा युक्तोऽभिधातुम् ।</div>
+  <div class="tr">あるいは、矛盾を認めたうえで（言う）。もし矛盾する対象をもつ「作られたもの」と「耳で聞かれる」とによって、音について疑いが生じるとするなら、特殊を見ないことから生じたその（疑い）は、何を見ることによって消えるのか。特殊を見ているときには特殊を求める欲求はない。普遍を認識している者に特殊を求める欲求があるようには。（反論）「知覚によって消えるだろう」と言うなら、そうではない。二つの推理が重なって生じた対象についての疑いが、知覚によって消えるというのは正しくない。知覚の対象ではないからである。「音は常住か無常か」というこの事柄は、知覚の対象ではない。（反論）「聖典によって消えるだろう」と言うなら、そうではない。聖典そのものが検討されているからである。まさに聖典について、「音は常住か無常か」が検討されているのである。そしてこれは、知覚の対象でも聖典の対象でもなく、二つの推理によって確定することもできない。こうして、この疑いは消えないことになる。（反論者）「それでよいではないか。何が損なわれるのか」。どうして損なわれないことがあろうか。（その場合）別の事物を確定する推理もなくなる。たとえば、「知は無常である。作られたものだから」（という推理）のように。この「作られたもの」は音に見られ、そしてそれ（音）は、常住か無常か本性が確定されていない。そうすると、認識される「作られたもの」は、ほかの知などについても疑いの原因となるので、無常性を論証するすべての推理が成り立たなくなる。こうしてこの論法は、すべての推理を損なう。そして、推理の根を断つような論法を、論理を知る者が述べるのは適切でない。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の最も鋭い批判です。相反する二つの論証によって生じた「音は常住か無常か」という疑いは、何によっても解消できません。知覚では見えず、聖典の解釈そのものが争点だからです。それだけではありません。音について「作られたもの」が無常の決め手にならないなら、「知は無常である。作られたものだから」という推理も、「作られたものなのに無常と決まらない例（音）」があるので疑わしくなります。こうして、一つの「相違決定」を認めると、同じ論証因を使うすべての推理が崩れてしまう、というのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「この論法はすべての推理を損なう」について「五つの特徴を備えた論証因まで疑いの原因になるなら、すべての推理が認識手段でなくなってしまう（TṬ p.483）」と注しています（Hi. pp.223–225）。</p></div></div>
+</div>
+<div class="mula" id="u16">
+  <span class="ref">p.90</span>
+  <div class="src deva" lang="sa">नित्यासंभवान्नायमस्मान् न्यायो बाधते । यस्य नित्यं किञ्चिदस्ति तस्य विरुद्धाव्यभिचारी भवति, अस्माकं तु पक्षे नित्यं किञ्चिन्नास्ति । न, बाधापरिज्ञानात् । न भवता बाधविषयोऽवलोकितः, किं तु नित्यमस्माकं नास्तीत्येतावन्मात्रमवधार्य परपक्षे दोषोऽभिधीयत इति । भवतामपि पक्षे विरुद्धाव्यभिचारी कृतावकाशः । कथम् ? सप्रतिघं विज्ञानं सत्त्वाद् रूपादिवदित्येकः, अप्रतिघं विज्ञानं विज्ञानत्वाद् वेदनादिवदित्यपरः । तदेवमव्यभिचारिधर्मद्वयोपनिपातान्न सप्रतिघं नाप्रतिघं सिध्येत् । तस्मादपन्यायोऽयं विरुद्धयोर्धर्मयोः सन्निपाताच्छब्दे संशय इति ।</div>
+  <div class="tr">（仏教徒）「常住なものはありえないので、この論法は我々を損なわない。何か常住なものがある（と認める）者にとっては、互いに矛盾し逸脱しない（二つの論証因）がありうる。しかし我々の立場では、常住なものは何もない」。そうではない。損なわれる範囲を理解していないからである。あなたは損なわれる範囲を見ていない。ただ「我々には常住なものはない」とだけ確定して、相手の立場の誤りを述べている。あなたがたの立場にも、互いに矛盾し逸脱しない（二つの論証因）の余地はある。どうしてか。ある人は「識は抵抗をもつ。存在するから。色などのように」と言い、別の人は「識は抵抗をもたない。識だから。感受などのように」と言う。このように、逸脱しない二つの性質が現れるので、（識が）抵抗をもつことも、抵抗をもたないことも、証明されないことになろう。だから、「矛盾する二つの性質が重なることから、音について疑いがある」というのは誤った論法である。</div><div class="exp"><span class="lbl">解説</span><p>仏教徒は、すべては無常なので、「常住か無常か」という形の相違決定は自分たちには起こらない、と言います。Uddyotakara は、仏教の内部でも同じ形の対立が作れると示します。「抵抗をもつ」（<i>sapratigha</i>、他のものが同じ場所を占めるのを妨げる）かどうかについて、「識は存在するから、色のように抵抗をもつ」と「識は識だから、感受のように抵抗をもたない」という二つの論証が立ちます。相違決定を認めれば、仏教徒も自分の教義を確定できなくなるのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「『常住なものはありえないので』というのは仏教徒の説である（TṬ p.483）」と注し、「抵抗をもつこと」を「自分の場所に別のものが生じるのを妨げること。経量部の説では、色は物質的で抵抗をもつとされる（TṬ p.483）」と説明しています（Hi. pp.225–226）。</p></div></div>
+</div>
+<div class="mula" id="u17">
+  <span class="ref">pp.90–91</span>
+  <div class="src deva" lang="sa">धर्मयोः सातत्यादभिलापानुपपत्तिः । नायमतद्धर्मा कदाचिदपि शब्द उपलभ्यते, सततं तु तद्धर्मैव भवति श्रावणः कृतकश्चेति । अभिलापो न स्यान्नित्योऽनित्यो वेति । न हि कदाचिदयं द्रष्टा एकस्मिन् वस्तुनि स्थाणुपुरुषधर्मावुपलभमानः शक्नुयाद् वक्तुं स्थाणुर्वा पुरुषो वेति । नैवं भविष्यतीति चेत् ? व्याहतमुच्यते । ननु च भवताभिधीयते नित्य इति, मयाप्यभिधीयतेऽनित्य इति, कथं नाभिलप्यते ? सोऽयं विरुद्धाव्यभिचारी न्यायो विचार्यमाणः सर्वथानुमानमूलं बाधत इत्यलमनेन । अथ कृतकत्वश्रावणत्वे सहिते संशयहेतू भवत इति ? तथापि कृतकत्वश्रावणत्वे सहिते न विभागजत्वाद् भिद्येते । यथैव विभागजत्वं सर्वतो व्यावृत्तत्वादसाधारणं शब्दे संशयं करोति, तथा कृतकत्वश्रावणत्वे अपि शब्दवृत्तित्वादन्यत्रासंभवाच्च संशयहेतू भवतः । सोऽयमसाधारण एव न धर्मान्तरम्, अतस्तद्ग्रहणेनैवायं संगृहीत इति । तस्मादेकस्मादन्यो धर्मोऽनेकधर्म इति न वक्तव्यमिति ।</div>
+  <div class="tr">また、二つの性質が（音に）常にあるので、（疑いの）言い方が成り立たない。音がその性質をもたないものとして認識されることは決してなく、常に「耳で聞かれ、作られたもの」という性質をもっている。（だから）「常住か無常か」という言い方はありえないだろう。見る者が、一つの事物に杭の性質と人の性質を（両方）認識しながら、「杭か人か」と言うことは決してできない。（反論者）「そうはならないだろう、と言うのか。それは矛盾したことを言っている。あなたは『常住だ』と言い、私も『無常だ』と言う。どうして言い表されないことがあろうか」。この「互いに矛盾し逸脱しない（論証因）」の論法は、考察すれば、どのようにしても推理の根を損なう。だからもうこれで十分である。（反論）「作られたものであることと耳で聞かれることとが、合わさって疑いの原因となる」と言うなら。それでも、合わさった「作られたもの」と「耳で聞かれる」とは、「分離から生じる」と違わない。「分離から生じる」が、すべてから外れているので共有されず、音について疑いを生じさせるのと同じように、「作られたもの」と「耳で聞かれる」も、（合わさると）音にあり、ほかにはありえないので、疑いの原因となる。だからこれは共有されないもの（固有の性質）にほかならず、別の性質ではない。それゆえ、これはそれ（固有の性質）を取ることによって含まれている。だから、「一つから別の性質が『多くの性質』である」と言うべきではない。</div><div class="exp"><span class="lbl">解説</span><p>最後に、救済案も退けます。二つの性質が「合わさって」疑いを生むのだと言うなら、「耳で聞かれ、かつ作られたもの」という組み合わせは音にしかない固有の性質なので、§4 の「固有の性質からの疑い」にすでに含まれている。だから、スートラの <i>anekadharma</i> を「相反する二つの性質」と読む必要はない、と結論します。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「言い方が成り立たない」を「『常住だけだ』『無常だけだ』という言い方が成り立たなくなる」と注しています（Hi. p.226）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>「互いに矛盾し逸脱しない（論証因）」（<i>viruddhāvyabhicārin</i>）は、OCR テキストでは <i>viruddhavyabhicārin</i> と読まれている箇所があります。ヒンディー訳の訳文と注は一貫して <i>viruddhāvyabhicārin</i>（逸脱しない）と取っており、文脈からもそれが正しいので、統一しました。のちに Dharmakīrti は、この種の事態を擬似論証因の一種（不定因の一つ）として扱います（訳者の補足）。</p></div></div>
+</div>
+<div class="mula" id="u18">
+  <span class="ref">p.91</span>
+  <div class="src deva" lang="sa">यदा पुनरेवम्भूतौ धर्मावेकस्य वस्तुनो भवतः, तदुपलब्ध्रा तस्य वस्तुनः किं प्रतिपत्तव्यमिति ? तदा तयोरेव धर्मयोः सामर्थ्याधिगतौ यत्नः कर्तव्यः—नोभावत्र साधनम्, कतरोऽत्र साधनं कतरश्च न साधनमिति सामर्थ्याधिगमे यत्नः करणीय इति । यत्नश्च क्रियमाणोऽनित्यत्वसाधनेष्वेवावतिष्ठत इति । कुतः ? नित्यत्वस्य प्रमाणबाधितत्वात्, तच्चोपरिष्टाद् वक्ष्यामः । तदेवं व्यवस्थितमेतदनेकधर्मोपपत्तेरसाधारणाद्धर्मात् संशय इति ।</div>
+  <div class="tr">（問い）「では、このような二つの性質が一つの事物にあるとき、それを認識する者は、その事物について何を理解すべきなのか」。そのときは、まさにその二つの性質の（論証の）力を知ることに努めるべきである。ここでは二つとも論証手段なのではない。どちらがここで論証手段であり、どちらが論証手段でないか、その力を知ることに努めるべきである。そして努めてみれば、（それは）無常性の論証手段のほうに落ち着く。なぜか。常住性は認識手段によって否定されるからである。それは後で述べよう。このようにして、「固有の性質の把握から」とは、共有されない性質から疑いがある、ということが確定した。</div><div class="exp"><span class="lbl">解説</span><p>実践的な結論です。二つの論証が対立しているように見えるときは、疑いのまま放置するのではなく、どちらの論証因が本当に力をもつかを吟味せよ。音の場合、吟味すれば「無常」のほうが正しいと分かる（ニヤーヤ・スートラ第2章で論じられる）、というのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「後で述べよう」について NS 2.2.22 以下の音の無常性の議論を参照させています（Hi. pp.226–227）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>見解の対立</h2><span class="sub"><span class="pg">pp.91–92</span>対象の側の原因と、知る者・話し手の側の原因</span></div>
+<p>第三の原因は「見解の対立」です。「我はある」「我はない」と相反する説を聞いた人は、どちらが正しいか疑います。Bhāṣya は、疑いの原因のうち、共通の性質と固有の性質は「知られるもの（対象）の側」に、認識と非認識の不定は「知る者の側」にある、と区別しました。Uddyotakara はこの区別を検討し直します。</p>
+<div class="mula" id="u19">
+  <span class="ref">p.91</span>
+  <div class="src deva" lang="sa">विप्रतिपत्तेः संशय इति—व्याहतार्थप्रवादो विप्रतिपत्तिशब्दस्यार्थः । व्याहतार्थप्रवादविषयमर्थमुपलभमानस्योपलब्ध्यनुपलब्ध्योरव्यवस्थाने सति तद्गतविशेषानुस्मृतौ च सत्यां संशयो भवतीति । तत्र समानोऽनेकश्च धर्मो ज्ञेयस्थः, उपलब्ध्यनुपलब्धी पुनर्ज्ञातृस्थे इति भाष्यम् । तत्रोपलब्ध्यनुपलब्ध्योस्तावत् पृथक् संशयकारणत्वं न भवतीति चर्चितमेतत् । समानोऽनेकश्च धर्मो ज्ञेयस्थ इत्येतदपि न बुध्यामहे—किमत्र धर्मः संशयकारणमुत ज्ञानमिति ? न धर्मः संशयकारणमित्यनेकधा समर्थितम्, समानानेकधर्मज्ञानं तु संशयकारणम्, तच्च ज्ञातरि वर्तत इति नास्ति भेदः । समानानेकधर्मयोस्तु पृथगभिधाने उक्तं प्रयोजनम्, विधीयमानप्रतिषिध्यमानधर्मभेदादिति । विप्रतिपत्तेरित्ययं वक्तृगतः संशयहेतुः—केऽत्र सम्यक्प्रतिपन्नाः के मिथ्येति श्रोतुः संशयो भवति । एतावता भेदेन पृथगभिधानम् ।</div>
+  <div class="tr">「見解の対立から疑いがある」について。「見解の対立」の語の意味は、矛盾する対象についての主張である。矛盾する対象についての主張の対象となっている事物を認識する者に、認識と非認識が定まらず、そこにある特殊の想起があるとき、疑いが生じる。これについて、「共通の性質と固有の性質は知られるものの側にあり、認識と非認識は知る者の側にある」というのが Bhāṣya である。そのうち、まず認識と非認識が別々に疑いの原因となるのではないことは、（すでに）論じた。また「共通の性質と固有の性質は知られるものの側にある」ということも、我々には理解できない。ここでは性質が疑いの原因なのか、それとも知が（原因な）のか。性質が疑いの原因ではないことは、いろいろに論証した。そうではなく、共通の性質・固有の性質の知が疑いの原因であり、それは知る者の側にあるので、（知る者の側か知られるものの側かという）違いはない。共通の性質と固有の性質を別々に述べることの目的は、肯定される性質と否定される性質の違いによる、と述べた。「見解の対立から」というのは、話し手の側にある疑いの原因である。「ここでは誰が正しく理解しており、誰が誤っているのか」と、聞く者に疑いが生じる。この違いによって、（見解の対立は）別に述べられるのである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は Bhāṣya の区別を修正します。疑いの原因は、共通の性質そのものではなく「共通の性質の知」なので、結局すべて知る者の側にある。三つの原因を区別するのは、①肯定のかたちの逸脱（共通の性質）、②否定のかたちの逸脱（固有の性質）、③話し手どうしの対立（見解の対立）、という違いだ、というのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「この Vārttika は、Bhāṣya 作者の説明の誤りを示しつつ、疑いを生む三つの原因を明らかにしている。(1) 共通の性質と固有の性質からではなく、それらの知から疑いが生じる。(2) 認識と非認識の不定は、疑いの独立の原因ではない。(3) 共有された性質に対立するのは共有されない性質だが、共有されない性質の知が疑いの原因であって、共有されない性質そのものではない。この三つは互いの違いによって別々に述べられた」と整理しています（Hi. pp.227–228）。</p></div></div>
+</div>
+<div class="mula" id="u20">
+  <span class="ref">p.92</span>
+  <div class="src deva" lang="sa">समानधर्मः सर्व एवायमिति चेत् ? समानधर्मोपपत्तेरनेकधर्मोपपत्तेर्विप्रतिपत्तेश्चेति सर्व एवायं समानधर्म एवाभिधीयते । तस्माद् वैयर्थ्यात् पृथगनेकधर्मोपपत्तेर्विप्रतिपत्तेश्चेति न प्रयोजनमस्ति । अत एवं कर्तव्यम्—समानधर्मोपपत्तेर्विशेषापेक्षो विमर्शः संशय इति । न, सूत्रार्थापरिज्ञानात् । सूत्रार्थमपरिज्ञायैवैतच्चोद्यत इति । यथा च भेदः समानधर्मोपपत्तेरनेकधर्मोपपत्तेर्विप्रतिपत्तेश्चेति तथा च वर्णितम् ।</div>
+  <div class="tr">（反論）「これはすべて共通の性質にほかならない。『共通の性質の把握から、固有の性質の把握から、見解の対立から』というのは、すべて共通の性質だけが言われている。だから無駄なので、『固有の性質の把握から、見解の対立から』を別に（言う）目的はない。だから、『共通の性質の把握から、特殊を求める揺れ動く考察が疑いである』とすべきである」。そうではない。スートラの意味を理解していないからである。スートラの意味を理解せずに、これが非難されている。「共通の性質の把握から」「固有の性質の把握から」「見解の対立から」の違いがどのようなものかは、すでに説明した。</div><div class="exp"><span class="lbl">解説</span><p>「結局すべて逸脱という点で同じなら、一つにまとめればよい」という反論に、違いはすでに説明した、と答えます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は反論の趣旨を「三つとも逸脱するという点で共通の性質にまとめられる」と補っています（Hi. pp.228–229）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §7 ============ -->
+<section id="s7" class="wrap">
+  <div class="sec-head"><span class="sec-no">7</span><h2>五種の疑いという解釈</h2><span class="sub"><span class="pg">pp.92–93</span>Bhāṣya の読みを退ける。疑いは本性としては一種</span></div>
+<p>Bhāṣya は、スートラの五つの語（共通の性質、固有の性質、見解の対立、認識の不定、非認識の不定）がそれぞれ独立の原因で、疑いは五種だと読みました。Uddyotakara はこれを「別の人々」の説として名前を伏せて紹介し、退けます。</p>
+<div class="mula" id="u21">
+  <span class="ref">p.92</span>
+  <div class="src deva" lang="sa">अपरे पुनः समानधर्मोपपत्त्यादिभिः पदैः पृथक् पञ्चविधं संशयं वर्णयन्ति—समानधर्मोपपत्तेर्विशेषापेक्षो विमर्शः संशय इति, एवं शेषेषु पदेषु । तन्न युक्तम्, उपलब्ध्यनुपलब्ध्यव्यवस्थायाः पूर्वपदविशेषणत्वात् । समानधर्मोपपत्तौ सत्यामुपलब्ध्यनुपलब्ध्यव्यवस्थायां च सत्यां विशेषापेक्षो विमर्शः संशय इति सूत्रार्थः । एवमनेकधर्मोपपत्तेर्विप्रतिपत्तेश्चेति वाच्यम् । तस्मान्नोपलब्ध्यनुपलब्ध्यव्यवस्था पृथक् संशयकारणमिति । उपलब्ध्यनुपलब्ध्योर्द्वैविध्याच्च संशयो न युक्तः । कुतः ? लोकविरोधात् । उपलब्ध्यनुपलब्ध्यव्यवस्थानात् संशयो भवतीति ब्रुवाणो लोकं बाधते । कथमिति ? यत्किञ्चिदुपलभते सर्वत्रास्य संशयेन भवितव्यम् । किं कारणम् ? उपलभ्यमानं द्वेधा भवतीति । उपलब्धेर्द्वैविध्याच्च यः संशयो भवति, तस्य कुतो निवृत्तिः ? विशेषदर्शनान्निवर्तत इति चेत् ? विशेषेष्वप्येवम्—य एते विशेषा उपलभ्यन्ते किमेते सन्त उताहोऽसन्त इति यावद् यावदुपलभते सर्वत्रोपलब्धिद्वैविध्यात् संशय इत्यनिवर्त्यः संशयः । एवमनुपलब्धिद्वैविध्येऽपि वक्तव्यम् । न चास्य क्वचित् समाश्वासः स्यात्—यदायमपवरकादौ सर्पादीन् नोपलभते, तदा तस्य सर्पवानयं देश आहोऽसर्पवानिति संशयो भवति । अयमपि संशयोऽनिवर्त्य एवेति सर्वत्राश्वासो न स्यात् ।</div>
+  <div class="tr">一方、別の人々は、「共通の性質の把握」などの語によって、別々に五種の疑いを説明する。「共通の性質の把握から、特殊を求める揺れ動く考察が疑いである」、同じように残りの語についても（と）。それは正しくない。認識と非認識の不定は、前の語（三つの原因）の限定語だからである。「共通の性質の把握があり、認識と非認識の不定があるとき、特殊を求める揺れ動く考察が疑いである」というのがスートラの意味である。同じように「固有の性質の把握から」「見解の対立から」についても言うべきである。だから、認識と非認識の不定は、別個の疑いの原因ではない。また、認識と非認識に二種があるから疑いがある、というのは正しくない。なぜか。世間（の経験）と矛盾するからである。「認識と非認識が定まらないことから疑いが生じる」と言う者は、世間（の経験）を損なう。どうしてか。（そうなら）何を認識しても、そのすべてについて疑いが生じなければならない。なぜか。認識されるものは二種（実在するものと実在しないもの）だからである。そして認識が二種であることから生じる疑いは、何によって消えるのか。「特殊を見ることによって消える」と言うなら、特殊についても同じである。認識されるこれらの特殊は、実在するのか、実在しないのか、と、認識し続けるかぎり、どこでも認識が二種であることから疑いが生じ、疑いは消えないことになる。非認識が二種である場合についても同じように言うべきである。そうなると、この人はどこにも安心できないだろう。この人が部屋などで蛇などを認識しないとき、「この場所には蛇がいるのか、いないのか」という疑いが生じる。この疑いも消えないので、どこにも安心できないだろう。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya の例は、蜃気楼の水（見えても実在しない）と、地中の水（見えなくても実在する）です。認識には「実在するものの認識」と「実在しないものの認識」があるので、認識が定まらないことだけで疑いが生じる、というのです。Uddyotakara は、それなら何を見ても疑いが生じ、見えないものについてもいつまでも疑い続けることになる、と反論します。部屋に蛇が見えなくても、「見えない蛇がいるのでは」と疑い続け、誰も安心して暮らせなくなる、と。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「別の人々」を TṬ（p.485）に従い「Bhāṣya 作者など。Vārttika 作者は Bhāṣya 作者の説を紹介して退ける」と注し、「Bhāṣya 作者によれば、『特殊を求める揺れ動く考察が疑いである』は疑いの一般的な定義であり、スートラの残りの五つの語で五種の疑いが言われる。(1) 共通の性質の把握から、(2) 固有の性質の把握から、(3) 見解の対立から、(4) 認識の不定から、(5) 非認識の不定から」と説明しています（Hi. pp.229–230）。</p></div></div>
+</div>
+<div class="mula" id="u22">
+  <span class="ref">p.93</span>
+  <div class="src deva" lang="sa">येषां च पञ्चविधः संशय इति सूत्रार्थः, तैरप्यस्य कारणकृतो भेदो वक्तव्यः स्वभावकृतो वा । तद् यदि तावत् कारणकृतो भेदः ? न पञ्चविधः, अनेकविधः संशय इति प्राप्तम् । अथ स्वभावभेदात् ? स्वभावभेदस्यासंभवादेकरूपः संशयः, संशीतिः संशय इति । तस्मात् पञ्चविधः संशय इति न सूत्रार्थः ।</div>
+  <div class="tr">また、「疑いは五種である」というのがスートラの意味だとする人々も、その区別が原因による区別か、本性による区別かを言わなければならない。もし原因による区別なら、五種ではなく、多種の疑いがあることになる。もし本性の区別によるなら、本性の区別はありえないので、疑いは一つの姿をもつ。「疑うこと」が疑いである。だから、「疑いは五種である」というのはスートラの意味ではない。</div><div class="exp"><span class="lbl">解説</span><p>原因の違いで疑いを数えるなら、原因はほかにもいくらでもあるので、五種に限る理由がない。本性で数えるなら、疑いはどれも「揺れ動くこと」なので一種しかない。どちらにしても「五種」は根拠がない、という論法です。では Uddyotakara 自身が「三種」と言うのはなぜか。三つの原因は、疑いを生む「固有の原因」として区別される、ということでしょう（§10 参照）。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、本性による区別がないことを「疑うこと、という一つの姿」と訳しています（Hi. p.230）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §8 ============ -->
+<section id="s8" class="wrap">
+  <div class="sec-head"><span class="sec-no">8</span><h2>疑いの対象は有法</h2><span class="sub"><span class="pg">pp.93–94</span>性質を見て有法を疑う。「特殊の想起」の対象</span></div>
+<p>共通の性質（高さ）を見て、疑われるのは「あれは杭か人か」という有法（性質の担い手）です。しかし、見ているのが性質で、疑うのが有法なら、「牛を見て馬を疑う」ようなことにならないか。Uddyotakara は、スートラの複合語を所有複合語として読むことで答えます。</p>
+<div class="mula" id="u23">
+  <span class="ref">p.93</span>
+  <div class="src deva" lang="sa">समानधर्मग्रहणान्न संशयो धर्मिविषयत्वात् । यदिदमुच्यते समानधर्मोपपत्तेः संशय इति, तदयुक्तम्, धर्मिविषयत्वात् । न हि समाने धर्म उपलभ्यमाने धर्मिणि संशयो युक्तः, धर्मधर्मिणोर्भेदात् । न हि गवि दृष्टेऽश्वे संशयो भवति । धर्मिणश्चादृष्टत्वान्नानुपलब्धे न निर्णीतेऽर्थे संशयो भवतीति व्याघातः । धर्मधर्मिभावात् संशय इत्येके । एके तावत् परिहारं ब्रुवते—धर्मे दृष्टे धर्मिणि संशयो धर्मधर्मिभावात्, न पुनर्गवि दृष्टेऽश्वे संशयो भवति धर्मधर्मिभावानुपपत्तेः । न, नानात्वानिवृत्तेः । न हि धर्मधर्मिभावेन नानात्वं निवर्तते । अथ धर्मधर्मिभावो नियामकः ? इच्छादिसूत्रं [१.१.१०] तर्हि व्याहन्यते । कथमिति ? इच्छादयः प्रतिसन्धानादात्मानं गमयन्तीति सूत्रार्थः । तत्र परः प्रत्यवस्थितः कार्यकारणभावात् प्रतिसन्धानमिति, स न नानात्वस्याबाधनादित्यनेन निवर्तित इति । इह पुनर्भवता धर्मधर्मिभावादिति ब्रुवता नानात्वमेव धर्मधर्मिभावविशिष्टं नियामकमुच्यत इति शक्नुयात् परोऽपि वक्तुं कार्यकारणभावो नियामक इति । तस्मादपव्याख्यानमेतद् धर्मधर्मिभावात् संशय इति ।</div>
+  <div class="tr">（反論）「共通の性質を捉えることから疑いが生じるのではない。（疑いは）有法を対象とするからである。『共通の性質の把握から疑いがある』と言われるが、それは正しくない。有法を対象とするからである。共通の性質が認識されるときに、有法について疑いが生じるのは正しくない。性質と有法は別だからである。牛を見て馬について疑いが生じることはない。また、有法は見られていないので、『知られていないものにも、決定されたものにも、疑いは生じない』（という原則）と矛盾する」。ある人々は、「性質と有法の関係によって疑いがある」と言う。ある人々はこう答える。「性質が見られて有法について疑いが生じるのは、性質と有法の関係による。牛を見て馬について疑いが生じないのは、（両者に）性質と有法の関係が成り立たないからである」と。そうではない。別々であることが除かれないからである。性質と有法の関係によっても、別々であることは除かれない。もし性質と有法の関係が（疑いの対象を）決めるのなら、「欲求など」のスートラ（NS 1.1.10）と矛盾する。どうしてか。そのスートラの意味は、「欲求などは再認識によって我を知らせる」ということである。そこで相手（仏教徒）が「因果関係から再認識がある」と反論したが、それは「別々であることが除かれないから」という（答え）によって退けられた。ところがここで、「性質と有法の関係から」と言うあなたは、性質と有法の関係によって特徴づけられた別々であることを、（疑いの対象を）決めるものとしている。（そうなら）相手もまた、「因果関係が決めるのだ」と言えることになろう。だから、「性質と有法の関係から疑いがある」というのは誤った説明である。</div><div class="exp"><span class="lbl">解説</span><p>「性質と有法は別のものだが、性質と有法の関係があるから、性質を見て有法を疑える」という答えを、Uddyotakara は退けます。理由がおもしろいところです。第三プラカラナ §4 で、仏教徒の「別々の心でも因果関係があるから再認識できる」という主張を、「関係があっても別々であることに変わりはない」と退けました。ここで「関係があるから別々でも疑える」と認めれば、その批判が自分に返ってくる、というのです。議論の一貫性を重んじる Uddyotakara の姿勢がよく分かります。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、反論と「ある人々」の答えを訳し分け、Uddyotakara の批判が NS 1.1.10 の注での仏教批判と対応していることを示しています（Hi. pp.230–232）。</p></div></div>
+</div>
+<div class="mula" id="u24">
+  <span class="ref">p.93</span>
+  <div class="src deva" lang="sa">अथ समानधर्मोपलब्धेरन्यस्मिन् धर्मिणि संशयो भवतीति कः परिहारः ? अयं परिहारः—बहुव्रीहिः समासः, अतो धर्मिणोऽभिधानम् । समानधर्मोपपत्तेरित्यनेन पदेन बहुव्रीहिसमासवान् धर्म्येवापदिश्यते । कथम् ? समानो धर्मो यस्य स भवति समानधर्मा, समानधर्मण उपपत्तिः समानधर्मोपपत्तिः । किमुक्तं भवति ? समानधर्मवतो धर्मिणो दर्शनादिति ।</div>
+  <div class="tr">では、「共通の性質の認識から、別のもの（である）有法について疑いがある」（という反論）に対する答えは何か。答えはこうである。（これは）所有複合語であり、だから有法を述べている。「共通の性質の把握から」というこの語によって、所有複合語をもつものとして、有法そのものが示される。どうしてか。「共通の性質をもつもの」が「共通の性質をもつもの」（<i>samānadharman</i>）であり、「共通の性質をもつものの把握」が <i>samānadharmopapatti</i> である。何が言われているのか。「共通の性質をもつ有法を見ることから」ということである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara 自身の答えは文法的です。<i>samānadharma</i> を「共通の性質」（限定複合語）ではなく「共通の性質をもつもの」（所有複合語）と読めば、スートラは最初から「共通の性質をもつ有法を見ることから」と言っていることになります。見ているのは高さをもった「あれ」そのものであり、疑うのもその「あれ」なので、見るものと疑うものが別だという問題は生じません。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「所有複合語なので、有法を述べている」と訳し、分解を「共通の性質をもつもの＝<i>samānadharman</i>、その把握」と示しています（Hi. p.232）。</p></div></div>
+</div>
+<div class="mula" id="u25">
+  <span class="ref">pp.93–94</span>
+  <div class="src deva" lang="sa">विशेषापेक्षो विमर्शः संशय इति । विशेषापेक्षो विशेषस्मृत्यपेक्ष इति । अथ सा विशेषस्मृतिः किं विशेषविषया—किं संशयविषयविशेषविषया, उतान्यविषयेति ? योऽसौ संशयस्य विषयो यत् तं समानधर्माणमुपलभते, किं तस्यायं विशेषाननुस्मरति, उतान्यस्येति ? यदि तावत् तस्य, तन्न युक्तम्, तद्विशेषाणां क्वचिदननुभूतत्वात् । योऽर्थः पूर्वमुपलब्धविशेषस्तद्गतान् विशेषाननुस्मरतीति युक्तम्, तद्विशेषाणामनुभूतत्वात् । यदा पुनरयमनुपलब्धपूर्वविशेषः सामान्यत उपलभ्यमानः सन्दिह्यते, तत्र विशेषानुस्मृतिः कथम्, तद्विशेषाणामननुभूतत्वादिति ? न, सामान्यवचनत्वात् । विशेषापेक्ष इति सामान्यवचनं, न पुनरनेनावधार्यते तस्य वान्यस्य वेति । यदा तद्गता विशेषाः सुस्मूर्षिता भवन्ति, तदानुभूतेषु विशेषेषु स्मृतिः । यदा त्वनुपलब्धपूर्वेऽर्थे संशयस्तदा सादृश्यादन्यगतान् विशेषान् सुस्मूर्षत इति । एवं तावद् व्यवस्थितं त्रिविधः संशय इति ।</div>
+  <div class="tr">「特殊を求める揺れ動く考察が疑いである」。「特殊を求める」とは、「特殊の想起を求める」ということである。（問い）「ではその特殊の想起は、何の特殊を対象とするのか。疑いの対象の特殊を対象とするのか、それとも別のもの（の特殊）を対象とするのか。この人が共通の性質をもつものとして認識している、疑いの対象であるそのもの、その特殊を想起するのか、それとも別のものの（特殊を想起するの）か。もしそれ（疑いの対象）の（特殊）なら、それは正しくない。その特殊は（場合によっては）一度も経験されていないからである。以前にその特殊が認識された対象について、その特殊を想起するのは正しい。その特殊は経験されているからである。しかし、以前にその特殊を認識したことのない対象が、一般的に認識されて疑われるときに、どうして特殊の想起があるのか。その特殊は経験されていないのに」。そうではない。（「特殊」は）一般的な言葉だからである。「特殊を求める」というのは一般的な言葉であって、これによって「それの（特殊）」か「別のものの（特殊）」かが限定されるのではない。そのものの特殊を想起しようとするときは、経験された特殊についての想起がある。以前に認識したことのない対象について疑いがあるときは、類似によって、別のものの特殊を想起しようとするのである。このようにして、「疑いは三種である」ということが確定した。</div><div class="exp"><span class="lbl">解説</span><p>初めて見る動物について「これは何だろう」と疑うとき、その動物自身の特徴をまだ知らないので、想起することもできません。Uddyotakara は、そういうときは似た別のものの特徴（以前に見た牛や鹿の特徴）を想起して比べるのだ、と答えます。スートラの「特殊」は、誰の特殊かを限定しない一般的な語だからです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「特殊を求める」を「特殊の想起を求める」と言いかえて訳し、問いの趣旨を「疑いの対象の特殊を想起するのか、別のものの特殊か」と整理しています（Hi. pp.233–234）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §9 ============ -->
+<section id="s9" class="wrap">
+  <div class="sec-head"><span class="sec-no">9</span><h2>他学派の疑いの定義</h2><span class="sub"><span class="pg">pp.94–95</span>カナーダの定義は取り込み、仏教の定義は退ける</span></div>
+<p>ニヤーヤの疑いの定義と矛盾しない他学派の定義は、ここに含まれる、と Uddyotakara は言います。その例がヴァイシェーシカ・スートラ（伝統的にカーシュヤパ＝カナーダの作とされる）の定義です。一方、仏教の定義は、性質と別の有法を認めない立場と矛盾するとして退けます。</p>
+<div class="mula" id="u26">
+  <span class="ref">p.94</span>
+  <div class="src deva" lang="sa">अनेन च संशयलक्षणेन यान्यविरुद्धानि संशयलक्षणानि तान्यपि संगृहीतानि, यथा काश्यपीयम्—सामान्यप्रत्यक्षाद् विशेषाप्रत्यक्षाद् विशेषस्मृतेश्च संशयः [वै. सू. २.२.१९] इति । अस्यार्थः—सामान्यप्रत्यक्षादिति सामान्यवतः प्रत्यक्षाद् धर्मिण इति, न पुनरयं पदार्थः सामान्यस्य प्रत्यक्षादिति । विशेषाप्रत्यक्षत्वमव्यवस्थितविशेषत्वम्, नास्मिन् विशेषा व्यवस्थिता इति । विशेषस्मृतेश्च संशय इति समानम् । कथं पुनरनेन सूत्रेणासाधारणो लभ्यत इति ? लभ्यते, व्यभिचारित्वात् । व्यभिचारि साधारणम्, तच्चासाधारणेऽपि व्यभिचारित्वमस्तीति लभ्यते । अनेकधर्मोपपत्तिस्तर्हि पृथङ् न पठितव्या ? अन्वयव्यतिरेकभेदविवक्षया पृथगभिधानं पुनः संशयकारणभेदविवक्षयेति ।</div>
+  <div class="tr">そしてこの疑いの定義によって、（これと）矛盾しない疑いの定義も含まれた。たとえばカーシュヤパの（定義）、「普遍を知覚すること、特殊を知覚しないこと、特殊を想起することから疑いがある」（VS 2.2.19）。その意味は（こうである）。「普遍を知覚することから」とは、普遍をもつもの、すなわち有法を知覚することから、ということであり、この語の意味は「普遍を知覚することから」ではない。「特殊を知覚しないこと」とは、特殊が定まっていないこと、すなわちこれにおいて特殊が定まっていない、ということである。「特殊を想起することから疑いがある」は（ニヤーヤの定義と）同じである。（問い）「では、このスートラによって、どうして共有されないもの（固有の性質）が得られるのか」。得られる。逸脱するからである。共有されたものは逸脱する。そして共有されないものにも逸脱はあるので、得られるのである。（問い）「それなら、（ニヤーヤ・スートラで）『固有の性質の把握』を別に挙げる必要はなかろう」。（共有されたものと共有されないものを）別々に述べるのは、肯定的随伴と否定的随伴の違いを言おうとするためであり、また疑いの原因の違いを言おうとするためである。</div><div class="exp"><span class="lbl">解説</span><p>ヴァイシェーシカ・スートラの疑いの定義を、ニヤーヤの定義に重ねて読みます。「普遍の知覚」は「普遍（共通の性質）をもつ有法の知覚」と、§8 の所有複合語の読みと合わせて解釈されます。こうして、ニヤーヤとヴァイシェーシカの疑いの説が一致していることを示すのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「カーシュヤパの（定義）」を「カナーダ（カーシュヤパ）の定義」と訳し、VS 2.2.19 を挙げています。「普遍を知覚することから」は TṬ に従い「普遍をもつものの知覚」と注しています（Hi. pp.234–235）。</p></div></div>
+</div>
+<div class="mula" id="u27">
+  <span class="ref">pp.94–95</span>
+  <div class="src deva" lang="sa">ये त्वत्र विशेषाप्रत्यक्षाद् विशेषस्मृतेश्चेति पदयोः पौनरुक्त्यं वर्णयन्ति—सामान्यप्रत्यक्षाद् विशेषस्मृतेश्च संशय इत्यभिधीयमाने किल गम्यत एवैतद् विशेषाप्रत्यक्षादिति, न हि कश्चिद् विशेषान् प्रत्यक्षान् स्मरतीति—तन्न, सूत्रार्थापरिज्ञानात् । नायं सूत्रार्थो विशेषाणां न प्रत्यक्षत्वमिति, अपि त्वव्यवस्थापितविशेषत्वम्, नास्मिन् विशेषा व्यवस्थिता इत्यतो नायं दोष इति ।</div>
+  <div class="tr">一方、ここで「特殊を知覚しないことから」と「特殊を想起することから」の二つの語が重複していると説明する人々がいる。「『普遍を知覚すること、特殊を想起することから疑いがある』と言えば、『特殊を知覚しないことから』ということは（自然に）理解される。誰も、知覚されている特殊を想起することはないからだ」と。それは正しくない。スートラの意味を理解していないからである。このスートラの意味は、「特殊が知覚されないこと」ではなく、「特殊が定まっていないこと」、すなわちこれにおいて特殊が定まっていない、ということである。だからこの誤りはない。</div><div class="exp"><span class="lbl">解説</span><p>前のブロックの解釈を使って、ヴァイシェーシカ・スートラの語が重複しているという批判を退けます。「特殊を知覚しないこと」を「特殊が定まっていないこと」と読めば、「特殊の想起」とは別の内容になるからです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、重複の批判を紹介したうえで、「特殊が定まっていないこと」という Vārttika の読みによって答えられると訳しています（Hi. p.235）。</p></div></div>
+</div>
+<div class="mula" id="u28">
+  <span class="ref">p.95</span>
+  <div class="src deva" lang="sa">अन्ये तु संशयलक्षणमन्यथा व्याचक्षते—साधर्म्यदर्शनाद्विशेषोपलिप्सोर्विमर्शः संशय इति । तैरपि साधर्म्यस्यावधारितत्वात् संशयस्य विषयो वक्तव्यः । धर्मीति चेत् ? ननूक्तः संशयस्य विषयो धर्मी ? सत्यमुक्तो, न पुनर्युक्तः । कथं न युक्तः ? यदि तावद् धर्मव्यतिरिक्तं धर्मिणमभ्युपैति, व्याहतं भवति । धर्मधर्मिणोश्च नानात्वाभ्युपगमे धर्मस्यावधृतत्वाद् धर्मिणश्चादृष्टत्वान्न संशयः, न ह्यन्यस्मिन् दृष्टेऽन्यत्र संशयो भवति । अथाप्यस्मद्दिशा साधर्म्याभिधानेन धर्म्येवोच्येत ? तन्न युक्तम्, सधर्मणो भावः साधर्म्यमिति भावाभिधानेन धर्मोऽभिधीयते न धर्मीति, न युक्तोऽन्यस्य दर्शनादन्यस्मिन् संशय इति । अथार्थान्तरभावं नाभ्युपैति ? तथापि साधर्म्यस्यावधृतत्वात् क्व संशय इति ? यदि चायं धर्मिणं नोपलभते, कस्यायं विशेषानुपलिप्सेत ? न हि साधर्म्यस्य विशेषाः सन्ति । अथ सामान्यवतो विशेषा इति ? तन्न, तस्यादृष्टत्वादित्युक्तम् । न सामान्यस्य विशेषाः सन्तीति सामान्यवतो विशेषा भवन्तीत्येवं ब्रुवता सामान्यविशेषतद्वतां भेदोऽभ्यनुज्ञातो भवति । उपलब्ध्यनुपलब्ध्यव्यवस्थाने च साधर्म्यस्य दर्शने सत्यपि विशेषोपलिप्सायां च सत्यां न संशयो भवति । उपलब्ध्यनुपलब्ध्यव्यवस्थात इति वक्तव्यम्, अनेकधर्मदर्शनादिति च ।</div>
+  <div class="tr">一方、別の人々は、疑いの定義を別様に説明する。「類似性を見ることから、特殊を認識しようとする者の揺れ動く考察が疑いである」と。彼らもまた、類似性は確定されているので、疑いの対象（が何か）を言わなければならない。「有法だ」と言うなら。（反論）「疑いの対象は有法だと（あなたがた自身も）言ったではないか」。そのとおり、言った。しかし（あなたがたにとっては）成り立たない。どうして成り立たないのか。もし性質とは別の有法を認めるなら、（あなたがたの教説と）矛盾する。また、性質と有法が別々であることを認めるなら、性質は確定されており、有法は見られていないので、疑いはない。あるものを見て別のものについて疑いが生じることはないからである。もし我々のやり方で、「類似性」の語によって有法そのものが言われる（とする）なら、それは正しくない。「同じ性質をもつものであること」が類似性であり、（抽象名詞の）状態を表す語によって性質が言われるのであって、有法が（言われるの）ではない。あるものを見て別のものについて疑うのは正しくない。もし（性質と有法が）別の事物であることを認めないなら、それでも類似性は確定されているので、どこに疑いがあるのか。また、もしこの人が有法を認識しないなら、何の特殊を認識しようとするのか。類似性には特殊はない。もし「普遍をもつものの特殊だ」と言うなら、それは正しくない。それ（普遍をもつもの）は見られていないからだ、と述べた。「普遍には特殊はない。普遍をもつものに特殊がある」とこのように言う者は、普遍と特殊とそれらをもつものとが別であることを認めたことになる。また、認識と非認識が定まっているときには、類似性が見られ、特殊を認識しようとしても、疑いは生じない。（だから）「認識と非認識が定まらないことから」と言うべきであり、「固有の性質を見ることから」とも（言うべきである）。</div><div class="exp"><span class="lbl">解説</span><p>ヒンディー訳の注によれば、これは仏教の疑いの定義です。仏教は性質とは別の有法（実体）を認めないので（第三プラカラナ §10–§11）、疑いの対象を言えなくなります。「類似性」（<i>sādharmya</i>）は抽象名詞で性質を表すので、§8 のニヤーヤの所有複合語の読みも使えません。さらに、この定義には「認識と非認識の不定」や「固有の性質」が欠けているので、不十分だと指摘します。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「別の人々」を「仏教徒。仏教徒の認める疑いの定義を紹介する（TṬ p.486）」と注し、「性質とは別の有法を認めるなら矛盾する」を「仏教徒の説では、色などの性質の基体となる有法はないので、定説と矛盾する」と説明しています（Hi. pp.235–236）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §10 ============ -->
+<section id="s10" class="wrap">
+  <div class="sec-head"><span class="sec-no">10</span><h2>定義か原因の列挙か</h2><span class="sub"><span class="pg">pp.95–96</span>固有の原因を挙げた。なぜ誤認は挙げないのか</span></div>
+<div class="mula" id="u29">
+  <span class="ref">pp.95–96</span>
+  <div class="src deva" lang="sa">समानानेकधर्मोपपत्तेरित्येवमादिवाक्यं संशयलक्षणम्, तद्विचार्यम्—किं तावदयं कारणोपदेश आहो संशयस्वरूपावधारणमिति ? यदि कारणनिर्देशः, अत्यल्पमिदमुच्यते समानानेकधर्मादिभ्य इति; अन्यान्यपि संशयकारणानि, तान्युपसंख्येयानि—यथात्ममनःसंयोग आन्तरस्य, इन्द्रियमनःसंयोग इन्द्रियार्थसन्निकर्ष आत्ममनःसंयोगश्च बाह्यस्येति । अथ स्वरूपावधारणम्, कारणनिर्देशोऽनर्थकः, संशीतिः संशय इति वक्तव्यम् । अस्तु तावत् कारणावधारणम् । ननूक्तं कारणान्तरमप्युपसंख्येयमिति ? नैष दोषः । नेदं कारणावधारणार्थम्, अपि त्वसाधारणकारणनिर्देशोऽयम् । तस्मादिन्द्रियार्थसन्निकर्षादीनामप्रसङ्गः, प्रत्यक्षादिसाधारणत्वात् । स्वरूपनिर्देशो वा भवतु—इदमेवास्य स्वरूपं समानधर्मदर्शनादिभ्यो जन्मेति । सोऽयमेवम्भूतः संशयो विचाराङ्गतयोपादीयते । संशयवद् विपर्ययोऽपि विचारस्याङ्गम्, सोऽपि पदार्थत्वेन वक्तव्यः ? सत्यमसौ पदार्थः, न तु विचाराङ्गमित्यतो नाभिधेयः । कथं न विचाराङ्गम् ? यथा सन्दिग्धस्तद्विशेषप्रतिपत्तये प्रयतते, नैवं विपर्यस्त इति । अतो न्यायविद्यानङ्गत्वान्नाभिधीयत इति ॥२३॥</div>
+  <div class="tr">「共通の性質・固有の性質の把握から…」というこの文が、疑いの定義である。それを検討しなければならない。これは原因の教示なのか、それとも疑いの本性の確定なのか。もし原因の提示なら、「共通の性質・固有の性質などから」というのはあまりに少ない。疑いの原因はほかにもあり、それらも数えるべきである。たとえば、内的な（疑い）については我と意の結合、外的な（疑い）については感官と意の結合、感官と対象の接触、我と意の結合である。もし本性の確定なら、原因の提示は無意味であり、「疑うことが疑いである」と言うべきである。まず原因の確定（のためのもの）としよう。（反論）「ほかの原因も数えるべきだ、と言ったではないか」。この誤りはない。これは原因（すべて）を確定するためのものではなく、固有の原因の提示である。だから、感官と対象の接触などは（ここに）含まれない。知覚などに共通だからである。あるいは本性の提示としてもよい。共通の性質を見ることなどから生じることこそが、その本性である。このような疑いが、考察の部分として取り上げられる。（反論）「疑いと同じく、誤認も考察の部分である。それもカテゴリーとして述べるべきである」。たしかにそれは（一つの）事物であるが、考察の部分ではない。だから述べるべきではない。どうして考察の部分でないのか。疑っている者は、それの特殊を理解しようと努めるが、誤認している者はそうではない。だから、ニヤーヤの学の部分ではないので述べられないのである。（第二十三スートラ）</div><div class="exp"><span class="lbl">解説</span><p>スートラが挙げるのは、疑いを生むすべての原因ではなく、疑いに固有の原因です。感官と対象の接触などは、知覚にも推理にも共通なので挙げません。第二プラカラナ §5 で、知覚の定義に「感官と対象の接触」だけを挙げた理由と同じ考え方です。</p><p>最後の問答は、ニヤーヤが十六の主題に「疑い」を入れながら「誤認」を入れない理由を説明しています。疑う者は確かめようとして吟味を始めますが、誤認している者は自分が正しいと思っているので吟味を始めません。だから吟味（ニヤーヤ）の出発点になるのは疑いだけなのです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「固有の原因の提示」と「知覚などに共通だから」の部分を訳し、「考察の部分」について「疑いは吟味の部分であるが、誤認はそうではない」と補っています（Hi. pp.236–238）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §11 ============ -->
+<section id="s11" class="wrap">
+  <div class="sec-head"><span class="sec-no">11</span><h2>目的と実例</h2><span class="sub"><span class="pg">pp.96–97</span>目的は「世間的なもの」か。実例は類比や実例支分と同じか</span></div>
+<p>短い二つのスートラが章を閉じます。目的（<i>prayojana</i>）については、「目的は世間的なもので、吟味の学の部分ではない」という説を、Uddyotakara は皮肉を込めて退けます。実例（<i>dṛṣṭānta</i>）については、それが類比（認識手段）や論証式の実例支分と区別されることを示します。</p>
+<div class="mula sutra" id="u30">
+  <span class="ref">p.96 · NS 1.1.24</span>
+  <div class="src deva" lang="sa">यमर्थमधिकृत्य प्रवर्तते तत् प्रयोजनम् ॥१।१।२४॥<br>यमर्थमधिकृत्येति—व्यवसायोऽधिकारः । कस्य व्यवसायः ? सुखदुःखसाधनानाम् । इदं सुखसाधनमिति बुद्ध्वा सुखावाप्तये यतते, इदं दुःखसाधनमिति चाधिगम्य दुःखहानायेति । सुखदुःखयोरवाप्तिहानाभ्यामयं लोकः प्रयुज्यत इति सुखदुःखावाप्तिहानी प्रयोजनमिति । अनेन च प्रयोजनेन सर्वेऽर्थाः संगृहीता भवन्ति ।</div>
+  <div class="tr">ある対象を目指して（人が）活動するとき、それが目的である。<br>「ある対象を目指して」とは、確定（すること）が「目指すこと」である。何の確定か。楽と苦の手段の（確定である）。「これは楽の手段だ」と知って楽を得るために努め、「これは苦の手段だ」と知って苦を捨てるために（努める）。この世の人々は、楽と苦を得ることと捨てることによって動かされる。だから、楽を得ることと苦を捨てることが目的である。そしてこの目的によって、すべての事物が含まれる。</div><div class="exp"><span class="lbl">解説</span><p>目的とは、人を活動に向かわせるものです。究極的には「楽を得ること」と「苦を捨てること」の二つに尽きます。そして世界のあらゆる事物は、楽の手段か苦の手段かとして、この目的に関わります。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「主要な目的は楽の獲得と苦の回避であり、副次的な目的はその手段である（TṬ p.495）」と注し、「この目的はすべての事物にゆきわたる。ある場合は主要な目的であり、ある場合は副次的な目的である」と補っています（Hi. pp.238–240）。</p></div></div>
+</div>
+<div class="mula" id="u31">
+  <span class="ref">pp.96–97</span>
+  <div class="src deva" lang="sa">एतस्मिंश्च सूत्रार्थे परस्य दोषविवक्षया चोद्यमानस्य वक्तुमशक्तस्य व्याहारः—लौकिकोऽयमर्थः, प्रयुज्यतेऽनेनेति प्रयोजनमिति; न चानेन किञ्चित् परीक्षाविधेः क्रियत इति न्यायाङ्गभावो नास्तीति । यत्तावल्लौकिकोऽयमर्थ इति, एतन्नर्ते प्रकृष्टतार्किकादन्यो वक्तुमर्हति—अयमेवैकः पदार्थो लौकिको न प्रमाणादय इति । कश्चासौ लौकिक इति ? यदि प्रमाणोपपन्न इत्ययमर्थः, अतिदोषोऽयम्, प्रमाणोपपन्नं न वक्तव्यमिति । अथान्यो लौकिकशब्दार्थः ? तं न बुध्यामहे कथमन्य इति । यदपि प्रयोजनं न्यायस्याङ्गं न भवतीति, तदपि न युक्तम् । या खलु निष्प्रयोजना चिन्ता, नासौ न्यायस्याङ्गमिति । परीक्षाविधेस्तु प्रधानाङ्गं प्रयोजनमेव, तन्मूलत्वात् परीक्षाविधेरिति ॥२४॥</div>
+  <div class="tr">このスートラの意味について、（何か）誤りを言おうとして（論争に）乗り出したものの、（まともな誤りを）言えない相手の言い分（はこうである）。「この事柄は世間的なものである。『それによって動かされる』のが目的である。そしてこれによって吟味の手続きに何かがなされるわけではない。だから（目的は）ニヤーヤの部分ではない」。まず「この事柄は世間的なものである」ということ、すなわち「これ一つだけが世間的な事柄であって、認識手段などはそうではない」ということは、卓越した論理学者でなければ言えないことである。では、その「世間的なもの」とは何か。もし「認識手段によって成り立つもの」という意味なら、それはひどい誤りである。「認識手段によって成り立つものは述べるべきでない」ということになるからである。もし「世間的」という語の意味がほかにあるのなら、それがどうしてほかのものなのか、我々には分からない。また「目的はニヤーヤの部分ではない」ということも正しくない。目的のない思索は、ニヤーヤの部分ではない。目的こそが吟味の手続きの主要な部分である。吟味の手続きはそれ（目的）にもとづくからである。（第二十四スートラ）</div><div class="exp"><span class="lbl">解説</span><p>「卓越した論理学者でなければ言えない」は、明らかな皮肉です。目的が世間的なものだから論じる必要がない、と言うなら、認識手段も世間で使われているのだから論じる必要がないことになる。そもそも目的のない思索は吟味ではなく、目的こそが吟味の出発点だ、と Uddyotakara は答えます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「乗り出した」を TṬ に従い「（論争に）進み出た」と注し、「世間的」の二つの可能性について「(1) 認識手段によるもの、(2) 認識手段によらないもの。後者は、たとえば『ガジュマルの木ごとに夜叉がいる』のような世間の言い伝え」と説明しています。また「目的はニヤーヤの主要な部分である。目的のない考察をしなければならない場合も、『結果をもつものの近くにある結果のないものは、その部分となる』という原則によって目的をもつものになる」と注しています（Hi. p.240）。</p></div></div>
+</div>
+<div class="mula sutra" id="u32">
+  <span class="ref">p.97 · NS 1.1.25</span>
+  <div class="src deva" lang="sa">लौकिकपरीक्षकाणां यस्मिन्नर्थे बुद्धिसाम्यं स दृष्टान्तः ॥१।१।२५॥<br>लौकिकपरीक्षकाणामिति सूत्रम् । बुद्धिसाम्यविषयोऽर्थो दृष्टान्त इति सूत्रार्थः । एवं चाकाशावरोध इति । यदि पुनरेवमवधार्येत लौकिकानां परीक्षकाणां च यो विषयः स दृष्टान्त इति, अलौकिकार्थो न दृष्टान्तः स्यादाकाशादिः । उदाहरणत्वेन तु लौकिकपरीक्षकविषयस्याभिधानं, न पुनर्लौकिकपरीक्षकाणामेवेति ।</div>
+  <div class="tr">実例とは、世間の人々と吟味する者たちの理解が一致する対象である。<br>「世間の人々と吟味する者たちの」というのがスートラである。「理解が一致することの対象である事物が実例である」というのがスートラの意味である。そしてこうすれば、虚空なども含まれる。もし「世間の人々と吟味する者たちの（理解の）対象であるもの、それが実例である」と限定するなら、世間的でない事物である虚空などは実例ではないことになろう。世間の人々と吟味する者たちの対象を述べたのは例としてであり、（実例が）世間の人々と吟味する者たちの（対象）だけである、というのではない。</div><div class="exp"><span class="lbl">解説</span><p>実例とは、論証で「〜のように」と挙げられるもの（かまどの煙と火など）で、論者の双方が認めているものでなければなりません。スートラは「世間の人々と吟味する者たち（学者）」と言いますが、Uddyotakara は、これは例示にすぎず、本質は「理解が一致すること」だと言います。そうしないと、世間の人々は知らない「虚空」のような哲学的な対象を、学者どうしの論争で実例に使えなくなってしまうからです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「Vārttika 作者は、ここで『世間の人々』『吟味する者たち』という語は言おうとされていないことを示した。実際には、立論者と反論者の理解が一致する対象こそが実例である」と注しています（Hi. pp.240–241）。</p></div></div>
+</div>
+<div class="mula" id="u33">
+  <span class="ref">p.97</span>
+  <div class="src deva" lang="sa">सोऽयं दृष्टान्तः सारूप्यव्युत्पत्त्यर्थो वा स्यादसिद्धसाधनार्थो वा ? यदि तावत् सारूप्यव्युत्पत्त्यर्थः, नोपमानाद् भिद्यते । अथासिद्धसाधनार्थः, नोदाहरणाद् भिद्यते । यद्युपमानं, प्रमाणेऽन्तर्भावः; अथोदाहरणम्, अवयव इति । न पृथग् दृष्टान्तोऽस्तीति । इदं तूत्तरमप्रतिसमाधेयमिति पश्यामः । कस्मात् ? त्रयस्याप्यपरिज्ञानात् । एवं ब्रुवता न दृष्टान्तो नोपमानं नोदाहरणं विज्ञातमिति । सारूप्यव्युत्पत्त्यर्थं तावदुपमानं न भवतीति वर्णितम् । दृष्टान्तः सारूप्यव्युत्पत्त्यर्थः । असिद्धसाधनार्थो वेति दृष्टान्तो न भवति । उदाहरणार्थमुदाहरणं वर्णयिष्यन्तो वक्ष्याम इति ॥२५॥<br>॥ न्यायपूर्वाङ्गलक्षणप्रकरणम् ॥</div>
+  <div class="tr">（反論）「この実例は、類似性を知らせるためのものか、それとも成立していないことを論証するためのものか。もし類似性を知らせるためのものなら、類比と違わない。もし成立していないことを論証するためのものなら、実例（支分）と違わない。もし類比なら、認識手段に含まれる。もし実例（支分）なら、論証支分（に含まれる）。だから、実例は別個のものとしてはない」。これについての（我々の）答えは、反駁しようがないものだと我々は見る。なぜか。（反論者は）三つとも理解していないからである。そう言う者は、実例も、類比も、実例支分も理解していない。まず、類比が類似性を知らせるためのものではないことは（すでに）説明した。実例は類似性を知らせるためのものである。また、実例は成立していないことを論証するためのものではない。実例支分の目的は、実例支分を説明するときに述べよう。（第二十五スートラ）<br>論証の前提の定義のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>実例は、類比（第二プラカラナ §17）や、論証式の第三支分である実例支分（<i>udāharaṇa</i>）と何が違うのか。Uddyotakara は、類比の結果は「類似性」ではなく「名称と対象の関係」だった（だから類似性を知らせる実例とは違う）、と第二プラカラナの議論を使って答えます。そして実例支分は、実例を論証式の中で用いる言葉であって、実例そのものとは別だ、と予告して、第四プラカラナを閉じます。実例支分の議論は、第六プラカラナ（スートラ 1.1.36–37）で行われます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「これについての答えは反駁しようがない」を「これにはこの答えがあり、それには反駁がない、と我々は見る」と訳し、「実例支分の目的は、実例支分を説明するときに述べる」について NS 1.1.36 を参照させています（Hi. p.241）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>saṃśaya / vimarśa</dt><dd>疑い／揺れ動く考察。二つの選択肢の両方に触れるかのような状態</dd>
+    <dt>samānadharma / anekadharma</dt><dd>共通の性質／固有の性質（多くのものから区別する性質）</dd>
+    <dt>vipratipatti</dt><dd>見解の対立。矛盾する主張</dd>
+    <dt>upalabdhyanupalabdhyavyavasthā</dt><dd>認識と非認識が定まらないこと。見えても実在しないことがあり（蜃気楼の水）、見えなくても実在することがある（地中の水）</dd>
+    <dt>viśeṣāpekṣā / viśeṣasmṛti</dt><dd>特殊を求めること／特殊の想起</dd>
+    <dt>upapatti</dt><dd>把握。ここでは認識の意味</dd>
+    <dt>sādhāraṇa / asādhāraṇa</dt><dd>共有された（性質）／共有されない（性質）</dd>
+    <dt>vyabhicāra / avyabhicāra</dt><dd>逸脱／非逸脱。疑いと決定を分けるもの</dd>
+    <dt>viruddhāvyabhicārin</dt><dd>互いに矛盾しながらどちらも逸脱しない（二つの論証因）。のちの「相違決定」</dd>
+    <dt>sapratigha / apratigha</dt><dd>抵抗をもつ／もたない。他のものが同じ場所を占めるのを妨げるかどうか</dd>
+    <dt>dharma / dharmin</dt><dd>性質／有法（性質の担い手）</dd>
+    <dt>vibhāgaja / vibhāgajavibhāga</dt><dd>分離から生じる／分離から生じる分離</dd>
+    <dt>viparyaya</dt><dd>誤認。疑いと違って吟味を始めさせない</dd>
+    <dt>prayojana</dt><dd>目的。楽の獲得と苦の回避</dd>
+    <dt>dṛṣṭānta</dt><dd>実例。論者双方の理解が一致する対象</dd>
+    <dt>udāharaṇa / upamāna</dt><dd>実例支分（論証式の第三支分）／類比（認識手段）</dd>
+    <dt>laukika / parīkṣaka</dt><dd>世間の人々／吟味する者（学者）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR テキストには誤りが多いため、Śrīnivāsa Śāstrī のヒンディー訳（<i>Nyāya Vārtika of Udyotakara</i>, Part 1, Ghaziabad: Indo-Vision, 1986）に収められた本文と照合して、明らかな誤りを直した。直した箇所のうち意味に関わるものは「解釈の分かれる箇所」に記した。頁番号は Thakur 版、写本略号（C、J、K）は Thakur 版の脚注による。Thakur 版は Bhāṣya を載せないので、Vārttika が引く Bhāṣya の文は解説で要約・訳出した。</p>
+  <p>和訳は試訳である。解説はヒンディー訳の訳文と注に大きく拠っている。TṬ（Vācaspati Miśra『タートパリヤ・ティーカー』）の説と頁数、反論者の特定は、ヒンディー訳の注が引くものを紹介したもので、TṬ や仏教・ヴァイシェーシカの原典そのものは参照していない。ヒンディー訳の頁は、OCR テキストの頁表示が欠けている箇所では前後から推定した。後代の論理学との比較など、本文やヒンディー訳にない補足は、そうと分かるように書いた。このページが扱うのは第4プラカラナ（スートラ 1.1.23–25）である。第3プラカラナ（スートラ 1.1.9–22）は<a href="nyayavarttika-3-taiyaku.html">第3プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
