@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 16</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-15-taiyaku.html">← プラカラナ15</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>全体は疑わしいか</a></li><li><a href="#s2"><b>2</b>結合は別のものか</a></li><li><a href="#s3"><b>3</b>非別体論の論証を退ける</a></li><li><a href="#s4"><b>4</b>原子と重さ</a></li><li><a href="#s5"><b>5</b>全体がなければ何も知られない</a></li><li><a href="#s6"><b>6</b>軍隊と森</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第16プラカラナ「全体の吟味」（スートラ 2.1.34–37、Thakur 版 pp.208–237）</span>
+  <p>前の章で、木の知覚は、部分とは別の「全体」（<i>avayavin</i>）があってこそ成り立つ、と論じられました。では、その全体は本当にあるのか。布は糸とは別のものなのか。この章は、ニヤーヤ・ヴァイシェーシカの存在論の柱である「全体」の存在を、仏教などの論者に対して論証する、Vārttika の中でもとくに長い章です。</p>
+  <p>Uddyotakara は、まず「布は糸と別ではない」という論証を十ほど取り上げ、それぞれが理由の不足・不共・矛盾などの誤りをもつことを示します。その途中で、「結合」（<i>saṃyoga</i>）が独立した性質であること、原子は知覚されないこと、全体にも固有の重さがあることなど、関連する論点も次々に論じます。そのうえでスートラに従い、全体がなければ何も知覚されない、引っぱったり支えたりできない、「一つ」「大きい」という知が成り立たない、と論証します。最後に Uddyotakara 自身が「この話は書物をきわめて長くするので、ここでやめる」と結んでいます。</p>
+  <p>章がきわめて長いので、原文は論点ごとに要点を抜き出しました（「……」）。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>全体の吟味の章<br><small><i>avayaviparīkṣāprakaraṇa</i>。スートラ 2.1.34–37 の注釈。Thakur 版 pp.208–237</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.1.34–37<br><small>全体への疑い（34）、すべてが知られなくなる（35）、支えと引き（36）、軍隊と森の反論と答え（37）</small></dd></div>
+    <div><dt>論敵</dt><dd>全体を認めない論者<br><small>ヒンディー訳の注は仏教（集合説）とサーンキヤとする</small></dd></div>
+    <div><dt>見どころ</dt><dd>天秤に二つの塊を載せると<br><small>§4。全体に固有の重さがあるなら、結びついた二つの塊は別々のときより重くなるはずでは？</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.545–620 ごろ</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.210</span> は Thakur 版の頁。節見出しの <span class="pg">pp.208–209</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。長い議論は要点を抜き出した（<span class="ia">……</span>）</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.1.34–37 の注釈を、テキストの順に6節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">全体は疑わしいか</a></td><td class="num">pp.208–209</td><td>スートラ 2.1.34。「別のものは部分ではない」という論証の誤り</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">結合は別のものか</a></td><td class="num">pp.209–215</td><td>「特定の配置」とは何か。結合の実在。磁石の喩え。「ここに」という知</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">非別体論の論証を退ける</a></td><td class="num">pp.215–219</td><td>「部分の自体」「別の実体から生じる」「同じ場所に生じる」など一連の論証</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">原子と重さ</a></td><td class="num">pp.219–227</td><td>原子は知覚されるか。集合した原子。結合も分離もない。天秤と重さ</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">全体がなければ何も知られない</a></td><td class="num">pp.227–229</td><td>スートラ 2.1.35–36。すべての認識の否定。支えることと引くこと</td></tr>
+<tr><td class="num">§6</td><td class="k"><a href="#s6">軍隊と森</a></td><td class="num">pp.229–237</td><td>スートラ 2.1.37。「一つ」「大きい」「結合した」の知。普遍の拠り所。原子という語</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>全体は疑わしいか</h2><span class="sub"><span class="pg">pp.208–209</span>スートラ 2.1.34。「別のものは部分ではない」という論証の誤り</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.208–209 · NS 2.1.34</span>
+  <div class="src deva" lang="sa">साध्यत्वादवयविनि सन्देहः ॥२।१।३४॥<br>कारणेभ्यो द्रव्यान्तरमुत्पद्यत इति साध्यमेतत् । किं पुनरत्र साध्यम्—किमव्यतिरेकोऽथावयवीति ? यद्यवयवी, न लिङ्गमस्ति धर्मिणि विप्रतिपत्तेः । …… न च धर्मिणि विप्रतिपत्तेर्बीजमस्ति, सादृश्याभावात् । …… अथाव्यतिरेकः साध्यः ? तत्राव्यतिरेकप्रतिपादकं प्रमाणं वक्तव्यम्, न ह्यप्रामाणिकी काचित् प्रतिपत्तिरस्ति । इदं प्रमाणमर्थान्तरानवयवत्वम्—अर्थान्तरमर्थान्तरस्यावयवो न भवति, यथा न गौरश्वावयवः । अवयवाश्च तन्तवोऽवयवी च पटः, तस्मान्नासौ तेभ्योऽर्थान्तरमिति ।</div>
+  <div class="tr">（反論）「（全体は）論証されるべきものなので、全体については疑いがある」。<br>「原因から別の実体が生じる」というのは論証されるべきことである。では、ここで論証されるべきものは何か。（部分と全体の）非別体か、それとも全体か。もし全体なら、（それを疑わせる）証拠はない。有法について見解の相違があるからである。……また、有法について見解の相違が生じる根拠もない。類似性がないからである。……では、非別体が論証されるべきものか。それなら、非別体を知らせる認識手段を述べなければならない。認識手段によらない理解はないからである。（反論者）「その認識手段とは、『別のものは部分ではないこと』である。あるものは、それとは別のものの部分ではない。牛は馬の部分ではないように。そして糸は部分であり、布は全体である。だからそれ（布）はそれら（糸）とは別のものではない」。</div><div class="exp"><span class="lbl">解説</span><p>スートラは、全体はまだ論証されていないので疑わしい、という反論から始まります。Uddyotakara はまず、何が論証されるべきかを問います。全体の存在を疑うなら、疑いの根拠が要る。逆に「部分と全体は別ではない」（非別体）を主張するなら、その論証が要る。そこで、反論者の論証が一つずつ取り上げられます。最初の論証は、「牛が馬の部分でないように、別のものは部分にならない。糸は布の部分だから、布と別ではない」というものです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、これを反論者のスートラとし、ここでの反論者はサーンキヤ（だけでなく）仏教徒でもある、と注します（OCR が乱れていて、「サーンキヤではなく仏教徒」とも読めます）。続いて Vācaspati による仏教の立場の説明を要約します。対象は知（<i>saṃvid</i>）によって確定され、知はそれに形（<i>ākāra</i>）を与えるものだけを確定する。全体の形は決して現れないので、「全体」とは集合（<i>saṃghāta</i>）にすぎない、というものです（Hi. p.545）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">p.209</span>
+  <div class="src deva" lang="sa">इदं तावद् यथाश्रुति वाक्यं हेतुहीनम् । …… ननु चोपनयेन व्यज्यमानो हेतुरवयवत्वमस्ति, नार्थान्तरं पटात् तन्तवस्तदवयवत्वादिति । न, व्याघातात् । अनर्थान्तरभावे नावयवत्वं तन्तूनां सिध्यति । किं कारणम् ? अवयव्यपेक्षत्वात् । अवयव्यपेक्षो ह्यवयवः । …… नार्थान्तरं पटात् तन्तव इति च तन्तून् पक्षीकृत्य तदवयवत्वादिति ब्रुवाणस्तन्तूनां तन्त्ववयवत्वं ब्रवीति, एतच्च विरुद्धम् । …… अवयवशब्दस्य च कारणविशेषवाचकत्वादसत्यवयविनि व्याघातः । यद्यवयविनमर्थान्तरं न प्रतिपद्यसे, कस्य तन्तवः कारणम् ? न हि कारणमात्मानं निर्वर्तयतीति ।</div>
+  <div class="tr">まず、この文は、聞こえるとおりには理由を欠いている。……（反論）「適用（の支分）によって示される理由として、『部分であること』がある。『糸は布と別ではない。その部分だから』と」。そうではない。（自己）矛盾だからである。別でないなら、糸が部分であることは成り立たない。なぜか。（部分は）全体に依存するからである。部分は全体に依存する。……また、糸を主題として「糸は布と別ではない。その部分だから」と言う者は、糸が糸の部分であると言っていることになり、これは矛盾である。……また、「部分」という語は特定の原因を表すので、全体がないなら矛盾である。全体を別のものと認めないなら、糸は何の原因なのか。原因が自分自身を生み出すことはないからである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の反論は、この章で何度も繰り返される型をもっています。①論証式に理由が明示されていない（理由の不足）。②補って得られる理由は、別のものにも別でないものにも見られないので、肯定的随伴も否定的随伴もない（不共）。③理由が主張と矛盾する（矛盾）。とくに「部分」という語は「全体の部分」という相関語なので、全体を否定しながら「糸は部分だ」と言うのは自己矛盾だ、というのが要点です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「部分」の語の議論について、紡ぎ手の籠に入っている糸は布の部分ではない、という例を添えます。また、「『部分』という語は特定の原因を表すので」の箇所は繰り返しではない、と注します。最初の論駁は「部分」と「全体」を相関語として扱い、こちらは「部分」を原因として扱っている、という区別です（Hi. pp.546–548）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>結合は別のものか</h2><span class="sub"><span class="pg">pp.209–215</span>「特定の配置」とは何か。結合の実在。磁石の喩え。「ここに」という知</span></div>
+<div class="mula" id="u3">
+  <span class="ref">pp.209–211</span>
+  <div class="src deva" lang="sa">नैव हि नः किञ्चिन्निर्वर्त्यमस्ति । त एव हि तन्तवः संस्थानविशेषावस्थाः पटाख्यां लभन्त इति । …… यच्चेदमुच्यते संस्थानविशेषावस्थानमिति, किं तदर्थान्तरमाहो नेति ? यद्यर्थान्तरभूतं किं तदिति वक्तव्यम् । अथ नार्थान्तरम्, शून्यं तर्हीदं वाक्यम् । अस्माकं तु संस्थानविशेषः संयोगः, स चार्थान्तरम् । न, अनभ्युपगमात् । न मयार्थान्तरं संयोगः प्रतिपद्यते, अन्यासंयोगादिति । …… यदि चार्थान्तरं संयोगो न स्यात्, क्षेत्रोदकबीजाग्नीन्धनानि सर्वत्रावस्थितानि सर्वदाङ्कुरपाकजादिकार्यं कुर्युः, तान्येव तानीति । तस्माद् यस्तैरपेक्ष्यते सोऽर्थोऽन्यः, तस्मिन् संयोग इति संज्ञेति ।</div>
+  <div class="tr">（反論者）「我々には、（糸によって）生み出されるべきものは何もない。まさにその糸が、特定の配置の状態にあって、『布』という名を得るのである」。……また、「特定の配置の状態」と言われるが、それは（糸とは）別のものか、そうでないか。もし別のものなら、それは何かを言わなければならない。もし別のものでないなら、この「特定の配置の状態」という文は空虚である。我々にとっては、特定の配置とは結合であり、それは別のものである。（反論者）「そうではない。（私はそれを）認めないからである。私は結合を別のものとは認めない。別のものは（それと）結合しないからである」。……もし結合が別のものでなかったら、畑・水・種・火・薪は、どこにでもあるのだから、いつでも芽や（火で）焼けたものなどの結果を生み出すだろう。それらはそれら（同じもの）なのだから。だから、それらが必要とするものは別のものであり、それに「結合」という名がある。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、布とは「特定の配置にある糸」にすぎないと言います。Uddyotakara は、その「配置」とは何かと問います。ニヤーヤ・ヴァイシェーシカでは、配置とは糸どうしの結合（<i>saṃyoga</i>）という独立した性質です。種と畑と水は世界のどこにでもありますが、芽が出るのは、種が畑の土と水に結合したときだけです。だから、もの以外に「結合」というものがある、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、この部分に「サーンキヤの反論」という見出しを付けています。結果は原因の中にすでにあると説く（<i>satkāryavāda</i>）サーンキヤでは、なかったものが生じることはないので、「生み出されるべきもの」はない、という趣旨だと注します。「別のものは結合しない（二本の指は結合するが、牛と馬は結合しない）」という反論も、サーンキヤのものとしています（Hi. pp.548–551）。</p></div></div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">pp.211–212</span>
+  <div class="src deva" lang="sa">यत् त्वत्र परेणोच्यते—कार्योत्पत्तिर्विना तेन शब्दायस्कान्तकर्मवत् ॥ इति । अस्यार्थः—यथा किल शब्दः शब्दान्तरमारभमाणो विना संयोगेनारभते, यथा चायस्कान्तोऽयः समाकर्षति विना संयोगेन, यथा च कर्म संयोगं संयोगेन विना करोति, तथान्यापि कार्योत्पत्तिर्विना संयोगेन भविष्यतीति । न, हेत्वर्थापरिज्ञानात् । न ब्रूमोऽस्ति संयोगः कार्योत्पत्तेः, अपि तु क्षेत्रोदकबीजाग्नीन्धनानि सापेक्षाणीति । …… अयस्कान्तोऽप्ययः समाकर्षति स्वाश्रयप्रत्यासत्त्यपेक्ष एव । यदि च निरपेक्ष आकर्षेत, न क्वचिदयांस्यवतिष्ठेरन् । …… यद्यनपेक्षं कर्म संयोगं कुर्यात्, पाण्ड्यमथुरासम्बन्धिनि देवदत्ते उत्पन्नं कर्म तक्षशिलासम्बन्धिनि यज्ञदत्ते संयोगं कुर्यात् ।</div>
+  <div class="tr">ここで相手は言う。「結果の生起は、それ（結合）なしにある。音・磁石・運動のように」。その意味は（こうである）。「音は、別の音を生み出すとき、結合なしに生み出す。磁石は、結合なしに鉄を引き寄せる。運動は、結合なしに結合を生む。同じように、ほかの結果の生起も、結合なしにあるだろう」。そうではない。（我々の）理由の意味を理解していないからである。我々は、結果の生起には結合がある、と言うのではなく、畑・水・種・火・薪は（ほかのものを）必要とする、と（言うのである）。……磁石が鉄を引き寄せるのも、自分の場所との近さを必要としてである。もし（近さを）必要とせずに引き寄せるなら、鉄はどこにもとどまっていられないだろう。……もし運動が（何も）必要とせずに結合を生むなら、南のマドゥラーにいるデーヴァダッタに生じた運動が、（北の）タクシャシラーにいるヤジュニャダッタに結合を生むことになるだろう。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、結合なしに結果が生じる例として、音（音は次の音を生む）、磁石（触れずに鉄を引く）、運動（運動は結合を生むが、それ自体は結合を必要としない）を挙げます。Uddyotakara は、自分の論点は「何かを必要とする」ことであって、すべての原因が結合を必要とするとは言っていない、と答えます。磁石も、ある範囲に近づいたときにだけ鉄を引く。そうでなければ、世界中の鉄が一つの磁石に引き寄せられてしまう、という答えは印象的です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「結果の生起は、それなしにある」という詩節を「他の人（サーンキヤ）によって」言われたものと訳しますが、出典は示していません。また、「南のマドゥラーにいるデーヴァダッタ」を「パーンディヤ（国）とマドゥラーにいるデーヴァダッタ」と二つの場所のように訳しています。Vārttika が続けて引くヴァイシェーシカ・スートラ（1.1.17）「運動は一つの実体にあり、性質をもたず、結合と分離の、（ほかを）必要としない原因である」について、「必要としない」とは「最後に生じる別の原因を必要としない」意味だ、と注します（Hi. pp.551–555）。</p></div></div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">pp.212–213</span>
+  <div class="src deva" lang="sa">अथ मन्यसे परमतव्यपेक्षोऽयं संयोगविभागकर्मणां प्रतिषेधः, नास्माभिः संयोगविभागकर्माण्यभ्युपगम्यन्त इति, एवमप्यनिवृत्तो व्याघातः । …… अथ ब्रूषे यानि भवताभ्युपगम्यन्ते संयोगविभागकर्माणि तानि न सन्ति, न पुनः संयोगविभागकर्मणां प्रतिषेधः । कथम् ? देशान्तरेऽविरलद्रव्योत्पादे गतिव्यवहारः । यः सन्तानोऽविरलो देशान्तरेषूत्पद्यते तत्र गतिव्यवहारः । निरन्तरोत्पादे संयोगव्यवहारः । …… विपर्ययाद् विभाग इति । अत्र तावदुक्तं वृक्षस्थितिं भावयद्भिः, न, प्रमाणाभावादिति । न हि क्षणिकत्वे प्रमाणमस्तीति । सान्तरनिरन्तरबुद्ध्योश्च निमित्तं वक्तव्यम् । …… यदि चार्थान्तरं संयोगो न स्यात्, कुण्डलीति बुद्धेः किं निमित्तम् ?</div>
+  <div class="tr">もしあなたが、「この結合・分離・運動の否定は、他派の説を念頭に置いたものであり、我々は結合・分離・運動を（あなたがたの言う意味では）認めない」と考えるなら、それでも矛盾はなくならない。……もしあなたが、「あなたがたの認める結合・分離・運動はない、と言うのであって、結合・分離・運動（という言語活動）そのものを否定するのではない。どのようにか。別の場所に途切れなく（新しい）実体が生じることについて、『動く』という言語活動がある。途切れない連続が別々の場所に生じるところで、『動く』という言語活動がある。（二つのものが）間をおかずに生じることについて、『結合』という言語活動がある。……その逆が『分離』である」と言うなら。これについては、木の存続を論じたときに、「そうではない。認識手段がないからである」と述べた。刹那滅性については認識手段がないからである。また、「間がある」「間がない」という知の根拠を述べなければならない。……もし結合が別のものでなかったら、「耳飾りをつけた人」という知の根拠は何か。</div><div class="exp"><span class="lbl">解説</span><p>刹那滅論者は、運動とは、ものが刹那ごとに少しずつ違う場所に生まれ変わっていくことだ、と考えます。結合とは二つのものが隣り合って生まれること、分離とは離れて生まれることです。Uddyotakara は、刹那滅には証拠がないことをすでに述べた（第十三プラカラナ §3）と答え、さらに「耳飾りをつけた人」（<i>kuṇḍalin</i>）という知は、耳飾りだけからも人だけからも生じないので、両者の結合が根拠でなければならない、と論じます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī の所収本文は「途切れなく」（<i>avirala</i>）ではなく「まばらに」（<i>virala</i>）と読み、「別の場所に、ところどころ実体が生じることについて『動く』という言語活動がある」と訳しています。反論者は刹那滅論者とし、木の存続の論証（第十三プラカラナ）を参照させています。「耳飾りをつけた人」の知の根拠については、Vārttika の議論を「（耳飾りという）肯定されるか否定されるかの根拠」として整理しています（Hi. pp.555–557）。</p></div></div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">pp.214–215</span>
+  <div class="src deva" lang="sa">इहबुद्धिनिमित्तत्वाच्च । इयमिहबुद्धिः प्रवर्तमाना नर्ते संबन्धात् प्रवर्तते, यथेह कुण्डे बदराणीति । …… दूराच्छान्तरमपश्यतां किंकृतेहबुद्धिः ? …… न, इहबुद्धेरुभयनिमित्तत्वात् । उभयमिहबुद्धेर्निमित्तं संयोगो विभागादर्शनं च । तत्रैका मुख्या, एका भाक्ता । …… यत् पुनरेतदसति संबन्धेऽस्य द्रव्यस्येह समवाय इतीहबुद्धिर्न प्राप्नोति । …… वाक्यधर्मभेदाच्चानियमः । …… तथेह द्रव्ये द्रव्यस्य समवाय इति ब्रुवाणेनोक्तं भवति द्रव्यं द्रव्ये वर्तत इति । …… तस्मादुपपन्नमर्थान्तरं संयोग इति । तदुपपत्तौ च न संस्थानविशेषेणावस्थितास्तन्तवः पटबुद्धेः कारणं भवन्तीति ।</div>
+  <div class="tr">また、「ここに」という知の根拠だからである。この「ここに」という知は、関係なしには生じない。「ここに、鉢の中に、なつめがある」のように。……（反論）「遠くから、間を見ずに（『ここ、森に、ティラカの木がある』と言うとき）、『ここに』という知は何による（のか。そこに結合はない）」。そうではない。「ここに」という知には二つの根拠があるからである。結合と、分離が見えないことと、二つが「ここに」という知の根拠である。そのうち一つは本来のもので、一つは転用である。……（反論）「関係がないのに、『この実体の内属がここにある』という『ここに』の知は（あなたの説では）ありえない（内属の内属はないから）」。……文の性質の違いによって、決まりはない。……「この実体に、実体の内属がある」と言う者は、「実体が実体にある」と言っているのである。……だから、結合が別のものであることは成り立つ。そしてそれが成り立つので、特定の配置にある糸が布の知の原因になるのではない。</div><div class="exp"><span class="lbl">解説</span><p>「鉢になつめがある」の「ここに」という知は、鉢となつめの関係（結合）を根拠にします。遠くの森を見て「ここにティラカの木がある」と言うときは、木と森が離れているのが見えないことによる転用です。Uddyotakara は、転用は本来の用法を前提とする、という原則をここでも使います。こうして結合が独立した性質だと論証されたので、「布とは特定の配置にある糸のことだ」という説は成り立たない、と §2 を結びます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「ここに」の知の根拠として、結合のほかに内属（<i>samavāya</i>）も挙げられる、と注し、「ここ、森にティラカの木がある」では森と木の関係は内属だ、と補います。Vārttika 自身は「結合はないが関係はある」と言い、森を「限定された多数性」と説明しているだけです。また、<span lang="sa" class="deva">उत्तराधरानपेक्षेण</span> は <span lang="sa" class="deva">उत्तराधरापेक्षेण</span> と読むほうがよい、と提案しています（Hi. pp.557–561）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>非別体論の論証を退ける</h2><span class="sub"><span class="pg">pp.215–219</span>「部分の自体」「別の実体から生じる」「同じ場所に生じる」など一連の論証</span></div>
+<div class="mula" id="u7">
+  <span class="ref">pp.215–219</span>
+  <div class="src deva" lang="sa">तत्प्रदेशात्मकत्वादिति चेत् ? …… अनर्थान्तरं पटात् तन्तवस्तत्प्रदेशव्यपदेशविषयत्वात् । इह ये यस्य प्रदेशत्वेन व्यपदिश्यन्ते ते तस्यात्मानो भवन्ति, यथाकाशस्य प्रदेशाः । …… द्रव्यान्तरेभ्यो द्रव्यान्तरानिष्पत्तेर्नान्योऽवयव्यवयवेभ्यः । न किल द्रव्यान्तरेभ्यो द्रव्यान्तरमुत्पद्यमानं दृष्टम्, न हि गोहस्त्यश्वेभ्यः पुरुष उत्पद्यते । …… नान्योऽवयव्यवयवेभ्यो द्रव्यान्तरोत्पत्तिदेशव्युच्छेदात् । यदुभयपक्षसंप्रतिपन्नमर्थान्तरत्वेन तत् तस्माद् भिन्नदेशमुत्पद्यमानं दृष्टम्, यथा गौरश्वात् । …… नान्योऽवयव्यवयवेभ्यः सत्यन्यकर्तुरर्थान्तरभावात् । …… नान्योऽवयव्यवयवेभ्यः स्वात्मसंयोगव्यतिरेकाभावात् । …… नान्योऽवयव्यवयवेभ्यो द्रव्यान्तरगुणानां द्रव्यान्तरगुणाकारणत्वे ऽगुणत्वप्रसङ्गात् । …… सोऽयमपन्यायो वर्तते । …… तन्तुगुणेभ्यस्तदुत्पत्तेरिति हेतुर्विरुद्धः ।</div>
+  <div class="tr">（反論）「（糸は布の）場所を自体とするから」と言うなら。……「糸は布と別ではない。その（布の）場所と呼ばれるから。あるものの場所と呼ばれるものは、そのものの自体である。虚空の場所のように」。……「別の実体から別の実体が生じることはないので、全体は部分と別ではない。別の実体から別の実体が生じるのは見られない。牛・象・馬から人が生じることはないように」。……「別の実体が生じる場所が（もとの実体と）別でないので、全体は部分と別ではない。両方の立場で別のものと認められるものは、それとは別の場所に生じるのが見られる。牛と馬のように」。……「（もとのものが）あるときに別のものを作るものは別のものであるが、（そうでないから）全体は部分と別ではない」。……「自分の結合と別にあることがないので、全体は部分と別ではない」。……「別の実体の性質が別の実体の性質の原因となるなら、性質でなくなってしまうので、全体は部分と別ではない」。……これは誤った論理である。……「糸の性質からそれ（布の性質）が生じるから」という理由は矛盾である。</div><div class="exp"><span class="lbl">解説</span><p>反論者の「布は糸と別ではない」という論証が、次々に取り上げられます。Uddyotakara はそのすべてに、理由の不足・不共・矛盾の三つの誤りを指摘します。たとえば「別の実体から別の実体は生じない（牛や馬から人は生まれない）」という論証の理由「糸から布が生じる」は、糸から糸が生じるのではない以上、むしろ布が糸と別であることを示してしまう（矛盾）。「虚空の場所」の例は、虚空には部分がなく、「虚空の場所」とは結合が虚空の一部にしか及ばないことを言うにすぎないので、例として成り立たない、と退けます。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>反論者の理由</th><th>Uddyotakara の主な指摘</th></tr></thead>
+    <tbody>
+      <tr><td>別のものは部分ではない</td><td>「部分」は全体の相関語。全体の否定と矛盾（§1）</td></tr>
+      <tr><td>布の場所と呼ばれる（虚空の場所のように）</td><td>「場所」は原因の別名。虚空の例は成り立たない</td></tr>
+      <tr><td>別の実体から別の実体は生じない</td><td>糸から布が生じるのだから、かえって別を示す</td></tr>
+      <tr><td>同じ場所に生じる</td><td>「生じる」の意味を否定すれば何も生じない</td></tr>
+      <tr><td>部分の部分ではない</td><td>「部分」「全体」の語が意味を失う</td></tr>
+      <tr><td>あるときに別のものを作らない</td><td>糸が布を作る、と自分で言っている</td></tr>
+      <tr><td>糸の結合と別にない</td><td>結合から生じると言えば、結合も全体も認めたことになる</td></tr>
+      <tr><td>糸の性質から布の性質が生じる</td><td>同じ理由が別体を示す（矛盾）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　非別体論の論証と Uddyotakara の反駁。</b>Thakur 版 pp.208–219 による。</figcaption>
+</figure>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、これらの論証を一つずつ「反論者の説」として訳し、Uddyotakara の反駁がいずれも「理由の不足・不共・矛盾・自己矛盾」の型をとることを注で確認しています。「虚空の場所」の議論では、Vācaspati が「全体とは別のものが『部分』の語の意味であり、場所をもつものとは別のものが『場所』の語の意味である」と読むのに対し、Śāstrī は「部分と場所とは意味が違う」と読んでいます（TṬ p.390）。「同じ場所に生じる」の箇所では、サーンキヤは「生じる」を「顕現する」と解するだろう、と Vācaspati を引きます（TṬ p.390; Hi. pp.561–569）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この部分は同じ型の論駁が続くので、原文は各論証の冒頭だけを抜き出しました。Thakur 版の <span lang="sa" class="deva">द्रव्यान्तरनिष्पत्तेः</span> は、ヒンディー訳所収の本文に従って <span lang="sa" class="deva">द्रव्यान्तरानिष्पत्तेः</span>（生じないので）と直しました。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>原子と重さ</h2><span class="sub"><span class="pg">pp.219–227</span>原子は知覚されるか。集合した原子。結合も分離もない。天秤と重さ</span></div>
+<div class="mula" id="u8">
+  <span class="ref">pp.219–221</span>
+  <div class="src deva" lang="sa">नान्योऽवयव्यवयवेभ्योऽप्रत्यक्षत्वप्रसङ्गात् । प्रत्यक्षाप्रत्यक्षद्रव्यवृत्तित्वादवयव्यप्रत्यक्षः स्याद् यद्यवयव्यर्थान्तरं स्यात् । यथा गर्भमातृशरीरसंयोगः प्रत्यक्षाप्रत्यक्षवृत्तिरप्रत्यक्षः, प्रत्यक्षस्त्ववयवी । …… प्रत्यक्षत्वादिति ब्रुवाणेनावयवव्यतिरिक्तोऽवयव्यभ्युपगतो भवति, परमाणूनामतीन्द्रियत्वात् । …… तस्मादिन्द्रियसन्निकर्षे सत्यपि महत्त्वाभावान्न परमाणव उपलभ्यन्त इति । …… अयं चार्थः सूत्रकारेण सूत्रद्वयेनोक्तः—अद्रव्यत्वात् परमाणावनुपलब्धिः । रूपसंस्काराभावाद् वायावनुपलब्धिः । इति ।</div>
+  <div class="tr">（反論）「知覚されないことになってしまうので、全体は部分と別ではない。もし全体が（部分と）別のものなら、全体は知覚される実体と知覚されない実体とにあるので、知覚されないだろう。胎児と母の身体との結合が、知覚されるものと知覚されないものにあるので知覚されないように。しかし全体は知覚される（だから別ではない）」。……「知覚されるから」と言う者は、部分とは別の全体を認めていることになる。原子は感官を超えるからである。……だから、感官との接触があっても、大きさがないので原子は知覚されない。……そしてこの事柄を、スートラの作者は二つのスートラで述べた。「原子については、多くの実体（部分）をもたないので知覚されない」「風については、色の内属がないので知覚されない」（VS 4.1.7–8）と。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、もし全体が部分とは別なら、見えている部分と見えていない部分（内部や裏側）とにまたがる全体は、母の身体（見える）と胎児（見えない）にまたがる結合が見えないのと同じく、見えないはずだ、と論じます。Uddyotakara は逆に、全体が知覚されると認めるなら、それは部分とは別のものだ、と切り返します。部分を最後まで分けた原子は、大きさがないので、感官に触れても知覚されないからです。目に見えるものがあるなら、それは原子とは別の、大きさをもった全体でなければなりません。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vārttika が反例として挙げる <span lang="sa" class="deva">हिमवत्परमाणुकम्</span> を、Vācaspati に従って「雪の粒からなる微細な実体」と訳しています（TṬ p.391）。素直に読めば「ヒマーラヤ」とも取れる語で、解釈の分かれるところです。また、「三原子体は見えるが二原子体は見えない、森は見えるが一本一本の木は（遠くからは）見えない」という Vācaspati の例を引いています（TṬ p.391; Hi. pp.569–573）。</p></div></div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">pp.221–222</span>
+  <div class="src deva" lang="sa">एके तु वातायनच्छिद्रदृश्यं त्रुटिं परमाणुं वर्णयन्ति । तदयुक्तम्, तस्य भेद्यत्वात् । अभेद्यः परमाणुर्भिद्यते च त्रुटिरिति । …… संहतानामुत्पत्तिनिरोधान्नासंहतः परमाणुरस्तीत्यपरे । अपरे च संहतं परमाणुं वर्णयन्ति—संहता एवोत्पद्यन्ते निरुध्यन्ते च, असंहतास्तु परमाणवो न सन्त्येवेति । तदयुक्तम् …… संघातो हि नाम बहूनामकार्यकारणभूतानां संयुक्तानामवस्थानम् । न चासंहतप्रतिषेधे संघातस्य निमित्तमस्ति, संहन्यमानतन्त्रत्वात् । …… एकप्रतिषेधादनेकाभ्युपगमवत् । यथा नाम कश्चिन्मुग्ध एकप्रतिषेधादनेकमभ्युपेयात्, तस्य चैकप्रतिषेधादनेकं निवर्तते, एकसमुदायत्वादनेकस्य ।</div>
+  <div class="tr">ある人々は、窓の隙間から（差し込む光の中に）見える塵（<i>truṭi</i>）を原子だと説明する。それは正しくない。それは分割されうるからである。原子は分割されえないが、塵は分割される。……別の人々は、「集合したものが生じては滅するので、集合していない原子は存在しない」と言う。別の人々は、原子を集合したものと説明する。「（原子は）集合したものとしてだけ生じ、滅する。集合していない原子は決して存在しない」と。それは正しくない。……集合とは、因果関係にない多くの結合したものがそこにあることである。集合していないもの（個々の原子）を否定すれば、集合の根拠はない。集合は集合されるものに依存するからである。……一つのものを否定して多くのものを認めるのと同じである。ある愚かな人が、一つのものを否定して多くのものを認めるようなものである。その人にとって、一つのものを否定すれば多くのものもなくなる。多くのものは一つのものの集まりだからである。</div><div class="exp"><span class="lbl">解説</span><p>原子をめぐる二つの説が退けられます。一つは、窓から差し込む光の中に舞う塵が原子だという説です。しかし塵は分割できるので、分割できない原子ではありません。もう一つは、原子はつねに集合した形でしか存在しない、という説です。Uddyotakara は、集合とは個々のものの集まりなのだから、個々の原子を否定すれば集合も否定される、と答えます。「一」を否定しながら「多」を認める愚か者の喩えです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、塵を原子とする「ある人々」を「（ミーマーンサー学派？）」と疑問符付きで訳し、ミーマーンサーの説について『マーナメーヨーダヤ』を参照させます（TṬ p.391）。集合した原子を説く「別の人々」も「（仏教徒？）」とし、「色などの集合が原子だというのが仏教徒（？）の説」と、やはり慎重に注しています。塵（<i>truṭi</i>）は「トラサレーヌ（三原子体）」と注します（Hi. pp.574–575）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版の脚注は、写本 J の欄外注として、塵を原子とする「ある人々」をミーマーンサー学派、集合した原子を説く「別の人々」を仏教の一部の論者（<i>Bauddhaikadeśin</i>）としています。</p></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">pp.222–223</span>
+  <div class="src deva" lang="sa">इतश्च नान्योऽवयव्यवयवेभ्यः, संयोगाप्राप्त्यभावात् । यत् खलु यस्मादर्थान्तरं भवति तस्य तेन संयोगो भवत्यप्राप्तिर्वा, यथा गवाश्वस्य । न पुनस्तन्तुभिः पटस्य संयोगो नाप्यप्राप्तिः । …… अथापि सर्पकुण्डलकाद्युदाहरणं स्यात् …… तदसिद्धम् । …… अर्थान्तरभावे च दर्शनाद् विरुद्धः । सत्त्वरजस्तमांसि भवतां पक्षे मिथोऽर्थान्तरभूतानि, तेषां च न संयोगो नाप्राप्तिरिति । प्रधानपुरुषयोश्च न संयोगो नाप्राप्तिरुभयोर्व्यापकत्वादिति विरुद्ध इति ।</div>
+  <div class="tr">（反論）「また、結合も非接触もないので、全体は部分と別ではない。あるものがそれと別のものであるなら、それとの結合か非接触かがある。牛と馬のように。しかし布には、糸との結合も非接触もない（だから別ではない）」。……「蛇のとぐろ（は蛇と別でないのに結合も非接触もない）」などの例があるかもしれないが、……それは成立していない。……また、別のものについてもそれが見られるので、（理由は）矛盾である。あなたがたの立場では、サットヴァ・ラジャス・タマスは互いに別のものであるが、それらには結合も非接触もない。また、根本原質と精神とには、どちらも遍在するので、結合も非接触もない。だから矛盾である。</div><div class="exp"><span class="lbl">解説</span><p>この論証は、サーンキヤ学派のものとして扱われています。「あなたがたの立場では」として、サーンキヤの三つの構成要素（サットヴァ・ラジャス・タマス）や、根本原質と精神が例に挙げられるからです。別のものなら、くっついているか離れているかのどちらかのはずだが、布と糸はどちらでもない、という論証です。Uddyotakara は、サーンキヤ自身が、互いに別でありながら結合も非接触もないものを認めている、と矛盾を突きます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、蛇のとぐろは結合という性質であって、蛇とは別のものだ、と注します。「別のものについてもそれが見られるので矛盾である」の箇所は「あなたの見解（<i>darśana</i>）に反する」と訳しており、素直に「見られるから」と読む和訳とは異なります（Hi. pp.575–576）。</p></div></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">pp.223–227</span>
+  <div class="src deva" lang="sa">नान्योऽवयव्यवयवेभ्यो गुरुत्वान्तरकार्याग्रहणादिति । …… यदि तर्हि गुरुत्वान्तरवत् कार्यद्रव्यं रूपाद्यन्तरवच्च, ततो गुरुत्वान्तरकार्यमुपलभ्येत यथा रूपाद्यन्तरकार्यम्, न तूपलभ्यते । न हि तुलायां विभक्तपिण्डद्वयोपन्यासवत् संबद्धयोरपि कार्यभेदं पश्यामः । …… कारणगुरुत्वैरेव कार्यं पात्यते, न कार्ये गुरुत्वमस्ति । …… न, कार्यकारणयोरसंयोगात् । …… पतन्तु रूपादयोऽपि, किं नो बाध्यत इति चेत्—न, गुरुत्वस्यापि पातप्रसङ्गात् । …… अपरे तु कार्यगुरुत्वेन कारणगुरुत्वप्रतिबन्धं ब्रुवते । …… तस्मादप्रतिषेधोऽयं कार्यगुरुत्वैः कारणगुरुत्वानां विनाशप्रतिबन्धाविति । …… तदेवमवयविनोऽसत्त्वाव्यतिरेकप्रतिपादकं न प्रमाणमस्तीति । अतः साध्यत्वादवयविनि सन्देह इत्ययुक्तम् । …… साध्यत्वकार्यायां विप्रतिपत्तौ साध्यत्वमध्यारोप्योक्तं साध्यत्वादवयविनि सन्देह इति ॥३४॥</div>
+  <div class="tr">（反論）「別の重さの結果が捉えられないので、全体は部分と別ではない。……もし結果である実体（全体）が、（部分とは）別の色などをもつように別の重さをもつなら、別の色などの結果が知覚されるように、別の重さの結果も知覚されるだろう。しかし知覚されない。天秤に、二つの塊を離して載せた場合と、（同じ二つを）結びつけて載せた場合とで、結果（傾き）の違いは見られない」。……（反論）「結果（全体）は原因の重さによって落とされるのであって、結果に重さはない」。……そうではない。結果と原因とは結合していないからである。……（反論）「色なども（全体と一緒に）落ちればよい。何の問題があるのか」と言うなら、そうではない。（そうなら）重さも落ちることになってしまうからである。……また、別の人々は、結果の重さによって原因の重さが妨げられる、と言う。……だから、結果の重さによって原因の重さが滅せられる、あるいは妨げられる、という（説）は否定にならない。……このように、全体が存在しないこと、非別体であることを知らせる認識手段はない。だから、「論証されるべきものなので全体について疑いがある」というのは正しくない。……論証されるべきものであることから見解の相違が生じ、その見解の相違から（疑いが生じる）。（だから）論証されるべきものであることを（疑いの原因として）当てはめて、「論証されるべきものなので、全体について疑いがある」と言われたのである。（第三十四スートラ）</div><div class="exp"><span class="lbl">解説</span><p>重さをめぐる、この章でいちばん具体的な論難です。全体（布）が糸とは別の実体なら、布には糸の重さとは別に布自身の重さがあるはずだ。それなら、布を天秤に載せると、糸の重さの合計より重くなるはずではないか。しかし、粘土の塊を二つ別々に載せても、くっつけて一つにして載せても、天秤の傾きは変わらない。だから全体に固有の重さはなく、全体は存在しない、というのです。</p><p>Uddyotakara の答えは長く、細部は抜き出しにとどめましたが、要点は、全体の重さと部分の重さがどう関係するかをめぐる、いくつもの説明の検討です。結果（全体）は原因（部分）と結合しているのではなく内属しているので、全体が落ちるのは全体自身の重さによるはずだ。結果の重さが原因の重さを妨げたり滅したりするという別の説も成り立たない。最終的に、全体が存在しないと示す認識手段はない、とスートラ 2.1.34 の注釈を結びます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、天秤の議論を、[一部の論者による論駁]・[一部の論者の説の論駁]・[本来の論駁] と見出しを付けて区切っています。「別の人々は、結果の重さによって原因の重さが妨げられると言う」については、「これが誰の説かは明らかにできなかった」と注し、Vārttika が「それは言われた」と引く言葉についても「出典は見つからなかった」と注しています。最終的に正しい答えは、全体の重さと部分の重さの量が確定されないこと（不定）だけだ、という Vārttika の結論を確認しています（Hi. pp.577–588）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストでは Thakur 版 p.224 の本文が欠落しています（END_OF_PAGE_238 と 239 が続いている）。この部分は天秤の傾き（<i>avanamana</i>）の議論の途中です。ヒンディー訳所収の本文によって補うべき箇所ですが、ここでは抜き出しにとどめました。</p></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>全体がなければ何も知られない</h2><span class="sub"><span class="pg">pp.227–229</span>スートラ 2.1.35–36。すべての認識の否定。支えることと引くこと</span></div>
+<div class="mula sutra" id="u12">
+  <span class="ref">pp.227–228 · NS 2.1.35</span>
+  <div class="src deva" lang="sa">सर्वाग्रहणमवयव्यसिद्धेः ॥२।१।३५॥<br>संशयापाकरणार्थं सूत्रम् …… सर्वेषामर्थानामग्रहणं प्रसज्येत यद्यवयव्यर्थान्तरभूतोऽवयवेभ्यो नास्तीति । कथमिति ? परमाणवस्तावद् दर्शनविषयभावं न प्रतिपद्यन्ते, अतीन्द्रियत्वादित्युक्तम् । अवयविद्रव्याणि च भवद्भिर्न प्रतिपद्यन्ते । तदनभ्युपगमे च योऽयं द्रव्यप्रत्ययः कुम्भ इति, गुणप्रत्ययः श्याम इति, क्रियाप्रत्ययश्चलतीति, सामान्यप्रत्ययोऽस्तीति, विशेषप्रत्ययः कलश इति, समवायप्रत्यय इह घटे रूपादय इति, तथान्येऽपि प्रत्यया एको महान् संयुक्तो विभक्तः पृथक् परोऽपर इति च न स्युः । …… अथ वा सर्वाग्रहणमिति सर्वैः प्रमाणैरग्रहणम् । …… सोऽयं सर्वाकारो विरोधो लोकपरिदृष्टप्रत्ययोच्छेद इति ॥३५॥</div>
+  <div class="tr">（答え）全体が成立しないなら、すべてが捉えられなくなる。<br>（前の）疑いを取り除くためのスートラである。……もし部分とは別の全体がないなら、すべての事物が捉えられなくなってしまう。どのようにか。まず、原子は見えるものにはならない。感官を超えるからだ、と述べた。そして、あなたがたは全体である実体を認めない。それを認めなければ、「壺」という実体の知、「黒い」という性質の知、「動く」という運動の知、「ある」という普遍の知、「水差し」という特殊の知、「ここ、壺に色などがある」という内属の知、また「一つ」「大きい」「結合した」「分離した」「別の」「遠い」「近い」という他の知も、なくなってしまうだろう。……あるいは、「すべてが捉えられない」とは、すべての認識手段によって捉えられない、ということである。……これは、世間で見られる知を断ち切るという、あらゆる形の矛盾である。（第三十五スートラ）</div><div class="exp"><span class="lbl">解説</span><p>スートラ 2.1.35 は、全体がなければ、原子は見えないので、何も見えなくなる、と論じます。壺を見る、黒いと見る、動くと見る、といったすべての知覚は、大きさをもった全体を前提しています。知覚がなければ推理などもなくなるので、すべての認識手段がはたらかなくなる、というのが第二の解釈です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「すべてが捉えられない」について、Vārttika が「すべての事物が捉えられない」と「すべての認識手段によって捉えられない」の二つの解釈を示している、と注します。「水差し」を特殊の知の例とするのは、Uddyotakara が「普遍でもあり特殊でもあるもの」を考えていたからだろう、とも注します（Hi. pp.587–590）。</p></div></div>
+</div>
+<div class="mula sutra" id="u13">
+  <span class="ref">pp.228–229 · NS 2.1.36</span>
+  <div class="src deva" lang="sa">धारणाकर्षणोपपत्तेश्च ॥२।१।३६॥<br>अवयव्यर्थान्तरभूत इति चार्थः । किमिदं धारणं नाम ? एकदेशग्रहणसाहचर्ये सत्यवयविनो देशान्तरप्राप्तिप्रतिषेधो धारणम् । …… आकर्षणं नामैकदेशग्रहणसाहचर्येण यदवयविनो देशान्तरप्रापणम् । …… यत् त्वत्रोक्तम्—संग्रहकारिते वै धारणाकर्षणे नावयविकारिते, पांशुराशिप्रभृतिष्वभावात्, तृणोपलकाष्ठादिषु जतुसंगृहीतेषु दर्शनादिति । तन्न, अनवधारणात् । …… यानि तानि तृणोपलकाष्ठानि जतुसंगृहीतान्याकृष्यन्ते धार्यन्ते चेति मन्यसे, अवयविन एव ते । …… अथावयविनं प्रत्याचक्षाणको मा भूत् प्रत्यक्षलोप इत्यणुसञ्चयं दर्शनविषयं प्रतिजानानः किमनुयोक्तव्य इति ? एकबुद्धिविषयं पर्यनुयोज्यः । येयं बुद्धिरेकमिदं द्रव्यमिति, किमियं नानाविषयोताभिन्नविषयेति ? …… अथाभिन्नार्थविषया, योऽसावेकबुद्धिविषयः सोऽवयवीति ॥३६॥</div>
+  <div class="tr">また、支えることと引くことが成り立つからである。<br>「全体は（部分とは）別のものである」というのが（スートラの）意味である。「支える」とは何か。（ものの）一部をつかむことにともなって、全体が別の場所に移るのを妨げることが、支えることである。……「引く」とは、一部をつかむことにともなって、全体を別の場所に移すことである。……ここで（相手は）言った。「支えることと引くことは、まとまり（<i>saṃgraha</i>）によって起こるのであって、全体によって起こるのではない。砂の山などにはそれがなく、松脂でまとめられた草・石・木などにはそれが見られるからである」。それは正しくない。（我々は）限定していないからである。……あなたが、松脂でまとめられて引かれたり支えられたりすると考える草・石・木は、まさに全体なのである。……では、全体を否定しながら、知覚がなくなってはまずいので、原子の集まりが見られるものだと主張する者に、何を問いただすべきか。「一つ」という知の対象を問いただすべきである。「これは一つの実体だ」というこの知は、多くのものを対象とするのか、別れていないものを対象とするのか。……もし別れていないものを対象とするなら、その「一つ」という知の対象が全体である。（第三十六スートラ）</div><div class="exp"><span class="lbl">解説</span><p>棒の端をつかんで引けば、棒全体が動きます。部分の寄せ集めにすぎないなら、つかんだ部分だけが動くはずです。砂の山の一部をつかんでも山全体は動かないのは、砂の山は全体ではないからです。反論者は、松脂で固めた草や石のかたまりも引けば全体が動くので、「まとまり」があれば十分で全体は要らない、と言います。Uddyotakara は、そのかたまりこそ全体なのだ、と答えます。最後に、「一つのもの」という知の対象こそ全体だ、という次のスートラへの論点が導入されます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「まとまり」（<i>saṃgraha</i>）を「結合とともにある別の性質」と訳し、焼く前の壺では水との結合から、焼いた壺では火との結合から生じる、と注します。Vārttika の「それらはまさに全体である」について、Vācaspati は「（松脂でまとめた束全体ではなく）草・石・木の一つ一つが全体だ」と読むと紹介します（TṬ p.395）。そのうえで、ガンガーナート・ジャーは、松脂でまとめた草の束には全体がないと見るが、Vārttika をよく読むと、束にも全体があると読めるのではないか、と自分の読みを示しています。「一つ」の知を問いただす相手は「仏教徒、とくに集合説の仏教徒」と注します（Hi. pp.589–593）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>軍隊と森</h2><span class="sub"><span class="pg">pp.229–237</span>スートラ 2.1.37。「一つ」「大きい」「結合した」の知。普遍の拠り所。原子という語</span></div>
+<div class="mula sutra" id="u14">
+  <span class="ref">pp.229–231 · NS 2.1.37</span>
+  <div class="src deva" lang="sa">सेनावनवद् ग्रहणमिति चेन्नातीन्द्रियत्वादणूनाम् ॥२।१।३७॥<br>…… अथ मन्यसेऽसत्यर्थान्तरभावेऽसति चैकानेकविभेदे दृष्टो बुद्धिविशेषो यथान्या सेनाबुद्धिरन्या गजादिबुद्धय इति, तथान्या धवादिबुद्धयोऽन्या च वनबुद्धिरिति, न च तावता सेना वनं चार्थान्तरम्, तस्मादनैकान्तिकत्वादहेतुरिति । …… अनेकस्मिन्नुपलभ्यमानेऽपि भेदस्यादर्शनादभेदप्रत्ययो भवति, भेदस्य चादर्शनमारान्निमित्तात्, यथा सेनादिषु । यानि तानि सेनाङ्गानि हस्त्यादीनि तान्येकश उपलभ्यमानपृथक्त्वान्यारान्निमित्ताद् भेदं नोपलम्भयन्ति । …… न तु परमाणवः केनचिदुपलभ्यन्ते । कस्मात् ? अतीन्द्रियत्वादणूनामिति ।</div>
+  <div class="tr">（反論）「軍隊や森のように捉えられる、と言うなら」。（答え）そうではない。原子は感官を超えるからである。<br>……もしあなたがこう考えるなら。「（全体という）別のものがなく、一と多の区別がなくても、異なる知が見られる。軍隊の知と象などの知とは別であり、ダヴァ（の木）などの知と森の知とは別である。しかしそれだけで、軍隊や森が（象や木と）別のものであるわけではない。だから（「一つ」という知を理由とするのは）不定なので、理由ではない」。……多くのものが知覚されていても、違いが見えないことによって、別れていないという知が生じる。違いが見えないのは、遠いことが原因である。軍隊などのように。軍隊の構成要素である象などは、一つずつは別々であることが知覚されうるが、遠いことが原因で、違いを知覚させない。……しかし原子は誰にも知覚されない。なぜか。原子は感官を超えるからである。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、軍隊や森の例を出します。象や兵士の集まりを「一つの軍隊」と見、木々の集まりを「一つの森」と見るが、軍隊や森は象や木とは別のものではない。同じように、原子の集まりを「一つの壺」と見るのだ、と。スートラは、軍隊が一つに見えるのは、一頭一頭は見える象が、遠くから見ると区別できないからであり、原子はそもそも一つ一つが見えないので、同じことは言えない、と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、仏教徒は壺の知が原子の集まりから生じると考え、軍隊と森をその例とする、と注します。Vācaspati の議論として、木片や土くれや草は遠くから一緒に見えても全体を作らないのだから、一つ一つは見えない原子も一緒なら見えるのではないか、という反論と、一つ一つが知覚されうるものだけが一緒に見える、大きさは色と同じく知覚の条件だ、という答えを紹介しています（Hi. pp.594–596）。</p></div></div>
+</div>
+<div class="mula" id="u15">
+  <span class="ref">pp.231–235</span>
+  <div class="src deva" lang="sa">यश्चायमनेकस्मिन्नेकप्रत्ययः स मिथ्याप्रत्ययः । मिथ्याप्रत्ययनिमित्तं च सामान्यदर्शनम् …… न चातीन्द्रियत्वादणूनां सामान्यदर्शनमस्ति । …… एतेन भाक्त औपमिकश्च प्रत्ययो व्याख्यातः । …… किमेते एकादिप्रत्यया अणुसञ्चयमात्रे आहोस्विदर्थान्तरभाव इति सन्दिह्यते । …… अयं विशेषहेतुः, महत्प्रत्ययसामानाधिकरण्यादेकप्रत्ययस्यैकप्रत्ययो महति । …… अणुः शब्दो महानिति च व्यवसायात् प्रधानसिद्धिरिति चेत् ? …… न शब्दे महत्त्वं न चाणुत्वं गुणत्वात् । …… किं निमित्तम् ? मन्दता तीव्रता च । …… संयुक्ते इति च द्वित्वसमानाश्रयं प्राप्तिग्रहणमवयविनः प्रतिपादकम् । …… तस्मान्महती द्वित्वाश्रयभूते द्रव्ये संयोगस्य स्थानमिति ।</div>
+  <div class="tr">また、多くのものについての「一つ」という知は、誤った知である（ことになる）。そして誤った知の根拠は、共通のものを見ることである。……しかし原子は感官を超えるので、共通のものを見ることはない。……これによって、転用の知と比喩の知も説明された（成り立たないことが示された）。……（問い）「これら『一つ』などの知は、単なる原子の集まりについてのものか、それとも別のもの（全体）があることについてのものか、と疑われる」。……これが（それを決める）特別な理由である。「一つ」という知は、「大きい」という知と同じ基体をもつので、「一つ」という知は大きいものについてのものである。……（反論）「『小さい音』『大きい音』という確定から、（大きさの知の）本来のもの（が全体なしに）成立する」と言うなら。……音には大きさも小ささもない。（音は）性質だからである。……では（音の大小の知の）根拠は何か。弱さと強さである。……また、「結合した二つのもの」という、二性と同じ基体をもつ接触の把握は、全体を知らせる。……だから、大きく、二性の拠り所である二つの実体が、結合の場所である。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、「一つの壺」という知は、多くの原子を一つと見る誤った知だと言うでしょう。しかし、誤った知が生じるには、本物との共通点が見えていなければなりません（杭を人と見誤るのは、高さや幅が見えるから）。原子はそもそも見えないので、誤った知の根拠もない、と Uddyotakara は答えます。</p><p>また、「一つの」と「大きい」とは、同じものについて言われます（「一つの大きな壺」）。原子には大きさがないので、「大きい」の対象は全体でなければならない。音について「大きい音」と言うのは、音の強さ（<i>tīvratā</i>）を大きさに転用したもので、本来の大きさではない、と付け加えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「（原子に）特殊な状態が生じていない」の箇所で、Dharmakīrti が『プラマーナ・ヴァールッティカ』（2.223）で「多くのものが、特殊な状態を得て、感官などのように別々に知の原因となることに、何の矛盾があろうか」と答えている、と注し、Uddyotakara はすでに「特殊な状態が生じていない」という語でそれを退けている、と述べます（TṬ p.396）。これは Śāstrī の補足で、両者の前後関係は注の述べるとおりです。また、転用（<i>bhākta</i>）の知と比喩（<i>aupamika</i>）の知の違いを、Vācaspati を引いて「違いが隠れているのが転用、違いが意識されているのが比喩」と説明します（TṬ p.398; Hi. pp.597–611）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この部分は長いので、論点の冒頭だけを抜き出しました。</p></div>
+</div>
+<div class="mula" id="u16">
+  <span class="ref">pp.235–237</span>
+  <div class="src deva" lang="sa">इदं तावदवयवसमूहवादी प्रष्टव्यः—योऽयं गौरश्वः पुरुष इति जातिनिमित्तः प्रत्ययः स क्व भवतीति ? …… व्यधिकरणस्यानभिव्यक्तेरधिकरणवचनम् । …… अणुसमवस्थानमधिकरणमिति चेत् ? …… मध्यपरभागयोरर्वाग्भागव्यवधानादप्राप्तावनभिव्यक्तिः । …… तस्मात् समुदिताणुस्थानस्यात्मान्तरस्य जातिविशेषव्यक्तिहेतुत्वादवयव्यर्थान्तरभूत इति । …… अनभ्युपगतार्थान्तरावयविना च परमाणुशब्दस्यार्थो वक्तव्यः । परमाणुशब्दस्य परमापकर्षवाचित्वात् …… स चायं परिमाणप्रकर्षयोगः सत्यवयविनि सिध्यतीति । सत्त्वरजस्तमसां सर्वापकृष्टः संघातः परमाणुरिति कस्यचिद् दर्शनम् । तदयुक्तमिति पश्यामः, व्याघातात् । …… अर्थान्तरं पटात् तन्तवस्तत्कारणत्वात् तुर्यादिवदिति । …… अतिबहुग्रन्थविस्तारिणी त्वेषा कथेत्युपरम्यते ॥३७॥<br>॥ अवयविपरीक्षाप्रकरणम् ॥</div>
+  <div class="tr">まず、部分の集まりを説く者に、こう問うべきである。「牛」「馬」「人」という、普遍を根拠とする知は、どこにあるのか、と。……（普遍は）拠り所がなければ現れないので、拠り所を言わなければならない。……（反論）「原子の配置が拠り所だ」と言うなら。……（目と接触する配置だけが普遍を現すとすれば、）真ん中の部分と向こう側の部分は、手前の部分に隠されて（目と）接触しないので、（そこには普遍が）現れない。……だから、集まった原子を場所とする別の自体が、特定の普遍を現す原因なので、全体は（部分とは）別のものである。……また、部分とは別の全体を認めない者は、「原子」（<i>paramāṇu</i>）という語の意味を言わなければならない。「原子」という語は、（大きさの）最も小さいことを表すからである。……そしてこの大きさの程度の差は、全体があってこそ成り立つ。（また、）「サットヴァ・ラジャス・タマスの最も小さな集まりが原子である」というのがある人の見解である。我々はそれを正しくないと見る。矛盾だからである。……（最後に我々の論証を挙げれば、）「糸は布とは別のものである。その原因だから。織機などのように」。……しかし、この話は書物をきわめて長くするので、ここでやめる。（第三十七スートラ）<br>全体の吟味のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>最後に、いくつかの論点が加えられます。「牛」という普遍は、個々の牛という全体を拠り所として現れる。原子の配置が拠り所だとすると、目に見えている手前の配置にしか普遍は現れず、一頭の牛が見える部分と見えない部分とに分かれてしまう。また、「原子」（<i>parama-aṇu</i>、最も小さいもの）という語は、より大きいものとの比較で意味をもつので、大きな全体を認めない者には「最も小さい」とは言えない。サーンキヤの「三つの構成要素の最小の集まりが原子だ」という説も、「最小」と「集まり」が矛盾する、と退けます。Uddyotakara はさらに自分の論証をいくつか示したうえで、「この話は書物をきわめて長くするので、ここでやめる」と結びます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「普遍はない」を仏教の立場とし、普遍は実際には知覚されるが、相手のために推理の証因として挙げられているのだ、と注します（TṬ p.401）。「三つの構成要素の最小の集まりが原子だ」という説は「おそらくサーンキヤの見解」とし、続く Uddyotakara 自身の論証も、部分と別の全体を認めないサーンキヤに向けたもの、と読んでいます。結びの句は、所収本文では「書物を長くする」（<span lang="sa" class="deva">बहुग्रन्थविस्तारिणी</span>）と読みます（Hi. pp.614–620）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>avayavin / avayava</dt><dd>全体（有分）／部分</dd>
+    <dt>avyatireka / arthāntara</dt><dd>非別体（部分と全体が別でないこと）／別のもの</dd>
+    <dt>saṃsthānaviśeṣa</dt><dd>特定の配置</dd>
+    <dt>saṃyoga / vibhāga</dt><dd>結合／分離。独立した性質</dd>
+    <dt>ihabuddhi</dt><dd>「ここに」という知</dd>
+    <dt>paramāṇu / truṭi</dt><dd>原子／塵（窓の光に見える微粒子）</dd>
+    <dt>saṃghāta</dt><dd>集合</dd>
+    <dt>gurutva</dt><dd>重さ</dd>
+    <dt>dhāraṇa / ākarṣaṇa</dt><dd>支えること／引くこと</dd>
+    <dt>senā / vana</dt><dd>軍隊／森。集まりが一つに見える例</dd>
+    <dt>mandatā / tīvratā</dt><dd>（音の）弱さ／強さ</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。章がきわめて長いので、原文は論点ごとに要点を抜き出した（「……」）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った（Thakur 版の番号より一つ大きい）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第16プラカラナ（スートラ 2.1.34–37）である。第15プラカラナ（スートラ 2.1.31–33）は<a href="nyayavarttika-15-taiyaku.html">第15プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
