@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 11</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-10-taiyaku.html">← プラカラナ10</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>誤難と敗北の立場</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第11プラカラナ「人の無能を示す誤りの一般的定義」（スートラ 1.2.18–20、Thakur 版 pp.172–173）</span>
+  <p>第1章の最後に、十六の範疇の最後の二つ、「誤難」（<i>jāti</i>）と「敗北の立場」（<i>nigrahasthāna</i>）の一般的な定義が置かれます。どちらも、論者の能力が足りないことを示す誤りです。詳しい分類は第5章で扱われます。</p>
+  <p>章の最後には、第1章全体をまとめる詩節があります。これで十六の範疇の列挙と定義が終わり、第2章からは、それらの吟味（<i>parīkṣā</i>）が始まります。</p>
+  <p>この章も、参照してきたヒンディー語訳注の範囲外です。解説は Thakur 版の本文にもとづく訳者の説明です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>人の無能を示す誤りの一般的定義の章<br><small><i>puruṣāśaktiliṅgadoṣasāmānyalakṣaṇaprakaraṇa</i>。スートラ 1.2.18–20。Thakur 版 pp.172–173</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>1.2.18–20<br><small>誤難（18）、敗北の立場（19）、その多様性（20）</small></dd></div>
+    <div><dt>論敵</dt><dd>なし<br><small>ニヤーヤ・バーシュヤの読み方を補う</small></dd></div>
+    <div><dt>見どころ</dt><dd>正しい論証をした者も負けることがある<br><small>§1。誤難に混乱させられて答えられなければ、その人も負け</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>参照なし<br><small>手元のヒンディー訳第1巻の範囲外</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは文脈から直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.172</span> は Thakur 版の頁。節見出しの <span class="pg">pp.172–173</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りを文脈から直した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。ヒンディー訳の範囲外なので、本文にもとづく訳者の説明</div>
+    <div><b>解釈の分かれる箇所</b>異読や、OCR テキストを直した箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 1.2.18–20 の注釈と、第1章の結びの詩節</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">誤難と敗北の立場</a></td><td class="num">pp.172–173</td><td>二つの一般的定義と、その多様性。第1章の結び</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>誤難と敗北の立場</h2><span class="sub"><span class="pg">pp.172–173</span>二つの一般的定義と、その多様性。第1章の結び</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.172 · NS 1.2.18</span>
+  <div class="src deva" lang="sa">साधर्म्यवैधर्म्याभ्यां प्रत्यवस्थानं जातिः ॥१।२।१८॥<br>साधर्म्येण प्रत्यवस्थानं वैधर्म्येण प्रत्यवस्थानं जातिरिति । प्रथमपक्षानुपयोगं दर्शयति—स्थापनायां सत्यां प्रतीपमवस्थानं प्रत्यवस्थानं प्रतिपक्षवदिति । सूत्रार्थस्तु यथाश्रुति, न पुनरुदाहरणसाधर्म्येणोदाहरणवैधर्म्येण वेति । किमर्थमिदमुच्यते ? व्यापनार्थम् । यदि यथाश्रुति सूत्रार्थो भवति, तदा सर्वजातयो व्याप्यन्ते, येन केनचित् साधर्म्यं येन केनचिद् वैधर्म्यमिति । लक्षणे जातीनामव्यापकत्वं तु दोषः । भाष्ये तूदाहरणसाधर्म्यमुदाहरणवैधर्म्यं चोदाहरणार्थमिति, यथा चोदाहरणेन एवमनुदाहरणेनापीति ॥१८॥</div>
+  <div class="tr">誤難とは、共通性と相違性とによって反論することである。<br>共通性によって反論すること、相違性によって反論することが、誤難である。（「反論」の語は）第一の主張（論証式）がはたらかないことを示す。論証式が立てられているときに、逆向きに立つことが「反論」（<i>pratyavasthāna</i>）である。反主張と同じように。スートラの意味は、聞こえるとおり（の一般的なもの）であって、「例との共通性によって」「例との相違性によって」（と限定されるもの）ではない。何のためにこう言うのか。（すべてに）及ぶためである。スートラの意味が聞こえるとおりであれば、何らかの共通性、何らかの相違性ということで、すべての誤難が覆われる。定義が誤難のすべてに及ばないのは誤りである。一方、バーシュヤで（「例との共通性」「例との相違性」と言うの）は、例を示すためである。例によって（反論する場合）と同様に、例によらずに（反論する場合）もある。（第十八スートラ）</div><div class="exp"><span class="lbl">解説</span><p>誤難は、相手の正しい論証に対して、表面的な共通性や相違性を持ち出して反論することです。たとえば「音は無常である。作られたものだから。壺のように」に対して、「壺と共通性があるから無常なら、虚空と（形がないという）共通性があるから常住だ」と言い返すようなものです（第5章で詳しく分類されます）。</p><p>Uddyotakara は、スートラの「共通性・相違性」を、バーシュヤのように「例との」共通性・相違性に限定せず、何らかの共通性・相違性と広く読むべきだ、と注意します。そうでないと、例を持ち出さない誤難が定義から漏れてしまうからです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>「第一の主張（論証式）がはたらかないことを示す」の原文 <span lang="sa" class="deva">प्रथमपक्षानुपयोगं</span> は、写本 J では <span lang="sa" class="deva">प्रथमपक्षप्रयोगं</span>（第一の主張が用いられたこと）です。J の読みなら「（反論とは）第一の主張が用いられた（後である）ことを示す」となり、続く「論証式が立てられているときに」とよく合います。</p></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">p.172 · NS 1.2.19</span>
+  <div class="src deva" lang="sa">विप्रतिपत्तिरप्रतिपत्तिश्च निग्रहस्थानम् ॥१।२।१९॥<br>अन्यथा स्थितस्यान्यथाभिहितस्य प्रतिपत्तिर्विप्रतिपत्तिः, स्वपरार्थोत्तरासंवित्तिरप्रतिपत्तिः । समर्थे साधने निग्रहस्थानप्राप्तौ कथमप्रतिपत्तिर्विप्रतिपत्तिः ? यदायं साधयिता समर्थेन साधनेनोपात्तेन परेण जात्यादिभिराकुलीकृत उत्तरं न प्रतिपद्यते, तदा कथमप्रतिपत्तिः कथं वा विप्रतिपत्तिरिति ? तदापि साधनस्यैव सामर्थ्यापरिज्ञानादसमर्थमेतत् साधनमित्यप्रतिपत्तिर्विप्रतिपत्तिरिति ॥१९॥</div>
+  <div class="tr">敗北の立場とは、誤った理解と理解しないことである。<br>ある仕方であるもの（事柄）が、別の仕方で述べられたものとして理解されることが、誤った理解である。自分の（論証の）事柄、相手の（論証の）事柄、答えを知らないことが、理解しないことである。（問い）「論証が有効であるのに敗北の立場になる場合、どうして理解しないことや誤った理解なのか。論証する者が有効な論証を用いたのに、相手によって誤難などで混乱させられて答えを見いだせないとき、どうして理解しないことなのか、どうして誤った理解なのか」。その場合も、まさに（自分の）論証の有効性を理解していないので、「この論証は無効だ」というのは、理解しないことであり、誤った理解である。（第十九スートラ）</div><div class="exp"><span class="lbl">解説</span><p>敗北の立場は、論者の理解の欠陥です。誤って理解しているか、理解していないかのどちらかです。興味深いのは問いの部分で、正しい論証をした人が、相手の誤難に惑わされて答えられなくなった場合、その人も負けになります。自分の論証が正しいことを理解していない、つまり「理解しないこと」があるからです。第八プラカラナ §3 で見たように、誤難は相手を混乱させるために使われるのでした。</p><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの冒頭は <span lang="sa" class="deva">अन्यथाभिहितस्य अप्रतिपत्तिर्विप्रतिपत्तिः, स्वपरार्थोत्तरासंवित्तित्प्रतिपत्तिः</span> ですが、二つの定義が入れ替わらないよう <span lang="sa" class="deva">प्रतिपत्तिर्विप्रतिपत्तिः</span>、<span lang="sa" class="deva">असंवित्तिरप्रतिपत्तिः</span> と直しました。</p></div></div>
+</div>
+<div class="mula sutra" id="u3">
+  <span class="ref">pp.172–173 · NS 1.2.20</span>
+  <div class="src deva" lang="sa">तद्विकल्पाज्जातिनिग्रहस्थानबहुत्वम् ॥१।२।२०॥<br>ता एता जातयः कियत्यो भवन्ति, कियन्ति वा निग्रहस्थानानीति वस्त्ववधारणार्थमाह—तद्विकल्पाज्जातिनिग्रहस्थानबहुत्वम् इति । साधर्म्यवैधर्म्याभ्यां प्रत्यवस्थानस्य विकल्पात् तयोश्च विप्रतिपत्त्यप्रतिपत्त्योर्विकल्पाद् बह्व्यो जातयो बहूनि च निग्रहस्थानानि भवन्ति । कतमा जातयः साधर्म्यप्रत्यवस्थानात् कतमाश्च वैधर्म्यप्रत्यवस्थानात्, कतमानि निग्रहस्थानानि विप्रतिपत्तिविकल्पात् कतमानि वाप्रतिपत्तिविकल्पाद् भवन्तीति प्रतियोगे विशेषलक्षणेषूत्प्रेक्षणीयानीति । एते प्रमाणादयः पदार्था उद्दिष्टा लक्षिताश्च । यथोद्देशं च यथालक्षणं च परीक्षा वर्तिष्यत इति ॥२०॥<br>॥ पुरुषाशक्तिलिङ्गदोषसामान्यलक्षणप्रकरणम् ॥</div>
+  <div class="tr">それらの選択肢（区分）によって、誤難と敗北の立場は多数ある。<br>これら誤難はいくつあるのか、あるいは敗北の立場はいくつあるのか、という事柄を確定するために、「それらの選択肢によって、誤難と敗北の立場は多数ある」と言う。共通性と相違性による反論の選択肢によって、またそれら誤った理解と理解しないことの選択肢によって、多くの誤難と多くの敗北の立場がある。どの誤難が共通性による反論から、どれが相違性による反論から、どの敗北の立場が誤った理解の区分から、どれが理解しないことの区分から生じるかは、（第5章の）個別の定義において、それぞれ対応させて考えるべきである。これら認識手段などの範疇が、列挙され、定義された。列挙の順に、定義のとおりに、吟味がなされるであろう。（第二十スートラ）<br>人の無能を示す誤りの一般的定義のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>第5章で、誤難は 24 種、敗北の立場は 22 種に分類されます。ここでは、その多様性が二つの一般的定義のそれぞれの区分から生じることだけが述べられます。そして、十六の範疇の「列挙」（<i>uddeśa</i>）と「定義」（<i>lakṣaṇa</i>）が終わり、次の第2章から「吟味」（<i>parīkṣā</i>）が始まることが予告されます。これは、ニヤーヤ・バーシュヤが冒頭で述べた、学問書のはたらきの三段階（列挙・定義・吟味）に対応しています（訳者の補足）。</p></div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">p.173</span>
+  <div class="src deva" lang="sa">तन्त्रप्रतिज्ञासंसारस्तन्निवृत्तिश्च संविदा ।<br>उद्देशो लक्षणं चैव तत्त्वानामिह कीर्तितम् ॥<br>॥ इति उद्योतकरे न्यायवार्त्तिके प्रथमाध्यायस्य द्वितीयाह्निकम् ॥<br>॥ प्रथमाध्यायः समाप्तः ॥</div>
+  <div class="tr">学問書の主張、輪廻と、知によるその止滅、<br>真実（の範疇）の列挙と定義とが、ここ（第1章）に説かれた。<br>Uddyotakara のニヤーヤ・ヴァールッティカの第1章第2日課（終わり）。<br>第1章終わり。</div><div class="exp"><span class="lbl">解説</span><p>第1章の内容をまとめる詩節です。学問書の主張（第1スートラの「十六の範疇の真の知による至福」）、輪廻とその止滅（第2スートラ）、そして十六の範疇の列挙と定義。ここまでで、ニヤーヤ学の全体像が示されたことになります。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>詩節の <span lang="sa" class="deva">संविदा</span> を「知によって」と取り、「輪廻と、（真の）知によるその止滅」と訳しました。<span lang="sa" class="deva">तन्निवृत्तिश्च संविदा</span> を「その止滅と知（の対象である範疇）」と区切る読み方もありえます。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>jāti</dt><dd>誤難。表面的な共通性・相違性による反論</dd>
+    <dt>nigrahasthāna</dt><dd>敗北の立場。論者が負けとされる根拠</dd>
+    <dt>vipratipatti / apratipatti</dt><dd>誤った理解／理解しないこと</dd>
+    <dt>pratyavasthāna</dt><dd>反論。論証式に対して逆向きに立つこと</dd>
+    <dt>sādharmya / vaidharmya</dt><dd>共通性／相違性</dd>
+    <dt>uddeśa / lakṣaṇa / parīkṣā</dt><dd>列挙／定義／吟味。学問書のはたらきの三段階</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。この章は、これまで参照してきた Śrīnivāsa Śāstrī のヒンディー訳（第1巻）の範囲外なので、OCR の誤りは文脈から判断して直し、意味に関わるものは「解釈の分かれる箇所」に記した。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。</p>
+  <p>和訳は試訳であり、解説は本文にもとづく訳者の説明である。このページが扱うのは第11プラカラナ（スートラ 1.2.18–20）で、これで第1章が終わる。第10プラカラナ（スートラ 1.2.10–17）は<a href="nyayavarttika-10-taiyaku.html">第10プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>

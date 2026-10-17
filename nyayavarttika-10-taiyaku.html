@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 10</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-9-taiyaku.html">← プラカラナ9</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>詭弁の定義と三種</a></li><li><a href="#s2"><b>2</b>詭弁は一つか</a></li>
+    <li><a href="#terms">用語集</a></li>
+    <li><a href="nyayavarttika-11-taiyaku.html">プラカラナ11 →</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第10プラカラナ「詭弁」（スートラ 1.2.10–17、Thakur 版 pp.168–171）</span>
+  <p>詭弁（<i>chala</i>）とは、相手の言葉を、相手が意図していない意味に取って否定することです。「新しい毛布」と言ったのに「九枚の毛布などない」と返すような、言葉の揚げ足取りです。ニヤーヤ・スートラはこれを三種に分けます。</p>
+  <p>この章の注釈は短く、Uddyotakara は、詭弁が言葉ではなく意味を対象とすること、詭弁を言う者は相手の意図を知っていても知らなくても負けること、そして詭弁を一種類にまとめる説が成り立たないことを論じます。</p>
+  <p>この章も、参照してきたヒンディー語訳注の範囲外です。解説は Thakur 版の本文にもとづく訳者の説明です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>詭弁の章<br><small><i>chalaprakaraṇa</i>。スートラ 1.2.10–17 の注釈。Thakur 版 pp.168–171</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>1.2.10–17<br><small>定義（10）、三種（11）、言葉の詭弁（12）、一般化の詭弁（13）、比喩の詭弁（14）、反論と答え（15–17）</small></dd></div>
+    <div><dt>論敵</dt><dd>スートラ内の反論者<br><small>「比喩の詭弁は言葉の詭弁と同じだ」という説</small></dd></div>
+    <div><dt>見どころ</dt><dd>知っていても知らなくても負け<br><small>§1。詭弁を言う者は、相手の意図を知っていれば別のことを否定し、知らなければ無知を示す</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>参照なし<br><small>手元のヒンディー訳第1巻の範囲外</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは文脈から直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.169</span> は Thakur 版の頁。節見出しの <span class="pg">pp.168–170</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りを文脈から直した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。ヒンディー訳の範囲外なので、本文にもとづく訳者の説明</div>
+    <div><b>解釈の分かれる箇所</b>異読や、OCR テキストを直した箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 1.2.10–17 の注釈を、テキストの順に2節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">詭弁の定義と三種</a></td><td class="num">pp.168–170</td><td>言葉の詭弁、一般化の詭弁、比喩の詭弁</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">詭弁は一つか</a></td><td class="num">pp.170–171</td><td>比喩の詭弁は言葉の詭弁と同じか。性質の否定と有法の否定</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>詭弁の定義と三種</h2><span class="sub"><span class="pg">pp.168–170</span>言葉の詭弁、一般化の詭弁、比喩の詭弁</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.168–169 · NS 1.2.10–11</span>
+  <div class="src deva" lang="sa">वचनविघातोऽर्थविकल्पोपपत्त्या छलम् ॥१।२।१०॥<br>वचनविघातो यः क्रियते सामान्यशब्दस्य विशेषानेकसम्बन्धित्वे सत्यविवक्षिताध्यारोपेण, छलं तद् वेदितव्यम् ॥१०॥<br>तत् त्रिविधं वाक्छलं सामान्यच्छलमुपचारच्छलं च ॥१।२।११॥<br>तत् त्रिविधमिति नियमार्थं पूर्ववत् । अनेकधा भिन्नं छलं संगृह्यत इति ॥११॥</div>
+  <div class="tr">詭弁とは、意味の選択肢が成り立つことによって、言葉を打ち砕くことである。<br>一般的な語が多くの特殊と結びつくとき、（話し手が）意図していない（意味）を当てはめて言葉を打ち砕くこと、それが詭弁であると知るべきである。（第十スートラ）<br>それは三種である。言葉の詭弁、一般化の詭弁、比喩の詭弁である。<br>「それは三種である」というのは、前と同じく、限定のためである。さまざまに分かれる詭弁がまとめられる、ということである。（第十一スートラ）</div><div class="exp"><span class="lbl">解説</span><p>三種の詭弁とその例（ニヤーヤ・バーシュヤの例）は次のとおりです。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>種類</th><th>話し手の言葉</th><th>詭弁</th></tr></thead>
+    <tbody>
+      <tr><td class="k">言葉の詭弁（<i>vākchala</i>）</td><td>「この子は <i>navakambala</i> だ」（新しい毛布をもつ）</td><td>「九枚（<i>nava</i>）の毛布などもっていない」</td></tr>
+      <tr><td class="k">一般化の詭弁（<i>sāmānyacchala</i>）</td><td>「このバラモンは学識と行いを備えている」（ほめ言葉）</td><td>「バラモンなら誰でも学識と行いを備えるのか。そうでないバラモンもいる」</td></tr>
+      <tr><td class="k">比喩の詭弁（<i>upacāracchala</i>）</td><td>「桟敷が叫んでいる」（桟敷の人々が叫んでいる）</td><td>「桟敷は木の組み物で、叫ぶことはない」</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　三種の詭弁。</b>スートラ 1.2.12–14 とその注釈による。</figcaption>
+</figure></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストのスートラ番号は、この章で乱れています（「1.2.3」「1.2.4」など）。通行のスートラ番号 1.2.10–17 に直しました。</p></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">p.169 · NS 1.2.12</span>
+  <div class="src deva" lang="sa">अविशेषाभिहितेऽर्थे वक्तुरभिप्रायादर्थान्तरकल्पना वाक्छलम् ॥१।२।१२॥<br>अविशेषाभिहितमिति सामान्यश्रुति वाक्यं पदं वाविशेषाभिहितमुच्यते । वाक्यं सामान्यश्रुति यथा नवकम्बलोऽयमिति । पदं सामान्यश्रुति यथाश्वोऽश्व इति । अविशेषशब्दानभिधानं प्रयोगाभावात् । न ह्यविशेषशब्देन कस्यचिदभिधानं संभवति । न चास्य प्रयोगो युक्त इति । वाक्यं च सर्वमुच्चरद्विशेषमेव प्रत्याययतीति सामान्यप्रत्यायनमयुक्तम् । न, प्रकरणादीनन्तरेण श्रुतिमात्रात् तदुपपत्तेः । यदा प्रकरणादिनिरपेक्षं वाक्यमुच्चार्यते श्वेतो धावतीति, तदा वाक्यश्रुतिसामान्याच्छ्रोतुः सन्देहः । सन्देहे सत्यविवक्षितमर्थमध्यारोप्य प्रतिषेधति । एवं पदेऽपीति ।</div>
+  <div class="tr">言葉の詭弁とは、区別なしに述べられた事柄について、話し手の意図とは別の意味を想定することである。<br>「区別なしに述べられた」とは、一般的に聞こえる文や語が、区別なしに述べられたと言われる。一般的に聞こえる文とは、たとえば「これは <i>navakambala</i> である」。一般的に聞こえる語とは、たとえば「<i>aśva</i>、<i>aśva</i>」。（反論）「区別のない語は（何も）述べない。用いられないからである。区別のない語によって何かを述べることはありえない。またそれを用いるのは正しくない。そして、発せられるどんな文も特殊だけを知らせるので、一般を知らせるというのは正しくない」。そうではない。文脈などなしに、聞こえるだけからは、それ（一般を知らせること）が成り立つからである。文脈などによらずに「<i>śveto dhāvati</i>」という文が発せられるとき、文の聞こえが共通なので、聞き手に疑いが生じる。疑いがあるとき、（話し手が）意図していない意味を当てはめて否定する。語についても同様である。</div><div class="exp"><span class="lbl">解説</span><p><i>śveto dhāvati</i> は、「白いものが走る」とも、「犬（<i>śvā</i>）がここから（<i>itaḥ</i>）走る」とも区切れる文です。<i>aśva</i> も、別の意味に取れる語の例として挙げられています（どの二つの意味を考えているかは、本文からは特定できません）。文脈がなければ、どちらの意味か聞き手には決まりません。詭弁はこの隙をついて、相手の意図しない方の意味を否定します。</p></div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">p.169</span>
+  <div class="src deva" lang="sa">अर्थग्रहणं शब्दनिराकरणार्थम् । अर्थविषयं छलं न शब्दविषयमिति । न ह्ययं प्रतिषेद्धुं शक्नोति नायं नवकम्बलशब्द इति । तस्य प्रत्यवस्थानम्—ज्ञात्वाज्ञात्वा वा प्रयोगात् प्रतिषेधानुपपत्तेः । यदि तावन्नवकम्बलस्यार्थं बुद्ध्वा नायं नवकम्बल इति प्रत्यवतिष्ठते, तदर्थान्तरमाह, अन्यद् बुध्यते अन्यत् प्रतिषिध्यत इति । अथ पुनर्नैव नवकम्बलस्यार्थं बुध्यते, तथाप्यज्ञानमिति ॥१२॥</div>
+  <div class="tr">（定義の中の）「意味」という語は、（詭弁が）語（を対象とすること）を退けるためである。詭弁は意味を対象とし、語を対象とするのではない。この人は「これは <i>navakambala</i> という語ではない」と否定することはできないからである。それ（詭弁）への反駁は（こうである）。知っていても知らなくても、（詭弁を）用いるので、否定は成り立たない。もし <i>navakambala</i> の意味を理解したうえで「これは <i>navakambala</i> ではない」と反論するなら、それは別の事柄を言っている。理解しているのは一つのことで、否定しているのは別のことである。もし <i>navakambala</i> の意味を理解していないなら、それはそれで無知である。（第十二スートラ）</div><div class="exp"><span class="lbl">解説</span><p>詭弁を言う人は、どちらにしても負けます。相手の意図を知っていて別の意味を否定するなら、相手の主張には何も答えていない。意図を知らないなら、理解していないことを示している。いずれも「敗北の立場」（第1章第2日課の最後で定義される）にあたります。</p></div>
+</div>
+<div class="mula sutra" id="u4">
+  <span class="ref">p.170 · NS 1.2.13</span>
+  <div class="src deva" lang="sa">सम्भवतोऽर्थस्यातिसामान्ययोगादसम्भूतार्थकल्पना सामान्यच्छलम् ॥१।२।१३॥<br>सामान्यस्य विवक्षितार्थातिक्रमोऽतिसामान्यम् । उदाहरणम्—विद्याचरणसंपन्नो ब्राह्मण इति । परस्तु ब्राह्मणत्वं विद्याचरणसंपदो हेतुरिति कृत्वा प्रत्यवतिष्ठते । स्तुत्यर्थे वाक्येऽन्यथाकारं प्रत्यवस्थानम् । उभयथा दोषो बुद्ध्वाबुद्ध्वा वेति ॥१३॥</div>
+  <div class="tr">一般化の詭弁とは、ありうる事柄について、行き過ぎた一般と結びつけることによって、ありえない意味を想定することである。<br>一般が、意図された事柄を越えることが「行き過ぎた一般」である。例。「（このバラモンは）学識と行いを備えたバラモンである」。ところが相手は、バラモンであることが学識と行いを備えることの理由だとみなして反論する。ほめるための文に対して、別の仕方で反論するのである。（この場合も）理解していてもいなくても、どちらにしても誤りである。（第十三スートラ）</div><div class="exp"><span class="lbl">解説</span><p>「学識と行いを備えたバラモン」は、目の前の人をほめる言葉で、「バラモンであるから学識と行いを備える」という論証ではありません。それを一般的な主張に広げて、「では堕落したバラモンもそうなのか」と反論するのが一般化の詭弁です。</p></div>
+</div>
+<div class="mula sutra" id="u5">
+  <span class="ref">p.170 · NS 1.2.14</span>
+  <div class="src deva" lang="sa">धर्मविकल्पनिर्देशेऽर्थसद्भावप्रतिषेध उपचारच्छलम् ॥१।२।१४॥<br>धर्मविकल्पनिर्देशशब्देनाभिधानधर्मो द्वेधाभिधीयते, प्रधानो भाक्तश्च । मञ्चा इति काष्ठसंघातेषु प्रधानो मञ्चशब्दः, क्रोशनक्रियाया असंभवमीक्षित्वा स्थानिषु पुरुषेषु भाक्तः । सोऽयमभिधानाभिधेयव्यवहार एवं व्यवस्थितः । य एतस्मिन्नन्यथाकारं प्रतिषेधः, तदुपचारच्छलम् । अस्यापि पूर्ववत् प्रतिषेधो ज्ञात्वाज्ञात्वा वेति ॥१४॥</div>
+  <div class="tr">比喩の詭弁とは、性質の選択肢を示すとき、事柄の存在を否定することである。<br>「性質の選択肢を示す」という語によって、名づけの性質が二通りであることが述べられる。本来のものと転用のものである。「桟敷」という語は、木の組み物については本来のものであり、叫ぶという行為が（木の組み物には）ありえないのを見て、そこにいる人々については転用である。名づけと名づけられるものの言葉づかいは、このように定まっている。これについて別の仕方で否定すること、それが比喩の詭弁である。これについても、前と同じく、知っていても知らなくても、（否定は成り立たない）。（第十四スートラ）</div><div class="exp"><span class="lbl">解説</span><p>「桟敷が叫んでいる」の「桟敷」は、桟敷にいる人々の転用（換喩）です。それを本来の意味（木の組み物）に取って、「桟敷は叫ばない」と否定するのが比喩の詭弁です。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>詭弁は一つか</h2><span class="sub"><span class="pg">pp.170–171</span>比喩の詭弁は言葉の詭弁と同じか。性質の否定と有法の否定</span></div>
+<div class="mula sutra" id="u6">
+  <span class="ref">p.170 · NS 1.2.15</span>
+  <div class="src deva" lang="sa">वाक्छलमेवोपचारच्छलं तदविशेषात् ॥१।२।१५॥<br>एकत्वमविशेषात् । कोऽविशेषः ? इहाप्यर्थान्तरकल्पना तत्रापीति ॥१५॥</div>
+  <div class="tr">（反論）「比喩の詭弁は言葉の詭弁にほかならない。それと区別がないからである」。<br>区別がないので一つである（と反論者は言う）。区別がないとはどういうことか。ここ（比喩の詭弁）でも別の意味の想定があり、そこ（言葉の詭弁）でもある、ということである。（第十五スートラ）</div><div class="exp"><span class="lbl">解説</span><p>スートラ自身が反論を立てます。どちらも話し手の意図とは別の意味を想定するのだから、同じ詭弁ではないか、というものです。</p></div>
+</div>
+<div class="mula sutra" id="u7">
+  <span class="ref">p.171 · NS 1.2.16</span>
+  <div class="src deva" lang="sa">न तदर्थान्तरभावात् ॥१।२।१६॥<br>अविशेषादित्यस्य हेतोरनेन सूत्रेणासिद्धतामुद्भावयति । कथमसिद्धिः ? एकत्र वस्तुसद्भावः प्रतिषिध्यते, नैव क्रोष्टारो मञ्चा इति; एकत्र वस्त्वभ्यनुज्ञाय कम्बलयोगमभ्युपगम्य कम्बलस्यानेकता धर्मः प्रतिषिध्यत इति । यत्र धर्मः प्रतिषिध्यते, यत्र च धर्मी, सोऽयमतिमहान् विशेषः ॥१६॥</div>
+  <div class="tr">そうではない。それ（両者）は別のものだからである。<br>このスートラによって、「区別がないから」という理由が不成立であることを示す。どのように不成立なのか。一方（比喩の詭弁）では事物の存在が否定される。「桟敷は決して叫ぶものではない」と。他方（言葉の詭弁）では、事物を認め、毛布をもつことを認めたうえで、毛布が多数であるという性質が否定される。性質が否定される場合と、有法が否定される場合と、これは非常に大きな違いである。（第十六スートラ）</div><div class="exp"><span class="lbl">解説</span><p>言葉の詭弁では、「この子が毛布をもつ」ことは認めたうえで、「九枚」という数（性質）だけを否定します。比喩の詭弁では、「叫ぶ桟敷」という事物そのもの（有法）の存在を否定します。否定の対象が違うので、別の詭弁だ、というわけです。</p></div>
+</div>
+<div class="mula sutra" id="u8">
+  <span class="ref">p.171 · NS 1.2.17</span>
+  <div class="src deva" lang="sa">अविशेषे वा किञ्चित्साधर्म्यादेकच्छलप्रसङ्गः ॥१।२।१७॥<br>अथ मन्यसे किं नोऽनेन विशेषेण, इहाप्यर्थान्तरकल्पना तत्रापीति, अविशेषे वा किञ्चित्साधर्म्यादेकच्छलप्रसङ्गः । कोऽस्य सूत्रस्यार्थः ? विरोधः, द्वित्वमभ्यनुज्ञातं निवर्तत इति । कतमेन पुनर्न्यायेन द्वित्वमभ्यनुज्ञातम् ? वाक्छलोपचारच्छलयोरेकत्वं ब्रुवता सामान्यच्छलमन्यदित्यभ्यनुज्ञातं भवति । …… कथमेकत्वप्रसङ्गः ? किञ्चित्साधर्म्यात् । …… सर्वं छलमेकं प्राप्नोति किञ्चित्साधर्म्यादिति । किं पुनस्तत् ? वचनविघातोऽर्थविकल्पोपपत्तिश्च सर्वस्मिंश्छल इति ॥१७॥<br>॥ छलप्रकरणम् ॥</div>
+  <div class="tr">あるいは、（いくらかの共通点があるから）区別がないとするなら、いくらかの共通点によって、詭弁は一つになってしまう。<br>もしあなたが「この違いが我々に何の関係があるのか。ここでも別の意味の想定があり、そこでもある」と考えるなら、区別がないとすれば、いくらかの共通点によって、詭弁は一つになってしまう。このスートラの意味は何か。（反論者の自己）矛盾であり、（反論者が）認めた「二つ」がなくなる、ということである。では、どのような理屈で「二つ」が認められているのか。言葉の詭弁と比喩の詭弁が一つだと言う者は、一般化の詭弁は別のものだと認めていることになる（ので、詭弁は二つだと認めている）。……どのようにして一つになってしまうのか。いくらかの共通点によってである。……いくらかの共通点によって、すべての詭弁が一つになってしまう。それは何か。言葉を打ち砕くことと、意味の選択肢が成り立つことは、すべての詭弁にある、ということである。（第十七スートラ）<br>詭弁のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、言葉の詭弁と比喩の詭弁を一つにまとめて、詭弁は二種だとしました。しかし、「いくらかの共通点」でまとめてよいなら、一般化の詭弁も、詭弁の定義（言葉を打ち砕くこと、意味の選択肢）を共有しているので、すべてが一つになってしまう。反論者は自分で認めた「二種」を保てない、というわけです。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>chala</dt><dd>詭弁。相手の言葉を、意図されていない意味に取って否定すること</dd>
+    <dt>vākchala</dt><dd>言葉の詭弁。区別なしに述べられた語や文を、別の意味に取る</dd>
+    <dt>sāmānyacchala</dt><dd>一般化の詭弁。個別の事柄を行き過ぎた一般に結びつける</dd>
+    <dt>upacāracchala</dt><dd>比喩の詭弁。転用された語を本来の意味に取る</dd>
+    <dt>pradhāna / bhākta</dt><dd>（語の）本来の用法／転用</dd>
+    <dt>vacanavighāta</dt><dd>言葉を打ち砕くこと</dd>
+    <dt>arthavikalpa</dt><dd>意味の選択肢</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。この章は、これまで参照してきた Śrīnivāsa Śāstrī のヒンディー訳（第1巻）の範囲外なので、OCR の誤りは文脈から判断して直し、意味に関わるものは「解釈の分かれる箇所」に記した。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。</p>
+  <p>和訳は試訳であり、解説は本文にもとづく訳者の説明である。このページが扱うのは第10プラカラナ（スートラ 1.2.10–17）である。第9プラカラナ（スートラ 1.2.4–9）は<a href="nyayavarttika-9-taiyaku.html">第9プラカラナのページ</a>にある。続く第11プラカラナ（スートラ 1.2.18–20、誤難と敗北の立場の一般的定義）は<a href="nyayavarttika-11-taiyaku.html">第11プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
