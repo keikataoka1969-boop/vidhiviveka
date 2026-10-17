@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 28</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-27-taiyaku.html">← プラカラナ27</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>左の目で見て右の目で再認する</a></li><li><a href="#s2"><b>2</b>目は一つか二つか</a></li><li><a href="#s3"><b>3</b>酸っぱい果物と記憶の拠り所</a></li>
+    <li><a href="#terms">用語集</a></li>
+    <li><a href="nyayavarttika-29-taiyaku.html">プラカラナ29 →</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第28プラカラナ「目は一つ」（スートラ 3.1.7–14、Thakur 版 pp.337–342）</span>
+  <p>左の目で見たものを右の目で見て「同じものだ」とわかる。だから二つの目とは別の、再認する我がある。スートラ 3.1.7 はこう論じます。ところが Uddyotakara は、ここでバーシュヤと意見を異にします。目の感官は本来一つで、鼻の骨に隔てられて二つに見えるだけだ、というのです。原子の大きさしかない意（<i>manas</i>）は、同時に二つの感官を統率できないので、目が二つなら片方は意なしにはたらくことになってしまう、というのが理由です。</p>
+  <p>後半では、酸っぱい果物を見ただけで唾が出る、という身近な経験から我が論証されます（スートラ 3.1.12）。目で見た色が、かつて舌で味わった酸っぱさの記憶を呼び起こすのは、見る者と味わった者が同じだからです。さらに、記憶はどこに宿るのかを問い、仏教側の偈「それ（識）は目にも色にもなく、その中間にもない」を退けます。</p>
+  <p>この章の Vārttika は短いので、原文はほぼ全文を載せました。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>目が二つでないことの章<br><small><i>cakṣuradvaitaprakaraṇa</i>。スートラ 3.1.7–14 の注釈。Thakur 版 pp.337–342</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.1.7–14<br><small>左右の目による再認、目は一つか二つか、別の感官の変化、記憶の拠り所</small></dd></div>
+    <div><dt>論敵</dt><dd>目を二つとする者、記憶の拠り所を否定する者<br><small>ヒンディー訳の注は、記憶の拠り所を否定する偈を TṬ に従って仏教側のものとする（作者は不明とする）</small></dd></div>
+    <div><dt>見どころ</dt><dd>バーシュヤと Vārttika の食い違い<br><small>§1–§2。バーシュヤは目を二つとし、Vārttika は一つとする</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.904–917</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.338</span> は Thakur 版の頁。節見出しの <span class="pg">pp.337–338</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。この章はほぼ全文を載せた</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.1.7–14 の注釈を、テキストの順に3節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">左の目で見て右の目で再認する</a></td><td class="num">pp.337–338</td><td>スートラ 3.1.7。この章は不要であり、論拠としては道理に反する</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">目は一つか二つか</a></td><td class="num">pp.339–340</td><td>スートラ 3.1.8–11。鼻の骨と二つの拠り所。片目を失っても見えること</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">酸っぱい果物と記憶の拠り所</a></td><td class="num">pp.340–342</td><td>スートラ 3.1.12–14。別の感官の変化。記憶は何に宿るか。「目にも色にもない」の偈</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>左の目で見て右の目で再認する</h2><span class="sub"><span class="pg">pp.337–338</span>スートラ 3.1.7。この章は不要であり、論拠としては道理に反する</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.337–338 · NS 3.1.7</span>
+  <div class="src deva" lang="sa">सव्यदृष्टस्येतरेण प्रत्यभिज्ञानात् ॥३।१।७॥<br>इतश्च देहव्यतिरिक्त आत्मा — सव्यदृष्टस्येतरेण प्रत्यभिज्ञानात् । सव्येन चक्षुषा दृष्टमर्थमितरेण प्रत्यभिजानातीति सूत्रार्थः । तच्च प्रत्यभिज्ञानं स्मृतिपूर्वकत्वात् प्रतिसन्धानम् । प्रतिसन्धानाच्चैककर्तृकत्वं प्रत्ययानां सिध्यतीति । सिद्धत्वादनारम्भ इति । — दर्शनस्पर्शनाभ्यामेकार्थग्रहणात् — इत्येतस्मिन् प्रकरणे सिद्ध आत्मव्यतिरेकः । सिद्धत्वादनारम्भ्यं प्रकरणमिति । इन्द्रियव्यतिरेकज्ञापनार्थमित्येके । …… तत्र, तत एव सिद्धेः । …… समुच्चयार्थमित्यपरे । …… युक्तोऽन्यः समुच्चयः, अयं तु न युक्तो विरोधात् । …… का पुनरियं युक्तिबाधा ? अनेकत्वादिन्द्रियस्य युगपदधिष्ठानासम्भवः । अणु मनोऽनेकं चक्षुः । न चाणोर्मनसो युगपदनेकेन चक्षुषा सम्बन्धः सम्भवति । असम्बद्धमपि द्वितीयं चक्षुरर्थानालोचयति ? एवं च सति द्वितीयचक्षुर्वदितरचक्षुरपि मनसानधिष्ठितमेव प्रवर्तिष्यत इति व्यर्थं मनः प्राप्तम् । अनधिष्ठितं च प्रवर्तमानमिन्द्रियं करणत्वं बाधते । …… समग्रासमग्रचक्षुषोश्च तुल्योपलब्धिप्रसङ्गः । …… प्रकरणविरोधश्च — इन्द्रियार्थपञ्चत्वात् — इति इन्द्रियपञ्चत्वप्रतिपादकं प्रकरणं विरुध्यत इति ॥७॥</div>
+  <div class="tr">左（の目）で見たものを、もう一方（の目）で再認するからである。<br>この理由からも、我は身体と別である。左で見たものを、もう一方で再認するからである。左の目で見た対象を、もう一方（の目）で再認する、というのがスートラの意味である。そしてその再認は、記憶を前提とするので、結びつけである。結びつけによって、知が同じ一人の行為者をもつことが成立する。（反論）「（すでに）成立しているので、（この章を）始める必要はない」。「見ることと触れることとによって同じ対象が捉えられるから」（3.1.1）という章で、我が（感官と）別であることは成立した。成立しているので、（この）章は始めるべきでない。ある人々は、「（我が）感官と別であることを知らせるため（の章）だ」と言う。……それは正しくない。まさにその（前の章）によって成立しているからである。……別の人々は、「（理由を）重ね合わせるため（の章）だ」と言う。……ほかの理由を重ね合わせるのはよいが、これは正しくない。（道理と）矛盾するからである。……では、この道理との矛盾とは何か。感官が多数なら、同時に統率することはありえない。意は原子大であり、目（が二つなら）は多数である。原子大の意が、同時に多数の目と結びつくことはありえない。（反論）「（意と）結びついていなくても、第二の目は対象を見る」。そうだとすれば、第二の目と同じように、もう一方の目も意に統率されずにはたらくことになるので、意は無用になる。また、統率されずにはたらく感官は、手段であることと矛盾する。……また、目がそろっている者とそろっていない者とで、同じように知覚することになってしまう。……また、章と矛盾する。「感官とその対象は五つだから」という、感官が五つであることを示す章と矛盾するのである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、このスートラの論証に二重に異を唱えます。第一に、我が感官と別であることは前の章（3.1.1–3）ですでに成立しているので、同じことを言うための章は要らない。第二に、ほかの理由として加えるにしても、この理由は「目が二つ」であることを前提にしていて、道理に反する。意は原子の大きさで一度に一つの感官としか結びつかないので、目が二つなら、片方の目は意に統率されずに見ていることになり、意の存在意義がなくなる。片目の人と両目の人とで見え方が同じになるはずだ、というのも同じ論点です。目は一つの感官だ、というのが Uddyotakara の立場です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の冒頭の注は、この章の位置づけについて、我が身体や感官と別であることはすでに論証されたので、この章は付随的なものだ、と考える学者がいることを記します。バーシュヤと TṬ ではこの章は正規の章として扱われるが、Vārttika の作者はそれを認めない。バーシュヤでは目は二つであり、Vārttika では目が一つであることが定説だ、と両者の食い違いを Gaṅgānātha Jhā の注を引いて指摘します。したがって、バーシュヤにとって 3.1.7 は定説のスートラだが、Vārttika にとっては退けるために述べられたスートラだ、とします。「ある人々」「別の人々」が誰かは特定できない、と注します。道理との矛盾の五つの点に（ク）〜（ホ）の番号を付け、統率者なしにはたらく感官は手段でなくなることを斧の例で説明し、「見る」を分別のない知覚と注します（Hi. pp.904–906）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「सिद्धत्वाद्वारम्भ」「समग्रसमग्र」「विकलाविफलयोग」などは崩れているので、文脈から「सिद्धत्वादनारम्भः」「समग्रासमग्र」と読みました（「विकलाविकलयोः」の文は省略しました）。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>目は一つか二つか</h2><span class="sub"><span class="pg">pp.339–340</span>スートラ 3.1.8–11。鼻の骨と二つの拠り所。片目を失っても見えること</span></div>
+<div class="mula sutra" id="u2">
+  <span class="ref">p.339 · NS 3.1.8</span>
+  <div class="src deva" lang="sa">नैकस्मिन्नासास्थिव्यवहिते द्वित्वाभिमानात् ॥३।१।८॥<br>यदि तर्ह्येकमिन्द्रियम्, कथं द्वित्वोपलब्धिः ? द्वित्वोपलब्धिप्रतिपादनार्थम् …… इति सूत्रम् । एकमिन्द्रियद्रव्यं द्व्यधिष्ठानमभिन्नम् । कोऽधिष्ठानार्थः ? तैजसस्य चक्षुषः पार्थिवेन कृष्णसारेण उपकारविकारभेदानुविधानम् । यस्मात् कृष्णसारे उपक्रियमाण उपक्रियते, विक्रियमाणे विक्रियते, तिष्ठति तिष्ठति, नश्यति नश्यतीति, तस्मादस्य कृष्णसारमधिष्ठानमित्युच्यते । एतच्च व्याख्यातं शरीरसूत्रे । तस्यान्तौ गृह्यमाणौ द्वित्वाभिमानं प्रयोजयतो यथा दीर्घस्य द्रव्यस्य मध्ये व्यवहितस्यान्तावुपलभ्यमानौ द्वित्वाभिमानं प्रयोजयत इति ॥८॥</div>
+  <div class="tr">（反論）「（目は二つでは）ない。一つのものが鼻の骨で隔てられているので、二つだと思われるのである」。<br>では、もし感官が一つなら、どうして二つだと知覚されるのか。二つだという知覚（の理由）を示すために、……というスートラがある。感官である実体は一つで、二つの拠り所をもち、分かれていない。「拠り所」とは何か。火からなる目が、地からなる黒目（<i>kṛṣṇasāra</i>）の益と害の違いに従うことである。黒目が益されれば（目も）益され、害されれば害され、とどまればとどまり、滅びれば滅びるので、黒目がその拠り所だと言われる。このことは「身体」のスートラ（1.1.11）で説明した。その（一つの目の）両端が捉えられることが、二つだという思いを生む。長い物の真ん中が隠されていると、両端が見えて二つだという思いが生じるように。</div><div class="exp"><span class="lbl">解説</span><p>バーシュヤではこのスートラは反論者の言葉ですが、Uddyotakara はこれを自分の立場の説明として読みます。目の感官は火の元素からなる一つの実体で、左右の黒目を「拠り所」としている。拠り所とは、黒目がよい状態なら見え、損なわれれば見えなくなる、という依存関係のことです。棒の真ん中を手で隠すと両端が二本の棒のように見えるのと同じく、鼻の骨に隔てられて一つの目が二つに見えるのだ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.8 を論難のスートラとし、「黒目」を「黒い瞳」と訳します（Hi. p.907）。</p></div></div>
+</div>
+<div class="mula sutra" id="u3">
+  <span class="ref">pp.339–340 · NS 3.1.9–11</span>
+  <div class="src deva" lang="sa">एकविनाशे द्वितीयाविनाशान्नैकत्वम् ॥३।१।९॥<br>एकस्मिन् विनष्टे उद्धृते वा द्वितीयमवतिष्ठते विषयग्रहणलिङ्गम् । न, अन्यथा तदुपपत्तेः । द्वितीयमवतिष्ठत इति नैतत् कस्यचित् प्रत्यक्षम् । प्रत्ययमात्रं तु विनष्टेऽप्येकस्मिन्नधिष्ठाने यदवतिष्ठते तेन भवति । न चाधिष्ठानमिन्द्रियम्, अपि तु यत् तदनुविधायि तदेकमनुविधत्त इति । यथा बहुवातायनस्य वेश्मन एकपिधाने इतरेण ग्रहणमिति ॥९॥<br>अवयवनाशेऽप्यवयव्युपलब्धेरहेतुः ॥३।१।१०॥<br>अपरे त्ववयवनाशेऽप्यवयव्युपलब्धेरहेतुरिति परिहारं वर्णयन्ति ॥१०॥<br>दृष्टान्तविरोधादप्रतिषेधः ॥३।१।११॥<br>तस्योत्तरम् …… इति सूत्रम् । अस्यार्थः । न कारणद्रव्यविनाशे कार्यद्रव्यमवतिष्ठत इति । यदि नावतिष्ठते, कथं कारणद्रव्यविनाशे कार्यमुपलभ्यत इति ? क एवमाह उपलभ्यत इति ? अपि तु बहुष्ववयविषु यस्य कारणानि विभक्तानि तद्विनष्टम्, यस्य न विभक्तानि तदुपलभ्यत इति । शेषं भाष्ये ॥११॥</div>
+  <div class="tr">（反論）「一つが滅びても、もう一つは滅びないので、（目は）一つではない」。<br>一つ（の目）が滅びたり、えぐり出されたりしても、もう一つ（の目）が、対象を捉えることを目印として、とどまっている（と反論者は言う）。そうではない。別の仕方でそれが成り立つからである。「もう一つがとどまっている」ということは、誰にとっても知覚されることではない。知（が生じること）だけは、一つの拠り所が滅びても、残っている（拠り所）によって生じる。そして拠り所が感官なのではなく、それ（拠り所）に従うもの、その一つ（の感官）が（残った拠り所に）従うのである。たとえば、窓がたくさんある家で、一つ（の窓）を閉じても、ほかの（窓）から見えるように。<br>（反論）「部分が滅びても全体は知覚されるので、（それは）理由にならない」。<br>別の人々は、「部分が滅びても全体が知覚されるので、（反論の理由は）理由にならない」と、（このスートラを）答えとして説明する。<br>（答え）例と矛盾するので、否定にならない。<br>それへの答えが、……というスートラである。その意味は、原因である実体が滅びれば、結果である実体はとどまらない、ということである。（反論）「とどまらないなら、原因である実体が滅びたときに、どうして結果が知覚されるのか」。誰が「知覚される」と言ったか。そうではなく、多くの全体のうち、原因が分かれたものは滅び、原因が分かれていないものが知覚されるのである。残り（の説明）はバーシュヤにある。</div><div class="exp"><span class="lbl">解説</span><p>片目を失っても、もう片方の目で見えるのだから、目は二つだ、という反論（3.1.9）。Uddyotakara は、残っているのは目ではなく、目の拠り所（黒目）の片方だ、と答えます。窓のたくさんある家で一つの窓を閉じても、ほかの窓から外が見えるように、一つの目が残った拠り所を通してはたらくのです。続く 3.1.10「部分が滅びても全体は知覚される」を、Uddyotakara は「別の人々」の答え方として紹介するだけにとどめ、3.1.11 については、部分（原因）が滅びれば全体（結果）は滅びるので、知覚されるのは別の、原因が損なわれていない全体だ、と説明します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「えぐり出された」と訳し、「対象を捉えることを目印として」について、Vārttika は二語に、バーシュヤは所有複合語に読む、と注します。3.1.10 を答えとして説明する「別の人々」については、訳文の「別の」に「（？）」を付けています。3.1.11 を定説のスートラとし、バーシュヤがこのスートラを幾通りにも説明すること（二つの目は一つの全体ではない、死者の頭蓋骨に二つの眼窩が見える、など）や、一方の目を指で押すと物が二重に見えるという議論を、TṬ（p.510）を引いて紹介します。「Vārttika の作者はこの章を非難する」という TṬ（p.510）も引きます（Hi. pp.908–910）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストでは、スートラ 3.1.10 が「…उपलब्धेर्हेतुः」、3.1.11 の番号が「३।१।१९」と印字されていますが、それぞれ「…उपलब्धेरहेतुः」「३।१।११」と直しました。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>酸っぱい果物と記憶の拠り所</h2><span class="sub"><span class="pg">pp.340–342</span>スートラ 3.1.12–14。別の感官の変化。記憶は何に宿るか。「目にも色にもない」の偈</span></div>
+<div class="mula sutra" id="u4">
+  <span class="ref">p.340 · NS 3.1.12</span>
+  <div class="src deva" lang="sa">इन्द्रियान्तरविकारात् ॥३।१।१२॥<br>अनुमीयते चायं देहादिव्यतिरिक्तश्चेतनः — इन्द्रियान्तरविकारात् । कस्यचिदम्लस्य फलस्य गृहीतसाहचर्ये रूपे गन्धे वा केनचिदिन्द्रियेण गृह्यमाणे रसनेन्द्रियविकारः । कः पुनर्विकारः ? रसानुस्मृतौ रसगर्द्धिप्रवर्तितः, गर्द्धिस्तृष्णा, रसतृष्णाप्रवर्तितो दन्तान्तरपरिस्रुताभिरद्भी रसनेन्द्रियस्य संबन्धः संप्लवो विकार इत्युच्यते । सा चेयं स्मृतिरिन्द्रियचैतन्ये न प्राप्नोति । न च प्रतिक्षणविनाशिषु संस्कारेषु, अन्यानुभूतस्यान्येनास्मरणादिति । इन्द्रियान्तरविकार इन्द्रियान्तरधर्मः । स कथं व्यधिकरणत्वादात्मव्यतिरेकं प्रतिपादयति ? नेन्द्रियान्तरविकार आत्मव्यतिरेकप्रतिपत्तिकारणम्, अपि तु स्मृतिः । न ह्येकमनुभवितारमन्तरेण स्मृतिः प्राप्नोति । स्मृतिश्च भावत्वाद् भवित्रपेक्षा उत्पत्तिवदिति न्यायः । न च स्मृतिमन्तरेण इन्द्रियविकारः संभवतीति प्रत्यक्ष इन्द्रियान्तरविकार उपादीयते । अननुभूतरसस्येन्द्रियान्तरविकाराभावादिति व्यतिरेकहेतुः ॥१२॥</div>
+  <div class="tr">別の感官の変化があるからである。<br>また、身体などと別のこの知る者は、別の感官の変化から推理される。ある酸っぱい果物の、（その味と）ともにあることが（以前に）捉えられた色や香りが、何らかの感官によって捉えられると、舌の感官に変化が生じる。その変化とは何か。味を思い出したとき、味への渇望に駆り立てられて（渇望とは欲求である）、味への欲求に駆り立てられた、歯の間から染み出した水（唾液）と舌の感官とが結びつき、浸されることが、変化と言われる。そしてこの記憶は、感官が知る者である（とする説）では成り立たない。刹那ごとに滅びる諸行（を説く説）でも（成り立た）ない。ある者が経験したことを別の者が思い出すことはないからである。（反論）「別の感官の変化は、別の感官の性質である。それは、拠り所が異なるので、どうして我が別であることを示すのか」。別の感官の変化が、我が別であることを知る原因なのではない。そうではなく、記憶が（原因）である。一人の経験した者なしに、記憶はありえないからである。また、記憶は生起なので、生起するもの（の拠り所）を必要とする。生じることのように、という道理である。そして、記憶なしには感官の変化はありえないので、知覚される別の感官の変化が（理由として）取り上げられるのである。味を経験したことのない者には、別の感官の変化がないから、という否定による理由である。</div><div class="exp"><span class="lbl">解説</span><p>梅干しを見ただけで唾が出る、という経験です。目で色を見た（あるいは鼻で香りをかいだ）だけで、舌に唾液があふれる。それは、かつて舌で味わった酸っぱさを思い出すからです。目で見る者と、舌で味わった者が別々なら、この記憶は起こらない。感官が知る者だとする説でも、刹那ごとに滅びる諸行の説でも、説明できません。ここで我の論拠となるのは唾液そのものではなく記憶であり、唾液は記憶を知覚できる形で示す目印として挙げられているのだ、と Uddyotakara は念を押します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.12 を定説のスートラとし、「推理される」については、我は本来経験によって知られるが、争う者のために推理が示されるのだ、という TṬ（p.511）を引きます。他人の経験を別の者が思い出すことはない、という理由は、感官が知る者だとする説と刹那滅論の両方に向けられている、と注します。印刷された Vārttika の中に「（渇望とは欲求である）」という注記が入っていることも、ヒンディー訳本文でそのまま見られます（Hi. pp.911–912）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「रसगद्ध」「दन्तान्तरपरिश्रुताभिर्द्वि」「भविन्नपेक्षा उत्पत्तितदिति」「अननुभूतसस्य」などは崩れているので、それぞれ「रसगर्द्धि」「दन्तान्तरपरिस्रुताभिरद्भिः」「भवित्रपेक्षा उत्पत्तिवदिति」「अननुभूतरसस्य」と読みました。スートラ番号も OCR の「३।१।२०」を直しました。</p></div>
+</div>
+<div class="mula sutra" id="u5">
+  <span class="ref">pp.341–342 · NS 3.1.13–14</span>
+  <div class="src deva" lang="sa">न स्मृतेः स्मर्तव्यविषयत्वात् ॥३।१।१३॥<br>स्मृतिर्नाम धर्मः, तस्याः स्मर्तव्योऽर्थो विषयः । सेयं स्मर्तव्यार्थसन्निधानादुपजायमाना अपरिदृष्टसामर्थ्यं न स्मर्तारं प्रतिपादयिष्यति । न हि स्वकारणसन्निधानात् प्रादुर्भवन्नङ्कुरोऽपरिदृष्टसामर्थ्यं स्तम्भादिकमर्थं प्रतिपादयति ॥१३॥<br>तदात्मगुणसद्भावादप्रतिषेधः ॥३।१।१४॥<br>न स्मर्तव्यमात्रात् स्मृतिरुत्पद्यत इति । यदायमतीतमर्थं स्मरति तदा स्मृतिरनाधारा प्राप्नोति । न चेयमनाधारा युक्ता गुणत्वात् । …… न चेयमिन्द्रियेषु संभवत्यननुभूतत्वात् । न विषये, तस्यासत्त्वात् । न शरीरे, शरीरगुणानां प्रत्यक्षाणां स्वात्मपरात्मप्रत्यक्षत्वात् । …… एतेन —<br>न तच्चक्षुषि नो रूपे नान्तराले तयोः स्थितम् ।<br>न तदस्ति न तन्नास्ति यत्र तन्निष्ठितं भवेत् ॥<br>इति प्रत्युक्तम् । न तदस्ति न तन्नास्तीति च व्याहतम् । न चानया कारिकया विज्ञानस्याश्रयभावः प्रतिषेद्धुं शक्यः । किं कारणम् ? विशेषप्रतिषेधात् …… अथानाश्रितमेव विज्ञानम्, व्यर्थं वाक्यम्, न तच्चक्षुषि नो रूप इति । कस्य वा चक्षुषि रूपे वा विज्ञानं वर्तत इति सिद्धम्, यं प्रति प्रतिषेधः । अयं च विज्ञानस्याश्रयाश्रयिभावप्रतिषेधो विचार्यमाण आत्मसत्तां प्रतिपादयति । …… अथ वैकस्यानेकविषयोपलब्धिप्रतिसन्धानमनेन सूत्रेण प्रदर्श्यत इत्युक्तन्यायम् । शेषं भाष्य इति ॥१४॥<br>॥ चक्षुरद्वैतप्रकरणम् ॥</div>
+  <div class="tr">（反論）「（そうでは）ない。記憶は、思い出されるべきものを対象とするからである」。<br>記憶は（ある知の）性質であり、思い出されるべき対象がその対象である。この（記憶）は、思い出されるべき対象が近くにあることによって生じるので、（その記憶のほかに）力のはたらきが見られない「思い出す者」を示すことはない。自分の原因が近くにあることによって現れる芽が、力のはたらきの見られない柱などのものを示すことはないように。<br>（答え）それ（記憶）は我の性質としてあるので、（我は）否定されない。<br>記憶は、思い出されるべきものだけから生じるのではない。過去の対象を思い出すとき、記憶は拠り所のないものになってしまうからである。そして、これ（記憶）が拠り所をもたないのは正しくない。性質だからである。……これ（記憶）は感官にはありえない。（感官は）経験しないからである。対象にも（ありえ）ない。それ（過去の対象）は存在しないからである。身体にも（ありえ）ない。知覚される身体の性質は、自分にも他人にも知覚されるからである。……これによって、「それ（識）は目にもなく、色にもなく、その二つの中間にもとどまっていない。それがよりどころとしてとどまるところは、あるのでもなく、ないのでもない」（という偈）も退けられた。「あるのでもなく、ないのでもない」というのは自己矛盾である。また、この偈によって、識が拠り所をもつことを否定することはできない。なぜか。個別の否定だからである。……もし識がそもそも拠り所をもたないなら、「それは目にも色にもない」という文は無意味である。また、識が目や色にある、ということが誰にとって成立しているので、その人に対して（これを）否定するのか。そして、識の拠り所と拠るものとの関係のこの否定は、考察すれば、我の存在を示す。……あるいは、一つのもの（我）が多くの対象の知覚を結びつけることが、このスートラによって示されている、という（すでに）述べた道理である。残り（の説明）はバーシュヤにある。<br>目が二つでないことのプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、記憶は思い出す対象が近くにあれば生じるのだから、記憶する我を想定する必要はない、と言います（3.1.13）。Uddyotakara の答えは、過去の物を思い出すとき、その物はもうないので、記憶の拠り所にはなれない、というものです。記憶は性質なので何かを拠り所とするはずだが、感官は経験しないし、身体の性質なら他人にも見えるはずである。そこで、仏教側の偈「識は目にも色にもその中間にもない」が引かれます。Uddyotakara は、これは個別の場所を否定しているだけで、識の拠り所一般を否定してはいない、と答えます。それどころか、識が目にも色にもないなら、目とも色とも別の拠り所、すなわち我が残る、と逆手に取ります。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.13 を論難のスートラとします。偈については、TṬ（p.513）の「他の人々の偈を Vārttika の作者が退ける」を引いて仏教側のものとしますが、どの師の偈かは見つけられなかった、と注します。「これによって」を「我を記憶の拠り所として確立することによって」と説明し（TṬ p.513）、「あるいは」以下は、バーシュヤの説明の後に Vārttika の作者が自分の解釈を示したものだ、と TṬ（pp.512–513）を引きます。続くバーシュヤ「思い出される対象が数え尽くされないからも」では、知る者と知ることで限定された対象が記憶の対象であり、我が単なる諸行の連続なら三時にわたる知を結びつけられない、と説明します（Hi. pp.913–917）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストでは、スートラ 3.1.13 の Vārttika の末尾が「॥३॥」、3.1.14 が「…सद्द्वाद…」と印字されているので直しました。写本 C は、この章の末尾に「अपरिसंख्यानाच्च स्मृतिविषयस्य」を加えています（Thakur 版の脚注）。ヒンディー訳は、バーシュヤではスートラ 3.1.14 を「तदात्मगुणत्वसद्भावादप्रतिषेधः」、Vārttika では「तदात्मगुणसद्भावाद्」と読む、と記します。「अपरिसंख्यानाच्च स्मृतिविषयस्य」については、これをスートラとする所もあり、ベナレス版の『ニヤーヤ・ヴァールッティカ』もスートラとして印刷するが、『ニヤーヤ・スーチー・ニバンダ』はスートラとしないので、バーシュヤとして扱う、と注します。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>pratyabhijñā / pratisandhāna</dt><dd>再認／結びつけ</dd>
+    <dt>adhiṣṭhāna</dt><dd>（感官の）拠り所。目の場合は黒目</dd>
+    <dt>kṛṣṇasāra</dt><dd>黒目（地の元素からなる）</dd>
+    <dt>aṇu manas</dt><dd>原子大の意。一度に一つの感官としか結びつかない</dd>
+    <dt>indriyāntaravikāra</dt><dd>別の感官の変化（見ただけで唾が出ること）</dd>
+    <dt>smṛti</dt><dd>記憶</dd>
+    <dt>vyatirekahetu</dt><dd>否定による理由</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第3巻）所収の本文と照合して直した。この章はほぼ全文を載せた（「……」は省略箇所）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号は Thakur 版とヒンディー訳とで一致する（どちらも OCR では崩れた番号がある）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第28プラカラナ（スートラ 3.1.7–14）である。第27プラカラナ（スートラ 3.1.4–6）は<a href="nyayavarttika-27-taiyaku.html">第27プラカラナのページ</a>にある。続く第29プラカラナ（意と別の我、スートラ 3.1.15–17）は<a href="nyayavarttika-29-taiyaku.html">第29プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
