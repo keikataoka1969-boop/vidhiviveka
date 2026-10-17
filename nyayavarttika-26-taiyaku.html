@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 26</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-25-taiyaku.html">← プラカラナ25</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>何を考察するのか</a></li><li><a href="#s2"><b>2</b>「我はない」という主張</a></li><li><a href="#s3"><b>3</b>仏典と「生じないから」</a></li><li><a href="#s4"><b>4</b>「知覚されないから」</a></li><li><a href="#s5"><b>5</b>そのほかの無我論証</a></li><li><a href="#s6"><b>6</b>見て触れるのは同じ者</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第26プラカラナ「感官との区別」（スートラ 3.1.1–3、Thakur 版 pp.319–330）</span>
+  <p>第三篇からは、認識手段ではなく認識対象（<i>prameya</i>）の考察が始まります。最初に取り上げられるのは、十二の認識対象の筆頭である我（<i>ātman</i>、自己）です。スートラ 3.1.1 は、目で見たものを手で触れて「見たものに触れている」とわかるのだから、見る者と触れる者は同じ一人であり、目とも皮膚とも別の我がある、と論じます。</p>
+  <p>しかし Uddyotakara は、スートラに入る前に長い序論を置きます。仏教徒の「我はない」という主張を、その論証式（「我はない。生じないから。兎の角のように」「知覚されないから」など）ごとに検討し、さらに仏典そのものを引いて、無我論は仏教徒自身の経典とも矛盾する、と論じるのです。ここで引かれる「色は我ではない」の問答や、「重荷と重荷を運ぶ者」の経は、ニヤーヤが仏教文献を直接引用する珍しい例として知られます。</p>
+  <p>原文は論点ごとに要点を抜き出しました（「……」）。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>感官との区別の章<br><small><i>indriyabhedaprakaraṇa</i>。スートラ 3.1.1–3 の注釈。Thakur 版 pp.319–330。第三篇の最初</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.1.1–3<br><small>序論（我の存在の擁護）、見ることと触れることの統合、感官が知る者だという反論とその否定</small></dd></div>
+    <div><dt>論敵</dt><dd>我の存在を否定する者<br><small>ヒンディー訳の注は「我はない。生じないから」を仏教徒の疑問とし、「別の人々」の論証も仏教徒のものとする（ただしどの師の説かは不明とする）</small></dd></div>
+    <div><dt>見どころ</dt><dd>仏典を引いて無我論を批判する<br><small>§3。「重荷を運ぶ者」がいるなら、我はないとは言えない</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.856–885</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.320</span> は Thakur 版の頁。節見出しの <span class="pg">pp.319–321</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。長い議論は要点を抜き出した（<span class="ia">……</span>）</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.1.1–3 の注釈を、テキストの順に6節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">何を考察するのか</a></td><td class="num">p.319</td><td>我の存在ではなく、我が身体などと別かどうかを考察する</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">「我はない」という主張</a></td><td class="num">pp.319–321</td><td>「我はない」という文そのものの矛盾。「仮に設けた我」。無意味な語はない</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">仏典と「生じないから」</a></td><td class="num">pp.321–323</td><td>仏典との矛盾。「生じないから」という理由と兎の角の例</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">「知覚されないから」</a></td><td class="num">pp.323–325</td><td>我は「私」という知によって知覚される。非知覚の理由の欠陥</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">そのほかの無我論証</a></td><td class="num">pp.325–327</td><td>「我」という語の対象。生きた身体は我をもたない、か。目などは他のためにある</td></tr>
+<tr><td class="num">§6</td><td class="k"><a href="#s6">見て触れるのは同じ者</a></td><td class="num">pp.327–330</td><td>スートラ 3.1.1–3。言い表しの疑い。見ることと触れることの統合。感官は知る者か</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>何を考察するのか</h2><span class="sub"><span class="pg">p.319</span>我の存在ではなく、我が身体などと別かどうかを考察する</span></div>
+<div class="mula" id="u1">
+  <span class="ref">p.319</span>
+  <div class="src deva" lang="sa">आनन्तर्यात् प्रमेयपरीक्षा । यद्विषयोऽहङ्कारः संसारं प्रतनोति यद्विषयं च सम्यग्ज्ञानं संसारनिवृत्तिहेतुर्भवति तदानन्तर्यात् परीक्ष्यते । तच्चात्मादीत्यात्मा विचार्यते । किं पुनरस्य विचार्यम् ? किं शरीरेन्द्रियमनोबुद्धिव्यतिरिक्त आहो नेति । न, धर्म्यप्रसिद्धेः । …… न, इच्छादिसूत्रादात्मप्रसिद्धेः । …… अविप्रतिपत्तेश्च । न हि कश्चिद् वादी आत्मसत्त्वे विप्रतिपद्यते, किं तु विशेषे प्रतिपद्यत इति । शरीरमात्मा, इन्द्रियमात्मा, बुद्ध्यादय आत्मा, संघात आत्मा, तद्व्यतिरिक्त आत्मेति । …… असत्त्वप्रतिपादकप्रमाणासंभवाच्च ।</div>
+  <div class="tr">（認識手段の考察の）すぐ後に続くので、認識対象の考察がある。それを対象とする我執が輪廻を広げ、それを対象とする正しい知が輪廻の止滅の原因となるもの、それが（認識手段の考察の）すぐ後に考察される。それは我などであるので、（まず）我が考察される。では、これについて何を考察するのか。身体・感官・意・知と別のものか、そうでないか、である。（反論）「そうではない。性質をもつもの（我）が確立していないからである」。……そうではない。「欲求など」のスートラ（1.1.10）によって我は確立しているからである。……また、意見の対立がないからである。どの論者も、我があることについては意見が分かれない。そうではなく、その特性について意見が分かれる。「身体が我である」「感官が我である」「知などが我である」「集まりが我である」「それらと別のものが我である」と。……また、（我が）ないことを示す認識手段はありえないからである。</div><div class="exp"><span class="lbl">解説</span><p>我を対象として「私が、私のもの」と執着することが輪廻を広げ、我を正しく知ることが解脱をもたらす。だから認識対象の考察は我から始まります。考察するのは、我があるかどうかではなく、我が身体・感官・意・知と別のものかどうかです。我があることは、欲求・嫌悪・努力・楽・苦・知が我の目印だとするスートラ 1.1.10 ですでに示されたし、論者たちが争っているのも、何が我なのか（身体か、感官か、集まりか、別のものか）であって、我があること自体ではない、と Uddyotakara は言います。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の目次によれば、第三篇第一日課（スートラ 3.1.1–73）は同書 pp.856–1015 で、最初の「感官と別の我の考察」は序論（pp.856–876）とスートラ 3.1.1–3（pp.877–885）からなります。注は、認識手段の考察が原因、認識対象の考察がその結果なので、認識対象が次に来る、と説明します（TṬ p.499）。バーシュヤの「感受」を「楽苦の経験」と訳します。我の存在がすでに示されたスートラとして、1.1.10「欲求・嫌悪・努力・楽・苦・知が我の目印である」を挙げます。なお、ヒンディー訳の構成では、「言い表しが二通りに成り立つので疑いがある」というバーシュヤ（§6 の冒頭の議論）がこの序論の最初に置かれ、「これをスートラとみなす人もいる」と注されています（Hi. pp.856–857）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>「我はない」という主張</h2><span class="sub"><span class="pg">pp.319–321</span>「我はない」という文そのものの矛盾。「仮に設けた我」。無意味な語はない</span></div>
+<div class="mula" id="u2">
+  <span class="ref">pp.319–320</span>
+  <div class="src deva" lang="sa">न, नास्त्यजातत्वादित्येके । नास्त्यात्मा अजातत्वात् शशविषाणवदिति । तत्र नास्त्यात्मेति पदे तावद् व्याहते । …… आत्मेति वस्त्वभिधीयते । नास्तीति तस्य प्रतिषेधः । यच्च यत्र प्रतिषिध्यते तत् तस्मादन्यत्रास्तीति । यथा नास्तिना समानाधिकरणो घटशब्दो न घटाभावं प्रतिपादयितुं शक्नोति । अपि तु देशकालविशेषे प्रतिषेधः …… किमयं देशविशेषे प्रतिषिध्यते, उत कालविशेष इति ? यदि तावद् देशविशेषे प्रतिषेधः स आत्मनि न युक्तः अदेशत्वादात्मनः । …… केयं वाचोयुक्तिः न शरीरम् न च शरीरे, न चान्यत्र, न च नास्ति ? एषैषा वाचोयुक्तिः, यद् यथाभूतं तत् तथा निर्दिश्यत इति । …… न च कालविशेषप्रतिषेधोऽपि युक्तः, आत्मनि त्रैकाल्यस्यानभिव्यक्तेः ।</div>
+  <div class="tr">ある人々は言う。「そうではない。（我は）ない。生じないからである」と。「我はない。生じないから。兎の角のように」と。そのうち、まず「我はない」という二つの語は矛盾している。……「我」と言えば、ある実在が言われる。「ない」はその否定である。そして、あるものがある所で否定されるなら、それはそこ以外の所にはある。たとえば「ない」と並べられた「壺」という語は、壺が（まったく）ないことを示すことはできない。そうではなく、特定の場所や時についての否定である。……この（我）は、特定の場所において否定されるのか、特定の時においてか。もし特定の場所における否定なら、それは我については正しくない。我には（特定の）場所がないからである。……（反論）「『身体ではない、身体の中にもない、ほかの所にもない、しかもないのでもない』とは、どういう言い方か」。これがその言い方である。あるとおりに、そのとおりに示すのである。……また、特定の時における否定も正しくない。我には三時（過去・現在・未来）が現れないからである。</div><div class="exp"><span class="lbl">解説</span><p>「我はない」という文は、「我」という語で何かを指しながら、それを否定しています。「壺がない」と言うとき、私たちは壺がこの世にまったく存在しないと言っているのではなく、「この家には」「今は」ないと言っている。同じように「我はない」も特定の場所か時についての否定でしかありえないが、遍在する我には特定の場所がなく、常住の我には過去・現在・未来の区別がない。だから「我はない」という否定は成り立たない、というのが Uddyotakara の論法です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「我はない。生じないから」を「仏教徒の疑問」とします。「二つの語は矛盾している」について、TṬ（p.499）の「我」と「ない」の二語の矛盾、という説明を引きます。「どういう言い方か」は問う者の言葉、「これがその言い方である」が答えだ、と区切ります。我が常住であることは、後のスートラ 3.1.18（「前に習ったこと（の記憶）による」）で論証される、と注します（Hi. pp.858–859）。</p></div></div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">pp.320–321</span>
+  <div class="src deva" lang="sa">आत्मप्रतिषेधं च कुर्वाणेनात्मशब्दस्य विषयो वक्तव्यः । न ह्येकं पदं निरर्थकं पश्यामः । …… अथ यं भवन्त आत्मानं कल्पयन्ति स नास्तीति ? न वयमात्मानं कल्पयामः । कल्पना हि नामातथाभूतस्य तथाभाविभिः सामान्यात् तद्धर्माध्यारोपेण तत्प्रत्ययः । …… अथ मन्यसे एकपदस्य नावश्यमर्थेन भवितव्यमिति यथा शून्यं तम इति च ? तन्न, व्याघातान्निवृत्तेः । शून्यशब्दस्य तावदयमर्थः, यस्य रक्षिता द्रव्यस्य न विद्यते, तद् द्रव्यं श्वभ्यो हितत्वात् शून्यमित्युच्यते । तमःशब्दस्यानुपलब्धिलक्षणप्राप्तानि द्रव्यगुणकर्माणि विषयः । …… तमःशब्दश्चानर्थक इति ब्रुवाणः स्वसिद्धान्तं बाधते, चतुर्णामुपादायरूपत्वात् तमस इति । तस्मात् नानर्थकमेकं पदमिति ।</div>
+  <div class="tr">また、我を否定する者は、「我」という語の対象を言わなければならない。一つの語が意味をもたないことを、我々は見ないからである。……（反論）「あなたがたが仮に設けている我、それがないのだ」と言うなら。我々は我を仮に設けているのではない。仮に設けるとは、そうでないものについて、そうであるものとの共通点によって、その性質を重ね合わせて、そのものだという知をもつことである。……（反論）「一つの語が必ず意味をもつとは限らない。『空』や『闇』のように」と考えるなら、そうではない。矛盾を免れないからである。まず、「空」（<i>śūnya</i>）という語の意味はこうである。守る者のいない財物は、犬（<i>śvan</i>）にとって好都合なので、「空」と言われる。「闇」という語の対象は、知覚されうるのに（知覚されていない）実体・性質・運動である。……「闇」という語は意味をもたない、と言う者は、自分の定説と矛盾する。（仏教徒の説では）闇は四（大種）に依って成る色だからである。だから、一つの語が意味をもたないことはない。</div><div class="exp"><span class="lbl">解説</span><p>「我」という語には何らかの対象があるはずだ。仏教徒が、ニヤーヤの「仮に設けた（想像した）我」がないのだ、と言うなら、仮に設けるには、杭を人と見誤るときの「人」のように、本物が前提になる。「空」や「闇」は対象のない語の例として挙げられますが、Uddyotakara は、「空」（シューニャ）は「犬（シュヴァン）に好都合な、番人のいない財物」という語源的な意味をもつ、と答えます（語源解釈は Uddyotakara によるもの）。「闇」は、光がないために見えない物を指す。しかも仏教徒自身、闇を四大種に依って成る色（物質）の一種と認めているので、「闇」が意味をもたないと言えば自説に反する、と指摘します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「語」を「それによって何かの意味が得られるもの」と定義する TṬ（p.500）を引きます。身体について「私は太っている」「私は色白だ」と思う我執は、誤った知だと説明します。「空」の語源解釈は Vārttika の作者自身によるものだ、と注します。闇を「四つに依って成る」とする仏教の説について、「四つ」を色・味・香・触と説明し、写本には「<i>upādāna</i>」という異読があるが、TṬ は「<i>upādeya</i>」の方が易しい読みとする、と記します（TṬ p.500）（Hi. pp.860–861）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>仏典と「生じないから」</h2><span class="sub"><span class="pg">pp.321–323</span>仏典との矛盾。「生じないから」という理由と兎の角の例</span></div>
+<div class="mula" id="u4">
+  <span class="ref">pp.321–322</span>
+  <div class="src deva" lang="sa">नास्त्यात्मेति चैवं ब्रुवाणः सिद्धान्तं बाधते । कथमिति ? रूपं भदन्त नाहम्, वेदना संज्ञा संस्कारो विज्ञानं वा भदन्त नाहमिति । एवमेतद् भिक्षो रूपं न त्वम्, वेदना संज्ञा संस्कारो विज्ञानं वा न त्वमसीति । त एते स्कन्धा रूपादयोऽहङ्कारविषयत्वेन प्रतिषिद्धाः । विशेषप्रतिषेधश्चायं न सामान्यप्रतिषेधः । आत्मानमनभ्युपगच्छता सामान्यमेव प्रतिषेद्धव्यम्, नाहं नैव त्वमसीति । …… न चात्मानमनभ्युपगच्छता ताथागतदर्शनमर्थवत्तायां शक्यं व्यवस्थापयितुम् । न चेदं वचनं नास्ति, सर्वाभिसमयसूत्रेऽभिधानात् । …… तथा च — भारं च वो भिक्षवो देशयिष्यामि भारहारं च । भारश्च पञ्चस्कन्धाः, भारहारश्च पुद्गल इति । यश्चात्मा नास्तीति ब्रवीति स मिथ्यादृष्टिको भवति — इति सूत्रम् ।</div>
+  <div class="tr">また、「我はない」とこのように言う者は、（自分の）定説と矛盾する。どのようにか。「大徳よ、色は私ではありません。受・想・行・識は、大徳よ、私ではありません」。「そのとおりだ、比丘よ。色は君ではない。受・想・行・識は君ではない」と（経にある）。これらの色などの蘊は、我執の対象としては否定されている。そしてこれは個別の否定であって、一般の否定ではない。我を認めない者は、まさに一般を否定すべきである。「私はない、君もない」と。……また、我を認めない者は、如来の教えを意味あるものとして確立することができない。そして、この言葉（経文）がないのではない。『サルヴァービサマヤ・スートラ』で述べられているからである。……また、「比丘たちよ、君たちに重荷と重荷を運ぶ者とを説こう。重荷とは五蘊であり、重荷を運ぶ者とは人（<i>pudgala</i>）である。そして『我はない』と言う者は、誤った見解をもつ者である」という経がある。</div><div class="exp"><span class="lbl">解説</span><p>ここで Uddyotakara は仏典を引いて、無我論が仏教の経典とも合わないと論じます。経は「色（身体）は私ではない、受（感覚）も……識（意識）も私ではない」と一つずつ否定しているが、これは個別の否定であって、「私」そのものを否定してはいない。本当に我を認めないなら、「私はない」と一言で否定すればよかったはずだ、というのです。さらに「重荷と重荷を運ぶ者」の経（重荷は五蘊、運ぶ者は人、とする）を引き、運ぶ者を認める以上、五蘊とは別の何かがあることになる、と論じます。この経は、仏教内部で人（プドガラ）の実在を説いた犢子部（ヴァーツィープトリーヤ）が論拠とした経として知られます（訳者の補足）。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、色などを「私」の対象として否定するこの見解を、TṬ（p.500）によって特定の仏教の部派のものとしますが、その名は OCR では「ज्ञातपुत्रीय वैभाषिक」と読め、はっきりしません。問答の出典（パーリ経典など）は示しません。『サルヴァービサマヤ・スートラ』は仏陀の言葉とみなされている、と注し、「重荷を運ぶ者」の経については、五蘊が重荷で人が運ぶ者だと説明して、「人」（<i>pudgala</i>）を「個我」（<i>jīvātmā</i>）と訳します（Hi. pp.861–863）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>引用の最後の一文「我はないと言う者は誤った見解をもつ」が経の一部なのか、Uddyotakara の付け加えなのかは、文面からははっきりしません。和訳では「という経がある」の中に含めました。</p></div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">p.322</span>
+  <div class="src deva" lang="sa">योऽप्ययं हेतुरजातत्वादिति, अयमपि राश्यन्तरव्यवच्छेदहेतुत्वाद् विरुद्धः । जातमजातमिति च वस्तुधर्मावेतौ । किं पुनर्जातम् ? किं वा अजातम् ? यस्य कारणवतः सत्ता तज्जातम् । यस्याकारणवतः सत्ता तदजातम् । …… तदिदमजात इत्यात्मनः प्रतिषेधो न भवति । यथा अनुदकः कमण्डलुरिति । …… किं पुनरात्मनो जन्म ? शरीरेन्द्रियबुद्धिवेदनाभिनिकायविशिष्टाभिरपूर्वाभिरभिसम्बन्धः । …… अकारणस्य नित्यत्वादसत्त्वं साधयतो नित्यत्वमापद्यत इति विरुद्धो हेतुः । प्रतिज्ञाहेत्वोश्च विरोधः । …… एतेन निर्हेतुकत्वात् जन्महेत्वनुपादानादकार्यत्वादकारणत्वादित्येवमाद्यास्तुल्यदोषा इति प्रत्युक्ताः ।</div>
+  <div class="tr">また、「生じないから」という理由も、別の種類（存在するもの）を区別する理由なので、矛盾である。「生じた」「生じない」とは、実在の性質である。では、「生じた」とは何か、「生じない」とは何か。原因をもつものの存在が「生じた」である。原因をもたないものの存在が「生じない」である。……だから「生じない」というのは、我の否定ではない。「水のない水瓶」（と言っても水瓶の否定ではない）ように。……では、我の生まれとは何か。身体・感官・知・感受（からなる）特定の集まりと、新たに結びつくことである。……原因のないものは常住なので、（我が）ないことを論証しようとして、常住であることを論証してしまう。だから理由は矛盾である。また、主張と理由とが矛盾する。……これによって、「原因がないから」「生まれの原因が取られないから」「結果でないから」「原因でないから」などの（理由）も、同じ誤りをもつので退けられた。</div><div class="exp"><span class="lbl">解説</span><p>「生じない」とは「原因なしに存在する」ということなので、それを理由にすれば、我は「ない」のではなく「常住である」ことが論証されてしまう。「水のない水瓶」と言っても水瓶はあるように、「生まれのない我」と言っても我はある。我の「生まれ」とは、新しい身体・感官などと結びつくことだ、とニヤーヤは考えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、我の「生まれ」の説明にある「集まり」（<i>nikāya</i>）を、神・人・動物などの身体の種類と注します。主張は「ない」、理由は「（生まれという）存在との関係がない」なので、有と無とに関わって互いに矛盾する、と Vārttika の議論を整理します（Hi. pp.863–865）。</p></div></div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">pp.322–323</span>
+  <div class="src deva" lang="sa">यदपीदमुच्यते शशविषाणवदिति, अयमप्यसिद्धो दृष्टान्तः । कथमिति ? शशविषाणशब्दस्य संबन्धविषयत्वात् संबन्धप्रतिषेधो न विषाणप्रतिषेधः । …… लोकविरोध इति चेत् ? …… न विरुध्यते, कार्यकारणभावप्रतिषेधद्वारेण लोकप्रवृत्तेः । लोकस्तावत् कार्यं कारणं वा शशस्य विषाणं नास्तीत्येवं प्रतिषेधति । …… न हि यद् यस्य न कार्यं न कारणं तत् नास्ति यथा देवदत्तस्य पट इति । …… कार्यकारणसंबन्धस्त्वन्यत्र दृष्ट इह प्रतिषिध्यत इति नात्यन्तासत्त्वप्रतिपादने दृष्टान्तो भवति । एतेन खपुष्पाद्यसत्त्वं व्याख्यातं वेदितव्यम् ।</div>
+  <div class="tr">また、「兎の角のように」と言われることも、成立しない例である。どのようにか。「兎の角」という語は関係を対象とするので、（それが否定するのは）関係の否定であって、角の否定ではない。……（反論）「（兎に角があると言えば）世間（の言い方）と矛盾する」と言うなら。……矛盾しない。世間は、結果と原因の関係の否定という仕方で（そう）言うからである。世間はまず、「兎の結果でも原因でもある角はない」とこのように否定する。……あるものの結果でも原因でもないものが、ないのではない。たとえば、デーヴァダッタの布（は、デーヴァダッタが作ったものでも生んだものでもないが、ある）ように。……ほかで見られる結果と原因の関係が、ここ（兎）で否定されるので、（兎の角は）完全な非存在を示す例にはならない。これによって、空の花などの非存在も説明されたと知るべきである。</div><div class="exp"><span class="lbl">解説</span><p>無の例として名高い「兎の角」も、Uddyotakara によれば完全な非存在ではありません。角そのものは牛などにあるのだから、「兎の角はない」が否定するのは、兎と角の関係、つまり兎から生える角がないということにすぎない。だから兎の角は、我の「完全な非存在」を示す例にはならない。「空の花」も同様です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、空の花などに「石女の子」を加え、TṬ（p.501）を引きます。髪や爪が身体から生じるように、角も（兎に）結びつきえないわけではない、という趣旨の注もありますが、OCR が崩れています（Hi. pp.865–866）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>「知覚されないから」</h2><span class="sub"><span class="pg">pp.323–325</span>我は「私」という知によって知覚される。非知覚の理由の欠陥</span></div>
+<div class="mula" id="u7">
+  <span class="ref">pp.323–324</span>
+  <div class="src deva" lang="sa">नास्त्यात्मा अनुपलब्धेरिति चेत् ? …… साप्यनुपलब्धिरसिद्धा प्रत्यक्षादिप्रमाणविषयत्वादात्मनः । प्रत्यक्षेण तावदात्मा उपलभ्यते । कथं प्रत्यक्षेण ? लिङ्गलिङ्गिसंबन्धस्मृत्यनपेक्षं विषयस्वभावभेदानुविधाय्यहमिति विज्ञानं रूपादिविज्ञानवत् प्रत्यक्षम् । …… रूपादिविषय इति चेत् ? …… तथा चोक्तम्, अहङ्कारालम्बनोत्पत्तिनिमित्तादात्मेत्युच्यत इति । तन्न, प्रतिषेधादसत्त्वाच्च । प्रतिषिद्धोऽहङ्कारो रूपादिषु — रूपं नाहम् । एवमेतद् भिक्षो रूपं न त्वमसि — …… न हि कदाचिदपि भवति अहं रूपम् अहं वेदनादय इति । ननु भवत्यहं गौरः अहं कृष्ण इति ? …… केवलं मतुब्लोपं कृत्वा अहं गौर इति षष्ठ्यर्थं निर्दिशति । …… तदेवमहङ्कारविषयत्वादात्मा तावत् प्रत्यक्षः । अनुमानेनापि यथा आत्मा उपलभ्यते, तथोक्तमिच्छादिसूत्र इति । आगमोऽप्यस्त्येव ।</div>
+  <div class="tr">（反論）「我はない。知覚されないから」と言うなら。……その非知覚も成立しない。我は知覚などの認識手段の対象だからである。まず、知覚によって我は知覚される。どのように知覚によってか。目印と目印をもつものとの関係の記憶に依存せず、対象の本性の違いに従う「私」という知は、色などの知と同じく知覚である。……（反論）「（その『私』という知は）色などを対象とする」と言うなら。……そしてこう言われている。「我執の対象（となる諸蘊）が生じる原因であるから、『我』と言われる」と。それは正しくない。否定されているからであり、また（そうした我執は色などについて）存在しないからである。色などについての我執は否定されている。「色は私ではない」「そのとおりだ、比丘よ。色は君ではない」と。……「私は色である」「私は受などである」ということは、決してない。（反論）「『私は色白だ』『私は色黒だ』と（言うこと）はあるではないか」。……ただ「〜をもつ」という接尾辞を省いて、「私は色白だ」と、属格の意味（私のこの身体は色白だ）を示しているのである。……このように、「私」という知の対象なので、我はまず知覚される。推理によっても我がどのように知られるかは、「欲求など」のスートラ（1.1.10）で述べた。聖典もある。</div><div class="exp"><span class="lbl">解説</span><p>「我は知覚されないから、ない」という論証に対して、Uddyotakara は、我は「私」という知によって直接に知覚される、と答えます。その知は、煙から火を推理するような記憶を必要とせず、色を見る知と同じく直接的です。仏教側は、「私」という知の対象は色などの五蘊だと言うが、仏典自身が「色は私ではない」と言っているし、人は「私は色だ」とは言わない。「私は色白だ」は、「私の身体は色白だ」という意味の省略表現だ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「私は色白だ」の反論を「前主張者の論難」、それへの答えを「退け」と見出しを付けます。注は、ニヤーヤは単なる言葉の使い方ではなく経験にもとづくとし、身体などは「これ」「私のもの」という知の対象であって、「私」という知の対象ではない、と TṬ（p.501）を引きます。仏教徒自身、知は目印によらずに自ら知られる（自己認識）知覚だと認めている、という Vārttika の指摘も訳しています。この頁の注は OCR がかなり崩れています（Hi. pp.867–868）。</p></div></div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">pp.324–325</span>
+  <div class="src deva" lang="sa">सन्दिग्धश्चानुपलब्धेस्त्रिकारणत्वात् । अनुपलब्धिकारणानि त्रीणि, उपलब्धा उपलम्भनम् उपलभ्यमिति । तत्रेयमनुपलब्धिर्भवन्ती कस्याभावाद् भवतीति संदिह्यते ? यदि ब्रूषे उपलभ्यस्याभावादिति ? नन्वयं प्रतिज्ञार्थ एव …… या चेयमनुपलब्धिरात्मासत्त्वप्रतिपादनायोपादीयते, तस्याः क आश्रयः ? यद्यात्मानं प्रतिपद्यसे, व्याहतं भवति, आश्रयश्च नास्ति चेति । अथानाश्रया, किं साधनम् ? न ह्यनाश्रयो धर्मः साध्यं साधयितुं शक्नोति । …… अथ कल्पितस्यानुपलब्धिर्धर्म इति ? …… न हि स्थाणोः पुरुषतया कल्पितस्य स्थाणुधर्माः प्रत्यवभासन्ते । …… तदेवमप्यनुपलब्धिरहेतुः ।</div>
+  <div class="tr">また、非知覚は、三つの原因があるので、疑わしい。非知覚の原因は三つある。知覚する者、知覚の手段、知覚されるもの（のいずれかがないこと）である。そこで、この非知覚が生じるとき、何がないから生じるのか、と疑われる。もし「知覚されるもの（我）がないから」と言うなら、それは主張の内容そのものである。……また、我がないことを示すために取り上げられるこの非知覚は、何を拠り所とするのか。もし我を（拠り所と）認めるなら、「拠り所（我）はない」と言うことと矛盾する。もし拠り所がないなら、何が論証するのか。拠り所のない性質は、論証されるべきものを論証できない。……（反論）「仮に設けた（我）の性質が非知覚なのだ」と言うなら。……杭が人だと仮に見なされるとき、（人として見られている間）杭の性質が現れることはない。……このようにしても、非知覚は理由にならない。</div><div class="exp"><span class="lbl">解説</span><p>非知覚の理由のさらなる欠陥です。何かが知覚されないのは、知覚する者がいないか、知覚の手段（感官）がないか、対象がないか、の三通りがありうる。だから「知覚されない」から「ない」とはすぐには言えない。また、「知覚されないこと」は誰かの性質のはずだが、その誰か（我）を認めれば自己矛盾になり、認めなければ理由に拠り所がなくなる、と論じます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、TṬ（p.502）を引き、また「無いものは論証するものになりえない」と読むべきだという訂正を、Gaṅgānātha Jhā の英訳（p.1082）によって示します（Hi. pp.869–870）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>そのほかの無我論証</h2><span class="sub"><span class="pg">pp.325–327</span>「我」という語の対象。生きた身体は我をもたない、か。目などは他のためにある</span></div>
+<div class="mula" id="u9">
+  <span class="ref">pp.325–326</span>
+  <div class="src deva" lang="sa">रूपादिस्कन्धवाचकशब्दविषयव्यतिरिक्तविषय आत्मशब्दः रूपादिशब्देभ्योऽन्यत्वे सति एकपदत्वाद्, घटशब्दवदिति । एतेनाहंप्रत्ययो व्याख्यातः । …… तमःशब्दस्य सविषयत्वे सूत्रव्याघातः — द्रव्यगुणकर्मनिष्पत्तिवैधर्म्याद् भाभावस्तमः — इति । न, सूत्रार्थापरिज्ञानात् । …… अपरे तु जीवच्छरीरं निरात्मकत्वेन पक्षयित्वा सत्त्वादित्येवमादिकं हेतुं ब्रुवते । तन्न, विकल्पानुपपत्तेः । निरात्मकमिति कोऽर्थः ? …… उत्तरपदविषयत्वाच्च निसः किं सात्मकमिति वाच्यम् । …… यथा निर्मशकमिति । …… सर्वे चैते विशेषप्रतिषेधाः । विशेषप्रतिषेधाच्च सामान्यमवगम्यते । …… तदेवं यथा यथासत्त्वे प्रतिज्ञा क्रियते, तथा तथा न्यायं न सहत इति ।</div>
+  <div class="tr">（我々の論証）「我」という語は、色などの蘊を表す語の対象とは別のものを対象とする。色などの語とは別でありながら一つの語だから。「壺」という語のように。これによって「私」という知も説明された。……（反論）「（君たちが）『闇』という語に対象があるとするなら、スートラと矛盾する。『実体・性質・運動の成立と性質が違うので、闇は光の非存在である』（ヴァイシェーシカ・スートラ 5.2.21 参照）と（ある）から」。そうではない。スートラの意味を理解していないからである。……別の人々は、生きている身体を「我をもたない」として主題とし、「存在するから」などの理由を述べる。それは正しくない。選択肢が成り立たないからである。「我をもたない」とはどういう意味か。……また、「〜のない」（<i>nis</i>）は後の語（「我」）を対象とするので、何が我をもつのか言わなければならない。……「蚊のいない（所）」のように。……これらはすべて個別の否定である。個別の否定から一般（我）が理解される。……このように、（我が）ないことについてどのように主張を立てても、そのたびに道理に耐えないのである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は自分の論証も示します。「我」という語は、「色」「受」などの語とは別の一語なので、「壺」という語と同じく、それらとは別の対象をもつはずだ。また、「生きている身体は我をもたない。存在するから（壺のように）」という論証に対しては、「蚊のいない部屋」と言うには蚊がどこかにいなければならないように、「我をもたない」という否定も我を前提にしている、と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、ここに「（定説の側による我の論証）」と見出しを付けます。仏教徒にとって壺は色などの集まりにすぎないので、壺の例は成立しないと反論される、と注し、TṬ（p.502）が論証式の各語の役割を示していると記します。「別の人々」も仏教徒だが、どの師の説かは知られない、と注します。「文字からなるから無常」の論証について TṬ（p.506）、仏教では五蘊以外のものを認めないことについて TṬ（p.503）を引きます（Hi. pp.871–872）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>引かれるヴァイシェーシカ・スートラの番号は、Thakur 版の注（Candrānanda 注の版 5.2.21）によります。ヒンディー訳はこれを 5.2.16 とします（OCR による）。</p></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">pp.326–327</span>
+  <div class="src deva" lang="sa">परार्थाश्चक्षुरादयः संघातत्वात् शयनासनादिवदिति । संघाताः संघातान्तरार्था इति चेत् ? …… न, संघातस्याभ्युपगमे विरोधात् । …… न, विरोधादनभ्युपगमाच्च । …… यदि विवक्षितार्थव्यतिरेकेणानुमानस्याविवक्षितमपि विषयः, नन्वेतां प्रकल्पनायां सर्वमनुमानं व्याहन्यते । …… यथा कृतकत्वमनित्यत्वेनाविनाभूतमनित्यत्वं साधयति, एवं दुःखशून्यानात्मकत्वमपि साधयति । अनात्मकत्ववदश्रावणत्वमपि साधयिष्यति । …… यच्चापि भवान् संघातान्तरं प्रतिपद्यते, तत्राप्यनिवृत्तं संघातत्वमिति तेनापि संघातान्तरार्थेन भवितव्यमिति । एवं चानवस्था । …… अथानुमानं नैवास्तीति परः प्रतिपद्येत ? …… अतीन्द्रियार्थाधिगतिश्च कथम् ? …… तदेवमात्मास्तीति समधिगतम् ।</div>
+  <div class="tr">（我々の論証）「目などは他のためにある。集まりだから。寝台や座席などのように」。（反論）「集まりは、別の集まりのためにある（寝台が身体という別の集まりのためにあるように。だから我は論証されない）」と言うなら。……そうではない。（あなたが別の）集まりを認めるなら矛盾するからである。……（反論「望ましくない帰結を示すだけだ」と言っても）そうではない。矛盾するからであり、また（我々は）認めないからである。……もし推理に、言おうとした意味以外に、言おうとしなかったものまで対象になるなら、そう考えれば、すべての推理が損なわれる。……「作られたものだから」は、無常と不可分なので無常を論証するように、苦・空・無我をも論証する（と君は言う）。無我と同じように、聞かれないことまで論証してしまうだろう。……また、あなたが別の集まりを認めるとしても、それにも集まりであることは残るので、それもまた別の集まりのためにあるはずである。こうして無限遡及になる。……（反論）「推理などそもそもない」と相手が考えるなら。……では、感官を超えたものをどのように知るのか。……このように、我があることが確定した。</div><div class="exp"><span class="lbl">解説</span><p>「目などの感官は、寝台や座席と同じく、部分の集まりなので、自分以外の誰かのためにある。その誰かが我だ」という論証は、サーンキヤでもよく知られた形のものです（訳者の補足）。仏教徒は、寝台は身体という別の集まりのためにあるのだから、この推理が示すのは「別の集まり」にすぎない、と反論します。Uddyotakara は、それなら別の集まりもまた別の集まりのためにあることになり、無限遡及になると答え、集まりでない者（我）に行き着かざるをえない、と論じます。こうして、序論の結論として「我はある」が確定します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「目などは他のためにある」をサーンキヤのプルシャ論証の形と見出しで示します。注は、「望ましくない帰結」の反論の意味を、寝台のような集まりに奉仕するものはそれ自体集まりなので、我も集まりになってしまう、ということだと説明します。また、集まりでないものがなければ集まりもありえない、と注します。推理を否定する相手への答えでは、雷鳴からその原因を推理するように、推理には知覚も聖典も及ばない固有の領域がある、と説明します（Hi. pp.873–875）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「अनात्मादिदश्रावणत्वमपि」は崩れているので、写本 C の異読（「…अनात्मकत्ववदश्रोत्रग्राह्यत्वमपि」）を参考に、「अनात्मकत्ववदश्रावणत्वमपि」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>見て触れるのは同じ者</h2><span class="sub"><span class="pg">pp.327–330</span>スートラ 3.1.1–3。言い表しの疑い。見ることと触れることの統合。感官は知る者か</span></div>
+<div class="mula" id="u11">
+  <span class="ref">pp.327–328</span>
+  <div class="src deva" lang="sa">तस्मिन् व्यपदेशस्योभयथासिद्धेः संशयः । कः पुनरयं व्यपदेशः ? क्रियाकरणयोः कर्त्रा संबन्धाभिधानं व्यपदेशः । …… करणस्य च क्रियायाश्च कर्त्रा संबन्धः चक्षुषा पश्यतीति । स चायं व्यपदेशो द्वेधा भवति । अवयवेन समुदायस्य, यथा मूलैर्वृक्षस्तिष्ठतीति । …… अन्येन चान्यस्य व्यपदेशः । परशुना वृश्चतीति । …… तत्र न ज्ञायते किं तत्त्वमिति । अन्येनान्यस्य व्यपदेश इत्येतत् तत्त्वम् ।</div>
+  <div class="tr">それ（我）について、言い表しが二通りに成り立つので、疑いがある。この言い表しとは何か。動作と手段とが行為者と関係していることを言うのが、言い表しである。……手段と動作とが行為者と関係するのが「目で見る」である。そしてこの言い表しは二通りである。部分によって全体を（言う場合）、たとえば「木は根で立っている」。……別のものによって別のものを（言う場合）、たとえば「斧で切る」。……そこで、何が真実かわからない。別のものによって別のものを言い表すのだ、ということが真実である。</div><div class="exp"><span class="lbl">解説</span><p>「目で見る」という言い方は、「木は根で立っている」（根は木の一部）と同じく、部分によって全体を言っているのか（なら見る者は目を含む身体などの集まり）、それとも「斧で切る」（斧と切る人は別）と同じく、別のものによって別のものを言っているのか（なら見る者は目とは別）。この疑いに対して、後者が真実だ、と答えるのがスートラ 3.1.1 です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、ここでの争点は我の存在ではなく言い表しだ、と述べます。宮殿の例について、異なる種類の材料で建てられた家や宮殿は全体（<i>avayavin</i>）ではないことを含意する、という TṬ（p.504）を引きます（Hi. pp.875–876）。</p></div></div>
+</div>
+<div class="mula sutra" id="u12">
+  <span class="ref">pp.328–329 · NS 3.1.1</span>
+  <div class="src deva" lang="sa">दर्शनस्पर्शनाभ्यामेकार्थग्रहणात् ॥३।१।१॥<br>दृश्यतेऽनेनेति दर्शनं चक्षुः । स्पृशत्यनेनात्मा स्प्रष्टव्यमर्थमिति स्पर्शनं त्वगिन्द्रियमुच्यते । दर्शनेन दृष्टमर्थं स्पर्शनेन प्रत्यभिजानाति यमहमद्राक्षं तं स्पृशामि, यमस्प्राक्षं तं पश्यामीति एकविषयावेतौ प्रत्ययौ प्रतिसन्धीयेते । प्रतिसन्धानं च नाम स्मृत्या सहैकविषयत्वम् । …… दर्शनस्पर्शनप्रत्ययावेककर्तृकाविति सूत्रार्थः । …… भावस्य भवित्रपेक्षत्वाच्चेति सूत्रार्थः । …… न हि भावमनाधारं पश्याम उत्पत्तिवदिति । …… संघातकर्तृकौ दर्शनस्पर्शनप्रत्ययौ भविष्यत इति न युक्तम्, संघातस्य नानात्वाबाधनात् । …… एकेन्द्रियकर्तृकाविति चेत् ? …… तन्न, अविषयत्वात् चक्षुषः । …… इन्द्रियान्तरवैयर्थ्यं वा ॥१॥</div>
+  <div class="tr">見ることと触れることとによって、同じ対象が捉えられるからである。<br>それによって見られるので「見るもの」、すなわち目である。我がそれによって触れられる対象に触れるので「触れるもの」、すなわち皮膚の感官と言われる。見るものによって見た対象を、触れるものによって再認する。「私が見たものに、私は触れている」「私が触れたものを、私は見ている」と、この二つの知は、同じ対象をもつものとして結びつけられる。結びつけるとは、記憶とともに同じ対象をもつことである。……見る知と触れる知とは、同じ一人の行為者をもつ、というのがスートラの意味である。……また、生起は生起するもの（の拠り所）を必要とするから、というのが（もう一つの）スートラの意味である。……拠り所のない生起を我々は見ない。生じることのように。……（反論）「見る知と触れる知は、集まりを行為者とするのだろう」と言うのは正しくない。集まりが多数であることは否定されないからである。……（反論）「（両方とも）一つの感官を行為者とする」と言うなら。……そうではない。目は（触れられるものを）対象としないからである。……あるいは、ほかの感官は無用になってしまう。</div><div class="exp"><span class="lbl">解説</span><p>暗闇で手に触れたものを、明かりをつけて見て「さっき触れたのはこれだ」とわかる。この「結びつけ」（<i>pratisandhāna</i>）ができるのは、見た者と触れた者が同じ一人だからです。目は触れられず、皮膚は見られないので、目と皮膚のどちらも結びつけの主体にはなれない。目と皮膚の集まりが主体だとしても、集まりは多数なので、別々の主体が別々に知ったことを一つに結びつけることはできない。だから、目とも皮膚とも別の、一つの我がある、というのがこのスートラの論証です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、これを「バーシュヤの作者の結論」とし、Viśvanātha の注を引いて、Viśvanātha は「見ること・触れること」を知の種類と取るが、Vārttika は目と皮膚と取る、言葉は違うが意味は同じだ、と述べます。因果の連続による再認、という反論への答えはスートラ 1.1.10 の箇所で示されたとし、因果関係のないものの再認の例として、目の黒い牛を見てスヴァスティマティー（という人）を思い出すことを挙げます。「生起」を動作、「生起するもの」を行為者と注します。夜に白い色が見えなくても鷺を鳥と知る例などを訳しています（Hi. pp.877–880）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストは、章頭のスートラを「दर्शनस्पर्शाभ्याम्」と印字していますが、Vārttika の引用に合わせて「दर्शनस्पर्शनाभ्याम्」と直しました。</p></div>
+</div>
+<div class="mula sutra" id="u13">
+  <span class="ref">p.329 · NS 3.1.2</span>
+  <div class="src deva" lang="sa">न विषयव्यवस्थानात् ॥३।१।२॥<br>चेतनानीन्द्रियाणि विषयव्यवस्थानात् । विषयव्यवस्थानादित्यस्यायमर्थः करणविषयनियमादिति । सति चक्षुषि रूपग्रहणं भवत्यसति न भवति । …… तस्माद् रूपग्रहणं चक्षुषः । एवं शेषेष्विति । एवं च सति किमन्येन चेतनेनेति चेत् ? न, सन्दिग्धत्वाद्धेतोः । किमयमिन्द्रियाणां विषयनियमः चेतनत्वात्, आहो चेतनोपकरणत्वादिति सन्दिह्यते । …… यथा प्रदीपस्य सद्भावे रूपग्रहणं भवति, असति न भवति । न च रूपग्रहणं प्रदीपस्य । विपर्ययप्रसाधकश्चायं हेतुर्विषयव्यवस्थानादिति ॥२॥</div>
+  <div class="tr">（反論）「そうではない。対象が（感官ごとに）定まっているからである」。<br>（すなわち）感官が知る者である。対象が定まっているから。「対象が定まっているから」の意味は、手段（感官）ごとに対象が決まっているから、ということである。目があれば色が捉えられ、なければ捉えられない。……だから、色を捉えることは目（の作用）である。残り（の感官）についても同様である。（反論）「そうなら、ほかに知る者がいて何になるのか」と言うなら。そうではない。理由が疑わしいからである。この感官の対象の決まりは、（感官が）知る者だからか、それとも知る者の道具だからか、と疑われる。……たとえば、灯火があれば色が捉えられ、なければ捉えられないが、色を捉えることは灯火の（作用）ではないように。また、この「対象が定まっているから」という理由は、逆のこと（感官とは別の知る者があること）を論証するものである。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、目があれば見え、なければ見えないのだから、見ているのは目そのものであり、感官とは別の知る者は要らない、と言います。Uddyotakara は、灯火があれば色が見え、なければ見えないが、灯火が見ているわけではない、と答えます。感官は知る者の道具にすぎない。しかも、感官ごとに対象が決まっているという事実は、次のスートラが示すとおり、かえって別の知る者がいることの論拠になる、と予告します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.2 を「前主張のスートラ」とし、「ほかに知る者がいて何になるのか」を前主張の結論とします。答えには「定説のバーシュヤ」と見出しを付け、肯定・否定の随伴は原因であることを示すだけで、行為者を非知性的なものに、道具を知性的なものにするわけではない、という TṬ（p.505）を引きます。仏教にも「疑わしい」似非理由がある、と述べて TṬ（pp.259–260）や『プラマーナ・ヴァールッティカ』を参照させます。「逆を論証する」とは、感官が知性をもたないことを論証する、という意味だと注します（TṬ p.505）（Hi. pp.881–882）。</p></div></div>
+</div>
+<div class="mula sutra" id="u14">
+  <span class="ref">pp.329–330 · NS 3.1.3</span>
+  <div class="src deva" lang="sa">तद्व्यवस्थानादेवात्मसद्भावादप्रतिषेधः ॥३।१।३॥<br>विपर्ययसाधकत्वज्ञापनार्थं च …… इति सूत्रम् । यस्मादेवैतानि इन्द्रियाणि व्यवस्थितविषयाणि, अत एवान्येनात्राव्यवस्थितविषयेण भवितव्यम् । यदि हि किञ्चिदेकमिन्द्रियमनेकार्थग्राह्यव्यवस्थितविषयं स्यात्, कस्ततोऽन्यं चेतनमनुमातुं शक्नुयात् ? चैतन्यं तु आत्मनः स्वातन्त्र्ये सत्यव्यवस्थानात् …… अन्वयाभावादयुक्तमिति चेत् ? …… न, विपर्ययसंबन्धस्याव्यभिचारात् नायमन्वयहेतुः, अपि तु व्यतिरेकहेतुः । …… पृथिव्यादिनित्यत्वसाधने गन्धवत्त्वादिप्रसङ्ग इति चेत् ? …… न हेतुरुभयव्यावृत्तेः । यस्मात् गन्धवत्त्वं नित्याच्चानित्याच्च व्यावर्तते, न पुनर्व्यवस्थानमेवम्, तस्माद् व्यवस्थानं हेतुर्न गन्धवत्त्वमिति ॥३॥<br>॥ इन्द्रियभेदप्रकरणम् ॥</div>
+  <div class="tr">（答え）まさにそれ（感官の対象）が定まっているので、我があるから、（我は）否定されない。<br>また、（前の理由が）逆のことを論証することを知らせるためでもある、というのがスートラである。まさにこれらの感官は対象が定まっているので、だからこそ、ここには対象の定まっていない別のもの（我）がなければならない。もし何か一つの感官が、多くの対象を捉え、対象が定まっていなかったなら、誰がそれとは別の知る者を推理できようか。しかし、我には知性がある。独立していながら、（対象が）定まっていないからである。……（反論）「肯定的な随伴（の例）がないので、正しくない」と言うなら。……そうではない。逆の関係（否定的随伴）が外れないので、これは肯定による理由ではなく、否定による理由なのである。……（反論）「（そうなら）地などの常住を論証するのに『香をもつから』などが（理由に）なってしまう」と言うなら。……（それは）理由にならない。両方から除かれるからである。香をもつことは、常住なものからも無常なものからも除かれる（地にしかない）が、（対象が）定まっていないことはそうではない。だから、定まっていないことは理由になるが、香をもつことはならない。<br>感官との区別のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>目は色だけ、皮膚は触れられるものだけ、と対象が決まっているからこそ、「見たものに触れている」と、色と触れられるものの両方にまたがって知る者が、感官とは別になければならない。もしどれか一つの感官が何でも知れるなら、別の知る者を推理する必要はなかった、というのが答えのスートラです。この論証は、肯定的な実例（対象が定まっていない知る者の実例）をもたない「否定による理由」ですが、それでも有効だ、と Uddyotakara は補います（否定による理由については<a href="nyayavarttika-6-taiyaku.html">第6プラカラナ</a>を参照）。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、バーシュヤが、色を見て以前に知った味や香を推理すること、知覚・推理・証言・疑いを自分のものとして結びつけることなどを、知る者の経験として挙げる箇所を訳します。注は、「独立していながら」という限定は、意（<i>manas</i>）で理由が外れるのを避けるために加えられた、と説明し、TṬ（p.505）を引きます。Vārttika は、このスートラが前の理由を矛盾した理由として示している、と注します（Hi. pp.883–885）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストはスートラ 3.1.3 を「तद्व्यवस्थानादात्मसद्वादप्रतिषेधः」と印字していますが、通行の形「तद्व्यवस्थानादेवात्मसद्भावादप्रतिषेधः」に直しました。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>ātman</dt><dd>我、自己</dd>
+    <dt>ahaṅkāra / ahaṃpratyaya</dt><dd>我執／「私」という知</dd>
+    <dt>skandha</dt><dd>蘊。色・受・想・行・識の五つ（仏教）</dd>
+    <dt>pudgala / bhārahāra</dt><dd>人／重荷を運ぶ者</dd>
+    <dt>anupalabdhi</dt><dd>非知覚</dd>
+    <dt>kalpanā</dt><dd>仮に設けること。そうでないものにその性質を重ね合わせること</dd>
+    <dt>saṃghāta / parārtha</dt><dd>集まり／他のためにあること</dd>
+    <dt>vyapadeśa</dt><dd>言い表し（「目で見る」など）</dd>
+    <dt>pratisandhāna</dt><dd>結びつけ。記憶とともに同じ対象をもつこと</dd>
+    <dt>viṣayavyavasthāna</dt><dd>（感官ごとに）対象が定まっていること</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第3巻）所収の本文と照合して直した。原文は論点ごとに要点を抜き出した（「……」）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号は Thakur 版とヒンディー訳とで一致する。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。仏典の出典や仏教の学派の特定のうち、ヒンディー訳の注にないものは訳者の補足として示した。このページが扱うのは第26プラカラナ（スートラ 3.1.1–3）で、第三篇の最初の章である。第25プラカラナ（スートラ 2.2.58–69）は<a href="nyayavarttika-25-taiyaku.html">第25プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
