@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 27</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-26-taiyaku.html">← プラカラナ26</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>身体を焼いても罪がない？</a></li><li><a href="#s2"><b>2</b>稲の種の喩え</a></li><li><a href="#s3"><b>3</b>刹那滅論のほかの難点</a></li><li><a href="#s4"><b>4</b>常住の我は害されるか</a></li><li><a href="#s5"><b>5</b>殺生とは何か</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第27プラカラナ「身体と別の我」（スートラ 3.1.4–6、Thakur 版 pp.330–337）</span>
+  <p>前章では、見る者と触れる者が同じであることから、感官とは別の我が論証されました。この章では倫理の面から論証が続きます。我が身体などの集まりにすぎず、しかもその集まりが刹那ごとに滅びるなら、生きものを殺した者と、その報いを受ける者とは別人になってしまう。罪を犯していない者が報いを受け（<i>akṛtābhyāgama</i>）、罪を犯した者の行為が報われずに消える（<i>kṛtanāśa</i>）ことになる、というのです。</p>
+  <p>Uddyotakara は、行為と報いは同じ心身の連続体（<i>santāna</i>）の中でつながるのだ、という仏教側の答えを、稲の種から芽が出る喩えとともに検討します。後半では逆に、我が常住なら、殺生によって我は傷つかないので殺生の罪もないことになる、という批判（仏教側の有名な偈「雨と日差しが空に何をするのか」を含む）に答え、殺生とは、我そのものではなく、我が経験するための身体と感官を損なうことだ、と定義します。</p>
+  <p>原文は論点ごとに要点を抜き出しました（「……」）。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>身体と別の我の章<br><small><i>śarīravyatirekyātmaprakaraṇa</i>。スートラ 3.1.4–6 の注釈。Thakur 版 pp.330–337</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.1.4–6<br><small>身体を焼いても罪がないことになる。常住の我にも殺生はない、という反論。殺生の定義</small></dd></div>
+    <div><dt>論敵</dt><dd>我を認めず、心身の連続体を説く者<br><small>ヒンディー訳の注は、殺生を罪としながら集まりの生滅を説く仏教徒に向けたものとする</small></dd></div>
+    <div><dt>見どころ</dt><dd>雨と日差しは空に何をするのか<br><small>§4。常住の我は空のように何も受けない、という批判への答え</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.886–903</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.331</span> は Thakur 版の頁。節見出しの <span class="pg">pp.330–331</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。長い議論は要点を抜き出した（<span class="ia">……</span>）</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.1.4–6 の注釈を、テキストの順に5節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">身体を焼いても罪がない？</a></td><td class="num">pp.330–331</td><td>スートラ 3.1.4。行為者と報いを受ける者が別になる。連続体による答え</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">稲の種の喩え</a></td><td class="num">pp.331–333</td><td>種から芽へ。部分は原子にまで分かれるか。焼成の議論</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">刹那滅論のほかの難点</a></td><td class="num">pp.333–334</td><td>行為の動機、解脱のための修行、仏陀の問いかけ、薫習</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">常住の我は害されるか</a></td><td class="num">pp.334–336</td><td>スートラ 3.1.5。雨と日差しの偈。サーンキヤ説。皮と空</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">殺生とは何か</a></td><td class="num">pp.336–337</td><td>スートラ 3.1.6。身体と感官を損なうことが殺生</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>身体を焼いても罪がない？</h2><span class="sub"><span class="pg">pp.330–331</span>スートラ 3.1.4。行為者と報いを受ける者が別になる。連続体による答え</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.330–331 · NS 3.1.4</span>
+  <div class="src deva" lang="sa">शरीरदाहे पातकाभावात् ॥३।१।४॥<br>इतश्च शरीरादिव्यतिरिक्त आत्मा, न शरीरादिसंघातमात्रम्, शरीरदाहे पातकाभावात् । शरीरग्रहणेन शरीरेन्द्रियबुद्धिवेदनासंघातः प्राणिभूतो गृह्यते । शरीरं प्राणिभूतं दहतः प्राणिहिंसाकृतं पापं पातकमित्युच्यते । तस्याभावोऽकर्तुः फलेन संबन्धः कर्तुश्चासंबन्ध इति । कस्मात् ? अनभ्युपगतार्थान्तरात्मनोऽन्यः शरीरेन्द्रियबुद्धिवेदनासंघातः कर्ता, अन्यश्च तत्फलस्य भोक्तेति । तदेवमकृताभ्यागमकृतनाशदोषप्रसङ्गः । अनिष्टश्चायम् । तस्माद् यः कर्ता भोक्ता च स आत्मेति । तदिदं सूत्रं यस्यात्मा नास्ति तस्यायं दोष इति दोषप्रतिपादनार्थं न साधनार्थमिति ।</div>
+  <div class="tr">身体を焼いても、罪がないことになるからである。<br>この理由からも、我は身体などと別のものであって、身体などの集まりにすぎないのではない。身体を焼いても、罪がないことになるからである。「身体」という語によって、身体・感官・知・感受の集まりである生きものが取られている。生きものである身体を焼く者に、生きものを害したことによって生じる悪が「罪」と言われる。それがない、とは、行為しなかった者が報いと結びつき、行為した者が（報いと）結びつかないことである。なぜか。（身体などと）別の我を認めない者にとっては、身体・感官・知・感受の集まりである行為者と、その報いを受ける者とは別だからである。こうして、「行わなかったことが（報いとして）来る」「行ったことが消える」という誤りが生じる。そしてこれは望ましくない。だから、行為者であり報いを受ける者であるもの、それが我である。このスートラは、我を認めない者にこの誤りがある、と誤りを示すためのものであって、（我を）論証するためのものではない。</div><div class="exp"><span class="lbl">解説</span><p>身体・感官・知・感受が刹那ごとに滅びる集まりにすぎないなら、殺生を行った集まりはすでに消え、報いを受けるのは別の新しい集まりになる。すると、行っていない者が報いを受け、行った者は報いを免れる。これは誰にとっても望ましくない帰結なので、行為者と報いを受ける者とが同一である我を認めなければならない。Uddyotakara は、このスートラは我の論証ではなく、無我論の誤りを示すものだ、と位置づけます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、スートラの要点を TṬ（p.505）の「生きものを殺しても罪がないことになるから」とし、集まりが滅びて別の集まりが生じると説きながら殺生を罪とする仏教徒に向けたものだ、と説明します。仏教徒のある人々は識の連続を我と呼び、別の人々は五蘊の集まりを我とする（集まり説）、と注します。バーシュヤの「生と滅の連続である流れ」について、集まりが流れとして続いても、後の集まりは別のものだ、と注し、また仏教徒自身が生きものの誕生は業によると認めるので、業によらない誕生は彼らにとっても望ましくない、と説明します（Hi. pp.886–888）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">p.331</span>
+  <div class="src deva" lang="sa">हेतुफलभावात् स्मृतिवत् कर्तृभोक्तृव्यवहार इति चेत् । यथा हेतुफलभावेन व्यवस्थितायां सन्ततौ यस्यामेव भावनोपजायते, तस्यामेव सन्ततौ स्मृतिर्भवति । एवं यत्कायचित्तसन्तानप्रभवं कर्म तत्कायचित्तसन्तानप्रभवं फलमिति नास्त्यकृताभ्यागमकृतनाशदोषः । …… न, उक्तोत्तरत्वात् । न सन्तानो नानात्वं बाधत इत्युक्तोत्तरमेतत् । यत् पुनरेतत् एकस्मिन्नदर्शनादिति । अत्राप्युक्तम्, एकनिमित्तानां प्रत्ययानां प्रतिसन्धानादिति ।</div>
+  <div class="tr">（反論）「原因と結果の関係によって、記憶と同じように、行為者・享受者という言い方がある」と言うなら。原因と結果の関係によって成り立つ連続体において、まさに印象が生じたその連続体に、記憶が生じる。同じように、ある身体と心の連続体から生じた行為の、その身体と心の連続体から生じる報いがある。だから、「行わなかったことが来る」「行ったことが消える」という誤りはない。……そうではない。答えはすでに述べたからである。連続体は（その構成要素が）多数であることを否定しない、と答えはすでに述べた。また、「一つのもの（我）には（そのような結びつけは）見られない」という（反論の）点についても、すでに述べた。同じ一つのものを原因とする知が結びつけられるからである、と。</div><div class="exp"><span class="lbl">解説</span><p>仏教側の答えは、行為と報いは同じ「連続体」の中でつながる、というものです。経験の印象（<i>bhāvanā</i>）が生じた心の流れに、後でその記憶が生じるのと同じように、ある心身の流れで行われた行為の報いは、同じ流れに現れる。Uddyotakara は、連続体と言っても、それを構成するのは刹那ごとに別々の要素なので、多数であることに変わりはない、と答え、この点はすでに（スートラ 1.1.10 などで）論じたと言います。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、反論を「疑問」、答えを「解決」と見出しを付けます。「印象」を、我にあって記憶の原因となる潜在力と注し（TṬ p.506）、一つの身体で特徴づけられた心の連続が行為をし、別の身体に至ってもその報いを受ける、という仏教側の考えを TṬ（p.506）によって説明します（Hi. pp.888–889）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>稲の種の喩え</h2><span class="sub"><span class="pg">pp.331–333</span>種から芽へ。部分は原子にまで分かれるか。焼成の議論</span></div>
+<div class="mula" id="u3">
+  <span class="ref">pp.331–332</span>
+  <div class="src deva" lang="sa">शाल्यादिबीजवदिति चेत् ? अथ मन्यसे, यथा शालिबीजादङ्कुर उपजायते, अङ्कुरोपमर्दोत्तरकालं नालकाण्डादिभावेन महाभूतानुग्रहवशात् शालिबीजं प्रादुर्भवति । न च तत्रैकं किञ्चिदनुबद्धं निमित्तमस्ति । अथ च नियमः शालिबीजपूर्वकादङ्कुरात् शालिबीजम्, …… तन्न, बीजावयवानुवृत्तेः शालिबीजवदित्ययमसिद्धो दृष्टान्तः । तत्रापि हि ये बीजावयवास्ते पूर्वव्यूहपरित्यागेन व्यूहान्तरमापद्यन्ते । …… परमाण्ववस्थत्वाद् बीजावयवानां यथोक्तदोषापत्तिरिति चेत् ? …… न, अनभ्युपगमात् । परमाण्ववस्थानि बीजानि भवन्तीत्येतत् न प्रतिपद्यामहे सर्वावस्थोपलब्धेः । …… सर्गादौ च शालिजातिव्यक्तिहेतुरदृष्टविशेषः, येनादृष्टेन प्राणिनामुपभोगाय शाल्यादयो निर्वर्त्यन्ते, तमदृष्टविशेषमपेक्षमाण ईश्वरस्तांस्तान् परमाणून् तथा तथा संघातयति, यथा यथा शाल्यादिजातिव्यक्तिरिति । एतेन घटादिपाको व्याख्यातः ।</div>
+  <div class="tr">（反論）「稲などの種のように」と言うなら。（すなわち）こう考えるなら。稲の種から芽が生じ、芽が壊れた後で、茎や幹などの段階を経て、大元素の助けによって稲の種が現れる。そこには、ずっと続いている一つの原因は何もない。それでも、稲の種を前にもつ芽から稲の種が（生じる）という決まりがある。……それは正しくない。種の部分が続いているので、「稲の種のように」というこの例は成立しない。そこでも、種の部分が前の配置を捨てて別の配置になるのである。……（反論）「種の部分は原子の状態になるので、述べた誤りが生じる」と言うなら。……そうではない。（我々は）認めないからである。種が原子の状態になる、ということを我々は認めない。すべての状態が知覚されるからである。……また、世界の創造の初めに、稲という類の個物が生じる原因は、特定の見えない力（業の力）である。その見えない力によって、生きものの享受のために稲などが作られる。その特定の見えない力に依存して、主宰神が、それぞれの原子を、稲などの類の個物になるように、そのように結合させるのである。これによって、壺などの焼成も説明された。</div><div class="exp"><span class="lbl">解説</span><p>仏教側は、稲の種から芽が出て、芽が枯れても茎・幹を経てまた稲の種ができるように、ずっと続く一つのものがなくても、原因と結果の決まった連鎖がある、と論じます。Uddyotakara は、その例では種の部分が配置を変えながら続いているので、例が成り立たない、と答えます。反論者は、部分はいったん原子にまで分解するのだから、続いているものはない、と言いますが、Uddyotakara は、種が芽になる間に原子の状態になることはない（すべての段階が目に見える）と退けます。世界の初めのように原子から作られる場合は、生きものの業の力に従って主宰神（<i>īśvara</i>）が原子を結合させる、というニヤーヤの宇宙論も顔を出します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、この種の例は『ボーディチャルヤーアヴァターラ・パンジカー』（p.472）にも見られると注します。「主宰神が原子を結合させる」の直前の反論に「（ヴァイシェーシカの疑問）」と見出しを付けます。注は、種や壺が原子の状態になってからはたらくという考えをニヤーヤは認めない、と述べ、ヴァイシェーシカは「原子焼成説」（<i>pīlupāka</i>）を、ニヤーヤは「全体焼成説」（<i>piṭharapāka</i>）を説く、と説明します（Hi. pp.889–891）。</p></div></div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">pp.332–333</span>
+  <div class="src deva" lang="sa">नापरमाण्वन्तो विभागः सर्वावस्थोपलब्धेरिति । आ मध्यात् पाकानुपपत्तिरिति चेत् ? अथ मन्यसे यदि कार्यकारणद्रव्ये पच्यते, आ मध्यात् पाको न प्राप्नोति पाचकेन तेजसा अप्राप्तत्वात् । नाप्रतिबन्धात् । …… यस्मात् परिस्रवादिमतो घटस्य द्रवत्वप्रतिबन्धो न दृष्टः, …… यदि चायमवयवानुप्रवेशो द्रव्यस्य विनाशकः स्यात्, न परिस्रवादिमान् घट उपलभ्येत । …… तेन चाक्षुषस्य रश्मेरनुप्रवेशात् स्फटिकादि विनष्टमिति व्यवहिते चाव्यवहिते च तुल्योपलब्धिः प्राप्नोति । तस्मात् शालिबीजमदृष्टान्तः ।</div>
+  <div class="tr">（部分への）分割は原子にまで至るのではない。すべての段階が知覚されるからである。（反論）「（そうなら壺の）中まで焼けることはありえない」と言うなら。（すなわち）こう考えるなら。もし（全体である）結果の実体と原因の実体とが（ともに）焼かれるなら、焼く火は（中まで）達しないので、中まで焼けることはないことになる、と。そうではない。妨げられないからである。……水が漏れる壺について、液体性が妨げられることは見られないからである。……もし（火が）部分に入り込むことが実体を滅ぼすのなら、水が漏れる壺は知覚されないはずである。……また、それなら目の光線が入り込むので水晶なども滅びるはずで、（水晶に）隔てられたものも隔てられていないものも同じように知覚されることになる。だから、稲の種は例にならない。</div><div class="exp"><span class="lbl">解説</span><p>ここで議論は、ニヤーヤとヴァイシェーシカの間でも争われた「焼成」の問題に及びます。焼いた壺が黒から赤に変わるとき、壺全体が原子にまで分解してから作り直されるのか（ヴァイシェーシカの「原子焼成説」）、壺のまま焼けるのか（ニヤーヤの「全体焼成説」）。Uddyotakara は、壺は原子にまで分解しない、と言います。壺のままで中まで焼けるのは、火が壺の部分の間に妨げられずに入り込むからで、素焼きの壺から水が染み出すのと同じことだ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「中まで焼けない」という反論を「前主張の論難」とし、注でそれを原子焼成説のヴァイシェーシカのものとします。答えには「［全体焼成説の論者の退け］」と見出しを付けます。ヴァイシェーシカでは部分への（火の）入り込みは実体を滅ぼし、ニヤーヤでは滅ぼさない。壺には細かい穴があるので、外側が冷たく感じられる程度に水が染み出す、と注します（Hi. pp.891–892）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>刹那滅論のほかの難点</h2><span class="sub"><span class="pg">pp.333–334</span>行為の動機、解脱のための修行、仏陀の問いかけ、薫習</span></div>
+<div class="mula sutra" id="u5">
+  <span class="ref">pp.333–334 · NS 3.1.4</span>
+  <div class="src deva" lang="sa">यस्य च पूर्वस्कन्धनिरोधसमकालानि स्कन्धान्तराणि प्रादुर्भवन्ति, तस्य तेषां स्कन्धान्तराणामकर्मनिमित्तः सर्गः प्राप्नोति । अकर्मनिमित्तेन सत्त्वसर्गेण शुभाशुभफलप्राप्त्यर्था क्रिया न प्राप्नोति । सुखी स्यामिति तत्क्रियेति चेत् ? …… तन्न, अननुभूतत्वात् । …… मुक्त्यर्थश्च प्रयासो नोपपद्यते, अयत्नसिद्धत्वात् । जातमात्र एवायं मुच्यत इति मुक्त्यर्थो ब्रह्मचर्यवासो व्यर्थः । परिपृच्छा च न प्राप्नोति । तथागतेन भिक्षवः परिपृच्छ्यन्ते कच्चिद् यूयं मया विनीता इति ? ते चाहुरङ्ग विनीताः स्मेति । अतीतानागतवर्तमानानामनुपकार्यत्वात् …… संस्कार्यसंस्कारकयोः सहोत्पादात् युक्तमिदमिति चेत् ? न, संस्कार्यसंस्कारकयोः सहोत्पादे नियमानुपपत्तेरिति । …… तस्मात् मुक्त्यर्थो ब्रह्मचर्यवास इत्यनुपपन्नम् । तदेवमनभ्युपगतार्थान्तरात्मनो दोष इति ॥४॥</div>
+  <div class="tr">また、前の蘊が滅するのと同時に別の蘊が現れると（説く）者には、それらの別の蘊が、業を原因とせずに生じることになる。業を原因としない生きものの誕生によっては、善い・悪い報いを得るための行為はありえない。（反論）「『私は幸福になりたい』と（思って）その行為がある」と言うなら。……それは正しくない。（その者は以前に幸福を）経験していないからである。……また、解脱のための努力も成り立たない。努力なしに成り立つからである。この（我なき者）は生まれたとたんに解脱しているので、解脱のための清らかな修行生活は無意味である。また、問いかけも成り立たない。如来は比丘たちに「君たちは私によって導かれたか」と問い、彼らは「はい、導かれました」と答える。（しかし）過去・未来・現在のもの（諸行）は、（教えによって）益されえないからである。……（反論）「薫習されるものと薫習するものとが同時に生じるので、これは正しい」と言うなら。そうではない。薫習されるものと薫習するものとが同時に生じるなら、（どちらがどちらかという）決まりが成り立たないからである。……だから、解脱のために清らかな修行生活がある、というのは成り立たない。このように、（身体などと）別の我を認めない者には誤りがある。</div><div class="exp"><span class="lbl">解説</span><p>刹那滅論のほかの難点が挙げられます。①今の蘊は前の蘊の滅と同時に生じるだけなので、業によって生じたことにならない。②「幸福になりたい」と思って善い行いをするには、以前に幸福を味わった者がそれを覚えていなければならない。③生まれた瞬間に滅びるなら、努力しなくても「解脱」しているのと同じで、修行は無意味になる。④仏陀が弟子に「導かれたか」と問うのも、教えを受けた弟子がもういないなら無意味になる。過去のものはもうなく、未来のものはまだなく、現在のものは一瞬で益を受ける時間がない、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「また……と（説く）者には」からが仏教説の論駁だとします。「幸福になりたい」については、蘊は刹那ごとに滅びるが、無始の無明の習気に特徴づけられた我執をもつ生きものが、幸福を求め苦を避けようとして行為するのだ、という仏教側の意図を TṬ（p.507）によって説明します。「導かれた」を「入門を許された」と訳しますが、問答の出典は示しません。過去・未来・現在の諸行の議論の訳は、OCR でほとんど失われています（Hi. pp.893–894）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>「生まれたとたんに解脱している」「努力なしに成り立つ」は、刹那ごとに滅びる者には自然に「消滅」がある、という皮肉と解しました。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>常住の我は害されるか</h2><span class="sub"><span class="pg">pp.334–336</span>スートラ 3.1.5。雨と日差しの偈。サーンキヤ説。皮と空</span></div>
+<div class="mula sutra" id="u6">
+  <span class="ref">p.334 · NS 3.1.5</span>
+  <div class="src deva" lang="sa">तदभावः सात्मकप्रदाहेऽपि तन्नित्यत्वात् ॥३।१।५॥<br>यस्याप्यात्मा नित्यः तस्यापि हिंसाफले न प्राप्नुतः । हिंसा तावन्न प्राप्नोति नित्यत्वात् । फलमप्यात्मनो न युक्तमनुपकार्यत्वात् । अस्य चार्थस्य ज्ञापिकां कारिकामुदाहरन्ति —<br>वर्षातपाभ्यां किं व्योम्नश्चर्मण्यस्ति तयोः फलम् ।<br>चर्मोपमश्चेत् सोऽनित्यः खतुल्यश्चेदसत्फलः ॥<br>तदेवमेकस्मिन् पक्षे हिंसा निष्फला, एकस्मिंस्तु पक्षेऽनुपपन्ना, निष्फला चेति ।</div>
+  <div class="tr">（反論）「我をもつもの（生きた身体）を焼いても、それ（罪）はない。それ（我）は常住だからである」。<br>我が常住であるとする者にとっても、殺生とその報いとはありえない。まず、殺生はありえない。（我は）常住だからである。報いもまた、我には正しくない。（我は）益されたり損なわれたりしないからである。この意味を知らせる偈を（人々は）引く。<br>「雨と日差しとが、空に何をするのか。（雨と日差しの）その結果は皮にある。（我が）皮のようなら、それは無常である。空と同じなら、（行為の）結果はない」と。<br>こうして、一方の立場（無我論）では殺生には報いがなく、もう一方の立場（常住の我の説）では、（殺生は）ありえず、報いもない、と（反論者は言う）。</div><div class="exp"><span class="lbl">解説</span><p>反論者は矛先を逆に向けます。我が常住なら、身体を焼いても我そのものは傷つかないので、殺生という行為自体が成り立たない。報いを受けることもできない。雨や日差しは皮には作用する（濡らし、乾かす）が、空（虚空）には何もできない。我が皮のように作用を受けるなら無常であり、空のようなら行為の報いを受けない。どちらにしても常住の我は倫理を基礎づけられない、というのがこの偈の趣旨です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.5 を前主張のスートラとし、Gaṅgānātha Jhā に従って「焼く」は滅ぼすことを代表する語だ、と注します。偈の第二句は OCR では「तयोर्भयम्」と読めますが、ヒンディー訳は「その結果は皮にある」と訳しており、「फलम्」と読んでいます。偈の出典は見つからなかったとし、「もし Dignāga のものなら……」と書きかけた注が、OCR では途中で切れています（Hi. p.895）。</p></div></div>
+</div>
+<div class="mula" id="u7">
+  <span class="ref">pp.334–335</span>
+  <div class="src deva" lang="sa">इयं तु हिंसा सांख्यपक्षे संभवति, बुद्धेः परिणामित्वात् । …… न, पूर्वावस्थापरित्यागात् । यथैवात्मा पूर्वावस्थां न जहातीति तत्र फलं नेष्यते, तथा बुद्धिरपि नित्यत्वात् पूर्वावस्थां न जहातीति तत्र फलं नेष्यते । …… य एव बौद्धस्य प्रतिक्षणं ध्वंसिषु संस्कारेषु दोषः, स एव प्रतिक्षणविपरिणामिष्वपीति । ऋजुवक्रतादिवदिति चेत् ? …… न, अन्यत्वात् । …… किं पुनर्वक्रत्वं ऋजुत्वं वा ? गुणः, आकुञ्चनजं वक्रत्वं प्रसारणजम् ऋजुत्वम् । …… अथात्मनो नित्यस्य पुण्यपापाभ्यां किं क्रियत इति ? सुखदुःखे पुण्यपापाभ्यामात्मनो नित्यस्य क्रियेते । अथ ताभ्यां सुखदुःखाभ्यामात्मनः किं क्रियते ? प्रत्ययः । ये आत्मनि सुखदुःखे तद्विषयः प्रत्यय आत्मनि भवतीत्येतावत् क्रियते, स च प्रत्ययो भोगः ।</div>
+  <div class="tr">（反論）「しかしこの殺生は、サーンキヤの立場では成り立つ。（そこでは）知（<i>buddhi</i>）が変化するものだからである」。……そうではない。（知は）前の状態を捨てるのか（捨てないのか、という問題がある）からである。我が前の状態を捨てないので、そこに報いが認められないのと同じように、知もまた常住なので前の状態を捨てないなら、そこに報いは認められない。……（状態が変わるなら、状態をもつものも変わるので、）仏教徒の刹那ごとに滅びる諸行の誤りが、刹那ごとに変化するもの（サーンキヤの知）にも同じく当てはまる。（反論）「（指の）まっすぐさ・曲がりなどのように（状態が変わっても、そのもの自体は変わらない）」と言うなら。……そうではない。（まっすぐさなどは指とは）別のものだからである。……では、曲がりやまっすぐさとは何か。性質である。曲がりは曲げることから、まっすぐさは伸ばすことから生じる。……では、常住の我に、善業と悪業によって何がなされるのか。善業と悪業によって、常住の我に楽と苦とが生じる。では、その楽と苦によって我に何がなされるのか。知である。我にある楽と苦について、それを対象とする知が我に生じる、ということだけがなされる。そしてその知が享受である。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、知（ブッディ）が刻々と変化するとみるサーンキヤの立場なら、殺生と報いが説明できる、と言います。Uddyotakara は、サーンキヤでも知は常住とされるので同じ問題が残り、逆に知が刻々と変わるとすれば、仏教の刹那滅論と同じ誤りに陥る、と退けます。そのうえでニヤーヤ自身の答えを示します。常住の我も、善業・悪業によって楽や苦という性質をもつことができ、その楽苦を知ること、それが「享受」（報いを受けること）だ、というのです。我そのものは変わらなくても、我の性質は生じては消える、というのがニヤーヤの考え方です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、サーンキヤの立場を因中有果論（すでにあるものが現れるのであって、無いものは生じない）と説明します。性質・相・状態という三つの変化は常住の有法と別でないので、無常な変化は常住の有法と矛盾する、と TṬ（p.507）を引き、サーンキヤも刹那ごとの変化を認める、と TṬ（pp.507–508）によって補います。「楽と苦が生じる」以下を「ニヤーヤ学者の言葉」とする TṬ（p.508）も引きます（Hi. pp.896–898）。</p></div></div>
+</div>
+<div class="mula sutra" id="u8">
+  <span class="ref">pp.335–336 · NS 3.1.5</span>
+  <div class="src deva" lang="sa">यत् पुनरेतद् वर्षातपाभ्यां किं व्योम्न इति, यदेव चर्मणः । चर्मणो वर्षातपाभ्यां यत् क्रियते तदेव व्योम्नः । अथ चर्मणः किं क्रियते ? सम्बन्धः । यथा चर्म वर्षातपाभ्यां संबध्यते, तथा व्योमापि । वर्षातपसंबन्धात् चर्मवदनित्यं व्योमेति चेत् ? …… नानेकान्तात् । वर्षातपसंबन्धी परमाणुश्च नित्य इत्यनेकान्तः । …… अथ मन्यसे वर्षातपाभ्यां चर्मणः सङ्कोचविकाशौ भवतः । न त्वाकाशस्येति ? तन्न, विकल्पानुपपत्तेः । …… चर्मणः संकोचो न पुनश्चर्म संकुचतीति । …… विक्रिया तु पदार्थान्तरोत्पादः यथा पूर्वरूपादिनिवृत्तौ रूपाद्यन्तरोत्पादे विकृतो घट इति । यद्येवंभूतो विकारः, आत्मन्यपि विकारोऽस्ति । तत्रापि सुखनिवृत्तौ दुःखप्रादुर्भाव इति सुखप्रत्ययनिवृत्तौ दुःखप्रत्यय इति । तस्मात् नित्यस्यात्मनः सुखदुःखोपभोग इति सिद्धम् ॥५॥</div>
+  <div class="tr">また、「雨と日差しとが、空に何をするのか」と言われたことについて。皮に（するの）と同じことを（空にもする）。雨と日差しによって皮になされること、それと同じことが空にもなされる。では、皮に何がなされるのか。関係である。皮が雨と日差しと関係するように、空も（関係する）。（反論）「雨と日差しと関係するので、皮のように空も無常だ」と言うなら。……そうではない。（理由が）外れるからである。雨と日差しと関係する原子は常住なので、外れる。……（反論）「雨と日差しによって、皮には縮むことと広がることが生じるが、空にはない」と考えるなら。それは正しくない。選択肢が成り立たないからである。……（実は）皮の（部分の）収縮があるのであって、皮（全体）が縮むのではない。……変化とは、別の事物が生じることである。たとえば、前の色などが消えて別の色などが生じたとき、「壺が変化した」と（言う）ように。もし変化がこのようなものなら、我にも変化がある。そこでも、楽が消えて苦が現れる、楽の知が消えて苦の知が（現れる）からである。だから、常住の我に楽苦の享受がある、ということが成立した。</div><div class="exp"><span class="lbl">解説</span><p>偈への答えです。雨と日差しが皮にすることは、根本的には「関係する」ことで、それなら空も雨や日差しと関係している。皮が縮んだり広がったりするのは、皮の部分どうしの結合・分離の変化であって、皮という全体が別のものに変わるわけではない。そして「変化」とは、前の性質が消えて別の性質が生じることだとすれば、我にも、楽が消えて苦が生じるという変化はある。だから常住の我でも報いを受けることができる、と Uddyotakara は結論します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、原子は雨や日差しと関係しても常住だ、と説明し、「それ（雨と日差し）と関係するもの（石など）が存続するから」という TṬ（p.508）の読みを記します。「量は実体のあるかぎり続く」「一つのものだから」は、それぞれ第一・第二の選択肢の誤りを示す、と注します。また、変化は外から知覚されるものに限らない、と「我にも」の意味を説明します（Hi. pp.898–900）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>殺生とは何か</h2><span class="sub"><span class="pg">pp.336–337</span>スートラ 3.1.6。身体と感官を損なうことが殺生</span></div>
+<div class="mula sutra" id="u9">
+  <span class="ref">pp.336–337 · NS 3.1.6</span>
+  <div class="src deva" lang="sa">न कार्याश्रयकर्तृवधात् ॥३।१।६॥<br>नित्यत्वादात्मनो हिंसादिदोषोऽपरिहार्यः ? न, अन्यथा तदुपपत्तेः । …… न ब्रूमो नित्यस्य सत्त्वस्य वधो हिंसेति । अपि तु अनुच्छित्तिधर्मकस्य सत्त्वस्य यत् शरीरं यानि च सुखदुःखसंवित्तिसाधनानि इन्द्रियाण्यसाधारणानि, तेषां पीडा वैकल्यं प्रमापणं वा हिंसेति । …… यस्य तावत् प्रतिक्षणविनाशिनः संस्कारास्तस्य किं हिंस्यते निर्हेतुकत्वात् विनाशस्य कस्य व्यापारोऽस्ति । …… सत्यम् ममापि कार्याश्रयकर्तृवधो हिंसेति तुल्यम् । अयं तु विशेषः । एतस्मिन् पक्षे य एवायमात्मा शरीरादिसाधनः कर्म करोति, स एव तत्फलमुपभुङ्क्त इति अकृताभ्यागमदोषो नास्ति । …… तत्र कार्याश्रयशब्देन शरीरमुच्यते, तन्निमित्तत्वादुपभोगस्येति । कर्तॄणीन्द्रियाणि तत्साधनत्वात् । …… ज्ञानचिकीर्षाप्रयत्नानां समवायः कर्तृत्वम् । सुखदुःखसंवित्समवायो भोक्तृत्वम् । एतच्च न शरीरे, तन्निमित्तत्वात् तु कर्तृ शरीरमुच्यते ॥६॥<br>॥ शरीरव्यतिरेक्यात्मप्रकरणम् ॥</div>
+  <div class="tr">（答え）そうではない。結果の拠り所（身体）と行為者（感官）とを殺すことが（殺生）だからである。<br>（反論）「我は常住なので、殺生などの誤りは避けられない」。そうではない。別の仕方でそれ（殺生）が成り立つからである。……我々は、常住の生きもの（我）を殺すことが殺生だ、と言うのではない。そうではなく、断たれることのない性質をもつ生きものの、身体と、楽苦の経験の手段である（その生きもの）固有の感官とを、苦しめること、損なうこと、あるいは死に至らしめることが殺生である。……まず、諸行が刹那ごとに滅びると（説く）者にとって、何が害されるのか。滅びることには原因がないので、誰のはたらきがあるというのか。……（反論者が言うように）たしかに、私にとっても、結果の拠り所と行為者とを殺すことが殺生だ、という点では同じである。しかし、違いはこうである。この（我々の）立場では、身体などを手段として行為をするまさにその我が、その報いを享受するので、「行わなかったことが来る」という誤りはない。……そこで、「結果の拠り所」という語によって身体が言われる。享受はそれを原因とするからである。「行為者」とは感官である。それ（享受）の手段だからである。……知・行為しようとする欲求・努力が内属していることが行為者であること、楽苦の経験が内属していることが享受者であることである。そしてこれは身体にはない。しかし、それ（行為）の原因なので、身体が行為者と言われるのである。<br>身体と別の我のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.1.6 が殺生を定義します。殺生とは、常住の我を殺すことではなく、我が楽苦を経験するための身体と感官を苦しめ、損ない、あるいは死なせることだ。我は常住でも、経験の手段を奪われるので害を受ける。そして、殺生を行った我と、その報いを受ける我とが同じなので、「行わなかったことが来る」という誤りもない。逆に、刹那滅論では、ものは原因なしに滅びるのだから、誰かが「殺した」と言うこと自体が成り立たない、と Uddyotakara は付け加えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、バーシュヤがこのスートラを二通りに説明する、と注します。第一の説明では、身体（経験の拠り所）と、対象を知る行為者である感官とを害することが殺生であり、それは苦しめること、損なうこと、連続を断つこと、死なせることだ、とします。第二の説明では、身体・感官・知の集まりそのものが「結果の拠り所」であり行為者だ、とします。「断たれることのない性質をもつ」を「常住の」と注します。両者（仏教徒とニヤーヤ学者）がともに殺生とその報いを認めることを前提に、どちらの立場が成り立つかが論じられる、と説明します。行為者であることについて、行為しようとしても手段を知らない者や努力しない者は行為しないので、三つがそろって行為者となる、という TṬ（p.509）を引きます（Hi. pp.901–903）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストでは、スートラ 3.1.5 と 3.1.6 の番号が「३।१।१५」「३।१।१६」と印字され、3.1.6 は「न कार्याश्रयकर्तृत्वात्」となっていますが、Vārttika の略記「न...धात्」と通行の形に従って「न कार्याश्रयकर्तृवधात्」と直しました。ヒンディー訳も「न कार्याश्रयकर्तृवधात्」と読みます。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>pātaka / hiṃsā</dt><dd>罪／殺生、害すること</dd>
+    <dt>akṛtābhyāgama / kṛtanāśa</dt><dd>行わなかったことが（報いとして）来ること／行ったことが（報われずに）消えること</dd>
+    <dt>santāna / santati</dt><dd>連続体（刹那ごとに生滅する心身の流れ）</dd>
+    <dt>bhāvanā / saṃskāra</dt><dd>印象／薫習、潜在的な形成力</dd>
+    <dt>pāka</dt><dd>焼成（壺の色が焼いて変わること）</dd>
+    <dt>adṛṣṭa</dt><dd>見えない力（業の力）</dd>
+    <dt>vikāra / vikriyā</dt><dd>変化。前の性質が消えて別の性質が生じること</dd>
+    <dt>bhoga</dt><dd>享受。楽苦を知ること</dd>
+    <dt>kāryāśraya / kartṛ</dt><dd>結果の拠り所（身体）／行為者（感官）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第3巻）所収の本文と照合して直した。原文は論点ごとに要点を抜き出した（「……」）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った（Thakur 版の OCR の誤りを除けば一致する）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第27プラカラナ（スートラ 3.1.4–6）である。第26プラカラナ（スートラ 3.1.1–3）は<a href="nyayavarttika-26-taiyaku.html">第26プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
