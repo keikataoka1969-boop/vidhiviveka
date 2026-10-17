@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 23</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-22-taiyaku.html">← プラカラナ22</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>四つの説と「無常」の意味</a></li><li><a href="#s2"><b>2</b>音は顕現するのか生じるのか</a></li><li><a href="#s3"><b>3</b>反例と虚空の「場所」</a></li><li><a href="#s4"><b>4</b>覆いの論</a></li><li><a href="#s5"><b>5</b>常住論者の理由</a></li><li><a href="#s6"><b>6</b>鐘の音はなぜ消えるか</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第23プラカラナ「音の無常性」（スートラ 2.2.13–39、Thakur 版 pp.268–294）</span>
+  <p>言葉が認識手段であることが確かめられたので、次はその素材である音（<i>śabda</i>）が常住か無常かが論じられます。インド哲学の代表的な論争点の一つです。ミーマーンサー学派は、ヴェーダの言葉の永遠性を守るために、音は常住で、発声によって「顕現」するだけだと説きます。ニヤーヤは、音は打撃などによって「生じ」、波紋のように次々に新しい音を生みながら広がり、やがて消える無常なものだと説きます。</p>
+  <p>Uddyotakara はまず、音をめぐる四つの説を整理し、「無常」とは何かを定義します。続いて、音が顕現するのではなく生じることを、耳に届くしくみ（「カダンバの花のように」四方へ広がる音の連鎖）によって論証します。後半では、常住論者の理由（触れられない、教え伝えられる、繰り返し唱えられる、再認される、滅する原因が見られない）を一つずつ退け、鐘の余韻がなぜ続きなぜ消えるのかを、鐘に生じる「潜在的な動き」によって説明します。</p>
+  <p>章がきわめて長いので、原文は論点ごとに要点を抜き出しました（「……」）。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>音の無常性の章<br><small><i>śabdānityatvaprakaraṇa</i>。スートラ 2.2.13–39 の注釈。Thakur 版 pp.268–294</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.2.13–39<br><small>無常の論証、反例への答え、覆いの論、常住論者の理由とその反駁</small></dd></div>
+    <div><dt>論敵</dt><dd>音を常住とする論者<br><small>ヒンディー訳の注は、Tātparyaṭīkā に従って、音を常住で顕現するとする論者を主にミーマーンサー学派とし、香りなどとともに物の中にあるとする説をサーンキヤとする</small></dd></div>
+    <div><dt>見どころ</dt><dd>カダンバの花のように広がる音<br><small>§2。音は耳まで「行く」のでも「顕れる」のでもなく、次々に生じて届く</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.713–786</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.270</span> は Thakur 版の頁。節見出しの <span class="pg">pp.268–272</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。長い議論は要点を抜き出した（<span class="ia">……</span>）</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.2.13–39 の注釈を、テキストの順に6節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">四つの説と「無常」の意味</a></td><td class="num">pp.268–272</td><td>音についての四つの説。「無常」の誤った定義と正しい定義</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">音は顕現するのか生じるのか</a></td><td class="num">pp.272–279</td><td>スートラ 2.2.13 の三つの理由。音の連鎖。顕現説の否定</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">反例と虚空の「場所」</a></td><td class="num">pp.279–283</td><td>スートラ 2.2.14–2.2.17。非存在・普遍・虚空の場所は反例にならない</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">覆いの論</a></td><td class="num">pp.283–285</td><td>スートラ 2.2.18–2.2.21。発声の前に音が聞こえないのは覆われているからか</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">常住論者の理由</a></td><td class="num">pp.285–289</td><td>スートラ 2.2.22–2.2.32。触れられない、伝授、反復、再認</td></tr>
+<tr><td class="num">§6</td><td class="k"><a href="#s6">鐘の音はなぜ消えるか</a></td><td class="num">pp.289–294</td><td>スートラ 2.2.33–2.2.39。滅する原因、鐘の余韻、潜在的な動き、音の拠り所</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>四つの説と「無常」の意味</h2><span class="sub"><span class="pg">pp.268–272</span>音についての四つの説。「無常」の誤った定義と正しい定義</span></div>
+<div class="mula" id="u1">
+  <span class="ref">p.268</span>
+  <div class="src deva" lang="sa">आप्तोपदेशः शब्द इति प्रमाणभावे विशेषणं ब्रुवता नानाप्रकारः शब्द इति ज्ञाप्यते । …… तस्मिन् सामान्येन विचारः, नित्योऽनित्यो वा । …… तत्राकाशगुणः शब्दो महत्त्ववदभिव्यक्तिधर्मा इत्येके । एके तावद् ब्रुवते नित्यः शब्द इति, अविनश्यदाधारैकद्रव्याकाशगुणत्वात् । …… सोऽयं नित्यः सन्नभिव्यक्तिधर्मा, तस्याभिव्यञ्जकाः संयोगविभागनादा इति । गन्धादिसहवृत्तिर्द्रव्येषु सन्निविष्टो गन्धादिवदवस्थितोऽभिव्यक्तिधर्मेत्यपरे । …… तस्याभिव्यञ्जका भूतविशेषाभिघाता इति । आकाशगुणः शब्द उत्पत्तिनिरोधधर्मक इति चान्ये । …… महाभूतक्षोभजः शब्दोऽनाश्रित उत्पत्तिनिरोधधर्मक इति चापरे । अतः संशयः किमत्र तत्त्वमिति ।</div>
+  <div class="tr">「信頼できる人の教えが言葉である」と、認識手段であることについて限定語を述べる者は、言葉にはさまざまな種類があることを知らせている。……その（音）について、一般的に、常住か無常かという考察がある。……そのうち、ある人々は、「音は虚空の性質であり、（虚空の）大きさのように、顕現する性質をもつ」と言う。ある人々はまず、「音は常住である。滅しない拠り所をもつ一つの実体である虚空の性質だから」と言う。……この（音）は常住でありながら顕現する性質をもち、それを顕現させるのは結合・分離・響き（<i>nāda</i>）である、と。別の人々は、「（音は）香りなどとともに実体の中に入り込み、香りなどのように存在していて、顕現する性質をもつ」と言う。……それを顕現させるのは、特定の元素の打撃である、と。また別の人々は、「音は虚空の性質であり、生じて滅する性質をもつ」と（言う）。……また別の人々は、「音は大元素の動揺から生じ、（何にも）依存せず、生じて滅する性質をもつ」と（言う）。だから、ここで何が真実かという疑いがある。</div><div class="exp"><span class="lbl">解説</span><p>音についての四つの説が整理されます。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>説</th><th>音の拠り所</th><th>常住／無常</th><th>音を現すもの</th></tr></thead>
+    <tbody>
+      <tr><td class="k">①</td><td>虚空の性質</td><td>常住、顕現する</td><td>結合・分離・響き</td></tr>
+      <tr><td class="k">②</td><td>香りなどとともに物の中にある</td><td>常住、顕現する</td><td>元素の打撃</td></tr>
+      <tr><td class="k">③（Uddyotakara が採る）</td><td>虚空の性質</td><td>無常、生じて滅する</td><td>（結合・分離によって生じる）</td></tr>
+      <tr><td class="k">④</td><td>何にも依存しない、大元素の動揺から生じる</td><td>無常、生じて滅する</td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　音についての四つの説。</b>スートラ 2.2.13 の Vārttika による。説の主の名は本文にはない。ヒンディー訳は TṬ に従って①を古いミーマーンサー学派、②をサーンキヤ、③をヴァイシェーシカ、④を仏教徒とする。</figcaption>
+</figure>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、各説の主を <i>Tātparyaṭīkā</i> によって補います。①「音は虚空の性質で、遍在し常住で顕現する」は「古いミーマーンサー学派」、②「香りなどとともに物の中にある」はサーンキヤ（音は我慢から生じるので遍在・常住で、壺などの中に香りのようにあり、打撃で顕現する）、③はヴァイシェーシカ（常住の我に知が生じ滅するように、常住の虚空に音が生じ滅する）、④「大元素の動揺から生じ、依存しない」は仏教徒とされます。②の「特定の元素の打撃」は太鼓と撥の打撃のことだ、と注します（TṬ p.441）。③を導く「別の人々は説く」に「（ヴァイシェーシカ説の追随者）」と補います（Hi. p.713）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">pp.268–270</span>
+  <div class="src deva" lang="sa">अनित्य इत्येतत् तत्त्वम् । किमिदमनित्यत्वं नाम ? …… प्राक्प्रध्वंसाभावावित्येके । …… न, असम्बन्धात् । न हि प्राक्प्रध्वंसाभावाभ्यां भावः सम्बध्यत इति । अनुत्पन्नविनष्टयोश्च प्रसङ्गात् । …… वर्तमाने चासंभवात् । …… विनाशहेतुभाव इत्यन्ये । …… एतत् तु न युक्तम्, असति भावात् । …… न ह्यसति ज्वरे ज्वरित इति प्रत्ययो दृष्टः । …… उपलब्धिलक्षणप्राप्तस्यात्यन्ततिरोभावोऽनित्यतेत्यन्ये । …… एतत् तु शून्यमभिधानम् …… न हि किञ्चिद् वस्त्वत्यन्तं नोपलभ्यत इति सिद्धान्तः ।</div>
+  <div class="tr">「無常である」というのが真実である。では、この「無常性」とは何か。……ある人々は、「生じる前の非存在と滅した後の非存在とである」と言う。……そうではない。関係がないからである。存在するものは、生じる前の非存在とも滅した後の非存在とも関係しない。また、まだ生じていないものや滅したものも（無常に）なってしまうからである。……また、現在のものについてはありえないからである。……別の人々は、「滅する原因があることである」と言う。……それは正しくない。（滅する原因が）ないときにも（無常の知が）あるからである。……熱がないのに「熱がある」という知は見られない。……別の人々は、「知覚されうるものが完全に隠れることが無常性である」と言う。……それは空虚な言い方である。……どんなものも完全に知覚されなくなることはない、というのが（我々の）定説だからである。</div><div class="exp"><span class="lbl">解説</span><p>「無常」の定義をめぐって、三つの説が退けられます。①「生じる前と滅した後の非存在をもつこと」：しかし非存在は存在するものに属さず、今あるもの（壺）には生じる前の非存在も滅した後の非存在もない。②「滅する原因をもつこと」：しかし壺は、まだ壊す原因がなくても「無常だ」と知られる。③「完全に隠れること」（サーンキヤの説か）：ものが完全に知覚されなくなることはない、というのがニヤーヤの立場です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、無常の定義の検討を［ク］〜［ン］の五つに分けて番号を付けます。①「生前・滅後の非存在」については、二つの非存在は同時にはありえないので、どちらか一方を無常とすると、まだ生じていないものや滅したものが「無常」と呼ばれてしまうが、無常は存在するものの性質として知られる、と説明します（TṬ p.442）。②「滅する原因をもつこと」が誰の説かは「注釈などに示されていない」と明記します。③「完全に隠れること」は「サーンキヤの追随者」の説とし、サーンキヤにとって有は滅しないので、顕現が「生」なら隠没が「滅」だ、と説明します。さらに、Thakur 版の抜粋で省いた④「生じていなかったものが生じる状態」という説（接尾辞の議論、TṬ p.443）も別に立てています（Hi. pp.714–720）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この部分はパーニニ文法（接尾辞 <i>tva</i>・<i>tal</i>・<i>matup</i> など）にもとづく細かい議論が続くので、要点を抜き出しました。</p></div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">pp.271–272</span>
+  <div class="src deva" lang="sa">तत् किमिदानीमनित्यताशब्दोऽनभिधेय एव ? नानभिधेयः, अवध्यपेक्षानपेक्षाभेदात् सत्तैवोभयथा । योभयान्तपरिच्छिन्नवस्तुसत्ता सानित्यतेति । यापरिच्छिन्नवस्तुसत्ता सा नित्यतेति । यथा समवाय एकः सन्, स च कार्येण विशिष्यमाणः कारणत्वमित्यभिधीयते, कारणेन विशिष्यमाणः कार्यत्वमित्यभिधीयते । …… यथा समवाय एवं सत्ताप्येका सत्युभयान्तपरिच्छिन्नवस्तुसम्बन्धित्वे सत्यनित्यतेत्युच्यते, विपर्ययान्नित्यतेति । एतयानित्यतया योगादनित्यः शब्द इति ।</div>
+  <div class="tr">では、「無常性」という語は、何も指さないのか。指さないのではない。（前後の）限界に依存するかしないかの違いによって、存在性そのものが二通りになる。両端（始まりと終わり）によって区切られた事物の存在性が無常性である。区切られていない事物の存在性が常住性である。たとえば、内属は一つでありながら、結果によって限定されると「原因であること」と言われ、原因によって限定されると「結果であること」と言われるように。……内属と同じく、存在性も一つでありながら、両端によって区切られた事物と関係するとき「無常性」と言われ、その逆なら「常住性」と（言われる）。この無常性と結びつくので、音は無常である。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara 自身の定義は、「始まりと終わりのある存在」が無常、「始まりも終わりもない存在」が常住、というものです。存在性（<i>sattā</i>）という一つの普遍が、限界をもつものと結びつけば「無常性」、もたないものと結びつけば「常住性」と呼ばれる、という説明です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、ここを Uddyotakara 自身の定説［ン］とします。注は、「限界」は限定語（<i>viśeṣaṇa</i>）ではなく目印（<i>upalakṣaṇa</i>）なので、限界が別の時にあっても存在性はそれと関係する、と説明し、母デーヴァダッターが亡くなっても、ヤジュニャダッタは「デーヴァダッターの息子」と呼ばれ続ける、という例を挙げます。「結果が自身を得る原因」を「自分の原因と関係すること」と注します（TṬ p.444）（Hi. pp.721–722）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>音は顕現するのか生じるのか</h2><span class="sub"><span class="pg">pp.272–279</span>スートラ 2.2.13 の三つの理由。音の連鎖。顕現説の否定</span></div>
+<div class="mula sutra" id="u4">
+  <span class="ref">pp.272–273 · NS 2.2.13</span>
+  <div class="src deva" lang="sa">आदिमत्त्वादैन्द्रियकत्वात् कृतकवदुपचाराच्च ॥२।२।१३॥<br>आदिमत्त्वात्—आदिर्योनिः कारणमिति, कारणवत्त्वादनित्य इति सूत्रार्थः । किं पुनरिदं कारणवत्त्वं नाम ? निमित्तकारणभेदानुविधानमुत्पत्तिधर्मकत्वमिति । तदभिव्यङ्ग्येषु नास्ति । …… न व्यज्यत ऐन्द्रियकत्वात् । किमिदमैन्द्रियकत्वम् ? इन्द्रियप्रत्यासत्तिग्राह्य ऐन्द्रियक इति । …… न हि व्यज्यमानस्येन्द्रियेण प्राप्तिर्युक्ता । कथमिति ? श्रोत्रं तावच्छब्ददेशं न गच्छत्यमूर्तत्वात् । …… शब्दोऽपि नागच्छति निष्क्रियत्वादेव । न चाप्राप्तस्य ग्रहणमस्ति, सर्वशब्दोपलब्धिप्रसङ्गात् । परिशेषात् सन्तानसिद्धिः ।</div>
+  <div class="tr">（音は無常である。）始まりをもつから、感官によって捉えられるから、作られたものと同じように言われるからである。<br>「始まりをもつから」とは、始まり、源、原因をもつので無常である、というのがスートラの意味である。では、この「原因をもつこと」とは何か。特定の動力因の違いに従うこと、生じる性質をもつことである。それは顕現させられるものにはない。……（音は）顕現させられるのではない。感官によって捉えられるからである。「感官によって捉えられる」とは何か。感官との近接によって捉えられるもの、ということである。……顕現させられるもの（遠くにある常住の音）が感官と接触するのは正しくない。どのようにか。まず、耳（耳の中の虚空）は音のある場所へ行かない。形をもたないからである。……音も（耳へ）来ない。運動しないからである。そして接触していないものが捉えられることはない。（そうなら）すべての音が聞こえてしまうからである。残りの道として、（音の）連鎖が成立する。</div><div class="exp"><span class="lbl">解説</span><p>音が聞こえるには、耳（耳の穴の中の虚空）と音とが接触しなければなりません。耳は動かないので音のところへ行けない。音も虚空の性質で運動しないので耳へ来られない。接触なしに聞こえるなら、世界中の音が聞こえてしまう。残る可能性は、最初の音が隣に新しい音を生み、それがまた隣に音を生み……という連鎖によって、耳の位置に生じた音が聞こえる、というものだけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、このスートラを定説の側のもので、三つの理由をもつと注します。ミーマーンサー学派は結合と分離を音を顕現させるもの、ニヤーヤ・ヴァイシェーシカは音を生むものとみなし、ニヤーヤは「感官によって捉えられるから」「作られたものと同じように言われるから」の二つを補強の理由として加える、と説明します。「耳は形をもたないから」には、耳は虚空なので形も運動もない、と注します（Hi. pp.723–726）。</p></div></div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">p.273</span>
+  <div class="src deva" lang="sa">तत्राद्यः शब्दः संयोगविभागहेतुकः । तस्माच्छब्दान्तराणि कदम्बगोलकन्यायेन सर्वदिक्कानि । तेभ्योऽपि प्रत्येकमेकैकः शब्दो मन्दतरतमादिन्यायेनाश्रयाप्रतिबन्धमनुविधीयमानः प्रादुरस्ति । ततोऽन्त्यस्यातिमान्द्याच्छब्दान्तरोत्पत्तिशक्तिव्याघातो येन केनचित् प्रतिबन्धाद् भवतीत्यतः शब्दसन्तानोच्छेदः । तत्र यः कर्णशष्कुलीमन्तमाकाशदेशं प्राप्नोति स उपलभ्यते, नेतर इति । तस्मादैन्द्रियकत्वम्, तच्चान्यथा न युक्तमित्यतोऽनित्य इति ।</div>
+  <div class="tr">そのうち、最初の音は、結合と分離を原因とする。それから、カダンバの花の球のやり方で、四方八方に（新しい）音が生じる。それらからも、それぞれ一つずつ音が、より弱く、さらに弱く、というやり方で、拠り所（虚空）の妨げのなさに従って現れる。そして最後の音は非常に弱いので、何らかの妨げによって、新しい音を生む力が損なわれる。だから音の連鎖は途絶える。そのうち、耳の穴をもつ虚空の場所に達したものが聞かれ、ほかのものは（聞かれ）ない。だから（音は）感官によって捉えられる。そしてそれは別の仕方では成り立たないので、（音は）無常である。</div><div class="exp"><span class="lbl">解説</span><p>有名な「カダンバの花の球」の喩えです。カダンバの花は、球状の花の中心から四方八方に花弁（雄しべ）が放射状に出ています。最初の音から、四方八方に新しい音が生じ、それがまた次の音を生み、だんだん弱くなって最後に途絶える。耳に届いたものだけが聞こえる。現代の音波の説明にも通じる、インドの音響論の古典的な説明です（後代のニヤーヤは、池の波紋の喩え<i>vīcītaraṅga</i>も用います。訳者の補足）。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、プラシャスタパーダは「波の連鎖」（<i>vīcīsantāna</i>）を用い、後代のニヤーヤ・ヴァイシェーシカは「波紋」と「カダンバのつぼみ」の両方の喩えを用いる、と説明します。「拠り所」を「音を運ぶ風」と訳しますが、これは字義より踏み込んだ解釈です。最後の音について、TṬ（p.445）は、最後の音は次の音を生まず、最初の音はその結果（次の音）によって滅ぼされると説く、と注し、Śāstrī は、この見解は後に捨てられた、として <i>Tarkabhāṣā</i> の「最後から二番目の音の滅によって最後の音が滅する」を引きます。<i>karṇaśaṣkulī</i> は「耳の穴」と訳します（Hi. pp.726–727）。</p></div></div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">pp.273–276</span>
+  <div class="src deva" lang="sa">एक एवेति चेत् ? …… एक एवायं शब्दो वितत्याकाशमवतिष्ठते, संयोगविभागाभ्यां व्यक्तः सन्नुपलभ्यते । …… तच्च न, सर्वैरुपलब्धिप्रसङ्गात् । …… एकदेशाभिव्यक्तिरिति चेत् ? …… न, किमस्तादात्म्यानुपपत्तेः । …… एतेन बहुत्वं प्रत्युक्तम् । …… कोलाहलं च स्यात् । …… यदा वीणा वाद्यते तदा रासभध्वनिरपि श्रूयेत । …… व्यञ्जकाभावे चोपलब्धेर्न व्यज्यते शब्दः । …… उपलभ्यते च दारुव्रश्चने दारुपरशुसंयोगनिवृत्ताविति । …… निमित्तसन्निधाने च सर्वत्रोपलब्धेर्व्यज्यते । …… न पुनस्ताल्वाद्यभिघातभूतसन्निधाने सति क्वचिदपि शब्दान् न पश्यामः । तस्मान्न व्यज्यत इति ।</div>
+  <div class="tr">（反論）「（音は）一つだけである」と言うなら。……「この一つの音が、虚空に広がって存在し、結合と分離によって顕現されて聞かれる」。……それは正しくない。（そうなら）すべての人に聞こえてしまうからである。……（反論）「一部が顕現する」と言うなら。……そうではない。（その一部が音そのものであるかどうか、という）「何か」の問いに答えられないからである。……これによって、（広がった音が）多数であるという説も退けられた。……また、騒音になってしまうだろう。……ヴィーナーを弾けば、ロバの鳴き声も聞こえてしまうだろう。……また、顕現させるものがなくても聞かれるので、音は顕現させられるのではない。……木を割るとき、木と斧の結合がなくなってから（音が）聞かれるからである。……また、（顕現させる）条件がそろえば、どこでも聞かれるので、顕現させられるのではない。……口蓋などへの打撃がある場合に、音を（聞か）ないことはどこにもない。だから、（音は）顕現させられるのではない。</div><div class="exp"><span class="lbl">解説</span><p>音を常住とし、発声はそれを顕現させるだけだとする説への反論です。一つの音が虚空全体に広がっているなら、どこで顕現させても誰にでも聞こえるはず。多くの音が同じ場所に重なっているなら、ヴィーナーを弾いたときにロバの声まで聞こえてしまう。遠くで木を割るとき、斧の当たる音が遅れて聞こえる（第九プラカラナの「時過」の例）。また、灯火をつけても部屋に壺がなければ壺は見えないが、口蓋を打てば必ず音がする。顕現なら、顕現させる条件があっても対象がない場合があるはずだ、という論点です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「一つだけである」という説に「（古いミーマーンサー学派の説、TṬ）」と補い、部屋の壺を灯火が照らす喩えで説明します。「一部の顕現」については、「何か」を「問い」の意と注し（TṬ）、虚空は遍在するので、どこかで顕現すれば誰にでも聞こえてしまう、と説明します（TṬ p.445）。「騒音」は力士や役者の集まりの例で説明し、灯火は同じ感官の対象をすべて照らす、と注します。普遍の喩えには、普遍は自分の対象にだけ遍在する（牛性は牛にだけある）ので例にならない、と注します（Hi. pp.727–732）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この部分は顕現説のさまざまな形への反論が続くので、要点を抜き出しました。</p></div>
+</div>
+<div class="mula" id="u7">
+  <span class="ref">pp.276–277</span>
+  <div class="src deva" lang="sa">कृतकवदुपचाराच्च । तीव्रं मन्दमिति कृतकमुपचर्यते, तीव्रं सुखं दुःखं मन्दं सुखं दुःखमिति । उपचर्यते तीव्रः शब्दो मन्दः शब्द इति । अस्य प्रयोगः—अनित्यः शब्दस्तीव्रमन्दविषयत्वात् सुखदुःखवदिति । कृतकवदुपचारादित्यनेन सूत्रेण सर्वानित्यत्वधर्मसाधनसंग्रहः, कृतकवद्ग्रहणस्योदाहरणार्थत्वात् । …… व्यञ्जकस्य तथाभावाद् ग्रहणस्य तीव्रमन्दता रूपवदिति चेत् ? नाभिभवोपपत्तेः । शेषं भाष्ये । …… तस्माद् भिद्यते शब्दः । …… तत्र यः पटुः शब्दः स इतरस्याभिभावक इति । अभिभवश्च नाम मन्दस्य पटीयसोऽग्रहणादग्रहणमिति ।</div>
+  <div class="tr">また、作られたものと同じように言われるからである。作られたものは「強い」「弱い」と言われる。「強い楽・苦」「弱い楽・苦」と。（同じく）「強い音」「弱い音」と言われる。その論証式は、「音は無常である。強い・弱いの対象だから。楽や苦のように」。「作られたものと同じように言われるから」というこのスートラによって、無常であることを論証するすべての性質がまとめられている。「作られたものと同じように」という語は例を示すためだからである。……（反論）「顕現させるもの（の強弱）によって、知覚の強弱がある。色（が灯火の強弱で違って見える）ように」と言うなら。そうではない。（大きな音による）圧倒が成り立つからである。残り（の説明）はバーシュヤにある。……だから音は（強いものと弱いものとに）分かれる。……そこでは、鋭い音がほかの音を圧倒する。圧倒とは、より鋭い音によって弱い音が捉えられないことである。</div><div class="exp"><span class="lbl">解説</span><p>第三の理由は、音が楽や苦と同じく「強い・弱い」と言われることです。音が常住で強弱は顕現の仕方によるだけなら、法螺貝の大きな音がヴィーナーの小さな音を「かき消す」（圧倒する）ことはありえない。かき消されるのは、音そのものに強弱があるからだ、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、反論者の考えを、一つの顔が形の違う鏡に違って映るように、音の強弱は付帯条件によるものだ、と説明します。そのうえで Śāstrī は、強弱が音を区別するのだから、音は多数で、生じて滅するものであって顕現するのではない、と答えます。「圧倒」について、TṬ（p.451）を引いて、後の知が先の知を滅ぼすことで圧倒するのであり、存在しないものは圧倒されない、と注します。法螺貝などの例は Vārttika が加えたものだと指摘します（Hi. pp.734–739）。</p></div></div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">pp.278–279</span>
+  <div class="src deva" lang="sa">यदि सन्तानवृत्तिः शब्दः कर्णशष्कुलीमदाकाशदेशं प्राप्तश्च गृह्यते, दिग्देशप्रत्ययो न प्राप्नोतीति—पूर्वेण शब्द उत्तरेण शब्द इति । …… न, उपादाननिमित्तत्वाद् दिग्देशव्यपदेशस्य । …… शब्दसन्तानस्य निमित्तभेदाभिमुख्येनादौ प्राप्तेः । यः शब्दसन्तानो यस्मान्निमित्तादुपजायते, स समन्ताच्छब्दान्तराणि सन्तनोति । तत्र यः शब्दविशेष आदौ कर्णशष्कुलीमत आकाशदेशस्य तदभिमुखेन भागेन सम्बध्यते, तन्निमित्तः पूर्वापरादिशब्दव्यपदेश इति । …… एके तु ब्रुवते नैव शब्देषु दिग्देशप्रत्ययाः सन्ति । …… जात्यन्धानां पूर्वापरादिप्रत्ययाः शब्देषु न सन्तीति । अपरे तु दिग्देशव्यपदेशेन चक्षुःश्रोत्रे अप्राप्यकारिणी इति ब्रुवते । तेषामुत्तरं प्रत्यक्षसूत्रं वर्णयद्भिरुक्तमिति ॥१३॥</div>
+  <div class="tr">（反論）「もし音が連鎖によって存在し、耳の穴をもつ虚空の場所に達して捉えられるなら、『東で音がする』『北で音がする』という方角と場所の知はありえない」。……そうではない。方角と場所の言い表しは、（音の）原因を根拠とするからである。……音の連鎖は、原因の違いに応じた方向から、最初に（耳に）達するからである。ある原因から生じた音の連鎖は、周囲に新しい音を広げる。そのうち、最初に耳の穴をもつ虚空の場所の、その方向に向いた部分と結びつく特定の音、それを根拠として「東」「西」などの言い表しがある。……ある人々は、「音には方角と場所の知はない」と言う。……生まれつき目の見えない人には、音について「東」「西」などの知がない、と。別の人々は、方角と場所の言い表しから、目と耳は（対象と）接触せずにはたらく、と言う。その人々への答えは、知覚のスートラ（1.1.4）を説明したときに述べた。（第十三スートラ）</div><div class="exp"><span class="lbl">解説</span><p>音が耳の位置で生じたものなら、なぜ「東から音がする」とわかるのか。Uddyotakara は、音の連鎖は音源の方向から耳に届き、耳の穴の、音源に向いた側に最初に触れるので、方向がわかるのだ、と答えます。目と耳は対象と接触せずにはたらくという「別の人々」（仏教徒か、訳者の補足）の説には、<a href="nyayavarttika-2-taiyaku.html">第2プラカラナ</a>の知覚の定義（1.1.4）で答えた、と参照させています。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、反論「方角と場所の知はありえない」に「サーンキヤの疑問（TṬ 参照）」と補います。「ある人々は音には方角の知はないと言う」には「おそらく仏教徒の説」と注し、TṬ（p.452）の「自説を述べてから他説を述べる」を引き、目の見えない人も前後はわかる、という TṬ の反論も紹介します。また、音の方向の知は推理によるものだ、とも注します。目と耳が接触せずにはたらくとする「別の人々」は特定しません。解説でこれを仏教徒かとしたのは訳者の推測です（Hi. pp.740–741）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>反例と虚空の「場所」</h2><span class="sub"><span class="pg">pp.279–283</span>スートラ 2.2.14–2.2.17。非存在・普遍・虚空の場所は反例にならない</span></div>
+<div class="mula sutra" id="u9">
+  <span class="ref">pp.279–280 · NS 2.2.14–2.2.16</span>
+  <div class="src deva" lang="sa">न घटाभावसामान्यनित्यत्वान्नित्येष्वप्यनित्यवदुपचाराच्च ॥२।२।१४॥<br>सूत्रस्य पूर्वहेतूनामनैकान्तिकत्वज्ञापनमर्थः । शेषं भाष्ये ॥<br>तत्त्वभाक्तयोर्नानात्वस्य विभागादव्यभिचारः ॥२।२।१५॥<br>नित्यत्वमित्यत्र किं तावत् तत्त्वम् ? उभयान्तापरिच्छिन्नसत्तासम्बन्ध इति, विपर्ययादनित्यत्वम् । एतच्चाभावे नास्ति । भाक्तं तु तद् भवति, नित्य इव नित्यो घटाभावः, न पुनर्नित्य एव । …… का पुनरियं भक्तिः ? प्रागभावस्य कारणाभावः, प्रध्वंसाभावस्याविनाशः । उभयं चैतन्नित्यविषयमिति । एतत्सामान्यान्नित्य इव नित्यो न पुनर्नित्य एवेति ॥<br>सन्तानानुमानविशेषणात् ॥२।२।१६॥<br>…… न वयमैन्द्रियकत्वादित्यनेन शब्दानित्यतां साधयामः, अपि त्वैन्द्रियकत्वादित्यनेन शब्दस्य व्यक्तिं प्रतिषेधामः । ……</div>
+  <div class="tr">（反論）そうではない。壺の非存在や普遍は常住であり、また常住なものも無常なもののように言われるからである。<br>このスートラの意味は、前の（三つの）理由が外れることを知らせることである。残り（の説明）はバーシュヤにある。<br>（答え）本来のものと転用とは別であることを区別すれば、外れない。<br>「常住性」と言うとき、まず本来のものは何か。始まりと終わりで区切られない存在性との関係である。その逆が無常性である。そしてこれは非存在にはない。しかし転用としてはそれ（常住性）がある。壺の（滅した後の）非存在は、常住のようなものとして常住と言われるのであって、本当に常住なのではない。……この転用の根拠は何か。生じる前の非存在には原因がないこと、滅した後の非存在は滅しないことである。この両方は常住なものの性質である。この共通点によって、常住のようなものとして常住と言われるのであって、本当に常住なのではない。<br>（答え）連鎖の推理によって限定されるからである。<br>……我々は「感官によって捉えられるから」という（理由）によって音の無常を論証するのではない。そうではなく、「感官によって捉えられるから」によって、音が顕現させられることを否定するのである。……</div><div class="exp"><span class="lbl">解説</span><p>反論者は、ニヤーヤの三つの理由に反例を挙げます。①壺の滅した後の非存在は、始まりをもつが常住（二度と壺は戻らない）。②普遍（牛性）は、感官で捉えられるが常住。③「虚空の場所」「我の場所」のように、常住なものも作られたものと同じように「場所」と言われる。Uddyotakara は、①の非存在は本当の意味で常住なのではなく「常住のようなもの」と転用されているにすぎない、②「感官によって捉えられる」は無常の論証ではなく顕現説の否定のために言われた、と答えます。③は次のブロックです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 2.2.14 を「前主張の論難」とし、三つの理由すべてへの反例を述べるものと注します。普遍が感官で捉えられることについて、<i>Tarkabhāṣā</i> の「ある感官で捉えられるものは、その普遍もその感官で捉えられる」を引きます。2.2.15 の注は、非存在は空虚なもので、実在ではない、と説明し、生前の非存在の終わりの限界と滅後の非存在の始まりの限界はともに結果（壺）だ、と補います。2.2.16 には、「感官によって捉えられる」は耳の穴に達する音の連鎖を含意する、と注します（Hi. pp.742–744）。</p></div></div>
+</div>
+<div class="mula sutra" id="u10">
+  <span class="ref">pp.280–283 · NS 2.2.17</span>
+  <div class="src deva" lang="sa">कारणद्रव्यस्य प्रदेशशब्देनाभिधानात् ॥२।२।१७॥<br>नित्येष्वप्यव्यभिचारः । न हि नित्यानां द्रव्याणां प्रदेशशब्देन कारणमुच्यते । आकाशस्य प्रदेश आत्मनः प्रदेश इति नात्राकाशात्मनोः कारणद्रव्यमभिधीयते, यथा कृतकस्य । …… लोकविरोध इति चेत् ? न, अन्यथा तदुपपत्तेः । …… पूर्वभागे नभस आदित्यो मध्यभागे नभस आदित्य इति । …… संयोगस्याव्याप्यवृत्तित्वे प्रदेशशब्देनाभिधीयमाने न लोकविरोधः । …… का पुनरियं भक्तिः ? अतथाभूतस्य तथाभाविभिः सामान्यम् । …… कस्मात् पुनः सूत्रकारस्यास्मिन्नर्थे सूत्रं न श्रूयत इति ? …… शास्त्रसिद्धान्ताद् वा तदधिगतिः । शास्त्रसिद्धान्तस्तु न्यायसमाख्यातं बहुशाखमनुमानम्, तेनानुक्तमपि गम्यत इति न सूत्र्यते ॥</div>
+  <div class="tr">（答え）「場所」という語で、原因となる実体が言われるからである。<br>常住なものについても外れない。常住な実体については、「場所」という語で原因が言われるのではない。「虚空の場所」「我の場所」と言うとき、ここでは、作られたもの（布の場所＝糸）のように、虚空や我の原因である実体が言われるのではない。……（反論）「（虚空に場所がないなら）世間の言い方と矛盾する」と言うなら、そうではない。別の仕方でそれが成り立つからである。……「太陽は空の東の部分にある」「空の中ほどにある」（と世間は言う）。……結合が（虚空の）全体には及ばないことが「場所」という語で言われるのなら、世間の言い方と矛盾しない。……この転用とは何か。そうでないものが、そうであるものと共通点をもつことである。……では、なぜスートラの作者はこの事柄（虚空に場所がないこと）についてスートラを述べないのか。……あるいは、学問体系の定説からそれが知られるからである。学問体系の定説とは、「ニヤーヤ」と呼ばれる、多くの枝をもつ推理である。それによって、述べられていないことも知られるので、スートラにしないのである。</div><div class="exp"><span class="lbl">解説</span><p>布の「場所」（部分）は糸で、布の原因です。しかし「虚空の場所」は、虚空の原因ではありません。虚空には部分がなく、「場所」とは、鳥が虚空と結合しても、その結合が虚空全体には及ばないことを、部分をもつものになぞらえて言ったものにすぎない。最後に、スートラが述べないことも「ニヤーヤ」と呼ばれる推理の体系によって知られる、と言うのは、学派の名「ニヤーヤ」の意味を示す興味深い一文です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「転用」（<i>bhakti</i>）を「両方によって分かちもたれるから転用」という語源で説明します。「なぜスートラが述べられないのか」という問いについて、注は学者の二つの見方を紹介します。一つは、スートラはすでに虚空に部分がないことを述べているので、この問いは成り立たない、というもの。もう一つは、暗示されているだけなので、問いは正当だ、というものです。答えのうち、「意味から知られる」はバーシュヤを支持するもの、「音の連鎖を説くときにスートラはない」は Vārttika 作者自身の答えだと注します（Hi. pp.745–753）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この部分では、虚空と原子の結合が作られたものかどうかなど、細かい議論が続きます。原文は要点を抜き出しました。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>覆いの論</h2><span class="sub"><span class="pg">pp.283–285</span>スートラ 2.2.18–2.2.21。発声の前に音が聞こえないのは覆われているからか</span></div>
+<div class="mula sutra" id="u11">
+  <span class="ref">pp.283–284 · NS 2.2.18</span>
+  <div class="src deva" lang="sa">प्रागुच्चारणादनुपलब्धेरावरणाद्यनुपलब्धेश्च ॥२।२।१८॥<br>…… ये शब्दं नित्यं कल्पयन्ति त इदं पर्यनुयोज्याः, इदमस्तीदं नास्तीत्येतद् भवन्तः कथं प्रतिपद्यन्त इति । एवमनुयुक्ताः सन्तः प्रतिब्रुवते प्रमाणत उपलब्धेरनुपलब्धेश्चेति । …… सतोऽनुपलब्धिकारणाभावे कदाचिदुपलब्धेरनित्यः शब्द इति सूत्रार्थः । शेषं भाष्ये । व्यञ्जकाभावादग्रहणमिति चेत् ? न, उक्तोत्तरत्वात् । …… किमिदमुच्चारणं नाम ? विवक्षाजनितेन प्रयत्नेन कौष्ठ्यस्य वायोः प्रेरितस्य कण्ठादिस्थानेषु प्रतिघातः । …… संयोगस्य च व्यञ्जकत्वं प्राक् प्रतिषिद्धमिति ॥</div>
+  <div class="tr">（答え）発声の前には（音が）知覚されず、覆いなども知覚されないからである。<br>……音を常住と想定する人々には、「あなたがたは『これはある』『これはない』ということを、どのようにして知るのか」と問いただすべきである。そう問われれば、彼らは「認識手段によって知覚されることと、知覚されないことによって」と答えるだろう。……あるもの（常住の音）が、知覚されない原因がないのに、ときどきにしか知覚されないので、音は無常である、というのがスートラの意味である。残り（の説明）はバーシュヤにある。（反論）「顕現させるもの（発声）がないので捉えられないのだ」と言うなら、そうではない。答えはすでに述べた。……発声とは何か。話そうとする意図から生じた努力によって押し出された体内の風が、喉などの場所に当たることである。……そして結合が顕現させるものであることは、先に否定した。</div><div class="exp"><span class="lbl">解説</span><p>音が常住なら、発声する前にも存在しているはずです。それが聞こえないなら、何かに覆われているはずだが、その覆いも知覚されない。だから、発声の前には音はないのだ、というのがスートラの論証です。発声とは、話そうとする意図から生じた努力で体内の風が押し出され、喉や口蓋に当たることだ、という音声学的な定義も示されます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、バーシュヤが挙げる知覚されない原因を「覆い」と「感官との間の遮り」の二つと読み、Gaṅgānātha Jhā の英訳はこれを三つに分ける、と記します。「あるもの（<i>sataḥ</i>）が」という語は、生前・滅後の非存在で理由が外れるのを避けるために加えられた、と注します。打撃は結合であり、結合は音を生むものであって顕現させるものではない、とも注します（Hi. pp.754–756）。</p></div></div>
+</div>
+<div class="mula sutra" id="u12">
+  <span class="ref">pp.284–285 · NS 2.2.19–2.2.21</span>
+  <div class="src deva" lang="sa">तदनुपलब्धेरनुपलम्भादावरणोपपत्तिः ॥२।२।१९॥<br>एवं च सति तत्त्वं पांशुभिरिवावकिरन्नाह । कोऽस्यार्थः ? तत्त्व उक्ते जात्या प्रत्यवतिष्ठत इति । …… कथं पुनर्भगवाञ्जानीते नावरणानुपलब्धिरुपलभ्यत इति ? किमत्र ज्ञेयं, प्रत्यात्मवेदनीयत्वात् । प्रत्यात्ममेवायमावरणोपलब्धिमावरणानुपलब्धिं च वेदयते । ……<br>अनुपलम्भादप्यनुपलब्धिसद्भाववन्नावरणानुपपत्तिरनुपलम्भात् ॥२।२।२०॥<br>अभ्यनुज्ञावादेन तूच्यते …… अस्य सूत्रस्यानुपलब्धेरनैकान्तिकत्वमर्थः ॥<br>अनुपलम्भात्मकत्वादनुपलब्धेरहेतुः ॥२।२।२१॥<br>…… अनित्यः शब्दो गुणत्वे सत्यस्मदादिप्रत्यक्षत्वाद् बुद्धिवदिति । …… एवं तावत् स्वसाधनस्थित्या व्यवस्थितमनित्यः शब्द इति ॥</div>
+  <div class="tr">（反論）「その（覆いの）非知覚が知覚されないので、覆いが成り立つ」。<br>こうして（相手は）、真実に塵をかけるようにして言う。その意味は何か。真実が言われたのに、誤難によって反論する、ということである。……では、尊者（反論者）は、覆いの非知覚が知覚されないということを、どうして知るのか。ここで何を知る必要があろうか。各人が自分で知ることだからである。各人は、覆いの知覚と覆いの非知覚とを自分で知るのである。……<br>（反論）「非知覚が知覚されなくても非知覚があるように、覆いが知覚されなくても覆いがないとは言えない」。<br>（これは）認めたうえでの議論として言われる。……このスートラの意味は、非知覚（を理由とすること）が外れることである。<br>（答え）非知覚は知覚のないことを本質とするので、（反論者の理由は）理由にならない。<br>……（我々の論証は）「音は無常である。性質でありながら、我々などに知覚されるから。知のように」。……このように、まず自分の論証の確立によって、音は無常であると定まった。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、「覆いが知覚されないこと」自体も知覚されないのだから、覆いがないとは言えない、と食い下がります。Uddyotakara はこれを「真実に塵をかける」誤難だと退けます。覆いが見えないことは、各人が自分で直接わかることだからです。非知覚はそもそも「知覚がないこと」なので、それがさらに知覚されるかどうかを問うのは筋違いだ、というのがスートラ 2.2.21 の答えです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 2.2.19–20 を誤難を述べる者（<i>jātivādin</i>）のもの、2.2.21 を定説のものとします。「各人が自分で知る」を意による知覚と注し、対象のない知はない、という TṬ（pp.454–455）を引きます。「これ（<i>asya</i>）は起こりえない」について、TṬ は「二つのスートラとも起こりえない」と注しますが、Śāstrī は直前のスートラ（2.2.19）だけを指すと読み、TṬ と見解が分かれます。最後の独立の論証（「性質でありながら我々に知覚されるから」）の各限定語が、牛性・我の単一性・最初の瞬間の壺などへの外れを防ぐことを説明します（TṬ p.456）（Hi. pp.757–761）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>常住論者の理由</h2><span class="sub"><span class="pg">pp.285–289</span>スートラ 2.2.22–2.2.32。触れられない、伝授、反復、再認</span></div>
+<div class="mula sutra" id="u13">
+  <span class="ref">pp.285–287 · NS 2.2.22–2.2.28</span>
+  <div class="src deva" lang="sa">अस्पर्शत्वात् ॥२।२।२२॥ …… नित्यः शब्दोऽस्पर्शत्वादाकाशवदिति ॥<br>न कर्मानित्यत्वात् ॥२।२।२३॥ तस्य व्यभिचारदर्शनार्थं सूत्रम् ॥<br>नाणुनित्यत्वात् ॥२।२।२४॥<br>सम्प्रदानात् ॥२।२।२५॥ …… न हि किञ्चिन्नित्यं सम्प्रदीयमानं दृष्टमित्यन्वयिनो दृष्टान्तस्याभावाद् विरुद्धः ॥<br>तदन्तरालानुपलब्धेरहेतुः ॥२।२।२६॥ …… अवतिष्ठमानो हि दातृप्रतिग्रहीत्रोरन्तराल उपलभ्येतेति विरोधः सूत्रार्थः ॥<br>अध्यापनादप्रतिषेधः ॥२।२।२७॥ …… दातृप्रतिग्रहीत्रन्तराले शब्दोऽस्त्यध्यापनाच्छरादिवदिति ॥<br>उभयोः पक्षयोरन्यतरस्याध्यापनादप्रतिषेधः ॥२।२।२८॥ न शब्दस्याध्यापनं प्रतिषिध्यते, अपि तु नृत्योपदेशवदनित्यस्यैवाध्यापनमिति । …… वयमपि ब्रूमो दात्रोच्चरितः शब्दः सन्तानवृत्त्या सम्प्रदानं प्राप्नोति ।</div>
+  <div class="tr">（反論）「（音は常住である。）触れられないからである」。……「音は常住である。触れられないから。虚空のように」。<br>（答え）そうではない。運動は（触れられないが）無常だからである。（反論の理由が）外れることを示すためのスートラである。<br>（答え）原子は（触れられるが）常住だからでもない。<br>（反論）「（教師から弟子に）与えられるからである」。……（答え）常住なもので与えられるものは見られないので、肯定の例がなく、（理由は）矛盾である。<br>（答え）その（与える者と受け取る者の）間で（音が）知覚されないので、理由にならない。……もし（音が）存続しているなら、与える者と受け取る者の間で知覚されるはずだ、という矛盾がスートラの意味である。<br>（反論）「教授（が見られる）ので、否定はできない」。……「与える者と受け取る者の間に音はある。教授されるから。矢などのように」。<br>（答え）（常住・無常の）両方の立場で、どちらでも教授はあるので、（我々の主張の）否定にはならない。音の教授を否定するのではない。そうではなく、舞踊を教えるのと同じく、無常なものも教授されるのである。……我々もこう言う。与える者が発した音は、連鎖によって受け取る者に達する、と。</div><div class="exp"><span class="lbl">解説</span><p>常住論者の理由が次々に挙げられます。①触れられないから（虚空のように）：しかし運動も触れられないが無常である。②師から弟子に「与えられる」から：しかし与えられるもので常住なものは見られない。そもそも与えられるなら師と弟子の間で聞こえるはずだ。③教授されるから：しかし舞踊も教えられるが、舞踊は無常である。音は連鎖によって弟子の耳に届くので、ニヤーヤの立場でも「教授」は説明できる、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「触れられないから」の主張者に「（ミーマーンサー学派）」と補います。2.2.23 は所証と同類の側（運動は触れられないが無常）で、2.2.24 は異類の側（原子は触れられるが常住）で理由が外れることを示す、と注します。2.2.25「与えられるから」は前主張のスートラで、師が弟子に音を与えることと注し、2.2.28 は定説のスートラで、教授はどちらの立場でも成り立つ、と注します。「我々もこう言う」については、ニヤーヤも発せられた音が連鎖を生むことは認めるので、相手の論証は既に成立していることの論証だ、と説明します（Hi. pp.762–766）。</p></div></div>
+</div>
+<div class="mula sutra" id="u14">
+  <span class="ref">pp.287–289 · NS 2.2.29–2.2.32</span>
+  <div class="src deva" lang="sa">अभ्यासात् ॥२।२।२९॥ …… वीणादिवदिति । अनित्येष्वेव लङ्घनप्लवनादिष्वभ्यास इति विरुद्धः । …… अभ्यासो हि नामैकविषयोऽनेकविज्ञानोत्पाद एकाकारविषयो वा । ……<br>नान्यत्वेऽप्यभ्यासस्योपचारात् ॥२।२।३०॥<br>अन्यदन्यस्मादनन्यत्वादनन्यदित्यन्यताभावः ॥२।२।३१॥<br>तदभावे नास्त्यनन्यता तयोरितरेतरापेक्षसिद्धेः ॥२।२।३२॥<br>…… अयं तर्हि हेतुः प्रत्यभिज्ञानात् । …… किमिदं प्रत्यभिज्ञानम् ? तत्प्रत्ययविषयत्वम् । तत्प्रत्ययविषयत्वमन्यत्वेऽपीत्यनेकान्तः । …… युक्ता तु कारणसामान्यात् तत्प्रत्ययस्याव्यावृत्तिः । …… तस्मात् तत्प्रत्ययहेतुत्वे प्रत्यभिज्ञानमहेतुः ।</div>
+  <div class="tr">（反論）「（音は常住である。）繰り返されるからである」。ヴィーナー（の音）などのように。……（答え）跳ぶこと・泳ぐことなどの無常なものについても繰り返しがあるので、（理由は）矛盾である。……繰り返しとは、一つの対象について多くの知が生じることか、あるいは同じ形の対象について（多くの知が生じること）である。……<br>（答え）別のものであっても、繰り返しと言われるので、（理由にならない）。<br>（反論）「あるものが別のものから別であるのは、別でないことによって別でないのだから、別であることはない」。<br>（答え）それ（別であること）がなければ、別でないこともない。二つは互いに依存して成立するからである。<br>……（反論）では、再認されるから、というのが理由である。……再認とは何か。「それだ」という知の対象であることである。「それだ」という知の対象であることは、別のものにもあるので、外れる。……（同じ語の再認は）原因の共通性によって「それだ」という知がなくならないのだ、と考えるのが正しい。……だから、「それだ」という知を生むという点で、再認は理由にならない。</div><div class="exp"><span class="lbl">解説</span><p>④「繰り返される」から（同じヴェーダを何度も唱える）：しかし跳躍も泳ぎも繰り返されるが無常である。「二度踊った」と言っても、二つの踊りは別のものです。⑤「再認される」から（昨日聞いた「牛」という語と今日聞く「牛」という語は同じだとわかる）：しかし似たものも「同じだ」と知られる。同じ語が同じに聞こえるのは、同じ発音器官から同じように生じるからで、同じ一つの音が存続しているからではない、と Uddyotakara は答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、Vārttika の「繰り返し」の定義（一つの対象か、同じ形の対象か）が定まらないので、理由は不確定な不成立でもある、と注します。2.2.31 は前主張者が「別の」という語を言葉の上で詭弁的に退けるもので、2.2.32 は定説（「別」がなければ「別でない」もない）と注します。スートラのない再認の議論は、Vārttika 作者が前主張の側に補った理由で、「牛という語」が同じに聞こえる共通の原因を、「g音であること・au音であること・牛という語であること」と注します（TṬ p.455 と引くが頁順が合わない）（Hi. pp.766–771）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストでは、スートラ 2.2.31–2.2.32 の番号が「1.2.131」「1.2.132」となっています。</p></div>
+</div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>鐘の音はなぜ消えるか</h2><span class="sub"><span class="pg">pp.289–294</span>スートラ 2.2.33–2.2.39。滅する原因、鐘の余韻、潜在的な動き、音の拠り所</span></div>
+<div class="mula sutra" id="u15">
+  <span class="ref">pp.289–290 · NS 2.2.33–2.2.35</span>
+  <div class="src deva" lang="sa">विनाशकारणानुपलब्धेः ॥२।२।३३॥<br>…… यदनित्यं तस्य विनाशकारणमुपलभ्यते, यथा लोष्टस्य कारणद्रव्यविभागः, न तु शब्दस्य, तस्मान्नित्यः शब्द इति ॥<br>अश्रवणकारणानुपलब्धेः सततश्रवणप्रसङ्गः ॥२।२।३४॥ शेषं भाष्ये ॥<br>उपलभ्यमाने चानुपलब्धेरसत्त्वादनपदेशः ॥२।२।३५॥<br>अनुमानेन शब्दस्य विनाशकारणमुपलभ्यते । यच्चानुमानेनोपलभ्यते न तन्नास्ति । किमनुमानम् ? सन्तानोपपत्तेरिति वर्णितम् । तस्मादनपदेशोऽयं विनाशकारणानुपलब्धेरिति । यथा—विषाणी तस्मादश्वः [वै. सू. ३.१.१२] इति ।</div>
+  <div class="tr">（反論）「（音は常住である。）滅する原因が知覚されないからである」。<br>……無常なものは、その滅する原因が知覚される。土くれの（滅する原因が）その原因である実体（部分）の分離であるように。しかし音の（滅する原因は知覚され）ない。だから音は常住である。<br>（答え）（そうなら、聞こえなくなる原因も知覚されないので）いつも聞こえることになってしまう。残り（の説明）はバーシュヤにある。<br>（答え）また、（滅する原因は推理によって）知覚されるのに知覚されないと言うので、（理由が）存在せず、理由にならない。<br>推理によって音の滅する原因は知覚される。推理によって知覚されるものは、ないのではない。どの推理か。「連鎖が成り立つから」と説明した。だから、「滅する原因が知覚されないから」というのは理由にならない。たとえば、「角があるから、馬である」（というヴァイシェーシカ・スートラ 3.1.12 の誤った理由の例）のように。</div><div class="exp"><span class="lbl">解説</span><p>⑥「音を滅する原因が見られないから常住だ」：しかし、それなら音を「聞こえなくする原因」も見られないのだから、音はずっと聞こえ続けるはずです。実際には、音の連鎖が弱まって途絶えることが推理によって知られる。それが音の滅する原因の知覚（推理による知）だ、と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 2.2.33 を「滅する原因が知覚されないからも」と「も（<i>ca</i>）」を付けて掲げます（Vārttika は「も」なしで引く）。土くれの例について、構成要素の結合が作られたものの非内属因であり、「分離」はその非内属因の滅を指す、と注します（TṬ p.418）。2.2.34–35 は定説のスートラで、「理由にならない」（<i>anapadeśa</i>）はヴァイシェーシカで知られた似非理由の名だと注します。「角があるから馬」については、角はあるが、角と馬の関係がない、と Vārttika が説明していることも訳しています（Hi. pp.772–778）。</p></div></div>
+</div>
+<div class="mula" id="u16">
+  <span class="ref">pp.290–292</span>
+  <div class="src deva" lang="sa">घण्टायामभिहन्यमानायां तारस्तारतरो मन्दो मन्दतर इति श्रुतिभेदान्नानाशब्दसन्तानोऽविच्छेदेन श्रूयते, तत्रेदं चिन्त्यते—शब्दस्य व्यज्यमानस्य यद् व्यक्तिकारणं तत् किं घण्टास्थमाहोस्विदन्यवृत्तीति ? …… तुल्यमिति चेत् ? न, तन्निमित्तस्य कदाचिद्भावात् । …… तच्च कारणं संस्कार इति । कुतस्तदुत्पत्तिः ? …… पाणिघण्टासंश्लेषात् पाणिगतवेगापेक्षाद् घण्टायां कर्म । तत् कर्म पाण्यभिघातमपेक्षमाणं विभागसमकालं संस्कारं करोति । सा चलन्त्याध्यात्मिकं वायुमुपगृह्णाति । सा वायुनाभिहता पुनः कर्म करोति । ततः संस्कारः, संस्कारेण पुनः कर्म, पुनर्वायूपग्रहणमित्येवं मन्दतरतमादिन्यायेन संस्कार उपपद्यत इति । तत्रान्त्यस्यातिमान्द्याद् घण्टायां महाभूतसंक्षोभणशक्तेरभावः । ततो वायूपग्रहोच्छेदः । ततः संस्कारक्षय इति ॥३५॥</div>
+  <div class="tr">鐘が打たれると、「高い」「より高い」「低い」「より低い」と聞こえ方が違うので、多くの音の連鎖が途切れなく聞かれる。そこで、こう考えられる。（常住論者にとって）顕現させられる音の顕現の原因は、鐘にあるのか、別のものにあるのか。……（反論）「（無常論者にとっても）同じだ」と言うなら、そうではない。その原因は、ときどきにしかないからである。……そしてその原因は潜在的な動き（<i>saṃskāra</i>）である。それはどこから生じるのか。……手と鐘の接触によって、手にある勢いに依存して、鐘に運動が生じる。その運動は、手の打撃に依存して、（手と鐘の）分離と同時に潜在的な動きを生む。それ（鐘）は揺れながら、内部の風を取り込む。それは風に打たれて、再び運動を生む。それから潜在的な動き、潜在的な動きによって再び運動、再び風の取り込み、というように、より弱く、さらに弱く、というやり方で、潜在的な動きが成り立つ。そして最後のものは非常に弱いので、鐘には大元素を揺り動かす力がなくなる。それで風の取り込みが途絶える。それで潜在的な動きが尽きる。（第三十五スートラ）</div><div class="exp"><span class="lbl">解説</span><p>鐘の余韻の説明です。鐘を打つと、鐘が揺れ続け、揺れるたびに新しい音が生じる。その揺れを続けさせるのが「潜在的な動き」（<i>saṃskāra</i>、慣性に近い概念）です。揺れは鐘の内部の空気を巻き込みながら、だんだん弱まり、最後には空気を揺り動かす力がなくなって止む。こうして音の連鎖も途絶える。余韻が「高い→低い」と変化するのは、音が別々に生じている証拠で、一つの常住の音が顕現しているだけならありえない、という論点です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、Vārttika はバーシュヤの三つの選択肢を、「鐘にある／別のものにある」×「存続する／連鎖する」の四つに組み替えた、とします（TṬ pp.456, 460）。「響き」（<i>nāda</i>）は風の性質だと注します（TṬ p.460）。潜在的な動きは動力因であり、「内部の風」については TṬ の「鐘とその部分に結合した風の原子こそが内部の風である」を引きます（TṬ p.461）。<i>upagṛhṇāti</i>（取り込む）は「励ます」と訳されています（Hi. pp.778–780）。</p></div></div>
+</div>
+<div class="mula sutra" id="u17">
+  <span class="ref">pp.292–294 · NS 2.2.36–2.2.39</span>
+  <div class="src deva" lang="sa">पाणिनिमित्तप्रश्लेषाच्छब्दाभावे नानुपलब्धिः ॥२।२।३६॥<br>…… न ब्रूमः पाणिघण्टासंश्लेषः शब्दमुच्छिनत्तीति, अपि तु पाणिघण्टासंश्लेषात् तद्वृत्तिः संस्कारः स्पर्शवद्द्रव्यसंयोगविरोधित्वान्निवर्तते । निवृत्ते च तस्मिन्—कारणाभावात् कार्याभावः [वै. सू. १.२.१]—इति शब्दसन्तानोच्छेदः ॥<br>विनाशकारणानुपलब्धेश्चावस्थाने तन्नित्यत्वप्रसङ्गः ॥२।२।३७॥ …… यानीमानि शब्दग्रहणानि, तेषां न भवता विनाशकारणमुपपाद्यते । ……<br>अस्पर्शत्वादप्रतिषेधः ॥२।२।३८॥ …… अस्पर्शव्यापिद्रव्याश्रयः शब्द इति सूत्रार्थः । …… अनेकः संस्कार इत्येतत् तत्त्वम्, शब्दभेदात् । ……<br>विभक्त्यन्तरोपपत्तेश्च समासे ॥२।२।३९॥<br>तस्मान्नायं शब्दो गन्धादिभिः सह सन्निविष्टो व्यज्यते, विभक्त्यन्तरोपपत्तेः । …… यद्ययं गन्धादिभिः सह सन्निविष्टः स्यान्नान्यत्र वर्तमानः श्रोत्र उपलभ्येत । तस्मात् सन्तानवृत्तित्वादाकाशाश्रयः शब्द इति ॥<br>॥ शब्दानित्यत्वप्रकरणम् ॥</div>
+  <div class="tr">（答え）手という原因が（鐘に）触れることによって音がなくなるので、（滅する原因が）知覚されないのではない。<br>……我々は、手と鐘の接触が音を断ち切る、と言うのではない。そうではなく、手と鐘の接触によって、それ（鐘）にある潜在的な動きが、触れられる実体との結合と対立するので、止むのである。それが止めば、「原因がなければ結果はない」（ヴァイシェーシカ・スートラ 1.2.1）ということで、音の連鎖が断たれる。<br>（答え）また、滅する原因が知覚されないので存続するというなら、それ（音の知）も常住になってしまう。……これらの音の知について、あなたは滅する原因を示さない。……<br>（反論）「（音は）触れられないので、（手の接触によって音が止むという主張は）否定される」。……（答え）音は、触れられない遍在する実体（虚空）を拠り所とする、というのがスートラの意味である。……潜在的な動きは多数である、というのが真実である。音が別々だからである。……<br>（答え）また、（音には）別の区分があり、集まりがあるからである。<br>だから、この音は、香りなどとともに（物の中に）入り込んでいて顕現させられるのではない。別の区分があるからである。……もしこれ（音）が香りなどとともに（物の中に）入り込んでいるなら、ほかのところにある耳には聞かれないだろう。だから、（音は）連鎖によって存在するので、虚空を拠り所とする。<br>音の無常性のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>鳴っている鐘に手を触れると、音が止みます。これは、手が音そのものを断つのではなく、鐘の揺れ（潜在的な動き）を止めるので、新しい音が生まれなくなるからです。最後のスートラは、音が香りなどと同じく物の中にあるという説（§1 の表1の②）を退けます。一つの物に香りは一つだが、一つの鐘からは高さの違う多くの音が聞こえる。物の中にあるなら離れた耳には届かない。だから、音は物ではなく虚空を拠り所として、連鎖によって広がる、と結論します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 2.2.36 の意味には議論があると注し、手の接触は鐘の振動と潜在的な動きの両方を止める、とします（TṬ p.462）。2.2.37 は「獅子が振り返る」やり方で 2.2.33 の理由を退けるもので、聞こえることが顕現によるとするミーマーンサー学派への答えだと注します。2.2.38 の反論（音は振動する元素にあり虚空にはない）はサーンキヤのもの、「潜在的な動きは一つ」とする説はヴァイシェーシカのもので、ニヤーヤは多数を認める、と注します（TṬ p.463）。2.2.39 では、「区分」を六声（<i>ṣaḍja</i> など）、「別の区分」を高い・低い、「集まりに」を「集合において」と訳し、物ごとに音があるとする説をサーンキヤ（ヴィーナー・笛・法螺貝は色…音の集まり）とします。結論として、音は生じるのであって顕現するのではない、と注します（TṬ p.463）（Hi. pp.780–786）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>śabda</dt><dd>音、言葉</dd>
+    <dt>abhivyakti / utpatti</dt><dd>顕現／生起</dd>
+    <dt>nitya / anitya</dt><dd>常住／無常。始まりと終わりで区切られるかどうか</dd>
+    <dt>santāna / kadambagolakanyāya</dt><dd>（音の）連鎖／カダンバの花の球のやり方（四方への広がり）</dd>
+    <dt>karṇaśaṣkulī</dt><dd>耳の穴。耳の感官はそこにある虚空</dd>
+    <dt>tīvra / manda / abhibhava</dt><dd>強い／弱い／（強い音による）圧倒</dd>
+    <dt>āvaraṇa</dt><dd>覆い</dd>
+    <dt>pradeśa</dt><dd>場所（部分）</dd>
+    <dt>pratyabhijñā</dt><dd>再認（「それだ」という知）</dd>
+    <dt>saṃskāra</dt><dd>潜在的な動き。鐘の揺れを続けさせるもの</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。章がきわめて長いので、原文は論点ごとに要点を抜き出した（「……」）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った（この章では Thakur 版の番号と一致する。ただし OCR では 2.2.31–32 が「1.2.131/132」と誤って印字されている）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第23プラカラナ（スートラ 2.2.13–39）である。第22プラカラナ（スートラ 2.2.1–12）は<a href="nyayavarttika-22-taiyaku.html">第22プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
