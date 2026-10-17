@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 6</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-5-taiyaku.html">← プラカラナ5</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>論証支分は五つ</a></li><li><a href="#s2"><b>2</b>主張の定義</a></li><li><a href="#s3"><b>3</b>「だけ」は要るか</a></li><li><a href="#s4"><b>4</b>理由や実例も主張か</a></li><li><a href="#s5"><b>5</b>仏教の主張の定義</a></li><li><a href="#s6"><b>6</b>理由の定義</a></li><li><a href="#s7"><b>7</b>否定的な理由</a></li><li><a href="#s8"><b>8</b>Vasubandhu の理由の定義</a></li><li><a href="#s9"><b>9</b>Dignāga の理由の定義</a></li><li><a href="#s10"><b>10</b>実例支分</a></li><li><a href="#s11"><b>11</b>適用と結論</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第6プラカラナ「論証の定義」（スートラ 1.1.32–39、Thakur 版 pp.102–130）</span>
+  <p>ニヤーヤの論証式は五つの支分から成ります。主張（音は無常である）、理由（作られたものだから）、実例（作られたものは無常である。壺のように）、適用（音もそのように作られたものである）、結論（だから音は無常である）。この章は、その五つを一つずつ定義するスートラ群の注釈です。</p>
+  <p>この章は、ニヤーヤと仏教論理学の論争がもっとも激しくぶつかる場所です。Uddyotakara は、ヒンディー訳の注（Vācaspati の特定による）によれば Vasubandhu の『論軌』（<i>Vādavidhi</i>）と Dignāga の主張・理由の定義を、一語ずつ検討して退けます。とくに理由の三相（主題にある・同類にある・異類にない）を「だけ」の位置で読み分ける議論（§8–§9）は、第二プラカラナ §16 の議論をさらに徹底したものです。仏教論理学は論証式を三支（主張・理由・実例）に短縮しましたが、Uddyotakara は適用と結論が独立の支分であることも擁護します（§11）。</p>
+  <p>形式はこれまでの章と同じです。ただし、参照している Śrīnivāsa Śāstrī のヒンディー語訳注（1986）の第1巻はスートラ 1.1.36 の途中で終わっているため、§10–§11 にはヒンディー訳の参照がありません。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>論証の定義の章<br><small><i>nyāyalakṣaṇaprakaraṇa</i>。スートラ 1.1.32–39 の注釈。Thakur 版 pp.102–130</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>1.1.32–39<br><small>五支分の列挙（32）、主張（33）、理由（34–35）、実例支分（36–37）、適用（38）、結論（39）</small></dd></div>
+    <div><dt>論敵</dt><dd>Vasubandhu、Dignāga ほか<br><small>十支分説・三支分説、仏教の主張の定義・理由の定義、適用と結論は不要だとする説</small></dd></div>
+    <div><dt>見どころ</dt><dd>理由の三相の定義批判<br><small>§8–§9。どの語に「だけ」をかけても、正しい論証因が外れるか、誤った論証因が入る</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注（1986）<br><small>本章は同書 pp.252–307。第1巻はスートラ 1.1.36 の Bhāṣya で終わる</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文（1.1.36 まで）と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.104</span> は Thakur 版の頁。節見出しの <span class="pg">pp.104–105</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りだけを直した。長い議論は要点を含む部分を抜き出した箇所がある（<span class="ia">……</span> で示す）</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 1.1.32–39 の注釈を、テキストの順に11節に分けた</span></div>
+  <p>分量の大半は主張（§2–§5）と理由（§6–§9）が占めます。どちらも前半でスートラの定義を擁護し、後半で仏教の定義を批判します。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr class="grp"><td colspan="4">1.1.32–33　五支分と主張</td></tr>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">論証支分は五つ</a></td><td class="num">pp.102–103</td><td>十支分説も三支分説も退ける。知りたい欲求などは支分でない</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">主張の定義</a></td><td class="num">pp.103–104</td><td>論証されるのは、性質に限定された有法</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">「だけ」は要るか</a></td><td class="num">pp.104–105</td><td>すべての文に限定を読み込む必要はない</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">理由や実例も主張か</a></td><td class="num">pp.105–107</td><td>論証されるべき理由・実例も「論証されるもの」か</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">仏教の主張の定義</a></td><td class="num">pp.107–112</td><td>「望まれる」「自ら」の語は不要。主張の誤りは論者の誤り</td></tr>
+<tr class="grp"><td colspan="4">1.1.34–35　理由</td></tr>
+<tr><td class="num">§6</td><td class="k"><a href="#s6">理由の定義</a></td><td class="num">pp.112–115</td><td>実例との共通性から。奪格は必要か</td></tr>
+<tr><td class="num">§7</td><td class="k"><a href="#s7">否定的な理由</a></td><td class="num">pp.116–118</td><td>肯定的論証と否定的論証（ヴィータとアヴィータ）</td></tr>
+<tr><td class="num">§8</td><td class="k"><a href="#s8">Vasubandhu の理由の定義</a></td><td class="num">pp.118–122</td><td>「異類から区別されるもの」。限定辞の検討</td></tr>
+<tr><td class="num">§9</td><td class="k"><a href="#s9">Dignāga の理由の定義</a></td><td class="num">pp.122–126</td><td>「同類にあり、異類にない」。努力の直後に生じるものの例</td></tr>
+<tr class="grp"><td colspan="4">1.1.36–39　実例支分・適用・結論</td></tr>
+<tr><td class="num">§10</td><td class="k"><a href="#s10">実例支分</a></td><td class="num">pp.126–128</td><td>所証と共通の性質をもつ実例。異読をめぐる議論</td></tr>
+<tr><td class="num">§11</td><td class="k"><a href="#s11">適用と結論</a></td><td class="num">pp.129–130</td><td>適用と結論は独立の支分か</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>論証支分は五つ</h2><span class="sub"><span class="pg">pp.102–103</span>十支分説も三支分説も退ける。知りたい欲求などは支分でない</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.102–103 · NS 1.1.32</span>
+  <div class="src deva" lang="sa">प्रतिज्ञाहेतूदाहरणोपनयनिगमनान्यवयवाः ॥१।१।३२॥<br>अवयवानां विभागोद्देशार्थं सूत्रम् । विभागोद्देशस्तु नियमार्थः । किं नियन्तव्यम् ? न दशावयवं न त्र्यवयवं च वाक्यम् । एके तावद् ब्रुवते दशावयवं वाक्यम्, अपरे त्र्यवयवमिति । उभयव्युदासात् पञ्चैवेति नियमज्ञापनार्थं प्रतिज्ञादीनां विभागोद्देश इति । कथं पुनर्जिज्ञासादयोऽवयवा न भवन्ति ? अपरप्रतिपादकत्वात् । परप्रतिपादका ये ते वाक्यस्याङ्गभूता इतरेतरासंप्रत्यायितेनार्थेनार्थवन्तो वाक्याङ्गतामुपयन्ति, तेऽवयवाः । वाक्याङ्गत्वमवयवार्थः । किं पुनर्वाक्यम् ? यस्य प्रतिज्ञादिभिरुपकृतस्य विशेषावस्थापनमर्थस्तद् वाक्यम् । वाक्यार्थं च संहत्यैते पञ्च निष्पादयन्तीत्यवयवा इत्युच्यन्ते, न पुनर्जिज्ञासादयः परप्रतिपादका इत्यतो न वाक्यस्यावयवा इति । निश्चितत्वाच्च—निश्चितश्च साधयिता भवति, न तस्य जिज्ञासासंशयौ स्तः । प्रयोजनमपि साधनादेव गम्यते । शक्यप्राप्तिश्चेति—न ह्यशक्यमप्रयोजकं वा कश्चित् साधयतीति । तस्मात् प्रयोजनशक्यप्राप्ती अपि न वाक्यावयवौ ।</div>
+  <div class="tr">主張・理由・実例・適用・結論が、（論証の）支分である。<br>このスートラは、支分を区分して列挙するためのものである。区分して列挙するのは限定のためである。何が限定されるのか。文（論証式）は十支分でも三支分でもない（ということである）。ある人々は「文は十支分である」と言い、別の人々は「三支分である」と言う。その両方を退けて「五つだけだ」という限定を知らせるために、主張などを区分して列挙するのである。では、どうして「知りたい欲求」などは支分でないのか。他人に（対象を）知らせるものではないからである。他人に知らせるもので、文の部分となり、互いに知らせ合わない（それぞれ固有の）意味によって意味をもち、文の部分となるもの、それが支分である。文の部分であることが「支分」の意味である。では文とは何か。主張などによって助けられて、特定の（事柄の）確定を目的とするもの、それが文である。そしてこの五つが合わさって文の意味を成り立たせるので、支分と言われる。しかし知りたい欲求などは、他人に知らせるものではないので、文の支分ではない。また、（論証する者は）確定しているからである。論証する者は確定しており、その人には知りたい欲求も疑いもない。目的も、論証そのものから理解される。（実現の）可能性もそうである。実現できないことや目的のないことを論証する者はいないからである。だから、目的も、実現の可能性も、文の支分ではない。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya によれば、ある人々（ある種のニヤーヤ学者）は、五支分に、知りたい欲求（<i>jijñāsā</i>）・疑い（<i>saṃśaya</i>）・実現の可能性（<i>śakyaprāpti</i>）・目的（<i>prayojana</i>）・疑いの除去（<i>saṃśayavyudāsa</i>）を加えて十支分とします。一方、仏教論理学は論証式を三支分（主張・理由・実例）とします。Uddyotakara は、論証式とは他人に知らせるための言葉であり、知りたい欲求や疑いは論証する者の心の状態であって、他人に知らせる言葉の部分ではない、と十支分説を退けます。三支分説への反論は §11 で行われます。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>#</th><th>支分</th><th>原語</th><th>例</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td class="k">主張</td><td><i>pratijñā</i></td><td>音は無常である</td></tr>
+      <tr><td class="num">2</td><td class="k">理由</td><td><i>hetu</i></td><td>生じるという性質をもつから</td></tr>
+      <tr><td class="num">3</td><td class="k">実例</td><td><i>udāharaṇa</i></td><td>生じるという性質をもつ鍋などは無常であると見られる</td></tr>
+      <tr><td class="num">4</td><td class="k">適用</td><td><i>upanaya</i></td><td>音もそのように生じるという性質をもつ</td></tr>
+      <tr><td class="num">5</td><td class="k">結論</td><td><i>nigamana</i></td><td>だから音は無常である</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　五支分の論証式。</b>例は Bhāṣya と Vārttika が用いるもの。仏教論理学は 1–3 の三支分（Dignāga 以後はさらに理由と実例の二支分）とする。</figcaption>
+</figure><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は Bhāṣya の「ある（ニヤーヤ学者たち）は文に十支分を数える。知りたい欲求・疑い・実現の可能性・目的・疑いの除去である」を訳し、「知りたい欲求は、知りたいことへ向かわせるもの（TṬ p.512）」と注しています。そして「知りたい欲求などは論争（の議論）を始めさせる力はあるが、論証の文の支分ではない」と説明しています（Hi. pp.252–255）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">p.103</span>
+  <div class="src deva" lang="sa">प्रकरणे तु जिज्ञासादयः समर्था इति भाष्यम् । प्रकरणमेत उत्थापयन्ति, न हि जिज्ञासादीनन्तरेण प्रकरणस्योत्थानमस्तीति प्रकरणोत्थापका अनवयवा जिज्ञासादयः । परप्रतिपादकत्वात् तु प्रतिज्ञादीनामयमधिकार इति ते व्यपदिश्यन्ते । अवयवमपि वाक्यं यथा न भवति, तथोपनयनिगमनयोरर्थान्तरभावं प्रतिपादयिष्यन्तो वर्णयिष्यामः ॥३२॥</div>
+  <div class="tr">「知りたい欲求などは、議論（を始めること）においては力がある」というのが Bhāṣya である。これらは議論を立ち上げる。知りたい欲求などなしに議論が始まることはないので、知りたい欲求などは議論を立ち上げるものであって、支分ではない。他人に知らせるものだから、主張などについての議論なのであり、それらが（支分と）言われるのである。また、支分（一つ）が文（全体）でもあるということはない、ということは、適用と結論が別のものであることを示すときに述べよう。（第三十二スートラ）</div><div class="exp"><span class="lbl">解説</span><p>知りたい欲求などは不要なのではなく、議論の場を立ち上げるのに必要です。ただ、それは論証式の外側の条件であって、論証式の中の言葉ではない、ということです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「議論」（<i>prakaraṇa</i>）を TṬ に従い「論争の開始」と注しています（Hi. p.255）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>主張の定義</h2><span class="sub"><span class="pg">pp.103–104</span>論証されるのは、性質に限定された有法</span></div>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.103 · NS 1.1.33</span>
+  <div class="src deva" lang="sa">साध्यनिर्देशः प्रतिज्ञा ॥१।१।३३॥<br>तेषां त्ववयवत्वेन सामान्येन संगृहीतानामितरविशेषकं लक्षणमुच्यते—साध्यनिर्देशः प्रतिज्ञेति । तत्र प्रज्ञापनीयधर्मविशिष्टो धर्मी साध्यः, तस्य निर्देशः प्रतिज्ञा परिग्रहवचनम् । उदाहरणम्—अनित्यः शब्द इति । सिद्धत्वाद् धर्मिणो न साध्यत्वमिति केचित् । धर्मी किल शब्दलक्षणः सिद्ध एव, सिद्धश्च साध्यो न भवतीति । नैष दोषः, प्रज्ञापनीयधर्मविशिष्टस्येति वचनात् । न ब्रूमो धर्मिमात्रं साध्यम्, अपि तु प्रज्ञापनीयधर्मविशिष्टो धर्मी साध्यः । यदि प्रज्ञापनीयः, न विशेषणम्; अथ विशेषणम्, न प्रज्ञापनीयः—नासिद्धं विशेषणं भवतीति, सिद्धेनायं विशिष्टो नासिद्धेनेति ? सत्यम्, असिद्धमप्रज्ञातं विशेषणं न भवति, प्रज्ञातं त्विदमनित्यत्वं घटे, शब्दस्य साध्यमिति ।</div>
+  <div class="tr">主張とは、論証されるべきものを示すことである。<br>支分として一般的にまとめられたそれらについて、（互いを）区別する定義が述べられる。「主張とは、論証されるべきものを示すことである」と。そのうち、知らせるべき性質によって限定された有法が、論証されるべきものである。その提示が主張であり、（論者が）引き受ける言葉である。例は「音は無常である」。ある人々は言う。「有法は（すでに）成立しているので、論証されるべきものではない。音という有法はすでに成立している。成立しているものは論証されるべきものではない」と。この誤りはない。「知らせるべき性質によって限定された」と言っているからである。我々は、単なる有法が論証されるべきものだと言うのではない。そうではなく、知らせるべき性質によって限定された有法が、論証されるべきものだと言うのである。（反論）「もし（性質が）知らせるべきものなら、限定語ではない。もし限定語なら、知らせるべきものではない。成立していないものは限定語にならない。（有法は）成立しているものによって限定されるのであって、成立していないものによってではない」。そのとおり、成立しておらず知られていないものは限定語にならない。しかしこの無常性は、壺において知られている。（それが）音について論証されるべきなのである。</div><div class="exp"><span class="lbl">解説</span><p>「音は無常である」という主張で論証されるのは、「音」でも「無常性」でもなく、「無常性によって限定された音」、つまり「音が無常であること」です。音そのものはすでに知られ、無常性も壺などで知られていますが、両者の結びつきはまだ知られていません。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「引き受ける言葉」（<i>parigrahavacana</i>）を TṬ に従い「それによって（論者が主題を）引き受ける言葉」と注し、「主張『音は無常である』では有法は音であり、それはすでに成立しているので論証されるべきものではない、という反論である」と説明しています（Hi. pp.255–257）。</p></div></div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">pp.103–104</span>
+  <div class="src deva" lang="sa">एवं तर्हि शब्दस्यानित्यत्वं साध्यं न शब्द इति ? शब्दस्येति विशेषणान्न दोषः । शब्दस्येति ब्रुवता नानित्यत्वमात्रं साध्यत्वेनाभ्यनुज्ञायते, न धर्मिमात्रम् । किं तर्हि ? धर्मिणः शब्दस्य प्रज्ञातस्यानित्यत्वस्य चान्यधर्मत्वेन योऽयं विशेषणविशेष्यभाव इतरेतरनियामकत्वेन नियमः स साध्यः । स चोभयाश्रयो भवति । उभयाश्रयत्वे सति किमुक्तं भवति—धर्मी विशेषणं धर्मो वा विशेषणमिति, शब्दस्यानित्यत्वमनित्यत्वस्य वा शब्द इति ? धर्मी विशिष्ट इति युक्तम्, सामान्यतोऽधिगतत्वाद् विशेषतोऽनधिगतत्वाच्च, विशेषप्रतिपादकत्वाच्चानुमानस्य; न च पुनर्धर्मस्य सामान्याधिगमोऽस्ति ? न नास्ति—किमयं धर्मः शब्दस्योतान्यस्य घटस्येति । एवं तर्हि शब्दस्यानित्यत्वमित्ययमर्थः साध्यः, तस्य च न कृतकत्वादियोग इति युक्तम्—प्रज्ञापनीयधर्मविशिष्टो धर्मी साध्यः, तस्य निर्देशः प्रतिज्ञा ।</div>
+  <div class="tr">（反論）「それなら、『音の無常性』が論証されるべきもので、音（そのもの）ではないことになる」。「音の」という限定語があるので誤りはない。「音の」と言う者は、単なる無常性を論証されるべきものとして認めるのでも、単なる有法を（認めるの）でもない。ではどうか。知られている有法である音と、別の（ものの）性質として（知られている）無常性との、限定するものと限定されるものとの関係、すなわち互いに限定し合うことによる限定、それが論証されるべきものである。そしてそれは両方に依拠する。両方に依拠するとき、何が言われているのか。有法が限定語なのか、性質が限定語なのか。「音の無常性」なのか、「無常性の（担い手である）音」なのか。有法（音）が限定される、というのが正しい。（有法は）一般的には知られているが、特定的には知られていないからであり、また推理は特定のものを知らせるものだからである。（反論）「性質（無常性）については一般的な知はないのか」。ない、ということはない。「この性質は音のものか、それとも別の壺のものか」（という形で）。それなら、「音の無常性」という事柄が論証されるべきものであり、それには「作られたものであること」などとの結びつきはない（ことになってしまう）。だから、知らせるべき性質によって限定された有法が論証されるべきものであり、その提示が主張である、というのが正しい。</div><div class="exp"><span class="lbl">解説</span><p>「音の無常性」と言っても「無常な音」と言っても、論証されるのは音と無常性の結びつきです。ただし、主として限定されるのは有法（音）のほうです。理由（作られたものであること）は音にある性質なので、論証の主題は有法でなければならないからです。第二プラカラナ §14 で見た「煙そのものが火をもつ」の分析と同じ考え方です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「有法（音）が限定される（被限定者である）のが正しい。有法は一般的には知られているが、『音は無常である』というかたちで特定的には知られておらず、推理は特定のものを知らせるものだからである」と訳しています（Hi. pp.257–258）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>「だけ」は要るか</h2><span class="sub"><span class="pg">pp.104–105</span>すべての文に限定を読み込む必要はない</span></div>
+<div class="mula" id="u5">
+  <span class="ref">p.104</span>
+  <div class="src deva" lang="sa">उभयावधारणप्राप्तावन्यतरावधारणे च दोषः । यदि साध्यनिर्देशः प्रतिज्ञेति प्रतिज्ञालक्षणम्, ततः पूर्वोत्तरे द्वे अवधारणे न कल्प्येते । कथम् ? साध्यनिर्देश एव प्रतिज्ञेति प्रतिज्ञावधृता, न साध्यनिर्देशः—प्रतिज्ञान्यथा नास्ति, साध्यनिर्देशोऽन्यथाप्यस्तीति प्राप्तम् । ततश्च साध्यनिर्देशो न प्रतिज्ञावधृतोऽतो न साध्यनिर्देशो लक्षणम्, व्यतिरेकित्वादिति । अथ साध्यनिर्देशः प्रतिज्ञैवेति साध्यनिर्देशोऽवधृतो न प्रतिज्ञा—साध्यनिर्देशोऽन्यथा नास्ति, प्रतिज्ञान्यथाप्यस्तीति । एवमपि साध्यनिर्देशो न प्रतिज्ञालक्षणम्, अव्यापकत्वात् । यदपि व्यतिरेकि तदप्यलक्षणम्, यथा विषाणित्वं गोः; यदप्यव्यापकं तदप्यलक्षणं यथा गन्धवत्त्वं द्रव्यस्य । अथ पूर्वोत्तरेऽवधारणे न क्रियेते, तथापि किल वाक्यमनर्थकं भवति, न चान्या गतिरस्ति । तस्मात् साध्यनिर्देशः प्रतिज्ञेति न युक्तम् ।</div>
+  <div class="tr">（反論）「（この定義には）二つの限定がありうるが、どちらの限定でも誤りがある。もし『主張とは、論証されるべきものを示すことである』が主張の定義なら、前と後の二つの限定は（どちらも）成り立たない。どうしてか。『論証されるべきものを示すことだけが主張である』とすれば、主張が限定されて、論証されるべきものを示すことは（限定され）ない。（すると）主張は（それ以外の）別のかたちではありえないが、論証されるべきものを示すことは別のかたちでもありうる、ということになる。そうすると、論証されるべきものを示すことは、主張に限定されないので、論証されるべきものを示すことは（主張の）定義ではない。（定義が）はみ出すからである。もし『論証されるべきものを示すことは主張でしかない』とすれば、論証されるべきものを示すことが限定されて、主張は（限定され）ない。（すると）論証されるべきものを示すことは別のかたちではありえないが、主張は別のかたちでもありうる。そうしても、論証されるべきものを示すことは主張の定義ではない。（すべてを）覆わないからである。はみ出すものも定義ではない。牛にとっての『角をもつこと』のように。覆わないものも定義ではない。実体にとっての『香をもつこと』のように。もし前後の限定をどちらもしないなら、それでも文は無意味になる。ほかの道はない。だから、『主張とは、論証されるべきものを示すことである』というのは正しくない」。</div><div class="exp"><span class="lbl">解説</span><p>ヒンディー訳によれば仏教側の反論です。定義 <i>A は B である</i> には、「A だけが B」と「A は B でしかない」の二つの限定が考えられ、前者では定義がはみ出し（他のものにも当てはまり）、後者では定義が狭すぎる、というのです。第二プラカラナ §16 で Uddyotakara が Dignāga の三相の偈に向けた「だけ」の位置の批判を、仏教側がニヤーヤの定義に向け返しているかたちです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī はこれを「仏教徒の反論」と注し、「彼は、文の意味は（何かを）別のものから区別すること（限定）にあると考えている」と説明しています（Hi. p.258）。</p></div></div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">pp.104–105</span>
+  <div class="src deva" lang="sa">सर्वस्मिन् वाक्येऽवधारणमिति तु न बुध्यामहे । तद्यथा, गोपालकेन मार्गेऽपदिष्टे एष पन्थाः स्रुघ्नं गच्छतीति नावधारणस्य विषयं पश्यामः । अवधारणस्य तु विषयः सामान्यश्रुतौ नियमः । येन वाक्येन समानश्रुत्यानेकोऽर्थो गम्यते, तत्रातिप्रसक्तावतिप्रसङ्गनिराकरणार्थमवधारणमिति । न पुनः साध्यनिर्देशः प्रतिज्ञेत्युक्ते क्वचित् प्रसङ्गोऽस्ति यन्निराकरणायावधारणं क्रियेत । सर्वत्र चावधारणं कुर्वाणो लोकं बाधते । यत्र च विशेषणस्यावकाशस्तत्रावधारणस्यापीति नायं दोषः, पूर्वोत्तरे अवधारणे न कल्प्येते इति ।</div>
+  <div class="tr">しかし、すべての文に限定がある、ということは我々には理解できない。たとえば、牛飼いが道を教えて「この道はスルグナへ行く」と言うとき、我々は（そこに）限定の対象を見ない。限定の対象は、一般的な言葉が用いられたときの限定である。ある文によって、共通の言葉で多くの事柄が理解されるとき、そこで（意味が）広がりすぎる場合に、広がりすぎを除くために限定がある。しかし、「主張とは、論証されるべきものを示すことである」と言ったとき、それを除くために限定をしなければならないような、どんな広がりすぎもない。また、どこにでも限定を（読み込もうと）する者は、世間（の言葉づかい）を損なう。そして、限定語の入る余地があるところにこそ、限定の（入る余地）もある。だからこの誤りはない。前後の限定は（どちらも）想定されないのである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の答えは常識に訴えます。牛飼いが「この道はスルグナ（北インドの町）へ行く」と言うとき、「この道だけが」とも「スルグナにだけ」とも言っていません。限定は、言葉の意味が広がりすぎるのを防ぐ必要があるときに読み込むもので、どんな文にも機械的に読み込むものではない、というのです。第二プラカラナ §16 で Uddyotakara 自身が Dignāga の偈に限定を読み込んで批判したのは、仏教側が「限定によって除ける」と主張したからでした。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「牛飼いが道を教える」例を訳し、「すべての文に限定がある、ということは我々には理解できない」と訳しています（Hi. pp.258–260）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>理由や実例も主張か</h2><span class="sub"><span class="pg">pp.105–107</span>論証されるべき理由・実例も「論証されるもの」か</span></div>
+<p>「論証されるべきものを示すことが主張」なら、それ自体が論証を必要とする理由や実例（たとえば相手が認めていない理由）を示すことも主張になってしまわないか。Uddyotakara はこの反論に、いくつもの答えを重ねます。</p>
+<div class="mula" id="u7">
+  <span class="ref">p.105</span>
+  <div class="src deva" lang="sa">ननु च साध्यनिर्देशः प्रतिज्ञेत्युक्ते साध्ययोर्हेतुदृष्टान्तयोरपि प्रसङ्गः, यथानित्यः शब्दश्चाक्षुषत्वात्, नित्यः शब्दोऽस्पर्शत्वाद् बुद्धिवच्चेति ? न, सूत्रार्थापरिज्ञानात् । साध्यनिर्देशः प्रतिज्ञेति प्रज्ञापनीयधर्मविशिष्टस्य धर्मिणः परिग्रहवचनम् । न च चाक्षुषत्वं प्रज्ञापनीयधर्मविशिष्टस्य धर्मिणः परिग्रहवचनम्, अपि तु धर्मनिर्देशोऽयं चाक्षुषत्वादिति, तथा बुद्धेर्नित्यत्वमिति । …… सिद्धान्तविशेषणत्वात् साध्यशब्दस्य । सिद्धान्तविशेषोऽयं साध्यशब्दो न साध्यमात्रम् । तथा च कः प्रसङ्गो हेतुदृष्टान्तयोः ? …… अर्हत्यर्थे वा कृत्याभिधानम्—साधनमर्हतीति साध्यः, तस्य निर्देशः प्रतिज्ञा; न च हेतुदृष्टान्तौ साधनार्हावतोऽपि न प्रसङ्गः । कर्मकरणयोर्धर्मभेदाद्वा—अन्यः कर्मधर्मोऽन्यश्च करणधर्म इति । कर्तुरीप्सिततमं कर्म [पा. १.४.४९] इति कर्मधर्मः, साधकतमं करणम् [पा. १.४.४२] इति करणधर्मः, न चेतरस्य धर्म इतरधर्मो भवितुमर्हतीति । कर्मनिर्देशश्चायं साध्यनिर्देशः प्रतिज्ञेति, करणनिर्देशश्चाक्षुषत्वादिति । अतोऽपि न प्रसङ्गः ।</div>
+  <div class="tr">（反論）「『主張とは、論証されるべきものを示すことである』と言うと、論証されるべき理由と実例にも（主張であることが）当てはまってしまう。たとえば『音は無常である。眼で見られるから』、『音は常住である。触れられないから。知のように』」。そうではない。スートラの意味を理解していないからである。「主張とは、論証されるべきものを示すことである」とは、知らせるべき性質によって限定された有法を引き受ける言葉である。そして「眼で見られるから」は、知らせるべき性質によって限定された有法を引き受ける言葉ではなく、性質を示すものである。「知の常住性」も同じである。……「論証されるべき」という語は、定説を限定するものだからである。この「論証されるべき」の語は、定説の一種（を指すもの）であって、論証されるべきもの一般ではない。そうであれば、どうして理由と実例に当てはまろうか。……あるいは、（「論証されるべき」の接尾辞は）「値する」の意味の動詞的形容詞を述べたものである。論証に値するものが「論証されるべきもの」であり、その提示が主張である。理由と実例は論証に値するものではないので、この点からも当てはまらない。あるいは、対象と手段とでは性質が違うからである。対象の性質と手段の性質とは別である。「行為主体が最も望むものが対象である」（Pāṇini 1.4.49）というのが対象の性質であり、「最も有効なものが手段である」（Pāṇini 1.4.42）というのが手段の性質である。一方の性質が他方の性質になることはない。「論証されるべきものを示すことが主張」というのは対象を示すものであり、「眼で見られるから」は手段を示すものである。この点からも当てはまらない。</div><div class="exp"><span class="lbl">解説</span><p>反論の例は、どちらも誤った論証です。「眼で見られるから」は音にない性質なので、それ自体が論証を必要とします。「知のように」も、知が常住であることは相手が認めないので、論証を必要とします。Uddyotakara は、複数の答えを示します。①主張とは有法を引き受ける言葉であり、理由や実例は性質を示す言葉である。②スートラの「論証されるべきもの」は、直前の定説の議論を受けて、特定の学派の定説（論争の主題）を指す。③「論証されるべき」は「論証に値する」の意味で、理由や実例は論証の手段であって、論証に値する対象ではない。④文法学でいう「対象」（<i>karman</i>）と「手段」（<i>karaṇa</i>）とは性質が違う。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「『論証されるべき』（<i>sādhya</i>）は対象の意味の語であり、『眼で見られる』（<i>cākṣuṣa</i>）は手段の意味の語である」と注し、「論証されるべきもの・不成立のもの・成立したもの」の区別については「世間でもこの三つの区別ははっきりしている」と説明しています（Hi. pp.261–264）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この箇所の Vārttika は、ほかにもいくつかの答え（知りたい欲求などで限定されている、論証されるべきもの・不成立・成立の区別、など）を挙げています。原文は要点を抜き出しました（「……」の部分）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>仏教の主張の定義</h2><span class="sub"><span class="pg">pp.107–112</span>「望まれる」「自ら」の語は不要。主張の誤りは論者の誤り</span></div>
+<p>続いて Uddyotakara は、仏教側の主張（<i>pakṣa</i>）の定義を取り上げます。ヒンディー訳の注によれば、「論証することが望まれるもの」は Vasubandhu の、「自ら論証されるべきものとして望まれ、矛盾する事柄によって否定されないもの」は Dignāga の定義です（TṬ p.524）。Uddyotakara は、その「望まれる」「自ら」といった語の一つ一つが無駄か不十分だと論じます。</p>
+<div class="mula" id="u8">
+  <span class="ref">p.107</span>
+  <div class="src deva" lang="sa">न चेदयं प्रसङ्गोऽस्ति, तस्मादिष्टग्रहणमनर्थकम् । साध्यनिर्देशः प्रतिज्ञेति किल साध्यस्येष्टग्रहणेनाविशेषितत्वात् साध्ययोर्हेतुदृष्टान्तयोः प्रसङ्ग इति मन्यमानैः कैश्चिदन्यथा पक्षलक्षणानि क्रियन्ते, तद्यथा—पक्षो यः साधयितुमिष्टः—इति । अत्रेष्टग्रहणं न कर्तव्यम्, अनर्थकत्वात् । साध्यपदेन हेतुदृष्टान्ताभासोक्तेर्निराकृतत्वात् तन्निराकरणार्थमिष्टग्रहणमयुक्तम् । कर्मग्रहणाच्च प्राप्तमेतत्—इष्टमीप्सितमिति चानर्थान्तरम् । अथाप्यनिष्टपक्षव्युदासार्थमिष्टग्रहणं क्रियेत ? अर्थतः किलास्यानिष्टम्—नेष्टं तद् भवति यत् स्ववचनादिना विरुद्धमिति, यथा अवाचकाः शब्दा इति । अवाचकत्वं च शब्दानां प्रतिज्ञायते, शब्दा एवार्थप्रत्यायनायोच्चार्यन्त इति व्याहतम् । अनुष्णोऽग्निरिति प्रत्यक्षविरोधः ।</div>
+  <div class="tr">そしてこの（理由と実例に当てはまるという）帰結がないのなら、「望まれる」という語は無意味である。ある人々は、「『主張とは、論証されるべきものを示すことである』では、論証されるべきものが『望まれる』という語で限定されていないので、論証されるべき理由と実例にも当てはまってしまう」と考えて、別様に主張の定義を作る。たとえば「主張とは、論証することが望まれるものである」と。ここで「望まれる」という語を入れるべきではない。無意味だからである。「論証されるべき」という語によって、擬似理由や擬似実例を述べることは除かれているので、それを除くために「望まれる」の語を入れるのは正しくない。また（「論証されるべき」という）対象（を表す語）を取ることによって、これは得られる。「望まれる」と「最も望まれる」とは別の意味ではないからである。（反論）「望まれないものを主張とすることを退けるために『望まれる』の語を入れるのだ。その人にとって、意味のうえで望まれないもの、すなわち自分の言葉などと矛盾するものは、望まれるものではない。たとえば『言葉は（何も）表さない』のように。言葉が（何も）表さないと主張するが、言葉はまさに意味を知らせるために発せられるので、矛盾する。『火は熱くない』は知覚と矛盾する」。</div><div class="exp"><span class="lbl">解説</span><p>Vasubandhu の定義の「望まれる」（<i>iṣṭa</i>）の語は、①理由や実例が主張にならないようにするためか、②自己矛盾などの「望まれない主張」を除くためか。①なら、「論証されるべきもの」という語で十分です。文法学では「対象」（<i>karman</i>）とは「行為主体が最も望むもの」なので、「望まれる」の意味はすでに含まれています。②の目的については、以下で検討されます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「ある人々」を「（ある）仏教徒」と注し、「主張とは、論証することが望まれるものである」を「Vasubandhu（の定義）、TṬ p.524」と注しています（Hi. pp.264–265）。</p></div></div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">pp.107–108</span>
+  <div class="src deva" lang="sa">अश्रावणः शब्द इति प्रत्यक्षविरोधं केचिद् वर्णयन्ति । तदयुक्तम्, इन्द्रियवृत्तीनामतीन्द्रियत्वात् । इन्द्रियवृत्तयोऽतीन्द्रियाः; इदमनेनेन्द्रियेण गृह्यते नेदमनेनेति न कस्यचित् प्रत्यक्षमस्ति, अपि तु तद्भावाभावानुविधानाद् रूपादिज्ञानैरिन्द्रियवृत्तयोऽनुमीयन्ते । तस्मान्नेदमुदाहरणम्, उदाहरणं त्वनुष्णोऽग्निरिति युक्तम् । आगमविरुद्धमपि वैशेषिकस्य नित्यः शब्द इति । इदमपि नागमविरुद्धमिति पश्यामः । न हि वैशेषिकेण शब्दानित्यत्वमागमतः प्रतिपन्नम्, अपि त्वनुमानात्—कारणतो विकारात् [वै. सू. २.२.३४] इत्येवमादेः । एतदप्यनुमानविरुद्धमेव । अथ सूत्रकारवचनात् प्रतिपन्नमित्यागमविरोधः ? ननु च नित्यो घट इत्ययमप्यागमविरोधः प्राप्तः । तस्माद् ब्राह्मणेन सुरा पेयेत्यागमविरोधः । प्रसिद्धिविरुद्धं तु न बुध्यामहे कोऽयं प्रसिद्धिविरोध इति । प्रसिद्धिः प्रत्यक्षादीनां प्रमाणानामन्यतमेनार्थप्रतिपत्तिः, तद्यथाचन्द्रः शशीति । तस्मात् पूर्वप्रमाणविरोध एवान्तर्भवतीति न प्रसिद्धिविरोधाभिधानेन पृथक् प्रयोजनं पश्यामः ।</div>
+  <div class="tr">ある人々は、「音は耳で聞かれない」を知覚との矛盾（の例）として説明する。それは正しくない。感官のはたらきは超感覚的だからである。感官のはたらきは超感覚的であり、「これはこの感官で捉えられ、あれはこれで（捉えられ）ない」ということは、誰にも知覚されない。そうではなく、それ（感官）があるかないかに従うことから、色などの知によって、感官のはたらきが推理されるのである。だからこれは（知覚との矛盾の）例ではない。例としては「火は熱くない」が正しい。（また彼らは）ヴァイシェーシカ学者が「音は常住である」と言うのは聖典との矛盾だ（と言う）。これも聖典との矛盾ではない、と我々は見る。ヴァイシェーシカ学者は、音の無常性を聖典から理解したのではなく、推理から（理解した）。「原因から（生じ）、変化するから」（VS 2.2.34）などによってである。だからこれも推理との矛盾にほかならない。（反論）「スートラ作者の言葉から理解したので、聖典との矛盾である」と（言うなら）。それなら、「壺は常住である」というのも（壺の無常性はスートラに述べられているので）聖典との矛盾になってしまうではないか。だから、（聖典との矛盾の例は）「バラモンは酒を飲むべきである」である。また、「世間で知られていることとの矛盾」というのは、どんな矛盾なのか我々には理解できない。「世間で知られていること」とは、知覚などの認識手段のいずれかによって事物を理解することである。たとえば「兎をもつもの（月）は月ではない」。だから、それは前に挙げた認識手段との矛盾に含まれるので、「世間で知られていることとの矛盾」を別に述べる目的は見られない。</div><div class="exp"><span class="lbl">解説</span><p>仏教論理学（Dignāga の『正理門論』など）は、誤った主張の例を、知覚との矛盾・推理との矛盾・聖典との矛盾・世間の常識との矛盾・自分の言葉との矛盾などに分類しました（訳者の補足）。Uddyotakara はその例の選び方を一つずつ批判します。「音は耳で聞かれない」は、感官のはたらき自体が知覚されないので、知覚との矛盾の例にならない。「音は常住」がヴァイシェーシカ学者にとって矛盾なのは、聖典ではなく推理と矛盾するからだ。「世間の常識との矛盾」（「月は月ではない」、兎をもつものが月の別名なので）は、結局どれかの認識手段との矛盾に含まれる、というわけです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「世間の常識との矛盾」について「何らかの認識手段によって得られる知が『世間で知られていること』である。だから認識手段との矛盾に含まれる。『兎をもつもの（月）は月という語の表すものではない』と言えば、世間の言語慣習によって成立した推理と矛盾する。それが分別の対象でないと言えば、仏教の自己認識（という知覚）と矛盾し、ニヤーヤの意による知覚と矛盾する」と説明しています（Hi. pp.265–267）。</p></div></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">pp.108–109</span>
+  <div class="src deva" lang="sa">एतच्च सर्वं न युक्तमिति पश्यामः । कथम् ? स्वार्थापवादादिदोषाणां प्रतिज्ञादोषत्वेनाभ्युपगमात् । सर्व एते स्वार्थापवादादिदोषाः प्रतिज्ञादोषत्वेन संभवन्ति, न पक्षदोषत्वेन । कथमिति ? अर्थस्य तादवस्थ्यात्—यथाभूतोऽर्थोऽभिधीयमानस्तथाभूत एवानभिधीयमान इति । वचनमपि तर्ह्येवमेवेति चेत् ? वचनेऽप्येते दोषा मा भूवन् । सत्यं नामी अर्थदोषा न वचनदोषाः, किं तु पुरुषदोषाः । ये हि कर्तृदोषास्ते क्रियाद्वारेणोद्भाव्यन्त इति क्रियायां कर्तृदोषानुपचर्य दुष्टा क्रियेत्युच्यते । एवं वक्तृदोषान् वचन उपचर्य दुष्टं वचनमित्युच्यते, मुख्यतस्तु नार्थे दोषा न वचने दोषा इति । अर्थस्य स्वक्रियासु सामर्थ्यात्—सर्वोऽर्थः स्वस्यां स्वस्यां क्रियायां समर्थः, स तु स्वक्रियाव्यतिरेकेण क्रियान्तरे विनियुज्यमानः कर्तुरेवाकौशलं प्रकाशयति । एवं वचनमपि स्वस्मिन् स्वस्मिन्नर्थे समर्थं विषयान्तरेषु प्रयुज्यमानं वक्तुः संमोहं प्रकटयति ।</div>
+  <div class="tr">そしてこれらはすべて正しくない、と我々は見る。どうしてか。自分の主張を自ら否定することなどの誤りは、主張（の言葉）の誤りとして認められるからである。自分の主張を自ら否定することなどのこれらの誤りはすべて、主張の言葉の誤りとしてありうるのであって、主張（の内容）の誤りとしてではない。どうしてか。事柄はそのままだからである。事柄は、述べられても、述べられなくても、同じありかたをしている。（反論）「それなら言葉も同じではないか」と言うなら。言葉にもこれらの誤りはないとしよう。たしかに、これらは事柄の誤りでも言葉の誤りでもなく、人の誤りである。行為主体の誤りは行為を通じて明らかになるので、行為に行為主体の誤りを転用して「誤った行為」と言われる。同じように、話し手の誤りを言葉に転用して「誤った言葉」と言われるのであって、本来は、誤りは事柄にも言葉にもない。事柄は自分の行為において力をもつからである。どんな事柄も、それぞれ自分の行為においては力をもつ。しかしそれが自分の行為以外の行為に用いられると、行為主体の不手際を明らかにするだけである。同じように、言葉も、それぞれ自分の意味においては力をもつが、別の対象に用いられると、話し手の混乱を示すのである。</div><div class="exp"><span class="lbl">解説</span><p>興味深い一般論です。「火は熱くない」という主張の誤りは、火（事柄）の誤りではありません。火は誰が何と言おうと熱いままです。言葉「熱くない」の誤りでもありません。その言葉は「熱くない」という意味をきちんと表しています。誤っているのは、その言葉を火に当てはめた話し手です。斧で水を汲もうとして失敗しても、斧が悪いのではなく、使う人が不手際なのと同じだ、というわけです。だから、仏教のように誤りを「主張（<i>pakṣa</i>）の誤り」として立てるのは不適切だ、というのが Uddyotakara の立場です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「これらは事柄の誤りでも言葉の誤りでもなく、人の誤りである」を中心に訳し、「行為を通じて」について「行為において事物の矛盾が生じ、それによって人の不手際が明らかになるので、『行為を通じて』と言われる（TṬ p.523）」と注しています（Hi. pp.267–268）。</p></div></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">pp.109–110</span>
+  <div class="src deva" lang="sa">एतेन—साध्यत्वेनेप्सितः पक्षः—इत्यपि प्रत्युक्तम् । ईप्सितग्रहणस्य चानिष्टनिराकरणार्थत्वात्—विरुद्धार्थानिराकृतः—इति न वक्तव्यम् । …… सर्वथैते पक्षलक्षणे विचार्यमाणे एकस्य न्यूनत्वमन्यस्याधिक्यं ख्यापयत इति । स्वयं साध्यत्वेनेप्सित इति च स्वयंग्रहणं न कर्तव्यम् । किं कारणम् ? कर्मणः कर्त्रपेक्षत्वात् । यथा कर्ता वृक्षं छिनत्तीत्युक्ते स्वयमिति गम्यते, न ह्यन्यस्य च्छेद्यो वृक्षोऽन्यश्छिनत्तीति, एवं यस्य साध्यः स एव साधयितेति स्वयमिति गम्यते । सोऽयं परस्याक्षराधिक्यदोषान् विचिन्वानः स्ववचनप्रयोगे संमूढ इति ।</div>
+  <div class="tr">これによって、「主張とは、論証されるべきものとして望まれるものである」も退けられた。また、「望まれる」の語は望まれないものを除くためのものなので、「矛盾する事柄によって否定されない」と言うべきではない。……どちらの主張の定義も、考察すれば、一方の不足と他方の過剰を示す。また、「自ら論証されるべきものとして望まれる」の「自ら」の語も入れるべきではない。なぜか。対象は行為主体を必要とするからである。「行為主体が木を切る」と言えば「自ら」は理解される。ある人にとって切られるべき木を、別の人が切るということはないように、それを論証されるべきものとしてもつ人こそが、論証する者なので、「自ら」は理解される。このように、この人は、相手の（定義の）文字の多すぎるという誤りを探しながら、自分の言葉の使い方では混乱している。</div><div class="exp"><span class="lbl">解説</span><p>Dignāga の主張の定義は「自ら論証されるべきものとして望まれ、矛盾する事柄によって否定されないもの」です（ヒンディー訳の注は、Dharmakīrti がこれにもとづいて『正理一滴』で「本来のかたちで自ら望まれ、否定されないもの」と定義したことにも触れています）。Uddyotakara は、「望まれる」と「否定されない」はどちらか一方で十分であり、「自ら」は言わなくても分かる、と批判します。最後の「相手の文字の多すぎるという誤りを探しながら、自分の言葉では混乱している」は、Dignāga がニヤーヤのスートラの語を余計だと批判したことへの痛烈な皮肉です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「論証されるべきものとして望まれる」を「Dignāga の定義。どの書から取られたかは明らかでない。（TṬ は）『これは尊者の別の箇所の定義である』と言う（TṬ p.524）」と注し、Dharmakīrti の『正理一滴』の主張の定義に言及しています。「この人」を「（Dignāga）」と補って訳しています（Hi. pp.270–271）。</p></div></div>
+</div>
+<div class="mula" id="u12">
+  <span class="ref">pp.110–111</span>
+  <div class="src deva" lang="sa">यदपि वादविधानटीकायां साधयतीति शब्दस्य स्वयं परेण च तुल्यरूपत्वात् स्वयमिति विशेषणम्—साधयतीति किलायं शब्दः प्रयोज्ये प्रयोक्तरि च तुल्यरूपो भवतीति । सत्यम्, तुल्यरूप एष शब्दो, न पुनः साधारणप्रयोगे प्रयोजनं पश्यामः । अत एवं वक्तव्यम्—पक्षो यः साधयितुमिष्ट इति । …… तुमुनश्च समानकर्तृकेष्वेव नियमात् । साधयितुमिति तुमुनः प्रयोगोऽयम्, स चायं समानकर्तृकेष्वेव दृष्टः, तद्यथा स्नातुं गच्छामीति । न पुनरुन्मत्त एवं ब्रूयात् स्वयं स्नातुं गच्छामीति । तथेहापीति । यद्यपि साधयतिशब्दस्तुल्यरूपस्तथापि तुमुना विशेषितत्वात् प्रयोक्तर्यनतिप्रसङ्गः ।</div>
+  <div class="tr">また、『論軌の注』で、「『論証する』（<i>sādhayati</i>）という語は、自分（で論証する場合）と他人（に論証させる場合）とで同じ形なので、『自ら』という限定語（がある）。『論証する』という語は、（使役の）させられる者とさせる者とで同じ形になるからだ」と（言われている）。そのとおり、この語は同じ形である。しかし、（両者に）共通の用法をとることに目的があるとは我々は見ない。だから、「主張とは、論証することが望まれるものである」と言うべきである。……また、不定詞（-<i>tum</i>）は、行為主体が同じ場合にだけ（用いられる）という決まりがあるからである。「論証すること（が望まれる）」（<i>sādhayitum</i>）は不定詞の用法であり、それは行為主体が同じ場合にだけ見られる。たとえば「沐浴しに行く」のように。狂人でなければ「自ら沐浴しに行く」とは言わないだろう。ここでも同じである。「論証する」の語が同じ形であっても、不定詞によって限定されているので、させる者に（意味が）広がりすぎることはない。</div><div class="exp"><span class="lbl">解説</span><p>「自ら」を擁護する議論として、『論軌の注』（<i>Vādavidhānaṭīkā</i>）の説が引かれます。サンスクリットでは、使役形「論証させる」と単純な「論証する」が同じ形 <i>sādhayati</i> になるので、「自ら」と言わないと、他人に論証させる場合も含まれてしまう、というのです。Uddyotakara は、Vasubandhu の定義のように不定詞を使って「論証することが望まれる」と言えば、不定詞は行為主体が同じときにしか使えないので、「自ら」は不要だ、と文法で切り返します。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「『論軌の注』（？）」と疑問符を付けて訳し、書名の同定は確かではないとしています。そのうえで、『論証する』は使役されて行う者とさせる者とで同じ形になる、という反論の趣旨を説明しています（Hi. pp.271–272）。</p></div></div>
+</div>
+<div class="mula" id="u13">
+  <span class="ref">pp.111–112</span>
+  <div class="src deva" lang="sa">यदपि वादविधौ साध्याभिधानं प्रतिज्ञेति प्रतिज्ञालक्षणमुक्तं, तदप्युभयथा दोषान्न युक्तम् । कथमिति ? यदि तावत् पूर्वप्रकृतं पक्षमपेक्षमाणेनेदमुच्यते साध्याभिधानं प्रतिज्ञेति, तदा साध्यग्रहणं व्यर्थम्; प्रकृतः पक्षस्तच्छब्देनाभिसंभन्त्स्यत इति तदभिधानं प्रतिज्ञेति वक्तव्यम् । अथ पक्षानपेक्षं स्वतन्त्रमेतल्लक्षणम्, तथापि यो नैयायिकप्रतिज्ञायां दोष उक्तः स इह प्रसक्तः । यस्तु तत्रभवता परिहारः क्रियते ममापि स एव परिहारो भविष्यतीति न युक्तम्, तस्य मयानभ्युपगमाद् भवता चाभ्युपगतत्वात् । यथा नाम कश्चित् परं ब्रूयात् माता ते बन्धकी स्त्रीत्वादिति, स तस्योत्तरं ब्रूयात्—न बन्धकीत्वे स्त्रीत्वं हेतुः, किं तु स्वपुरुषव्यतिरेकेण पुरुषान्तरसंबन्ध इति । स्त्रीत्वाद् बन्धकीत्वं ब्रुवाणस्य स्वस्या मातुर्बन्धकीत्वमपरिहार्यम् । अथ परपुरुषसंबन्धं हेतुमभ्युपेयात्, स्त्रीत्वाद् बन्धकीत्वं व्याहतं भवति । तथा भवतोऽपीति व्याघातः—साध्ययोर्हेतुदृष्टान्तयोर्निर्देशः प्रतिज्ञा प्राप्नोति । तस्मादपेतसर्वदोषमिदं वाक्यं साध्यनिर्देशः प्रतिज्ञेति ॥३३॥</div>
+  <div class="tr">また、『論軌』で「主張とは、論証されるべきものを述べることである」と主張の定義が述べられているが、それも両方の場合に誤りがあるので正しくない。どうしてか。もし先に話題になった主張（<i>pakṣa</i>）を念頭に置いて「主張とは、論証されるべきものを述べることである」と言うのなら、「論証されるべきもの」の語は無駄である。話題になった主張が「それ」という語に結びつくので、「主張とは、それを述べることである」と言うべきである。もし主張（<i>pakṣa</i>）と関係のない独立の定義なら、それでも、ニヤーヤ学者の主張の定義について述べた誤りがここにも当てはまる。そして、「あなた（ニヤーヤ学者）がそこで行う反論への答えが、私にとっても答えになる」というのは正しくない。私はそれ（あなたの言う誤り）を認めないが、あなたは認めているからである。たとえば、ある人が別の人に「お前の母親は浮気女だ。女だから」と言い、相手がそれに「浮気女であることの理由は女であることではなく、自分の夫以外の男との関係だ」と答えたとしよう。「女だから浮気女だ」と言う人は、自分の母親が浮気女であることを免れない。もし他の男との関係を理由と認めるなら、「女だから浮気女だ」というのは矛盾する。あなたも同じように矛盾している。（あなたの定義では）論証されるべき理由と実例を示すことも主張になってしまう。だから、「主張とは、論証されるべきものを示すことである」というこの文は、すべての誤りを免れている。（第三十三スートラ）</div><div class="exp"><span class="lbl">解説</span><p>『論軌』（ヒンディー訳の注は Vasubandhu の書とする）の主張の定義「論証されるべきものを述べること」は、ニヤーヤ・スートラの「論証されるべきものを示すこと」とほとんど同じです。それなのに仏教側はニヤーヤの定義を「理由や実例も主張になってしまう」と批判した。その批判は自分の定義にも返ってくる。「ニヤーヤ学者がする言い訳を、私も使える」と言うのは虫がよすぎる、という論法です。たとえ話は乱暴ですが、自分にも当てはまる理由で相手を非難する者は、その理由を撤回しない限り自分も同じ非難を免れない、という論点を鮮やかに示しています。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「『論軌』という名の書で（？）」と注し、「『それを述べることが主張』とすれば、『論証されるべき』の語より『それ』の語のほうが簡潔である（TṬ p.524）」と注しています。「あなたが行う答え」の「あなた」を「ニヤーヤ学者（TṬ p.524）」と注し、反論者を仏教徒として訳しています（Hi. pp.272–273）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>理由の定義</h2><span class="sub"><span class="pg">pp.112–115</span>実例との共通性から。奪格は必要か</span></div>
+<div class="mula sutra" id="u14">
+  <span class="ref">p.112 · NS 1.1.34</span>
+  <div class="src deva" lang="sa">उदाहरणसाधर्म्यात् साध्यसाधनं हेतुः ॥१।१।३४॥<br>हेतोरवसरप्राप्तस्य लक्षणापदेशद्वारेण सूत्रम्—उदाहरणसाधर्म्यादिति । उदाहरणेन साधर्म्यमुदाहरणसाधर्म्यम् । किं पुनरुदाहरणम् ? वक्ष्यमाणकम् । तेन साधर्म्यं समानधर्मता—यो धर्मः साध्ये भवति तथाभूत एवोदाहरणेऽपीति, न पुनः स एव, अन्यधर्मस्यान्यत्रावृत्तेः । न ह्यन्यस्य धर्मोऽन्यत्र वर्तते, किं तु तत्तुल्यः स एवेत्युच्यते । …… उदाहरणेनैव साधर्म्यमुदाहरणसाधर्म्यम्, न पुनरनुदाहरणेनापि; साधर्म्यमेवोदाहरणेन, न पुनर्वैधर्म्यमपीति । कस्य पुनरुदाहरणेन साधर्म्यम् ? कस्यान्यस्य पुनः स्यात्, साध्यस्य प्रकृतत्वात् प्रत्यासत्तेश्च । …… किं पुनरनेनावधारणेन लभ्यते ? साध्यैकदेशवृत्तिरहेतुरिति एतल्लभ्यते । सोऽयं हेतुः साध्योदाहरणाभ्यां प्रतिसंहितः । किं पुनरस्य प्रतिसन्धानम् ? साध्ये व्यापकत्वम्, उदाहरणे च संभवः ।</div>
+  <div class="tr">理由とは、実例との共通性によって、論証されるべきものを論証することである。<br>順番の来た理由について、定義を述べるかたちでのスートラ「実例との共通性によって」がある。実例との共通性が「実例との共通性」である。では実例とは何か。（次に）述べられるものである。それとの共通性とは、同じ性質をもつことである。論証されるべきもの（主題）にある性質と同じような性質が実例にもある、ということであって、まさに同じその（性質が両方にある）のではない。あるものの性質は別のものには存在しないからである。あるものの性質が別のものに存在するのではなく、それと同等のものが「同じそれ」と言われるのである。……「実例とだけ共通性をもつ」、すなわち実例でないもの（異類）とも（共通性をもつ）のではない。「実例と共通性だけをもつ」、すなわち（実例と）相違もある、のではない。では、何が実例と共通性をもつのか。ほかの何がもとうか。論証されるべきもの（主題）である。話題になっており、近くにあるからである。……ではこの限定によって何が得られるのか。「論証されるべきものの一部にしかないものは理由ではない」ということが得られる。この理由は、論証されるべきもの（主題）と実例とに結びつけられている。その結びつきとは何か。論証されるべきもの（主題）に遍くあることと、実例にありうることである。</div><div class="exp"><span class="lbl">解説</span><p>ここで Uddyotakara は、ニヤーヤ・スートラの理由の定義に、限定辞を読み込むことで論証因の条件を引き出します（§3 で「すべての文に限定はいらない」と言いましたが、ここでは意味を明確にするために読み込んでいます）。「実例とだけ共通性をもつ」から「異類にない」、「主題が（遍く）共通性をもつ」から「主題に遍くある」、「実例にもある」から「同類にある」。こうして、二つの特徴（肯定のみの論証因）または三つの特徴（肯定否定両方の論証因）をもつ論証因が、スートラから導かれます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「実例と共通の性質をもつこと。同じ一つの性質ではなく、同等の性質」と訳し、限定によって得られる条件を整理しています（Hi. pp.274–277）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストは「論証されるべきものの一部にしかないものは…」の箇所を <i>sādhyaikadeśavṛttihetur</i> と読みますが、文脈から否定の <i>ahetuḥ</i>（理由ではない）と取りました。限定によって除かれるものを述べている箇所だからです。</p></div></div>
+</div>
+<div class="mula" id="u15">
+  <span class="ref">pp.112–113</span>
+  <div class="src deva" lang="sa">एवं द्विलक्षणस्त्रिलक्षणश्च हेतुर्लभ्यते । उदाहरणेनैव साधर्म्यमित्येवं ब्रुवतानभ्युपगतविपक्षस्याप्युदाहरणेनैव साधर्म्यमिति द्विलक्षणोऽपि हेतुर्भवतीत्युक्तम् । यदा पुनर्विपक्षमभ्युपैति, तदाप्युदाहरणेनैव साधर्म्यं नानुदाहरणेनेति त्रिलक्षणो हेतुरित्युक्तं भवति । तत्र द्वावन्वयव्यतिरेकिणौ, यथा वैशेषिकस्यानित्यः शब्दः कृतकत्वात्, सामान्यविशेषवतोऽस्मदादिबाह्यकरणप्रत्यक्षविषयत्वाच्चेति । द्वावन्वयिनौ, यथा सर्वानित्यतावादिनोऽनित्यः शब्दः प्रमेयत्वादमूर्तत्वाच्चेति । …… तदेवं हेतुस्वरूपावधारणाद् हेत्वाभासा निराकृता भवन्ति ।</div>
+  <div class="tr">このようにして、二つの特徴をもつ理由と、三つの特徴をもつ理由とが得られる。「実例とだけ共通性をもつ」と言うことで、異類を認めない者にとっても「実例とだけ共通性をもつ」ので、二つの特徴をもつ理由もある、と言われたことになる。また、異類を認める場合には、「実例とだけ共通性をもち、実例でないものとは（もた）ない」ので、三つの特徴をもつ理由がある、と言われたことになる。そのうち、肯定否定の（随伴をもつ）ものが二つある。たとえば、ヴァイシェーシカ学者にとっての「音は無常である。作られたものだから」と、「普遍と特殊をもちつつ、我々の外的感官によって知覚される対象だから」。肯定（の随伴）だけをもつものが二つある。たとえば、すべては無常だと説く者にとっての「音は無常である。認識対象だから」と、「形をもたないから」。……このように、理由の本性を確定することによって、擬似理由は退けられる。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、スートラ 1.1.34（肯定的な理由）から四種の理由を導き出します。異類を認める立場での肯定否定両方の理由が二例、すべては無常と説く仏教徒の立場で異類がない場合の肯定のみの理由が二例です。第二プラカラナ §12 の三分類と同じ考え方です。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「すべては無常だと説く者」を「仏教徒」と注し、四種の理由をそれぞれ例とともに訳しています（Hi. pp.277–278）。</p></div></div>
+</div>
+<div class="mula" id="u16">
+  <span class="ref">pp.113–114</span>
+  <div class="src deva" lang="sa">उदाहरणसाधर्म्याच्च किमन्यत् साध्यसाधनमित्येके । न किलोदाहरणसाधर्म्यव्यतिरेकेणान्यत् साध्यसाधनमस्तीत्यत एवं सूत्रं कर्तव्यम्—उदाहरणसाधर्म्यं हेतुरिति । अथ पुनः साध्यसाधनशब्दोपादानमुदाहरणसाधर्म्यविशेषणार्थम्, एवमपि पञ्चम्यपदेशो निरर्थक इति, न हि भवति नीलादुत्पलमिति । …… साध्यसाधनविशिष्टं चोदाहरणसाधर्म्यं हेतुरिति ब्रुवाणेनाभिधेयो हेतुरित्युक्तं भवति, तथा च साध्यनिर्देशः प्रतिज्ञेति व्याहतं भवति, न चाभिधानाभिधेयात्मकः समुदायो दृष्ट इति नोभयेषामवयवत्वम् । तत्र त्वेष दोषो न परिहारवाक्यं प्रयोजयति, तेनैवापाकृतत्वात् । उदाहरणसाधर्म्यात् साध्यसाधनवचनं हेतुरित्येवं व्याचक्षाणेन समस्त एव दोषोऽपाकृतो भवतीति । …… सोऽयं सूक्ष्मेक्षिकया परस्य दोषानभिदधानो लोकादप्यपभ्रष्ट इति ।</div>
+  <div class="tr">ある人々は言う。「実例との共通性以外に、論証されるべきものを論証するものがあろうか。実例との共通性以外に、論証されるべきものを論証するものはない。だから、スートラは『理由とは、実例との共通性である』とすべきである。もし『論証されるべきものを論証する』という語を取るのが、実例との共通性を限定するためなら、それでも奪格を用いるのは無意味である。『青から蓮』とは言わないからである。……また、『論証されるべきものを論証することによって限定された実例との共通性が理由である』と言う者は、（言葉によって）表されるもの（事柄）が理由だと言ったことになる。そうすると『主張とは、論証されるべきものを示す（言葉）である』と矛盾する。（言葉という）表すものと表されるもの（事柄）とから成る集まりは見られないので、両方が支分であることはない」。しかしこの誤りは、反論の文を（別に）必要としない。それ（スートラの解釈）自体によって除かれているからである。「理由とは、実例との共通性によって、論証されるべきものを論証する言葉である」とこのように説明する者によって、すべての誤りが除かれる。……このように、この人は細かい目で相手の誤りを述べながら、世間（の言葉づかい）からも外れている。</div><div class="exp"><span class="lbl">解説</span><p>ヒンディー訳によれば、反論者は Dignāga です。①「実例との共通性」そのものが理由なのだから、「〜によって論証する」という奪格（<i>-āt</i>）は不要だ。②理由を「事柄」（共通性）と取れば、主張を「言葉」（示すこと）とする定義と食い違い、論証式の支分に言葉と事柄が混在してしまう。Uddyotakara は、スートラを「実例との共通性によって、論証されるべきものを論証する<b>言葉</b>が理由である」と読めば、すべての支分が言葉になり、奪格も意味をもつ、と答えます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「ある人々」を「（Dignāga）」と補って訳し、「『青から蓮』とは言わない」の例を「限定語には奪格は用いない」の意味だと説明しています。また「仏教の論師たちも、言葉を限定する文を多く用いている。『自他の主張の成立・不成立のための言葉が論議である』のように」と注しています（Hi. pp.278–281）。</p></div></div>
+</div>
+<div class="mula" id="u17">
+  <span class="ref">pp.114–115</span>
+  <div class="src deva" lang="sa">यदप्युदाहरणसाधर्म्यस्येति वक्तव्यं नोदाहरणसाधर्म्यादिति, तदपि न, विवक्षातः कारकशब्दप्रयोगात् । यदा साधर्म्यमभिधीयमानतया विवक्षितं भवति, तदोदाहरणसाधर्म्यस्येति युक्तम् । यदा तूदाहरणसाधर्म्यस्य निमित्तभावो वचनेऽपि विवक्षितस्तदोदाहरणसाधर्म्यादिति निमित्तपञ्चमी युक्ता । कथं पुनरुदाहरणसाधर्म्यस्य निमित्तभावः ? सति भावात् । यस्मादुदाहरणसाधर्म्यं बुद्ध्वा विवक्षाप्रयत्नवायूदीरणताल्वाद्यभिघातादयः शब्दस्य निमित्तं भवन्ति, अतः पारम्पर्येणोदाहरणसाधर्म्यमपि निमित्तमिति । तस्मात् पञ्चम्यभिधानमेव ज्यायः । उदाहरणम्—अनित्यः शब्द उत्पत्तिधर्मकत्वादिति, उत्पत्तिधर्मकमनित्यं स्थाल्यादि दृष्टमिति । …… का पुनरियमुत्पत्तिः ? असद्विशेषणस्य सतोऽत्यन्तमभावभावप्रतिषेधः । यदसद्विशेषणं सद् भवति, तत् पूर्वं नासीत् पश्चाद् भवतीति गम्यते; तस्य नात्यन्तमभावो नात्यन्तं च भाव इति प्रतिषेधो यः स उत्पत्तिशब्दार्थः ॥३४॥</div>
+  <div class="tr">また「『実例との共通性によって』ではなく『実例との共通性の（言葉）』と言うべきだ」ということも正しくない。言おうとすることに応じて、行為要素の語（格）を用いるからである。共通性が（言葉によって）表されるものとして言おうとされるときは、「実例との共通性の（言葉）」と（属格で言うのが）正しい。しかし、実例との共通性が言葉の原因であることを言おうとするときは、「実例との共通性によって」という原因の奪格が正しい。では、どうして実例との共通性が原因なのか。それがあるときに（言葉が）あるからである。実例との共通性を知って、言おうとする意図、努力、息を押し出すこと、口蓋などを打つことなどが、言葉の原因となる。だから間接的に、実例との共通性も（言葉の）原因である。それゆえ、奪格を述べることこそがよりすぐれている。例は「音は無常である。生じるという性質をもつから」、「生じるという性質をもつ鍋などは無常であると見られる」。……では、この「生じること」とは何か。（以前は）存在しないことによって限定された存在するものについて、完全な非存在と完全な存在を否定することである。存在しないことによって限定された存在するものは、以前はなかったが後にある、と理解される。それについて、「完全にないのではなく、完全にあるのでもない」という否定、それが「生じること」の語の意味である。（第三十四スートラ）</div><div class="exp"><span class="lbl">解説</span><p>奪格「〜によって」は、実例との共通性を知ったことが、理由の言葉を発する原因になるという意味で正当化されます。話し手は共通性を理解して、話そうと意図し、息を出し、口を動かして言葉を発するからです。</p><p>後半では、例の「生じるという性質」の「生じる」が定義されます。「以前はなかったが、今はある」ものについて、「ずっとなかったのでも、ずっとあったのでもない」と言えること。永遠の存在とも、まったくの非存在とも違う、というかたちで「生じること」を規定しています。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「それゆえ奪格を述べることこそがよりすぐれている」と訳し、例の「鍋など」を「鍋（皿、土鍋）」と訳しています（Hi. pp.281–283）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §7 ============ -->
+<section id="s7" class="wrap">
+  <div class="sec-head"><span class="sec-no">7</span><h2>否定的な理由</h2><span class="sub"><span class="pg">pp.116–118</span>肯定的論証と否定的論証（ヴィータとアヴィータ）</span></div>
+<p>スートラ 1.1.35 は「同じように、相違によって」と、異類との相違にもとづく理由を定義します。Uddyotakara は Bhāṣya の例を批判して、否定的随伴だけをもつ理由の典型例（生きた身体には我がある）を挙げ、肯定的な論証（<i>vīta</i>）と否定的な論証（<i>avīta</i>）がそれぞれ独立に対象を知らせることを示します。</p>
+<div class="mula sutra" id="u18">
+  <span class="ref">p.116 · NS 1.1.35</span>
+  <div class="src deva" lang="sa">तथा वैधर्म्यात् ॥१।१।३५॥<br>किमेतावद्धेतुलक्षणमिति ? नेत्युच्यते । किं तर्हि ? तथा वैधर्म्यात् । अत्राप्युदाहरणवैधर्म्यादित्युदाहरणेनैव वैधर्म्यं नानुदाहरणेनेति, वैधर्म्यमेव चोदाहरणेन न साधर्म्यमपीति । उदाहरणम्—अनित्यः शब्द उत्पत्तिधर्मकत्वात्, अनुत्पत्तिधर्मकं नित्यं दृष्टमात्मादय इति भाष्यम् । एतत्तु न समञ्जसमिति पश्यामः, प्रयोगमात्रभेदात् । प्रयोगमात्रं हि भिद्यते नार्थ इति, न च प्रयोगमात्रभेदाद् वस्त्वन्तरं भवितुमर्हति । …… उदाहरणं तु—नेदं निरात्मकं जीवच्छरीरमप्राणादिमत्त्वप्रसङ्गादिति । यदुभयपक्षसंप्रतिपन्नमप्राणादिमत्, तत् सर्वं निरात्मकं दृष्टम् । न चेदमप्राणादिमद्भवति । तस्मान्नेदं निरात्मकमिति ।</div>
+  <div class="tr">同じように、（実例との）相違によって（論証されるべきものを論証するのも理由である）。<br>（問い）「理由の定義はこれ（1.1.34）だけか」。そうではない、と（スートラは）言う。ではどうか。「同じように、相違によって」。ここでも、「実例との相違によって」とは、「実例とだけ相違し、実例でないものとは（相違し）ない」、そして「実例と相違だけをもち、共通性もある、のではない」ということである。例は「音は無常である。生じるという性質をもつから。生じるという性質をもたないものは常住であると見られる。我などのように」というのが Bhāṣya である。しかしこれは適切ではない、と我々は見る。用い方が違うだけだからである。用い方だけが違うのであって、事柄は違わない。用い方が違うだけで、別のもの（別種の理由）になることはありえない。……（正しい）例は「この生きた身体は我をもたないものではない。（もしそうなら）呼吸などをもたないことになってしまうから」である。（論者の）双方が認める、呼吸などをもたないものは、すべて我をもたないと見られる。しかしこれ（生きた身体）は呼吸などをもたないものではない。だから、これは我をもたないものではない。</div><div class="exp"><span class="lbl">解説</span><p>Bhāṣya は、「音は無常である。生じるものだから」という同じ論証を、異類の実例（我）で示した場合を「相違による理由」の例としました。Uddyotakara は、それは同じ理由を別の言い方で述べただけで、別種の理由ではない、と退けます（訳者の補足：ここでも Uddyotakara は Bhāṣya の説明をはっきり批判しています）。本当の「相違による理由」は、肯定的な実例が一つも挙げられない否定的随伴のみの論証因です。「生きた身体には我がある」という主張では、我をもつものの実例を主題の外に挙げることはできませんが、「石のように呼吸のないものには我がない」という否定的な関係だけで論証できます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Bhāṣya の例が「用い方が違うだけ」として退けられることを訳し、Vārttika の例について「（論者の）双方が認める」の意味を説明しています（Hi. pp.283–285）。</p></div></div>
+</div>
+<div class="mula" id="u19">
+  <span class="ref">pp.116–117</span>
+  <div class="src deva" lang="sa">सोऽयमवीतः परपक्षप्रतिषेधाय भवतीति । तावेतौ वीतावीतहेतू लक्षणाभ्यां पृथगभिहिताविति । तत्र स्वरूपेणार्थपरिच्छेदकत्वं वीतधर्मः, अवीतधर्मः पुनः परपक्षप्रतिषेधेनैव प्रवर्तत इति । एकस्य विधीयमानोऽर्थ इतरस्य प्रतिषिध्यमानः । कथं पुनरयमवीतोऽर्थपरिच्छेदक इति ? अथ योऽभ्यनुज्ञातो वीतोऽर्थपरिच्छेदकः स कथम् ? वीतोऽन्वयादिति चेत्—वीतो हेतुरन्वयेन प्रतिपादयति । अथ प्रमेयत्वं कस्मान्न हेतुः, यद्यन्वयस्यैतत् सामर्थ्यम् ? व्यभिचारात् प्रमेयत्वं न हेतुः ? न तर्ह्यन्वयः प्रतिपादकः, अपि त्वव्यभिचारः । यदि चाव्यभिचाराद्धेतुरर्थं प्रतिपादयति, तदाचोद्यमेतत् कथमवीतः प्रतिपादक इति, अवीतस्यापि व्यतिरेकाव्यभिचारित्वात् प्रतिपादकत्वमिति । …… एतेन यथा वीतहेतोरव्यभिचारिण एकस्य धर्मस्य दर्शनादितरधर्मानुमानम्, एवमवीतहेतावपि एकधर्मनिवृत्तिदर्शनादितरधर्मनिवृत्त्यनुमानमिति ।</div>
+  <div class="tr">このアヴィータ（否定的な理由）は、相手の主張を否定するためにある。この二つ、ヴィータの理由とアヴィータの理由とは、（二つの）定義によって別々に述べられた。そのうち、それ自体の姿で対象を確定することがヴィータの性質であり、アヴィータの性質は、相手の主張を否定することによってのみはたらく。一方の対象は肯定されるものであり、他方の（対象）は否定されるものである。（問い）「では、このアヴィータはどうして対象を確定するのか」。（逆に問う。）では、（あなたが）認めているヴィータが対象を確定するのはどうしてか。「ヴィータは肯定的随伴によって（確定する）」と言うなら、（すなわち）ヴィータの理由は肯定的随伴によって知らせる（と言うなら）、もし肯定的随伴にその力があるのなら、「認識対象であること」はなぜ理由でないのか。（答えて）「逸脱するので、認識対象であることは理由でない」（と言うなら）、それなら、知らせるのは肯定的随伴ではなく、逸脱しないことである。そしてもし逸脱しないことによって理由が対象を知らせるのなら、「アヴィータはどうして知らせるのか」というのは非難にあたらない。アヴィータも、否定的随伴に逸脱がないので、知らせるのである。……これによって、ヴィータの理由では、逸脱しない一つの性質を見ることから別の性質を推理するのと同じように、アヴィータの理由でも、一つの性質がないことを見ることから、別の性質がないことを推理する、ということになる。</div><div class="exp"><span class="lbl">解説</span><p>ヴィータ（<i>vīta</i>）とアヴィータ（<i>avīta</i>）は、肯定的な論証と否定的な論証を指す、もとはサーンキヤ系の用語とされます（ヒンディー訳は「別の学派で知られる名称」とします）。Uddyotakara は、論証因が対象を知らせる力の源は「肯定的随伴」そのものではなく「逸脱しないこと」だと指摘します。そう考えれば、否定的随伴に逸脱がない否定的な論証因も、肯定的な論証因と同じく正しく対象を知らせます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「アヴィータ」について「肯定的随伴のものと否定的随伴のものは、別の学派（？）ではヴィータとアヴィータという名で知られる」と注し、ヴィータを「肯定的なもの」、アヴィータを「否定的なもの」と訳しています。最後の部分を「こうして、肯定的（ヴィータ）なものは肯定される（存在の）対象を、アヴィータなものは否定される（非存在の）対象を証明する」とまとめています（Hi. pp.285–287）。</p></div></div>
+</div>
+<div class="mula" id="u20">
+  <span class="ref">pp.117–118</span>
+  <div class="src deva" lang="sa">यदि तर्ह्यसाधारणो धर्मो हेतुः, नित्या पृथिवी गन्धवत्त्वादित्येवमादयोऽपि हेतवः प्राप्नुवन्ति ? न, हेत्वर्थापरिज्ञानात् । सत्यम्, असाधारणो वैधर्म्यहेतुः, न पुनर्वैधर्म्यं व्यभिचारि; गन्धवत्त्वं च नित्यानित्यव्यभिचारि । तस्मादन्वयिनो व्यतिरेकिणश्च नान्वयव्यतिरेकौ हेतुभावे निमित्तम्, किं त्वन्वयव्यतिरेकयोरव्यभिचार इति । …… एवमनयोर्वीतावीतहेत्वोः पृथगर्थप्रतिपादकत्वस्याकुमारं प्रसिद्धेः, यदुक्तं वीतावीतौ न पृथक्प्रतिपत्तिहेतू इति, तत् संमूढेनोक्तम् ।</div>
+  <div class="tr">（反論）「もし（主題にだけある）共有されない性質が理由なら、『地は常住である。香をもつから』なども理由になってしまう」。そうではない。理由の意味を理解していないからである。たしかに、共有されないものは相違による理由である。しかし（その）相違は逸脱するものではない。そして「香をもつこと」は、常住なもの（地の原子）と無常なもの（壺など）とにわたって逸脱する。だから、肯定的随伴のみのものと否定的随伴のみのものとにとって、肯定的随伴や否定的随伴が理由であることの原因なのではなく、肯定的随伴と否定的随伴が逸脱しないことが（原因な）のである。……このように、ヴィータとアヴィータの二つの理由がそれぞれ別に対象を知らせることは、子供でも知っていることなので、「ヴィータとアヴィータとは別々の理解の原因ではない」と言われたことは、混乱した者が言ったことである。</div><div class="exp"><span class="lbl">解説</span><p>「地は常住である。香をもつから」の「香」は地にだけある性質ですが、地のうち原子は常住、壺などは無常なので、逸脱します。だから理由になりません。ここでも基準は「逸脱しないこと」です。最後に、「ヴィータとアヴィータは別々の論証ではない」と言った者を「混乱した者」と退けます（その人物はヒンディー訳の注でも特定されていません）。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「ヴィータとアヴィータの理由がそれぞれ対象を知らせることは子供でも知っている」と訳しています（Hi. pp.287–289）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §8 ============ -->
+<section id="s8" class="wrap">
+  <div class="sec-head"><span class="sec-no">8</span><h2>Vasubandhu の理由の定義</h2><span class="sub"><span class="pg">pp.118–122</span>「異類から区別されるもの」。限定辞の検討</span></div>
+<p>ヒンディー訳の注（TṬ p.550）によれば、「理由とは異類から区別されるものである」は Vasubandhu の理由の定義です。Uddyotakara は、この定義に限定辞をどう読み込んでも、正しい理由が外れるか誤った理由が入る、と論じます。また、その注釈（<i>vṛtti</i>）にある「主題の性質であり、同類にあり、異類にない」という三相の言い方も同様に検討します。</p>
+<div class="mula" id="u21">
+  <span class="ref">p.118</span>
+  <div class="src deva" lang="sa">हेतुर्विपक्षाद् विशेष इत्यन्ये । अन्ये त्वन्यथा हेतुलक्षणं व्याचक्षते—हेतुर्विपक्षाद् विशेष इति । यदि पुनरेतावन्मात्रमुच्यते हेतुर्विशेष इति, किं स्यात् ? विशेषमात्रं हेतुः स्यात्, साधर्म्यमात्रनिराकरणं च स्यात् । साधर्म्यमात्रनिराकरणे विशेषमात्रपरिग्रहे चेष्टानिष्टसंग्रह इति । अतोऽनिष्टहेतुनिराक्रियायै विपक्षग्रहणम्—विपक्षाद् यो विशेषः स हेतुः । विपक्षाद् विशेषो हेतुरित्येतावति चोच्यमाने विपक्षाद् विशेषमात्रस्य हेतुत्वम्, स चानेकभेदः, तन्निवृत्त्यर्थं विपक्षादेवेत्यवधार्यते । अवधारणे चैतस्मिन् विपक्षैकदेशवृत्तिरेकोऽनुषज्यते गौर्विषाणित्वादिति, स हि विपक्षादेव विशेष इति । नायमनेनावधारणेन निराक्रियत इति तन्निवृत्त्यर्थं द्वितीयमवधारणम्—विपक्षाद् विशेष एव । न त्वयं विशेष एव, विपक्षैकदेशवृत्तित्वात् सामान्यमपि । तदेवमाभ्यामवधारणाभ्यामन्वयव्यतिरेकी त्रिलक्षणो हेतुर्लभ्यत इति ।</div>
+  <div class="tr">ある人々は「理由とは、異類から区別されるものである」と言う。別の人々は理由の定義を別様に説明する。「理由とは、異類から区別されるもの（<i>viśeṣa</i>）である」と。（彼らの説明はこうである。）「もし『理由とは区別するものである』とだけ言ったらどうなるか。区別するものなら何でも理由になり、単なる共通性は除かれるだろう。単なる共通性が除かれ、区別するものなら何でも取られるなら、望ましいもの（正しい理由）と望ましくないもの（誤った理由）がともに含まれる。だから、望ましくない理由を除くために『異類から』の語を（入れる）。異類から区別されるもの、それが理由である。『理由とは、異類から区別されるものである』とだけ言えば、異類から区別されるものなら何でも理由になり、それには多くの種類があるので、それを除くために『異類からだけ』と限定する。この限定をすると、異類の一部にある一つ（の誤った理由）が入ってくる。『牛である。角をもつから』のように。それは異類からだけ区別されるからである。これはこの限定では除かれないので、それを除くための第二の限定が（ある）。『異類から区別されるもの<b>でしかない</b>』と。しかしこれ（角）は区別するものでしかないのではない。異類の一部にあるので、共通するものでもある。こうして、この二つの限定によって、肯定否定（の随伴）をもつ、三つの特徴をもつ理由が得られる」と。</div><div class="exp"><span class="lbl">解説</span><p>Vasubandhu の定義（ヒンディー訳の特定による）を、その擁護者がどう説明するかの紹介です。「異類から<b>だけ</b>区別される」（同類とは共通する）、「異類から区別されるもの<b>でしかない</b>」（異類と共通する部分がない）という二つの限定を読み込めば、三相を満たす理由が得られる、というのです。Uddyotakara は次のブロックでこれを検討します。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「別の人々」を「（Vasubandhu）」と補って訳し、「『理由とは異類から区別されるもの』は Vasubandhu の理由の定義である（TṬ p.550）」と注しています（Hi. pp.289–290）。</p></div></div>
+</div>
+<div class="mula" id="u22">
+  <span class="ref">pp.118–119</span>
+  <div class="src deva" lang="sa">सत्यमेकस्त्रिलक्षणो हेतुर्लभ्यते, सपक्षैकदेशवृत्तिश्चैकस्त्रिलक्षण एव निराक्रियते । कथम् ? आद्येनावधारणेन विपक्षादेव यो विशेषः स हेतुरिति ब्रुवता यस्तुल्यैकदेशवृत्तिः स निवर्तितो भवति । न ह्ययं विपक्षादेव विशेषः, किं तु सपक्षैकदेशादपि । …… यद्येवं विपक्षादेव यो विशेषः स हेतुरित्यवधारणं बाधितं भवति । न तावदयं प्रयत्नानन्तरीयकत्वादिर्विपक्षादेव विशेषः, किं तु तत्तुल्यैकदेशादपि । अथाश्रूयमाणेनाप्यर्थेनावधारणेऽर्थवती ? एवं च सति तत्तुल्यैकदेशवृत्तित्ववत् साध्यैकदेशवृत्तेरपि हेतुत्वप्रसङ्गः । येनैव सामर्थ्येन तत्तुल्यैकदेशवृत्तिर्लभ्यते तेनैव सामर्थ्येनानुमेयैकदेशवृत्तिरपि हेतुः प्राप्तः, यथानित्याः परमाणवो गन्धवत्त्वादिति । ते एतेऽवधारणे यदि तावद् यथाश्रुते भवतः, तत इष्टः प्रयत्नानन्तरीयकत्वादिर्न हेतुः; अथान्यथा श्रूयतेऽन्यथा प्रकल्प्यतेऽभिप्रेतार्थसिद्ध्यर्थम्, तथाप्यभिप्रेतप्राप्तिवदनिष्टोऽपि गन्धवत्त्वादिर्लभ्यत इत्युभयं च लक्षणदोषः—अभिप्रेतहानिरनिष्टप्रसङ्गश्च ।</div>
+  <div class="tr">たしかに、三つの特徴をもつ一つの理由は得られる。しかし、同類の一部にある、三つの特徴をもつもう一つの理由が除かれてしまう。どうしてか。第一の限定によって「異類からだけ区別されるものが理由である」と言うと、同類の一部にあるものは除かれる。それは異類からだけ区別されるのではなく、同類の一部からも（区別される）からである。……そうなると、「異類からだけ区別されるものが理由である」という限定が損なわれる。「努力の直後に生じること」などは、異類からだけ区別されるのではなく、同類の一部からも（区別される）からである。（反論）「聞こえない（言葉にない）意味によっても、限定には意味がある」（と言うなら）。そうであれば、同類の一部にあるものと同じように、論証されるべきもの（主題）の一部にあるものも理由になってしまう。同類の一部にあるものを得るのと同じ（解釈の）力によって、推理されるもの（主題）の一部にあるものも理由として得られてしまう。たとえば「原子は無常である。香をもつから」。これらの限定を、もし聞こえるとおりに取るなら、望ましい「努力の直後に生じること」などは理由にならない。もし、意図した意味を成り立たせるために、聞こえるのとは別様に考えるなら、意図したものが得られるのと同じように、望ましくない「香をもつこと」なども得られてしまう。こうして、意図したものが失われることと、望ましくないものが入ることという、両方の定義の誤りがある。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の批判は、第二プラカラナ §16 の Dignāga 批判と同じ構造です。「音は無常である。努力の直後に生じるから」の論証因は、同類（無常なもの）の一部（壺など）にしかありません（稲妻は努力なしに生じる）。それでも正しい論証因です。ところが「異類から<b>だけ</b>区別される」とすれば、この論証因は同類の一部（稲妻）からも区別されるので、除かれてしまいます。かといって限定をゆるめれば、主題の一部にしかない誤った論証因（香は地の原子にしかない）まで入ってしまう、というわけです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「意図したものが失われることと、望ましくないものが入ること」を TṬ（p.550）に従い「これは例示であり、望ましいものを捨てることなども見るべきである」と注しています（Hi. pp.290–292）。</p></div></div>
+</div>
+<div class="mula" id="u23">
+  <span class="ref">pp.119–121</span>
+  <div class="src deva" lang="sa">नैष दोषः, वृत्तौ विशेषितत्वात् । अनिष्टस्य गन्धवत्त्वादेः प्राप्तिरिति न दोषः, यस्माद् वृत्तावाह—यो धर्मः पक्षस्य—इति । अनेन चाक्षुषत्वादिः पक्षासंभवी निराक्रियते, पक्षैकदेशवृत्तिस्तु कथम् ? न ह्यसौ पक्षधर्मो न भवति । तथा विपक्षैकदेशवृत्तिर्न विपक्षस्य न धर्म इति । तस्मादन्यथा निराकरणे यत्नः कर्तव्य इति । न कर्तव्योऽवधारणान्निवृत्तेः । …… किं पुनरवधार्यते—किं धर्म एव पक्षस्य, उत पक्षस्यैव धर्मः ? …… अथ पुनर्व्याप्तिरस्यावधारणस्यार्थः—धर्म एव पक्षस्येति, न पुनरधर्मोऽपि; यः पुनः पक्षैकदेशवृत्तिरसावधर्मोऽपि ? सत्यमनेनैकदेशवृत्तिर्निराक्रियत इति । एतस्मिन्नपि एकं संधित्सतोऽन्यत् प्रच्यवते । भवत्वेकदेशवृत्तेर्निराकरणं, सपक्षे सिद्ध इत्येतत् पदं किमर्थमारभ्यते ? …… तदेतस्मिँल्लक्षणे वृत्त्या सह विचार्यमाणेऽनिष्टहेतूपनिपातो वेष्टहेतुपरित्यागो वाभिप्रेतग्रन्थहानिर्वेति दोषाः ।</div>
+  <div class="tr">（反論）「この誤りはない。注釈（<i>vṛtti</i>）で限定されているからである。望ましくない『香をもつこと』などが入ってくる、という誤りはない。注釈で『主題の性質であるもの』と言っているからである」。これによって、主題にありえない「眼で見られること」などは除かれるが、主題の一部にあるものはどうして（除かれる）のか。それ（主題の一部にあるもの）が主題の性質でないことはないからである。同じように、異類の一部にあるものも、異類の性質でないことはない。だから、別の方法で除くことに努めなければならない。（反論）「努める必要はない。限定によって除かれるからである」。……では何が限定されるのか。「主題の性質<b>でしかない</b>」のか、「主題に<b>だけ</b>ある性質」なのか。……もし「主題の性質でしかない」というこの限定の意味が「遍くあること」、すなわち（主題の）性質でないこともある、のではないことなら、主題の一部にあるものは（主題の）性質でないこともある（ので除かれる）。たしかに、これによって一部にあるものは除かれる。しかしここでも、一つを繕おうとすると、別のものがほころびる。一部にあるものが除かれるとしても、「同類にある」というこの語は何のために言われるのか。……このように、この定義を注釈とともに考察すると、望ましくない理由が入るか、望ましい理由が捨てられるか、意図した文言が失われるか、という誤りがある。</div><div class="exp"><span class="lbl">解説</span><p>擁護者は、注釈（<i>vṛtti</i>、ヒンディー訳の写本の欄外注は「注釈」とする）の「主題の性質であり、同類にあり、異類にない」という三相の言い方で補えると言います。Uddyotakara は、これにも第二プラカラナ §16 と同じ「だけ」の位置の分析を当てます。「主題の性質<b>でしかない</b>」（遍充）とすれば一部にしかないものは除かれるが、そうすると「同類にある」という語が要らなくなる。「一つを繕おうとすると別のものがほころびる」という表現が、この種の議論の行き詰まりをよく表しています。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、この部分を第二プラカラナの三相批判と同様に、限定の位置ごとに訳し分けています（Hi. pp.292–295）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版の脚注によれば、写本 J の欄外に「<i>vṛtti</i> ＝注釈（<i>ṭīkā</i>）」とあります。どの注釈を指すのかは、本文からは確定できません。この箇所の議論は長いため、要点を抜き出しました。</p></div></div>
+</div>
+<div class="mula" id="u24">
+  <span class="ref">pp.121–122</span>
+  <div class="src deva" lang="sa">हेतुर्विपक्षाद् विशेष इति च यदा सौत्रान्तिकपक्षमाश्रित्य लक्षणं विचार्यते, तदा विपक्षासंभवाद्धेतुर्विपक्षाद् विशेष इति च विपक्षार्थो वक्तव्यः, न ह्यसति विपक्षे विपक्षार्थं पश्याम इति । न चासति पञ्चम्याः प्रयोगः संभवति, विपक्षादिति पञ्चमीविषयो वक्तव्यः । असति च विपक्षे नाधिकरणार्थः संभवतीति विपक्षे नास्तीति सप्तम्यर्थो वक्तव्यः । …… तदेतल्लक्षणं स्वसिद्धान्तेनासङ्गतत्वादलक्षणमिति । यदपि हेतुवार्तिकं ब्रुवाणेनोक्तम्—सप्तिकासंभवे षट्प्रतिषेधादेकद्विपदपर्युदासेन त्रिलक्षणो हेतुरिति, तदप्ययुक्तम्, द्विपदलक्षणयुक्तयोर्हेतुत्वात् । …… तस्माद्धेतुर्विपक्षाद् विशेष इत्येतल्लक्षणं विचार्यमाणमनभिमतस्य हेतुत्वमापादयति, इष्टं वा बाधते, ग्रन्थं वा निराकरोति, शास्त्रं बाधत इति ।</div>
+  <div class="tr">また、「理由とは、異類から区別されるものである」という定義を、経量部の立場に立って考察するときには、異類がありえないので、「理由とは、異類から区別されるものである」の「異類」の意味を言わなければならない。異類が存在しないなら、我々は異類の意味を見ないからである。また、存在しないものについて奪格を用いることはできないので、「異類から」の奪格の対象を言わなければならない。異類が存在しないなら、基体の意味はありえないので、「異類にない」の処格の意味を言わなければならない。……このように、この定義は自分の学説と合わないので、定義ではない。また、『理由のヴァールッティカ』を説く者が、「七つの組み合わせがありうる中で六つを否定し、一つや二つの語を除くことによって、三つの特徴をもつ理由（が説かれる）」と言ったことも正しくない。二つの語（の特徴）だけをもつものも理由だからである。……だから、「理由とは、異類から区別されるものである」というこの定義は、考察すると、望ましくないものを理由にし、望ましいものを損ない、文言を否定し、学説を損なうのである。</div><div class="exp"><span class="lbl">解説</span><p>仏教の経量部（<i>Sautrāntika</i>）の立場では、すべては無常なので、「常住なもの」という異類は存在しません。存在しないものから「区別される」ことも、存在しないものに「ない」ことも、意味をなさない。こうして、この定義は仏教自身の学説と合わない、と批判します。後半の「七つの組み合わせ」の議論は、第二プラカラナ §16（表9）で見たものと同じで、ここでは「『理由のヴァールッティカ』（<i>Hetuvārttika</i>）を説く者」の言葉として引かれています。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「経量部の立場から考察すると、この定義は自分の学説（経量部の説）と合わない」と注し、自身の研究書『仏教哲学の考察』を参照させています（Hi. pp.295–297）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §9 ============ -->
+<section id="s9" class="wrap">
+  <div class="sec-head"><span class="sec-no">9</span><h2>Dignāga の理由の定義</h2><span class="sub"><span class="pg">pp.122–126</span>「同類にあり、異類にない」。努力の直後に生じるものの例</span></div>
+<p>次に、ヒンディー訳の注（TṬ p.552）が Dignāga のものとする理由の定義「同類にあり、また二様にあり、異類にない」が検討されます。これは Dignāga の「九句因」（主題の性質である論証因が、同類と異類にどう分布するかの九通りの分類）のうち正しい二つを述べた偈です。</p>
+<div class="mula" id="u25">
+  <span class="ref">pp.122–123</span>
+  <div class="src deva" lang="sa">तत्र यः सन् सजातीये द्वेधा चासंस्तदत्यये—इत्यन्ये । अनेन सन् सजातीये द्वेधा चेति सपक्षे, असंस्तदत्यय इत्यसपक्षे नास्तीति, एतावता च किल लक्षणेन त्रिलक्षणो हेतुर्लभ्यत इति यथाश्रुति न लभ्यते । यदि तावदेतल्लक्षणं यथाश्रुति भवति, पक्षे विद्यत इति केनैतल्लभ्यते ? ननु चोक्तं हेतुस्तदाभासो वा प्रायः पक्षधर्म एवेति ? उक्तमेतत्, न पुनरनेन पक्षधर्मो हेतुरिति लभ्यते, किं त्वपक्षधर्मो न हेतुर्न हेत्वाभास इति । …… सत्यम्, अर्थात् पक्षधर्मो गम्यते, न तु व्यापको नियतो लभ्यत इति । …… तत्राव्यापकोऽनिष्टो हेतुः प्राप्तः । …… इदं तावद् गम्यमानत्वात् सन् सजातीय इति न वक्तव्यम् । …… यदि तावदेवमवधार्यते सन्नेव सजातीय इति, प्रयत्नानन्तरीयकत्वं ते न हेतुः, यस्मात् प्रयत्नानन्तरीयकत्वं सदसदपि; द्वेधा चेत्येतदवधारणार्थबाधितम्, न हि भवति ब्राह्मणमेव भोजय क्षत्रियं चेति । …… त्रिलक्षणं च हेतुं ब्रुवाणेन स्वसिद्धान्तोपात्तयोर्द्विपदयुक्तयोर्हेत्वोरहेतुत्वमुक्तं भवति, व्यतिरेकी च न हेतुरिति प्राप्तम् ।</div>
+  <div class="tr">別の人々は「そのうち、同類にあり、また二様に（ある場合と、ない場合とがあり）、それ（同類）がないところ（異類）にないもの（が理由である）」と言う。これによって、「同類にあり、また二様に」は同類に（ついて）、「それがないところにない」は異類にない（ことについて言う）。この定義だけで三つの特徴をもつ理由が得られる、というが、聞こえるとおりには得られない。もしこの定義を聞こえるとおりに取るなら、「主題にある」ということは何によって得られるのか。（反論）「『理由とその擬似（理由）とは、たいてい主題の性質にほかならない』と言われているではないか」。そう言われているが、それによって「主題の性質が理由である」ということが得られるのではなく、「主題の性質でないものは理由でも擬似理由でもない」ということが（得られる）のである。……たしかに、意味のうえで「主題の性質」は理解されるが、（主題に）遍く決まってある、ということは得られない。……そうすると、遍くない望ましくない理由が入ってくる。……まず、（意味のうえで）理解されるので、「同類にある」と言う必要はない。……もし「同類に<b>必ず</b>ある」と限定するなら、あなたにとって「努力の直後に生じること」は理由ではなくなる。「努力の直後に生じること」は（同類に）あり、またない（場合もある）からである。（また）「二様に」は限定の意味によって損なわれる。「バラモンにだけ食事を出せ、そしてクシャトリヤにも」とは言わないからである。……また、三つの特徴をもつ理由を説く者は、自分の学説で認めている、二つの語（の特徴）をもつ理由が理由でないと言ったことになり、否定的随伴のみのものも理由でないことになってしまう。</div><div class="exp"><span class="lbl">解説</span><p>偈は「同類にある、あるいは二様に（同類の一部にある）、そして異類にない」と論証因の条件を述べますが、「主題にある」という第一の条件が明言されていません。Dignāga は別の箇所で「理由とその擬似は、たいてい主題の性質である」と述べていますが、それは「主題の性質でないものは理由でも擬似理由でもない」と言うだけで、主題に「遍く」あることまでは言えていない、と Uddyotakara は批判します。そのあとは §8 と同じ「だけ」の位置の分析が続きます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「別の人々」を「Dignāga など（TṬ）」と注し、「Dignāga は、主題にある性質について、九つの論証因と擬似論証因を述べた（TṬ p.552）。九つのうち二つが論証因で、残り七つが擬似論証因である。主題の性質であり、同類にある、あるいは二様（あるところもないところもある）で、異類にないものが論証因である」と説明しています。「理由とその擬似は、たいてい主題の性質」については、Dignāga の言葉「論証因とその擬似は、たいてい所証の性質（をもつ主題の性質）である」（TṬ p.553）を引いています（Hi. pp.297–299）。</p></div></div>
+</div>
+<div class="mula" id="u26">
+  <span class="ref">pp.123–124</span>
+  <div class="src deva" lang="sa">एतेन—ग्राह्यधर्मस्तदंशेन व्याप्तो हेतुः—इति प्रत्युक्तम् । अनेन चाव्यापकादिर्हेतुर्लभ्यत इति उक्तोत्तरमेतदपीति । असंस्तदत्यय इत्येतदपि विपक्षे नास्तीत्यनेन समानमिति । तादृगविनाभाविधर्मोपदर्शनं हेतुरित्यपरे । तादृशा विना न भवतीत्यनेन किल द्वयं लभ्यते—विपक्षेऽसत्त्वं तादृक्सत्त्वं च; उपदर्शनग्रहणेन किल पक्षधर्मो लभ्यत इत्येवं किल त्रिलक्षणप्रविभावित आत्मा हेतोर्लभ्यत इति । यत् तावत् तादृगविनाभाविग्रहणाद् विपक्षेऽसत्त्वं तादृक्सत्त्वं च लभ्यत इति, तन्न युक्तम् । तादृशा विना न भवतीत्येतस्माद् वचनाद् विपक्षेऽसत्त्वं गम्यते, तादृशे तु संभव इत्येतत् कुतः ? न ह्ययं नियमो यो विपक्षे नास्ति सोऽवश्यं तज्जातीयेऽस्तीति । एवं च सति श्रावणत्वादपि हेतुः प्राप्तः—श्रावणत्वमपि तादृशा विना न भवतीति । …… उपेत्य वा भवतु तादृगविनाभाविनो धर्मस्य पक्ष उपदर्शनमिति, तथापि पक्षैकदेशवृत्तिं केन निराकरोषि ?</div>
+  <div class="tr">これによって、「主題（とされるもの）の性質で、その一部（所証の一般）によって遍充されたものが理由である」というのも退けられた。これによっても、（主題に）遍くないものなどが理由として得られるので、これにも（すでに）答えが述べられている。「それがないところにない」というのも、「異類にない」と同じである。別の人々は「そのような（所証）なしにはない性質を示すことが理由である」と言う。（彼らによれば）「そのようなものなしにはない」によって二つが得られる。異類にないことと、そのようなもの（同類）にあることとである。また「示す」の語によって主題の性質が得られる。こうして、三つの特徴によって明らかにされた理由の本性が得られる、と。まず、「そのようなものなしにはない」から、異類にないことと同類にあることとが得られる、というのは正しくない。「そのようなものなしにはない」というこの言葉からは、異類にないことは理解されるが、そのようなもの（同類）にあることは、何によって（理解される）のか。異類にないものは必ず同類にある、という決まりはない。そうなると、「耳で聞かれること」も理由になってしまう。「耳で聞かれること」もそのようなもの（音）なしにはないからである。……あるいは、（反論を）認めて、そのようなものなしにはない性質を主題に示すこととしよう。それでも、主題の一部にあるものを、何によって除くのか。</div><div class="exp"><span class="lbl">解説</span><p>二つの定義がまとめて退けられます。「主題の性質で、その一部（所証）によって遍充されたもの」は、ヒンディー訳の注（TṬ）によれば Dignāga の別の箇所での理由の定義です。「そのようなものなしにはない性質を示すことが理由」は、第二プラカラナ §16 でも出てきた定義で、ヒンディー訳は Dignāga とは別の論者のものとしています。「異類にない」から「同類にある」は導けない。同類がまったくない「耳で聞かれること」（音にしかない性質）も、異類にはないからです。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は「主題の性質で、その一部によって遍充されたもの」について「Dignāga の別の箇所の理由の定義。主題の性質で、その一部、すなわち所証の性質一般によって遍充された論証因。『その一部によって遍充された』の説明は、同類にあることと異類から外れることである（TṬ p.554）」と注しています。「それがないところにない」の出典は不明だと TṬ（p.554）を引いています（Hi. pp.299–301）。</p></div></div>
+</div>
+<div class="mula" id="u27">
+  <span class="ref">pp.124–126</span>
+  <div class="src deva" lang="sa">यत्त्विदमुदाहरणमेतस्मिन् प्रयत्नानन्तरीयकत्वादिरनित्यस्याग्नेर्धूम इति, तत्र धूमस्तावदग्नेर्न प्रतिपादक इत्युक्तम् । प्रयत्नानन्तरीयकत्वमप्यहेतुः । कुतः ? प्रयत्नानन्तरीयकत्वस्य पक्षावृत्तित्वात् । न हि प्रयत्नानन्तरीयकत्वं शब्दधर्मः; न हि कश्चिच्छब्दः प्रयत्नानन्तरीयकोऽस्ति, संयोगविभागशब्दयोनित्वाच्छब्दस्य [वै. सू. २.२.३६] । अथ पारम्पर्येण प्रयत्नः शब्दकारणम्, पारम्पर्येण सर्वेऽर्थाः शब्दकारणमिति विशेषणमयुक्तं प्रयत्नानन्तरीयकत्वादिति । …… यदप्युक्तम्—अप्रयत्नानन्तरीयकस्य त्रयी गतिः, किञ्चिन्नित्यमाकाशाद्येकेषाम्, किञ्चिदनित्यं विद्युदादि, किञ्चिदसदाकाशकुसुमादि—इदं तन्महानैयायिकत्वं महावादित्वं च, यत् तावदसदप्रयत्नानन्तरीयकं च किञ्चिच्चेति चित्रम् । …… तदेवमेतानि न हेतुलक्षणानि संभवन्तीतीदमेवार्षं हेतुलक्षणं न्याय्यमिति ॥३५॥</div>
+  <div class="tr">また、この（定義の）例として「努力の直後に生じることなどが無常の（理由）、煙が火の（理由）」（が挙げられる）が、そのうち、煙は火を知らせるものではないことは（すでに）述べた。努力の直後に生じることも理由ではない。なぜか。努力の直後に生じることは、主題にないからである。努力の直後に生じることは音の性質ではない。努力の直後に生じる音などない。音は、結合と分離と音から生じるからである（VS 2.2.36）。もし間接的に努力が音の原因だと言うなら、間接的にはすべての事物が音の原因になるので、「努力の直後に生じるから」という限定は不適切である。……また、「努力の直後に生じないものには三つのあり方がある。ある人々にとって虚空などは常住であり、稲妻などは無常であり、虚空の花などは存在しない」と言われたことについては、これこそ大論理学者ぶり、大論者ぶりというものである。存在しないものが「努力の直後に生じないもの」であり、しかも何か（であるもの）だ、とは奇妙なことである。……このように、これら（他学派の理由の定義）は理由の定義として成り立たない。だから、この聖者の（スートラの）理由の定義こそが正しい。（第三十五スートラ）</div><div class="exp"><span class="lbl">解説</span><p>ヒンディー訳によれば、ここで批判されている例は仏教側（Dignāga）のものです。仏教論理学でよく使われる「音は無常である。努力の直後に生じるから」を、Uddyotakara は意外な角度から退けます。ヴァイシェーシカの因果論では、音は努力から直接生じるのではなく、結合・分離・音から生じる。だから厳密には、音は「努力の直後に生じる」ものではない、というのです。</p><p>「大論理学者ぶり」は皮肉です。「努力の直後に生じないもの」の中に「存在しないもの（虚空の花）」を数えるのは、存在しないものに性質を帰すことになり、矛盾している、というわけです。最後に、他学派の定義がすべて成り立たないので、聖者（スートラ作者）の定義こそが正しい、と結んで、理由の議論を終えます。</p><div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī はこの例を「（仏教徒の）例」と注し、「仏教の説では、我々（ニヤーヤ）のように特殊とは別の、実在する一般はなく、想定された一般は特殊と区別できない」と補っています。「三つのあり方」については「ここで仏教徒の実例についての考察が紹介され、その誤りが示されている」と注しています（Hi. pp.303–305）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §10 ============ -->
+<section id="s10" class="wrap">
+  <div class="sec-head"><span class="sec-no">10</span><h2>実例支分</h2><span class="sub"><span class="pg">pp.126–128</span>所証と共通の性質をもつ実例。異読をめぐる議論</span></div>
+<p>論証式の第三支分「実例」（<i>udāharaṇa</i>）の定義です。第四プラカラナ §11 で予告されたとおり、実例（<i>dṛṣṭānta</i>、論者双方が認める事物）と、それを論証式の中で述べる実例支分との関係が説明されます。なお、ここから章末までは、参照しているヒンディー訳第1巻の範囲外です（第1巻はスートラ 1.1.36 の Bhāṣya で終わる）。</p>
+<div class="mula sutra" id="u28">
+  <span class="ref">p.126 · NS 1.1.36</span>
+  <div class="src deva" lang="sa">साध्यसाधर्म्यात् तद्धर्मभावी दृष्टान्त उदाहरणम् ॥१।१।३६॥<br>अस्योदाहरणोपलक्षणार्थः । साध्यस्य साधर्म्यं साध्येन समानधर्मता । अत्रापि साध्येनैव साधर्म्यमेव, न पुनरसाध्येनापि; साधर्म्यमेव साध्येन न पुनर्वैधर्म्यमपि । यस्मात् साध्यसाधर्म्यात् तद्धर्मभावी भवति । किं कुतश्चित् साध्यसाधर्म्यात् तद्धर्मभावी न भवति ? न भवत्यपि, यथामूर्तत्वादेः कर्मणः । तस्मात् साध्यसाधर्म्याद् यस्तद्धर्मा भवति स भवति तद्धर्मभावी । सोऽयं दृष्टान्तः साध्यसाधर्म्यात् तद्धर्मभावित्वेन विशेषणेन युज्यमान उदाहरणं भवति । उदाह्रियतेऽनेन धर्मयोः साध्यसाधनभाव इत्युदाहरणम् । ननु च करणकारकपरिग्रहाद् वचनमुदाहरणं, दृष्टान्तश्चार्थः, न चानयोः सामानाधिकरण्यं युज्यते ? …… नैष दोषः, वचनविशेषणत्वेन दृष्टान्तस्योपादानात् । न स्वतन्त्रो दृष्टान्त उदाहरणम्, किं तु साध्यसाधर्म्यात् तद्धर्मभावित्वे सत्यभिधीयमान इति । …… तस्माद् धर्मी साध्य इति । तस्य धर्मिणः साध्यस्य यो धर्मः स यस्मिन् दृष्टान्ते भवति विद्यते, स दृष्टान्त उदाहरणम् । उदाहरणं स्थाल्यादि द्रव्यमिति, तदुत्पत्तिधर्मकं चानित्यं दृष्टमिति ॥३६॥</div>
+  <div class="tr">実例支分とは、論証されるべきもの（主題）との共通性によって、その性質をもつ実例である。<br>これ（スートラの目的）は実例支分を示すことである。「論証されるべきものとの共通性」とは、論証されるべきものと同じ性質をもつことである。ここでも、「論証されるべきものとだけ共通性をもつ」、論証されるべきものでないものとも（もつ）のではない。「論証されるべきものと共通性だけをもつ」、相違もある、のではない。論証されるべきものとの共通性によって、その性質をもつからである。（問い）「何らかの、論証されるべきものとの共通性によって、その性質をもたない、ということはあるのか」。ないこともある。形をもたないことなど（の共通性）からは、運動は（常住という）その性質をもたないように。だから、論証されるべきものとの共通性によってその性質をもつもの、それが「その性質をもつもの」である。この実例が、「論証されるべきものとの共通性によってその性質をもつ」という限定語と結びつくとき、実例支分となる。これによって二つの性質の論証関係が例示される（<i>udāhriyate</i>）ので、実例支分（<i>udāharaṇa</i>）である。（反論）「手段という行為要素（の語尾）を取るので、実例支分は言葉である。実例は事物である。この二つが同格であるのは正しくない」。……この誤りはない。実例を言葉の限定語として取るからである。独立の実例が実例支分なのではなく、論証されるべきものとの共通性によってその性質をもつ（実例）が述べられるとき（に実例支分となる）のである。……だから、有法が論証されるべきものである。その論証されるべき有法の性質が存在する実例、それが実例支分である。実例支分は「鍋などの実体」であり、「それは生じるという性質をもち、無常であると見られる」（と述べられる）。（第三十六スートラ）</div><div class="exp"><span class="lbl">解説</span><p>実例（事物、たとえば鍋）が、論証式の中で「生じるという性質をもつ鍋などは無常であると見られる」と言葉で述べられるとき、それが実例支分になります。形をもたないことは運動にも音にもあるが、運動は無常なので、「形をもたない」という共通性からは「常住」という性質は導けない、という例が、共通性なら何でもよいわけではないことを示しています。</p></div>
+</div>
+<div class="mula sutra" id="u29">
+  <span class="ref">pp.127–128 · NS 1.1.37</span>
+  <div class="src deva" lang="sa">तद्विपर्ययाद्वा विपरीतम् ॥१।१।३७॥<br>साध्यवैधर्म्यादतद्धर्मभावी च दृष्टान्त उदाहरणमिति । उदाहरणमवीतहेतौ द्रष्टव्यमिति । अन्ये तु साध्यसाधर्म्यात् तद्धर्मभावित्वं दृष्टान्तस्येति सूत्रं पठन्ति । …… अस्माकं तु नायं सूत्रपाठः, तस्मान्नायं दोष इति । …… तदेतस्मिन्नवयवत्रये एवं लक्षणेनोपपादिते, तेषां च त्रयो दुर्विहिता इत्यनेन वाक्येन महानैयायिकत्वमात्मनः ख्यापितं भवति । तथा सिद्धो दृष्टान्त इत्यन्ये । …… अत्र विस्फूर्जतापि स्वसिद्धान्तमपरित्यजता कृतकत्वानित्यत्वयोर्न शक्यः संबन्धो दर्शयितुम्, कृतकत्वानित्यत्वयोः कालभेदाद् वस्तुव्यवधानाच्च । अन्यदा कृतकत्वमन्यदा चानित्यत्वमिति, यदा च वस्तु न तदा प्राक्प्रध्वंसाभावौ स्त इति । एतेन तयोः संबन्धनिदर्शनं दृष्टान्त इति प्रत्युक्तम्—साध्येनानुगमो हेतोः साध्याभावे च नास्तिता—इति च ॥३७॥</div>
+  <div class="tr">あるいは、それ（共通性）の逆によって、逆の（性質をもつ実例が実例支分である）。<br>論証されるべきものとの相違によって、その性質をもたない実例も実例支分である。（この）実例支分はアヴィータの理由（の場合）に見るべきである。別の人々は、スートラを「論証されるべきものとの共通性によって、その性質をもつことが実例の（実例支分である）」と読む。……しかし我々にとっては、これはスートラの読みではない。だからこの誤りはない。……このように三つの支分（主張・理由・実例）がこの定義によって確立されているのに、「それら三つはまずく定められている」と言うこの言葉によって、（その人は）自分が大論理学者であることを示したことになる。別の人々は「（理由と所証の関係が）そのように成立したものが実例である」と言う。……ここでは、どれほど息巻いても、自分の学説を捨てない限り、「作られたもの」と「無常」との関係を示すことはできない。作られたことと無常であることとは、時が異なり、事物によって隔てられているからである。作られたことはある時に、無常であることは別の時に（あり）、事物があるときには、（それ以前の）非存在も（以後の）消滅も存在しない。これによって、「それら二つの関係を示すことが実例である」というのも、「理由が論証されるべきものに随伴し、論証されるべきものがないところにはないこと」というのも、退けられた。（第三十七スートラ）</div><div class="exp"><span class="lbl">解説</span><p>否定的な実例支分（「生じるという性質をもたない我などは常住であると見られる」）の定義です。後半では、スートラの異読と、ニヤーヤの最初の三支分を「まずく定められている」と非難する者が退けられます。</p><p>最後の批判は、仏教の刹那滅論を逆手に取っています。「作られたものは無常である」という関係を実例で示すには、作られることと滅びることの両方を同じものについて結びつけなければなりません。しかし刹那滅論では、ものは生じた瞬間にしか存在せず、それが「作られた」ことと「滅びる」ことは別の時点のことで、両者を結ぶ同一の担い手がない。だから仏教徒は、自分の学説のままでは、理由と所証の関係を実例で示せない、というのです。最後に引かれる偈「理由が論証されるべきものに随伴し、論証されるべきものがないところにはないこと」は、仏教論理学の実例の説明として知られるものですが、その出典はここでは確認していません（訳者の補足）。</p><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この箇所は議論が細かく、原文は要点を抜き出しました（「……」）。ヒンディー訳第1巻の範囲外なので、OCR テキストの誤りはヒンディー訳と照合できていません。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §11 ============ -->
+<section id="s11" class="wrap">
+  <div class="sec-head"><span class="sec-no">11</span><h2>適用と結論</h2><span class="sub"><span class="pg">pp.129–130</span>適用と結論は独立の支分か</span></div>
+<p>最後の二つの支分、適用と結論です。仏教論理学は、適用と結論は主張や理由と意味が変わらないので支分ではない、と論証式を三支分に縮めました。Uddyotakara はこの批判を退けて、五支分を守ります。</p>
+<div class="mula sutra" id="u30">
+  <span class="ref">p.129 · NS 1.1.38</span>
+  <div class="src deva" lang="sa">उदाहरणापेक्षस्तथेत्युपसंहारो न तथेति वा साध्यस्योपनयः ॥१।१।३८॥<br>एवं चायं कृतक इति । यथा तथेति प्रतिबिम्बनार्थम् । किं पुनरत्र प्रतिबिम्बनम् ? दृष्टान्तगतस्य धर्मस्याव्यभिचारित्वे सिद्धे तेन साध्यगतस्य तुल्यधर्मतोपदर्शनम्, तथा चायं कृतक इति । साध्ये वा संभव उपनयार्थः । ननु च कृतकत्वादित्यनेन संभव उक्तः ? नोक्तः, साध्यसाधनभावमात्रनिर्देशात् । साध्यसाधनभावमात्रनिर्देशः कृतः—कृतकत्वादनित्यः शब्दो भवति; तत् पुनः शब्दे कृतकत्वमस्ति नास्तीत्युपनयेन संभवो गम्यते, अस्ति च शब्दे कृतकत्वमिति । स यदा साधर्म्येणोदाहरणं तदा तथेति, यदा वैधर्म्येण तदा न तथेति ॥३८॥</div>
+  <div class="tr">適用とは、実例支分にもとづいて、論証されるべきもの（主題）について「そのようである」と、あるいは「そのようでない」と結びつけることである。<br>「そしてこれ（音）もそのように作られたものである」（というのが適用である）。「〜のように、そのように」は、映し合わせるためである。ここでの映し合わせとは何か。実例にある性質が逸脱しないことが確立したとき、それによって、論証されるべきもの（主題）にある同等の性質を示すことである。「そしてこれもそのように作られたものである」と。あるいは、論証されるべきもの（主題）に（理由が）あることが、適用の意味である。（反論）「（理由の）『作られたものだから』によって、（主題に理由が）あることは述べられたではないか」。述べられていない。（理由は）論証関係だけを示すからである。「作られたものだから、音は無常である」と、論証関係だけが示された。では、その（作られたものであること）が音にあるのかないのか（ということ）は、適用によって、（主題に）あることが理解される。「そして音には作られたものであることがある」と。それは、実例支分が共通性によるときは「そのようである」、相違によるときは「そのようでない」（となる）。（第三十八スートラ）</div><div class="exp"><span class="lbl">解説</span><p>適用は、理由と同じことを繰り返しているのではないか。Uddyotakara の答えは、理由「作られたものだから」は「作られたもの→無常」という論証関係を示すだけで、主題（音）に作られたものであることが実際にあることを確認するのは適用だ、というものです。第二プラカラナ §11 で、推理の核心である「証因の再確認」（これは火を伴う煙だ）を言葉にしたのが適用だ、と述べたことと対応しています。</p></div>
+</div>
+<div class="mula sutra" id="u31">
+  <span class="ref">pp.129–130 · NS 1.1.39</span>
+  <div class="src deva" lang="sa">हेत्वपदेशात् प्रतिज्ञायाः पुनर्वचनं निगमनम् ॥१।१।३९॥<br>प्रतिज्ञायाः पुनर्वचनमिति, प्रतिज्ञाविषयस्यार्थस्याशेषप्रमाणोपपत्तौ साध्यविपरीतप्रसङ्गप्रतिषेधार्थं यत् पुनरभिधानं तन्निगमनमिति, न पुनः प्रतिज्ञाया एव पुनर्वचनमिति । किं कारणम् ? प्रतिज्ञा साध्यनिर्देशः, सिद्धनिर्देशो निगमनमिति । एतस्मिन् सूत्रार्थे परस्यावकाशो नास्तीति । अभ्युपेत्य तद्दोषनिराचिकीर्षया वाक्यमुपक्षिप्यते—उपनयनिगमने तु नावयवान्तरे अर्थाविशेषात्—इति । इदं तावद् वाक्यं यथाश्रुति न केनचिदर्थेन संबध्यते । अथ हेतूपनयावेकत्वेन पक्षीकृत्यार्थाविशेषादिति हेतुः ? स विपक्षवृत्तित्वाद् विपर्ययहेतुः—अर्थाविशेषस्यैकत्वेऽदर्शनान्नानात्वे च दर्शनादिति, यथा बहूनां घटानामेकोऽर्थ उदकधारणादिर्न चैकत्वमिति । …… असिद्धोऽप्ययं हेतुः ।</div>
+  <div class="tr">結論とは、理由を述べたことによって、主張を再び述べることである。<br>「主張を再び述べること」とは、主張の対象である事柄がすべての認識手段によって成り立ったときに、論証されるべきものの逆（の結論）が帰結することを否定するために、再び述べること、それが結論である。主張そのものをただ繰り返すことではない。なぜか。主張は論証されるべきものを示すことであり、結論は成立したものを示すことだからである。このスートラの意味には、相手（の非難）の余地はない。（それでも）それを認めたうえで、その（非難の）誤りを除くために、（相手の）文が提示される。「しかし、適用と結論は別の支分ではない。意味が異ならないからである」と。まずこの文は、聞こえるとおりには、どんな意味とも結びつかない。もし理由と適用とが一つであることを主張として、「意味が異ならないから」を理由とするなら、それは異類にある（逸脱する）ので、逆の理由（相違因）である。意味が異ならないことは、一つのものには見られず、多くのものに見られるからである。たとえば、多くの壺に、水を保つなどの同じ一つの目的があっても、（壺は）一つではないように。……この理由はまた、成立してもいない。</div><div class="exp"><span class="lbl">解説</span><p>結論は主張の繰り返しに見えますが、主張は「これから論証される」もの、結論は「論証が済んだ」ものを示す点で違います。仏教側の「適用と結論は別の支分ではない。意味が異ならないから」という批判に対して、Uddyotakara は、意味（目的）が同じでも別のものはいくらでもある（多くの壺はどれも水を保つためのものだが、一つの壺ではない）と、論証因の逸脱を指摘します。</p></div>
+</div>
+<div class="mula" id="u32">
+  <span class="ref">p.130</span>
+  <div class="src deva" lang="sa">तद् वर्णितम्—पक्षधर्मत्वसम्बन्धसाध्योक्तेरन्यवर्जनम्—इत्येतेनैव प्रत्युक्तम् । यदपि यथा तथेत्युपसंहारे कृते तथेत्यनेन शब्देन सर्वसामान्यं वा कृतकत्वसामान्यं वाभिधीयते कृतकत्वविशेषो वा ? …… परिशेषात् कृतकत्वसामान्यम्, तच्च हेतुनैवोक्तमिति—तदप्ययुक्तम्, उपनयस्योपमानार्थत्वात् । उपमानार्थ उपनय इति, तच्चोपमानं न सर्वथा साध्यसाधनभावमाश्रित्य प्रवर्तत इति यत्किञ्चिदेतत् । …… यदप्युक्तं यथाशब्दो घटशब्दसहितो दृष्टान्त एवेति, तदप्ययुक्तम्; यथा तथेत्युपमानमेतत्, उपमानं चोपनयो न दृष्टान्त इति । एतेन निगमनं प्रत्युक्तम् । ते एते वीतावीतवाक्ये स्वतन्त्रे पञ्चावयवे, न पुनरेकमन्वयि व्यतिरेकि चेति ॥३९॥<br>॥ न्यायलक्षणप्रकरणम् ॥</div>
+  <div class="tr">それ（適用と結論の役割）は（すでに）説明した。「主題の性質であること・（理由と所証の）関係・論証されるべきものを述べることから、ほかのもの（適用と結論）は除かれる」というのも、これによって退けられた。また、「『〜のように、そのように』と結びつけたとき、『そのように』という語によって、すべてに共通のもの、あるいは作られたものであることの一般、あるいは作られたものであることの特殊が言われる（のか）。……消去法によって、作られたものであることの一般（が言われる）が、それは理由によってすでに述べられている」と言われたことも正しくない。適用は類比（あてはめ）を目的とするからである。適用は類比を目的とする。そしてその類比は、必ずしも論証関係にもとづいてはたらくのではないので、これ（批判）は取るに足りない。……また、「『〜のように』という語は、『壺』という語を伴えば、実例にほかならない」と言われたことも正しくない。「〜のように、そのように」というのは類比であり、類比は適用であって、実例ではないからである。これによって、結論についても（批判は）退けられた。肯定的な（ヴィータの）論証文と否定的な（アヴィータの）論証文は、それぞれ独立に五つの支分をもつのであって、一つの（論証文）が肯定的でもあり否定的でもある、のではない。（第三十九スートラ）<br>論証の定義のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>引かれる偈「主題の性質であること・関係・論証されるべきものを述べることから、ほかのものは除かれる」は、論証式に必要なのは主張・理由・実例（の内容）だけで、適用と結論は不要だ、という仏教側の主張を述べたものと読めます（出典はここでは確認していません）。Uddyotakara は、適用は理由とは別に「〜のように、そのように」と実例と主題を重ね合わせる役目をもち、結論は論証が完了したことを示す役目をもつ、と答えて五支分を守ります。最後に、肯定的な論証と否定的な論証はそれぞれ五支分を備えた別々の論証文であり、一つの論証文に両方を混ぜるのではない、と付け加えて、第六プラカラナを閉じます。</p><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この箇所もヒンディー訳第1巻の範囲外で、OCR テキストを照合できていません。原文は要点を抜き出しました。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>avayava</dt><dd>論証支分。主張・理由・実例・適用・結論の五つ</dd>
+    <dt>pratijñā / pakṣa</dt><dd>主張（論証式の第一支分）／主張（論証されるべき命題。仏教の用語）</dd>
+    <dt>hetu / hetvābhāsa</dt><dd>理由（論証因）／擬似理由</dd>
+    <dt>udāharaṇa / dṛṣṭānta</dt><dd>実例支分（論証式の中の言葉）／実例（論者双方が認める事物）</dd>
+    <dt>upanaya / nigamana</dt><dd>適用（主題に理由があることを示す）／結論（論証が済んだことを示す）</dd>
+    <dt>jijñāsā / śakyaprāpti / saṃśayavyudāsa</dt><dd>知りたい欲求／実現の可能性／疑いの除去。十支分説で加えられるもの</dd>
+    <dt>sādhya / sādhana</dt><dd>論証されるべきもの／論証するもの</dd>
+    <dt>prajñāpanīyadharmaviśiṣṭa dharmin</dt><dd>知らせるべき性質によって限定された有法。主張で論証されるもの</dd>
+    <dt>avadhāraṇa</dt><dd>限定（「だけ」「でしかない」）</dd>
+    <dt>sādharmya / vaidharmya</dt><dd>共通性／相違</dd>
+    <dt>vīta / avīta</dt><dd>肯定的な論証／否定的な論証</dd>
+    <dt>sapakṣa / vipakṣa</dt><dd>同類／異類</dd>
+    <dt>trairūpya</dt><dd>理由の三相。主題にある・同類にある・異類にない</dd>
+    <dt>prayatnānantarīyaka</dt><dd>努力の直後に生じる（もの）。仏教論理学の定番の論証因</dd>
+    <dt>Vādavidhi / Vādavidhānaṭīkā</dt><dd>『論軌』（ヒンディー訳の注は Vasubandhu の書とする）／『論軌の注』</dd>
+    <dt>Sautrāntika</dt><dd>経量部。仏教の一学派</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR テキストには誤りが多いため、Śrīnivāsa Śāstrī のヒンディー訳（<i>Nyāya Vārtika of Udyotakara</i>, Part 1, Ghaziabad: Indo-Vision, 1986）に収められた本文と照合して、明らかな誤りを直した。ヒンディー訳第1巻はスートラ 1.1.36 の Bhāṣya で終わっているため、§10–§11 は照合できていない。この章は分量が多いので、長い議論の原文は要点を含む部分を抜き出した（「……」で示す）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。</p>
+  <p>和訳は試訳である。解説はヒンディー訳の訳文と注に大きく拠っている。TṬ（Vācaspati Miśra『タートパリヤ・ティーカー』）の説と頁数、Vasubandhu・Dignāga などの特定は、ヒンディー訳の注が引くものを紹介したもので、TṬ や仏教論理学の原典そのものは参照していない。仏教論理学の分類との比較など、本文やヒンディー訳にない補足は、そうと分かるように書いた。このページが扱うのは第6プラカラナ（スートラ 1.1.32–39）である。第5プラカラナ（スートラ 1.1.26–31）は<a href="nyayavarttika-5-taiyaku.html">第5プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
