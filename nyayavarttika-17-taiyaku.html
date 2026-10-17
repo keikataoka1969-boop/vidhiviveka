@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 17</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-16-taiyaku.html">← プラカラナ16</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>推理は外れるか</a></li>
+    <li><a href="#terms">用語集</a></li>
+    <li><a href="nyayavarttika-18-taiyaku.html">プラカラナ18 →</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第17プラカラナ「推理の吟味」（スートラ 2.1.38–39、Thakur 版 pp.237–238）</span>
+  <p>知覚の吟味が終わり、次は推理です。推理（1.1.5）の三つの型の例として、①川の増水を見て上流の雨を推理する、②蟻が卵を運ぶのを見て雨を予測する、③孔雀の声を聞いて孔雀がいると推理する、が挙げられます。反論者は、これらの推理はどれも外れることがある、と言います。川はせき止められても増水し、蟻は巣を壊されても卵を運び、人も孔雀の声をまねる、と。</p>
+  <p>スートラ 2.1.39 は、外れるのは推理の証因を正しく捉えていないからだ、と答えます。上流の雨を示すのは、ただの増水ではなく特定の増水であり、雨を予告するのは、ただの蟻の移動ではなく特定の移動です。</p>
+  <p>解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>推理の吟味の章<br><small><i>anumānaparīkṣāprakaraṇa</i>。スートラ 2.1.38–39 の注釈。Thakur 版 pp.237–238</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.1.38–39<br><small>反論（38）、答え（39）</small></dd></div>
+    <div><dt>論敵</dt><dd>推理の確実性を否定する論者<br><small>推理の例が外れることを根拠にする</small></dd></div>
+    <div><dt>見どころ</dt><dd>孔雀の声と人のまね<br><small>証因は「ただの」ものではなく「特定の」もの</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.620–625 ごろ</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.237</span> は Thakur 版の頁。節見出しの <span class="pg">pp.237–238</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.1.38–39 の注釈を1節にまとめた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">推理は外れるか</a></td><td class="num">pp.237–238</td><td>せき止め・巣の破壊・まね。主張の自己矛盾。特定の証因</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>推理は外れるか</h2><span class="sub"><span class="pg">pp.237–238</span>せき止め・巣の破壊・まね。主張の自己矛盾。特定の証因</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.237 · NS 2.1.38</span>
+  <div class="src deva" lang="sa">रोधोपघातसादृश्येभ्यो व्यभिचारादनुमानमप्रमाणम् ॥२।१।३८॥<br>प्रसङ्गतः परीक्षितं प्रत्यक्षम् । अथेदानीमवसरप्राप्तमनुमानं परीक्ष्यते । किं पुनरिदमनुमानम् ? उक्तं तत्पूर्वकमनुमानमिति । तत्र पूर्ववदादेरुदाहरणानि नदीपूरः पिपीलिकाण्डसंचारणं मयूरवासितमिति । एतदुदाहरणव्यभिचारद्वारकं सूत्रम्—रोधो……णमिति । तत्र रोधो नामापां स्यन्दमानानां द्रवत्वप्रतिबन्धहेतुः । उपघातो नाम पिपीलिकागृहाणामुपमर्दः । सादृश्यं नाम मयूरपुरुषशब्दयोः समानप्रत्ययकर्तृत्वम् । एभ्यो व्यभिचारादनुमानमप्रमाणमिति । शेषं भाष्ये ।</div>
+  <div class="tr">（反論）「せき止め・破壊・類似によって外れることがあるので、推理は認識手段ではない」。<br>（全体の議論に）関連して知覚が吟味された。さて今、順番が来た推理が吟味される。では、この推理とは何か。「それ（知覚）を前提とするものが推理である」と（1.1.5 で）述べた。そこで、「前件をもつもの」などの例として、川の増水、蟻が卵を運ぶこと、孔雀の鳴き声（が挙げられた）。これらの例が外れることを通して（推理を否定する）のがこのスートラ、「せき止め……推理は認識手段ではない」である。そのうち「せき止め」とは、流れる水の流動性を妨げる原因である。「破壊」とは、蟻の巣を踏み荒らすことである。「類似」とは、孔雀の声と人の声とが、同じ知を生むことである。これらによって外れるので、推理は認識手段ではない、と（いうのである）。残り（の説明）はバーシュヤにある。</div><div class="exp"><span class="lbl">解説</span><p>推理の例と、それが外れる場合を対照すると、次のようになります。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>推理の例</th><th>外れる場合</th></tr></thead>
+    <tbody>
+      <tr><td>蟻が卵を運ぶ → 雨が降る</td><td>巣が壊されても蟻は卵を運ぶ（破壊）</td></tr>
+      <tr><td>川が増水している → 上流で雨が降った</td><td>下流でせき止められても水位は上がる（せき止め）</td></tr>
+      <tr><td>孔雀の声が聞こえる → 孔雀がいる</td><td>人が孔雀の声をまねる（類似）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　推理の例と、それが外れる場合。</b>スートラ 2.1.38 とバーシュヤによる。</figcaption>
+</figure>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、三つの例のどれがどの型の推理の例かは「議論のあるところ」だと注します。Vācaspati は川の増水と孔雀の声を「後件をもつもの」の例とし、蟻の例は少し後に来る雨を推理するものとする（TṬ p.402）が、それは「検討を要する」と疑問を残しています。また、このスートラは例を損なうことによって定義を損なおうとするもの（「定義されるものの非難による定義の誤り」）だ、と Vācaspati を引きます（TṬ p.403; Hi. pp.621–622）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">pp.237–238</span>
+  <div class="src deva" lang="sa">यत् तावदुक्तमनुमानमप्रमाणमिति, तदयुक्तम्, प्रतिज्ञापदयोर्व्याघातात् । अनुमानमिति सम्बद्धस्यातीन्द्रियार्थसाधकस्यैतन्नाम, अप्रमाणमिति तस्य प्रतिषेधः । सोऽयं प्रतिज्ञापदयोर्व्याघातः, अनुज्ञातप्रतिषिद्धयोरेकत्वानुपपत्तेः । प्रतिज्ञाहेत्वोश्च विरोधः । …… यद् व्यभिचारि तदप्रमाणम्, यथा गोसिद्धौ विषाणित्वम् । सोऽयं हेतुः प्रतिज्ञां व्याहन्ति, प्रतिज्ञा च हेतुमिति । यच्चेदमुच्यतेऽनुमानमप्रमाणमिति, तत् किमनुमानमात्रस्याप्रमाणत्वमुतानुमानविशेषस्य ? …… यद्यनुमानमात्रमप्रमाणमिति पक्षः, हेतोरेकदेशवृत्तित्वादव्यापकत्वम् । …… अथ यद् व्यभिचारि तदप्रमाणमिति ब्रूषे, …… सिद्धसाधनं चैतत्, यद् व्यभिचारि तत् प्रमाणं न भवति ॥३८॥</div>
+  <div class="tr">まず、「推理は認識手段ではない」と言われたが、それは正しくない。主張の二つの語が矛盾するからである。「推理」とは、（証因と）結びついた、感官を超えた対象を成立させるものの名であり、「認識手段ではない」とはそれの否定である。これは主張の二つの語の矛盾である。認められたものと否定されたものとが一つであることはありえないからである。また、主張と理由とが矛盾する。……（反論者は）「外れるものは認識手段ではない。牛であることを成立させるのに、角をもつことが（外れるように）」と（言うだろう）。この理由は主張を否定し、主張は理由を否定する。また、「推理は認識手段ではない」と言うのは、推理一般が認識手段でないのか、特定の推理がそうでないのか。……もし推理一般が認識手段でないという主張なら、理由は（主題の）一部にしかないので、（主題全体に）及ばない。……もし「外れるものは認識手段ではない」と言うなら、……それはすでに成立していることを論証するものである。外れるものは認識手段ではない（ということは我々も認める）。（第三十八スートラ）</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の反論は、これまでと同じ型です。「推理」という語はもともと「感官を超えた対象を正しく知らせるもの」を意味するので、「推理は認識手段ではない」は語の中で矛盾しています。また、反論者の主張自体が「外れるから」という推理によって支えられているので、主張と理由が互いを否定し合う。さらに、外れる推理があるからといって、すべての推理が外れるわけではない（理由が主題の一部にしかない）。「外れる推理は認識手段ではない」というだけなら、ニヤーヤも認めることで、論証の必要はない、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vārttika の「推理」の説明を「感官で捉えられない対象を成立させる関係（決まった関係）の名」と訳し、「決まった関係」を補っています。反論者の論証に指摘される誤りを、(1) 主張の二語の矛盾、(2) 主張と理由の矛盾、(3) 理由が主題全体に及ばないこと、(4) 外れること、(5) すでに成立していることの論証、の五つに整理しています（Hi. pp.622–623）。</p></div></div>
+</div>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.238 · NS 2.1.39</span>
+  <div class="src deva" lang="sa">नैकदेशत्राससादृश्येभ्योऽर्थान्तरभावात् ॥२।१।३९॥<br>यान्यप्यत्रानुदाहरणानि व्यभिचारीणीत्युच्यन्ते, तेष्वपि व्यभिचारो नास्तीत्यसिद्धतोद्भावनद्वारकं सूत्रम्—नैकदेश……भावात् । यत् तावद् रोधादपि नदीपूरो भवतीति, नात्र नदीपूरमात्रेणोपरि वृष्टिमद्देशसम्बन्धित्वं नद्याः साध्यते, अपि तु पूरविशेषेण, तस्य च व्यभिचारोऽसिद्धः । उपघातात् पिपीलिकाण्डसञ्चारमात्रस्य व्यभिचारो न सञ्चारविशेषस्य । कः पुनरसौ विशेषः ? अवित्रस्तानां भूयसीनां भूयःसु स्थानेषु पिपीलिकाण्डभूयस्त्वेनोर्ध्वसञ्चारं यत् तदागतवृष्ट्यविनाभावि । शब्दव्यभिचारोऽपि नास्ति, यस्मान्न शब्दमात्रमनुमानं मयूरास्तित्वे, न चात्र मयूरः साध्यते, अपि तु शब्दगताद् विशेषात् षड्जादिशब्द एव मयूरगुणविशिष्टोऽनुमीयत इति । एवं च व्यभिचारो नास्तीत्यसिद्धो हेतुः ॥३९॥<br>॥ अनुमानपरीक्षाप्रकरणम् ॥</div>
+  <div class="tr">（答え）そうではない。一部（の水）・恐れ・類似によるもの（の証因）は、別のものだからである。<br>ここで外れると言われている（反論者の）例でも、外れることはない、という（反論の理由の）不成立を示すのがこのスートラ、「そうではない。……別のものだからである」である。まず、「せき止めからも川の増水がある」と言うが、ここでは、単なる川の増水によって、川が上流の雨の降った地域と関わることが論証されるのではなく、特定の増水によって（論証されるのである）。そして、それが外れることは成立していない。破壊によって外れるのは、単なる蟻の卵の運搬であって、特定の運搬ではない。その特定とは何か。恐れていない多くの蟻が、多くの場所で、多くの卵をもって、上へ運ぶこと、それが、やがて来る雨と離れずに結びついている。音が外れることもない。単なる音が孔雀の存在の推理（の証因）なのではなく、またここで孔雀が論証されるのでもない。そうではなく、音にある特殊によって、シャドジャ（などの音階の）音そのものが、孔雀の性質によって限定されていることが推理されるのである。このように外れることはないので、（反論者の）理由は成立していない。（第三十九スートラ）<br>推理の吟味のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>せき止められて水位が上がった川と、上流の雨で増水した川とでは、水の流れの速さや濁り、運ばれてくる泡や枝や木の葉が違います（バーシュヤの説明）。巣を壊されて逃げる蟻と、雨を予知して卵を高いところへ運ぶ蟻とでは、動き方が違います。人のまねる声と孔雀の声とは、よく聞けば違います。推理の証因は、これらの「特定の」性質であって、ただの増水・移動・声ではありません。それを見分けられずに推理を誤るのは、推理する人の誤りであって、推理という認識手段の誤りではない、というのがこの答えの要点です。</p><p>Uddyotakara は、孔雀の例について、推理されるのは「孔雀がいる」ことではなく、「この音（シャドジャの音）は孔雀の声だ」ということだ、と細かく言い直しています。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、このスートラを定説のスートラとし、反論の理由が不成立であることを示すもの、と注します。「恐れていない」蟻の特定の運搬とは、恐れていない多くの蟻が多くの場所で卵を上へ運ぶことだ、と説明し、孔雀の声にはシャドジャの音があるが人のまねにはない、蛇などはそれによって孔雀を推理する、と補います。「ここで孔雀が論証されるのではない」の箇所には、「孔雀の性質が限定語で、音が被限定語である」と補って訳しています（Hi. pp.624–625）。</p></div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>rodha / upaghāta / sādṛśya</dt><dd>せき止め／（蟻の巣の）破壊／類似（まね）</dd>
+    <dt>ekadeśa / trāsa</dt><dd>一部（の水）／恐れ（逃げる蟻）</dd>
+    <dt>vyabhicāra</dt><dd>外れること</dd>
+    <dt>pūraviśeṣa / sañcāraviśeṣa</dt><dd>特定の増水／特定の運搬</dd>
+    <dt>ṣaḍja</dt><dd>シャドジャ。インド音楽の第一音で、孔雀の声に当たるとされる</dd>
+    <dt>siddhasādhana</dt><dd>すでに成立していることの論証</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った（Thakur 版の番号より一つ大きい）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第17プラカラナ（スートラ 2.1.38–39）である。第16プラカラナ（スートラ 2.1.34–37）は<a href="nyayavarttika-16-taiyaku.html">第16プラカラナのページ</a>にある。続く第18プラカラナ（スートラ 2.1.40–44、現在の時の吟味）は<a href="nyayavarttika-18-taiyaku.html">第18プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>

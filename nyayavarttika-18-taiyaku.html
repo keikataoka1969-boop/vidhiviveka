@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 18</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-17-taiyaku.html">← プラカラナ17</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>時間はあるか</a></li><li><a href="#s2"><b>2</b>落ちる果実と現在</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第18プラカラナ「現在の時の吟味」（スートラ 2.1.40–44、Thakur 版 pp.239–242）</span>
+  <p>推理は過去・現在・未来の三つの時の対象を知る、と言われました。ところが反論者は、現在という時はない、と言います。枝から落ちる果実を考えると、果実より上はすでに落ちた道のり（過去）、下はこれから落ちる道のり（未来）で、そのほかに「いま落ちている」道のりはない、というのです。</p>
+  <p>スートラは、現在がなければ過去も未来もない、と答えます。過去と未来は現在を基準にしてはじめて言えるからです。Uddyotakara は、時は道のりによってではなく、行為（落ちること）によって現れる、と論じ、さらに「料理している」のように、多くの行為の連続が一つの現在として捉えられる場合を説明します。</p>
+  <p>解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第2巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>現在の時の吟味の章<br><small><i>vartamānakālaparīkṣāprakaraṇa</i>。スートラ 2.1.40–44 の注釈。Thakur 版 pp.239–242</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>2.1.40–44<br><small>現在はない（40）、過去と未来もなくなる（41）、相互依存では成り立たない（42）、知覚もなくなる（43）、現在の二つの形（44）</small></dd></div>
+    <div><dt>論敵</dt><dd>時間あるいは現在を否定する論者<br><small>ヒンディー訳の注は、時間を否定する者を仏教の立場に従う人々とする</small></dd></div>
+    <div><dt>見どころ</dt><dd>落ちる果実の道のり<br><small>§2。時は道のりではなく行為によって現れる</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第2巻 pp.626–638 ごろ</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.240</span> は Thakur 版の頁。節見出しの <span class="pg">p.239</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第2巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 2.1.40–44 の注釈を、テキストの順に2節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">時間はあるか</a></td><td class="num">p.239</td><td>時間そのものを否定する説への反論。一つの時間から多様な知が生じる理由</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">落ちる果実と現在</a></td><td class="num">pp.239–242</td><td>スートラ 2.1.40–44。現在の否定とその反駁。現在の二つの形</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>時間はあるか</h2><span class="sub"><span class="pg">p.239</span>時間そのものを否定する説への反論。一つの時間から多様な知が生じる理由</span></div>
+<div class="mula" id="u1">
+  <span class="ref">p.239</span>
+  <div class="src deva" lang="sa">त्रिकालविषयमनुमानं त्रैकाल्यग्रहणादित्युक्तम् । तत्र तावत् काल एव नास्तीति केचित् । तच्च न, प्रमाणाभावात् । न हि कालासत्त्वे प्रमाणमस्ति । ननु चानुपलब्धिः कालासत्त्वं प्रतिपादयति । न प्रतिपादयति, व्यभिचारात् । त्रिकारणेयमनुपलब्धिः । तत्रानुपलब्ध्या कारणवैकल्यं गम्येत, न तूपलभ्यमेव नास्तीत्येतत् । …… परापरादिप्रत्ययानां च सनिमित्तत्वात् कालप्रतिषेधो न युक्तः । यश्च कालं न प्रतिपद्यते तेन परापरादिप्रत्ययानां निमित्तं वक्तव्यम् । …… कालैकत्वात् प्रत्ययभेदानुपपत्तिरिति चेत् ? …… न, सापेक्षत्वात् पित्रादिप्रत्ययभेदवत् । यथैकस्मिन् पुरुषेऽनेकसम्बन्धभेदानुविधायिन्यभिन्नेऽपि पिता पुत्रो भ्रातेति प्रत्यया भवन्ति, तथैकः कालः कार्यकारणविशेषापेक्षः परापरादिप्रत्यये हेतुरिति ।</div>
+  <div class="tr">「推理は三つの時を対象とする。三つの時を捉えるから」（1.1.5 のバーシュヤ）と言われた。そこで、まず、「時間そのものがない」とある人々は言う。それは正しくない。認識手段がないからである。時間が存在しないことについての認識手段はない。（反論）「非知覚が、時間が存在しないことを知らせるのではないか」。知らせない。外れるからである。この非知覚には三つの原因がある。非知覚によって知られるのは、（知覚の）原因が欠けていることであって、知覚されるはずのものがない、ということではない。……また、「遠い」「近い」などの知には根拠があるので、時間を否定するのは正しくない。時間を認めない者は、「遠い」「近い」などの知の根拠を述べなければならない。……（反論）「時間は一つなので、（多様な）知の違いはありえない」と言うなら。……そうではない。（時間は）ほかのものに依存する（原因である）からである。父などの知の違いのように。多くの関係の違いに従う一人の人について、その人は一人であっても、「父」「子」「兄弟」という知が生じるように、一つの時間も、特定の結果と原因に依存して、「遠い」「近い」などの知の原因になるのである。</div><div class="exp"><span class="lbl">解説</span><p>スートラに入る前に、Uddyotakara は時間そのものを否定する説を退けます。時間が知覚されないから時間はない、とは言えない。知覚されないのには、対象がないことのほか、感官が欠けている、対象が知覚できる種類のものでない、などの原因がありうるからです。時間は、「（年齢が）上だ」「下だ」という知の根拠として推理されます（ヴァイシェーシカの説）。一つの時間が多様な知を生むのは、一人の人が、関係によって父とも子とも兄弟とも呼ばれるのと同じだ、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、時間を否定する「ある人々」を「仏教の立場に従う人々。どの師を指すかは言いがたい」と注します。非知覚から非存在を推理するのは、仏教論理学で認められた推理の一種だ、と補い、非知覚の三つの原因として、ほかの原因の欠如、対象が知覚に適さないこと（目に見えるのは顕現した色と大きさをもつものだけ）などを挙げます（OCR が乱れていて一部判読不能）。「遠い」「近い」の知については、同じ場所に立つ若者と老人について「こちらが年下、あちらが年上」と判断する、その原因が時間だ、と Vācaspati を引いて説明します（TṬ pp.404–405; Hi. pp.626–627）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>落ちる果実と現在</h2><span class="sub"><span class="pg">pp.239–242</span>スートラ 2.1.40–44。現在の否定とその反駁。現在の二つの形</span></div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.239–240 · NS 2.1.40</span>
+  <div class="src deva" lang="sa">वर्तमानाभावः पततः पतितपतितव्यकालोपपत्तेः ॥२।१।४०॥<br>एवमुपपादितः कालः । तस्योपपन्नस्य वर्तमानकालप्रतिषेधार्थं सूत्रम्—वर्तमानाभावः पततः पतितपतितव्यकालोपपत्तेः । वृन्तात् प्रच्युतस्य फलस्य भूमिं प्रत्यासीदतो यदूर्ध्वं फलमवधिं कृत्वा यावद्वृन्तमिति स पतितोऽध्वा । यदधस्तात् फलमेवावधिं कृत्वा यावद्भूमिरिति स पतितव्योऽध्वा । नेदानीं तृतीयोऽध्वा विद्यते यत्र पततीति स्यात् । न चाध्वानमन्तरेण कालव्यक्तिरस्ति । तस्मान्न वर्तमानकालोऽस्तीति ॥४०॥</div>
+  <div class="tr">（反論）「落ちつつあるものには、落ちた時と落ちるべき時とがあるので、現在はない」。<br>このように時間が論証された。論証されたその時間について、現在の時を否定するためにこのスートラがある。「落ちつつあるものには……現在はない」。枝から離れて地面に近づいていく果実について、果実を境として上の、枝までのところが、落ちた道のりである。果実を境として下の、地面までのところが、落ちるべき道のりである。今、「（そこを）落ちている」と言える第三の道のりはない。そして道のりなしに時間が現れることはない。だから、現在の時はない。（第四十スートラ）</div><div class="exp"><span class="lbl">解説</span><p>反論者の論証は、空間的な道のりを時間に重ねるものです。果実の位置を境に、上は「もう落ちた」道のり、下は「まだ落ちていない」道のり。その間に幅のある「いま落ちている」道のりはないので、現在もない、というわけです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、反論者の立場では道のりが時間を現すものとされている、と注します。ヒンディー訳では、時間の論証（§1）とこのスートラの説明とが離れて印刷され、スートラの説明は第四十一スートラの後に置かれています（Hi. p.628）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの <span lang="sa" class="deva">यावदन्तमिति</span> は、文脈から <span lang="sa" class="deva">यावद्वृन्तमिति</span>（枝まで）と直しました。</p></div>
+</div>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.240 · NS 2.1.41</span>
+  <div class="src deva" lang="sa">तयोरप्यभावो वर्तमानाभावे तदपेक्षत्वात् ॥२।१।४१॥<br>न, विरोधात् । वर्तमानः कालो नास्तीति ब्रुवन्नभ्युपगतौ कालौ बाधते । …… वर्तमानकालापेक्षाविितरौ कालौ । यस्य वर्तमानो नास्ति, तस्य वर्तमानानभ्युपगमेऽभ्युपगतयोः कालयोरभाव इति । न चायं कालोऽध्वव्यङ्ग्यः । किं तर्हि ? क्रियाव्यङ्ग्यः पततीति । यदा द्रव्यं क्रियासम्बद्धमुपलभते, सोऽयं सम्बन्धविशिष्टः कालो वर्तमान इत्युच्यते । क्रियासम्बन्धातिक्रमाच्चातीतः । यदा तु क्रियाकारणान्याभिमुख्येनावस्थितान्यप्रतिबद्धशक्तिकानि, तदा भविष्यति क्रियेत्यनागतः काल इति । …… तस्मात् क्रियाकालाभिव्यक्तिनिमित्तं नाध्वा, गन्तव्यस्य तादवस्थ्यात् । योऽसौ गन्तव्यो देशः, स यथाभूत एवानुत्पन्नक्रिये फले तथाभूत एवोत्पन्नक्रिय इत्यभेदान्नाध्वा कालभेदव्यक्तेर्हेतुः ॥४१॥</div>
+  <div class="tr">（答え）現在がなければ、その二つもない。それに依存するからである。<br>（反論は）正しくない。（自己）矛盾だからである。「現在の時はない」と言う者は、（自分が）認めた二つの時を否定することになる。……ほかの二つの時は、現在の時に依存する。現在がないと言う者には、現在を認めないので、（自分が）認めた二つの時もなくなる。また、この時は道のりによって現れるのではない。では何によってか。「落ちている」という行為によって現れる。実体が行為と結びついているのを知覚するとき、その結びつきによって限定された時が「現在」と言われる。行為との結びつきを過ぎたことによって「過去」（と言われる）。行為の原因が（行為に）向かって存在し、その力が妨げられていないとき、「行為があるだろう」と（言われる）、それが未来の時である。……だから、行為の時が現れる根拠は道のりではない。行くべきところは（行為の前後で）同じままだからである。行くべき場所は、果実に行為が生じていないときも、行為が生じたときも、同じままである。だから、違いがないので、道のりは時の違いが現れる原因ではない。（第四十一スートラ）</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara の答えの核心は、時間は道のりによってではなく、行為によって現れる、という点です。果実が地面までのどの位置にあっても、道のりそのものは変わりません。変わるのは、果実が「落ちる」という行為と結びついているかどうかです。行為と結びついているあいだが現在、結びつきが終われば過去、原因がそろって行為に向かっているのが未来です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「行為の原因が向かって存在し、その力が妨げられていない」を「行為の原因が（行為を生むために）準備ができていて、その力が妨げられていない」と訳します。行くべき場所は行為の前後で同じなので、道のりは時間を現さない、という Vārttika の結論を確認しています（Hi. pp.629–630）。</p></div></div>
+</div>
+<div class="mula sutra" id="u4">
+  <span class="ref">pp.240–241 · NS 2.1.42</span>
+  <div class="src deva" lang="sa">नातीतानागतयोरितरेतरापेक्षा सिद्धिः ॥२।१।४२॥<br>अथ मन्यसे वर्तमानकालानभ्युपगमेऽप्यतीतानागतावितरेतरापेक्षौ सेत्स्यतः, एतत्प्रतिषेधार्थं सूत्रम्—नातीतानागतयोरितरेतरापेक्षा सिद्धिः । …… वर्तमानाभावे किमतीतं कथं च, किमनागतं कथं चेति न शक्यं निर्वक्तुम् । …… विशेषप्रतिषेधाच्च वर्तमानोऽभ्युपगतः । …… न च वर्तमानकालानभ्युपगमे पतत इति पदस्यार्थोऽस्ति । …… न चेतरेतरापेक्षा कस्यचित् सिद्धिरस्ति, यस्मादेकाभावेऽन्यतराभावादुभयाभावः । …… यावदितरन्नास्ति तावदितरन्नास्तीत्युभयोरभावः ॥४२॥</div>
+  <div class="tr">過去と未来とは、互いに依存して成立することはない。<br>もしあなたが、「現在の時を認めなくても、過去と未来は互いに依存して成立するだろう」と考えるなら、それを否定するためにこのスートラ、「過去と未来とは、互いに依存して成立することはない」がある。……現在がないなら、何が過去でどのようにか、何が未来でどのようにか、を言うことはできない。……また、特定のものを否定するので、現在を認めていることになる。……そして、現在の時を認めないなら、「落ちつつあるもの（<i>patataḥ</i>）の」という（スートラの）語には意味がない。……また、互いに依存して成立するものは何もない。一方がなければ他方もないので、両方ともないからである。……一方がない限り他方もない、ということで、両方ともない。（第四十二スートラ）</div><div class="exp"><span class="lbl">解説</span><p>過去は「未来ではない時」、未来は「過去ではない時」と、互いに依存させて定義することはできません。どちらか一方が先に成り立っていなければ、両方とも成り立たないからです。また、反論者自身が、スートラの中で「落ちつつあるもの（現在分詞）」と言っている。現在を否定する人が現在形を使っている、という自己矛盾の指摘も、この章の皮肉の効いたところです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、「落ちつつあるものの」という語の議論を、Vācaspati に従って「Vārttika の作者自身の論拠」とします。反論者が「落ちつつある」という語を使う以上、すでに現在を認めている、という趣旨です（TṬ p.407; Hi. pp.632–633）。</p></div></div>
+</div>
+<div class="mula sutra" id="u5">
+  <span class="ref">p.241 · NS 2.1.43</span>
+  <div class="src deva" lang="sa">वर्तमानाभावे सर्वाग्रहणं प्रत्यक्षानुपपत्तेः ॥२।१।४३॥<br>अर्थसद्भावव्यङ्ग्यश्च वर्तमानः कालो—विद्यते द्रव्यम्, विद्यते गुणः, विद्यते कर्मेति । यस्य चायं नास्ति, तस्य वर्तमानाभावे सर्वाग्रहणं प्रत्यक्षानुपपत्तेः । सूत्रार्थो विरोधः । …… यस्मादिदं प्रत्यक्षं वर्तमानाधारं कार्यत्वात् क्षीरवदिति । …… प्रत्यक्षानुपपत्तेश्च सर्वप्रमाणलोपः । सर्वप्रमाणलोपे च सर्वस्य ग्रहणं न स्यात् । अस्ति च सर्वस्य ग्रहणम् । …… सोऽयं वर्तमानः काल उपपन्नः ॥४३॥</div>
+  <div class="tr">現在がなければ、すべてが捉えられなくなる。知覚が成り立たないからである。<br>また、現在の時は、事物が存在することによっても現れる。「実体がある」「性質がある」「運動がある」と。この（現在）を認めない者には、「現在がなければ、すべてが捉えられなくなる。知覚が成り立たないからである」。スートラの意味は（相手の）矛盾である。……この知覚は現在を拠り所とする。結果だからである。牛乳のように。……知覚が成り立たなければ、すべての認識手段がなくなる。すべての認識手段がなくなれば、何も捉えられなくなる。しかし、すべてのものは捉えられている。……このように、現在の時は論証された。（第四十三スートラ）</div><div class="exp"><span class="lbl">解説</span><p>知覚は、いまここにある対象についてのものです。現在がなければ知覚はありえず、知覚がなければ、知覚を前提とする推理なども成り立ちません（前の章の「全体」の議論と同じ型の論証です）。また、現在は行為だけでなく、「実体がある」のように、ものの存在によっても現れます。牛乳が器という拠り所なしにはありえないように、結果である知覚も、現在という拠り所なしにはありえない、という論証も添えられます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、Vācaspati を引いて、落ちるなどの行為は過去・現在・未来のどの形でも言われるが、「ある」は現在にだけ属する、と注します。また、ヨーガ行者の知覚は過去や未来のものも捉えるのだから、知覚の対象がすべて現在とは言えない、という反論に対して、知覚の対象が現在だけだと言うのではなく、知覚が現在に生じると言うのであり、それは我々のような普通の人の知覚についての話だ、と答えています（TṬ p.407; Hi. p.634）。</p></div></div>
+</div>
+<div class="mula sutra" id="u6">
+  <span class="ref">p.242 · NS 2.1.44</span>
+  <div class="src deva" lang="sa">कृतताकर्तव्यतोपपत्तेस्तूभयथा ग्रहणम् ॥२।१।४४॥<br>उपपन्नश्च सन् द्विधा भिद्यते, क्वचित् क्रियामात्रव्यङ्ग्यः क्वचित् क्रियासन्तानव्यङ्ग्यः । क्रियामात्रव्यङ्ग्यो विद्यते द्रव्यमिति । क्रियासन्तानव्यङ्ग्यः पचति छिनत्तीति । क्रियासन्तानोऽपि द्विधा भवति, एकाकारक्रियश्च नानाकारक्रियश्चेति । …… नानाकारक्रियश्च सन्तानः पचतीति । तत्र ह्यनेका क्रियानेकाकारा च, यथैधोपादानमग्न्यभिज्वलनं स्थाल्यधिश्रयणमुदकासेचनं तण्डुलावपनं दर्वीघट्टनमवस्रावणमवतारणमिति । …… कस्य ? वर्तमानस्य । कथम् ? उभयथा, केवलस्य व्यपवृक्तस्यातीतानागताभ्यां संपृक्तस्य च ताभ्यामिति । …… अन्यश्च लोके प्रत्यासत्तिप्रभृतेरर्थस्य विवक्षायामेकप्रकारो वर्तमानस्य प्रयोगः । कदाचिदयं वर्तमानमतीते प्रयुङ्क्ते—आगतः सन् ब्रवीत्येष आगच्छामीति । कदाचिदनागते प्रयुङ्क्ते, यथा स्थितः सन् ब्रवीत्येष गच्छामीति । …… ॥४४॥<br>॥ वर्तमानकालपरीक्षाप्रकरणम् ॥</div>
+  <div class="tr">そして、なされたことと、なされるべきことが成り立つので、（現在は）二通りに捉えられる。<br>（現在は）成り立つが、二通りに分かれる。あるときは単なる行為によって現れ、あるときは行為の連続によって現れる。単なる行為によって現れるのは、「実体がある」（のような場合）である。行為の連続によって現れるのは、「料理している」「切っている」（のような場合）である。行為の連続にも二通りある。同じ形の行為からなるものと、さまざまな形の行為からなるものである。……さまざまな形の行為からなる連続とは、「料理している」である。そこでは多くの行為があり、それぞれ形が違う。薪を集める、火をおこす、鍋をかける、水を注ぐ、米を入れる、杓子でかき混ぜる、湯を切る、（鍋を）下ろす、のように。……何が（二通りに捉えられるのか）。現在が。どのようにか。二通りに。過去と未来から切り離された単独の（現在）と、それらと結びついた（現在）とである。……また、世間では、近さなどの意味を言おうとして、現在形を別の仕方で用いることがある。あるときは過去について用いる。（すでに）来ていながら「今行きます」と言うように。あるときは未来について用いる。（まだ）立っていながら「今行きます」と言うように。……（第四十四スートラ）<br>現在の時の吟味のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>現在には二つの形があります。「実体がある」のように、過去と未来から切り離された純粋な現在と、「料理している」のように、すでに済んだ行為（薪を集めた、火をおこした）とこれからの行為（湯を切る、鍋を下ろす）を含む、幅のある現在です。料理の工程を列挙するこの一節は、当時の台所の様子を伝えてくれます。最後に、日本語の「今行きます」と同じく、現在形が近い過去や近い未来に使われる慣用にも触れています。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>Śāstrī は、バーシュヤの <i>apavṛkta</i>（切り離された）・<i>vyapavṛkta</i>（結びついた）と、Vārttika の <i>vyapavṛkta</i>（切り離された）・<i>saṃpṛkta</i>（結びついた）とで、<i>vyapavṛkta</i> の意味が逆になっていることを指摘し、Vārttika のほうがわかりやすいが、この食い違いは解決できない、と疑問を残しています。現在形の慣用については、パーニニ 3.3.131「現在に近いものには現在と同じく（現在形を用いてよい）」を参照させます（Hi. pp.637–638）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの <span lang="sa" class="deva">तण्डुलापवनम्</span>・<span lang="sa" class="deva">अवश्रवणम्</span> は、それぞれ <span lang="sa" class="deva">तण्डुलावपनम्</span>（米を入れる）・<span lang="sa" class="deva">अवस्रावणम्</span>（湯を切る）と直して読みました。写本 C は後者を <span lang="sa" class="deva">मण्डस्रावणम्</span>（重湯を切る）と読みます。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>vartamāna / atīta / anāgata</dt><dd>現在／過去／未来</dd>
+    <dt>patita / patitavya</dt><dd>落ちた（道のり）／落ちるべき（道のり）</dd>
+    <dt>adhvan</dt><dd>道のり</dd>
+    <dt>kriyāvyaṅgya</dt><dd>行為によって現れる</dd>
+    <dt>parāparapratyaya</dt><dd>「遠い」「近い」（年長・年少）の知。時間の徴表</dd>
+    <dt>kriyāsantāna</dt><dd>行為の連続</dd>
+    <dt>vyapavṛkta / saṃpṛkta</dt><dd>（過去・未来から）切り離された／結びついた（現在）</dd>
+    <dt>kṛtatā / kartavyatā</dt><dd>なされたこと／なされるべきこと</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第2巻）所収の本文と照合して直した。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号はヒンディー訳に従った（Thakur 版の番号より一つ大きい）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第18プラカラナ（スートラ 2.1.40–44）である。第17プラカラナ（スートラ 2.1.38–39）は<a href="nyayavarttika-17-taiyaku.html">第17プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
