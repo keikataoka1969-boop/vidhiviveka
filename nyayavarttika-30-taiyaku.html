@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 30</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-29-taiyaku.html">← プラカラナ29</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>赤ん坊の笑いと泣き</a></li><li><a href="#s2"><b>2</b>蓮の花の開閉</a></li><li><a href="#s3"><b>3</b>乳を求めることと磁石</a></li><li><a href="#s4"><b>4</b>欲のない者は生まれない</a></li>
+    <li><a href="#terms">用語集</a></li>
+    <li><a href="nyayavarttika-31-taiyaku.html">プラカラナ31 →</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第30プラカラナ「我の常住性」（スートラ 3.1.18–26、Thakur 版 pp.343–348）</span>
+  <p>我が身体などと別であることは示されました。では、我は身体とともに生まれ、身体とともに滅びるのか、それとも身体の死を越えて続く常住のものなのか。この章は、我の常住性を、生まれたばかりの赤ん坊のふるまいから論証します。</p>
+  <p>生まれたばかりの赤ん坊は、まだ何も経験していないのに、ほほえんだり、おびえたり、泣いたりする。喜びや恐れは、以前に経験したことの記憶から生じるはずなので、赤ん坊には前世の身体での経験があった、つまり我はこの身体より前から続いている、というのです。赤ん坊が教えられずに乳を求めること、欲のない者が生まれてくることはないことも、同じ論拠になります。反論者は、蓮の花が誰にも教わらずに開いたり閉じたりすることや、鉄が磁石に引き寄せられることを挙げますが、退けられます。</p>
+  <p>この章の Vārttika は短いので、原文はほぼ全文を載せました。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>我の常住性の章<br><small><i>ātmanityatvaprakaraṇa</i>。スートラ 3.1.18–26 の注釈。Thakur 版 pp.343–348</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.1.18–26<br><small>赤ん坊の喜び・恐れ・悲しみ、蓮の開閉、乳を求めること、磁石、欲のない者の誕生</small></dd></div>
+    <div><dt>論敵</dt><dd>我の前世を認めない者<br><small>ヒンディー訳の注はこの章の反論者を特定の学派に帰さず、前主張とだけ記す</small></dd></div>
+    <div><dt>見どころ</dt><dd>赤ん坊はなぜほほえむのか<br><small>§1。喜びは記憶から、記憶は前の経験から生じる</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.922–938</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.344</span> は Thakur 版の頁。節見出しの <span class="pg">pp.343–345</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。この章はほぼ全文を載せた</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.1.18–26 の注釈を、テキストの順に4節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">赤ん坊の笑いと泣き</a></td><td class="num">pp.343–345</td><td>スートラ 3.1.18。この章は必要か。喜び・恐れ・悲しみと記憶の連鎖</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">蓮の花の開閉</a></td><td class="num">pp.345–346</td><td>スートラ 3.1.19–20。原因のない変化はない</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">乳を求めることと磁石</a></td><td class="num">pp.346–347</td><td>スートラ 3.1.21–23。乳を求める赤ん坊。鉄が磁石に近づくこと</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">欲のない者は生まれない</a></td><td class="num">pp.347–348</td><td>スートラ 3.1.24–26。欲は前の経験の思い出しから生じる。輪廻は無始で解脱で終わる</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>赤ん坊の笑いと泣き</h2><span class="sub"><span class="pg">pp.343–345</span>スートラ 3.1.18。この章は必要か。喜び・恐れ・悲しみと記憶の連鎖</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.343–344 · NS 3.1.18</span>
+  <div class="src deva" lang="sa">पूर्वाभ्यस्तस्मृत्यनुबन्धाज्जातस्य हर्षभयशोकसंप्रतिपत्तेः ॥३।१।१८॥<br>किं पुनरयं देहादिसङ्घातादन्यो नित्योऽथानित्य इति एतस्मिन्नर्थे — उभयथा दृष्टत्वात् [द्र. वै. सू. (च) २.२.२२] — इति संशयमुपपादयति । अनुपपन्नरूपश्चायं संशयः । आत्मास्तित्वव्यतिरेकहेतुभिः शरीरभेदेऽप्यभेद आत्मनि सिद्धः । सिद्धत्वात् प्रकरणमनारभ्यम् । न अनारभ्यम् । कथम् ? जन्मप्रभृति यावत् प्रायणमित्येतस्मादेकः सिध्यति । न पुनः शरीरविनाशादूर्ध्वं भवतीत्येवं सिध्यतीति । एतस्यार्थस्य ज्ञापनार्थं …… इति सूत्रम् । अस्यार्थः । जातः खल्वयं कुमारको विषयावगमासमर्थेषु इन्द्रियेषु हर्षभयशोकान् संप्रतिपद्यमानो दृष्टः स्मितकम्परुदितानुमेयान् । ते च स्मृत्यनुबन्धादुत्पद्यन्ते । स्मृत्यनुबन्धश्च नान्तरेण पूर्वशरीरमिति ।</div>
+  <div class="tr">生まれた者が、以前に繰り返し（経験）したことの記憶の連なりによって、喜び・恐れ・悲しみを経験するからである。<br>では、身体などの集まりと別のこの（我）は、常住か無常か。この問題について、（バーシュヤは）「両方の仕方で見られるから」（ヴァイシェーシカ・スートラ 2.2.22 参照）と疑いを示す。（反論）「この疑いは成り立たない形をしている。我が存在し（身体などと）別であることを示す理由によって、身体が違っても我は違わないことは成立した。成立しているので、（この）章を始める必要はない」。始める必要がないのではない。なぜか。それ（これまでの理由）からは、生まれてから死ぬまで（我が）一つであることが成立する。しかし、身体が滅びた後にも（我が）ある、ということはそのようには成立しない。この意味を知らせるために、……というスートラがある。その意味はこうである。生まれたばかりのこの子どもは、感官がまだ対象を捉えることができないのに、喜び・恐れ・悲しみを経験しているのが見られる。（それらは）ほほえみ・震え・泣き声から推理される。そしてそれらは、記憶の連なりから生じる。そして記憶の連なりは、前の身体なしにはありえない。</div><div class="exp"><span class="lbl">解説</span><p>これまでの論証は、我が一生のあいだ同じ一人であることは示したが、死を越えて続くことは示していない。そこでこの章が必要になる、と Uddyotakara は言います。スートラの論証は、生まれたばかりの赤ん坊の感情です。感官がまだはたらかないのに、赤ん坊はほほえみ、震え、泣く。喜びや恐れは、以前に経験した楽しいことや怖いことを思い出して生じるのだから、赤ん坊には前の身体での経験があったはずだ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、冒頭の問いを、至福に役立つ来世（<i>paraloka</i>）の考察の導入とします（TṬ p.514）。幼年・青年・壮年・老年を通じて同じ我が再認されることが、我が身体と別であることを示す、と TṬ（p.515）を引き、この章の目的は、身体の連続が終わった後も我が続くことを示すことだ、とします（TṬ p.515）。バーシュヤは、赤ん坊はこの生では喜びなどの原因を捉えていないのに、目印から推理される喜び・恐れ・悲しみを示す、と説きます（Hi. pp.922–923）。</p></div></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">p.344</span>
+  <div class="src deva" lang="sa">तत्र जन्म निकायविशिष्टाभिरपूर्वाभिः शरीरेन्द्रियबुद्धिवेदनाभिः संबन्धः । अभिप्रेतविषयप्रार्थनाप्राप्तौ सुखानुभवो हर्षः । अनिष्टविषयसाधनसन्निपाते तज्जिहासोर्हानाशक्यता भयम् । इष्टविषयवियोगे सति तत्प्राप्त्यशक्यप्रार्थना शोकः । तदनुभवः संप्रतिपत्तिः । एकविषयानेकविज्ञानोत्पादोऽभ्यासः, एकाकारविषयो वा । यथा शालयोऽनेनाभ्यस्ता इति । प्रत्यक्षबुद्धिनिरोधे तदनुसन्धानविषयः प्रत्ययः स्मृतिः । …… अनुबन्धो भावनाख्यः स्मृतिहेतुः संस्कारः । इष्टविषयानुस्मरणान्नयनादिप्रसादः स्मितम् । अनिष्टविषयानुस्मरणात् तत्साधनजिहासानुष्ठानलक्षणो हस्तादिविक्षेपवतोऽश्रुविमोचनसहचरितः शब्दविशेषो रुदितम् ।</div>
+  <div class="tr">そのうち、生まれとは、特定の種類の、新しい身体・感官・知・感受との結びつきである。望んだ対象を求めて得たときの楽の経験が、喜びである。望まない対象の手段が近づいたとき、それを避けたいのに避けられないことが、恐れである。望む対象と離れたとき、それを得られないのに求めることが、悲しみである。それらを経験することが「経験する」（<i>saṃpratipatti</i>）である。同じ対象について多くの知が生じること、あるいは同じ形の対象について（多くの知が生じること）が、繰り返しである。たとえば「この人は（何度も）稲を扱った」のように。知覚の知が消えた後に、それを結びつける対象をもつ知が記憶である。……「連なり」とは、印象と呼ばれる、記憶の原因である潜在力である。望む対象を思い出して、目などが晴れやかになることが、ほほえみである。望まない対象を思い出して、その手段を避けようとして手などをばたつかせる者の、涙を流すことをともなう特定の声が、泣き声である。</div><div class="exp"><span class="lbl">解説</span><p>スートラの語が一つずつ定義されます。喜び・恐れ・悲しみ、繰り返し、記憶、印象（潜在力）、ほほえみ、泣き声。たとえば「泣き声」は、嫌なことを思い出して、それを避けようと手足をばたつかせながら、涙とともに出す声、と定義されます。赤ん坊の泣き声も、嫌なことの記憶を前提にしている、ということです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「求めて得たとき」の「求める」は、最も望まれた対象を示すために入れられている、と TṬ（p.515）を引き、恐れの例として、望まないもの（死など）とその手段（虎など）を挙げます。悲しみは、対象を取り戻せないという自覚だ、と TṬ（pp.515–516）を引きます。Vārttika が「繰り返し」を二通りに説明していることを注し、「再認」の定義については、TṬ の注釈から、Vārttika では「現在の対象の」という語が脱落しているのではないか、と推測します。この部分のヒンディー訳は OCR でかなり失われています（Hi. pp.923–924）。</p></div></div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">pp.344–345</span>
+  <div class="src deva" lang="sa">स्मितरुदिते व्यधिकरणत्वादसाधनम् । अथ मन्यसे, स्मितरुदिते बाल्यावस्थायां भवतः । न च बाल्यावस्था आत्मनः । तस्माद् व्यधिकरणत्वादसाधनमिति ? न, शोकादिमदात्मवत्या बाल्यावस्थायाः साध्यत्वात् । शोकादिमदात्मवती बाल्यावस्थेति साध्यम्, स्मितरुदितादिमत्त्वादिति बाल्यावस्थाया धर्मः, यौवनावस्थावत् । एतेन स्मृतिसंस्कारानुभवपूर्वशरीरसंबन्धवदात्मत्वं व्याख्यातम् । …… एवं शोकादिमदात्मवत्त्वेन स्मृतिमदात्मवती बाल्यावस्था साध्या । तथा स्मृतिमदात्मवत्त्वेन संस्कारवदात्मवती बाल्यावस्था साध्या । संस्कारवदात्मवत्त्वेन पूर्वानुभववदात्मवती, पूर्वानुभववदात्मवत्त्वेन पूर्वशरीरसंबन्धवदात्मवतीति । …… सर्वत्र यौवनावस्था दृष्टान्तः । सा हि स्मितरुदितवती भवतीति शोकादिमदात्मवती चेति सर्वत्र योज्यम् ॥१८॥</div>
+  <div class="tr">（反論）「ほほえみと泣き声は、拠り所が異なるので、論証にならない」。（すなわち）こう考えるなら。ほほえみと泣き声は幼年期（の身体）にある。そして幼年期は我のもの（性質）ではない。だから、拠り所が異なるので、論証にならない、と。そうではない。悲しみなどをもつ我をもつ幼年期、が論証されるべきものだからである。「幼年期は悲しみなどをもつ我をもつ」が論証されるべきもので、「ほほえみ・泣き声などをもつから」（が理由で）、これは幼年期の性質である。青年期のように。これによって、記憶・潜在力・経験・前の身体との結びつきをもつ我をもつことも説明された。……同じように、悲しみなどをもつ我をもつことによって、記憶をもつ我をもつ幼年期が論証されるべきである。同じく、記憶をもつ我をもつことによって、潜在力をもつ我をもつ幼年期が論証されるべきである。潜在力をもつ我をもつことによって、前の経験をもつ我をもつ（幼年期が）、前の経験をもつ我をもつことによって、前の身体との結びつきをもつ我をもつ（幼年期が論証されるべきである）。……すべての場合に、青年期が例である。それ（青年期）は、ほほえみや泣き声をもち、悲しみなどをもつ我をもつ（ことが見られる）ので、すべての場合に当てはめるべきである。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、ほほえみや泣き声は身体（幼年期）の性質で、我の性質ではないので、我についての論証にならない、と言います。Uddyotakara は、論証の主題を「幼年期」にすれば理由と主題の拠り所が一致する、と答えます。「幼年期は、悲しみなどをもつ我をともなう。ほほえみや泣き声をもつから。青年期のように」。そこから、悲しみ→記憶→潜在力→前の経験→前の身体、と鎖のように論証を重ね、最後に「幼年期は前の身体との結びつきをもつ我をともなう」に至ります。どの段でも、大人（青年期）が例になります。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、反論を「論難」、答えを「退け」と見出しを付け、注で、悲しみ→記憶→潜在力→前の経験→前の身体の各段の論証式を、それぞれ「幼年期は……をもつ我をともなう。……だから。青年期のように」と完全な形で書き出しています（Hi. pp.924–925）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>蓮の花の開閉</h2><span class="sub"><span class="pg">pp.345–346</span>スートラ 3.1.19–20。原因のない変化はない</span></div>
+<div class="mula sutra" id="u4">
+  <span class="ref">pp.345–346 · NS 3.1.19–20</span>
+  <div class="src deva" lang="sa">पद्मादिषु प्रबोधसंमीलनविकारवत्तद्विकारः ॥३।१।१९॥<br>अनित्येऽपि विकारदर्शनादनैकान्त इति सूत्रार्थः । कः पुनरयं प्रबोधः, किं वा संमीलनमिति ? पद्मपत्रावयवविभागोऽविनश्यत्कार्यः प्रबोधः । पद्मपत्रावयवानामेवारब्धकार्याणां याः पुनः परस्परेण प्राप्तयस्ताः संमीलनमिति । न, विकल्पानुपपत्तेः । …… किमयं दृष्टान्तः साधनपक्षे उतानैकान्तिकपक्ष इति ? यदि साधनपक्षे न हेतुरस्ति, न च हेतुमन्तरेण दृष्टान्तमात्रं साधकमित्यसाधनं दृष्टान्तः । अथ दूषणम्, तत् किं दृष्टकारणप्रत्याख्यानम्, अथ कारणान्तरोपपादनम्, अथात्मनि उत्पत्तिनिरोधकारणानुमानम्, अथाकस्मिकत्वमिति ? …… द्रव्यस्य सतः सर्वदा अमूर्तत्वादकारण आत्मा आकाशवदिति । आत्मानं च कृतकं प्रतिपद्यमानेन कारणमस्य वाच्यम् । कुतः ? कार्यस्य कारणवत्त्वात् । सर्वं कार्यं कारणवद् दृष्टमिति ॥१९॥<br>नोष्णशीतवर्षाकालनिमित्तत्वात् पञ्चात्मकविकाराणाम् ॥३।१।२०॥<br>अथ पद्मादिप्रबोधसंमीलनविकारोऽस्माद् भवतीति ? तत् …… नायमाकस्मिकः पद्मादिषु प्रबोधसंमीलनविकार इति सूत्रार्थः । एवं च सति न किञ्चिद् दृष्टान्तेन प्रतिषिध्यते । पञ्चात्मकविकाराणामिति, न पञ्चात्मकानि पद्मादीनि, अपि तु पञ्चानां भूतानामनुग्रहे सति भवन्तीति पञ्चात्मकानीत्युच्यन्ते । मुख्यतस्तु न किञ्चित् पञ्चात्मकमस्तीत्युपरिष्टाद् वक्ष्यामः ॥२०॥</div>
+  <div class="tr">（反論）「蓮などにおける開くことと閉じることの変化のように、それ（赤ん坊の表情）の変化がある」。<br>無常なものにも（前の経験なしに）変化が見られるので、（理由は）外れる、というのがスートラの意味である。では、開くとは何か、閉じるとは何か。（全体である）結果を滅ぼすことのない、蓮の花びらの部分の分離が、開くことである。すでに結果を作った花びらの部分どうしが、再び互いに結びつくことが、閉じることである。そうではない。選択肢が成り立たないからである。……この例は、論証の側としてか、外れを示す側としてか。もし論証の側としてなら、理由がない。理由なしに、例だけでは論証にならないので、例は論証にならない。もし論難としてなら、それは見られた原因を否定するのか、別の原因を示すのか、我について生起と消滅の原因を推理するのか、原因がないということなのか。……（我は）常に形をもたない実体なので、原因をもたない。虚空のように。また、我を作られたものと認める者は、その原因を言わなければならない。なぜか。結果には原因があるからである。すべての結果には原因があることが見られる。<br>（答え）（そうでは）ない。五つ（の元素）からなる（もの）の変化は、暑さ・寒さ・雨・季節を原因とするからである。<br>では、蓮などの開閉の変化は、これ（原因なしに）から生じるのか（と問われて）、……。蓮などの開閉の変化は、原因なしに生じるのではない、というのがスートラの意味である。そうだとすれば、（我々の主張は）例によって何も否定されない。「五つからなるもの」とは、蓮などが五つ（の元素）からなるのではなく、五つの元素の助けがあって生じるので「五つからなる」と言われるのである。本来の意味では、五つからなるものは何もない、ということは後で述べる。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、蓮の花が朝に開き夜に閉じるのは、前の経験も記憶もなしに起こる変化だ、だから赤ん坊の表情の変化も記憶なしに起こりうる、と言います。Uddyotakara は、蓮の例が何を言おうとしているのか選択肢を立てて問い詰め、どの場合も成り立たないと論じます。スートラ 3.1.20 は、蓮の開閉にも暑さ・寒さ・雨・季節という原因がある、と答えます。原因のない変化はない以上、赤ん坊の感情にも原因（記憶）があるはずだ、ということです。「五つからなる」については、身体が五元素からなるという説を次の章で否定することを予告しています。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.19 を前主張のスートラとし、定説の側の理由が外れることを示そうとするもの、と注します。バーシュヤの答え「理由がないので正しくない」を、理由なしに例だけでは主張を論証できない、と説明します。Vārttika の四つの選択肢に（ク）〜（ニ）の番号を付け、我の常住の理由「常に形をもたないから」について、壺はある瞬間（作られた最初の瞬間）にしか形をもたないことがないが、我は常にそうだ、と注し、「形」を特定の量（中間の大きさ）と説明します（TṬ p.516）。3.1.20 は、蓮の開閉に原因がないという考えを退けるスートラだと注します（Hi. pp.926–929）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「विकारदर्शनादेकान्त」は、文脈から「विकारदर्शनादनैकान्त」（外れる）と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>乳を求めることと磁石</h2><span class="sub"><span class="pg">pp.346–347</span>スートラ 3.1.21–23。乳を求める赤ん坊。鉄が磁石に近づくこと</span></div>
+<div class="mula sutra" id="u5">
+  <span class="ref">p.346 · NS 3.1.21</span>
+  <div class="src deva" lang="sa">प्रेत्याहाराभ्यासकृतात् स्तन्याभिलाषात् ॥३।१।२१॥<br>जातमात्रस्य वत्सस्य प्रवृत्त्या स्तन्याभिलाषो गम्यते । स्तन्यप्राप्तौ निवृत्तेः प्रवृत्त्यनुमेयः स्तन्याभिलाषः । तेन स्मृतिः । तया संस्कारः । तेनानुभवः । तेन पूर्वशरीरमिति पूर्ववत् प्रयोगः । किमर्थं पुनरिदं सूत्रमारभ्यते, यदायमर्थः पूर्वाभ्यस्तसूत्र एवाधिगतः ? सामान्यतोऽधिगतस्य विशेषज्ञापनार्थं सूत्रमित्यदोषः ॥२१॥</div>
+  <div class="tr">死んで（生まれ変わった後に）、食物を繰り返し（摂ったこと）によって生じた、乳への欲求があるからである。<br>生まれたばかりの子の（乳房へ向かう）動きによって、乳への欲求が知られる。乳を得ると（動きが）止むので、乳への欲求は、動きから推理される。それによって記憶が、それ（記憶）によって潜在力が、それによって経験が、それによって前の身体が（推理される）、と前と同じように論証式を立てる。では、この意味は「以前に繰り返した」のスートラ（3.1.18）ですでに知られているのに、なぜこのスートラが始められるのか。一般的に知られたことの特殊な点を知らせるためのスートラなので、誤りではない。</div><div class="exp"><span class="lbl">解説</span><p>生まれたばかりの子は、誰にも教わらずに乳房を探し、乳を得ると落ち着きます。乳を求める欲求は、前の生で繰り返し食物を摂った経験の記憶によるものだ、とスートラは言います。前のスートラと同じ論証の具体例を示すものだ、と Uddyotakara は位置づけます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.21 を「死んだ後に、食物の繰り返しによって（生じた）乳への欲求」と訳します。注は、3.1.18 では欲求一般が示されただけで、ここでは乳への特定の欲求が述べられる、と TṬ（p.516）を引きます（Hi. p.930）。</p></div></div>
+</div>
+<div class="mula sutra" id="u6">
+  <span class="ref">pp.346–347 · NS 3.1.22–23</span>
+  <div class="src deva" lang="sa">अयसोऽयस्कान्ताभिगमनवत्तदुपसर्पणम् ॥३।१।२२॥<br>प्रवृत्तिमात्रस्यानैकान्तिकत्वज्ञापनार्थम् …… इति सूत्रम् । न, विकल्पानुपपत्तेः । किमिदमयसोऽयस्कान्ताभिगमनं सनिमित्तम्, आहो निर्निमित्तमिति ? यदि सनिमित्तम्, तत्केनावगम्यते ? नियमेनायोऽयस्कान्तमेवोपसर्पतीति न लोष्टादीन् । न च लोष्टादय उपसर्पन्ति । सोऽयं कार्यनियमः कारणनियमाद् गम्यते । एतेनाकस्मिकत्वं प्रतिषिद्धम् । …… पूर्ववत् प्रसङ्गः ॥२२॥<br>नान्यत्र प्रवृत्त्यभावात् ॥३।१।२३॥<br>आकस्मिकत्वप्रतिषेधार्थं च …… इति सूत्रम् ॥२३॥</div>
+  <div class="tr">（反論）「鉄が磁石に近づくように、それ（赤ん坊）が（乳房に）近づくのである」。<br>（何かに向かう）動きだけでは（理由が）外れることを知らせるための……というスートラである。そうではない。選択肢が成り立たないからである。この、鉄が磁石に近づくことは、原因があるのか、原因がないのか。もし原因があるなら、それは何によって知られるのか。鉄は決まって磁石にだけ近づき、土くれなどには（近づか）ない。また、土くれなどは（磁石に）近づかない。この結果の決まりは、原因の決まりから知られる。これによって、原因がないこと（偶然であること）は否定された。……前と同じ帰結になる。<br>（答え）（そうでは）ない。ほかのもの（の場合）には（そのような）動きはないからである。<br>また、原因がないこと（偶然であること）を否定するための……というスートラである。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、鉄が誰にも教わらずに磁石に引き寄せられるように、赤ん坊も記憶なしに乳房に向かうのだ、と言います。Uddyotakara は、鉄が磁石にだけ近づき、土くれには近づかないという決まりがあるのは、何らかの決まった原因があるからだ、と答えます。原因のない動きはないので、赤ん坊の動きにも原因（乳への欲求とその記憶）があるはずだ、というわけです。スートラ 3.1.23 は、鉄以外のものは磁石に近づかない、と原因の決まりを確認します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.22 を「（論難のスートラ）」とし、鉄の動きには前の繰り返しの記憶は関係しない、という前主張の意図を説明します。反論者が加える「赤ん坊に前世の記憶があるなら、生まれつき目の見えない者はいないはずだ」という論点にも、ある事を思い出す者が別の事も思い出すとは限らない、と答える注があります。3.1.23 は答えのスートラで、「ほかのもの」を土くれなどと注し、TṬ（p.517）を引きます。バーシュヤには 3.1.23 の第二の説明もある、と注します（TṬ p.517）（Hi. pp.931–933）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>欲のない者は生まれない</h2><span class="sub"><span class="pg">pp.347–348</span>スートラ 3.1.24–26。欲は前の経験の思い出しから生じる。輪廻は無始で解脱で終わる</span></div>
+<div class="mula sutra" id="u7">
+  <span class="ref">p.347 · NS 3.1.24</span>
+  <div class="src deva" lang="sa">वीतरागजन्मादर्शनात् ॥३।१।२४॥<br>नित्य आत्मा — वीतरागजन्मादर्शनात् । न हि कश्चित् जातमात्रो वीतरागो दृश्यते । वीतरागाणां जन्मादर्शनात् सरागो जायत इति गम्यते । जन्म व्याख्यातम् । ततः किम् ? रागस्य पूर्वानुभूतविषयानुचिन्तनं योनिः । न च विषयावगमासमर्थेषु इन्द्रियेषु रागः संभवति । न च स्मृतिमन्तरेण पूर्वानुभूतविषयानुचिन्तनं युक्तम् । पूर्वानुभूतविषयप्रार्थना सङ्कल्पः । अदृष्टादिति चेत् ? अथ मन्यसे न पूर्वशरीरयोगो रागाद् गम्यते, अपि त्वदृष्टाद् राग इति ? नाभिप्रायापरिज्ञानात् । नायमभिप्रायः कारणनियमेन रागः, अपि तु पूर्वशरीरसम्बन्धमात्रप्रतिपादनं सूत्रार्थः । न चादृष्टाद्राग इति ब्रुवता तत् प्रतिषिध्यत इति किञ्चिदुक्तम् ॥२४॥</div>
+  <div class="tr">欲を離れた者が生まれることは見られないからである。<br>我は常住である。欲を離れた者が生まれることは見られないからである。生まれたばかりで欲を離れた者は、誰も見られない。欲を離れた者が生まれるのが見られないので、欲をもつ者が生まれる、と知られる。生まれについてはすでに説明した。それでどうなるのか。欲の源は、以前に経験した対象を思い返すことである。感官がまだ対象を捉えることができないときには、欲は生じえない。また、記憶なしには、以前に経験した対象を思い返すことは成り立たない。以前に経験した対象を求めることが、意図（<i>saṅkalpa</i>）である。（反論）「（欲は）見えない力（業）から（生じる）」と言うなら。（すなわち）こう考えるなら。欲から前の身体との結びつきが知られるのではなく、見えない力から欲が生じるのだ、と。そうではない。（我々の）意図を理解していないからである。（ここでの）意図は、欲が（記憶という特定の）原因によって決まっている、ということではなく、スートラの意味は、ただ前の身体との結びつきを示すことである。そして、「見えない力から欲が生じる」と言う者は、それ（前の身体との結びつき）を否定したことにならない、ということは（すでに）少し述べた。</div><div class="exp"><span class="lbl">解説</span><p>生まれたばかりで欲をまったくもたない者はいない。欲は、以前に経験した対象を思い返すことから生じるので、生まれたときから欲をもつのは、前の生の経験があるからだ、とスートラは論じます。反論者は、欲は業の見えない力から生じるのだと言いますが、Uddyotakara は、業を持ち出しても前世を認めることになるのだから、こちらの主張（前の身体との結びつき）は否定されない、と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、Viśvanātha の注を引いて、3.1.21 は乳への欲求を、3.1.24 は虫が穀物を食べようとする欲求にも共通する欲一般を言うので、繰り返しではない、と説明します。「思い返す」とは、ほかの知を挟まずに一つの対象について記憶が途切れず流れることで、経験に続くので「思い返す」と言われる、と注します。感官がまだはたらかないことは「別の生において」を説明する、と TṬ（p.518）を参照させます（Hi. pp.933–935）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版の脚注によれば、写本ではこの後に「तन्मयत्वाद्राग……वीरणादिवत्」の議論が置かれていますが、論の流れとバーシュヤとの対応から、Thakur はこれをスートラ 3.1.26 の Vārttika に移しています。ヒンディー訳（の底本）では、この「तन्मयत्वाद्राग……」の部分は 3.1.25 のバーシュヤの後に、スートラ 3.1.24 の Vārttika の続きとして印刷されています。</p></div>
+</div>
+<div class="mula sutra" id="u8">
+  <span class="ref">p.348 · NS 3.1.25–26</span>
+  <div class="src deva" lang="sa">सगुणद्रव्योत्पत्तिवत् तदुत्पत्तिः ॥३।१।२५॥<br>इति अनैकान्तिकपक्षे सूत्रम् । न, उक्तोत्तरत्वात् । उक्तोत्तरमेतत् ॥२५॥<br>न, सङ्कल्पनिमित्तत्वाद्रागादीनाम् ॥३।१।२६॥<br>अत्रापि पूर्ववत् सङ्कल्पस्मृतिसंस्कारानुभवपूर्वशरीरवदात्मत्वानि योज्यानीति । — तन्मयत्वाद् रागः [द्र. वै. सू. (च) ६.२.१३] — इति । विषयाभ्यासः खल्वयं भावनाहेतुस्तन्मयत्वमुच्यते । — जातिविशेषाच्च रागविशेषः [वै. सू. (च) ६.२.१६] — इति । कर्म खल्विदं जातिविशेषस्य निवर्तकम् । तादर्थ्यात् ताच्छब्द्यं लभ्यते वीरणादिवत् । एवं चानादिः संसारोऽपवर्गान्तः सिध्यतीति व्यवस्थितमेतत् अस्त्यात्मा व्यतिरिक्तोऽनेको नित्यश्चेति ॥२६॥<br>॥ आत्मनित्यत्वप्रकरणम् ॥</div>
+  <div class="tr">（反論）「性質をもつ実体が生じるように、それ（欲をもつ者）が生じるのである」。<br>というのは、（理由が）外れることを示す側でのスートラである。そうではない。答えはすでに述べたからである。これはすでに答えられている。<br>（答え）そうではない。欲などは、意図を原因とするからである。<br>ここでも前と同じように、意図・記憶・潜在力・経験・前の身体をもつ我をもつこと（の論証）を当てはめるべきである。「それに満たされていることから欲がある」（ヴァイシェーシカ・スートラ 6.2.13 参照）と（ある）。対象に繰り返し触れることは、印象の原因であり、「それに満たされていること」と言われる。「また、生まれの種類の違いから、欲の違いがある」（ヴァイシェーシカ・スートラ 6.2.16）と（ある）。業こそが、生まれの特定の種類を作り出すものである。それ（業）のためにある（生まれ）なので、それ（業）の名で呼ばれることになる。（敷物を作るための）葦（を「敷物」と呼ぶ）などのように。こうして、輪廻は始まりがなく、解脱で終わることが成立する。このように、我はあり、（身体などと）別であり、多数であり、常住である、ということが確定した。<br>我の常住性のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>最後の反論は、壺が生まれたときから色などの性質をもっているように、生きものも生まれたときから欲をもっているだけだ、というものです（3.1.25）。答えは、欲などは意図（以前に経験したものを求めること）を原因とする、というものです（3.1.26）。Uddyotakara はヴァイシェーシカ・スートラを引いて、欲は対象に繰り返し触れた印象から生じ、生まれの種類（人か動物かなど）によって欲の種類が違うのは、その生まれを作る業によると説明します。こうして、輪廻には始まりがなく、解脱で終わること、そして我が存在し、身体などと別で、多数で、常住であることが確定した、と第三篇の我の議論全体が締めくくられます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.25 を前主張とし、磁石の例で出された論点が例を変えて繰り返されたもので、反論が繰り返されるので答えも繰り返される、という TṬ（p.518）を引きます。「それに満たされていることから欲がある」については、見えない力（業）という原因をいったん認めて答えた後に、本当の原因を示すものだ、と TṬ（p.518）を引き、Vārttika の作者はバーシュヤより先にこれを述べている、と注します。業がその名で呼ばれる理由について、Vārttika は「それのためにあるので」（<i>tādarthyāt</i>）と言うが、バーシュヤは「それと同一なので」（<i>tādātmyāt</i>）と言う、という違いも訳に表れています。見えない力は善業と悪業の二種だと注します（Hi. pp.935–938）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「सगुणद्रव्योत्पत्तितत्」「ताच्छब्दयं」は、それぞれ「सगुणद्रव्योत्पत्तिवत्」「ताच्छब्द्यं」と直しました。引かれるヴァイシェーシカ・スートラの番号は、Thakur 版の注（Candrānanda 注の版）による。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>harṣa / bhaya / śoka</dt><dd>喜び／恐れ／悲しみ</dd>
+    <dt>abhyāsa</dt><dd>繰り返し</dd>
+    <dt>anubandha / bhāvanā</dt><dd>連なり／印象（記憶の原因となる潜在力）</dd>
+    <dt>smita / rudita</dt><dd>ほほえみ／泣き声</dd>
+    <dt>prabodha / saṃmīlana</dt><dd>（花が）開くこと／閉じること</dd>
+    <dt>ayaskānta</dt><dd>磁石</dd>
+    <dt>vītarāga</dt><dd>欲を離れた者</dd>
+    <dt>saṅkalpa</dt><dd>意図。以前に経験した対象を求めること</dd>
+    <dt>saṃsāra / apavarga</dt><dd>輪廻／解脱</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第3巻）所収の本文と照合して直した。この章はほぼ全文を載せた（「……」は省略箇所）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号は Thakur 版とヒンディー訳とで一致する（どちらも OCR では崩れた番号がある）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第30プラカラナ（スートラ 3.1.18–26）である。第29プラカラナ（スートラ 3.1.15–17）は<a href="nyayavarttika-29-taiyaku.html">第29プラカラナのページ</a>にある。続く第31プラカラナ（身体の考察、スートラ 3.1.27–31）は<a href="nyayavarttika-31-taiyaku.html">第31プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>

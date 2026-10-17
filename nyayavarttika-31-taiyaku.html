@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 31</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-30-taiyaku.html">← プラカラナ30</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>身体は地からなる</a></li><li><a href="#s2"><b>2</b>三つ、四つ、五つの元素説</a></li><li><a href="#s3"><b>3</b>聖典の証言</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第31プラカラナ「身体の考察」（スートラ 3.1.27–31、Thakur 版 pp.348–351）</span>
+  <p>我の次は、十二の認識対象の第二、身体です。人の身体は何からできているのか。地・水・火・風・虚空の五元素のうち、地だけからなるのか、いくつかの元素が混じってできているのか。スートラは、人の身体は地からなる、と答えます。身体には地に特有の性質である香りがあるからです。</p>
+  <p>スートラ 3.1.28–30 は、身体は地・水・火の三元素からなる、呼吸があるので風も加えて四元素からなる、香り・湿り・消化・形・空間があるので五元素からなる、という他の説を挙げます。Uddyotakara は、これらの説を一つの章句でまとめて退け、もし複数の元素が身体を作るなら身体には香りも味も色もなくなってしまう、ということを、元素の組み合わせを一つずつ数え上げて示します。最後に、ヴェーダの葬送の祭文「（死者よ）汝の目は太陽へ、身体は地へ」が、身体が地からなることの証言として引かれます。</p>
+  <p>この章の Vārttika は短いので、原文はほぼ全文を載せました。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>身体の考察の章<br><small><i>śarīraparīkṣāprakaraṇa</i>。スートラ 3.1.27–31 の注釈。Thakur 版 pp.348–351</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.1.27–31<br><small>人の身体は地からなる。三元素説・四元素説・五元素説の否定。聖典の証言</small></dd></div>
+    <div><dt>論敵</dt><dd>身体を複数の元素からなるとする者<br><small>ヒンディー訳の注は、三元素説・四元素説・五元素説を「ある人々の説」とするだけで、学派を特定しない</small></dd></div>
+    <div><dt>見どころ</dt><dd>元素の組み合わせの数え上げ<br><small>§2。二元素から五元素まで、どの組み合わせでも性質が消えてしまう</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.938–943</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りはヒンディー訳所収の本文と照合して直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.349</span> は Thakur 版の頁。節見出しの <span class="pg">pp.348–349</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の誤りはヒンディー訳所収の本文と照合して直した。この章はほぼ全文を載せた</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.1.27–31 の注釈を、テキストの順に3節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">身体は地からなる</a></td><td class="num">pp.348–349</td><td>スートラ 3.1.27。なぜ身体を考察するのか。香りがあるから地からなる</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">三つ、四つ、五つの元素説</a></td><td class="num">pp.349–350</td><td>スートラ 3.1.28–30。複数の元素からは性質が生じない</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">聖典の証言</a></td><td class="num">pp.350–351</td><td>スートラ 3.1.31。「汝の目は太陽へ、身体は地へ」</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>身体は地からなる</h2><span class="sub"><span class="pg">pp.348–349</span>スートラ 3.1.27。なぜ身体を考察するのか。香りがあるから地からなる</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.348–349 · NS 3.1.27</span>
+  <div class="src deva" lang="sa">पार्थिवं गुणान्तरोपलब्धेः ॥३।१।२७॥<br>आत्मानन्तरं शरीरमवसरप्राप्तम् । तत् परीक्ष्यते । अथ वा अनादिश्चेतनस्य शरीरयोग इति शरीरं परीक्ष्यते । तस्मिन् परीक्ष्यमाणे आत्माधिकार एवायं परिसमाप्तो भवतीति । किं पुनरस्य परीक्ष्यम् ? किं घ्राणादिवदेकप्रकृति, उत नानाप्रकृतीति विप्रतिपत्तेः संशयः । श्रूयते खल्वत्र विप्रतिपत्तिः । तत्रेदं तत्त्वम् — पार्थिवं गुणान्तरोपलब्धेः । मानुषं शरीरं पार्थिवमिति । मानुषमिति किमर्थं विशिष्यते ? लोकान्तरशरीराणि न पार्थिवानीति युक्तं विशेषणम् । गन्धवत्त्वात् परमाणुवत् । गन्धवान् परमाणुरेकात्मको दृष्टः । गन्धवच्च शरीरम् । तस्मादेकात्मकमिति । एकात्मकमिति एकस्वभावमिति । न त्विदमबादिभिरसंपृक्तया पृथिव्यारब्धं चेष्टेन्द्रियार्थाश्रयभावेन कल्पत इति भूतसंसर्गोऽविप्रतिषिद्धो मिथः पञ्चानामिति ॥२७॥</div>
+  <div class="tr">（身体は）地からなる。（地に特有の）別の性質（香り）が知覚されるからである。<br>我の次に、身体の順番が来た。それが考察される。あるいは、知性をもつもの（我）と身体との結びつきは始まりがない（ことが前章で示された）ので、身体が考察される。それが考察されれば、この我の主題が完結するのである。では、これについて何を考察するのか。（身体は）嗅覚などと同じく一つの（元素を）素材とするのか、多くの（元素を）素材とするのか。意見の対立があるので、疑いがある。実際、これについて意見の対立が聞かれる。そこで、これが真実である。「地からなる。別の性質が知覚されるから」。人の身体は地からなる、ということである。なぜ「人の」と限定するのか。他の世界（の生きもの）の身体は地からなるのではないので、限定は正しい。（論証は）香りをもつから、原子のように（である）。香りをもつ原子は一つ（の元素）からなることが見られる。身体も香りをもつ。だから、一つ（の元素）からなる。「一つからなる」とは、一つの本性をもつ、ということである。しかし、これ（身体）が、水などと混じらない地によって作られて、動作・感官・対象の拠り所となるのではない。だから、五つ（の元素）が互いに混じり合うことは否定されない。</div><div class="exp"><span class="lbl">解説</span><p>我の考察の次は身体の考察です。身体は我が輪廻の中で常に結びつくものなので、身体を考察して我の主題が完結する、と Uddyotakara は位置づけます。スートラの論証は、人の身体には香りという、地だけに特有の性質があるので、身体を作る素材（質料因）は地だけだ、というものです。ただし、身体が他の元素とまったく無関係だというのではなく、水・火・風などは身体に混じり合い、身体のはたらきを助けている。素材としては地一つ、ということです。神々など他の世界の生きものの身体は、地以外の元素からなるとされます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、このスートラの見出しを「身体は地からなるか、五元素からなるか」とし、「別の性質」を「特殊な性質（香り）」と訳します。注は、「地からなる」とは地が内属因（質料因）であることだと説明し、身体が生じるときには水など他の元素との結合もある、と述べます。バーシュヤは、地だけでは動作・感官・対象の拠り所にならないので五元素の結合から生じるが、内属因は地の原子だけで、他の元素は結合しているだけだ、と説明し、鍋の例を挙げます。他の世界には水・火・風からなる身体がある、ともバーシュヤは言います（Hi. pp.938–940）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「घ्राणादिदेकप्रकृति」は「घ्राणादिवदेकप्रकृति」と直しました。末尾の「भूतसंसर्गोऽविप्रतिषिद्धो मिथः पञ्चानाम्」について、Thakur 版はヴァイシェーシカ・スートラ 4.2.3（Candrānanda 注の版）を参照させています。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>三つ、四つ、五つの元素説</h2><span class="sub"><span class="pg">pp.349–350</span>スートラ 3.1.28–30。複数の元素からは性質が生じない</span></div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.349–350 · NS 3.1.28–30</span>
+  <div class="src deva" lang="sa">पार्थिवाप्यतैजसं तद्गुणोपलब्धेः ॥३।१।२८॥<br>निःश्वासोच्छ्वासोपलब्धेश्चातुर्भौतिकम् ॥३।१।२९॥<br>गन्धक्लेदपाकव्यूहावकाशदानेभ्यः पाञ्चभौतिकम् ॥३।१।३०॥<br>एवं च सति — पार्थिवाप्यतैजसं तद्गुणोपलब्धेः । निःश्वासोच्छ्वासोपलब्धेश्चातुर्भौतिकम् । गन्धक्लेदपाकव्यूहावकाशदानेभ्यः पाञ्चभौतिकम् — इति प्रत्युक्तम्, तत्र सन्निहितानां तद्गुणोपलब्धेरिति । तदिदमेकभूतप्रकृति शरीरम्, अगन्धमरसमरूपमस्पर्शं च प्रकृत्यनुविधानात् स्यादिति भाष्यम् । तस्य व्याख्यानम् । पृथिव्युदकाभ्यामारभ्यमाणमगन्धं कारणगन्धस्यैकस्यानारम्भकत्वात् । …… पृथिव्याकाशाभ्यामगन्धमरसमरूपमस्पर्शं च आकाशे गन्धाद्यभावात् । सर्वत्र समानो न्यायः, कारणगुणस्य केवलस्यानारम्भकत्वादिति । …… पृथिव्युदकतेजोवाय्वाकाशैरगन्धम् । कारणगुणस्यैकस्यानारम्भकत्वादिति समानम् । ……॥२८–३०॥</div>
+  <div class="tr">（反論）「地・水・火からなる。それらの性質が知覚されるから」。<br>（反論）「呼気と吸気が知覚されるので、四つの元素からなる」。<br>（反論）「香り・湿り・消化・形・空間を与えることによって、五つの元素からなる」。<br>こうして、「地・水・火からなる。それらの性質が知覚されるから」「呼気と吸気が知覚されるので、四つの元素からなる」「香り・湿り・消化・形・空間を与えることによって、五つの元素からなる」（という説）は退けられた。そこ（身体）に近くにある（他の元素）の性質が知覚されるのだから。「この身体が一つの元素を素材とする（のであって、そうでなければ）、素材に従うので、香りも味も色も触もないことになろう」とバーシュヤは（言う）。その説明（はこうである）。地と水とによって作られるなら、香りがない。原因の香りが一つだけでは（結果の香りを）作らないからである。……地と虚空とによって（作られるなら）、香りも味も色も触もない。虚空には香りなどがないからである。すべての場合に、同じ道理が当てはまる。原因の性質が一つだけ（の原因にあるの）では、（結果の性質を）作らないからである。……地・水・火・風・虚空によって（作られるなら）、香りがない。原因の性質が一つ（の原因にあるだけ）では作らない、という（理由は）同じである。……</div><div class="exp"><span class="lbl">解説</span><p>三つの別説が挙げられます。身体には地の香り、水の湿り、火の熱があるので三元素からなる。さらに呼吸があるので風も加えて四元素。消化（火）や空間（虚空）も含めて五元素。Uddyotakara は、身体に他の元素の性質が見られるのは、それらの元素が身体の近くにあって混じっているからにすぎない、と退けます。そしてバーシュヤの論点「身体が複数の元素から作られるなら、香りも味も色も触もなくなる」を、元素の組み合わせを一つずつ数え上げて説明します。原理は、結果の性質は、原因のすべてに共通する性質からしか生じない、というものです。地と水から作れば、香りは地にしかないので香りのない物ができる。地と虚空から作れば、虚空には何の性質もないので、香りも味も色も触もない物ができる。五元素すべてからでも、香りのない物になる。しかし身体には香りがある、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.1.28–30 に「［前主張のスートラ］」と見出しを付けます。バーシュヤは、スートラの作者はこれらの理由を疑わしいとして取り上げなかった、と言います。「その説明」について、注は TṬ の原子論的な説明を紹介します。地の原子と水の原子から二原子体（<i>dvyaṇuka</i>）を作れば香りのないものになり、身体は二原子体・三原子体（<i>trasareṇu</i>）を経て生じるので、香りのある原子と香りのない原子から作られた二原子体には香りがない、というものです。また、TṬ は「एककारणकत्वे」を「एककारणत्वे」と読む、と記します（TṬ p.520）（Hi. pp.940–942）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>組み合わせの数え上げの部分は、OCR テキストに崩れが多く（「जलानलानलैः」など）、写本の異読も多いので、要点を抜き出しました。末尾の「एककारणकत्वे तु…」の一文も読みが定まらないので省略しました。スートラ 3.1.30 の OCR「व्यूहाकाशदान」は「व्यूहावकाशदान」と直しました。ヒンディー訳の注によれば、スートラ 3.1.28–30 は Vārttika ではスートラの形で示されていません（「このように……と（いう説は）」と引かれるだけ）。また、ヒンディー訳所収のスートラ 3.1.30 は「…व्यूहावकाशादान…」と読まれます。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>聖典の証言</h2><span class="sub"><span class="pg">pp.350–351</span>スートラ 3.1.31。「汝の目は太陽へ、身体は地へ」</span></div>
+<div class="mula sutra" id="u3">
+  <span class="ref">pp.350–351 · NS 3.1.31</span>
+  <div class="src deva" lang="sa">श्रुतिप्रामाण्याच्च ॥३।१।३१॥<br>सूर्यं ते चक्षुः स्पृणोमीति अस्य मन्त्रस्यान्ते पृथिवीं ते शरीरमिति, सेयं श्रुतिः कारणात् कार्योत्पत्तिं दर्शयति । सूर्यश्चक्षुषः कारणम्, पृथिवी शरीरस्येति । अन्त्येष्टिकाले च मन्त्रः सूर्यं ते चक्षुर्गच्छतु पृथिवीं शरीरमिति । अस्यापि मन्त्रस्यार्थो यद् यस्मादायातं तत् तस्मिन्नेव प्रलयं गच्छतीति । प्रकृतौ विकारस्य प्रलयाभिधानम् । प्रलयशब्देन च कार्यशून्यं कारणमभिधीयते, न पुनः कार्यस्य कारणे लयः प्रलयः । एवं च सति असदुत्पद्यते सन्निरुध्यते इत्ययमर्थ उक्तो भवति ॥३१॥<br>॥ शरीरपरीक्षाप्रकरणम् ॥</div>
+  <div class="tr">また、聖典が認識手段であるからである。<br>「太陽に汝の目を……」というこの祭文の終わりに、「地に汝の身体を」とある。この聖典は、原因から結果が生じることを示している。太陽が目の原因であり、地が身体の（原因である）、と。また、葬送の儀式のときの祭文に、「汝の目は太陽へ行け、身体は地へ」とある。この祭文の意味も、あるものから来たものは、まさにそこへと消えていく、ということである。（これは）変化物が原質へと消えることを言っている。「消滅」（<i>pralaya</i>）という語によって、結果のない原因が言われるのであって、結果が原因の中に溶け込むことが消滅なのではない。そうだとすれば、無かったものが生じ、有ったものが滅する、というこの意味が言われたことになる。<br>身体の考察のプラカラナ（終わり）。</div><div class="exp"><span class="lbl">解説</span><p>最後に聖典の証言が挙げられます。ヴェーダの祭文には「目は太陽へ、身体は地へ」とあり、とくに葬送の祭文は、死者の目は太陽に、身体は地に帰れ、と唱えます。来たところへ帰るのだから、身体は地から来た、つまり地からなる、というわけです。Uddyotakara は、ここで「消滅」（<i>pralaya</i>）という語をサーンキヤ風に「結果が原因の中に溶け込んで潜在する」と読むことを退け、「結果がなくなって原因だけが残ること」と読みます。ニヤーヤの、結果は原因の中にあらかじめ存在しない（無から生じ、有が滅する）という立場（因中無果論）を確認しているのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「（祭文を）唱える」の <i>spṛṇomi</i> を「作る」と訳し、「作る（<i>spṛti</i>）とは生じさせることの意」という TṬ（p.520）を引きます。祭文は「聖典にある言葉」とだけ言い、出典は示しません。注は、この聖典の言葉だけでは論点は確立されず、サーンキヤの立場にも合いうる、と述べたうえで、Vārttika の「消滅」の説明は因中無果論を示している、と説明します（注の末尾は OCR で切れています）（Hi. pp.942–943）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「सूर्य ते」「सेयं स्मृतिः」は、それぞれ「सूर्यं ते」「सेयं श्रुतिः」（写本 J の読み）と直しました。祭文の出典は、ここでは確認していません。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>pārthiva</dt><dd>地からなる</dd>
+    <dt>prakṛti</dt><dd>素材（質料因）、原質</dd>
+    <dt>bhūta</dt><dd>元素。地・水・火・風・虚空</dd>
+    <dt>gandha / kleda / pāka / vyūha / avakāśa</dt><dd>香り／湿り／消化／形／空間</dd>
+    <dt>niḥśvāsa / ucchvāsa</dt><dd>呼気／吸気</dd>
+    <dt>antyeṣṭi</dt><dd>葬送の儀式</dd>
+    <dt>pralaya</dt><dd>消滅。結果がなくなり原因だけが残ること</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の誤りは、Śrīnivāsa Śāstrī のヒンディー訳（第3巻）所収の本文と照合して直した。この章はほぼ全文を載せた（「……」は省略箇所）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号は Thakur 版とヒンディー訳とで一致する。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第31プラカラナ（スートラ 3.1.27–31）である。第30プラカラナ（スートラ 3.1.18–26）は<a href="nyayavarttika-30-taiyaku.html">第30プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
