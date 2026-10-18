@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 55</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-54-taiyaku.html">← プラカラナ54</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>解脱はありえないか</a></li><li><a href="#s2"><b>2</b>負債は比喩である</a></li><li><a href="#s3"><b>3</b>熟睡のような解脱</a></li><li><a href="#s4"><b>4</b>煩悩には始まりがない</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第55プラカラナ「解脱の考察の章」（スートラ 4.1.59–68、Thakur 版 pp.464–469）</span>
+  <p>認識対象の最後は「解脱」（<i>apavarga</i>）です。反論者は、解脱はありえない、と言います（4.1.59）。聖典によれば、人は生まれながらに聖仙・神々・祖霊への三つの負債を負い、生涯、供儀などの務めから逃れられない。煩悩は生まれたときから死ぬまで続き、行為をやめることもない。だから解脱はない、と。</p>
+  <p>スートラは一つずつ答えます。「負債」は比喩的な言い方で、務めは果報を求める家長に向けられたものであり、望みがなくなれば出家して務めから離れることも聖典が定めている（4.1.60–62）。熟睡して夢を見ない人に煩悩がないように、解脱者にも煩悩はない（4.1.63）。煩悩を断った人の行為は再生を生まない（4.1.64）。煩悩には始まりがないので断てない、という反論（4.1.65）には、煩悩は誤った思い描きから生じるので断てる、と答えます（4.1.68）。ここで第四篇第一日課が終わります。</p>
+  <p>この章の Vārttika は比較的長いので、原文は抜粋で載せました。第四篇については、ヒンディー語訳注の翻刻がまだ提供されていないので、解説は本文にもとづく訳者の説明です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>解脱の考察の章<br><small><i>apavargaparīkṣāprakaraṇa</i>。スートラ 4.1.59–68 の注釈。Thakur 版 pp.464–469。第四篇第一日課の最後</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>4.1.59–68<br><small>負債・煩悩・活動のつきまといによって解脱はない、という反論と、その一つずつへの答え</small></dd></div>
+    <div><dt>論敵</dt><dd>解脱はありえないとする者<br><small>本文は学派を示さない。反論の根拠はヴェーダの祭式規定</small></dd></div>
+    <div><dt>見どころ</dt><dd>「生まれる」とは家長になること<br><small>§2。三つの負債を負って「生まれる」のは赤子ではなく、祭式の資格を得た家長である</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>未参照<br><small>提供された Śrīnivāsa Śāstrī 訳注の翻刻は第三篇の終わりまでで、この章を含まない</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の頁番号は Thakur 版の頁。節見出しの頁はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。長い箇所は「……」で省略した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。本文にもとづく訳者の説明</div>
+    <div><b>解釈の分かれる箇所</b>異読や、読みの定まらない箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 4.1.59–68 の注釈を、テキストの順に4節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">解脱はありえないか</a></td><td class="num">p.464</td><td>スートラ 4.1.59。負債・煩悩・活動のつきまとい</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">負債は比喩である</a></td><td class="num">pp.464–467</td><td>スートラ 4.1.60–62。比喩としての「負債」。「生まれる」のは家長。望みがなくなれば出家する</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">熟睡のような解脱</a></td><td class="num">p.467</td><td>スートラ 4.1.63–64。夢を見ない熟睡。煩悩を断った人の行為は再生を生まない</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">煩悩には始まりがない</a></td><td class="num">pp.468–469</td><td>スートラ 4.1.65–68。煩悩は本性的で断てないか。生起以前の非存在、原子の黒さのたとえ。煩悩は思い描きから生じる</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>解脱はありえないか</h2><span class="sub"><span class="pg">p.464</span>スートラ 4.1.59。負債・煩悩・活動のつきまとい</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.464 · NS 4.1.59</span>
+  <div class="src deva" lang="sa">ऋणक्लेशप्रवृत्त्यनुबन्धादपवर्गाभावः ॥४।१।५९॥<br>दुःखोद्देशानन्तरमपवर्गः । स प्रत्याख्यायते — ऋण……भावः — इत्यनेन सूत्रेण । ऋणानुबन्धान्नास्त्यपवर्गः । शेषं भाष्ये । अनुबन्धः सर्वदाकरणीयता । नायमृणानुबन्धात् कदाचिन्मुच्यते, जन्मप्रभृति यावत् प्रायणमिति । क्लेशानुबन्धादपवर्गो नास्ति । क्लेशानुबद्ध एवायं जायते, क्लेशानुबद्धो म्रियत इति । प्रवृत्त्यनुबन्धादपवर्गो नास्ति । न हि कदाचिदयं कर्म न करोतीति ॥५९॥</div>
+  <div class="tr">（反論）「負債と煩悩と活動とがつきまとうので、解脱はない」。<br>苦の列挙の次に、解脱が（列挙された）。それが、「負債と……」というこのスートラによって否定される。負債がつきまとうので、解脱はない。残りはバーシュヤにある。「つきまとう」とは、いつでも（務めを）なさなければならないことである。この人は、負債がつきまとうので、生まれてから死ぬまで、決して（務めから）解き放たれない。煩悩がつきまとうので、解脱はない。この人は煩悩につきまとわれて生まれ、煩悩につきまとわれて死ぬ。活動がつきまとうので、解脱はない。この人が行為をしないことは決してないからである。</div><div class="exp"><span class="lbl">解説</span><p>反論者の根拠は三つです。第一は負債です。バーシュヤが引くヴェーダの一節によれば、婆羅門は生まれながらに三つの負債を負う。学習によって聖仙に、祭祀によって神々に、子によって祖霊に、という負債です（この一節の内容は訳者の補足）。さらに、火の供儀などは生涯続けるべきだとされます。第二に、煩悩は生まれてから死ぬまで続く。第三に、人は行為をやめることがない。だから解脱はない、というのです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「क्लेशाननुबन्धाद्」「क्लेशानबद्धो」は「क्लेशानुबन्धाद्」「क्लेशानुबद्धो」と読みました。写本 C は「क्लेशानुबद्ध एवायं」を「द्ध एवायं」、「कर्म न करोति」の箇所を「नास्ति—न कर्म करोति」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>負債は比喩である</h2><span class="sub"><span class="pg">pp.464–467</span>スートラ 4.1.60–62。比喩としての「負債」。「生まれる」のは家長。望みがなくなれば出家する</span></div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.464–465 · NS 4.1.60</span>
+  <div class="src deva" lang="sa">प्रधानशब्दानुपपत्तेर्गुणशब्देनानुवादो निन्दाप्रशंसोपपत्तेः ॥४।१।६०॥<br>यत् तावदृणानुबन्धादिति — प्र……पत्तेः — इति । ऋणैरिति नायं प्रधानशब्दः, प्रत्यादेयदानप्रतिदेयग्रहणासम्भवात् । यत्र खल्वेकः प्रत्यादेयं ददाति इतरः प्रतिदेयं गृह्णाति, तत्रायमृणशब्दः प्रधानं भवति, अन्यत्र भाक्त इति । तस्माद् गुणशब्देनायमनुवादः, यथाग्निर्माणवक इति । …… अप्रयुक्तक्रमं चेदं वाक्यम् — ऋणवान् जायत इति । उपमा तु लुप्तनिर्दिष्टा द्रष्टव्या — ऋणवानिव जायत इति । क उपमानार्थः ? अस्वातन्त्र्यम् । ऋणवान् यथास्वतन्त्रः, एवमयं जायमानः कर्मस्वस्वतन्त्रो वर्तत इति । जायमान इति चायं गुणशब्द एव, न मुख्ये संभवति । न हि मातृतः कुमारके जायमाने लोहितपाणिपादास्येऽध्ययनादिधर्मोपपत्तिरिति । अतो गृहस्थे जायमाने इति । …… शक्तस्यार्थिनश्च कर्मभिरधिकारात् । शक्तश्चार्थी च कर्मभिरधिक्रियते । न च मातृतः कुमारके जायमाने शक्तिः, न चार्थितेति । उभयं तु गृहस्थे जायमाने । तस्माद् गृहस्थो जायमानोऽभिधीयत इति ।</div>
+  <div class="tr">（答え）（「負債」は）本来の意味の語としては成り立たないので、比喩的な語によって（言い直して）述べたものである。非難と称賛とが成り立つからである。<br>まず、「負債がつきまとうので」ということについては、「本来の意味の……」。「負債によって」というのは、本来の意味の語ではない。返されるべきものを与えることと、返すべきものを受け取ることとが、（ここには）ありえないからである。ある人が返されるべきものを与え、別の人が返すべきものを受け取る、そういうところでは、この「負債」という語は本来の意味であるが、ほかのところでは比喩的である。だから、これは比喩的な語によって言い直したものである。「少年は火である」のように。……また、「負債をもって生まれる」というこの文は、語の順序どおりに用いられたものではない。たとえの語が省かれていると見るべきである。「負債をもつ者のように生まれる」と。たとえの意味は何か。自由がないことである。負債をもつ者が自由でないように、この生まれる人は、（祭式の）行為において自由でない。また、この「生まれる」というのも比喩的な語であって、本来の意味ではありえない。母から子が生まれるとき、手も足も口も赤い（赤子）には、学習などの務めはありえないからである。だから、「家長として生まれる」ということである。……（祭式の）行為には、能力があって望みをもつ者が資格をもつからである。能力があって望みをもつ者が、（祭式の）行為の資格をもつ。母から子が生まれるとき、（子には）能力もなく、望みもない。しかし家長として生まれるときには、その両方がある。だから、家長が「生まれる者」と言われるのである。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 4.1.60 は、「負債」は比喩だと答えます。本当の負債なら、貸す人と借りる人がいて、返済があります。聖典の「負債」はそうではなく、「この少年は火だ」（勇ましさなどが火に似ている）と言うのと同じ比喩で、務めに縛られて自由でないことを言っているにすぎません。</p><p>さらに Uddyotakara は、「生まれる」も比喩だと言います。生まれたばかりの赤子に学習や祭祀の務めはありえません。祭式の資格は、能力と望み（果報を求める心）をもつ者にあるので、ここで「生まれる」のは、家長として祭式の世界に入ることを指すのです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>スートラ 4.1.60 は、Thakur 版の OCR テキストでは「…गुणशब्दे नार्थवादो…」、写本 C では「…शब्दानु० ०नानुवादो」、写本 J では「नायमर्थवादो」と読まれます。和訳は一般に伝わる形「…गुणशब्देनानुवादो…」に従いました。写本 C は「अग्नेः पिङ्गलपाटवादयः」を「पाटलत्वादयः」と読みます（省略箇所）。OCR テキストの「लुसनिर्दिष्टा」は「लुप्तनिर्दिष्टा」と読みました。</p></div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">pp.465–466 · NS 4.1.60</span>
+  <div class="src deva" lang="sa">अर्थित्वस्याविपरिणामे जरामर्यवादोपपत्तिः । यच्चेदं ब्राह्मणमाजरसं कर्मभिः सम्बन्धं शास्ति, तदन्यथा संभवतीति — अर्थित्वस्याविपरिणामे जरामर्यवादोपपत्तिः । …… यदार्थित्वं विपरिणतं भवति, तदानेनाग्निहोत्रं संन्यसनीयम् । आयुषस्तुरीयभागं प्रव्रज्यायुक्तमाह जरेति । …… कस्मात् पुनरेतदेवमुच्यते सत्यर्थित्वेऽग्निहोत्रहवनमिति ? कर्मविधौ कामसंयोगश्रुतेः, यस्मात् सर्वस्मिन् कर्मणि कामविधिः श्रूयते स्वर्गकाम इति । यथोपदिष्टार्थविज्ञानं चोपदेशविषयः । यश्चोपदिष्टमर्थं विजानाति तं प्रत्युपदेशः क्रियते — न गायनो बधिरेषु प्रवर्तते, न नर्तकोऽन्धेषु । न चोपदेशविज्ञानं बालकेष्वस्ति, तस्मान्न तं प्रत्युपदिश्यत इति । न भिद्यते च लौकिकात् । लौकिकोऽपि तावदपरीक्षको न जातं कुमारकमेवं ब्रूयाद् — अधीष्व यजस्व ब्रह्मचर्यं चरेति । कुत एवमृषिरुपपन्नानवद्यवादी ब्रूयादिति । …… शेषं भाष्ये ॥६०॥</div>
+  <div class="tr">（バーシュヤの「）望みが変わらないかぎり、『老いて死ぬまで』という言い方は成り立つ（」について）。老いるまで（祭式の）行為と結びつくことを教えるこのブラーフマナ（の一節）は、別の意味で成り立つ、ということである。……望みが変わったときには、この人は火の供儀を捨てるべきである。「老い」とは、出家と結びついた、寿命の四番目の部分のことだと（バーシュヤは）言う。……では、なぜ「望みがあるかぎり火の供儀を行う」と言うのか。行為の規定に、願いとの結びつきが聞かれるからである。あらゆる行為について、「天界を願う者は」というように、願いの規定が聞かれるからである。また、教えの対象は、教えられた意味を理解する者である。教えられた意味を理解する人に対して、教えはなされる。歌い手は耳の聞こえない人々の前で歌わず、踊り手は目の見えない人々の前で踊らない。そして、幼子には教えを理解することはない。だから、その子に対して教えられるのではない。また、（ヴェーダの言葉は）世間の言葉と違わない。よく考えない世間の人でさえ、生まれたばかりの子に「学べ、祭れ、梵行を行え」とは言わないであろう。まして、筋が通り咎めるところのない言葉を語る聖仙が、どうしてそのように言うだろうか。……残りはバーシュヤにある。</div><div class="exp"><span class="lbl">解説</span><p>火の供儀は「老いて死ぬまで」続けるべきだ、というブラーフマナの一節（いわゆる「ジャラーマルヤ」の言葉、出典の同定は訳者の補足を控える）も、無条件の命令ではない、と Uddyotakara は言います。祭式はすべて「天界を願う者は」のように願いを条件として規定されており、望みがなくなれば、人は火の供儀を捨てて出家できる。「老い」とは人生の最後の四分の一、出家の時期を指す、というのです。</p><p>また、教えは理解できる者に向けられるもので、耳の聞こえない人の前で歌う歌い手がいないように、生まれたばかりの子に務めを命じる聖典はない、とも付け加えます。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「यथा स्कन्धविपरिणाम」の箇所（省略）を「यदार्थित्वाविपरिणामः」と、「अर्थः」を「र्थः विद्वांश्च」と読みます。OCR テキストの「आयुष्स्तुरीयभागं」は「आयुषस्तुरीयभागं」と読みました。</p></div>
+</div>
+<div class="mula sutra" id="u4">
+  <span class="ref">pp.466–467 · NS 4.1.61–62</span>
+  <div class="src deva" lang="sa">समारोपणादात्मन्यप्रतिषेधः ॥४।१।६१॥<br>कथं पुनरिदं गम्यते फलार्थिन एतद् ब्राह्मणं भवतीति ? अधिकाराच्च विधानं विद्यान्तरवत् । समा……षेधः । यस्मान्निवृत्ते फलार्थित्वे समारोपणं विधीयते ॥६१॥<br>पात्रचयान्तानुपपत्तेश्च फलाभावः ॥४।१।६२॥<br>यस्मान्निवृत्तेऽर्थित्वे प्रव्रजितानां पात्रचयान्तानि कर्माणि न क्रियन्ते । यदि चेदं ब्राह्मणमविशेषेण प्रवर्तते, तेन सर्वत्र पात्रचयान्तानि कर्माणि प्रसज्यन्त इति । शेषं भाष्ये ॥६२॥</div>
+  <div class="tr">（答え）（祭火を）自分自身に移すことが（定められている）ので、（解脱は）否定されない。<br>では、このブラーフマナが果報を求める者のためのものだ、ということはどのようにして知られるのか。資格に応じて規定があるからである。ほかの学問の場合のように。「（祭火を）自分自身に移すことが……」。果報を求める心がなくなったときに、（祭火を自分自身に）移すことが規定されているからである。<br>（答え）また、祭具の配置で終わる（儀礼）がありえないので、（すべての人に務めが続く、という）結果はない。<br>望みがなくなって出家した人々には、祭具の配置で終わる行為（葬送の儀礼）は行われないからである。もしこのブラーフマナが区別なしに（すべての人に）はたらくのなら、それによって、あらゆる場合に、祭具の配置で終わる行為が行われることになってしまうであろう。残りはバーシュヤにある。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 4.1.61 は、聖典自身が、果報を求める心がなくなった人に、家の祭火を自分自身の中に移して（つまり外の祭火を捨てて）出家することを定めている、と指摘します。スートラ 4.1.62 は、祭火を守る家長が死ぬと、その遺体のまわりに祭具を並べて葬る儀礼があるが、出家者にはそれが行われない、と言います。生涯の務めがすべての人に例外なく課されているなら、出家者にもその儀礼があるはずだ、というのです（儀礼の内容は訳者の補足）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「अधिकाराच्च विधानं विद्यान्तरवत्」を欠きます。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>熟睡のような解脱</h2><span class="sub"><span class="pg">p.467</span>スートラ 4.1.63–64。夢を見ない熟睡。煩悩を断った人の行為は再生を生まない</span></div>
+<div class="mula sutra" id="u5">
+  <span class="ref">p.467 · NS 4.1.63–64</span>
+  <div class="src deva" lang="sa">सुषुप्तस्य स्वप्नादर्शने क्लेशाभाववदपवर्गः ॥४।१।६३॥<br>यत् पुनरेतत् क्लेशसन्ततेरविच्छेदादिति ? सु……वर्गः । यथा सुषुप्तस्य स्वप्नादर्शिनः क्लेशानुबन्धो विच्छिद्यते सुखदुःखसाधनानुबन्धश्च, तथा मुक्तस्यापीति । तच्च योगिनो मुक्तस्य रूपमुदाहरन्तीति ॥६३॥<br>न प्रवृत्तिः प्रतिसन्धानाय हीनक्लेशस्य ॥४।१।६४॥<br>यदपि प्रवृत्त्यनुबन्धादिति — न……स्य । विद्यमानापि प्रवृत्तिः क्लेशमन्तरेण प्रतिसन्धानाय न भवतीति, धर्माधर्मकारणं न भवतीति यावदुक्तं स्यात् । प्रतिसन्धिस्तु पूर्वजन्मनिवृत्तौ पुनर्जन्म, तच्च तृष्णाकारितम् । एतच्चोक्तं — वीतरागजन्मादर्शनात् — इति सूत्रे । कर्मवैफल्यप्रसङ्ग इति चेत् ? न, कर्मविपाकप्रतिसंवेदनस्याप्रत्याख्यानात् । न ब्रूमो विद्यमाने कर्मणि मुच्यत इति, अपि तु सर्वकर्माण्यन्ते जन्मनि विपच्यन्ते ॥६४॥</div>
+  <div class="tr">（答え）熟睡している人が夢を見ないときに煩悩がないように、解脱がある。<br>また、「煩悩の連続が断たれないから」ということについては、「熟睡している……」。熟睡して夢を見ない人には、煩悩のつきまといが断たれ、楽と苦の手段のつきまといも（断たれる）。それと同じく、解脱した人にも（断たれる）。そしてそれを、解脱したヨーガ行者の姿として（人々は）例に挙げる。<br>（答え）煩悩の尽きた人の活動は、（次の生への）結びつきのためにはならない。<br>また、「活動がつきまとうから」ということについては、「煩悩の……」。活動はあっても、煩悩がなければ、（次の生への）結びつきのためにはならない。法と非法の原因にはならない、と言ったことになる。結びつきとは、前の生が終わったときの再生のことであり、それは渇愛によって起こされる。このことは、「貪りを離れた者が生まれるのは見られないから」というスートラで述べた。（反論）「（それなら）業が無意味になる」と言うなら。そうではない。業が熟して（果報を）経験することは否定されないからである。われわれは、業がまだあるのに解脱する、と言うのではない。そうではなく、すべての業は最後の生において熟するのである。</div><div class="exp"><span class="lbl">解説</span><p>熟睡して夢も見ないとき、人には怒りも欲望もなく、楽や苦を求めることもありません。解脱もそのような状態だ、とスートラ 4.1.63 は言います。煩悩の連続は断ち切れるのです。</p><p>スートラ 4.1.64 は、煩悩の尽きた人も行為はするが、その行為は次の生を生む力（法と非法）を生まない、と答えます。再生は渇愛によって起こされるからです（スートラ 3.1.25「貪りを離れた者が生まれるのは見られない」、<a href="nyayavarttika-30-taiyaku.html">第30プラカラナ</a>）。それまでに積んだ業は、最後の生ですべて熟して経験され尽くします。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「स्वप्रादर्शने」「क्लेशानुपन्धो」「तृष्णारकारितम्」は、それぞれ「स्वप्नादर्शने」「क्लेशानुबन्धो」「तृष्णाकारितम्」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>煩悩には始まりがない</h2><span class="sub"><span class="pg">pp.468–469</span>スートラ 4.1.65–68。煩悩は本性的で断てないか。生起以前の非存在、原子の黒さのたとえ。煩悩は思い描きから生じる</span></div>
+<div class="mula sutra" id="u6">
+  <span class="ref">p.468 · NS 4.1.65–67</span>
+  <div class="src deva" lang="sa">न क्लेशसन्ततेः स्वाभाविकत्वात् ॥४।१।६५॥<br>नोपपद्यते क्लेशसन्ततेर्विच्छेदः । कुतः ? क्लेशसन्ततेः स्वाभाविकत्वात् । अनादिरियं क्लेशसन्ततिः स्वभावतः प्रवृत्ता, न चासावुच्छेत्तुं शक्येति ॥६५॥<br>प्रागुत्पत्तेरभावानित्यत्ववत् स्वाभाविकेऽप्यनित्यत्वम् ॥४।१।६६॥<br>अत्र केचित् परिहारं वर्णयन्ति — प्रा……त्वम् । यथा प्रागुत्पत्तेरभावोऽनादिः, अथ च भावेन निरुध्यते, एवमनादिः क्लेशसन्ततिस्तत्त्वज्ञस्य तत्त्वज्ञानेन निरोत्स्यत इति ॥६६॥<br>अणुश्यामतानित्यत्ववद् वा ॥४।१।६७॥<br>यथाणौ श्यामतानादिश्चानित्या च, एवं क्लेशसन्ततिरपि । सतः खलु धर्मो नित्यत्वमनित्यत्वं चेति नित्यानित्यत्वेऽवधारयद्भिरुक्तम् । तत्त्वभावे भाक्तमिति । का पुनरिह भक्तिः ? नित्यमकारणम्, अकारणश्च प्रागभावः । अनित्यं भूत्वा न भवति, न च प्रागभावो भावे सति भवतीत्येतत् सामान्यम् । यत् पुनरेतदनादिरणुश्यामतेति, हेत्वभावादयुक्तम् । अनुत्पत्तिधर्मकमनित्यमिति नात्र हेतुरस्तीति ॥६७॥</div>
+  <div class="tr">（反論）「（解脱は）ない。煩悩の連続は本性的なものだからである」。<br>煩悩の連続が断たれることは成り立たない。なぜか。煩悩の連続は本性的なものだからである。この煩悩の連続は始まりがなく、本性によってはたらいている。そしてそれを断つことはできない。<br>（ある答え）「生起以前の非存在が無常であるように、本性的なものにも無常性がある」。<br>これについて、ある人々は（次のような）答えを説明する。「生起以前の……」。生起以前の非存在には始まりがないが、それでも（ものが）存在することによって滅する。それと同じく、始まりのない煩悩の連続も、真実を知る人の真実の知によって滅するであろう、と。<br>（ある答え）「あるいは、原子の黒さが無常であるように」。<br>原子の黒さには始まりがないが、しかも無常である。それと同じく、煩悩の連続もそうである、と。（しかし）常住性と無常性とは存在するものの性質である、と、常住と無常を確定したときに述べた。だから、非存在について（言うの）は比喩的である。では、ここでの比喩（の根拠となる共通点）は何か。常住とは原因のないことであり、生起以前の非存在も原因がない。無常とは、あって、（後に）なくなることであり、生起以前の非存在も、もの（結果）があるときにはない。これが共通点である。また、「原子の黒さには始まりがない」ということについては、理由がないので正しくない。生じない性質をもつのに無常である、ということには理由がないからである。</div><div class="exp"><span class="lbl">解説</span><p>反論者（4.1.65）は、煩悩には始まりがなく、本性的なものなので、断ち切ることはできない、と言います。スートラ 4.1.66–67 は、始まりのないものも終わることがある例として、生起以前の非存在（壺が作られる前の壺の非存在は、始まりはないが壺ができると終わる）と、原子の黒さ（焼かれると赤くなる）を挙げます。</p><p>Uddyotakara は、これらを「ある人々」の答えとして紹介したうえで、どちらも十分ではない、と言います。常住・無常は本来存在するものの性質なので、非存在に当てはめるのは比喩にすぎない。原子の黒さに始まりがないというのも、理由がない（第41プラカラナで、黒さは焼成によるものと推理された）。本当の答えは次のスートラにある、というのです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「स्वाभाविकात्वात्」は「स्वाभाविकत्वात्」、「नित्यानित्यत्वे अवधारयद्विरुक्तम्」は「…अवधारयद्भिरुक्तम्」、「तत्तु अभावे भाक्तमिति」は「तत्त्वभावे भाक्तमिति」（非存在については比喩的）、「हेत्वाभावाद्युक्तम्」は「हेत्वभावादयुक्तम्」と読みました。スートラ番号は OCR テキストで「४।१।१६५」などと崩れています。</p></div>
+</div>
+<div class="mula sutra" id="u7">
+  <span class="ref">pp.468–469 · NS 4.1.68</span>
+  <div class="src deva" lang="sa">न सङ्कल्पनिमित्तत्वाच्च रागादीनाम् ॥४।१।६८॥<br>अयं च समाधिः — न……नाम् । कर्मनिमित्तत्वादितरेतरनिमित्तत्वाच्चेति चार्थः । अनुभूतविषयप्रार्थना सङ्कल्प इत्युक्तम् । मिथ्यासङ्कल्पेभ्यो रञ्जनीयकोपनीयमोहनीयेभ्यो रागादयः प्रादुर्भवन्ति । कर्म च निकायनिर्वर्तकं सङ्कल्पापेक्षं रागादीञ्जनयति । दृष्टो हि कश्चित् सत्त्वनिकायो रागबहुलो यथा पारावतादिः, कश्चित् क्रोधबहुलो यथा सर्पादिः, कश्चिन्मोहबहुलो यथाजगरादिः । …… परस्परनिमित्तत्वं च रागादीनां दृष्टम् — रक्तो मुह्यति, रक्तः कुप्यति, कुपितो मुह्यति रज्यते च, मूढः कुप्यति रज्यते चेति । यदपीदमुच्यतेऽनादिः क्लेशसन्ततिरिति, तन्न, अविशेषात् । यथानादिः क्लेशसन्ततिः, एवमाध्यात्मिका भावाः सर्वेऽनादिना प्रबन्धेन प्रवर्तन्ते । …… अनुत्पन्नपूर्वं तु तत्त्वज्ञानं केवलमुत्पद्यते, नान्यः कश्चिदाध्यात्मिको भाव इति ॥६८॥<br>॥ अपवर्गपरीक्षाप्रकरणम् ॥<br>॥ इति औद्योतकरे न्यायवार्त्तिके चतुर्थाध्यायस्य प्रथमाह्निकम् ॥</div>
+  <div class="tr">（答え）（煩悩は本性的では）ない。貪りなどは思い描きを原因とするからでもある。<br>そして、これが（本当の）答えである。「（本性的では）ない……」。（「でもある」の「も」によって）業を原因とするからでもあり、互いを原因とするからでもある、という意味である。思い描き（<i>saṅkalpa</i>）とは、経験した対象を求めることだ、と（すでに）言った。執着させる、怒らせる、迷わせる誤った思い描きから、貪りなどが生じる。また、（生き物の）種類を作り出す業は、思い描きに依存して貪りなどを生む。たとえば、ある種類の生き物は貪りが多い。鳩などのように。ある種類は怒りが多い。蛇などのように。ある種類は迷いが多い。大蛇などのように。……また、貪りなどが互いに原因となることも見られる。執着した者が迷い、執着した者が怒り、怒った者が迷い、執着する。迷った者が怒り、執着する。また、「煩悩の連続には始まりがない」と言われたことについては、正しくない。（ほかのものと）違いがないからである。煩悩の連続に始まりがないように、内面のものはすべて、始まりのない連続によってはたらいている。……ただ真実の知だけが、それまで一度も生じたことのないものとして生じるのであり、ほかのどんな内面のものもそうではない。<br>以上、解脱の考察の章。<br>以上、ウッディヨータカラの『ニヤーヤ・ヴァールッティカ』第四篇第一日課。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 4.1.68 が本当の答えです。煩悩は本性的なものではなく、原因から生じる。貪り・怒り・迷いは、経験した対象を求める誤った思い描きから生じ、業や、煩悩どうしの因果によっても生じる。鳩は愛欲が強く、蛇は怒りっぽく、大蛇はぼんやりしている、というように、生まれによって煩悩の傾向が違うのも、業によるのです。原因から生じるものは、原因を取り除けばなくなります。</p><p>「始まりがないから断てない」という反論について、Uddyotakara は、心の中のものはすべて始まりのない連続の中にあるので、それは煩悩に特有のことではない、と答えます。そして、輪廻の中でまだ一度も生じたことのない唯一の心のはたらきが真実の知であり、それが生じることで、誤った思い描き、煩悩、行為、再生、苦の連鎖が断たれる、と結びます。こうして、十二の認識対象の考察を終えた第四篇第一日課が閉じられます。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「रको मुह्यति」は「रक्तो मुह्यति」、「मोहनीय्येभ्यो」は「मोहनीयेभ्यो」と読みました。省略箇所では、業が貪りなどの原因なら解脱がなくなるのではないか、という反論に、業は思い描きなどに依存して貪りを生むが、楽などは思い描きに依存せずに生む、と答える一節があります。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>apavarga</dt><dd>解脱</dd>
+    <dt>ṛṇa</dt><dd>負債（聖仙・神々・祖霊への三つの負債）</dd>
+    <dt>anubandha</dt><dd>つきまとうこと</dd>
+    <dt>kleśa</dt><dd>煩悩（貪り・嫌悪・迷い）</dd>
+    <dt>pratisandhāna / pratisandhi</dt><dd>（次の生への）結びつき、再生</dd>
+    <dt>saṅkalpa</dt><dd>思い描き。経験した対象を求めること</dd>
+    <dt>samāropaṇa</dt><dd>（祭火を自分自身に）移すこと</dd>
+    <dt>tattvajñāna</dt><dd>真実の知</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直し、長い箇所は抜粋した（「……」は省略箇所）。頁番号は Thakur 版、写本略号は Thakur 版の脚注による。</p>
+  <p>和訳は試訳であり、解説は本文にもとづく訳者の説明である。第四篇については Śrīnivāsa Śāstrī のヒンディー訳注の翻刻が提供されていないので、参照していない。このページが扱うのは第55プラカラナ（スートラ 4.1.59–68）である。第54プラカラナ（スートラ 4.1.55–58）は<a href="nyayavarttika-54-taiyaku.html">第54プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
