@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 38</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-37-taiyaku.html">← プラカラナ37</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>知はすぐに滅する</a></li><li><a href="#s2"><b>2</b>稲妻と灯火</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第38プラカラナ「知は生じてすぐに滅することの章」（スートラ 3.2.42–45、Thakur 版 pp.406–408）</span>
+  <p>知は無常で、我の性質です。では、知はどのくらい続くのか。音のように生じてすぐ滅するのか、壺のようにしばらく存続するのか。スートラは、知は動いているもの（運動）を捉えることができるので、すぐに滅する、と答えます（3.2.42）。</p>
+  <p>Uddyotakara は「生じてすぐに滅する」を、生じた直後に壊れるという意味ではなく、ほかの無常なものより速く滅するという意味だと限定し、いくつかの推論を加えます。反論者は、知がすぐに滅するなら、稲妻に照らされた物のようにぼんやりとしか捉えられないはずだと言いますが、スートラは、その論証因自体が知の非存続を認めている、と切り返し、灯火の炎が次々に入れ替わってもはっきり見えるように、知が次々に生じても対象ははっきり捉えられる、と結びます。前の章で刹那滅を退けた Uddyotakara が、最後に「知は刹那的である」と言うのも、この限定のもとでのことです。</p>
+  <p>この章は短いので、原文はほぼ全文を載せました（「……」は省略箇所）。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>知は生じてすぐに滅することの章<br><small><i>buddher utpannāpavargitvaprakaraṇa</i>。スートラ 3.2.42–45 の注釈。Thakur 版 pp.406–408</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.2.42–45<br><small>運動を捉えること、稲妻のたとえ、論証因が相手の主張を認めること、灯火のたとえ</small></dd></div>
+    <div><dt>論敵</dt><dd>知はしばらく存続するとする者<br><small>ヒンディー訳は、スートラ 3.2.43 を論難（<i>ākṣepa</i>）とするが、論者の学派は特定しない</small></dd></div>
+    <div><dt>見どころ</dt><dd>「すぐに滅する」の限定<br><small>§1。生じた直後に壊れるのではなく、ほかの無常なものより速く滅する</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.1108–1117</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.407</span> は Thakur 版の頁。節見出しの <span class="pg">p.406</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。この章はほぼ全文を載せた</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁。翻刻に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.2.42–45 の注釈を、テキストの順に2節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">知はすぐに滅する</a></td><td class="num">pp.406–407</td><td>スートラ 3.2.42。「生じてすぐに滅する」の意味。推論。存続する物を捉える場合。記憶は存続の証拠ではない</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">稲妻と灯火</a></td><td class="num">pp.407–408</td><td>スートラ 3.2.43–45。ぼんやりした把握という反論。論証因の自己矛盾。灯火の炎のたとえ</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>知はすぐに滅する</h2><span class="sub"><span class="pg">pp.406–407</span>スートラ 3.2.42。「生じてすぐに滅する」の意味。推論。存続する物を捉える場合。記憶は存続の証拠ではない</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.406 · NS 3.2.42</span>
+  <div class="src deva" lang="sa">कर्मानवस्थायिग्रहणात् ॥३।२।४२॥<br>अनित्यायां च बुद्धावुत्पन्नापवर्गित्वात् कालान्तरावस्थायित्वाच्चानित्यानां संशयः — किमुत्पन्नापवर्गिणी बुद्धिः शब्दवदाहो कालान्तरावस्थायिनी कुम्भवदिति । उत्पन्नापवर्गिणीति युक्तम् । कः पुनरयमर्थ उत्पन्नापवर्गिणीति ? अन्येभ्यो विनाशिभ्य आशुतरं विनश्यतीति । न त्वयमर्थ उत्पत्त्यनन्तरं ध्वंसत इति । कः पुनरत्र न्यायः ? आशुतरविनाशिनी बुद्धिः, जातिमत्त्वे सत्यस्मदादिप्रत्यक्षाया व्यापकद्रव्यसमवायात्, शब्दवत् । प्रतिक्षणमपूर्वोत्पत्तावयुगपदुत्पत्तौ च करणत्वे सति प्रत्यर्थप्रकाशकत्वात् । यस्य प्रतिक्षणमपूर्वोत्पन्नपदार्थप्रकाशकत्वं करणत्वे सति तस्याशुविनाशित्वं दृष्टं, यथा प्रदीपस्य । प्रतिक्षणमपूर्वोत्पन्नाश्च प्रध्वंसिनः पदार्थान् बुद्धिः प्रत्यर्थनियमेन प्रकाशयति । तस्मादियमप्याशुतरविनाशिनीति । अथ वा आशुतरविनाशिनी बुद्धिः, गुणत्वे सत्यबाह्यकरणप्रत्यक्षत्वात्, सुखादिवदिति । अस्यार्थस्य ज्ञापनार्थम् — कर्मानवस्थायिग्रहणात् — इति सूत्रम् ।</div>
+  <div class="tr">（知は生じてすぐに滅する。）存続しないものである運動を捉えるからである。<br>知は無常であるが、無常なものには、生じてすぐに滅するものと、しばらく存続するものとがあるので、疑いがある。知は音のように生じてすぐに滅するのか、それとも壺のようにしばらく存続するのか、と。「生じてすぐに滅する」が正しい。では、「生じてすぐに滅する」とはどういう意味か。ほかの滅するものよりも速く滅する、ということである。生じた直後に壊れる、という意味ではない。では、ここでの論証は何か。「知は（ほかのものより）速く滅する。普遍をもち、われわれのような者に知覚されるものでありながら、遍在する実体に内属するから。音のように」。（また）「道具であって、刹那ごとに新しく生じ、同時には生じない（対象）について、一つひとつの対象を照らし出すから」。道具であって、刹那ごとに新しく生じるものを照らし出すものは、速く滅することが見られる。灯火のように。そして知は、刹那ごとに新しく生じては滅するものを、一つひとつの対象ごとに照らし出す。だから、これもまた速く滅する。あるいは、「知は速く滅する。性質でありながら、外的でない道具（内官）によって知覚されるから。楽などのように」。この意味を知らせるために、「存続しないものである運動を捉えるからである」というスートラがある。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.42 の論拠は、知が運動を捉えることです。運動は一瞬ごとに場所を変えるので、それを捉える知も、運動の一コマごとに生じては消えていなければならない、というわけです（論拠の説明は訳者の補足）。</p><p>Uddyotakara は、まず「生じてすぐに滅する」（<i>utpannāpavargin</i>）の意味を限定します。前の章で刹那滅を退けた以上、「生じた次の刹那に壊れる」とは言えません。そうではなく、壺などほかの無常なものよりずっと速く滅する、という意味だ、というのです。そのうえで、音・灯火・楽を実例とする三つの推論を加えます。知は音と同じく、遍在する実体（我。音の場合は虚空）に内属する知覚可能な性質であり、灯火と同じく、次々に変わる対象を一つずつ照らし出す道具であり、楽と同じく、内官によって知覚される性質だ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は「四、知の生起と消滅」という見出しを立て、スートラ 3.2.42 を、バーシュヤの「なぜか」に答える定説の側のスートラとします。注は、「生じてすぐに滅すること」を「速く滅すること」と言い換え、推論の限定語の一つひとつの意味を TṬ（p.576）に譲ります。ただしヒンディー訳の訳文は、最初の推論の「普遍をもち、われわれに知覚される」という限定を訳し落とし、「生じた直後に壊れるという意味ではない」の否定も落として「生じた後に滅する」と訳しています。灯火の推論は、バーシュヤの「一つひとつの対象に決まっているから」の説明で、対象（運動）は刹那ごとに新たに生じ、結果は原因の順序に従う、と TṬ（p.577）を引きます。「あるいは」以下は別の論証式だとされます（TṬ p.578）（Hi. pp.1108–1109）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「कालान्तरावस्थायित्वाच्च नित्यानां」は、文脈に従って「…च्चानित्यानां」（無常なものには）と読みました。写本 C は最初の推論を「प्रत्यक्षत्वे सति व्यापकद्रव्याश्रितत्वात्」と読みます。ヒンディー訳の翻刻には「अयुगपदुत्पत्तौ」を加える異読と、「प्रतिक्षणमुत्पन्नान्」という異読が記されます。</p></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">pp.406–407 · NS 3.2.42</span>
+  <div class="src deva" lang="sa">यदि तर्ह्यनवस्थायिषु पदार्थेषु एवंभूता बुद्धिः, अथ यदा अवस्थितं कुम्भादिकमर्थमुपलभते, तदा किं कुम्भवत् कालान्तरावस्थायिनी उताशुध्वंसिनीति ? अवस्थितग्रहणेऽपि प्रत्यक्षनिवृत्तेः प्रध्वंसिनी । यदाप्यवस्थितं कुम्भादिकमर्थमुपलभते, तदापि सन्तानेनैव बुद्धयो वर्तन्ते । कस्मात् ? व्यवहिते प्रत्यक्षनिवृत्तेः । यदि कुम्भवत् कालान्तरावस्थायिनी बुद्धिरभविष्यत्, व्यवहितेऽपि प्रत्यक्षमवास्थास्यत । न त्ववतिष्ठते । तस्मान्न कालान्तरावस्थायिनी । स्मृतेरवतिष्ठत इति चेत् ? यदि बुद्धिः प्रध्वंसिनी स्यात्, स्मृतिर्न स्यात् । न हि बुद्धिभेदे स्मृतिं पश्यामः, यथा पुरुषान्तरबुद्धिषु । अस्ति च स्मृतिः, तस्मादवतिष्ठते बुद्धिरिति । न, अत एव । अत एव नावतिष्ठते । न हि बुद्धाववस्थितायां स्मृतिः संभवति । स्मृतिर्नाम प्रत्यक्षबुद्धिनिरोधे तत्पूर्वको विषयप्रतिसन्धिः, यथेदमद्राक्षमिति । अद्राक्षमिति च न प्रत्यक्षायां बुद्धाववस्थितायां युक्तमिति । अन्यतश्च तद्भावात् स्मृतिरलिङ्गमिति । येयं स्मृतिर्बुद्ध्यवस्थानलिङ्गत्वेनाभ्युपगम्यते, नेदं लिङ्गम्, अन्यतस्तद्भावात् । अवतिष्ठते हि बुद्धिजः संस्कार इति, ततः प्रणिधानादिनिमित्तापेक्षात् स्मृतिरिति । हेत्वभाव इति चेत् ? …… स्मृतिरेव । यद्यवतिष्ठते बुद्धिः, स्मृतिर्न स्यादित्युक्तम् ॥४२॥</div>
+  <div class="tr">（問い）「もし存続しないものについての知がそのようなもの（すぐに滅するもの）だとして、では、存続している壺などの対象を知覚するときには、（知は）壺のようにしばらく存続するのか、それとも速く滅するのか」。存続しているものを捉える場合でも、（遮られると）知覚がなくなるので、（知は）滅するものである。存続している壺などの対象を知覚するときでも、知は連続によってあり続けるのである。なぜか。遮られると知覚がなくなるからである。もし知が壺のようにしばらく存続するのなら、（対象が）遮られても知覚は存続するであろう。しかし存続しない。だから、しばらく存続するのではない。（反論）「記憶があるので、（知は）存続する」と言うなら。（つまり）「もし知が滅するものなら、記憶はないであろう。知が別々である場合には、記憶は見られないからである。別の人の知の場合のように。しかし記憶はある。だから知は存続する」と（言うなら）。そうではない。まさにそれ（記憶）ゆえに、（知は）存続しないのである。知が存続しているときには、記憶はありえない。記憶とは、知覚の知が消えたときに、それに先立たれて対象を結びつけることである。「これを私は見た」のように。そして「私は見た」ということは、知覚の知が存続しているときには成り立たない。また、それ（記憶）は別のものから生じるので、記憶は（知の存続の）目印ではない。知が存続していることの目印として認められているこの記憶は、目印ではない。別のものから生じるからである。存続するのは、知から生じた潜在印象である。そして、注意などの原因に依存するそれ（潜在印象）から、記憶が生じるのである。（反論）「（それには）理由がない」と言うなら。……記憶そのものが（理由である）。知が存続するなら記憶はないであろう、と（すでに）言った。</div><div class="exp"><span class="lbl">解説</span><p>動かない壺を見続けているときはどうか。そのときも知は一つが続いているのではなく、次々に生じる知の連続だ、と Uddyotakara は答えます。証拠に、壺の前に何かが置かれると、すぐに知覚は消えてしまいます。</p><p>反論者は、記憶があることこそ知が存続している証拠だと言います。Uddyotakara は逆だと答えます。記憶とは、知覚の知が消えた後に「私は見た」と思い起こすことなので、知覚の知が残っていたら記憶は起こりようがない。存続するのは知そのものではなく、知が残した潜在印象で、記憶は、注意などの補助原因に助けられて、その潜在印象から生じるのです（前の章のスートラ 3.2.33、3.2.41）。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注によれば、TṬ（p.577）はこの箇所を「अनवस्थितग्रहणेऽपि…」と読みます。注は、触覚の知は接触が続くかぎり続くのではないか、という疑問を挙げ、「存続する対象についての知も刹那的である。知であるから。運動などについての知のように」という TṬ（p.577）の推論で答えます。記憶についての箇所は言い換えにとどまり、「理由がない」以下は、バーシュヤの「知が存続して知覚であるなら記憶はない」の説明だ、と注します（Hi. pp.1110–1112）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「स्मृतिलिङ्गमिति」は「स्मृतिरलिङ्गमिति」と読みました。写本 C は「एवंभूता」を「अनवस्था」、「न, अत एव」を「नात एवानवस्थानात्」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>稲妻と灯火</h2><span class="sub"><span class="pg">pp.407–408</span>スートラ 3.2.43–45。ぼんやりした把握という反論。論証因の自己矛盾。灯火の炎のたとえ</span></div>
+<div class="mula sutra" id="u3">
+  <span class="ref">pp.407–408 · NS 3.2.43–44</span>
+  <div class="src deva" lang="sa">अव्यक्तग्रहणमनवस्थायित्वाद्विद्युत्सम्पाते रूपाव्यक्तग्रहणवत् ॥३।२।४३॥<br>यद्यनवस्थायिनी बुद्धिः, अव्यक्तं व्यक्तस्य ग्रहणं प्राप्नोति, यथा विद्युता प्रकाशितानामर्थानामव्यक्तं ग्रहणमिति ॥४३॥<br>हेतूपादानात् प्रतिषेद्धव्याभ्यनुज्ञा ॥३।२।४४॥<br>न, विरोधात् । अव्यक्तग्रहणादनवस्थायिनी बुद्धिरिति ब्रुवाणो यत् प्रतिषेद्धव्यमनवस्थायिनी बुद्धिरिति तदभ्यनुजानाति । तस्य चाभ्यनुज्ञानाद् यदुक्तं कालान्तरावस्थायिनी बुद्धिरिति तद् बाधितं भवति । अव्यक्तग्रहणस्य चान्यनिमित्तत्वात् नाव्यक्तग्रहणाद् बुद्ध्यनवस्थानं सिध्यति । यत् तदव्यक्तं व्यक्तं च ग्रहणं न तद् बुद्धेरवस्थानानवस्थानाभ्याम्, अपि तु ग्रहणहेतोर्भेदादिति । तदसंभवाच्च । न चाव्यक्तं नाम ग्रहणमस्ति । कस्मात् ? अर्थग्रहणमात्रत्वाद् बुद्धेः । अर्थग्रहणमात्रं हि बुद्धिः । तच्चार्थग्रहणं सामान्यतो विशेषतश्च । यच्च सामान्यविषयं तत् सामान्यं प्रति व्यक्तम्, एवं विशेषविषयम्, एवं तद्वद्विषयमिति । …… लोकविरोध इति चेत् ? यदि तर्हि व्यक्ताव्यक्तग्रहणे न स्याताम्, योऽयं व्यवहारो लोकेषु व्यक्तं पश्यामीति स कथम् ? न, अन्यथा तदुपपत्तेः । …… धर्मिणः सामान्यतोऽधिगतस्य विशेषत उपलिप्साद्वारकमव्यक्तग्रहणमिति । अनेकान्ताच्च । ……॥४४॥</div>
+  <div class="tr">（反論）「（知が）存続しないなら、はっきりしない把握になってしまう。稲妻が光ったときに、色がはっきりしないで捉えられるように」。<br>もし知が存続しないなら、はっきりしたものの把握も、はっきりしないものになってしまう。稲妻によって照らされた物の把握がはっきりしないように。<br>（答え）論証因を取り上げることによって、否定すべきことを認めている。<br>（その反論は正しく）ない。自己矛盾するからである。「はっきりしない把握であるから、知は存続しない（ことになってしまう）」と言う者は、否定すべきこと、すなわち「知は存続しない」ということを認めている。そしてそれを認めることによって、「知はしばらく存続する」と言ったことが損なわれる。また、はっきりしない把握は別の原因によるので、はっきりしない把握から知が存続しないことは成り立たない。把握がはっきりしなかったり、はっきりしていたりするのは、知が存続するかしないかによるのではなく、把握の原因の違いによるのである。また、それはありえないからである。はっきりしない把握というものはない。なぜか。知とは対象を捉えることにほかならないからである。知とは対象を捉えることそのものである。そしてその対象の把握は、一般的なものとしても、特殊なものとしてもある。一般を対象とするものは、一般についてははっきりしている。特殊を対象とするものも同様であり、それら（一般と特殊）をもつものを対象とするものも同様である。……（反論）「世間（の言い方）と矛盾する」と言うなら。（つまり）「もしはっきりした把握とはっきりしない把握とがないなら、世間で『はっきり見る』と言っている言い方は、どうして（成り立つのか）」と（言うなら）。そうではない。それは別の仕方で成り立つからである。……一般的に知られた有法を、特殊において知ろうとすることを通して、「はっきりしない把握」（と言われる）のである。また、不確定だからである。……</div><div class="exp"><span class="lbl">解説</span><p>反論者（スートラ 3.2.43）は、稲妻のたとえを出します。稲妻が一瞬光っただけでは物の色はぼんやりとしか見えない。知が一瞬で消えるなら、すべての把握がそうなるはずだ、というのです。</p><p>スートラ 3.2.44 は、この反論が「知が存続しないなら」という条件を自分で持ち出しており、否定すべき主張を自ら認めている、と指摘します。Uddyotakara はさらに、把握がぼんやりするのは光が足りないなど把握の原因の違いによるのであって、知の持続時間とは関係がない、そもそも「はっきりしない把握」というものはなく、一般だけを捉える知は一般についてははっきりしている、と付け加えます。世間で「はっきり見えない」と言うのは、一般的には分かっているものを、特殊な点まで知りたいと思っている状態のことだ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.43 を論難とし、注はそれが次のスートラで答えられる疑問だとします。3.2.44 は定説の側の答えで、「हेतु के ग्रहण से प्रतिषेद्धव्य की स्वीकृति」と訳されます。注は、TṬ が「धर्मिग्रहणहेतोर्भेदात्」（有法を捉える原因の違いによって）と読むことを記し（TṬ p.578）、一般の把握は一般について、特殊の把握は特殊についてはっきりしているので、すべての把握ははっきりしている、と説明します（TṬ p.578）。「世間と矛盾する」は、有法を考慮しない者の疑問で、有法の把握によって退けられる、と TṬ（p.578）を引きます。「不確定だから」は TṬ では「अनैकान्तिकत्वाच्च」と読まれ、別の誤りを述べるもの（TṬ p.578）ですが、注者はこの TṬ の箇所は理解しがたいと記しています（Hi. pp.1112–1116）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「न विरोधात्」の箇所を「एतच्च न」、「विद्युता प्रकाशितानाम्」を「विद्युत्प्रकाशितानाम्」と読みます。ヒンディー訳の「न, विरोधात्」の段の訳は、相手を「知は存続すると言う者」とするなど論理が乱れています。</p></div>
+</div>
+<div class="mula sutra" id="u4">
+  <span class="ref">p.408 · NS 3.2.45</span>
+  <div class="src deva" lang="sa">न, प्रदीपार्चिःसन्तत्यभिव्यक्तग्रहणवत्तद्ग्रहणम् ॥३।२।४५॥<br>अनवस्थायित्वेऽपि यथा प्रदीपार्चिषां सन्तत्या वर्तमानानां ग्राह्यानवस्थानं ग्रहणानवस्थानं च भवति, भवति च व्यक्तं ग्रहणमर्चिष्विति, यथार्चिःषु तथान्यत्रापीति व्यवस्थितं क्षणिका बुद्धिरिति ॥४५॥<br>॥ बुद्धेरुत्पन्नापवर्गित्वप्रकरणम् ॥</div>
+  <div class="tr">（答え）（はっきりしない把握には）ならない。灯火の炎の連続をはっきり捉えるように、それ（対象）を捉えるからである。<br>（知が）存続しなくても、連続によってある灯火の炎については、捉えられるもの（炎）も存続せず、捉えること（知）も存続しないが、炎についてはっきりした把握がある。炎の場合と同じく、ほかの場合にもそうである。このように、知は刹那的である、ということが確定した。<br>以上、知は生じてすぐに滅することの章。</div><div class="exp"><span class="lbl">解説</span><p>灯火の炎は刻々と入れ替わり、それを見る知も刻々と入れ替わりますが、私たちは炎をはっきり見ています。だから知が存続しないことは、はっきりした把握と矛盾しない、とスートラ 3.2.45 は結びます。</p><p>Vārttika の最後の「知は刹那的である」（<i>kṣaṇikā buddhiḥ</i>）は、前の章で刹那滅論者の「刹那的」を退けた後だけに目を引きます。ここでの「刹那的」は、§1 で限定されたとおり、ほかの無常なものより速く滅する、という意味で使われていると見るべきでしょう（訳者の補足）。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、このスートラを「नहीं, प्रदीप की किरण सन्तति के…」と「न」をつけて読み、バーシュヤの「このはっきりしない把握は、知や知られるものが存続しないことから生じるのではない」に導かれる定説のスートラとします。注は、Viśvanātha の注釈は「न」なしで読む、と記します。最後の「知は刹那的である」について、ニヤーヤの刹那性は仏教のそれとは違い、ニヤーヤの刹那的なものは少なくとも三刹那（生じ、はたらき、滅する）存続するが、仏教では「生じたことと滅したこととは同じ時」とされる、と注します（Hi. p.1117）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版とヒンディー訳はスートラ 3.2.45 を「न」で始めますが、Viśvanātha の注釈と一部の刊本は「न」を欠きます。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>utpannāpavargin</dt><dd>生じてすぐに滅する（ほかの無常なものより速く滅する）</dd>
+    <dt>kālāntarāvasthāyin</dt><dd>しばらく（別の時まで）存続する</dd>
+    <dt>santāna</dt><dd>連続。次々に生じる知の流れ</dd>
+    <dt>vyakta / avyakta grahaṇa</dt><dd>はっきりした把握／はっきりしない把握</dd>
+    <dt>saṃskāra</dt><dd>潜在印象。知から生じて存続し、記憶の原因となる</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直した。この章はほぼ全文を載せた（「……」は省略箇所）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号は Thakur 版とヒンディー訳で一致する。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。ヒンディー訳は、利用者から提供された OCR 転写によって参照した。転写は解説のためにだけ用い、サンスクリット本文の校訂には用いていない。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第38プラカラナ（スートラ 3.2.42–45）である。第37プラカラナ（スートラ 3.2.18–41）は<a href="nyayavarttika-37-taiyaku.html">第37プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
