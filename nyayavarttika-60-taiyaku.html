@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 60</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-59-taiyaku.html">← プラカラナ59</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>特別な精神集中の修習</a></li><li><a href="#s2"><b>2</b>対象の強さと前世の果報</a></li><li><a href="#s3"><b>3</b>修習の場所と解脱</a></li><li><a href="#s4"><b>4</b>ヤマ・ニヤマと学問</a></li>
+    <li><a href="#terms">用語集</a></li>
+    <li><a href="nyayavarttika-61-taiyaku.html">プラカラナ61 →</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第60プラカラナ「真実の知を育てる章」（スートラ 4.2.38–49、Thakur 版 pp.493–496）</span>
+  <p>真実の知はどのようにして生じるのか。スートラ 4.2.38 は、特別な精神集中（<i>samādhi</i>）を繰り返し修めることによる、と答えます。これに対して、対象が強ければ、知ろうとしなくても雷鳴などの知が生じてしまうし、飢えや渇きも心を引きずる、という反論があります（4.2.39–40）。</p>
+  <p>答えは、前世で修めた精神集中の果報（法）によって、今の精神集中が生じ、外の対象を圧倒する、というものです（4.2.41）。続いて、森や洞窟や川辺でのヨーガの修習、ヤマとニヤマによる自己の浄化、学問の修得、同じ道を学ぶ人々との対話が勧められます（4.2.42–49）。Uddyotakara の注釈は短く、冒頭で内官（意）と自己のはたらきについての細かな問題を論じるほかは、ほとんどバーシュヤに委ねています。</p>
+  <p>この章は短いので、原文はほぼ全文を載せました。第四篇については、ヒンディー語訳注の翻刻がまだ提供されていないので、解説は本文にもとづく訳者の説明です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>真実の知を育てる章<br><small><i>tattvajñānavivṛddhiprakaraṇa</i>。スートラ 4.2.38–49 の注釈。Thakur 版 pp.493–496</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>4.2.38–49<br><small>精神集中の修習、対象の強さと飢え渇きによる反論、前世の果報、ヨーガの場所、解脱における知の不生起、ヤマ・ニヤマ、学問と対話</small></dd></div>
+    <div><dt>論敵</dt><dd>精神集中の修習は成り立たないとする者<br><small>本文は学派を示さない</small></dd></div>
+    <div><dt>見どころ</dt><dd>手を動かしながら見ること<br><small>§1。原子大の意で、なぜ二つのはたらきが同時に起こるのか</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>未参照<br><small>提供された Śrīnivāsa Śāstrī 訳注の翻刻は第三篇の終わりまでで、この章を含まない</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の頁番号は Thakur 版の頁。節見出しの頁はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。長い箇所は「……」で省略した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。本文にもとづく訳者の説明</div>
+    <div><b>解釈の分かれる箇所</b>異読や、読みの定まらない箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 4.2.38–49 の注釈を、テキストの順に4節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">特別な精神集中の修習</a></td><td class="num">p.493</td><td>スートラ 4.2.38。内官の引き戻し。手を動かしながら見ることはどうして同時か</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">対象の強さと前世の果報</a></td><td class="num">pp.493–494</td><td>スートラ 4.2.39–41。雷鳴の知。飢えと渇き。前世で修めた精神集中の果報</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">修習の場所と解脱</a></td><td class="num">pp.494–495</td><td>スートラ 4.2.42–45。森・洞窟・川辺。解脱でも知が生じないか。身体がなければ知は生じない</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">ヤマ・ニヤマと学問</a></td><td class="num">pp.495–496</td><td>スートラ 4.2.46–49。自己の浄化。学問の修得と対話。相手がいなくても</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>特別な精神集中の修習</h2><span class="sub"><span class="pg">p.493</span>スートラ 4.2.38。内官の引き戻し。手を動かしながら見ることはどうして同時か</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.493 · NS 4.2.38</span>
+  <div class="src deva" lang="sa">समाधिविशेषाभ्यासात् ॥४।२।३८॥<br>दोषनिमित्तानां तत्त्वज्ञानादहङ्कारनिवृत्तिरित्युक्तम् । अथ तत्त्वज्ञानं कथमुत्पद्यत इति ? समा……सात् । शेषं भाष्ये । व्यापकत्वादन्तःकरणस्य प्रत्याहारो न युक्त इति चेत् ? अथ मन्यसे व्यापकमन्तःकरणं तत्कथं प्रत्याह्रियत इति ? न, उक्तोत्तरत्वात् । यथा न व्यापकमन्तःकरणं तथोक्तमधस्तात् । अणुत्वात् स्वाङ्गगतीक्षणानुपपत्तिरिति चेत् ? अथ मन्यसे यस्याप्यन्तःकरणमणु तस्यापि स्वाङ्गगतीक्षणे न प्राप्नुतः, युगपद् हस्ते चक्षुषि चासन्निधानात् ? न, शरीरात्ममनःसंबन्धयौगपद्यात् प्रयत्नदर्शनयोर्युगपदुत्पत्तेः । आत्मशरीरसंबन्धश्चात्ममनःसंबन्धश्च युगपद् भवत इति । तत्रात्ममनःशरीरसंबन्धात् स्वाङ्गगतिः, आत्ममनःसंबन्धाच्चक्षुषः प्रेरणम् । तत्र स्वाङ्गगतिः प्रयत्नाद् भवतीति, दर्शनं चक्षूरश्मेरर्थस्य च सन्निधानादिति । न चात्मनः प्रदेशाः सन्तीत्यचोद्यम् । प्रदेशवति चात्मनि अन्येनात्मप्रदेशेन मनः संबध्यते, अन्येन शरीरमिति स्वाङ्गगतीक्षणादिदोषः । यस्य पुनर्निष्प्रदेश एवात्मा तस्यैष दोषो न भवतीति ……॥३८॥</div>
+  <div class="tr">特別な精神集中を繰り返し修めることによって（真実の知が生じる）。<br>「過失の原因となるものについての真実の知から、自我意識がなくなる」と（スートラ 4.2.1 で）述べた。では、真実の知はどのようにして生じるのか。「特別な……」。残りはバーシュヤにある。（反論）「内官は遍在するので、（対象からの）引き戻しは正しくない」と言うなら。つまり、内官は遍在するのに、それをどうして引き戻せるのか、と考えるなら。（答え）そうではない。すでに答えたからである。内官が遍在しないことは、前に述べた。（反論）「（内官は）原子大なので、自分の手足を動かすことと見ることとが（同時には）成り立たない」と言うなら。つまり、内官が原子大であるとする人にとっても、自分の手足を動かすことと見ることとは（同時には）成り立たない。（内官は）手と眼とに同時に近くにあることはないからだ、と考えるなら。（答え）そうではない。身体と自己と意との結びつきが同時なので、努力と見ることとが同時に生じるからである。自己と身体との結びつきと、自己と意との結びつきとは、同時にある。そこで、自己と意と身体との結びつきから、自分の手足が動き、自己と意との結びつきから、眼が（対象に）向けられる。そこで、手足が動くのは努力によるのであり、見ることは眼の光線と対象とが近くにあることによる。また、「自己には部分がない（のに、どうしてそうなるのか）」というのは、問題にならない。自己に部分があるとすると、自己の或る部分と意が結びつき、別の部分と身体が結びつくので、手足を動かすことと見ることなどに過失が生じる。しかし、自己に部分がないとする人には、この過失はない。……</div><div class="exp"><span class="lbl">解説</span><p>精神集中とは、内官（意）を対象から引き戻して一点に集めることです。内官が遍在するなら引き戻せないではないか、という反論には、内官が原子大で遍在しないことはすでに論じた（スートラ 3.2.56–59、<a href="nyayavarttika-40-taiyaku.html">第40プラカラナ</a>）、と答えます。</p><p>では、原子大の意が一度に一か所にしかないなら、手を動かしながら物を見ることがどうしてできるのか。Uddyotakara は、手を動かすのは自己・意・身体の結びつきから生じる努力により、見るのは眼の光線と対象が近くにあることによるので、意が手と眼に同時にある必要はない、と答えます。自己には部分がないので、意と結びつく自己と身体に結びつく自己が別々になることもありません。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「कथम्युत्पद्यत」「व्यापकन्तःकरणं」「प्रत्याहियत」「सान्निधानात्」は、それぞれ「कथमुत्पद्यत」「व्यापकमन्तःकरणं」「प्रत्याह्रियत」「सन्निधानात्」と読みました。写本 C は「स्वाङ्गगतीक्षणं न प्राप्नोति」と読み、末尾の省略箇所を「…तीति शरीरसंबन्धेनात्मनः संबन्ध इति」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>対象の強さと前世の果報</h2><span class="sub"><span class="pg">pp.493–494</span>スートラ 4.2.39–41。雷鳴の知。飢えと渇き。前世で修めた精神集中の果報</span></div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.493–494 · NS 4.2.39–41</span>
+  <div class="src deva" lang="sa">नार्थविशेषप्राबल्यात् ॥४।२।३९॥<br>नोपपद्यते समाधिविशेषाभ्यासः, अबुभुत्समानस्यापि बुद्ध्युत्पत्तेः, यथा स्तनयित्नोः शब्दप्रभृतिषु इति ॥३९॥<br>क्षुदादिभिः प्रवर्तनाच्च ॥४।२।४०॥<br>क्षुत्पिपासाभ्यां चानिच्छतोऽपि बुद्धय उत्पद्यन्त इति न युक्तः समाधिविशेषः ॥४०॥<br>पूर्वकृतफलानुबन्धात् तदुत्पत्तिः ॥४।२।४१॥<br>पूर्वकृतः पूर्वशरीराभ्यस्तः समाधिविशेषः, तस्य फलं धर्मः । तत्कृतः पुनः समाधिविशेष इति । समाधिविशेषाच्च बाह्यविषयाभिभवः । लौकिकस्यापि तावत् समाधिविशेषावस्थितस्य बाह्यविषयोपनिपातेन बुद्धयो नोत्पद्यन्ते । किमङ्ग पुनर्योगिन इति ॥४१॥</div>
+  <div class="tr">（反論）「（精神集中は成り立た）ない。特定の対象が強いからである」。<br>特別な精神集中の修習は成り立たない。知ろうとしない人にも、知が生じるからである。雷の音などについて（知が生じる）ように、と。<br>（反論）「また、飢えなどによって（心が）向けられるからである」。<br>また、望まない人にも、飢えと渇きによって知が生じるので、特別な精神集中は正しくない、と。<br>（答え）前に行ったことの果報がつきまとうので、それが生じる。<br>前に行ったこととは、前の身体で修めた特別な精神集中であり、その果報が法である。それによって、ふたたび特別な精神集中が生じる。そして、特別な精神集中によって、外の対象が圧倒される。世間の人でさえ、特別な精神集中にとどまっているときには、外の対象がやって来ても、知は生じない。まして、ヨーガ行者はなおさらである。</div><div class="exp"><span class="lbl">解説</span><p>精神集中しようとしても、雷鳴のような強い音は勝手に聞こえてくるし、飢えや渇きも心を引きずる。だから精神集中の修習は成り立たない、と反論者は言います（4.2.39–40）。</p><p>スートラ 4.2.41 は、前世で修めた精神集中の果報（法）によって今の精神集中が生じ、それが外の対象を圧倒する、と答えます。何かに没頭している普通の人でさえ、周りの物音に気づかないことがある。ヨーガ行者ならなおさらだ、と Uddyotakara は言います。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「क्षुतिपासाभ्यां」は「क्षुत्पिपासाभ्यां」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>修習の場所と解脱</h2><span class="sub"><span class="pg">pp.494–495</span>スートラ 4.2.42–45。森・洞窟・川辺。解脱でも知が生じないか。身体がなければ知は生じない</span></div>
+<div class="mula sutra" id="u3">
+  <span class="ref">pp.494–495 · NS 4.2.42–45</span>
+  <div class="src deva" lang="sa">अरण्यगुहापुलिनादिषु योगाभ्यासोपदेशः ॥४।२।४२॥<br>अर……देशः ॥४२॥<br>अपवर्गेऽप्येवं प्रसङ्गः ॥४।२।४३॥<br>यदि बाह्यविषयोपनिपाताद् विज्ञानानि प्रादुर्भवन्ति — अप……सङ्गः । मुक्तस्याप्यपवर्गे बाह्यविषयविशेषोपनिपातो विद्यत इति बुद्ध्युत्पादप्रसङ्गः ॥४३॥<br>न, निष्पन्नावश्यम्भावित्वात् ॥४।२।४४॥<br>सति शरीरे बाह्यविषयो ज्ञानोत्पत्तिकारणम्, नान्यथेति सूत्रार्थः ॥४४॥<br>तदभावश्चापवर्गे ॥४।२।४५॥<br>तस्य शरीरादेरुपलब्धिकारणस्याभावोऽपवर्ग इति । तस्मात् सर्वदुःखमोक्षोऽपवर्गः । यस्मात् सर्वं दुःखबीजं दुःखं चापवर्गे विच्छिद्यते, तस्मात् सर्वेण दुःखेन विमुक्तिरपवर्गः ॥४५॥</div>
+  <div class="tr">森、洞窟、川の砂州などでヨーガを修習することが教えられている。<br>「森……」。<br>（反論）「解脱においても、同じことになってしまう」。<br>もし外の対象がやって来ることによって知が現れるのなら、「解脱において……」。解脱した人にも、解脱において特定の外の対象がやって来ることはあるので、知が生じることになってしまう、と。<br>（答え）そうではない。（身体などが）できあがっているときに、必ず（知が）生じるからである。<br>身体があるとき、外の対象が知の生起の原因となるのであって、そうでなければ（原因と）ならない、というのがスートラの意味である。<br>（答え）また、解脱においては、それがない。<br>知覚の原因である身体などがないことが解脱である。だから、解脱とは、すべての苦からの解放である。解脱においては、苦のすべての種と苦とが断たれるので、すべての苦から解き放たれることが解脱である。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 4.2.42 は、外の対象に乱されないように、森や洞窟や川の砂州などの人里離れた場所でヨーガを修めるよう教えます（Vārttika はスートラを挙げるだけで注釈しない）。</p><p>外の対象が来れば知が生じるなら、解脱した人にも対象は来るので知が生じ、楽や苦も生じてしまうのではないか（4.2.43）。スートラ 4.2.44–45 は、知が生じるのは身体があるときだけで、解脱では身体などがないので知は生じない、と答えます。苦の種である身体などがすべて断たれることが、すべての苦からの解放としての解脱なのです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「बाह्यविषयोपनिपाते अर्थज्ञानानि」と読みます。写本 J は「बाह्यविषयविशेषोपनिपातो」を「विषयोपन०」と読みます。写本 C の異読は「सर्वदुःखमोक्षो」を「सुखदुःखमोक्षो」と読みます。スートラ 4.2.44 は、OCR テキストでは「…निष्पन्नावाश्यम्भावित्वात्」と崩れています。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>ヤマ・ニヤマと学問</h2><span class="sub"><span class="pg">pp.495–496</span>スートラ 4.2.46–49。自己の浄化。学問の修得と対話。相手がいなくても</span></div>
+<div class="mula sutra" id="u4">
+  <span class="ref">pp.495–496 · NS 4.2.46–49</span>
+  <div class="src deva" lang="sa">तदर्थं यमनियमाभ्यामात्मसंस्कारो योगाच्चाध्यात्मविध्युपायैः ॥४।२।४६॥<br>तस्यापवर्गस्याधिगमाय यमनियमाभ्यामात्मसंस्कारः ॥४६॥<br>ज्ञानग्रहणाभ्यासस्तद्विद्यैश्च सह संवादः ॥४।२।४७॥<br>ज्ञानग्रहणं शास्त्रग्रहणमिति, य एतमुपायं बुध्यन्त इति तद्विद्याः । तद्विद्यैरित्यविभक्त्यर्थं वचनम् ॥४७॥<br>तं शिष्यगुरुसब्रह्मचारिविशिष्टश्रेयोऽर्थिभिरनसूयिभिरभ्युपेयात् ॥४।२।४८॥<br>तं शिष्यगुरुसब्रह्मचारीत्येवमादि सूत्रम् । एतत् तु निगदेनैव नीतार्थम् ॥४८॥<br>प्रतिपक्षहीनमपि वा प्रयोजनार्थमर्थित्वे ॥४।२।४९॥<br>तमभ्युपेयादिति वर्तते ॥४९॥<br>॥ इति तत्त्वज्ञानविवृद्धिप्रकरणम् ॥</div>
+  <div class="tr">そのために、ヤマとニヤマによって、またヨーガと、内面についての規定の手段によって、自己を浄化すること（が教えられる）。<br>その解脱を得るために、ヤマとニヤマによって自己を浄化すること（が教えられる）。<br>知の修得を繰り返すこと、またそれを知る人々と対話すること（が教えられる）。<br>「知の修得」とは、学問の修得である。この手段を知る人々が「それを知る人々」である。「それを知る人々と」という語は、（対話の相手を）分けないためのことばである。<br>弟子、師、同じ道を学ぶ者、すぐれた人、至福を求める人で、ねたまない人々と、それ（対話）を行うべきである。<br>「弟子、師、同じ道を学ぶ者」などのスートラ。これは、読むだけで意味が明らかである。<br>あるいは、（自分の説に）対立する説がなくても、望みがあれば、目的のために（対話を行うべきである）。<br>「それを行うべきである」が続いている。<br>以上、真実の知を育てる章。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 4.2.46 は、ヤマ（非暴力などの禁戒）とニヤマ（清浄などの勧戒）によって自己を浄化し、ヨーガを修めるよう教えます（ヤマ・ニヤマの内容は訳者の補足）。スートラ 4.2.47–49 は、学問を修め、それを知る人々と対話することを勧めます。相手は、弟子、師、同学の者など、ねたみのない人々で、自分の説に反論がなくても、理解を深める目的があれば対話すべきだ、とします。この対話が、第一篇で定義された「論議」（<i>vāda</i>）に当たります（<a href="nyayavarttika-8-taiyaku.html">第8プラカラナ</a>。この結びつけは訳者の補足）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 J はスートラ 4.2.46 の「योगाच्चाध्यात्मविध्युपायैः」を欠きます。写本 C の異読は「०भ्याससंस्कारः」と読みます。OCR テキストの「निगदैैव」は「निगदेनैव」と読みました。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>samādhiviśeṣa</dt><dd>特別な精神集中</dd>
+    <dt>pratyāhāra</dt><dd>（内官の）引き戻し</dd>
+    <dt>antaḥkaraṇa</dt><dd>内官（意）</dd>
+    <dt>yama / niyama</dt><dd>禁戒／勧戒</dd>
+    <dt>jñānagrahaṇa</dt><dd>知の修得、学問の修得</dd>
+    <dt>saṃvāda</dt><dd>対話</dd>
+    <dt>tadvidya</dt><dd>それを知る人</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直し、長い箇所は抜粋した（「……」は省略箇所）。頁番号は Thakur 版、写本略号は Thakur 版の脚注による。</p>
+  <p>和訳は試訳であり、解説は本文にもとづく訳者の説明である。第四篇については Śrīnivāsa Śāstrī のヒンディー訳注の翻刻が提供されていないので、参照していない。このページが扱うのは第60プラカラナ（スートラ 4.2.38–49）である。第59プラカラナ（スートラ 4.2.26–37）は<a href="nyayavarttika-59-taiyaku.html">第59プラカラナのページ</a>にある。続く第61プラカラナ（真実の知を守る章、スートラ 4.2.50–51）は<a href="nyayavarttika-61-taiyaku.html">第61プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
