@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 45</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-44-taiyaku.html">← プラカラナ44</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>種が滅んで芽が出る</a></li><li><a href="#s2"><b>2</b>まだないものが滅ぼすのか</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第45プラカラナ「非存在を質料因とする説の章」（スートラ 4.1.14–18、Thakur 版 pp.430–431）</span>
+  <p>ここから、第四篇第一日課は、世界の生成についての諸学派の説（<i>prāvāduka</i>）を一つずつ取り上げ、あるものは退け、あるものは認めていきます。最初は、「非存在から存在が生じる」という説です。その論者は、種が滅びた後でなければ芽は出ないので、種の消滅（非存在）こそが芽の原因だ、と言います（4.1.14）。</p>
+  <p>スートラは、「滅ぼして現れる」という言い方は自己矛盾だ、と答えます。滅ぼすものはすでに存在し、現れるものはまだ存在しないからです（4.1.15）。論者は過去や未来についても行為の要素の語が使われることを持ち出しますが（4.1.16）、スートラは、滅んだものからは何も生じない、種の消滅と芽の生起は順序を述べたにすぎない、と結論します（4.1.17–18）。</p>
+  <p>この章は短いので、原文は全文を載せました。第四篇については、ヒンディー語訳注の翻刻がまだ提供されていないので、解説は本文にもとづく訳者の説明です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>非存在を質料因とする説の章<br><small><i>śūnyatopādānaprakaraṇa</i>。スートラ 4.1.14–18 の注釈。Thakur 版 pp.430–431</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>4.1.14–18<br><small>種の消滅から芽が生じる、という説とその否定</small></dd></div>
+    <div><dt>論敵</dt><dd>非存在から存在が生じるとする者<br><small>本文は「ある人の見解」と言うだけで、学派を示さない</small></dd></div>
+    <div><dt>見どころ</dt><dd>芽は種の部分の配列換えから生じる<br><small>§2。種の消滅ではなく、種の部分が別の配列になることが芽の原因</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>未参照<br><small>提供された Śrīnivāsa Śāstrī 訳注の翻刻は第三篇の終わりまでで、この章を含まない</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の頁番号は Thakur 版の頁。節見出しの頁はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。長い箇所は「……」で省略した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。本文にもとづく訳者の説明</div>
+    <div><b>解釈の分かれる箇所</b>異読や、読みの定まらない箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 4.1.14–18 の注釈を、テキストの順に2節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">種が滅んで芽が出る</a></td><td class="num">p.430</td><td>スートラ 4.1.14–15。非存在から存在が生じるという説。「滅ぼして現れる」の自己矛盾</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">まだないものが滅ぼすのか</a></td><td class="num">pp.430–431</td><td>スートラ 4.1.16–18。過去・未来の言い方。種の部分の配列換え。順序の表示にすぎない</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>種が滅んで芽が出る</h2><span class="sub"><span class="pg">p.430</span>スートラ 4.1.14–15。非存在から存在が生じるという説。「滅ぼして現れる」の自己矛盾</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.430 · NS 4.1.14–15</span>
+  <div class="src deva" lang="sa">अभावाद् भावोत्पत्तिर्नानुपमृद्य प्रादुर्भावात् ॥४।१।१४॥<br>अतः परं प्रावादुकानां दर्शनान्युपन्यस्य कानिचित् प्रतिषिध्यन्ते, कानिचिदभ्यनुज्ञायन्त इति । तत्र तावत् — अभा……वात् । अभावाद् भावो जायत इति कस्यचिद् दर्शनम् । तत्र च न्यायं ब्रुवते — नानुपमृद्य प्रादुर्भावादिति । न किलाविनष्टे कारणे कार्यमुत्पद्यत इति । यथा बीजविनाशोत्तरमङ्कुरः प्रादुर्भवति । यदि च बीजविनाशोऽङ्कुरकारणं नाभविष्यद्, अविनष्टेऽपि बीजेऽङ्कुरोऽभविष्यत् । न चैवमस्ति । तस्माद् बीजविनाशोऽङ्कुरकारणमिति ॥१४॥<br>व्याघातादप्रयोगः ॥४।१।१५॥<br>उपमृद्य प्रादुर्भवतीति व्याघातः । यदुपमृद्नाति तदस्ति, न ह्यसदुपमर्दकारणमिति । यच्च प्रादुर्भवति तन्नास्ति, न हि सदुत्पद्यत इति । तदिदमुपमृद्नाति प्रादुर्भवति चेति व्याहतमुच्यते । को व्याघातः ? सहासंभवः । यदुपमृद्नाति न जायते, अथ जायते नोपमृद्नाति ॥१५॥</div>
+  <div class="tr">（反論）「非存在から存在が生じる。（何かを）滅ぼさずに現れることはないからである」。<br>ここから後は、諸学派の見解を挙げて、あるものは否定し、あるものは認める。そこでまず、「非存在から……」。非存在から存在が生じる、というのが、ある人の見解である。そして、その論証として、彼らは「滅ぼさずに現れることはないから」と言う。原因が滅びないうちに結果が生じることはない、というのである。たとえば、種が滅びた後に芽が現れる。もし種の消滅が芽の原因でなかったなら、種が滅びていなくても芽が生じたであろう。しかし、そうではない。だから、種の消滅が芽の原因である、と。<br>（答え）自己矛盾するので、（その論証は）用いられない。<br>「滅ぼして現れる」というのは自己矛盾である。滅ぼすものは存在する。存在しないものは滅ぼすことの原因にならないからである。そして、現れるものは（まだ）存在しない。存在するものが生じることはないからである。そこで、「（同じものが）滅ぼし、かつ現れる」と言うのは自己矛盾である。何が矛盾なのか。同時にありえないことである。滅ぼすものは（そのとき）生じていないし、生じているなら滅ぼしてはいない。</div><div class="exp"><span class="lbl">解説</span><p>相手の論拠は、種が腐って形をなくした後に芽が出る、という観察です。だから種の消滅（非存在）が芽の原因だ、というのです（この説を特定の学派に帰すのは、本文ではなされていない）。</p><p>スートラ 4.1.15 は、「芽が種を滅ぼして現れる」という言い方の自己矛盾を突きます。何かを滅ぼすには、それはすでに存在していなければならない。しかし芽が現れるということは、それがまだ存在していなかったということです。同じ芽が、まだないうちに種を滅ぼすことはできません。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「उपनस्य」は「उपन्यस्य」、「उपमृद्राति」は「उपमृद्नाति」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>まだないものが滅ぼすのか</h2><span class="sub"><span class="pg">pp.430–431</span>スートラ 4.1.16–18。過去・未来の言い方。種の部分の配列換え。順序の表示にすぎない</span></div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.430–431 · NS 4.1.16</span>
+  <div class="src deva" lang="sa">नातीतानागतयोः कारकशब्दप्रयोगात् ॥४।१।१६॥<br>अतीतेऽनागते च कारकशब्दाः प्रयुज्यमाना दृष्टाः । अतीते तावद् — भिन्नं कुम्भमनुशोचति, भिन्नस्य कुम्भस्य कपालानि, अभूत् कुम्भ इति । अनागतेऽपि — पुत्रो जनिष्यते, जनिष्यमाणं पुत्रमभिनन्दति, जनिष्यमाणस्य पुत्रस्य नाम करोतीति । अजाताः पुत्राः स्थविरं तापयन्तीति बहुलं प्रयोगा भाक्ताः । एवमयं प्रादुर्भविष्यन्नङ्कुर उपमृद्नातीत्युच्यत इति । कः पुनरुपमर्दार्थः ? आनन्तर्यसामर्थ्यादनन्तरोत्पत्त्यर्थः, यस्माद् बीजोपमर्दानन्तरमयं प्रादुर्भवतीति ।<br>अत्रोक्तं — व्याघातादिति । नाजातेनोपमर्दो, नोपमर्दासमर्थो जायत इति । यदपीदमुच्यते अतीते चानागते च कारकशब्दाः प्रयुज्यन्त इति, न प्रयोगो वार्यते, अपि त्वसतः कारणादुत्पत्तिर्न युक्तेति । कारकशब्दानां च त्रैकालिकः प्रयोगः, तदुक्तं प्रमाणसामान्यचिन्तायां — वृक्षस्तिष्ठतीति यथा । यत् पुनरेतद् आनन्तर्यसामर्थ्यादुपमृद्य प्रादुर्भवतीत्युच्यत इति, न बीजनाशोऽङ्कुरस्य कारणम्, अपि तु व्याहतव्यूहानां बीजावयवानां पूर्वव्यूहनिवृत्तौ व्यूहान्तरमुत्पद्यत इति व्यूहान्तरादङ्कुर आविर्भवतीति । न चाविनष्टे पूर्वव्यूहे व्यूहान्तरेण शक्यते भवितुमित्ययमत्र प्रादुर्भावार्थः । एवं च बीजोपादानं युक्तमिति ॥१६॥</div>
+  <div class="tr">（反論）「（自己矛盾では）ない。過去のものや未来のものについても、行為の要素を表す語が用いられるからである」。<br>「過去のものや未来のものについても、行為の要素を表す語が用いられるのが見られる。まず過去のものについては、『壊れた壺を嘆く』『壊れた壺の破片』『壺があった』のように。未来のものについても、『息子が生まれるだろう』『生まれるであろう息子を喜ぶ』『生まれるであろう息子に名をつける』のように。『生まれていない息子たちが老人を悩ませる』など、比喩的な用法はたくさんある。これと同じく、この現れようとしている芽が（種を）滅ぼす、と言われるのである。では、『滅ぼす』の意味は何か。直後に続くという力によって、直後に生じる、という意味である。種が滅びた直後に、これ（芽）が現れるからである」。<br>これについては、「自己矛盾するから」と（すでに）言った。生じていないものが滅ぼすことはなく、滅ぼす力のないものが生じることもない。また、「過去のものや未来のものについても、行為の要素を表す語が用いられる」と言われたことについては、（そういう）用法を退けているのではない。そうではなく、存在しない原因から生じることは正しくない、と言っているのである。行為の要素を表す語が三つの時について用いられることは、量の一般的な考察で、「木が立っている」のように、と述べた。また、「直後に続くという力によって、滅ぼして現れると言う」ということについては、種の消滅が芽の原因なのではない。そうではなく、配列が壊れた種の部分において、前の配列がなくなると別の配列が生じ、その別の配列から芽が現れるのである。前の配列が滅びないうちに別の配列になることはできない、というのが、ここでの「現れる」の意味である。そうであれば、種を（芽の質料因として）取ることは理にかなっている。</div><div class="exp"><span class="lbl">解説</span><p>相手は言葉の用法で逃れようとします。「壊れた壺を嘆く」「生まれる子に名をつける」のように、過去や未来のものについても行為の要素の語は使われる。「芽が種を滅ぼす」も、芽が種の消滅の直後に生じる、という意味の比喩的な言い方だ、と。</p><p>Uddyotakara は、言い方を禁じるのではなく、存在しないものが原因になることを否定しているのだ、と答えます。行為の要素の語が三つの時に使われることは、量の一般的な考察（<a href="nyayavarttika-13-taiyaku.html">第13プラカラナ</a>）で、「木が立っている」（過去から続き未来にも続く状態）の例で述べた、とも言います。そして、芽を生むのは種の消滅ではなく、種の部分が前の配列を捨てて別の配列になることだ、と自説を示します。芽の質料因はあくまで種（の部分）なのです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「प्रादुर्भावियङ्कुर」は「प्रादुर्भविष्यन्नङ्कुर」、「बीजपमर्द」は「बीजोपमर्द」、「नोपमर्दाससमर्थो」は「नोपमर्दासमर्थो」、「इयतन्त्यं」は「इत्ययमत्र」と読みました。</p></div>
+</div>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.431 · NS 4.1.17–18</span>
+  <div class="src deva" lang="sa">न विनष्टेभ्योऽनिष्पत्तेः ॥४।१।१७॥<br>अस्य चार्थस्य ज्ञापनार्थं सूत्रम् — न विन……पत्तेः — इति । न हि बीजविनाशोऽङ्कुरस्य कारणम्, अपि तु बीजावयवाः पूर्वव्यूहपरित्यागेनेत्यर्थः सूत्रस्य ॥१७॥<br>क्रमनिर्देशादप्रतिषेधः ॥४।१।१८॥<br>पूर्वं बीजविनाशः पश्चादङ्कुरोत्पत्तिरिति सूत्रार्थः । अभावश्चेदङ्कुरोत्पत्तिकारणं स्यात्, सर्वं सर्वस्मादुत्पद्येत, अभावस्य निर्विशेषत्वात् । न हि शालिबीजे विनष्टे काचिदन्वयशक्तिरस्ति । अनन्वितं च कार्यं सर्वाभिः शक्तिभिरुत्पद्येत । अन्वितं तु दृष्टम् । तस्मान्नाभावः कारणमिति सूत्रार्थः ॥१८॥<br>॥ शून्यतोपादानप्रकरणम् ॥</div>
+  <div class="tr">（答え）（非存在が原因では）ない。滅びたものからは生じないからである。<br>この意味を知らせるためのスートラが、「（非存在が原因では）ない。滅びたものからは……」である。種の消滅が芽の原因なのではなく、種の部分が前の配列を捨てることによって（芽の原因となる）、というのがスートラの意味である。<br>（答え）順序を述べたものなので、（われわれの説の）否定にはならない。<br>前に種の消滅があり、後に芽の生起がある（という順序を述べたにすぎない）、というのがスートラの意味である。もし非存在が芽の生起の原因なら、何でも何からでも生じることになろう。非存在には違いがないからである。稲の種が滅びたとき、（芽に）引き継がれる力は何もない。（前のものと）つながらない結果なら、あらゆる力によって生じるであろう。しかし、（前のものと）つながった（結果）が見られる。だから、非存在は原因ではない、というのがスートラの意味である。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 4.1.17–18 は結論です。滅びてしまったものからは何も生じない。「種が滅びて芽が出る」というのは、種の（前の配列の）消滅が先、芽の生起が後という順序を述べたにすぎず、消滅が原因だという意味ではない。Uddyotakara は、非存在が原因なら、どの非存在にも違いはないので、稲の種が滅びた後に麦の芽が出てもよいことになる、しかし実際には稲の種からは稲の芽が出る、と付け加えます。結果は、前のものとつながった（質料因を引き継いだ）形で生じるのです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「अङ्कुरोत्पत्तिकाणं」は「…कारणं」、「तस्मानाभावः」は「तस्मान्नाभावः」と読みました。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>prāvāduka</dt><dd>（さまざまな）説を唱える者、諸学派</dd>
+    <dt>abhāva / bhāva</dt><dd>非存在／存在</dd>
+    <dt>upamarda</dt><dd>滅ぼすこと</dd>
+    <dt>vyāghāta</dt><dd>自己矛盾</dd>
+    <dt>kārakaśabda</dt><dd>行為の要素（行為主体・対象など）を表す語</dd>
+    <dt>vyūha</dt><dd>（部分の）配列</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直した。この章は全文を載せた。頁番号は Thakur 版による。</p>
+  <p>和訳は試訳であり、解説は本文にもとづく訳者の説明である。第四篇については Śrīnivāsa Śāstrī のヒンディー訳注の翻刻が提供されていないので、参照していない。このページが扱うのは第45プラカラナ（スートラ 4.1.14–18）である。第44プラカラナ（スートラ 4.1.10–13）は<a href="nyayavarttika-44-taiyaku.html">第44プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
