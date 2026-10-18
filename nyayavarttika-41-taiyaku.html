@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 41</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-40-taiyaku.html">← プラカラナ40</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>身体は業から生じる</a></li><li><a href="#s2"><b>2</b>砂と身体</a></li><li><a href="#s3"><b>3</b>この身体は誰のものか</a></li><li><a href="#s4"><b>4</b>「見ないこと」が原因か</a></li><li><a href="#s5"><b>5</b>原子の見えない力</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第41プラカラナ「身体は見えない力によって作られることの章」（スートラ 3.2.60–72、Thakur 版 pp.414–422）</span>
+  <p>第三篇の最後の章は、ふたたび身体を取り上げます。意は身体の中ではたらくので、身体を考えることは意を考えることでもあります。問題は、身体は元素だけから自然にできるのか、それとも前世の行為（業）が残した見えない力（<i>adṛṣṭa</i>、法と非法）が元素を動かして作るのか、です。スートラは後者をとり、前世の行為の果報がつきまとうので身体が生じる、と答えます（3.2.60）。</p>
+  <p>反論は三つの方向から来ます。唯物論者は、砂や鉱物が業なしに元素から生じるように身体も生じる、と言います（3.2.61）。サーンキヤは、身体を作らせる「見えない」ものとは、根本原質と精神の違いを「見ないこと」（<i>adarśana</i>）だ、と言い換えます（3.2.68）。さらに、見えない力を原子や意の性質とする者たちがいます（Vācaspati によればジャイナ）。Uddyotakara はそれぞれに、解脱が説明できなくなる、死が説明できなくなる、といった難点を突きつけ、身体を作るのは我に属する業である、と結論します。章の最後に、第三篇で考察した六つの認識対象を振り返る詩節が置かれます。</p>
+  <p>この章は Vārttika が長いので、原文は抜粋で載せました（「……」は省略箇所）。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。提供されたヒンディー訳の翻刻は pp.1135–1137 を欠いています。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>身体は見えない力によって作られることの章<br><small><i>śarīrasyādṛṣṭaniṣpādyatvaprakaraṇa</i>。スートラ 3.2.60–72 の注釈。Thakur 版 pp.414–422。第三篇の最後</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.2.60–72<br><small>業による身体の創出、砂のたとえ、両親と食物、身体と我の結びつきの決まり、サーンキヤの「見ないこと」、原子の見えない力</small></dd></div>
+    <div><dt>論敵</dt><dd>唯物論者、サーンキヤ、見えない力を原子の性質とする者<br><small>ヒンディー訳は 3.2.61 の論者を「ナースティカ」、3.2.68 の前半をサーンキヤ、後半を「ジャイナ」とする（後者は TṬ の「アールハタ」による）</small></dd></div>
+    <div><dt>見どころ</dt><dd>サーンキヤの「見ないこと」の批判<br><small>§4。創造以前の「見ないこと」と解脱後の「見ないこと」に違いがないなら、解脱した後にもまた身体が作られてしまう</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.1134–1160。提供された翻刻は pp.1135–1137 を欠く</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.415</span> は Thakur 版の頁。節見出しの <span class="pg">p.414</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。長い箇所は「……」で省略した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁。翻刻に欠けている頁にあたるブロックには、その旨を記した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.2.60–72 の注釈を、テキストの順に5節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">身体は業から生じる</a></td><td class="num">pp.414–415</td><td>スートラ 3.2.60。「前になしたことの果報がつきまとう」の意味。業が熟する時。論証式</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">砂と身体</a></td><td class="num">pp.415–417</td><td>スートラ 3.2.61–65。唯物論者の砂のたとえ。論証されるべきことと同じ。両親、食物、交わりの不定</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">この身体は誰のものか</a></td><td class="num">pp.417–419</td><td>スートラ 3.2.66–67。身体と我の結びつきも業による。始まりのない輪廻。身体の違い。業が尽きて解脱</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">「見ないこと」が原因か</a></td><td class="num">pp.419–421</td><td>スートラ 3.2.68。サーンキヤの「見ないこと」。見たいという欲求、無知、有因中有果論の難点</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">原子の見えない力</a></td><td class="num">pp.421–422</td><td>スートラ 3.2.68–72。原子と意の見えない力。死が説明できない。原子の黒さのたとえ。結びの詩節</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>身体は業から生じる</h2><span class="sub"><span class="pg">pp.414–415</span>スートラ 3.2.60。「前になしたことの果報がつきまとう」の意味。業が熟する時。論証式</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.414 · NS 3.2.60</span>
+  <div class="src deva" lang="sa">पूर्वकृतफलानुबन्धात् तदुत्पत्तिः ॥३।२।६०॥<br>मनसः खलु भोः सेन्द्रियशरीरे वृत्तिः । शरीरे विचार्यमाणे मन एव विचारितं भवति । अतः पुनः शरीरं विचार्यते, किमयं शरीरसर्गः कर्मनिरपेक्षैर्भूतैरारभ्यते, आहोस्वित् सापेक्षैरिति विप्रतिपत्तेः संशयः । श्रूयते खल्वत्र विप्रतिपत्तिरिति । तत्रेदं तत्त्वम् — पूर्व……पत्तिः । पूर्वकृतमिति — पूर्वशरीरे या प्रवृत्तिर्वाग्बुद्धिशरीरारम्भलक्षणा तत् पूर्वकृतम् । तस्य फलं तज्जनितौ धर्माधर्मौ । तयोरनुबन्धः — आत्मसमवेतयोः प्रतिबद्धयोरवस्थानं, विपाककालस्यानियमादिति । अनियतो विपाककाल इहामुत्र जात्यन्तरे चेति । तेनावस्थितेन प्रयुक्तेभ्यो भूतेभ्यः पृथिव्यादिभ्यस्तस्य शरीरस्योत्पत्तिः, न स्वतन्त्रेभ्यः ।</div>
+  <div class="tr">（答え）前になしたことの果報がつきまとうので、それ（身体）が生じる。<br>意は、感官をもつ身体においてはたらく。身体を考察すれば、まさに意を考察したことになる。だから、さらに身体が考察される。この身体の創出は、業に依存しない元素によって始められるのか、それとも（業に）依存する（元素）によってか。見解が分かれるので、疑いがある。この点について、見解の相違が（さまざまな学説の書物に）聞かれるからである。そこで、真相はこうである。「前になしたことの……」。「前になしたこと」とは、前の身体における、言葉・知・身体による行為の開始を特徴とする活動であり、それが前になしたことである。その果報とは、それによって生じた法と非法である。それらが「つきまとう」とは、我に内属しているそれら（法と非法）が、（果報を生むことを）妨げられたまま存続していることである。熟する時が決まっていないからである。熟する時は、この世か、あの世か、別の生か、決まっていない。存続しているそれによって動かされた地などの元素から、その身体が生じるのであって、自立した（元素）から（生じるの）ではない。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.60 の「前になしたこと」は、スートラ 1.1.17 で定義された「活動」（言葉・知・身体による行為の開始）を指します。行為は法（善い力）と非法（悪い力）を我に残し、それは果報を生むまで我にとどまります。いつ熟するかは決まっていないので、この世で熟することも、次の世や、さらに先の生で熟することもあります。身体は、我にとどまるこの力が地などの元素を動かして作るのであって、元素がひとりでに組み上がるのではない、というのがニヤーヤの立場です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は「七、身体は見えない力によって作られること」という見出しを立て、スートラ 3.2.60 を定説のスートラとします。バーシュヤは、知る者の認識、経験、避けることと得ること、あらゆる営みが身体にもとづいている、と章の位置づけを説明し、「見解の相違が聞かれる」を、ヒンディー訳は「さまざまな学派の書物に見られる」と注します。注は、身体は業によらないとするサーンキヤなどと、業によるとするニヤーヤ・ヴァイシェーシカとの対立だ、と記します。翻刻は p.1134 の後、pp.1135–1137 を欠いており、このスートラの Vārttika の残りの部分の訳と注は参照できません（Hi. p.1134）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「पूर्वकृतमिति」と「प्रतिबद्धयो」を欠きます。</p></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">p.415 · NS 3.2.60</span>
+  <div class="src deva" lang="sa">कस्मात् पुनः कर्म धर्माधर्मसंज्ञकमुत्पत्तिसमकालं फलं न ददाति ? क एवमाह न ददातीति ? विपाककालस्यानियमात् । यदा अशेषकारणसन्निधानं भवति, सन्निधानेऽपि च यदा कारणान्यप्रतिबद्धानि भवन्ति, तदा ददात्यपि । यदा पुनर्न ददाति, तदा विपच्यमानकर्माशयप्रतिबन्धात् । यो विपच्यमानकर्माशयो भवति धर्माधर्मसमाख्यातोऽनुपभुक्तफलः, तेन प्रतिबन्धाद् विद्यमानमपि कर्म फलं न ददातीति । …… दुर्विज्ञेया च कर्मगतिः । सा न शक्या मनुष्यधर्मणा अवधारयितुम् । आकृतिमात्रं तूक्तमिति ।</div>
+  <div class="tr">（問い）「では、法・非法と呼ばれる業は、なぜ生じると同時に果報を与えないのか」。誰がそのように「与えない」と言ったのか。熟する時が決まっていないからである。すべての原因がそろい、そろったうえで原因が妨げられていないときには、（すぐに）与えもする。与えないときは、熟しつつある（別の）業の蓄積に妨げられているからである。法・非法と呼ばれ、まだ果報が享受されていない、熟しつつある業の蓄積、それに妨げられて、（新しい）業はあっても果報を与えないのである。……業の行方は知りがたい。それは、人間の性質をもつ者には確定できない。ここではただ、大まかな形を述べたにすぎない。</div><div class="exp"><span class="lbl">解説</span><p>業がすぐに果報を生まないのはなぜか。Uddyotakara は、条件がそろえばすぐに果報を生むこともあるが、たいていは、いま熟しつつある別の業に妨げられる、と答えます。省略した箇所では、同じ果報を共に受けるべきほかの生き物の業による妨げ、その果報を受けるべき者がその場にいないこと、補助となる業がないことなど、さまざまな場合が並べられます。そして、業の行方は人間には見通せず、ここでは大まかな形を述べたにすぎない、と結びます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>提供された翻刻は Hi. pp.1135–1137 を欠いており、このブロックはその範囲にあたるので、ヒンディー訳を参照できていません。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「ददात्यपि」を「ददात्येव」と読みます。OCR テキストの「दुर्वज्ञेया」は「दुर्विज्ञेया」と読みました。</p></div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">p.415 · NS 3.2.60</span>
+  <div class="src deva" lang="sa">कः पुनरत्र न्यायः कर्मतन्त्राणि भूतानि शरीरमारभन्ते, न निरपेक्षाणीति ? अयं न्यायोऽभिधीयते — पुरुषगुणविशेषप्रेरितभूतपूर्वकं शरीरं, पुरुषार्थक्रियासामर्थ्यात् । यद् यत् पुरुषार्थक्रियासमर्थं तत्तत् पुरुषगुणविशेषप्रेरितभूतपूर्वकं दृष्टम्, यथा रथादि पुरुषगुणेन प्रयत्नेन प्रेरितभूतैरारभ्यमाणं पुरुषार्थक्रियासमर्थं दृष्टम् । तथा च शरीरम् । तस्मादिदमपि सापेक्षभूतैरारभ्यत इति । सुखदुःखनिमित्तत्वाद् घटादिवदिति । इतश्च कार्यत्वाद् रथादिवदिति । बाह्यकरणग्राह्यत्वे सति रूपादिमत्त्वाद् घटादिवदेव ॥६०॥</div>
+  <div class="tr">では、元素は業に依存して身体を始めるのであって、依存せずに（始めるの）ではない、ということについての論証は何か。次の論証が述べられる。「身体は、人の特別な性質によって動かされた元素を前提とする。人の目的にかなうはたらきができるから」。人の目的にかなうはたらきができるものは、どれも、人の特別な性質によって動かされた元素を前提とすることが見られる。たとえば車などは、人の性質である努力によって動かされた元素によって作られ、人の目的にかなうはたらきができることが見られる。身体もそうである。だから、これも（業に）依存する元素によって始められる。（また）「楽と苦の原因であるから。壺などのように」。また次の理由からも。「結果であるから。車などのように」。「外の感官で捉えられるものであって、色などをもつから。まさに壺などのように」。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、車のたとえで論証します。車は人の役に立つように、人の努力によって木などの材料が組み立てられてできます。身体も人の役に立つものなので、人の特別な性質（ここでは業が残した法と非法）によって元素が組み立てられてできたはずだ、というのです。楽と苦の原因であること、結果であること、色などをもつことを論証因とする推論も加えられます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>提供された翻刻は Hi. pp.1135–1137 を欠いており、このブロックはその範囲にあたるので、ヒンディー訳を参照できていません。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「प्रयत्लेन」は「प्रयत्नेन」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>砂と身体</h2><span class="sub"><span class="pg">pp.415–417</span>スートラ 3.2.61–65。唯物論者の砂のたとえ。論証されるべきことと同じ。両親、食物、交わりの不定</span></div>
+<div class="mula sutra" id="u4">
+  <span class="ref">pp.415–416 · NS 3.2.61–62</span>
+  <div class="src deva" lang="sa">भूतेभ्यो मूर्त्युपादानवत् तदुपादानम् ॥३।२।६१॥<br>अत्र नास्तिक एवमाह — भूतेभ्यो मूर्त्युपादानवत् तदुपादानम् । यथा कर्मनिरपेक्षेभ्यो भूतेभ्यो निर्वृत्ता मूर्तयः सिकताशर्करागैरिकाञ्जनप्रभृतयः पुरुषार्थकारित्वादुपादीयन्ते, तथा शरीरसर्गोऽपीति । पुरुषार्थक्रियासामर्थ्यादित्यस्य हेतोरनैकान्तिकत्वद्वारकं सूत्रम् । साधनपक्षे दृष्टान्तमात्रत्वादसिद्धम् ॥६१॥<br>न, साध्यसमत्वात् ॥३।२।६२॥<br>अथायं पक्षः — कर्मनिरपेक्षाणि भूतानि शरीरमारभन्ते, पुरुषार्थक्रियासामर्थ्यात्, सिकतादिवदिति । एतच्च — न, साध्यसमत्वात् । यथैव शरीरसर्गः कर्मनिरपेक्षैर्भूतैरारभ्यत इति साध्यं, तथा सिकतादीनामकर्मनिमित्तः सर्गः साध्य इति । सिकतादीनामपि च कर्मनिमित्तः सर्ग इत्यस्मादेव हेतोः सिध्यतीति । यथा चोभयपक्षसंप्रतिपन्नो रथादिदृष्टान्तः पुरुषगुणविशेषप्रेरितभूतपूर्वकोऽस्ति, न तथा अकर्मनिमित्तसर्गपक्षे दृष्टान्तोऽस्तीति ॥६२॥</div>
+  <div class="tr">（反論）「元素から形あるもの（砂など）が取り上げられるように、それ（身体）も取り上げられる」。<br>これについて、唯物論者（<i>nāstika</i>）がこう言う。「元素から形あるものが……」。業に依存しない元素から生じた、砂・砂利・赭土・眼薬などの形あるものが、人の目的にかなうので取り上げられるように、身体の創出もそうである、と。このスートラは、「人の目的にかなうはたらきができるから」という論証因が不確定であることを示すものである。（これを独立の）論証の立場として見れば、実例にすぎないので、成り立っていない。<br>（答え）（そうでは）ない。論証されるべきことと同じだからである。<br>もし、「元素は業に依存せずに身体を始める。人の目的にかなうはたらきができるから。砂などのように」というのがその主張なら、これも「（そうでは）ない。論証されるべきことと同じだからである」。身体の創出が業に依存しない元素によって始められることが論証されるべきことであるのとまったく同じく、砂などの創出が業を原因としないことも論証されるべきことである。そして、砂などの創出も業を原因とすることは、まさにこの論証因から成り立つ。また、車などの実例は、人の特別な性質によって動かされた元素を前提とするものとして、両者に認められているが、業を原因としない創出の立場には、そのような実例はない。</div><div class="exp"><span class="lbl">解説</span><p>唯物論者（来世も法・非法も認めない者）は、砂や赭土のように、誰の業にもよらず自然にできたものでも人の役に立つではないか、と言います。Uddyotakara によれば、このスートラは、§1 の論証因「人の目的にかなうはたらきができるから」が不確定であることを示そうとするものです。</p><p>スートラ 3.2.62 は、砂が業によらずにできたこと自体が証明を要する、と答えます。ニヤーヤの立場では、砂も人の役に立つ以上、同じ論証因によって、業を原因として生じたことが示されます。双方が認める実例（車）があるのはニヤーヤの側だけだ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.61 を「ナースティカ」の前主張とし、ナースティカを「あの世も法・非法もないとする者」と注します。この説では見えない力は必要ない、とも記します。3.2.62 は定説のスートラで、バーシュヤの「論証されるべきことと同じ」を「論証されるべきことと同じ（という誤った論難）」と補います。注は、「砂の実例が論証されるべきことと同じであることによって、『人の目的にかなうはたらきができるから』という論証因が不確定であるという指摘も退けられた」という TṬ（p.581）を引き、ニヤーヤ・ヴァイシェーシカでは、見えない力はあらゆる楽と苦を含めて、すべてのものの原因だ、と記します（Hi. pp.1138–1140）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版は「दृष्टान्तमात्रत्वादसंबद्धम्」と読みますが、写本 C とヒンディー訳の読み「असिद्धम्」に従いました。写本 C は「निर्वृत्ता」を「निर्वर्त्या」と読みます。</p></div>
+</div>
+<div class="mula sutra" id="u5">
+  <span class="ref">pp.416–417 · NS 3.2.63–65</span>
+  <div class="src deva" lang="sa">नोत्पत्तिनिमित्तत्वान्मातापित्रोः ॥३।२।६३॥<br>विषमश्चायमुपन्यासो भूतेभ्यो मूर्त्युपादानवदिति — नोत्पत्तिनिमित्तत्वान्मातापित्रोः । मातापितृशब्देन लोहितरेतसी बीजभूते गृह्येते । तत्र पित्रोश्च पुत्रफलानुभवनीये कर्मणी सत्त्वस्य च गर्भवासानुभवनीयं कर्म मातृगर्भाशये शरीरोत्पत्तिं प्रयोजयन्ति । तत्र चोपपन्नं बीजानुविधानम् । बीजानुविधानाच्च यज्जातीयौ तस्य पितरौ तज्जातीयः स भवतीति ॥६३॥<br>तथाहारस्य ॥३।२।६४॥<br>उत्पत्तिनिमित्तत्वादिति प्रकृतम् । एतदपि सिकतादिभिर्वैधर्म्यमेवोच्यते । अशितपीतमाहारः । तस्य पाकाद् रसद्रव्यं निर्वर्तते । तन्मातृशरीरे उपचीयते । गर्भशरीरे चोपचितं कललादिभावेनोपचीयमानं कर्मसापेक्षैर्भूतैः पेश्यादिभावमापद्यते । यदि पुनः कर्मनिरपेक्षाणि भूतानि स्युः, स्थाल्यादिगतमिवान्नं पच्येत । न त्विदमस्ति । तस्मात् सापेक्षाणीति ॥६४॥<br>प्राप्तौ चानियमात् ॥३।२।६५॥<br>कर्मनिरपेक्षाणि भूतानि शरीरमारभन्त इति सर्वो दम्पत्योः संयोगः पुत्रादिफलकः स्यात् । कर्मसापेक्षेषु भूतेषु उपपन्नो नियमाभाव इति ॥६५॥</div>
+  <div class="tr">（答え）（そのたとえは当たら）ない。母と父とが（身体の）生起の原因だからである。<br>また、「元素から形あるものが取り上げられるように」というこの提示は、（身体とは）似ていない。「（そのたとえは当たら）ない。母と父とが生起の原因だからである」。「母と父」という語によって、種子である血と精液が取り上げられる。そこでは、息子という果報を経験すべき両親の業と、母胎に宿ることを経験すべき生き物の業とが、母の子宮において身体の生起を促すのである。そして、そこでは種子に従う（ことが説明される）。種子に従うので、両親が属する種（家系）に、その者も属するのである。<br>（答え）食物についても同じである。<br>「生起の原因だから」が（前のスートラから）続いている。これもまた、砂などとの違いを述べたものである。食べたり飲んだりしたものが食物である。それが消化されて、体液という実体が生じる。それが母の身体の中で蓄えられる。そして胎児の身体で蓄えられ、凝乳状のもの（<i>kalala</i>）などのあり方で増えていくものが、業に依存する元素によって、肉片などのあり方になる。もし元素が業に依存しないなら、鍋などの中の食物のように、（食物は）煮えるだけであろう。しかし、そうではない。だから、（元素は業に）依存しているのである。<br>（答え）また、（夫婦が）交わっても、決まって（子が生じるわけで）はないからである。<br>元素が業に依存せずに身体を始めるのなら、夫婦の交わりはすべて息子などを結果としてもつであろう。元素が業に依存するのなら、決まっていないことが説明される。</div><div class="exp"><span class="lbl">解説</span><p>砂と身体とは似ていない、とスートラ 3.2.63–65 は三つの点を挙げます。第一に、身体は両親の血と精液という種子から生じ、両親の業（子をもつという果報）と生まれてくる者の業（母胎に宿るという経験）とがはたらいて作られる。だから子は両親と同じ種類に生まれる。第二に、母の食べた物は体液となって胎児の身体を育てるが、鍋の中の食物はただ煮えるだけである。第三に、夫婦の交わりから必ず子ができるわけではない。業がなければ、条件がそろえば必ず子ができるはずだ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.63–65 をいずれも定説のスートラとします。バーシュヤは 3.2.63 で、砂などは種子なしに生じるが、身体は種子から生じる、と違いを示します。注は、「経験すべき」（<i>anubhavanīya</i>）の接尾辞は目的語の意味だという TṬ（p.582）を引きます。3.2.64 について、バーシュヤは胎児の発育を、凝乳状のもの、腫れもの、肉片、腱、頭、手などと順にたどり、胎児が臍の緒を通じて運ばれる体液で育つと説きます。注は、これらは血と精液の変化したものだ、と TṬ（p.582）を引き、TṬ の刊本に誤植があることを記します。3.2.65 の「交わり」は「夫婦の結合」だという TṬ（p.582）が引かれ、目に見える原因が不定なので、見えない力が原因だ、と注します（Hi. pp.1140–1142）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「स भवतीति」を「संभवतीति」、「पेश्यादिभावम्」を「पाण्यादिभावम्」と読みます。ヒンディー訳の Vārttika の訳は「手などのあり方」で、後者の読みに近いものです。OCR テキストの「स्थाल्यादिगतमिवात्रं」は「…मिवान्नं」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>この身体は誰のものか</h2><span class="sub"><span class="pg">pp.417–419</span>スートラ 3.2.66–67。身体と我の結びつきも業による。始まりのない輪廻。身体の違い。業が尽きて解脱</span></div>
+<div class="mula sutra" id="u6">
+  <span class="ref">pp.417–418 · NS 3.2.66</span>
+  <div class="src deva" lang="sa">शरीरोत्पत्तिनिमित्तवत्संयोगोत्पत्तिनिमित्तं कर्म ॥३।२।६६॥<br>सर्वात्मभिः सम्बन्धात् साधारणविग्रहवत्त्वप्रसङ्गः, नियमहेत्वभावादिति चेत् ? अथ मन्यसे शरीरं सर्वात्मभिः सम्बध्यते संयोगजेन संयोगेन क्रियाजेन वा, तत्र शरीरादिगतो न कश्चिन्नियमहेतुरस्ति येन शरीरमेकस्यात्मनो व्यवतिष्ठेत, न च पुरुषगतः कश्चिदतिशयो विद्यते येन शरीरमेकस्य पुरुषस्योपभोगसाधनं भवेत्, अस्ति च नियमः, तस्माद् वक्तव्यो नियमहेतुरिति । एतस्योत्तरद्वारकं सूत्रम् — शरीरोत्पत्तिनिमित्तवत्संयोगोत्पत्तिनिमित्तं कर्म । येनैव कर्मणा शरीरमुत्पद्यते, तदेव तच्छरीरं नियमयति । अकर्मनिमित्ते तु शरीरसर्गे यथोक्तो दोष इति । कर्मणस्तत्स्थता कुत इति चेत् ? …… न, स्वसंयोगोत्पत्तिनियमात् । यो यस्यात्मनः संयोगस्तस्माद् यत् कर्मोपजायते तत् तस्य भवतीति । संयोगे कुतो नियम इति ? …… न, मनोनियमहेतुत्वात् । यस्यात्मनो यन्मनस्तेन यः संयोगो जन्यते स तस्य भवतीति । मनस्यपि तुल्यम् — मनसस्तर्हि सर्वात्मभिः सम्बन्धात् किं नियामकमिति ? कर्मणो नियामकत्वात् । यन्मनो यदीयेन कर्मणोपनिबद्धं तदीयं तद्भवतीति । सर्गादौ कथमिति चेत् ? सर्गादेरनभ्युपगमाददेश्यम् । अनादिः संसार इति पूर्वाभ्यस्तसूत्रे प्रतिपादितमेतत् । आदिमति संसार एष देश्यो नानादाविति ॥६६॥</div>
+  <div class="tr">（答え）身体の生起の原因（が業である）のと同じく、（身体と我との）結合の生起の原因も業である。<br>（反論）「（身体は）すべての我と結びついているので、（すべての我に）共通の身体をもつことになってしまう。決まりの理由がないからである」と言うなら。つまり、「身体は、結合から生じる結合、あるいは運動から生じる結合によって、すべての我と結びつく。そこには、身体などの側に、身体が一つの我のものと定まるような決まりの理由は何もない。また、人の側にも、身体が一人の人の経験の手段となるような特別な点はない。それなのに決まりはある。だから決まりの理由を言わなければならない」と考えるなら。これに答えるのがこのスートラである。「身体の生起の原因と同じく……」。身体を生じさせたまさにその業が、その身体を（その我に）定めるのである。業を原因としない身体の創出なら、上に述べた誤りがある。（反論）「業がそれ（その我）にあることは、何によって（定まる）のか」と言うなら。……そうではない。自分との結合から生じることが決まっているからである。ある我の結合から生じた業は、その我のものである。（反論）「結合については何によって決まるのか」。……そうではない。意が決まりの原因だからである。ある我の意によって生じた結合は、その我のものである。（反論）「意についても同じである。意はすべての我と結びついているのだから、何が（それを）定めるのか」。業が定めるからである。ある者の業によって結びつけられた意は、その者のものになる。（反論）「創造の始まりにはどうなのか」と言うなら。創造の始まりを認めないので、（その問いは）立てられない。輪廻に始まりがないことは、「前に繰り返したことの……」のスートラで論証した。この（問い）は、始まりのある輪廻についてなら立てられるが、始まりのない（輪廻）については立てられない。</div><div class="exp"><span class="lbl">解説</span><p>ニヤーヤでは我は遍在するので、どの身体もすべての我と接しています。では、なぜこの身体は私のものなのか。スートラ 3.2.66 は、身体を作った業が、身体と我との結びつきも定める、と答えます。</p><p>Uddyotakara は問答を重ねます。業がその我のものなのは、その我と意の結合から生じたからであり、その結合がその我のものなのは、その我の意によるからであり、その意がその我のものなのは、その我の業に結びつけられているからだ。循環しているように見えますが、輪廻には始まりがないので、最初の一つを問う必要はない。輪廻に始まりがないことは、生まれたばかりの子が喜びや恐れを示すのは前世の経験の記憶による、と論じたスートラ 3.1.18（<a href="nyayavarttika-30-taiyaku.html">第30プラカラナ</a>）で示した、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.66 を定説のスートラとし、Vārttika の冒頭の反論を、そばにいる者の疑問とする TṬ（p.582）を引きます。法と非法は我と意の結合から生じ、意はすべての我と接しているので、すべての我に共通になってしまう、という反論の趣旨も TṬ（p.582）で説明されます。バーシュヤは、管・体液・腱・皮膚・骨・脈・肉片・頭・腕・腹・腿・風・胆汁・粘液、口・喉・心臓・胃・腸などからなる身体の精巧な配列は、業に依存しない元素には作れない、と説きます。注は、「結合」を、身体と我の結合と、両親の結合との二つの意味にとり、「業がそれにあることは何によってか」「結合については何によって決まるのか」への答えを TṬ（p.582）によって示し、意の決まりは見えない力により、見えない力の決まりは意による、と相互の関係を記します（Hi. pp.1143–1144）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「संयोगेन संयोगेन क्रियाजेन वा」は「संयोगजेन संयोगेन क्रियाजेन वा」、「मनोनीयमहेतुत्वात्」は「मनोनियमहेतुत्वात्」と読みました。写本 C は「तच्छरीरं」を「संयोगं」、「कर्मणो नियामकत्वात्」を「कर्मैव」と読みます。</p></div>
+</div>
+<div class="mula sutra" id="u7">
+  <span class="ref">pp.418–419 · NS 3.2.67</span>
+  <div class="src deva" lang="sa">एतेनानियमः प्रत्युक्तः ॥३।२।६७॥<br>कः पुनरयं नियमः ? यथैकस्यात्मनः शरीरं तथा सर्वात्मनामिति नियमः । अन्यस्यान्यथा, अन्यस्यान्यथेत्यनियमो भेदो व्यावृत्तिः । दृष्टः शरीरभेदः प्राणिनामनेकरूपः । स च कर्मनिरपेक्षभूतैः शरीरारम्भे न युक्तः । कर्मणां तु भेदाच्छरीराणि भिद्यन्त इति युक्तम् ।<br>उपपन्नश्च तद्वियोगः कर्मक्षयोपपत्तेः । द्वे शरीरस्य प्रकृती — व्यक्ता चाव्यक्ता च । तत्राव्यक्तायाः कर्मसमाख्यायाः प्रकृतेरुपभोगात् प्रक्षयः । प्रक्षीणे च कर्मणि विद्यमानान्यपि भूतानि न शरीरमुत्पादयन्तीत्युपपन्नोऽपवर्गः । कर्मनिरपेक्षेषु भूतेषु कस्य प्रक्षयान्मोक्षमाणा अपवृज्येरन्, भूतलक्षणायाः प्रकृतेरनुच्छेदात् ॥६७॥</div>
+  <div class="tr">（答え）これによって、（身体が）決まっていないことも答えられた。<br>では、ここでいう「決まり」とは何か。ある我の身体がそうであるように、すべての我の身体もそうである、というのが決まりである。ある者にはこう、別の者にはこう、というのが決まっていないこと、すなわち違い、区別である。生き物の身体の違いは、さまざまな形で見られる。そしてそれは、業に依存しない元素によって身体が始められるのなら、ありえない。しかし、業が違うので身体が違うのだ、というのは理にかなっている。<br>（答え）また、業が尽きることが成り立つので、それ（身体）から離れることも成り立つ。身体には二つの素材（<i>prakṛti</i>）がある。現れているもの（元素）と、現れていないもの（業）とである。そのうち、業と呼ばれる、現れていない素材は、（果報を）経験することによって尽きる。業が尽きると、元素はあっても身体を生じさせない。だから解脱が成り立つ。元素が業に依存しないなら、解脱を求める人々は何が尽きることによって解脱するのか。元素という素材はなくならないのだから。</div><div class="exp"><span class="lbl">解説</span><p>生き物の身体は、高い生まれ・低い生まれ、病弱・健康など、一人ひとり違います。元素だけが身体を作るなら、すべての身体は同じになるはずで、違いは、業が違うことによってしか説明できません（スートラ 3.2.67）。</p><p>続く「業が尽きることが成り立つので、身体から離れることも成り立つ」は、Thakur 版では Vārttika の中に番号なしで置かれていますが、ヒンディー訳ではスートラとして扱われます（下段参照）。身体の素材には、目に見える元素と、目に見えない業の二つがあり、業が経験によって尽きれば、元素があっても身体は作られない。それが解脱です。元素だけで身体ができるなら、元素はなくならないので、解脱はありえない、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.67 の「決まり」と「決まっていないこと」を、「決まりとは、すべての我が共通の身体をもつという遍充であり、決まっていないとはその非遍充である」という TṬ（p.583）で説明し、ここで「元素」は根本原質をも含めて言われており、根本原質が法・非法なしに身体を作るというサーンキヤの説も退けられる、と注します。バーシュヤは、高い生まれ・低い生まれ、病弱・健康などの生まれの違いは、我ごとに定まった業によると説きます。「業が尽きることが成り立つので…」を、ヒンディー訳は同じ番号「3.2.67」を繰り返してスートラとして印刷しています。バーシュヤは、貪りを離れた者は新しい業を積まず、蓄えられた業は果報の経験によって尽きるので、次の身体が結びつかない、と説きます。注は、「自分の立場で解脱を説明し、サーンキヤの立場では解脱がありえないことを示す」という TṬ（p.583）を引きます（Hi. pp.1145–1147）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版の OCR テキストは「प्राणिनामेकरूपः」「उपपन्नश्च तद्योगः」と読みますが、文脈とヒンディー訳に従って「प्राणिनामनेकरूपः」「उपपन्नश्च तद्वियोगः」と読みました。「उपपन्नश्च तद्वियोगः कर्मक्षयोपपत्तेः」は、ヒンディー訳ではスートラとして数えられ（番号は 3.2.67 の繰り返し）、Thakur 版では Vārttika の文の中にあります。どちらでも、以下のスートラ番号は両版で一致します。ヒンディー訳の翻刻には「प्रक्षीणे च」に対して「क्षीयमाणं च」と見られる異読が記されます。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>「見ないこと」が原因か</h2><span class="sub"><span class="pg">pp.419–421</span>スートラ 3.2.68。サーンキヤの「見ないこと」。見たいという欲求、無知、有因中有果論の難点</span></div>
+<div class="mula sutra" id="u8">
+  <span class="ref">p.419 · NS 3.2.68</span>
+  <div class="src deva" lang="sa">तददृष्टकारितमिति चेत् पुनस्तत्प्रसङ्गोऽपवर्गे ॥३।२।६८॥<br>तददृष्टकारितमिति चेत् ? अथ मन्यसे अदृष्टकारिता शरीरोत्पत्तिः, अदृष्टशब्देनादर्शनमुच्यते, अदर्शनमदृष्टमिति । सर्गादौ प्रधानं पुरुषार्थेन हेतुना प्रवर्तते, तत् प्रवर्तमानं महदादिभावेन शरीरमुत्पादयति । उत्पन्ने शरीरे द्रष्टा दृश्यं पश्यति । दृश्यं च द्वेधा — विषया नानात्वं च प्रकृतिपुरुषयोः । दृष्टे पुनः प्रधानं चरितार्थत्वान्न प्रवर्तत इति । तदेवमदर्शनं शरीरसर्गे हेतुः, तद्भावभावित्वादिति । एतस्मिन् खलु दर्शने — पुनस्तत्प्रसङ्गोऽपवर्गे । या च प्राक् प्रवृत्तेर्दर्शननिवृत्तिरदर्शनाभिमता, या चोत्तरकालं निवृत्ते सर्गे, नैतयोर्दर्शनयोः कश्चिद्विशेषः । अदर्शननिमित्ता चेच्छरीरोत्पत्तिर्भवति, तेन यथा प्राङ्नानात्वदर्शनात् प्रधानं पुरुषार्थं प्रवर्तते, तथापवर्गेऽपीति । न चैवमभ्युपगम्यते । तस्मान्नादर्शनं सर्गे कारणमिति । चरितार्थता विशेषो भविष्यतीति न युक्तम्, चरितार्थानामचरितार्थानां च भूतानां पुनः पुनरारम्भदर्शनात् । …… चरितार्थान्यपि भूतानि पुनः शरीरमारभन्त इति । ……</div>
+  <div class="tr">（反論）「それ（身体の生起）は『見えないもの』によって起こされる」と言うなら、解脱においてもふたたびそれ（身体の生起）が起こることになる。<br>（反論）「それは『見えないもの』によって起こされる」と言うなら。つまり、こう考えるなら。「身体の生起は『見えないもの』（<i>adṛṣṭa</i>）によって起こされる。『見えないもの』という語によって『見ないこと』（<i>adarśana</i>）が言われる。『見ないこと』が『見えないもの』である。創造の始まりに、根本原質（<i>pradhāna</i>）は、精神（<i>puruṣa</i>）の目的という理由によってはたらき出す。はたらき出したそれは、大（<i>mahat</i>）などのあり方で身体を生じさせる。身体が生じると、見る者（精神）は見られるべきものを見る。見られるべきものには二種類ある。対象と、根本原質と精神とが別であることとである。それが見られると、根本原質は目的を果たしたので、もうはたらかない。このように、『見ないこと』が身体の創出の原因である。それがあるときにそれがあるからである」。まさにこの見解においては、「解脱においてもふたたびそれが起こることになる」。（創造の）はたらきの前の、見ることがない状態で「見ないこと」と考えられているものと、創出が止んだ後の（見ることがない状態）と、この二つには何の違いもない。もし「見ないこと」を原因として身体が生じるのなら、（根本原質と精神とが）別であることを見る前に、根本原質が精神の目的のためにはたらき出すのと同じく、解脱においても（はたらき出すであろう）。しかし、（あなたがたは）そうは認めない。だから、「見ないこと」は創出の原因ではない。（反論）「目的を果たしたことが違いになるだろう」。これは正しくない。目的を果たした元素も、果たしていない元素も、何度も（身体を）始めるのが見られるからである。……目的を果たした元素も、ふたたび身体を始めるのである。……</div><div class="exp"><span class="lbl">解説</span><p>サーンキヤは、ニヤーヤの「見えない力」（<i>adṛṣṭa</i>）を「見ないこと」（<i>adarśana</i>）と読み替えます。サーンキヤによれば、根本原質は精神のためにはたらき出して身体を作り、精神はその身体を通じて対象を経験し、最後に自分が根本原質とは別であることを見る。それが見られれば、根本原質は役目を終えて止まり、精神は解脱する。だから、まだ見ていないこと（<i>adarśana</i>）が、身体が作られる原因だ、というのです（サーンキヤ・カーリカーの説の要約は訳者の補足）。</p><p>スートラ 3.2.68 は、それなら解脱した後にもまた身体が作られてしまう、と答えます。解脱した精神も、見る道具（身体や知）を失っているので、もう何も見ていない。創造の前の「見ないこと」と解脱の後の「見ないこと」は区別できないからです。「目的を果たした」という違いがある、と言っても、ある身体で色を経験し終えた元素が、別の身体を作って音を経験させるように、目的を果たした元素もふたたび身体を作るので、決め手にならない、と Uddyotakara は退けます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、この部分に「（サーンキヤの説の否定）」と見出しを付けます。注は、「根本原質と精神の違いを見ないことが『見えないもの』と言われる。それによって起こされる、という意味である」という TṬ（p.583）を引きます。バーシュヤは、ここでの「見ること」を業の果報の経験と定義します。「精神の目的によって」の「によって」は限定（まさに精神の目的のために）、「それをなさないので」の「ので」は「しかし」の意味だ、という TṬ（p.584）が引かれます。Vārttika には「तद्भावभावादिति」という異読が記されます（Hi. pp.1148–1150）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「विषयाः」を「विषयो」と読み、写本 J は「दृष्टेन पुनः」を「दृष्टे पुनः」と読みます（和訳は後者）。OCR テキストの「तद्भावात्त्वादिति」は「तद्भावभावित्वादिति」と読みました。写本 C は「शब्दाद्युपलब्धेः」を「रूपाद्युपलब्धेः」と読みます（省略箇所）。</p></div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">pp.420–421 · NS 3.2.68</span>
+  <div class="src deva" lang="sa">दिदृक्षाविशेषोऽदर्शनमिति चेत् ? अथ मन्यसे नादर्शनं दर्शनाभावः, किं तु दिदृक्षा अदर्शनमित्युच्यते, सा चापवृक्ते प्रधाने दृष्टत्वान्न भवतीति ? न, प्राक् प्रवृत्तेस्तदभावात् । यावत् प्रधानं महदादिभावेन न परिणमते, तावद् दिदृक्षा नास्ति । असती कथं कारणं भविष्यति प्रवृत्तेरिति । सर्वशक्तिमत्त्वात् तदाप्यस्तीति चेत् ? …… न, अपवर्गाभावप्रसङ्गात् । …… दिदृक्षानानात्वदर्शने च विरुद्धे कथमेकस्यैकस्मिन् काले भवतः ?<br>अज्ञानमदर्शनमिति च ब्रुवाणो विकल्पतः पर्यनुयोज्यः — किं ज्ञानाभावोऽज्ञानम्, उत मिथ्याज्ञानमज्ञानम् ? किं चातः ? यद्यभावः, अपवर्गो न प्राप्नोति, प्राक्प्रवृत्तेरपवृक्ते च प्रधाने ज्ञानाभावस्य तुल्यत्वात् । अथ मिथ्याज्ञानम्, तन्न युक्तम्, प्राक्प्रवृत्तेस्तदभावात् । कथमभावः ? बुद्धिधर्मकत्वात् । अपवृक्ते च प्रधाने न बुद्धिरस्ति, कथं तद्धर्मोऽज्ञानं भविष्यतीति ?<br>सत्कार्यवादाभ्युपगमात् सर्वदास्तीति ब्रुवाणो मोक्षं बाधते । …… कर्मनिमित्ते तु सर्गे दृश्यदर्शनार्थं भूतानि शरीरं पुरुषगुणप्रेरितान्यारभन्त इति युक्तम् । न ह्यनुत्पन्ने शरीरे द्रष्टा निरायतनो दृश्यं पश्यतीति ।</div>
+  <div class="tr">（反論）「『見ないこと』とは、特定の見たいという欲求である」と言うなら。つまり、「『見ないこと』とは見ることがないことではなく、見たいという欲求が『見ないこと』と言われるのであり、それは、根本原質が（はたらきを）離れたときには、（すでに）見られたので、ない」と考えるなら。そうではない。（創造の）はたらきの前には、それ（見たいという欲求）はないからである。根本原質が大などのあり方に転変しないかぎり、見たいという欲求はない。ないものが、どうしてはたらきの原因になるのか。（反論）「（根本原質は）あらゆる力をもつので、そのときにもそれはある」と言うなら。……そうではない。解脱がなくなってしまうからである。……また、見たいという欲求と、（根本原質と精神とが）別であることを見ることとは相反するのに、どうして一つのものに同じ時にありうるのか。<br>また、「『見ないこと』とは無知である」と言う者には、選択肢を立てて問い返すべきである。無知とは知がないことなのか、誤った知なのか。それがどうしたのか、と言うなら。もし（知が）ないことなら、解脱は得られない。はたらきの前にも、根本原質が（はたらきを）離れたときにも、知がないことは同じだからである。もし誤った知なら、それは正しくない。はたらきの前には、それはないからである。どうしてないのか。（誤った知は）知（<i>buddhi</i>）の性質だからである。そして根本原質が（はたらきを）離れたときには、知はない。それなら、どうしてその性質である無知があろうか。<br>（反論）「有因中有果論（<i>satkāryavāda</i>）を認めるので、（それは）いつでもある」と言う者は、解脱を損なう。……しかし、業を原因とする創出であれば、見られるべきものを見るために、人の性質に動かされた元素が身体を始める、というのは理にかなっている。身体が生じていないのに、見る者が拠り所なしに見られるべきものを見ることはないからである。</div><div class="exp"><span class="lbl">解説</span><p>サーンキヤは「見ないこと」を言い換えて、精神が見たいと欲すること（<i>didṛkṣā</i>）だ、あるいは無知（<i>ajñāna</i>）だ、と応じます。Uddyotakara はどちらも退けます。見たいという欲求も無知も、知（<i>buddhi</i>）のはたらきであって、根本原質が知へと転変する前にはありえないので、創造の原因になりません。根本原質にはあらゆる力が潜んでいるので、創造の前にも欲求はあるのだと言えば、解脱の後にも欲求があることになり、解脱がなくなります。</p><p>さらに、結果は原因の中に前もって存在するという有因中有果論を持ち出すと、真実の知もまたいつでも存在することになり、誤った知と並存できないので、解脱もはたらきも説明できなくなる、と論じます。最後に、業が原因なら、見るべきものを見るために身体が作られる、というのは筋が通る、と自説に戻ります。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、見たいという欲求は知が転変した後にしかない、と TṬ（p.584）を引き、「あらゆる力をもつので」を、有因中有果論にもとづく反論だとします（TṬ p.584）。「ないものは自分を捨てない」というサーンキヤの立場（Vārttika の「あなたがたの立場」）も有因中有果論の一部だ、と注します。無知を知の欠如ととる場合について、識別知の欠如は（はたらきの前も解脱の後も）同じだからだ、という TṬ（p.584）が引かれます。翻刻には「बुद्धिरस्ति」と、「प्रवृत्तेस्तादर्थ्यम्」と読むべき「तादर्थ्य」という異読が記され、ヒンディー訳は「विस्फूर्जतापि」を「力ずくでも」と訳しています（Hi. pp.1151–1153）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「किं तु दिदृक्षा दर्शनमित्युच्यते । सा चावृक्ते प्रधाने」は、文脈に従って「किं तु दिदृक्षा अदर्शनमित्युच्यते । सा चापवृक्ते प्रधाने」と読みました。写本 C は「दृष्टत्वात्」を「दिदृक्षा」と読みます。OCR テキストの「तत्र युक्तम्」は「तन्न युक्तम्」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>原子の見えない力</h2><span class="sub"><span class="pg">pp.421–422</span>スートラ 3.2.68–72。原子と意の見えない力。死が説明できない。原子の黒さのたとえ。結びの詩節</span></div>
+<div class="mula sutra" id="u10">
+  <span class="ref">p.421 · NS 3.2.68–70</span>
+  <div class="src deva" lang="sa">अपरे त्वदृष्टं परमाणुगुणं वर्णयन्ति, तेषामपि — पुनस्तत्प्रसङ्गोऽपवर्गे — इति, परमाणुगुणस्यादृष्टस्य शरीरोत्पत्तिनिमित्तत्वात् पुनस्तत्प्रसङ्गोऽपवर्गे ॥६८॥<br>मनःकर्मनिमित्तत्वाच्च संयोगाव्युच्छेदः ॥३।२।६९॥<br>परमाणवः स्वकाददृष्टात् संहन्यन्ते, संहताश्च द्व्यणुकादिना क्रमेण शरीरमुत्पादयन्ति, तन्मनः स्वगुणाददृष्टादुपसर्पतीति । उपसर्पणहेतोरदृष्टस्य नित्यत्वात् किंकृतमपसर्पणमिति ? कर्माशयक्षये तु कर्माशयान्तरादपसर्पणमिति युक्तं प्रायणम् । उभयहेतुर्मनोवृत्तिरदृष्टो भविष्यतीति न युक्तम्, एकस्य जीवनप्रायणहेतुत्वानुपपत्तेः ॥६९॥<br>नित्यत्वप्रसङ्गश्च प्रायणानुपपत्तेः ॥३।२।७०॥<br>नित्यत्वप्रसङ्ग इति प्रायणानुपपत्तिं ब्रूमः । तदिदमुक्तम्, उपसर्पणहेतोरदृष्टस्य नित्यत्वादपसर्पणहेतोश्चादृष्टस्याभावात् । यादृच्छिके तु प्रायणे प्रायणभेदो न स्यात् ॥७०॥</div>
+  <div class="tr">別の人々は、「見えないもの」を原子の性質だと説明する。その人々にも、「解脱においてもふたたびそれが起こることになる」。原子の性質である見えないものが身体の生起の原因なので、解脱においてもふたたびそれ（身体の生起）が起こることになるからである。<br>（答え）また、意の運動の原因であるので、（意と身体との）結合が断たれないことになる。<br>（相手の説では）原子は自分の見えないものによって集まり、集まって二原子体などの順序で身体を生じさせる。そして意は、自分の性質である見えないものによって（身体に）近づく。（しかし）近づくことの原因である見えないものは常住なので、離れることは何によって起こるのか。（われわれの説のように、身体を作った）業の蓄積が尽きて、別の業の蓄積によって（意が身体から）離れるのであれば、死は理にかなう。（反論）「意のはたらき（近づくことと離れること）の両方の原因となる見えないものがあるのだろう」。これは正しくない。一つのものが生と死の両方の原因になることは成り立たないからである。<br>（答え）また、死が成り立たないので、（身体が）常住であることになってしまう。<br>「常住であることになってしまう」とは、死が成り立たないことを言うのである。それはこう言われた。近づくことの原因である見えないものは常住であり、離れることの原因である見えないものはないからである。もし死が偶然なら、死に方の違いはないであろう。</div><div class="exp"><span class="lbl">解説</span><p>別の説は、見えない力を我ではなく原子や意の性質とします。原子は自分の見えない力によって集まって身体を作り、意も自分の見えない力によって身体に入る、というのです（Vācaspati はこの論者をアールハタ、すなわちジャイナとし、ヒンディー訳もそれに従う）。</p><p>この説への難点は、まず 3.2.68 と同じく、原子の力は解脱の後もなくならないので、ふたたび身体が作られてしまうことです。さらにスートラ 3.2.69–70 は、意を身体に近づける力が常住なら、意が身体から離れること、つまり死が説明できない、と指摘します。ニヤーヤでは、身体を作った業が尽き、次の身体を作る別の業が熟すことで、意は身体を離れます。死が偶然に起こるとすれば、胎内で死ぬ者、生まれてすぐ死ぬ者、子供のうちに死ぬ者といった死に方の違いも説明できません。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳のバーシュヤは、「ある人の見解」に「（ジャイナ）」と補い、見えない力は運動を引き起こす原子の特別な性質で、原子が集まり、意が自分の見えない力に押されて身体に入る、という説を紹介します。注は、Vārttika の「別の人々」について「別の人々とはアールハタ（ジャイナ）である。原子とはプドガラである」という TṬ（p.584）を引き、同じ難点が彼らにも当てはまる（TṬ pp.584–585）と記します。3.2.69 については、TṬ（p.585）が「現在の身体を作った業の蓄積が尽きると、未来の別の身体を作る業の蓄積によって意が離れる」と読み、こちらのほうが適切だ、と注します。3.2.70 には「意の性質が見えない力であるという説の別の誤り」という見出しが付けられ、TṬ は「身体が常住であることになる」と読む、と注されます。死に方の違い（胎内で、生まれてすぐ、子供のうちに死ぬ）と、「原因のないものは、虚空のようにいつもあるか、空中の花のようにまったくないかである」という TṬ（p.585）が引かれます（Hi. pp.1153–1155）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>ヒンディー訳はスートラ 3.2.69 を「…संयोगाद्यनुच्छेदः」と読み、「संयोगानुच्छेदः」が本来の読みと見られます。Thakur 版の「संयोगाव्युच्छेदः」も意味は同じです。写本 C は「स्वकाददृष्टात्」を「स्वगुणाद्」と読みます。OCR テキストの「उपसर्पणहेतोश्चादृष्टस्याभावात्」は、文脈とヒンディー訳に従って「अपसर्पणहेतोश्च…」と読みました。</p></div>
+</div>
+<div class="mula sutra" id="u11">
+  <span class="ref">p.422 · NS 3.2.71–72</span>
+  <div class="src deva" lang="sa">अणुश्यामतानित्यत्ववदेतत्स्यात् ॥३।२।७१॥<br>अणु……स्यात् — इति परिहारं वर्णयन्ति । यथा किलाणौ श्यामता नित्या, अथ चाग्निसंयोगेन प्रतिषिध्यते, एवमणुमनसोरदृष्टः सम्यग्ज्ञानेन प्रतिषेत्स्यत इति ॥७१॥<br>नाकृताभ्यागमप्रसङ्गात् ॥३।२।७२॥<br>एतच्च न, अकृताभ्यागमप्रसङ्गादिति । अनुपपन्नप्रमाणस्याभ्युपगमोऽकृताभ्युपगम इति सूत्रार्थः । यथाश्रुति वा सूत्रार्थः, अकृतस्य कर्मण उपभोगप्रसङ्गादिति । एतच्च विस्तरेणोक्तं भाष्य इति ॥७२॥<br>॥ शरीरस्यादृष्टनिष्पाद्यत्वप्रकरणम् ॥<br>आत्मा शरीरं करणमर्थो बुद्धिर्मनस्तथा ।<br>यद् यथा वस्तुतत्त्वेन तत् तथेहोपपादितम् ॥<br>॥ इति औद्योतकरे न्यायवार्त्तिके तृतीयाध्यायस्य द्वितीयाह्निकम् ॥<br>॥ तृतीयाध्यायः समाप्तः ॥</div>
+  <div class="tr">（反論）「これは、原子の黒さが常住であるのと同じようなものであろう」。<br>「これは、原子の……」という答えを（彼らは）説明する。原子の黒さは常住であるのに、火との結合によって否定される。それと同じく、原子と意の見えないものは、正しい知によって否定されるであろう、と。<br>（答え）（そうでは）ない。なしていないことを受け入れることになってしまうからである。<br>「これも（正しく）ない。なしていないことを受け入れることになってしまうからである」。量によって成り立っていないことを認めることが、「なしていないことを受け入れること」である、というのがスートラの意味である。あるいは、文字どおりにスートラの意味をとれば、なしていない業（の果報）を経験することになってしまうから、である。このことはバーシュヤで詳しく述べられている。<br>以上、身体は見えない力によって作られることの章。<br>我・身体・道具（感官）・対象・知・意、<br>それらを、真実においてあるとおりに、ここに論証した。<br>以上、ウッディヨータカラの『ニヤーヤ・ヴァールッティカ』第三篇第二日課。<br>第三篇終わる。</div><div class="exp"><span class="lbl">解説</span><p>相手は最後に、原子の黒さのたとえを出します（3.2.71）。土の原子の黒さは常住だが、火に焼かれると消える。それと同じく、原子や意の見えない力も常住だが、正しい知によって消える、だから解脱は説明できる、というのです。</p><p>スートラ 3.2.72 の答えを、Uddyotakara は二通りに読みます。一つは、量によって確かめられていないこと（原子の黒さが常住だというのは、実は焼成による色であって常住ではない）を前提にしている、という読み。もう一つは文字どおりに、我の業によらずに原子の力で身体ができるなら、自分のなしていない行為の果報を受けることになる、という読みです。バーシュヤは後者を、知覚・推理・聖典のすべてと矛盾する、と詳しく論じています。</p><p>章の後には、第三篇全体を振り返る詩節が置かれます。第三篇は、列挙（スートラ 1.1.9）の十二の認識対象のうち、我・身体・感官・対象・知・意の六つを考察してきました。残りの活動・過失・再生・果報・苦・解脱は、第四篇第一日課で考察されます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.71 を「答えようとする者が言う」で導き、相手（原子と意の見えない力の説を守る者）の答えとします。注は、相手が「原因がないから」という論証因を不確定だと攻撃するのだ、という TṬ（p.585）を引きます。3.2.72 には「（上の答えの否定）」と見出しが付けられます。注は、「なしていないこと」には知覚や聖典に反することも含まれ、原子の黒さも、赤と同じく地の色であることから焼成によるものと推理される、と TṬ（p.585）を引き、聖典との矛盾は TṬ（pp.585–586）が詳しく説く、と記します。バーシュヤは、楽と苦の違い（強い・弱い、長い・短い、多様・単一）は、我ごとに定まった原因がなければ説明できず、努力によらずに起こる楽と苦の配置は、意識をもつ者の別の性質、すなわち経験されない（見えない）力によるので、業を原因としない身体の創出と楽苦の結びつきは「最も悪い者たちの誤った見解」だ、と結びます。ヒンディー訳は、バーシュヤの奥書の後に Vārttika の詩節を「आत्मा शरीरं इन्द्रियं अर्थो बुद्धिर्मनस्तथा । यद्यथा वस्तु तत्त्वेन तत् तथेहोपपादितम्」と読み、「（以上、付随的な、見えない力によって作られることの章）」と記します（Hi. pp.1156–1160）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>結びの詩節の第一句は、Thakur 版では「करणम्」（道具）、ヒンディー訳では「इन्द्रियम्」（感官）です。第二句の「तत् तथोपपादितम्」は、韻律とヒンディー訳に従って「तत् तथेहोपपादितम्」と読みました。Thakur 版の OCR テキストの「बुद्धिरमनस्」は「बुद्धिर्मनस्」と読みました。写本 C は「अथ च」を「अथापि संयो०」、「प्रतिषेत्स्यते」を「प्रतिषिध्यते」と読みます。ヒンディー訳の翻刻ではバーシュヤの最後の「कर्मनिमित्तः सुखदुःखयोगः」から「अ」が落ちていますが、訳は「業の原因なしに」ととっています。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>adṛṣṭa</dt><dd>見えない力。業が我に残した法と非法</dd>
+    <dt>adarśana</dt><dd>見ないこと。サーンキヤでは、根本原質と精神の違いを見ないこと</dd>
+    <dt>karmāśaya</dt><dd>業の蓄積</dd>
+    <dt>vipākakāla</dt><dd>（業が）熟する時</dd>
+    <dt>nāstika</dt><dd>ここでは、あの世も法・非法も認めない唯物論者</dd>
+    <dt>pradhāna / puruṣa</dt><dd>根本原質／精神（サーンキヤの二原理）</dd>
+    <dt>didṛkṣā</dt><dd>見たいという欲求</dd>
+    <dt>satkāryavāda</dt><dd>有因中有果論。結果は原因の中に前もってあるという説</dd>
+    <dt>upasarpaṇa / apasarpaṇa</dt><dd>（意が身体に）近づくこと／離れること</dd>
+    <dt>akṛtābhyāgama</dt><dd>なしていないこと（の果報）を受けること</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直し、長い箇所は抜粋した（「……」は省略箇所）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号は Thakur 版とヒンディー訳で一致する（ヒンディー訳は「उपपन्नश्च तद्वियोगः…」を 3.2.67 の番号を繰り返してスートラとして数える）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。ヒンディー訳は、利用者から提供された OCR 転写によって参照した。転写は解説のためにだけ用い、サンスクリット本文の校訂には用いていない。転写は pp.1135–1137 を欠く。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第41プラカラナ（スートラ 3.2.60–72）で、第三篇はここで終わる。第40プラカラナ（スートラ 3.2.56–59）は<a href="nyayavarttika-40-taiyaku.html">第40プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
