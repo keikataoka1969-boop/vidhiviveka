@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳目次</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#a1"><b>1</b>第一篇</a></li><li><a href="#a2"><b>2</b>第二篇</a></li><li><a href="#a3"><b>3</b>第三篇</a></li><li><a href="#a4"><b>4</b>第四篇</a></li><li><a href="#a5"><b>5</b>第五篇</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　全体の目次（全85プラカラナ、スートラ 1.1.1–5.2.24、Thakur 版 pp.1–530）</span>
+  <p>このページは、プラカラナ（章）ごとに作った85ページの対訳の目次です。各行の章名から、そのページへ移動できます。各ページは、原文（Thakur 版）、和訳、解説の順に並び、前後のプラカラナへのリンクがあります。</p>
+</header>
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">この目次の読み方</h2></div>
+  <dl class="facts">
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>頁番号は Thakur 版。章名の区切りも Thakur 版の章立てによる</small></dd></div>
+    <div><dt>構成</dt><dd>五篇・十日課・85章<br><small>各篇は二つの日課（<i>āhnika</i>）に分かれる</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>41章で参照<br><small>Śrīnivāsa Śāstrī 訳注の翻刻が提供された章のみ。表の「ヒ」欄に印</small></dd></div>
+    <div><dt>見どころ</dt><dd>各章の要点<br><small>表の最後の欄は、各ページの「見どころ」の一行</small></dd></div>
+  </dl>
+</section>
+<section id="a1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>第一篇</h2><span class="sub">十六項目の列挙と定義（認識手段・認識対象・疑い……負けの根拠）。プラカラナ 1–11</span></div>
+  <div class="tbl min">
+<table>
+<thead><tr><th>No.</th><th>章</th><th>スートラ</th><th>Thakur 版</th><th>ヒ</th><th>見どころ</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="6">第一篇第一日課</td></tr>
+<tr><td class="num">1</td><td class="k"><a href="nyayavarttika-1-taiyaku.html">主題・目的・関係の章</a><span class="sm"><i>abhidheyaprayojanasambandhaprakaraṇa</i></span></td><td class="num">1.1.1–2</td><td class="num">pp.1–25</td><td><span class="pill a">参照</span></td><td>認識手段の定義と「混在」説</td></tr>
+<tr><td class="num">2</td><td class="k"><a href="nyayavarttika-2-taiyaku.html">認識手段の定義の章</a><span class="sm"><i>pramāṇalakṣaṇaprakaraṇa</i></span></td><td class="num">1.1.3–8</td><td class="num">pp.25–57</td><td><span class="pill a">参照</span></td><td>Dignāga の「概念を離れた知覚」批判</td></tr>
+<tr><td class="num">3</td><td class="k"><a href="nyayavarttika-3-taiyaku.html">認識対象の定義の章</a><span class="sm"><i>prameyalakṣaṇaprakaraṇa</i></span></td><td class="num">1.1.9–22</td><td class="num">pp.58–83</td><td><span class="pill a">参照</span></td><td>我の存在証明</td></tr>
+<tr><td class="num">4</td><td class="k"><a href="nyayavarttika-4-taiyaku.html">論証の前提の定義の章</a><span class="sm"><i>nyāyapūrvāṅgalakṣaṇaprakaraṇa</i></span></td><td class="num">1.1.23–25</td><td class="num">pp.83–97</td><td><span class="pill a">参照</span></td><td>相反する二つの正しい論証因はありうるか</td></tr>
+<tr><td class="num">5</td><td class="k"><a href="nyayavarttika-5-taiyaku.html">論証の拠り所である定説の定義の章</a><span class="sm"><i>nyāyāśrayasiddhāntalakṣaṇaprakaraṇa</i></span></td><td class="num">1.1.26–31</td><td class="num">pp.98–102</td><td><span class="pill a">参照</span></td><td>「定説」と「主張」の違い</td></tr>
+<tr><td class="num">6</td><td class="k"><a href="nyayavarttika-6-taiyaku.html">論証の定義の章</a><span class="sm"><i>nyāyalakṣaṇaprakaraṇa</i></span></td><td class="num">1.1.32–39</td><td class="num">pp.102–130</td><td><span class="pill a">参照</span></td><td>理由の三相の定義批判</td></tr>
+<tr><td class="num">7</td><td class="k"><a href="nyayavarttika-7-taiyaku.html">論証の後の部分の定義の章</a><span class="sm"><i>nyāyottarāṅgalakṣaṇaprakaraṇa</i></span></td><td class="num">1.1.40–41</td><td class="num">pp.131–137</td><td><span class="pill a">参照</span></td><td>吟味は推理と何が違うか</td></tr>
+<tr class="grp"><td colspan="6">第一篇第二日課</td></tr>
+<tr><td class="num">8</td><td class="k"><a href="nyayavarttika-8-taiyaku.html">論議の型の定義の章</a><span class="sm"><i>kathālakṣaṇaprakaraṇa</i></span></td><td class="num">1.2.1–3</td><td class="num">pp.138–155</td><td><span class="pill a">参照</span></td><td>論議と論争の違い</td></tr>
+<tr><td class="num">9</td><td class="k"><a href="nyayavarttika-9-taiyaku.html">擬似理由の定義の章</a><span class="sm"><i>hetvābhāsalakṣaṇaprakaraṇa</i></span></td><td class="num">1.2.4–9</td><td class="num">pp.155–168</td><td><span class="pill a">参照</span></td><td>16 × 3 の分類</td></tr>
+<tr><td class="num">10</td><td class="k"><a href="nyayavarttika-10-taiyaku.html">詭弁の章</a><span class="sm"><i>chalaprakaraṇa</i></span></td><td class="num">1.2.10–17</td><td class="num">pp.168–171</td><td><span class="pill a">参照</span></td><td>知っていても知らなくても負け</td></tr>
+<tr><td class="num">11</td><td class="k"><a href="nyayavarttika-11-taiyaku.html">人の無能を示す誤りの一般的定義の章</a><span class="sm"><i>puruṣāśaktiliṅgadoṣasāmānyalakṣaṇaprakaraṇa</i></span></td><td class="num">1.2.18–20</td><td class="num">pp.172–173</td><td><span class="pill a">参照</span></td><td>正しい論証をした者も負けることがある</td></tr>
+</tbody>
+</table>
+  </div>
+</section>
+<section id="a2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第二篇</h2><span class="sub">疑いと認識手段の吟味、音の無常性、語の意味。プラカラナ 12–25</span></div>
+  <div class="tbl min">
+<table>
+<thead><tr><th>No.</th><th>章</th><th>スートラ</th><th>Thakur 版</th><th>ヒ</th><th>見どころ</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="6">第二篇第一日課</td></tr>
+<tr><td class="num">12</td><td class="k"><a href="nyayavarttika-12-taiyaku.html">疑いの吟味の章</a><span class="sm"><i>saṃśayaparīkṣāprakaraṇa</i></span></td><td class="num">2.1.1–7</td><td class="num">pp.174–179</td><td><span class="pill a">参照</span></td><td>確かな知から不確かな知が生じるか</td></tr>
+<tr><td class="num">13</td><td class="k"><a href="nyayavarttika-13-taiyaku.html">認識手段の一般的吟味の章</a><span class="sm"><i>sāmānyena pramāṇaparīkṣāprakaraṇa</i></span></td><td class="num">2.1.8–20</td><td class="num">pp.179–194</td><td><span class="pill a">参照</span></td><td>自分の指を燃やす男</td></tr>
+<tr><td class="num">14</td><td class="k"><a href="nyayavarttika-14-taiyaku.html">知覚の定義の吟味の章</a><span class="sm"><i>pratyakṣalakṣaṇaparīkṣāprakaraṇa</i></span></td><td class="num">2.1.21–30</td><td class="num">pp.194–200</td><td><span class="pill a">参照</span></td><td>定義は原因の一覧ではない</td></tr>
+<tr><td class="num">15</td><td class="k"><a href="nyayavarttika-15-taiyaku.html">知覚が推理であるかの吟味の章</a><span class="sm"><i>pratyakṣasyānumānatvaparīkṣāprakaraṇa</i></span></td><td class="num">2.1.31–33</td><td class="num">pp.200–208</td><td><span class="pill a">参照</span></td><td>全体は部分に「全部で」あるか「一部で」あるか</td></tr>
+<tr><td class="num">16</td><td class="k"><a href="nyayavarttika-16-taiyaku.html">全体の吟味の章</a><span class="sm"><i>avayaviparīkṣāprakaraṇa</i></span></td><td class="num">2.1.34–37</td><td class="num">pp.208–237</td><td><span class="pill a">参照</span></td><td>天秤に二つの塊を載せると</td></tr>
+<tr><td class="num">17</td><td class="k"><a href="nyayavarttika-17-taiyaku.html">推理の吟味の章</a><span class="sm"><i>anumānaparīkṣāprakaraṇa</i></span></td><td class="num">2.1.38–39</td><td class="num">pp.237–238</td><td><span class="pill a">参照</span></td><td>孔雀の声と人のまね</td></tr>
+<tr><td class="num">18</td><td class="k"><a href="nyayavarttika-18-taiyaku.html">現在の時の吟味の章</a><span class="sm"><i>vartamānakālaparīkṣāprakaraṇa</i></span></td><td class="num">2.1.40–44</td><td class="num">pp.239–242</td><td><span class="pill a">参照</span></td><td>落ちる果実の道のり</td></tr>
+<tr><td class="num">19</td><td class="k"><a href="nyayavarttika-19-taiyaku.html">類比の吟味の章</a><span class="sm"><i>upamānaparīkṣāprakaraṇa</i></span></td><td class="num">2.1.45–49</td><td class="num">pp.243–245</td><td><span class="pill a">参照</span></td><td>ラーマとラーヴァナの戦い</td></tr>
+<tr><td class="num">20</td><td class="k"><a href="nyayavarttika-20-taiyaku.html">言葉一般の吟味の章</a><span class="sm"><i>śabdasāmānyaparīkṣāprakaraṇa</i></span></td><td class="num">2.1.50–57</td><td class="num">pp.245–251</td><td><span class="pill a">参照</span></td><td>「火」と言っても口は焼けない</td></tr>
+<tr><td class="num">21</td><td class="k"><a href="nyayavarttika-21-taiyaku.html">特定の言葉の吟味の章</a><span class="sm"><i>śabdaviśeṣaparīkṣāprakaraṇa</i></span></td><td class="num">2.1.58–69</td><td class="num">pp.251–260</td><td><span class="pill a">参照</span></td><td>ヴェーダは医学書と同じ</td></tr>
+<tr class="grp"><td colspan="6">第二篇第二日課</td></tr>
+<tr><td class="num">22</td><td class="k"><a href="nyayavarttika-22-taiyaku.html">認識手段は四つであることの吟味の章</a><span class="sm"><i>pramāṇacatuṣṭvaparīkṣāprakaraṇa</i></span></td><td class="num">2.2.1–12</td><td class="num">pp.261–267</td><td><span class="pill a">参照</span></td><td>「昼に食べない」と言えば夜に食べる</td></tr>
+<tr><td class="num">23</td><td class="k"><a href="nyayavarttika-23-taiyaku.html">音の無常性の章</a><span class="sm"><i>śabdānityatvaprakaraṇa</i></span></td><td class="num">2.2.13–39</td><td class="num">pp.268–294</td><td><span class="pill a">参照</span></td><td>カダンバの花のように広がる音</td></tr>
+<tr><td class="num">24</td><td class="k"><a href="nyayavarttika-24-taiyaku.html">音の変化の章</a><span class="sm"><i>śabdapariṇāmaprakaraṇa</i></span></td><td class="num">2.2.40–57</td><td class="num">pp.294–298</td><td><span class="pill a">参照</span></td><td>金は腕輪になっても金である</td></tr>
+<tr><td class="num">25</td><td class="k"><a href="nyayavarttika-25-taiyaku.html">語の表示力の考察の章</a><span class="sm"><i>śabdaśaktiparīkṣāprakaraṇa</i></span></td><td class="num">2.2.58–69</td><td class="num">pp.298–318</td><td><span class="pill a">参照</span></td><td>「牛」の意味は「牛でないものの排除」か</td></tr>
+</tbody>
+</table>
+  </div>
+</section>
+<section id="a3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第三篇</h2><span class="sub">認識対象の吟味（一）：自己・身体・感官・対象・知・意。プラカラナ 26–41</span></div>
+  <div class="tbl min">
+<table>
+<thead><tr><th>No.</th><th>章</th><th>スートラ</th><th>Thakur 版</th><th>ヒ</th><th>見どころ</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="6">第三篇第一日課</td></tr>
+<tr><td class="num">26</td><td class="k"><a href="nyayavarttika-26-taiyaku.html">感官との区別の章</a><span class="sm"><i>indriyabhedaprakaraṇa</i></span></td><td class="num">3.1.1–3</td><td class="num">pp.319–330</td><td><span class="pill a">参照</span></td><td>仏典を引いて無我論を批判する</td></tr>
+<tr><td class="num">27</td><td class="k"><a href="nyayavarttika-27-taiyaku.html">身体と別の我の章</a><span class="sm"><i>śarīravyatirekyātmaprakaraṇa</i></span></td><td class="num">3.1.4–6</td><td class="num">pp.330–337</td><td><span class="pill a">参照</span></td><td>雨と日差しは空に何をするのか</td></tr>
+<tr><td class="num">28</td><td class="k"><a href="nyayavarttika-28-taiyaku.html">目が二つでないことの章</a><span class="sm"><i>cakṣuradvaitaprakaraṇa</i></span></td><td class="num">3.1.7–14</td><td class="num">pp.337–342</td><td><span class="pill a">参照</span></td><td>バーシュヤと Vārttika の食い違い</td></tr>
+<tr><td class="num">29</td><td class="k"><a href="nyayavarttika-29-taiyaku.html">我が意と別であることの章</a><span class="sm"><i>ātmano manovyatirekitvaprakaraṇa</i></span></td><td class="num">3.1.15–17</td><td class="num">pp.342–343</td><td><span class="pill a">参照</span></td><td>名前の違いにすぎない</td></tr>
+<tr><td class="num">30</td><td class="k"><a href="nyayavarttika-30-taiyaku.html">我の常住性の章</a><span class="sm"><i>ātmanityatvaprakaraṇa</i></span></td><td class="num">3.1.18–26</td><td class="num">pp.343–348</td><td><span class="pill a">参照</span></td><td>赤ん坊はなぜほほえむのか</td></tr>
+<tr><td class="num">31</td><td class="k"><a href="nyayavarttika-31-taiyaku.html">身体の考察の章</a><span class="sm"><i>śarīraparīkṣāprakaraṇa</i></span></td><td class="num">3.1.27–31</td><td class="num">pp.348–351</td><td><span class="pill a">参照</span></td><td>元素の組み合わせの数え上げ</td></tr>
+<tr><td class="num">32</td><td class="k"><a href="nyayavarttika-32-taiyaku.html">感官が元素からなることの章</a><span class="sm"><i>indriyabhautikatvaprakaraṇa</i></span></td><td class="num">3.1.32–51</td><td class="num">pp.351–363</td><td><span class="pill a">参照</span></td><td>火の四つの種類</td></tr>
+<tr><td class="num">33</td><td class="k"><a href="nyayavarttika-33-taiyaku.html">感官が多数であることの章</a><span class="sm"><i>indriyanānātvaprakaraṇa</i></span></td><td class="num">3.1.52–61</td><td class="num">pp.364–370</td><td><span class="pill a">参照</span></td><td>スートラの論法を組み直す</td></tr>
+<tr><td class="num">34</td><td class="k"><a href="nyayavarttika-34-taiyaku.html">感官の対象の考察の章</a><span class="sm"><i>arthaparīkṣāprakaraṇa</i></span></td><td class="num">3.1.62–73</td><td class="num">pp.371–375</td><td><span class="pill a">参照</span></td><td>耳だけはなぜ自分の性質を聞くのか</td></tr>
+<tr class="grp"><td colspan="6">第三篇第二日課</td></tr>
+<tr><td class="num">35</td><td class="k"><a href="nyayavarttika-35-taiyaku.html">知の無常性の章</a><span class="sm"><i>buddhyanityatāprakaraṇa</i></span></td><td class="num">3.2.1–9</td><td class="num">pp.376–383</td><td><span class="pill a">参照</span></td><td>「知が確定し、精神が意識する」の批判</td></tr>
+<tr><td class="num">36</td><td class="k"><a href="nyayavarttika-36-taiyaku.html">付随的な刹那滅の章</a><span class="sm"><i>aupodghātikaṃ kṣaṇabhaṅgaprakaraṇam</i></span></td><td class="num">3.2.10–17</td><td class="num">pp.383–395</td><td><span class="pill a">参照</span></td><td>「刹那的」という語の分析</td></tr>
+<tr><td class="num">37</td><td class="k"><a href="nyayavarttika-37-taiyaku.html">知は我の性質であることの章</a><span class="sm"><i>buddher ātmaguṇatvaprakaraṇa</i></span></td><td class="num">3.2.18–41</td><td class="num">pp.395–405</td><td><span class="pill a">参照</span></td><td>記憶はどこで起こるのか</td></tr>
+<tr><td class="num">38</td><td class="k"><a href="nyayavarttika-38-taiyaku.html">知は生じてすぐに滅することの章</a><span class="sm"><i>buddher utpannāpavargitvaprakaraṇa</i></span></td><td class="num">3.2.42–45</td><td class="num">pp.406–408</td><td><span class="pill a">参照</span></td><td>「すぐに滅する」の限定</td></tr>
+<tr><td class="num">39</td><td class="k"><a href="nyayavarttika-39-taiyaku.html">知は身体の性質と別であることの章</a><span class="sm"><i>buddheḥ śarīraguṇavyatirekaprakaraṇa</i></span></td><td class="num">3.2.46–55</td><td class="num">pp.408–413</td><td><span class="pill a">参照</span></td><td>章の最後の論証式のまとめ</td></tr>
+<tr><td class="num">40</td><td class="k"><a href="nyayavarttika-40-taiyaku.html">意の考察の章</a><span class="sm"><i>manaḥparīkṣāprakaraṇa</i></span></td><td class="num">3.2.56–59</td><td class="num">pp.413–414</td><td><span class="pill a">参照</span></td><td>火の輪のたとえ</td></tr>
+<tr><td class="num">41</td><td class="k"><a href="nyayavarttika-41-taiyaku.html">身体は見えない力によって作られることの章</a><span class="sm"><i>śarīrasyādṛṣṭaniṣpādyatvaprakaraṇa</i></span></td><td class="num">3.2.60–72</td><td class="num">pp.414–422</td><td><span class="pill a">参照</span></td><td>サーンキヤの「見ないこと」の批判</td></tr>
+</tbody>
+</table>
+  </div>
+</section>
+<section id="a4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>第四篇</h2><span class="sub">認識対象の吟味（二）：活動から解脱まで、真実の知の生起と保護。プラカラナ 42–61</span></div>
+  <div class="tbl min">
+<table>
+<thead><tr><th>No.</th><th>章</th><th>スートラ</th><th>Thakur 版</th><th>ヒ</th><th>見どころ</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="6">第四篇第一日課</td></tr>
+<tr><td class="num">42</td><td class="k"><a href="nyayavarttika-42-taiyaku.html">活動と過失の一般的な考察の章</a><span class="sm"><i>pravṛttidoṣasāmānyaparīkṣāprakaraṇa</i></span></td><td class="num">4.1.1–2</td><td class="num">pp.423–424</td><td></td><td>二種の活動</td></tr>
+<tr><td class="num">43</td><td class="k"><a href="nyayavarttika-43-taiyaku.html">過失の三つのまとまりの章</a><span class="sm"><i>doṣatrairāśyaprakaraṇa</i></span></td><td class="num">4.1.3–9</td><td class="num">pp.424–427</td><td></td><td>十四の過失の定義</td></tr>
+<tr><td class="num">44</td><td class="k"><a href="nyayavarttika-44-taiyaku.html">死後の再生の考察の章</a><span class="sm"><i>pretyabhāvaparīkṣāprakaraṇa</i></span></td><td class="num">4.1.10–13</td><td class="num">pp.428–429</td><td></td><td>「死ぬ」「生まれる」の定義</td></tr>
+<tr><td class="num">45</td><td class="k"><a href="nyayavarttika-45-taiyaku.html">非存在を質料因とする説の章</a><span class="sm"><i>śūnyatopādānaprakaraṇa</i></span></td><td class="num">4.1.14–18</td><td class="num">pp.430–431</td><td></td><td>芽は種の部分の配列換えから生じる</td></tr>
+<tr><td class="num">46</td><td class="k"><a href="nyayavarttika-46-taiyaku.html">神を原因とする説の章</a><span class="sm"><i>īśvaropādānatāprakaraṇa</i></span></td><td class="num">4.1.19–21</td><td class="num">pp.432–441</td><td></td><td>神の存在の論証と、神の性質の規定</td></tr>
+<tr><td class="num">47</td><td class="k"><a href="nyayavarttika-47-taiyaku.html">原因なしに生じるという説の章</a><span class="sm"><i>ākasmikatvaprakaraṇa</i></span></td><td class="num">4.1.22–24</td><td class="num">pp.441–443</td><td></td><td>「すべては原因なしに生じる」の自己矛盾</td></tr>
+<tr><td class="num">48</td><td class="k"><a href="nyayavarttika-48-taiyaku.html">すべては無常であるという説の章</a><span class="sm"><i>sarvānityatāprakaraṇa</i></span></td><td class="num">4.1.25–28</td><td class="num">pp.443–445</td><td></td><td>否定辞</td></tr>
+<tr><td class="num">49</td><td class="k"><a href="nyayavarttika-49-taiyaku.html">すべては常住であるという説の否定の章</a><span class="sm"><i>sarvanityatvanirākaraṇaprakaraṇa</i></span></td><td class="num">4.1.29–33</td><td class="num">pp.445–448</td><td></td><td>論証の文を語ること自体の矛盾</td></tr>
+<tr><td class="num">50</td><td class="k"><a href="nyayavarttika-50-taiyaku.html">すべては別々の集まりであるという説の否定の章</a><span class="sm"><i>sarvapṛthaktvanirākaraṇaprakaraṇa</i></span></td><td class="num">4.1.34–36</td><td class="num">pp.448–451</td><td></td><td>一を否定すれば多も否定される</td></tr>
+<tr><td class="num">51</td><td class="k"><a href="nyayavarttika-51-taiyaku.html">すべては空であるという説の否定の章</a><span class="sm"><i>sarvaśūnyatvanirākaraṇaprakaraṇa</i></span></td><td class="num">4.1.37–40</td><td class="num">pp.451–454</td><td></td><td>長い・短いは相対的か</td></tr>
+<tr><td class="num">52</td><td class="k"><a href="nyayavarttika-52-taiyaku.html">数についての一方的な説の否定の章</a><span class="sm"><i>saṃkhyaikāntavādanirākaraṇaprakaraṇa</i></span></td><td class="num">4.1.41–43</td><td class="num">pp.454–456</td><td></td><td>一つしかないなら論証もできない</td></tr>
+<tr><td class="num">53</td><td class="k"><a href="nyayavarttika-53-taiyaku.html">果報の考察の章</a><span class="sm"><i>phalaparīkṣāprakaraṇa</i></span></td><td class="num">4.1.44–54</td><td class="num">pp.456–462</td><td></td><td>布は糸の中にあらかじめあるのか</td></tr>
+<tr><td class="num">54</td><td class="k"><a href="nyayavarttika-54-taiyaku.html">苦の考察の章</a><span class="sm"><i>duḥkhaparīkṣāprakaraṇa</i></span></td><td class="num">4.1.55–58</td><td class="num">pp.462–464</td><td></td><td>苦の観想は楽の否定ではない</td></tr>
+<tr><td class="num">55</td><td class="k"><a href="nyayavarttika-55-taiyaku.html">解脱の考察の章</a><span class="sm"><i>apavargaparīkṣāprakaraṇa</i></span></td><td class="num">4.1.59–68</td><td class="num">pp.464–469</td><td></td><td>「生まれる」とは家長になること</td></tr>
+<tr class="grp"><td colspan="6">第四篇第二日課</td></tr>
+<tr><td class="num">56</td><td class="k"><a href="nyayavarttika-56-taiyaku.html">真実の知の生起の章</a><span class="sm"><i>tattvajñānotpattiprakaraṇa</i></span></td><td class="num">4.2.1–3</td><td class="num">pp.470–472</td><td></td><td>迷いは「知らないこと」ではない</td></tr>
+<tr><td class="num">57</td><td class="k"><a href="nyayavarttika-57-taiyaku.html">全体と部分の付随的な章</a><span class="sm"><i>prāsaṅgikam avayavāvayaviprakaraṇa</i></span></td><td class="num">4.2.4–17</td><td class="num">pp.472–479</td><td></td><td>全体は部分の中にどうあるのか</td></tr>
+<tr><td class="num">58</td><td class="k"><a href="nyayavarttika-58-taiyaku.html">部分のないことの章</a><span class="sm"><i>niravayavatvaprakaraṇa</i></span></td><td class="num">4.2.18–25</td><td class="num">pp.479–486</td><td></td><td>『唯識二十論』への反論</td></tr>
+<tr><td class="num">59</td><td class="k"><a href="nyayavarttika-59-taiyaku.html">外界の対象の否定を退ける章</a><span class="sm"><i>bāhyārthabhaṅganirākaraṇaprakaraṇa</i></span></td><td class="num">4.2.26–37</td><td class="num">pp.487–492</td><td></td><td>夢のたとえへの反論</td></tr>
+<tr><td class="num">60</td><td class="k"><a href="nyayavarttika-60-taiyaku.html">真実の知を育てる章</a><span class="sm"><i>tattvajñānavivṛddhiprakaraṇa</i></span></td><td class="num">4.2.38–49</td><td class="num">pp.493–496</td><td></td><td>手を動かしながら見ること</td></tr>
+<tr><td class="num">61</td><td class="k"><a href="nyayavarttika-61-taiyaku.html">真実の知を守る章</a><span class="sm"><i>tattvajñānaparipālanaprakaraṇa</i></span></td><td class="num">4.2.50–51</td><td class="num">p.496</td><td></td><td>茨の垣根のたとえ</td></tr>
+</tbody>
+</table>
+  </div>
+</section>
+<section id="a5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>第五篇</h2><span class="sub">誤った反論（ジャーティ）と負けの根拠。プラカラナ 62–85</span></div>
+  <div class="tbl min">
+<table>
+<thead><tr><th>No.</th><th>章</th><th>スートラ</th><th>Thakur 版</th><th>ヒ</th><th>見どころ</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="6">第五篇第一日課</td></tr>
+<tr><td class="num">62</td><td class="k"><a href="nyayavarttika-62-taiyaku.html">対抗論証に見せかける章</a><span class="sm"><i>satpratipakṣadeśanābhāsaprakaraṇa</i></span></td><td class="num">5.1.1–3</td><td class="num">pp.497–499</td><td></td><td>なぜ誤った反論を教えるのか</td></tr>
+<tr><td class="num">63</td><td class="k"><a href="nyayavarttika-63-taiyaku.html">付加と同様なものなどの章</a><span class="sm"><i>utkarṣasamādiprakaraṇa</i></span></td><td class="num">5.1.4–6</td><td class="num">pp.500–501</td><td></td><td>二十四か十四か</td></tr>
+<tr><td class="num">64</td><td class="k"><a href="nyayavarttika-64-taiyaku.html">到達と非到達の二種の章</a><span class="sm"><i>prāptyaprāptiyugadvāhivikalpopakramajātidvayaprakaraṇa</i></span></td><td class="num">5.1.7–8</td><td class="num">pp.502–503</td><td></td><td>反論が自分を否定する</td></tr>
+<tr><td class="num">65</td><td class="k"><a href="nyayavarttika-65-taiyaku.html">際限のなさと反対の実例の二種の章</a><span class="sm"><i>prasaṅgapratidṛṣṭāntasamajātidvayaprakaraṇa</i></span></td><td class="num">5.1.9–11</td><td class="num">pp.503–505</td><td></td><td>推理は類似にもとづく</td></tr>
+<tr><td class="num">66</td><td class="k"><a href="nyayavarttika-66-taiyaku.html">不生起と同様なものの章</a><span class="sm"><i>anutpattisamaprakaraṇa</i></span></td><td class="num">5.1.12–13</td><td class="num">pp.505–506</td><td></td><td>知らせる理由と作り出す原因</td></tr>
+<tr><td class="num">67</td><td class="k"><a href="nyayavarttika-67-taiyaku.html">疑いと同様なものの章</a><span class="sm"><i>saṃśayasamaprakaraṇa</i></span></td><td class="num">5.1.14–15</td><td class="num">pp.506–507</td><td></td><td>一方との同質性と、両方との同質性</td></tr>
+<tr><td class="num">68</td><td class="k"><a href="nyayavarttika-68-taiyaku.html">論題と同様なものの章</a><span class="sm"><i>prakaraṇasamaprakaraṇa</i></span></td><td class="num">5.1.16–17</td><td class="num">pp.507–508</td><td></td><td>論題は真実が見られないことから起こる</td></tr>
+<tr><td class="num">69</td><td class="k"><a href="nyayavarttika-69-taiyaku.html">理由でないものと同様なものの章</a><span class="sm"><i>ahetusamaprakaraṇa</i></span></td><td class="num">5.1.18–20</td><td class="num">p.508</td><td></td><td>認識手段の三時の議論との対応</td></tr>
+<tr><td class="num">70</td><td class="k"><a href="nyayavarttika-70-taiyaku.html">含意と同様なものの章</a><span class="sm"><i>arthāpattisamaprakaraṇa</i></span></td><td class="num">5.1.21–22</td><td class="num">p.509</td><td></td><td>含意一般は否定しない</td></tr>
+<tr><td class="num">71</td><td class="k"><a href="nyayavarttika-71-taiyaku.html">無差別と同様なものの章</a><span class="sm"><i>aviśeṣasamaprakaraṇa</i></span></td><td class="num">5.1.23–24</td><td class="num">pp.509–510</td><td></td><td>すべてが無常なら音も無常</td></tr>
+<tr><td class="num">72</td><td class="k"><a href="nyayavarttika-72-taiyaku.html">成り立ちと同様なものの章</a><span class="sm"><i>upapattisamaprakaraṇa</i></span></td><td class="num">5.1.25–26</td><td class="num">pp.510–511</td><td></td><td>反論は相手の理由を認めている</td></tr>
+<tr><td class="num">73</td><td class="k"><a href="nyayavarttika-73-taiyaku.html">知覚と同様なものの章</a><span class="sm"><i>upalabdhisamaprakaraṇa</i></span></td><td class="num">5.1.27–28</td><td class="num">p.511</td><td></td><td>理由は行き渡らなければならないか</td></tr>
+<tr><td class="num">74</td><td class="k"><a href="nyayavarttika-74-taiyaku.html">非知覚と同様なものの章</a><span class="sm"><i>anupalabdhisamaprakaraṇa</i></span></td><td class="num">5.1.29–31</td><td class="num">p.512</td><td></td><td>非知覚による推理の定式</td></tr>
+<tr><td class="num">75</td><td class="k"><a href="nyayavarttika-75-taiyaku.html">無常と同様なものの章</a><span class="sm"><i>anityasamaprakaraṇa</i></span></td><td class="num">5.1.32–34</td><td class="num">pp.512–514</td><td></td><td>「存在するから無常」は論証にならない</td></tr>
+<tr><td class="num">76</td><td class="k"><a href="nyayavarttika-76-taiyaku.html">常住と同様なものの章</a><span class="sm"><i>nityasamaprakaraṇa</i></span></td><td class="num">5.1.35–36</td><td class="num">pp.514–515</td><td></td><td>無常性は「常に」あるか</td></tr>
+<tr><td class="num">77</td><td class="k"><a href="nyayavarttika-77-taiyaku.html">結果と同様なものの章</a><span class="sm"><i>kāryasamaprakaraṇa</i></span></td><td class="num">5.1.37–38</td><td class="num">pp.515–516</td><td></td><td>理由の読み替え</td></tr>
+<tr><td class="num">78</td><td class="k"><a href="nyayavarttika-78-taiyaku.html">六段の議論に見せかける章</a><span class="sm"><i>ṣaṭpakṣīrūpakathābhāsaprakaraṇa</i></span></td><td class="num">5.1.39–43</td><td class="num">pp.516–517</td><td></td><td>区別の理由を述べれば六段の議論は起こらない</td></tr>
+<tr class="grp"><td colspan="6">第五篇第二日課</td></tr>
+<tr><td class="num">79</td><td class="k"><a href="nyayavarttika-79-taiyaku.html">主張と理由にかかわる五つの負けの根拠の章</a><span class="sm"><i>pratijñāhetvanyatarāśritanigrahasthānapañcakaviśeṣalakṣaṇaprakaraṇa</i></span></td><td class="num">5.2.1–6</td><td class="num">pp.518–523</td><td></td><td>負けるのは誰か</td></tr>
+<tr><td class="num">80</td><td class="k"><a href="nyayavarttika-80-taiyaku.html">論題の役に立たない四つの負けの根拠の章</a><span class="sm"><i>prakṛtopayogivākyārthapratipattiphalaśūnyanigrahasthānacatuṣkaprakaraṇa</i></span></td><td class="num">5.2.7–10</td><td class="num">pp.523–524</td><td></td><td>「十個のザクロ」</td></tr>
+<tr><td class="num">81</td><td class="k"><a href="nyayavarttika-81-taiyaku.html">自説に合わない論証の用い方の三つの負けの根拠の章</a><span class="sm"><i>svasiddhāntānurūpaprayogābhāsanigrahasthānatrikaprakaraṇa</i></span></td><td class="num">5.2.11–13</td><td class="num">pp.524–526</td><td></td><td>「ガーヴィー」と「ガウ」</td></tr>
+<tr><td class="num">82</td><td class="k"><a href="nyayavarttika-82-taiyaku.html">重言の負けの根拠の章</a><span class="sm"><i>punaruktanigrahasthānaprakaraṇa</i></span></td><td class="num">5.2.14–15</td><td class="num">p.526</td><td></td><td>相手は弟子でも師でもない</td></tr>
+<tr><td class="num">83</td><td class="k"><a href="nyayavarttika-83-taiyaku.html">答えを妨げる四つの負けの根拠の章</a><span class="sm"><i>uttaravirodhinigrahasthānacatuṣkaprakaraṇa</i></span></td><td class="num">5.2.16–19</td><td class="num">pp.527–528</td><td></td><td>喉が痛いので</td></tr>
+<tr><td class="num">84</td><td class="k"><a href="nyayavarttika-84-taiyaku.html">過失によって見定められる相手の説の承認などの三つの負けの根拠の章</a><span class="sm"><i>doṣanirūpyamatānujñādinigrahasthānatrikaprakaraṇa</i></span></td><td class="num">5.2.20–22</td><td class="num">pp.528–529</td><td></td><td>「あなたもそうだ」</td></tr>
+<tr><td class="num">85</td><td class="k"><a href="nyayavarttika-85-taiyaku.html">論者の言葉によって見定められる二つの負けの根拠の章</a><span class="sm"><i>kathakānyoktinirūpyanigrahasthānadvayaprakaraṇa</i></span></td><td class="num">5.2.23–24</td><td class="num">pp.529–530</td><td></td><td>列挙、定義、吟味</td></tr>
+</tbody>
+</table>
+  </div>
+</section>
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。和訳は試訳であり、解説は本文にもとづく訳者の説明である。ヒンディー訳（Śrīnivāsa Śāstrī 訳注）は、翻刻が提供された章についてのみ解説に用いた。ヴァーツヤーヤナとディグナーガの前後関係は確定していないので、各ページの解説はどちらかが先であることを前提にしていない。</p>
+</footer>
+</main>
+</body>
+</html>
