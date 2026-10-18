@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 50</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-49-taiyaku.html">← プラカラナ49</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>「壺」は集まりの名か</a></li><li><a href="#s2"><b>2</b>一つのものはある</a></li>
+    <li><a href="#terms">用語集</a></li>
+    <li><a href="nyayavarttika-51-taiyaku.html">プラカラナ51 →</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第50プラカラナ「すべては別々の集まりであるという説の否定の章」（スートラ 4.1.34–36、Thakur 版 pp.448–451）</span>
+  <p>次の一方的な説は、すべては別々のものの集まりにすぎない、というものです。「壺」という語は、実は壺の部分や色・形などの多くのものの集まりを指しているのであって、一つの全体としての壺はない。「軍隊」という語が多くの兵士を指すのと同じだ、というのです（4.1.34）。</p>
+  <p>スートラは、多くの特徴をもった一つのものが生じるのだと答え（4.1.35）、語が一つのものを指すことは、単数形の語尾や「壺を持ってこい」という命令からも明らかだ、と退けます（4.1.36）。Uddyotakara は、集まりを分割していくと分割できない一つのもの（原子）に行き着くので、一つを否定する者は、一の集まりである多も否定することになる、と論じます。</p>
+  <p>この章の Vārttika は比較的短いので、原文はほぼ全文を載せました。第四篇については、ヒンディー語訳注の翻刻がまだ提供されていないので、解説は本文にもとづく訳者の説明です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>すべては別々の集まりであるという説の否定の章<br><small><i>sarvapṛthaktvanirākaraṇaprakaraṇa</i>。スートラ 4.1.34–36 の注釈。Thakur 版 pp.448–451</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>4.1.34–36<br><small>すべては別々、多くの特徴をもつ一つのものが生じる、語のしるしは一つに定まる</small></dd></div>
+    <div><dt>論敵</dt><dd>全体を認めず、すべてを部分や性質の集まりとする者<br><small>本文は学派を示さないが、Thakur 版の脚注は、論者の教えとして引かれる原子の規定に『倶舎論』2.22 を参照させる</small></dd></div>
+    <div><dt>見どころ</dt><dd>一を否定すれば多も否定される<br><small>§2。分割の行き着く先の一つのもの。多は一の集まり</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>未参照<br><small>提供された Śrīnivāsa Śāstrī 訳注の翻刻は第三篇の終わりまでで、この章を含まない</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の頁番号は Thakur 版の頁。節見出しの頁はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。長い箇所は「……」で省略した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。本文にもとづく訳者の説明</div>
+    <div><b>解釈の分かれる箇所</b>異読や、読みの定まらない箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 4.1.34–36 の注釈を、テキストの順に2節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">「壺」は集まりの名か</a></td><td class="num">pp.448–449</td><td>スートラ 4.1.34–35。存在の語は多くのものを指すという説。多くの特徴をもつ一つのものが生じる</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">一つのものはある</a></td><td class="num">pp.450–451</td><td>スートラ 4.1.36。単数形と命令。分割の行き着く先。原子も集まりかという反論。両面の自己矛盾</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>「壺」は集まりの名か</h2><span class="sub"><span class="pg">pp.448–449</span>スートラ 4.1.34–35。存在の語は多くのものを指すという説。多くの特徴をもつ一つのものが生じる</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.448–449 · NS 4.1.34–35</span>
+  <div class="src deva" lang="sa">सर्वं पृथग् भावलक्षणपृथक्त्वात् ॥४।१।३४॥<br>अयमपर एकान्तः — स……क्त्वात् । भावस्य लक्षणं भावलक्षणं शब्दः, लक्ष्यतेऽनेन भाव इति । सर्वो भावसमाख्याशब्दोऽनेकविषयः, यथा कुम्भ इति भावसमाख्याशब्दोऽनेकस्मिन्नवयवसमूहे रूपादिसमूहे च वर्तत इति । यथा कुम्भशब्द एवमन्येऽपि शब्दा इति । अस्य प्रयोगः — कुम्भशब्दोऽनेकविषयः, एकपदत्वात्, सेनाशब्दवत् । पदश्रवणादनेकार्थाधिगतेश्च, यस्मात् पदश्रवणादनेकोऽर्थोऽवगम्यते, यथा सेनेति ॥३४॥<br>नानेकलक्षणैरेकभावनिष्पत्तेः ॥४।१।३५॥<br>अनेकलक्षणैरिति मध्यमपदलोपी समासोऽनेकविधलक्षणैरिति । गन्धादिभिश्च गुणैर्बुध्नादिभिश्चावयवैः संबद्ध एको भाव उत्पद्यते । अतः शब्दादेकार्थावगतौ शेषोऽनुक्तोऽप्यवगम्यत इति । गुणव्यतिरिक्तो गुणीत्यवयवव्यतिरिक्तोऽवयवीति विभक्तन्यायमेतत् । यत् पुनरेतदेकपदत्वादनेकविषयः कुम्भादिशब्द इति, तन्न, दृष्टान्ताभावात् । न हि कश्चिच्छब्दोऽनेकविषयोऽस्ति, सेनादिशब्दानामनेकविषयत्वेनासिद्धत्वात् । …… सर्वस्य पक्षीकरणाद् दृष्टान्ताभावः । …… नञः प्रसज्यप्रतिषेधपर्युदासविषयत्वेनावस्थानाच्च विरुद्धः । अनेकमितीयं नञः प्रयोगः । …… न ह्यसत्येकस्मिन् तस्मादन्यदनेकं सिध्यतीति ॥३५॥</div>
+  <div class="tr">（ある説）「すべては別々（のものの集まり）である。存在のしるし（である語）が、別々の（多くの）ものを指すから」。<br>これは別の一方的な説である。「すべては……」。存在のしるし（<i>bhāvalakṣaṇa</i>）とは語のことである。それによって存在が示されるからである。存在を呼ぶ語はすべて、多くのものを対象とする。たとえば「壺」という存在を呼ぶ語は、多くの部分の集まりや、色などの集まりについて用いられる。「壺」という語と同じく、ほかの語もそうである、と。その論証式は、「『壺』という語は多くのものを対象とする。一つの語であるから。『軍隊』という語のように」。また、「（一つの）語を聞くと多くの対象が知られるから」。一つの語を聞いて多くの対象が知られるからである。「軍隊」のように。<br>（答え）（そうでは）ない。多くの特徴とともに一つの存在が生じるからである。<br>「多くの特徴とともに」は、中間の語が省かれた複合語で、「多くの種類の特徴とともに」ということである。香などの性質と、底などの部分と結びついて、一つの存在が生じる。だから、語によって一つの対象が知られるとき、述べられなかった残り（性質や部分）も知られるのである。性質をもつもの（実体）は性質とは別であり、部分をもつもの（全体）は部分とは別である、ということは（すでに）詳しく論じた。また、「一つの語であるから『壺』などの語は多くのものを対象とする」ということについては、正しくない。実例がないからである。多くのものを対象とする語は何もない。「軍隊」などの語が多くのものを対象とすることは、成り立っていないからである。……すべてを主題にしたので、実例がない。……また、否定辞は存在の否定と、それ以外のものの指示とを対象とするので、（論証因は）矛盾する。「多く」（<i>aneka</i>、一でない）というのは否定辞の用法である。……一つのものがないのに、それとは別の「多く」が成り立つことはないからである。</div><div class="exp"><span class="lbl">解説</span><p>相手は、「壺」という語は実は壺の部分や色・形などの集まりを指しており、一つの全体としての壺はない、と言います。スートラ 4.1.35 は、香などの性質や底などの部分と結びついた一つのもの（全体）が生じるのだ、と答えます。語が全体を指すとき、性質や部分も付随して知られるにすぎません。部分とは別に全体があることは、全体の吟味の章（<a href="nyayavarttika-16-taiyaku.html">第16プラカラナ</a>）で論じられました。</p><p>Uddyotakara は、「軍隊」という語が多くのものを指すことも成り立たない（軍隊も一つのまとまりを指す）と言い、さらに否定辞の議論（<a href="nyayavarttika-48-taiyaku.html">第48プラカラナ</a>）を応用します。「多」（<i>aneka</i>）は文字どおり「一でないもの」であり、一を前提しなければ成り立たないのです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「रूपादिसमूहे च」を欠きます。Thakur 版は「विभक्तन्यायम्」にバーシュヤ 2.1.36 を参照させます。OCR テキストの「अनेक मितियं」は「अनेकमितीयं」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>一つのものはある</h2><span class="sub"><span class="pg">pp.450–451</span>スートラ 4.1.36。単数形と命令。分割の行き着く先。原子も集まりかという反論。両面の自己矛盾</span></div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.450–451 · NS 4.1.36</span>
+  <div class="src deva" lang="sa">लक्षणव्यवस्थानादेवाप्रतिषेधः ॥४।१।३६॥<br>इतश्च — ल……षेधः । न हि कश्चिदेको भाव इत्युक्तः प्रतिषेधः । कस्मात् ? तल्लक्षणव्यवस्थानात् । न हि कुम्भ इत्युक्तेऽनेकोऽर्थोऽवगम्यत इति । कथं नावगम्यते ? एकवचनान्तत्वात् । एकवचनान्त एष शब्दः कुम्भ इति । न च बहुष्वेकवचनं युक्तम् । प्रैषसंप्रतिपत्त्योरेकविषयत्वात् — कुम्भमानयेति प्रैष एकविषयो भवति, इतरोऽपि कुम्भशब्दात् प्रतिपद्यैकमेव कुम्भमानयति । …… यांस्त्वत्र रूपादीनवयवांश्च प्रतिपद्यसे, स न शब्दार्थः, किं त्वनुषङ्गः, तन्नान्तरीयकत्वादिति । समूहे भेदस्य चानवस्थानात् यत्रावस्थानं तदेकम् । …… यत् तत् परमाल्पं तदभेद्यम्, ततो निवर्तत इति । यतश्चायं भेदो निवर्तते तदेकम् । एकं च प्रत्याचक्षाणेनानेकमपि प्रत्याख्येयम्, एकसमुच्चयत्वादनेकस्य । अथ मन्यसे यं तमभेद्यं परमाणुं प्रतिपद्यसे, सोऽपि रूपादीनां समुदाय इति, चत्वारि वा द्रव्याणि पृथिव्यादीनि समुदितानि परमाणुरिति ? …… अथानन्तं समुदायं प्रतिपद्यसे, अष्टौ द्रव्याणि समुदितानि परमाणुरिति शास्त्रं व्याहतं भवति — कामेऽष्टद्रव्यकोऽणुरशब्द इति । …… यश्चायं हेतुः समूहे भावशब्दप्रयोगादिति, अयमुभयतो व्याघातान्न किञ्चित् । …… सोऽयमुभयतो व्याघाताद् यत्किंचनवाद इति । शेषं भाष्ये ॥३६॥<br>॥ सर्वपृथक्त्वनिराकरणप्रकरणम् ॥</div>
+  <div class="tr">（答え）まさに（語の）しるしが（一つのものに）定まっているので、（一つの存在は）否定されない。<br>次の理由からも、「まさに……」。「一つの存在は何もない」と言われた否定は（成り立た）ない。なぜか。そのしるし（語）が（一つのものに）定まっているからである。「壺」と言われても、多くの対象が知られるのではない。どうして知られないのか。単数形の語尾をもつからである。この「壺」という語は単数形である。多くのものについて単数形を用いるのは正しくない。命令とそれに応じることとが、一つのものを対象とするからである。「壺を持ってこい」という命令は一つのものを対象とし、相手も「壺」という語から理解して、一つの壺だけを持ってくる。……ここであなたが（語の対象として）理解している色などや部分は、語の意味ではなく、付随するものである。それ（壺）なしにはありえないからである。また、集まりにおいては分割に終わりがないので、（分割が）とどまるところ、それが一つである。……最も小さいもの、それは分割できない。そこで（分割は）止む。この分割が止むところ、それが一つである。そして、一つを否定する者は、多も否定しなければならない。多は一の集まりだからである。（反論）「あなたが分割できないと考えるその原子も、色などの集まりである。あるいは、地などの四つの実体の集まりが原子である」と考えるなら。……もし（集まりが）限りなく（続く）と考えるなら、八つの実体が集まって原子となる、という（あなたがたの）教え、「（欲界では）音のない原子は八つの実体からなる」と矛盾する。……また、「集まりについて存在の語が用いられるから」というこの論証因は、両面から自己矛盾するので、何ものでもない。……このように、両面から自己矛盾するので、これは何でも言えばよいという説（にすぎない）。残りはバーシュヤにある。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 4.1.36 は、語が一つのものに定まっていることを挙げます。Uddyotakara は文法と日常の言語使用で裏づけます。「壺」は単数形の語で、「壺を持ってこい」と言われた人は一つの壺を持ってきます。壺の色や部分は、壺と切り離せないので付随して理解されるにすぎません。</p><p>さらに、集まりを分割していけば、いつか分割できない最小のもの（原子）に行き着き、それが「一つ」です。一つがなければ、一の集まりである多もありません。相手が、原子も色などの集まりだ、あるいは四大元素の集まりだ、と言っても、その色や元素の一つひとつは何の集まりなのか、と問いは終わりません。限りなく集まりが続くと言えば、原子を八つの実体（四大元素と色・香・味・触）からなるとする相手自身の教えと矛盾します。この教えについて、Thakur 版の脚注は『倶舎論』2.22 を参照させます。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「एकसमुच्चयत्वादेकस्य」は、文脈に従って「…त्वादनेकस्य」（多は一の集まりだから）と読みました。写本 C は「समूहे भेदस्य」を「समूहभेदस्य」と読み、写本 J は「गवादिसभावेन」を「घटादिभावेनाव०」と読みます（省略箇所）。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>sarvapṛthaktva</dt><dd>すべてが別々（の集まり）であること</dd>
+    <dt>bhāvalakṣaṇa</dt><dd>存在のしるし。ここでは語</dd>
+    <dt>avayavin</dt><dd>全体（部分をもつもの）</dd>
+    <dt>ekavacana</dt><dd>単数（形）</dd>
+    <dt>praiṣa / saṃpratipatti</dt><dd>命令／それに応じること</dd>
+    <dt>samūha / samudāya</dt><dd>集まり</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直し、長い箇所は抜粋した（「……」は省略箇所）。頁番号は Thakur 版、写本略号は Thakur 版の脚注による。</p>
+  <p>和訳は試訳であり、解説は本文にもとづく訳者の説明である。第四篇については Śrīnivāsa Śāstrī のヒンディー訳注の翻刻が提供されていないので、参照していない。このページが扱うのは第50プラカラナ（スートラ 4.1.34–36）である。第49プラカラナ（スートラ 4.1.29–33）は<a href="nyayavarttika-49-taiyaku.html">第49プラカラナのページ</a>にある。続く第51プラカラナ（すべては空であるという説の否定の章、スートラ 4.1.37–40）は<a href="nyayavarttika-51-taiyaku.html">第51プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>

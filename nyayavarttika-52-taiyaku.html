@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 52</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-51-taiyaku.html">← プラカラナ51</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>一つなら論証できない</a></li><li><a href="#s2"><b>2</b>論証の手段は主張の一部か</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第52プラカラナ「数についての一方的な説の否定の章」（スートラ 4.1.41–43、Thakur 版 pp.454–456）</span>
+  <p>「すべては一つである。存在するという点で違いがないから」「すべては二つである。常住なものと無常なものとに分かれるから」というように、世界を決まった数にまとめてしまう説があります（数についての一方的な説、<i>saṃkhyaikānta</i>）。スートラ 4.1.41 は、そうした説は、論証のための原因があってもなくても成り立たない、と言います。</p>
+  <p>論証の手段が主張と別にあるなら、それだけで「一つ」は崩れて「二つ」になり、別にないなら、論証そのものができないからです。相手は、論証の手段は論証されるものの一部だと言いますが（4.1.42）、スートラは、「すべて」には部分を分ける余地がない、と退けます（4.1.43）。</p>
+  <p>この章は短いので、原文はほぼ全文を載せました。第四篇については、ヒンディー語訳注の翻刻がまだ提供されていないので、解説は本文にもとづく訳者の説明です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>数についての一方的な説の否定の章<br><small><i>saṃkhyaikāntavādanirākaraṇaprakaraṇa</i>。スートラ 4.1.41–43 の注釈。Thakur 版 pp.454–456</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>4.1.41–43<br><small>原因があってもなくても成り立たない、原因は部分である、部分がないので論証因にならない</small></dd></div>
+    <div><dt>論敵</dt><dd>すべてを一つ、二つなどの決まった数にまとめる者<br><small>本文は「バーシュヤにある」と言うだけで、学派を示さない</small></dd></div>
+    <div><dt>見どころ</dt><dd>一つしかないなら論証もできない<br><small>§1。論証するものと論証されるものとがあれば、すでに二つである</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>未参照<br><small>提供された Śrīnivāsa Śāstrī 訳注の翻刻は第三篇の終わりまでで、この章を含まない</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の頁番号は Thakur 版の頁。節見出しの頁はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。長い箇所は「……」で省略した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。本文にもとづく訳者の説明</div>
+    <div><b>解釈の分かれる箇所</b>異読や、読みの定まらない箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 4.1.41–43 の注釈を、テキストの順に2節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">一つなら論証できない</a></td><td class="num">pp.454–455</td><td>スートラ 4.1.41。主張と論証の手段とが別なら二つになり、別でないなら論証がない</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">論証の手段は主張の一部か</a></td><td class="num">pp.455–456</td><td>スートラ 4.1.42–43。原因は主張の一部という反論。「すべて」には部分がない。共通性と区別</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>一つなら論証できない</h2><span class="sub"><span class="pg">pp.454–455</span>スートラ 4.1.41。主張と論証の手段とが別なら二つになり、別でないなら論証がない</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.454–455 · NS 4.1.41</span>
+  <div class="src deva" lang="sa">संख्यैकान्तासिद्धिः कारणानुपपत्त्युपपत्तिभ्याम् ॥४।१।४१॥<br>अथेमे संख्यैकान्तवादाः — सर्वमेकं सदविशेषादित्येवमादि भाष्ये । तेषां प्रतिषेधद्वारकं सूत्रम् — संख्यै……भ्याम् । संख्यैकान्तानामसिद्धिः, कारणस्य प्रतिज्ञातार्थव्यतिरेकात् । सर्वमेकमिति प्रतिज्ञां कृत्वा यदि प्रतिज्ञेयव्यतिरिक्तं साधनं ब्रवीति, एकान्तो न सिध्यति, तच्च साधनं प्रतिज्ञेयश्चार्थ इति द्वैतम् । एवं द्वैतादिष्वपीति । अथ प्रतिज्ञेयव्यतिरिक्तं साधनं नास्ति ? एवमप्येकान्तो न सिध्यति, साधनाभावात् । न साध्यं साधनमिति ॥४१॥</div>
+  <div class="tr">（答え）数についての一方的な説は、原因（論証の手段）がありえないことからも、ありうることからも、成り立たない。<br>次は、数についての一方的な説である。「すべては一つである。存在するという点で違いがないから」などは、バーシュヤにある。それらを否定するためのスートラが、「数についての……」である。数についての一方的な説は成り立たない。原因（論証の手段）が主張された対象と別だからである。「すべては一つである」と主張しておきながら、主張されるものとは別の論証の手段を述べるなら、一方的な説は成り立たない。その論証の手段と主張される対象とで、二つになるからである。二つ（とする説）などについても同様である。もし主張されるものとは別の論証の手段がないなら、その場合も一方的な説は成り立たない。論証の手段がないからである。論証されるものが論証の手段になることはない。</div><div class="exp"><span class="lbl">解説</span><p>バーシュヤは、すべては一つ（存在という点で違いがない）、二つ（常住と無常）、三つ（知る者・知ること・知られるもの）、四つ（量る者・量・量られるもの・量の結果）といった説を例に挙げます（例の内容は訳者の補足）。Uddyotakara はスートラ 4.1.41 の論法を説明します。「すべては一つ」を論証するには、主張とは別の論証の手段が必要ですが、そうすると主張の対象と論証の手段とで、もう二つになってしまいます。別の手段がないなら、論証そのものができません。「二つ」「三つ」の説も、同じ論法で崩れます。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版の OCR テキストは最後の文を「एवमप्यनेकान्तो न सिध्यति」と読みますが、文脈に従って「एवमप्येकान्तो न सिध्यति」と読みました。写本 C は「प्रतिज्ञेयश्चार्थ」を「प्रतिज्ञायाश्चा०」と読みます。写本 J は「संख्यैकान्तवादाः」を「०कान्ताः」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>論証の手段は主張の一部か</h2><span class="sub"><span class="pg">pp.455–456</span>スートラ 4.1.42–43。原因は主張の一部という反論。「すべて」には部分がない。共通性と区別</span></div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.455–456 · NS 4.1.42–43</span>
+  <div class="src deva" lang="sa">न कारणावयवभावात् ॥४।१।४२॥<br>कारणस्य साध्यावयवत्वादित्ययं सूत्रार्थः । साध्यावयव एव साधनम् । एवं च सति साध्यव्यतिरिक्तं साधनं नोक्तं भवति, न चासाधना सिद्धिरिति ॥४२॥<br>निरवयवत्वादहेतुः ॥४।१।४३॥<br>साध्यावयव एव कारणमित्ययमहेतुः, निरवयवत्वात् प्रतिज्ञार्थस्य । सर्वमेकमित्येतस्मिन् प्रतिज्ञार्थे न किञ्चिदपवृज्यते । अनपवर्गेण सर्वं पक्षीकृतमिति सर्वस्य निरवयवस्य पक्षीकरणान्न हेतुरस्ति । न च साध्यं हेतुर्भवितुमर्हतीति । आत्मनि च क्रिया विरुध्यते । यत्तत् प्रतिपाद्यं तदेव प्रतिपादकमिति न युक्तम् । न कर्म करणं भवितुमर्हतीति । ते खल्विमे संख्यैकान्ता यदि विशेषकारितस्यार्थभेदस्य प्रत्याख्याने वर्तन्ते, मिथ्यावादा भवन्ति, प्रत्यक्षानुमानागमविरोधित्वात् । …… अथ सामान्यकारितोऽभेदो विशेषकारितश्च भेद इति प्रतिपद्यन्ते ? तथापि न किञ्चिद् बाध्यते । न च भेदमन्तरेण सामान्यं लब्धावकाशमिति, सामान्यं प्रतिपद्यमानेन भेदोऽभ्युपगन्तव्यः, भेदं च प्रत्याचक्षाणेन सामान्यमपि प्रत्याख्येयं, विशेषानाधारस्य सामान्यस्याविषयत्वात् । ते खल्विमे संख्यैकान्तास्तत्त्वज्ञानप्रविवेकाय परीक्षिता इति ॥४३॥<br>॥ संख्यैकान्तवादनिराकरणप्रकरणम् ॥</div>
+  <div class="tr">（反論）「（成り立たないことは）ない。原因（論証の手段）は（論証されるものの）部分だからである」。<br>原因は論証されるものの部分だから、というのがこのスートラの意味である。論証の手段は、論証されるものの部分にほかならない。そうであれば、論証されるものとは別の論証の手段を述べたことにはならず、また論証の手段なしに成り立つのでもない（と相手は言う）。<br>（答え）（すべてには）部分がないので、（それは）論証因にならない。<br>「原因は論証されるものの部分にほかならない」というのは、論証因にならない。主張の対象には部分がないからである。「すべては一つである」というこの主張の対象からは、何一つ除かれない。何も除かずにすべてを主題にしたのだから、部分のない「すべて」を主題にしたので、論証因はない。そして、論証されるものが論証因になることはできない。また、自分自身に対する行為は矛盾する。知らされるもの自体が知らせるもの（でもある）というのは正しくない。行為の対象が道具になることはできない。これらの数についての一方的な説が、特殊によってなされるものの違いを否定するのにはたらくなら、誤った説である。知覚・推理・聖典と矛盾するからである。……もし、共通性によって違わず、特殊によって違う、と認めるなら、その場合は何も損なわれない。そして、違いなしに共通性が成り立つ余地はない。共通性を認める者は違いを認めなければならず、違いを否定する者は共通性も否定しなければならない。特殊を基体としない共通性は、対象にならないからである。これらの数についての一方的な説は、真実の知を見分けるために考察されたのである。<br>以上、数についての一方的な説の否定の章。</div><div class="exp"><span class="lbl">解説</span><p>相手（4.1.42）は、論証の手段は主張の外にあるのではなく、主張の対象（すべて）の一部なのだから、二つにはならない、と言います。スートラ 4.1.43 は、「すべては一つ」と言う以上、その「すべて」には何も除かれていない（部分を分ける余地がない）ので、その一部を取り出して論証因にすることはできない、と答えます。知らされるものが同時に知らせるものになるのは、斧が自分自身を切るような矛盾です。</p><p>最後に Uddyotakara は、こうした説も、共通性の面では一つ、特殊の面では多い、という意味なら認められる、と言います。ただし共通性は違いを前提にしてはじめて成り立つので、違いを否定すれば共通性も成り立たなくなります。これらの説は、真実の知を見分ける練習として考察されたのだ、と章を結びます。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「इत्ययमे हेतुः」は「इत्ययमहेतुः」と読みました。写本 C は「प्रतिपादकम्」の箇所を「०पादयति」と読みます（J）。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>saṃkhyaikānta</dt><dd>数についての一方的な説（すべては一つ、二つなど）</dd>
+    <dt>sādhana / sādhya</dt><dd>論証の手段／論証されるもの</dd>
+    <dt>avayava</dt><dd>部分</dd>
+    <dt>sāmānya / viśeṣa</dt><dd>共通性（普遍）／特殊</dd>
+    <dt>tattvajñānapraviveka</dt><dd>真実の知を見分けること</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直し、長い箇所は抜粋した（「……」は省略箇所）。頁番号は Thakur 版、写本略号は Thakur 版の脚注による。</p>
+  <p>和訳は試訳であり、解説は本文にもとづく訳者の説明である。第四篇については Śrīnivāsa Śāstrī のヒンディー訳注の翻刻が提供されていないので、参照していない。このページが扱うのは第52プラカラナ（スートラ 4.1.41–43）である。第51プラカラナ（スートラ 4.1.37–40）は<a href="nyayavarttika-51-taiyaku.html">第51プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
