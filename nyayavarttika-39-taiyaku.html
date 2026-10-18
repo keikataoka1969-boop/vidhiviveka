@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 39</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-38-taiyaku.html">← プラカラナ38</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>身体があるときにある</a></li><li><a href="#s2"><b>2</b>身体がある間ずっと</a></li><li><a href="#s3"><b>3</b>手足も意識をもつのか</a></li><li><a href="#s4"><b>4</b>身体の性質の二種</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第39プラカラナ「知は身体の性質と別であることの章」（スートラ 3.2.46–55、Thakur 版 pp.408–413）</span>
+  <p>知の考察の最後に、意識（<i>cetanā</i>）は身体の性質ではないか、という説が改めて取り上げられます。身体があるときに意識があり、身体がなければ意識はない。色が身体の性質であるのと同じではないか、というのです。</p>
+  <p>スートラは、実体には自分の性質も他のものの性質も見られるので、それだけでは決まらない、と疑いを立て（3.2.46）、色などは身体がある間ずっとあるが意識はそうではない（3.2.47）、色が消えても別の色が生じるが意識は完全に消える（3.2.48–49）、身体じゅうに意識があるなら手足の一つひとつが意識をもつことになる（3.2.50–52）、意識は外の感官で知覚される色とも、知覚されない重さとも違う（3.2.53–55）と、いくつもの角度から答えます。すでに決着した問題をなぜ繰り返すのか。「何度も吟味された真理は、いっそう確かになる」というのが Uddyotakara の答えです。</p>
+  <p>この章の Vārttika は比較的短いので、原文はほぼ全文を載せました（「……」は省略箇所）。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>知は身体の性質と別であることの章<br><small><i>buddheḥ śarīraguṇavyatirekaprakaraṇa</i>。スートラ 3.2.46–55 の注釈。Thakur 版 pp.408–413</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.2.46–55<br><small>疑い、身体がある間ずっとあること、焼成による色の変化、身体全体に行きわたること、髪と爪、身体の性質の二種</small></dd></div>
+    <div><dt>論敵</dt><dd>意識は身体の性質であるとする者<br><small>ヒンディー訳の注は「前主張者」と呼ぶだけで、学派を特定しない</small></dd></div>
+    <div><dt>見どころ</dt><dd>章の最後の論証式のまとめ<br><small>§4。この章から得られる論証因を、Uddyotakara 自身が二つの推論にまとめる</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.1118–1128</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.409</span> は Thakur 版の頁。節見出しの <span class="pg">p.408</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。この章はほぼ全文を載せた</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.2.46–55 の注釈を、テキストの順に4節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">身体があるときにある</a></td><td class="num">pp.408–409</td><td>スートラ 3.2.46。相手の論証。あるときにあるだけでは性質と言えない。疑い</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">身体がある間ずっと</a></td><td class="num">pp.409–411</td><td>スートラ 3.2.47–49。色は身体がある間ずっとある。勢いのたとえ。焼成による色の変化。「意識のなさ」という性質</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">手足も意識をもつのか</a></td><td class="num">p.411</td><td>スートラ 3.2.50–52。身体全体に行きわたる。髪と爪。身体は皮膚まで</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">身体の性質の二種</a></td><td class="num">pp.412–413</td><td>スートラ 3.2.53–55。外の感官で知覚されるものと感官を超えるもの。論証式のまとめ。繰り返しの理由</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>身体があるときにある</h2><span class="sub"><span class="pg">pp.408–409</span>スートラ 3.2.46。相手の論証。あるときにあるだけでは性質と言えない。疑い</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.408–409 · NS 3.2.46</span>
+  <div class="src deva" lang="sa">द्रव्ये स्वगुणपरगुणोपलब्धेः संशयः ॥३।२।४६॥<br>शरीरगुणश्चेतना, सति शरीरे भावादसति चाभावादिति । यच्च यस्मिन् सति भवति असति च न भवति तस्य तदिति विज्ञायते, यथा रूपादय इति । न, सति भावात् शरीरगुणत्वं चेतनायाः सिध्यति, सति भावस्यान्यगुणत्वेऽपि दर्शनात् । न तावत् संयोगविभागसंस्काराः कर्मगुणाः, अथ च सति कर्मणि भावोऽसति चाभाव इति । संयोगविभागशब्देषु च सत्सु शब्दो भवति, अथ च न तद्गुण इति । तद्गुणत्वं च तत्रोपलब्ध्या सिध्यति । यद् यत्र वर्तमानमुपलभ्यते रूपादिकं तत् तस्य गुण इति । अथ सति भावादित्यनेन शरीरे चेतनोपलब्धिं ब्रूयात् ? तस्याप्यसिद्धतादोषः । न हि नः शरीरे चेतनोपलभ्यते, चेतनामात्रं तूपलभ्यते । तच्च सन्दिग्धं किं शरीरे उतान्यस्मिन्निति । उपेत्य शरीरे चेतनोपलब्धिं किं शरीरगुणश्चेतना, उत द्रव्यान्तरगुण इति — द्रव्ये स्वगुणपरगुणोपलब्धेः संशयः — इत्युक्तार्थं सूत्रम् ॥४६॥</div>
+  <div class="tr">実体には、自分の性質も他のものの性質も知覚されるので、（意識が身体の性質かどうかについて）疑いがある。<br>（反論）「意識は身体の性質である。身体があるときにあり、ないときにはないから。あるものがあるときにあり、ないときにはないもの、それはそのものの（性質）だと知られる。色などのように」。そうではない。あるときにあるということから、意識が身体の性質であることは成り立たない。あるときにあることは、別のものの性質である場合にも見られるからである。まず、結合・分離・勢いは運動の性質ではない。それなのに、運動があるときにあり、ないときにはない。また、結合・分離・音があるときに音は生じるが、それらの性質ではない。そして、そのものの性質であることは、それにおいて知覚されることによって成り立つ。あるものにあるとして知覚される色など、それがそのものの性質である。（反論）「『あるときにあるから』によって、身体において意識が知覚されることを言っているのだ」と言うなら。それにも、成り立っていないという誤りがある。われわれには、身体において意識が知覚されるのではない。ただ意識そのものが知覚される。そして、それが身体にあるのか、別のものにあるのかは疑わしい。身体において意識が知覚されることを認めたとしても、意識は身体の性質なのか、別の実体の性質なのか、（疑わしい）。（だから）「実体には、自分の性質も他のものの性質も知覚されるので、疑いがある」というスートラは、（今）述べたことを意味している。</div><div class="exp"><span class="lbl">解説</span><p>相手の論証は、「身体があれば意識があり、身体がなければ意識はない。だから意識は身体の性質だ」という単純なものです。Uddyotakara は、「あるときにある」ことは性質であることの証拠にならない、と反例を挙げます。結合・分離・勢いは運動があるときに生じますが、運動の性質ではありません（運動は実体の性質を生み出す原因です）。音も、結合などから生じますが、それらの性質ではありません。</p><p>あるものがあるものの性質であると言えるのは、それがそのものの中にあると知覚されるときです。しかし私たちが知覚するのは「意識がある」ということだけで、それが身体の中にあるのか、別のもの（我）の中にあるのかは分かりません。実体には、自分の性質（水の冷たさ）も、他のものの性質（湯の熱さは火のもの）も見られるので、ここに疑いが生じる、とスートラは言います。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は「五、知が身体の性質であることの考察」という見出しを立て、「知は身体の性質ではない」と訳題を付けます。バーシュヤは、前主張「意識は身体の性質である。身体があるときにあり、ないときにはないから」を述べてから、スートラ 3.2.46 を引きます。注は、先に元素・感官・意が知をもつことを退けたのは身体について間接的に及ぶだけだったが、ここでは身体の意識を直接に退ける、と TṬ（p.578）を引き、これは目的が違うので繰り返しではない、その非難への答えは章の最後にある、と記します（TṬ p.578）。TṬ は「तद्गुणत्वं तत्रोपलब्ध्या सिध्यति」と「च」なしに読み、「（それが）否定されない（知覚によって）」と補う、と注します（Hi. p.1118）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>身体がある間ずっと</h2><span class="sub"><span class="pg">pp.409–411</span>スートラ 3.2.47–49。色は身体がある間ずっとある。勢いのたとえ。焼成による色の変化。「意識のなさ」という性質</span></div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.409–410 · NS 3.2.47</span>
+  <div class="src deva" lang="sa">यावच्छरीरभावित्वाद्रूपादीनाम् ॥३।२।४७॥<br>न शरीरगुणश्चेतना — यावच्छरीरभावित्वाद्रूपादीनाम् । दृष्टान्तसूत्रम् । वैधर्म्येण — ये शरीरगुणा भवन्ति ते यावच्छरीरं वर्तन्ते, यथा रूपादयः । न तु यावच्छरीरं चेतना वर्तते, तस्मान्न तद्गुण इति । साधर्म्येण वा न तद्गुण इति, यथाप्सूष्णतेति । संस्कारवदिति चेत् ? अथ मन्यसे यथा संस्कारः शरीरगुणः, न च यावच्छरीरं वर्तते, तथा चेतनापीति ? न, कारणानुच्छेदात् । संस्कारस्य न शरीरमात्रं कारणं, तस्य नोदनादिकारणसन्निधाने तदभावे च भावाभावौ युक्तौ, न तु चेतनायाः कारणसन्निधानम् । अतोऽयुक्तमेतदिति । चेतनानिमित्तस्याप्यसन्निधानमिति चेत् ? …… तदयुक्तं, विकल्पानुपपत्तेः । यत्तच्छरीरे चेतनोत्पत्तिकारणं तत् किं शरीरस्थमुत द्रव्यान्तरस्थम् ? शरीरस्थमपि च किं यावच्छरीरभावि उत नैमित्तिकमिति ? यदि यावच्छरीरभावि, न कदाचिच्चेतनाहीनं शरीरमुपलभ्येत, तन्निमित्तस्य सन्निहितत्वात् । अथ नैमित्तिकम्, यत्तच्छरीरे चेतनोत्पत्तेर्निमित्तकारणं तत्रापि चेतनावत्प्रसङ्गः । अथ द्रव्यान्तरस्थम्, द्रव्यान्तरवृत्ति निमित्तं शरीरे चेतनां करोति न द्रव्यान्तरेष्वित्यत्रापि नियमहेतुर्वक्तव्यः । …… ॥४७॥</div>
+  <div class="tr">（答え）色などは身体がある間ずっとあるからである。<br>「意識は身体の性質ではない。色などは身体がある間ずっとあるからである」。（これは）実例のスートラである。異類（例）によって（言えば）、身体の性質であるものは、身体がある間ずっとある。色などのように。しかし、意識は身体がある間ずっとあるのではない。だから、それ（身体）の性質ではない。あるいは同類（例）によって（言えば）、水における熱さのように、それの性質ではない。（反論）「勢いのように（身体の性質であっても、身体がある間ずっとあるわけではない）」と言うなら。つまり、「勢いは身体の性質であるが、身体がある間ずっとあるのではない。意識もそれと同じだ」と考えるなら。そうではない。（意識の）原因はなくならないからである。勢いの原因は身体だけではない。突きなどの原因があればあり、なければない、というのは当然である。しかし意識については（そうした別の）原因があるのではない。だから、これは正しくない。（反論）「意識の原因もまた、そこにないことがあるのだ」と言うなら。……それは正しくない。選択肢が成り立たないからである。身体に意識を生じさせる原因は、身体の中にあるのか、別の実体の中にあるのか。身体の中にあるとしても、身体がある間ずっとあるのか、機会によって生じるのか。もし身体がある間ずっとあるなら、意識のない身体は決して知覚されないであろう。その原因がいつもそこにあるからである。もし機会によって生じるなら、身体に意識を生じさせるその機会因についても、同じ問題が生じる。もし別の実体の中にあるなら、別の実体にある原因が、身体には意識を生じさせて、別の実体には生じさせない、ということについても、その決まりの理由を言わなければならない。……</div><div class="exp"><span class="lbl">解説</span><p>身体の色は、身体がある間はずっとあります。死体にも色はある。しかし意識は、身体があっても失われる（死体には意識がない）。だから意識は色のような身体の性質ではない、とスートラ 3.2.47 は言います。Uddyotakara はこれを「実例のスートラ」と呼び、色を異類例とする推論と、水の熱さ（水にあっても水の性質ではなく火のもの）を同類例とする推論とにまとめます。</p><p>相手は勢い（<i>saṃskāra</i>）を持ち出します。投げられた身体の勢いは身体の性質だが、ずっとあるわけではない、と。Uddyotakara は、勢いは突きなどの別の原因があるときにだけ生じるが、相手の説では意識の原因は身体そのものしかないので、身体があるのに意識がないことは説明できない、と答えます。「意識の原因が欠けることもある」と言うなら、その原因はどこにあるのか、と選択肢を立てて退けます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.47 を、バーシュヤの「意識は身体の性質ではない。なぜか」に答える定説の側のスートラとします。バーシュヤは、色のない身体は知覚されないが、意識のない身体は知覚される、熱さのない水が知覚されるように、と説きます。Vārttika はスートラを「यावद्द्रव्यभावित्वाद्」と引き、「यावच्छरीरभावित्वाद्」という異読が記されます。同類例は「यथाप्स्वौष्ण्यम्」とも読まれます。注は、相手の説では意識の原因は身体であり、それはなくならないが、勢いの原因はなくなる、と TṬ（p.578）を引き、「意識の原因もまた…」を疑問、「それは正しくない」をその答えとします。この箇所の Vārttika は翻刻で大きく崩れていますが、ヒンディー訳は、別の実体にある原因が常住か無常か、無常なら存続するか刹那ごとに滅するか、という選択肢を補って訳しています（Hi. pp.1119–1121）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C はスートラを「यावद्रव्यभावि०」と読み、写本 J は「असति चाभाव」「वा न तद्गुण इति」を欠きます。OCR テキストの「कारणाणुच्छेदात्」は「कारणानुच्छेदात्」と読みました。「तत्रापि चेतनावत्प्रसङ्गः」は読みが確かでなく、「（その機会因についても）同じ問題が生じる」と意味をとりました。</p></div>
+</div>
+<div class="mula sutra" id="u3">
+  <span class="ref">pp.410–411 · NS 3.2.48–49</span>
+  <div class="src deva" lang="sa">न पाकजगुणान्तरोत्पत्तेः ॥३।२।४८॥<br>यच्च मन्येत श्यामादिगुणं च द्रव्यं भवति, न च यावद्द्रव्यभाविनी श्यामतेति, तच्च — न, पाकजगुणान्तरोत्पत्तेः । नात्यन्तं श्यामरूपोपरमे रूपान्तरानुत्पादः, चेतनोपरमस्त्वत्यन्तमिति ॥४८॥<br>प्रतिद्वन्द्विसिद्धेः पाकजानामप्रतिषेधः ॥३।२।४९॥<br>इतश्च — प्रतिद्वन्द्विसिद्धेः पाकजानामप्रतिषेधः । यावत्सु द्रव्येषु पूर्वगुणप्रतिषेधस्तावत्सु प्रतिद्वन्द्विनो गुणान्तरस्य दर्शनम्, यथा श्यामादिनिवृत्तौ रक्तादीनामिति । न पुनः शरीरे चेतनाविपरीतं गुणान्तरमुपलभ्यते, चेतनामात्रोपरमस्त्वत्यन्तमिति । अथ मन्यसे शरीरेऽप्यचेतनत्वं नाम गुणान्तरमिति ? तन्न, स्वरूपतोऽनिर्देशात् । यत् तदचेतनत्वं नाम, किं तत् चेतनाविपरीतं धर्मभूतं वस्तु, उत चेतनाप्रतिषेधमात्रमिति ? यदि विपरीतं वस्तु, चेतनावत् संवेद्यं स्यात् । अथ चेतनाप्रतिषेधमात्रम्, तन्न गुण इति ॥४९॥</div>
+  <div class="tr">（答え）（その例は当たら）ない。焼成によって別の性質が生じるからである。<br>また、「実体は黒などの性質をもつが、黒さは実体がある間ずっとあるのではない」と考える（かもしれない）が、それも「（当たら）ない。焼成によって別の性質が生じるからである」。黒い色がなくなっても、別の色がまったく生じないのではない。しかし意識がなくなるのは、完全に（なくなるの）である。<br>（答え）焼成によるもの（色など）については、相反する（性質）が成り立つので、（身体がある間ずっとあるという点は）否定されない。<br>次の理由からも、「焼成によるものについては……否定されない」。前の性質が否定される実体には、どれにも、相反する別の性質が見られる。黒などがなくなると赤などが（現れる）ように。しかし身体には、意識に相反する別の性質は知覚されない。意識が完全になくなるだけである。（反論）「身体にも『意識のなさ』という別の性質がある」と考えるなら。そうではない。その本性を示すことができないからである。その「意識のなさ」とは、意識に相反する、性質としての実在なのか、意識の否定にすぎないのか。もし相反する実在なら、意識と同じように経験されるはずである。もし意識の否定にすぎないなら、それは性質ではない。</div><div class="exp"><span class="lbl">解説</span><p>相手の反例は、黒い土の壺です。焼くと黒さは消えますが、黒さは壺の性質です。それと同じく、意識も身体の性質でありながら消えることがあるのではないか。スートラ 3.2.48–49 は、壺の場合は黒さが消えると赤さという相反する性質が現れるので、色そのものは壺がある間ずっとある、しかし身体の場合、意識が消えた後に代わって現れる性質はない、と答えます。</p><p>相手が「意識のなさ」という性質が現れるのだと言うと、Uddyotakara は、それが実在する性質なら意識と同じく内的に経験されるはずだし、単なる否定なら性質ではない、と退けます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.48 を、バーシュヤが「अथ मन्येत」で導く前主張への答えとし、Viśvanātha の注釈はこれを論難のスートラとして説明する、と注します。TṬ は「तच्च न」と読み、原子や壺では色が完全になくなることはない、と注します（TṬ p.579）。3.2.49 は定説のスートラで、バーシュヤは、身体には意識に相反する性質が知覚されないので、意識が身体がある間ずっとあることは否定できないはずだが、実際にはそうでない、と説きます。異読として「श्यामरूपोपरमे」が記されます（Hi. pp.1122–1123）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「रूपान्तरानुत्पादः」を「रूपान्तरोत्पत्तिः」と読みます。OCR テキストの「चेतनामात्रपरमस्त्व」は「चेतनामात्रोपरमस्त्व」、「तत्र गुण इति」は「तन्न गुण इति」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>手足も意識をもつのか</h2><span class="sub"><span class="pg">p.411</span>スートラ 3.2.50–52。身体全体に行きわたる。髪と爪。身体は皮膚まで</span></div>
+<div class="mula sutra" id="u4">
+  <span class="ref">p.411 · NS 3.2.50–52</span>
+  <div class="src deva" lang="sa">शरीरव्यापित्वात् ॥३।२।५०॥<br>इतश्च न शरीरगुणश्चेतना — शरीरव्यापित्वात् । शरीरवत् शरीरावयवाश्चेतनोत्पत्त्या व्याप्यन्ते । को व्याप्त्यर्थः ? न कश्चित् शरीरावयवश्चेतनाहीनो भवति । सर्वस्य चेतनानिमित्तत्वात् शरीरवत् शरीरावयवाश्चेतनाः प्राप्नुवन्ति । भवन्तु शरीरावयवा अपि चेतनाः ? न, प्रत्ययव्यवस्थाप्रसङ्गात् । शरीरवत् शरीरावयवाश्चेतना इति प्रत्ययव्यवस्थानं स्यात् ॥५०॥<br>न केशनखादिष्वनुपलब्धेः ॥३।२।५१॥<br>न शरीरावयवाश्चेतनाः — न केश……लब्धेः — इति दृष्टान्तसूत्रम् ॥५१॥<br>त्वक्पर्यन्तत्वाच्छरीरस्य केशनखादिष्वप्रसङ्गः ॥३।२।५२॥<br>संयोगिद्रव्यं केशादय इति, न तु शरीरावयवा इति । तस्मादप्रसङ्गोऽयमिति ॥५२॥</div>
+  <div class="tr">（答え）身体全体に行きわたるからである。<br>次の理由からも、意識は身体の性質ではない。「身体全体に行きわたるからである」。身体と同じく、身体の部分も、意識が生じることによって行きわたられる（ことになる）。「行きわたる」とはどういう意味か。意識のない身体の部分は一つもない、ということである。（身体の部分は）すべて意識の原因なので、身体と同じく、身体の部分も意識をもつものになってしまう。（反論）「身体の部分も意識をもつものであってよい」。そうではない。認識が（部分ごとに）区別されることになってしまうからである。身体と同じく身体の部分も意識をもつなら、認識が（それぞれ別の主体に）区別されることになろう。<br>（ある見方）髪や爪などには（意識が）知覚されないので、（身体全体に行きわたるのでは）ない。<br>「身体の部分は意識をもたない。髪や爪などに（意識が）知覚されないように」。（このように読めば、これは）実例のスートラである。<br>（答え）身体は皮膚までなので、髪や爪などには（意識がない、という）帰結はない。<br>髪などは（身体と）結合した（別の）実体であって、身体の部分ではない。だから、これは帰結しない。</div><div class="exp"><span class="lbl">解説</span><p>意識が身体の性質なら、色と同じく身体のすみずみまで行きわたっているはずで、手も足も、それぞれが意識をもつことになります。すると一つの身体に何人もの意識主体がいて、手の経験と足の経験はそれぞれ別の主体のものになってしまう（スートラ 3.2.50）。</p><p>スートラ 3.2.51 について、バーシュヤは「髪や爪には意識がないので、意識は身体全体には行きわたっていない」という反論として読み、3.2.52 で、髪や爪は皮膚の外にあって身体の部分ではない、と答えます。Uddyotakara は 3.2.51 を、「手足は意識をもたない。髪や爪のように」という実例のスートラとしても読んでいます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.50 を定説のスートラとします。バーシュヤは、身体の各部分が意識の主体になると、一つの身体に多くの意識主体がいることになり、別々の身体のあいだと同じく、楽・苦・知が区別されるはずだが、そうはならない、と説きます。注は、Gaṅgānātha Jhā によれば Vārttika はこれを「多くの意識主体の指摘」と解する、と記し、TṬ は「प्रत्ययव्यवस्थाप्रसङ्गात्」と読んで、デーヴァダッタとヤジュニャダッタの例で、ある部分が別の部分の知を思い起こさないことになる、と説明する、と記します。3.2.51 は論難のスートラとされますが、実例のスートラとしては「手足は意識をもたない。部分であるから。髪や爪のように」という推論になる、と TṬ（p.579）を引きます。3.2.52 について、バーシュヤは、身体の定義は感官の基体であることであり、身体は皮膚までで、我・意・楽・苦の経験の場である、髪や爪は目的のために身体に付けられたものだ、と説きます（Hi. pp.1124–1125）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「को व्याप्य्यर्थः」は「को व्याप्त्यर्थः」と読みました。写本 J は「शरीरावयवाः」の箇所を「शरीरम्」、「चेतनानिमित्तत्वात्」を「चेतनानिमित्तं न」と読みます。ヒンディー訳の翻刻には、3.2.51 の「न」を欠く異読が記されます。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>身体の性質の二種</h2><span class="sub"><span class="pg">pp.412–413</span>スートラ 3.2.53–55。外の感官で知覚されるものと感官を超えるもの。論証式のまとめ。繰り返しの理由</span></div>
+<div class="mula sutra" id="u5">
+  <span class="ref">pp.412–413 · NS 3.2.53–55</span>
+  <div class="src deva" lang="sa">शरीरगुणवैधर्म्यात् ॥३।२।५३॥<br>इतश्च न शरीरगुणश्चेतना — शरीरगुणवैधर्म्यात् । द्वये शरीरगुणा भवन्ति — बाह्यकरणप्रत्यक्षाश्च रूपादयः, अतीन्द्रियं च गुरुत्वम् । विधान्तरं तु चेतना — न बाह्यकरणप्रत्यक्षा, अन्तःसंवेद्यत्वात्; नातीन्द्रिया, मनोविषयत्वात् । तस्मान्न शरीरगुण इति ॥५३॥<br>न रूपादीनामितरेतरवैधर्म्यात् ॥३।२।५४॥<br>यथेतरेतरविधर्माणो रूपादयो न शरीरगुणत्वमतिवर्तन्ते, तथा रूपादिवैधर्म्येऽपि न चेतना शरीरगुणत्वं हास्यतीति ॥५४॥<br>ऐन्द्रियकत्वाद्रूपादीनामप्रतिषेधः ॥३।२।५५॥<br>अप्रत्यक्षत्वाच्च । द्वये शरीरगुणा भवन्तीत्युक्तः सूत्रार्थः । रूपादीनामितरेतरवैधर्म्यमननुसंहितं चाव्यावृत्तं चेति वैधर्म्यमात्रम्, अन्वयव्यतिरेकि तु चेतनायाः शरीरगुणत्वसाधनं न भवति, तस्मादसममेतत् ।<br>ये हेतवोऽनेन प्रकरणेन लभ्यन्ते तेषां प्रयोगः — न शरीरगुणश्चेतना, निमित्तान्तराभावे विरोधिगुणादर्शने च सति अयावद्द्रव्यभावित्वात्, अप्सु औष्ण्यवदिति । शरीरव्यापित्वादिति न साधनम्, किं तु शरीरे चेतनां ब्रुवतो दोषोऽनेकचेतनत्वप्रसङ्गः । न शरीरगुणश्चेतना, बाह्यकरणाप्रत्यक्षत्वात्, सुखादिवदिति । अथेदं प्रकरणं निर्णीतार्थम्, कस्मात् पुनरारब्धमिति ? बहुपरीक्ष्यमाणं तत्त्वं निश्चिततरं भवतीत्यत आरभ्यत इति ॥५५॥<br>॥ बुद्धेः शरीरगुणव्यतिरेकप्रकरणम् ॥</div>
+  <div class="tr">（答え）身体の性質と性質が異なるからである。<br>次の理由からも、意識は身体の性質ではない。「身体の性質と性質が異なるからである」。身体の性質には二種類ある。外の道具（感官）によって知覚される色などと、感官を超えた重さとである。しかし意識は（そのどちらとも）別の種類である。外の道具によって知覚されるのではない。内的に経験されるからである。感官を超えたものでもない。意の対象だからである。だから、身体の性質ではない。<br>（反論）「そうではない。色などは互いに性質が異なるからである」。<br>色などは互いに性質が異なっていても、身体の性質であることを越え出ないように、意識も、色などと性質が異なっていても、身体の性質であることを失いはしない。<br>（答え）色などは感官によって知覚されるので、（それらが身体の性質であることは）否定されない。<br>また、（重さなどは）知覚されないからである。「身体の性質には二種類ある」と、スートラの意味は（すでに）述べた。色などの相互の違いは、（身体の性質であることと）結びつかず、（それを）退けもしない、単なる違いにすぎない。しかし、（それは）意識が身体の性質であることを、肯定と否定の両面から論証するものではない。だから、これは同等ではない。<br>この章によって得られる論証因の論証式は（次のとおりである）。「意識は身体の性質ではない。（意識を生む）別の原因がなく、相反する性質も見られないのに、実体（身体）がある間ずっとあるのではないから。水における熱さのように」。「身体全体に行きわたるから」は論証ではなく、身体に意識があると言う者にとっての誤り、すなわち多くの意識主体があることになってしまう、ということである。「意識は身体の性質ではない。外の道具によって知覚されないから。楽などのように」。（問い）「この章は、結論がすでに出たことを扱っている。なぜふたたび始めたのか」。何度も吟味された真理は、いっそう確かになる。だから始めたのである。<br>以上、知は身体の性質と別であることの章。</div><div class="exp"><span class="lbl">解説</span><p>身体の性質は、目や皮膚で知覚される色・触などか、まったく知覚されない重さかのどちらかです。意識は、内側から経験されるので外の感官の対象ではなく、意によって知られるので知覚されないものでもない。だから身体の性質ではない（3.2.53）。相手は、色と味も互いに違うのに身体の性質ではないか、と言いますが（3.2.54）、色も味も外の感官で知覚されるという点では同じ種類であって、意識のように二種のどちらからも外れるものとは違う（3.2.55）。</p><p>章の最後で Uddyotakara は、この章から得られる論証因を二つの推論にまとめ、「身体全体に行きわたる」は論証因ではなく相手の説の難点だ、と整理します。そして、知が元素・感官・意の性質でないことはすでに示した（スートラ 3.2.38、<a href="nyayavarttika-37-taiyaku.html">第37プラカラナ</a>）のに、なぜまた論じるのか、という問いに、「何度も吟味された真理は、いっそう確かになる」と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.53 を定説、3.2.54 を前主張者の論難、3.2.55 をその答えとします。バーシュヤは、身体の性質を、知覚されない重さと、感官で捉えられる色などに分け、意識は経験されるので前者でなく、意の対象なので後者でもない、と説きます。注は、Vārttika はバーシュヤとは違う仕方でスートラを説明している、と記します。3.2.55 の箇所を、ヒンディー訳の翻刻は「द्वये शरीरगुणा भवन्तीत्ययुक्तः सूत्रार्थः」（二種類という解釈は正しくない）と読み、その理由は後で示される、と注します。「結びつかず」を「身体の性質であることと結びつかない」、「退けもしない」を「身体の性質にもそうした違いが見られるので」と TṬ（p.579）で説明します。「論証因」の複数形は論証因の一部を指すためだ、という TṬ（p.579）、論証式の語ごとの説明（TṬ pp.579–580）が引かれます。バーシュヤは、繰り返しの理由を「すでに成り立っていることについて始めるのは、特別なことを知らせるためである。何度も吟味された真理はいっそう確かになる」と述べ、注は、ここでの「元素・感官・意の知の否定」はスートラ 3.2.38 を指す、と記します。ヒンディー訳は奥書の後に「知の考察が終わった」と記します（Hi. pp.1126–1128）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>3.2.55 の Vārttika の「द्वये शरीरगुणा भवन्तीत्युक्तः सूत्रार्थः」を、ヒンディー訳の翻刻は「…इत्ययुक्तः सूत्रार्थः」と読みます。後者なら、Vārttika はここでバーシュヤの解釈を退けていることになります。和訳は Thakur 版に従いました。写本 C は「प्रकरणेन」を「प्रकारेण」と読みます。OCR テキストの「इतरेतर्विधर्माणो」「असभमेतत्」「अप्सु औष्यवत्」は、それぞれ「इतरेतरविधर्माणो」「असममेतत्」「अप्सु औष्ण्यवत्」と読みました。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>cetanā</dt><dd>意識。ここでは知と同じものを指す</dd>
+    <dt>svaguṇa / paraguṇa</dt><dd>自分の性質／他のものの性質</dd>
+    <dt>yāvaccharīrabhāvin</dt><dd>身体がある間ずっとある</dd>
+    <dt>pākaja</dt><dd>焼成によって生じる（色などの性質）</dd>
+    <dt>pratidvandvin</dt><dd>相反する（性質）</dd>
+    <dt>bāhyakaraṇapratyakṣa / atīndriya</dt><dd>外の道具（感官）によって知覚される／感官を超えた</dd>
+    <dt>dṛṣṭāntasūtra</dt><dd>実例を示すスートラ</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直した。この章はほぼ全文を載せた（「……」は省略箇所）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号は Thakur 版とヒンディー訳で一致する。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。ヒンディー訳は、利用者から提供された OCR 転写によって参照した。転写は解説のためにだけ用い、サンスクリット本文の校訂には用いていない。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第39プラカラナ（スートラ 3.2.46–55）である。第38プラカラナ（スートラ 3.2.42–45）は<a href="nyayavarttika-38-taiyaku.html">第38プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
