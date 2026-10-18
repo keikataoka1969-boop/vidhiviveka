@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 35</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-34-taiyaku.html">← プラカラナ34</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>疑いと、この章のねらい</a></li><li><a href="#s2"><b>2</b>再認は知の永続を示さない</a></li><li><a href="#s3"><b>3</b>確定するのは誰か</a></li><li><a href="#s4"><b>4</b>はたらきとそれをもつもの</a></li><li><a href="#s5"><b>5</b>水晶のたとえ</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第35プラカラナ「知の無常性の章」（スートラ 3.2.1–9、Thakur 版 pp.376–383）</span>
+  <p>第三篇第二日課は、認識対象の第五「知」（<i>buddhi</i>）の考察から始まります。知は無常か常住か。スートラは、知が行為とも虚空とも「触れられない」点で共通するので疑いが生じる、と始めますが、Uddyotakara は、知が生じては消えることは誰もが自分で経験しているので、本当は疑いの余地はない、と言います。それでもこの章があるのは、知を常住とするサーンキヤの説を退けるためです。</p>
+  <p>サーンキヤは「以前知ったものを今知っている」という再認を、知が持続している証拠とします。Uddyotakara は、知ること・意識することは精神（我）の性質であって、道具である内官（<i>antaḥkaraṇa</i>）の性質ではない、と答え、「知（<i>buddhi</i>）が確定し、精神（<i>puruṣa</i>）が意識する」というサーンキヤの役割分担を、文法の「行為の要素」（<i>kāraka</i>）の議論も交えて批判します。スートラ 3.2.4–8 は、一つの持続する知から「はたらき」が現れては消えるという説に、同時に知覚しないこと、内官は遍在しないことなどを突きつけ、最後のスートラ 3.2.9 で、サーンキヤは「水晶が下の色によって別物のように見えるのと同じだ」と答えます。</p>
+  <p>この章は Vārttika が長いので、原文は抜粋で載せました（「……」は省略箇所）。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>知の無常性の章<br><small><i>buddhyanityatāprakaraṇa</i>。スートラ 3.2.1–9 の注釈。Thakur 版 pp.376–383。第三篇第二日課の最初</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.2.1–9<br><small>疑い、再認による論証とその否定、はたらき（<i>vṛtti</i>）とそれをもつもの、水晶のたとえ</small></dd></div>
+    <div><dt>論敵</dt><dd>知は常住であるとする者<br><small>ヒンディー訳の注はサーンキヤと明記する。知をはたらきと別の、転変しつつ常住な原理とする説（TṬ p.536）</small></dd></div>
+    <div><dt>見どころ</dt><dd>「知が確定し、精神が意識する」の批判<br><small>§3。確定と意識とを別の主体に割り当てると、一つの身体に何人もの主体がいることになる</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.1018–1039</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.377</span> は Thakur 版の頁。節見出しの <span class="pg">p.376</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。長い箇所は「……」で省略した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁。OCR に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.2.1–9 の注釈を、テキストの順に5節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">疑いと、この章のねらい</a></td><td class="num">pp.376–377</td><td>スートラ 3.2.1–2。疑いは本当は成り立たない。章の目的はサーンキヤの説を退けること。再認による論証</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">再認は知の永続を示さない</a></td><td class="num">pp.377–378</td><td>スートラ 3.2.3。知ることは精神の性質。道具は行為の基体ではない。行為の要素の文法</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">確定するのは誰か</a></td><td class="num">pp.378–379</td><td>スートラ 3.2.3 の続き。再認はむしろ知の区別を示す。「知が確定し、精神が意識する」の批判</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">はたらきとそれをもつもの</a></td><td class="num">pp.379–381</td><td>スートラ 3.2.4–8。同時に捉えないこと。内官は原子大で順に感官と結びつく。遍在する内官は動かない</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">水晶のたとえ</a></td><td class="num">pp.381–383</td><td>スートラ 3.2.9。はたらきは一つで、対象に応じて違って見える。水晶の色の誤認。量が三つという教えとの矛盾</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>疑いと、この章のねらい</h2><span class="sub"><span class="pg">pp.376–377</span>スートラ 3.2.1–2。疑いは本当は成り立たない。章の目的はサーンキヤの説を退けること。再認による論証</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.376 · NS 3.2.1</span>
+  <div class="src deva" lang="sa">कर्माकाशसाधर्म्यात् संशयः ॥३।२।१॥<br>परीक्षितानीन्द्रियाण्यर्थाश्च । बुद्धेरिदानीं परीक्षाक्रमः । सा किमनित्या नित्या वेति धर्मविचारः, सत्त्वस्याधिगतत्वात् । तस्यां च संशयमुपपादयति — कर्माकाशसाधर्म्यात् संशयः । उभाभ्यां साधर्म्यमस्पर्शवत्त्वम् । विशेष उपजनापायधर्मकत्वं विपर्ययश्च बुद्धौ नोपलभ्यते । ततः संशयः ॥१॥</div>
+  <div class="tr">（知については）行為と虚空とに共通する性質があるので、疑いがある。<br>感官と対象とは考察された。いまは知を考察する順番である。それ（知）は無常か常住か、というのは（知の）性質についての考察である。（知が）存在することはすでに知られているからである。そして、それについて（スートラは）疑いを示す。「行為と虚空とに共通する性質があるので、疑いがある」。両者に共通する性質とは、触れられるもの（触）をもたないことである。（両者を分ける）特別な点、すなわち生じて消えるという性質と、その反対（生じも消えもしないこと）とは、知には知覚されない。だから疑いがある。</div><div class="exp"><span class="lbl">解説</span><p>第一日課で我・身体・感官・対象を考察し終え、ここからは列挙（スートラ 1.1.9）の次の項目である知の考察です。知があることはすでに認められているので、問題はその性質、つまり無常か常住かです。疑いの条件はスートラ 1.1.23 の定義どおりで、二つのもの（無常な行為と常住な虚空）に共通する性質（触れられないこと）が知にも見られ、どちらかに決める特別な点が見えない、というものです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は「第二日課、一、知の常住性の考察」という見出しを立てます。注は、感官と対象の考察は知の考察のためにあるので、その後に知が来る、と順番を説明し、知があることはニヤーヤ論者も相手も認めている、と「存在はすでに知られている」を説明します（Hi. p.1018）。</p></div></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.376–377 · NS 3.2.2</span>
+  <div class="src deva" lang="sa">विषयप्रत्यभिज्ञानात् ॥३।२।२॥<br>अनुपपन्नरूपः खल्वयं संशयः, सर्वशरीरिणां प्रत्यात्मवेदनीयत्वात् । सर्वशरीरिणां प्रत्यक्षमेतत् यदुतानित्या बुद्धिरिति । त्रैकाल्यव्यक्तेश्च । बुद्धौ त्रैकाल्यं व्यज्यमानं दृष्टम्, जानामि ज्ञास्याम्यज्ञासिषमिति, न चोपजनापायावन्तरेण त्रैकाल्यव्यक्तिः । …… न च विशेषदर्शने सति युक्तः संशयः । तस्मात् संशयप्रक्रियानुपपत्तिरिति । शेषं भाष्ये ।<br>दृष्टिप्रवादोपालम्भार्थं तु प्रकरणम् । न बुद्धेरनित्यत्वं प्रतिपाद्यम्, अपि तु परस्य दर्शनं निवर्तनीयमिति । एवं हि पश्यन्तः प्रवदन्ति साङ्ख्याः नित्या बुद्धिरिति । साधनं च प्रचक्षते — विषयप्रत्यभिज्ञानात् — इति । यं पूर्वमज्ञासिषं तमिमं जानामीति ज्ञानयोः समानेऽर्थे प्रतिसन्धानमवस्थिताया बुद्धेरुपपन्नम् । बुद्धेर्नानात्वे तु प्रत्यभिज्ञानानुपपत्तिः, यथा पुरुषान्तरबुद्धिषु ॥२॥</div>
+  <div class="tr">（反論）「（知は常住である。）対象が再認されるからである」。<br>この疑いは、じつは成り立たない種類のものである。身体をもつすべての者が、自分自身で経験することだからである。知が無常であることは、身体をもつすべての者にとって直接知覚されることである。また、三つの時が現れるからである。知には、「私は知る」「私は知るだろう」「私は知った」と、三つの時が現れるのが見られる。そして、生じて消えることなしに、三つの時が現れることはない。……そして、特別な点が見られているときに、疑いは正しくない。だから、疑いの手順は成り立たない。残りはバーシュヤにある。<br>しかしこの章は、ある見解を説く者を批判するためにある。知が無常であることを論証するのではなく、相手の見解を退けるべきなのである。というのも、サーンキヤの人々はこう考えて、「知は常住である」と説いている。そして論証因として「対象が再認されるからである」と言う。「以前に私が知ったもの、それを今私は知っている」という、同じ対象についての二つの知の結びつけは、持続している知にとって成り立つ。知がいくつもあるのなら、再認は成り立たない。別の人の知の場合のように。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara はまず、スートラの疑い自体に異を唱えます。知が生じて消えることは誰でも自分で経験しており、「知る・知るだろう・知った」という三つの時の区別も、知が生じて消えるから成り立つ。決め手となる特別な点が見えているのだから、疑う余地はない、というのです。</p><p>それでもこの章が置かれるのは、知を常住とするサーンキヤの見解を退けるためだ、と Uddyotakara は章の性格を規定します。サーンキヤにとって知（<i>buddhi</i>、<i>mahat</i>）は根本原質から展開した持続する内的器官で、個々の認識はそのはたらき（<i>vṛtti</i>）です。その論拠が再認、つまり「以前知ったものを今知っている」という二つの知の結びつきです。別の人が知ったものを私が再認することはないのだから、二つの知は一つの持続する知に属するはずだ、というわけです。（サーンキヤの <i>buddhi</i> 説の説明は訳者の補足。）</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳のバーシュヤは、反論の中でスートラ 1.1.4（感官と対象の接触から生じる）と 1.1.16（同時に知が生じないことが意の標識）を引きます。注は、本当の疑いは既知のものについてしか起こらないが、サーンキヤも（個々の）知は無常と認めているし、サーンキヤの <i>mahat</i> なら存在そのものが疑わしいのだから、常住か否かを疑うことはできない、と説明します。章の目的について、サーンキヤははたらきとは別の知を立て、それを転変しつつ常住なものとするが、この章ははたらきこそが知であって別の原理としての知はないことを示す、と TṬ（p.536）を引きます。精神は転変しない常住なもの（<i>kūṭastha</i>）であって、はたらきをもつものではない、とも注します（Hi. pp.1019–1020）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「दृष्टिप्रवादोपलम्भार्थं」は、ヒンディー訳の読みに従って「दृष्टिप्रवादोपालम्भार्थं」（見解を説く者を批判するため）と読みました。「त्रैकाल्यां」は「त्रैकाल्यं」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>再認は知の永続を示さない</h2><span class="sub"><span class="pg">pp.377–378</span>スートラ 3.2.3。知ることは精神の性質。道具は行為の基体ではない。行為の要素の文法</span></div>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.377 · NS 3.2.3</span>
+  <div class="src deva" lang="sa">साध्यसमत्वादहेतुः ॥३।२।३॥<br>यथैव बुद्धेर्नित्यत्वं साध्यं तथा बुद्धेः प्रत्यभिज्ञानमपि साध्यम् । कस्मात् ? चेतनधर्मस्य करणेऽनुपपत्तेः । पुरुषधर्मः खल्वयं ज्ञानं दर्शनमुपलब्धिर्बोध इति । चेतनो हि पूर्वज्ञातमर्थं प्रत्यभिजानाति । तस्यैतस्माद्धेतोर्नित्यत्वं युक्तम् ।<br>क्रियानाधारत्वाच्च करणस्य । न हि करणं क्रियाया आधारो भवति, उपलब्धिश्च क्रिया । सा च न करणे भवितुमर्हतीति । स्वक्रियाधारत्वादयुक्तमिति चेत् ? अथ मन्यसे सर्वं कारकं स्वक्रियाया आधारो भवतीत्यतोऽयुक्तं करणं क्रियाया नाधार इति । सत्यम्, भवति स्वक्रियाधारो न पुनः स्वक्रियातः करणव्यपदेशः । स्वक्रियासु सर्वं कारकं कर्तृ भवति, करणभावं चाश्रित्य बुद्धौ विचारः । तस्माद्युक्तमेतत् ।</div>
+  <div class="tr">（答え）論証されるべきものと同じなので、（それは）論証因ではない。<br>知が常住であることが論証されるべきであるのとまったく同じく、知が再認することもまた論証されるべきことである。なぜか。精神をもつもの（我）の性質は、道具にはありえないからである。知ること・見ること・知覚・覚知というのは、精神（<i>puruṣa</i>）の性質である。精神をもつものこそが、以前に知った対象を再認するのである。この論証因によって常住であると言うのが正しいのは、それ（精神をもつもの）についてである。<br>また、道具は行為の基体ではないからである。道具は行為の基体ではない。そして知覚は行為である。それは道具にあることはできない。（反論）「（どの行為の要素も）自分の行為の基体であるから、（それは）正しくない」と言うなら。つまり、「どの行為の要素も自分の行為の基体であるのだから、道具は行為の基体ではない、というのは正しくない」と考えるなら。そのとおり、（道具も）自分の行為の基体ではある。しかし、自分の行為によって「道具」と呼ばれるのではない。自分の行為については、どの行為の要素も行為主体である。そして（この章の）知についての考察は、（知の）道具であるあり方にもとづいている。だから、これは正しい。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.3 は、再認という論拠そのものが証明を要する、と答えます。再認するのは精神をもつもの（我）であって、内的器官としての知ではないからです。「知る・見る・覚知する」は精神の性質だとサーンキヤ自身が認めている以上、再認から常住性を導けるのは精神（我）についてであって、道具である知についてではありません。</p><p>第二の理由は「道具は行為の基体ではない」です。反論者は、斧も「裂く」という自分の行為については基体ではないか、と言います。Uddyotakara は、それは認めるが、その場合には斧は道具ではなく行為主体（<i>kartṛ</i>）として語られている、と答えます。ここで問題にしているのは、知が知覚という行為の道具であるという側面だ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、スートラ 3.2.3 を 3.2.2 を論駁するスートラとし、再認が示すのは精神の常住性であって、再認の中に現れもしない内的器官の常住性ではない、と TṬ（p.537）を引きます。「主たる行為」はここでは知覚であり、その基体は行為主体だから、その常住性が帰結する、と注します（TṬ p.537）。「どの行為の要素も…」は前主張者の疑問で、「そのとおり」がその答え、と区別します（Hi. pp.1021–1022）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「नित्यतां साध्यं」「नित्यतां युक्तम्」は、それぞれ「नित्यत्वं साध्यं」「नित्यत्वं युक्तम्」と読みました。</p></div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">pp.377–378 · NS 3.2.3</span>
+  <div class="src deva" lang="sa">सर्वकर्तृत्वप्रसङ्ग इति चेत् ? यदि पुनः स्वक्रियानिमित्तकः कर्तृव्यपदेशः, सर्वं कारकं कर्तृ प्राप्तम् । सत्यमेवमेतत् । नाभ्युपगमा एव दोषत्वेन देश्यन्त इति । कर्तृकरणादिव्यपदेशश्च कथम् ? प्रधानक्रियापेक्षः कर्तृकरणादिव्यपदेशः, यदर्थं कारकमुपादीयते सा प्रधानक्रिया । …… तत्र यदपराप्रयोज्यमितरकारकप्रयोक्तृ च तत् कर्तृकारकम् । …… नन्वयमपि कारकोपादानेन प्रयुज्यते ? न प्रयुज्यते फलस्य प्रयोजकत्वात् । फलं कर्तारं प्रयोजयति, न कारकं करणादि । न च फलं कारकमिति । तेषां तन्नान्तरीयकमुपादानम् । न हि करणाधिकरणकारकोपादानमन्तरेण क्रिया संभवतीति तन्नान्तरीयकत्वात् करणादीन्युपादीयन्त इति । तस्मात् चेतनधर्मः करणे न संभवतीति ।</div>
+  <div class="tr">（反論）「（それなら、すべての行為の要素が）行為主体であることになってしまう」と言うなら。つまり、「もし行為主体という呼び名が自分の行為にもとづくなら、どの行為の要素も行為主体になってしまう」と（言うなら）。そのとおりである。（こちらが）認めていることを、誤りとして示すことはできない。では、行為主体・道具などという呼び名はどうして（区別される）のか。行為主体・道具などという呼び名は、主たる行為にもとづく。それのために行為の要素が取り上げられるところの行為が、主たる行為である。……そのうち、他のものに動かされず、ほかの行為の要素を動かすもの、それが行為主体という行為の要素である。……（反論）「それ（行為主体）もまた、行為の要素を取り上げることによって動かされているではないか」。動かされてはいない。結果が動かすものだからである。結果が行為主体を動かすのであって、道具など行為の要素が（動かすの）ではない。そして結果は行為の要素ではない。それら（道具など）を取り上げるのは、それなしには（行為が）ありえないからである。道具や場所などの行為の要素を取り上げなければ、行為はありえない。だから、それなしにはありえないので、道具などが取り上げられるのである。<br>だから、精神をもつものの性質は道具にはありえない。</div><div class="exp"><span class="lbl">解説</span><p>前のブロックの答えを受けて、反論者は「それなら、どの行為の要素も行為主体になってしまう」と迫ります。Uddyotakara はこれをあっさり認めます。自分の行為については、確かにどれも行為主体なのです。では、行為主体・道具・場所といった区別は何にもとづくのか。それは、その要素がそのために取り上げられる「主たる行為」に対しての区別だ、と答えます。行為主体の定義は「他の要素に動かされず、他の要素を動かすもの」です。行為主体も道具を取り上げるのではないか、と問われると、行為主体を動かすのは結果（目的）であって道具ではない、道具は、それなしに行為ができないから取り上げられるにすぎない、と答えます。こうして、知覚という行為の主体は精神をもつものであり、道具である内的器官に精神の性質はない、という結論に戻ります。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は「認めていることを誤りとして示すことはできない」と読みます（देश्यन्ते）。注は、行為の要素の定義は第二篇で述べたものを思い出させる、とし、「他の要素に動かされない」が行為主体の定義だという点と、「動かされてはいない」がその疑問への答えであることを TṬ（p.537）によって示します（Hi. p.1023）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>「ほかの行為の要素を動かすもの」の前の、行為主体の定義の箇所の OCR テキスト「यद्यन्यकारकप्रयोज्यत्वं」を、ヒンディー訳の注は「यद्यन्यकारकाप्रयोज्यत्वम्」（他の要素に動かされないことが行為主体であるなら）と読みます（原文は省略箇所に含まれる）。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>確定するのは誰か</h2><span class="sub"><span class="pg">pp.378–379</span>スートラ 3.2.3 の続き。再認はむしろ知の区別を示す。「知が確定し、精神が意識する」の批判</span></div>
+<div class="mula" id="u5">
+  <span class="ref">p.378 · NS 3.2.3</span>
+  <div class="src deva" lang="sa">उपेत्य प्रत्यभिज्ञानमन्तःकरणे तस्यैकानेकव्यावृत्तेरसाधारणता । न हि प्रत्यभिज्ञानमेकत्वे दृष्टम्, न नानात्व इति । प्रत्यभिज्ञानस्वरूपावधारणे च सति विरुद्धः । यदा चेदं प्रत्यभिज्ञानं निरूप्यते तदा बुद्धिभेदं प्रतिपादयति । कथमिति ? प्रत्यभिज्ञानं हि नामाद्यप्रत्ययनिरोधे द्वितीयदर्शने प्रागाहितसंस्काराभिव्यक्तौ स्मृतिपूर्वकं तृतीयं दर्शनम् । न च बुद्ध्यभेदवादिनो द्वितीयमपि तावद् दर्शनं संभवति कुतस्तृतीयमिति ?<br>प्रत्ययभेद इति चेत् ? अथ मन्यसे, अवस्थिताया बुद्धेः प्रत्ययास्तिरोभवन्ति व्यज्यन्ते च । तत्राद्यदर्शनतिरोभावे प्रत्ययान्तराविर्भावे च प्रत्यभिज्ञानमिति । तन्न युक्तम्, तद्व्यतिरेकेण बुद्धिस्वभावानवधारणात् । यां तां प्रत्ययव्यतिरिक्तां बुद्धिं भवन्तः कल्पयन्ति, तस्याः कः स्वभाव इति वक्तव्यम् । अस्माकं तु प्रत्ययमात्रं बुद्धिः । अर्थग्रहणं हि बुद्धिरिति । …… </div>
+  <div class="tr">（再認が）内的器官にあると認めたとしても、それ（論証因）は一つのもの（の例）からも多くのもの（の例）からも除外されるので、（その主題にしかない）特殊な（不確定因である）。再認は、一つであるもの（の確立した例）にも、いくつもあるもの（の確立した例）にも見られないからである。また、再認の本性を確定すると、（それは）矛盾因である。この再認を吟味すると、（それは）知が別々であることを示すからである。どうしてか。再認とは、最初の認識が消え、二度目に見るときに、以前に植えつけられた潜在印象が現れ、記憶を先立てて生じる、三番目の認識だからである。しかし、知が別々でないと説く者には、二番目の認識さえありえない。どうして三番目があろうか。<br>（反論）「認識が別々なのだ」と言うなら。つまり、「持続している知の、（個々の）認識が隠れたり現れたりする。そこで、最初の認識が隠れ、別の認識が現れるときに、再認がある」と考えるなら。それは正しくない。それ（認識）と別に、知の本性が確定されないからである。あなたがたが、認識とは別に想定しているその知、その本性は何か、と言わなければならない。われわれにとっては、知とは認識にほかならない。知とは対象を捉えることだからである。……</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は論証因の誤りの分類（スートラ 1.2.5 以下）を使って、再認による論証を二重に批判します。まず、仮に再認が内的器官にあると認めても、それは「一つのもの」の側にも「多くのもの」の側にも確立した例がなく、論証主題にしかない特殊な不確定因（<i>asādhāraṇa</i>）です。次に、再認の本性をよく見ると、それはむしろ知が別々であることを示す矛盾因です。再認は「最初の認識・二度目の認識・記憶を介した三番目の認識」の組み合わせで、知がいくつもあることを前提にしているからです。</p><p>サーンキヤは、持続する知の上で「認識」（<i>pratyaya</i>）が隠れたり現れたりするのだと答えます。Uddyotakara は、それなら個々の認識と別の「知」とは何なのか、その本性を示せ、と迫ります。ニヤーヤにとって知とは対象を捉える認識そのもので（スートラ 1.1.15 では、知・知覚・知識は同義とされた）、背後に持続する実体を立てる理由はありません。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「認めたとしても」を、相手の主張を一旦認める立場（<i>abhyupagamasiddhānta</i>）と説明します。「知が別々でないと説く者」に「（サーンキヤ）」と補い、「知とは対象を捉えることである」は後のニヤーヤでも採られる立場だとして、『タルカバーシャー』を参照させます（Hi. p.1024）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「नामाद्यप्रत्यक्षनिरोधे」は「नामाद्यप्रत्ययनिरोधे」（最初の認識が消えたとき）と読みました。ヒンディー訳の訳も「最初の知覚が消え」と取っています。</p></div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">pp.378–379 · NS 3.2.3</span>
+  <div class="src deva" lang="sa">यदि बुद्धिरध्यवस्यति, अथ बुद्धौ वर्तमानेन ज्ञानेन चेतनः किं करोति ? चेतयत इति चेत् ? कश्चेतयते ? यदि यस्याध्यवसायः स चेतयते, विरुद्धमेतत् । अथात्मा चेतयते ? कथं बुद्धौ वर्तमानेन प्रत्ययेनात्मा चेतयते ? न ह्यन्यत्र वर्तमानया क्रियया अन्यस्य तद्वत्ता भवति ।<br>अथ पुरुषश्चेतयते, बुद्धिर्जानीत इति ? नेदं ज्ञानादर्थान्तरमुच्यते । यावदुक्तं भवति चेतयते, तावदुक्तं भवति जानीत इति । …… अध्यवसायचेतनयोश्च स्वभावभेदो वक्तव्यः । …… स्वभावाभेदोऽसिद्ध इति चेत् ? …… न, प्रतिशरीरमनेकपुरुषप्रसङ्गात् । यद्यन्यश्चेतयिता अन्यश्चाध्यवसाता भवति, अन्यो जानीते, अन्यः पश्यति, अन्यः शृणोति …… पुरुषान्तराणि खल्विमानि द्रष्टा श्रोता मन्तेति, नैकस्यैते धर्मा इति । तत्र भवतां किं वक्तव्यम् ? अभिन्नार्था एते शब्दा इत्येतद् वक्तव्यम् । अभिन्नार्थाश्चेत् शब्दा भवन्ति, नन्वत्राप्यर्थो न भिद्यते चेतनोऽध्यवसाता मन्ता बोद्धेति । तस्मादयुक्तमेतत् बुद्धिरध्यवस्यत्यात्मा चेतयत इति ।<br>यदि पुनरिदं प्रत्यभिज्ञानं मनसो नित्यत्वसाधनं स्यात् ? न युक्तमेवं भवितुम्, मनसो नित्यत्वाभ्युपगमात् । …… अनेकान्ताच्च । न च प्रत्यभिज्ञानात् करणैकत्वं सिध्यति, दृष्टं करणभेदेऽपि प्रत्यभिज्ञानं ज्ञातुरेकत्वात् । दर्शनदृष्टस्य स्पर्शनेन प्रत्यभिज्ञानात्, प्रदीपदृष्टस्य च प्रदीपान्तरेणेति ॥३॥</div>
+  <div class="tr">もし知が確定するのなら、知にある認識によって、精神をもつものは何をするのか。（反論）「意識するのだ」と言うなら。誰が意識するのか。もし確定するその者が意識するのなら、これは（あなたの説と）矛盾する。では我が意識するのか。知にある認識によって、どうして我が意識するのか。あるものにある行為によって、別のものがその（行為を）もつことにはならないからである。<br>（反論）「精神は意識し、知は知るのだ」と言うなら。（「意識する」と）言われるのは、知ることと別のことではない。「意識する」と言えば、それだけで「知る」と言ったことになる。……また、確定することと意識することとの本性の違いを言わなければならない。……（反論）「本性が同じであることは成り立っていない」と言うなら。……そうではない。（そうなら）身体ごとに多くの精神（主体）がいることになってしまうからである。もし意識する者と確定する者が別なら、知る者も別、見る者も別、聞く者も別……ということになる。見る者・聞く者・考える者、これらは別々の精神であって、これらの性質が一人のものなのではない、ということになる。それについてあなたがたは何と言うべきか。「これらの語は同じ意味である」と言うべきである。もし語が同じ意味だというなら、ここでも、意識する者・確定する者・考える者・覚知する者という意味は違わないではないか。だから、「知が確定し、我が意識する」というのは正しくない。<br>（問い）「では、この再認は、意（<i>manas</i>）が常住であることの論証になるか」。そうなるのは正しくない。意が常住であることは（われわれも）認めているからである。……また、不確定だからである。再認によって道具が一つであることが成り立つわけではない。道具が違っても、知る者が一人であるので、再認は見られる。視覚で見たものを触覚で再認するから、また、ある灯火で見たものを別の灯火で（再認する）からである。</div><div class="exp"><span class="lbl">解説</span><p>サーンキヤの認識論では、知（<i>buddhi</i>）が対象を「確定」（<i>adhyavasāya</i>）し、それを精神（<i>puruṣa</i>）が「意識する」（<i>cetayate</i>）と役割を分けます。Uddyotakara はこの分担を崩しにかかります。知にある認識で、別の存在である精神が意識することはありえない。「意識する」は「知る」と同じことにすぎない。確定と意識が別の主体に属するなら、見る者・聞く者・考える者もそれぞれ別の主体になり、一つの身体に何人もの精神がいることになってしまう。サーンキヤが「それらの語は同じ意味だ」と答えるなら、「確定する者」と「意識する者」も同じ意味になる、というのです。（<i>adhyavasāya</i> を知の機能とするのはサーンキヤ・カーリカー 23 の規定、と見るのは訳者の補足。）</p><p>最後に、再認は意の常住性の論証にもならない、と付け加えます。ニヤーヤも意は常住と認めているので論証は無意味ですし、視覚で見たものを触覚で再認するように、道具が違っても知る者が一人なら再認は起こるからです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「精神をもつものは何をするのか」をニヤーヤ側の問い、「意識する」をサーンキヤの答えとし、「意識と確定とが別でないことは、知の定義のところで論じた」という TṬ（p.538）を引きます。「知が知らせる」はサーンキヤの説だと注します。「あなたも一つであることを言うべきだ」と「本性が同じであることは成り立っていない」をサーンキヤの反論とし、答え「身体ごとに多くの精神がいることになる」につなげます。省略した箇所の異読「पुनश्चेतनात्मेवाध्यवसायः」について、ベナレス版・プリー版も同じ読みで、Gaṅgānātha Jhā もこれを保つ、と記し、その読みのまま訳しています。注はまた、ニヤーヤでは我はそれ自体では精神性をもたず、意との結合によって知をもつ、と補います。「意の常住性の論証になる」は前主張とされます（Hi. pp.1025–1028）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「प्रतिशरीरमेकपुरुषप्रसङ्गात्」は、続く文脈（見る者・聞く者がそれぞれ別の精神になる）とヒンディー訳の訳「各身体に多くの人」に従って「प्रतिशरीरमनेकपुरुषप्रसङ्गात्」と読みました。同じく「तस्माद्युक्तमेतत्」は「तस्मादयुक्तमेतत्」、「मनसोऽनित्यत्वसाधनं」は「मनसो नित्यत्वसाधनं」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>はたらきとそれをもつもの</h2><span class="sub"><span class="pg">pp.379–381</span>スートラ 3.2.4–8。同時に捉えないこと。内官は原子大で順に感官と結びつく。遍在する内官は動かない</span></div>
+<div class="mula sutra" id="u7">
+  <span class="ref">pp.379–380 · NS 3.2.4–7</span>
+  <div class="src deva" lang="sa">न युगपदग्रहणात् ॥३।२।४॥<br>यच्चेदं मन्यते बुद्धेरवस्थिताया यथाविषयं वृत्तयः प्रादुर्भवन्ति । वृत्तिश्च वृत्तिमतो नान्येति । एतच्च — न, युगपदग्रहणात् । वृत्तिमतोऽवस्थानाद् वृत्तेरवस्थानमिति सूत्रार्थः ॥४॥<br>अप्रत्यभिज्ञाने च विनाशप्रसङ्गः ॥३।२।५॥<br>वृत्तीनामपगमे वृत्तिमतोऽप्यपगम इति सूत्रार्थः ॥५॥<br>क्रमवृत्तित्वादयुगपद्ग्रहणम् ॥३।२।६॥<br>अविभु चैकं मनः पर्यायेणेन्द्रियैः संबध्यत इति — क्रमवृत्तित्वादयुगपद्ग्रहणम् । वृत्तिवृत्तिमतोर्नानात्वादिति सूत्रार्थः । वृत्तिवृत्तिमतोरेकत्वे प्रादुर्भावतिरोभावयोरभाव इति ॥६॥<br>अप्रत्यभिज्ञानं च विषयान्तरव्यासङ्गात् ॥३।२।७॥<br>(अप्रत्यभिज्ञानं च विषयान्तरव्यासङ्गा)त् इति वृत्तिवृत्तिमतोर्भेदे सति उपपद्यत इति, एकत्वे त्वनर्थको व्यासङ्ग इति ॥७॥</div>
+  <div class="tr">（答え）そうではない。同時に捉えないからである。<br>また、「持続している知から、対象に応じてはたらき（<i>vṛtti</i>）が現れる。そしてはたらきは、はたらきをもつもの（知）と別ではない」と考えていること、これについても、「そうではない。同時に捉えないからである」。はたらきをもつものが持続しているので、はたらきも持続していることになる、というのがスートラの意味である。<br>（答え）また、再認がないときには、（知が）消滅することになってしまう。<br>はたらきが去るときには、はたらきをもつものもまた去る（ことになる）、というのがスートラの意味である。<br>（答え）順にはたらくので、同時に捉えない。<br>遍在しない一つの意（<i>manas</i>）が、順番に感官と結びつく。だから、「順にはたらくので、同時に捉えない」。はたらきとそれをもつものとが別々だから、というのがスートラの意味である。はたらきとそれをもつものとが同一なら、現れることも隠れることもない。<br>（答え）また、再認しないのは、別の対象に気をとられているからである。<br>「再認しないのは、別の対象に気をとられているからである」というのは、はたらきとそれをもつものとが別であるときに成り立つ。同一なら、気をとられるということは意味をなさない。</div><div class="exp"><span class="lbl">解説</span><p>サーンキヤの説では、持続する一つの知から、そのときどきの対象に応じたはたらき（認識）が現れ、しかもはたらきは知と別のものではありません。スートラ 3.2.4–5 はこれに二つの帰結を突きつけます。はたらきが持続する知と同一なら、はたらきもすべて持続し、あらゆる対象が同時に捉えられるはずである（3.2.4）。逆に、はたらきが消えれば、それと同一の知も消えることになる（3.2.5）。</p><p>スートラ 3.2.6–7 は、ニヤーヤの側の説明です。知覚が同時に起こらないのは、遍在しない（原子大の）一つの意が順番に感官と結びつくからで、これは、はたらき（認識）とそれをもつもの（意）とが別だからこそ言えることです。人が何かを再認しないのは、別の対象に気をとられているからだ、というのも、両者が別であってはじめて意味をなします。（「遍在しない一つの意」はニヤーヤの意の説なので、和訳はこの二つのスートラをニヤーヤの側の説明と解した。ヒンディー訳の割り当ては下段を参照。）</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、スートラ 3.2.4–5 をいずれも前主張（サーンキヤ）を論駁するスートラとし、「はたらきをもつものが持続するので、はたらきも持続することになってしまう」という TṬ（p.538）を引きます。3.2.6–7 については、「遍在しない一つの意が順に感官と結びつく」という文脈で示し、意は原子大で一度に一つの感官としか結びつかない、とニヤーヤの説明を注します。バーシュヤは 3.2.7 の「再認しない」を「知覚しない」と言い換えます。ヒンディー訳の Vārttika の訳では、3.2.4 と 3.2.5 の末尾の番号が入れ違っています（Hi. pp.1029–1030）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>スートラ 3.2.7 の Vārttika の冒頭は OCR テキストで欠けているので、スートラの文を補って（　）で示しました。</p></div>
+</div>
+<div class="mula sutra" id="u8">
+  <span class="ref">pp.380–381 · NS 3.2.8</span>
+  <div class="src deva" lang="sa">न गत्यभावात् ॥३।२।८॥<br>विभुत्वे चान्तःकरणस्य पर्यायेणेन्द्रियैः संयोगः — न, गत्यभावात् । व्याप्तान्तःकरणेन्द्रियाणीति सूत्रार्थः । व्यापित्वे युगपदनेकेन्द्रियसंबन्धाद् युगपद्ग्रहणप्रसङ्गो दोषः । अणावपि मनस्येकेन्द्रियग्राह्येषु युगपदुपलब्धिप्रसङ्ग इति चेत् ? करणत्वात् न युगपद्ग्रहणम् । ममाप्येवं कस्मान्न परिहारः ? न, करणभेदे दृष्टत्वात् । यानि खलु भिन्नानि करणानि तान्येकेनैवाधिष्ठायकेनाधिष्ठितानि युगपत्प्रवर्तमानानि दृष्टानि । यथोभयहस्ताधिष्ठिते वास्यौ प्रवर्तेते, तथा चेन्द्रियाणि व्यापकेनान्तःकरणेनाधिष्ठीयन्त इति युगपत् प्रवृत्तिः प्रसक्ता । तत्प्रसक्तौ च युगपद्ग्रहणप्रसङ्ग इति ।<br>गत्यभावाच्च विभुनोऽन्तःकरणस्य प्राप्त्यर्थस्य गमनस्याभावात् । …… यथा चक्षुषो गतिः प्रतिषिद्धा केनचित् सन्निकर्षविप्रकर्षयोस्तुल्यकालग्रहणात् । …… प्रतिषिद्धापि सती गतिर्व्यवधानप्रतिघातेनानुमीयत इति । न च युगपत् प्रत्ययोत्पत्तौ प्रमाणमस्ति ।<br>सोऽयं नान्तःकरणे विवादो न तस्य नित्यत्वे । क्व तर्हि विवादः ? तस्य विभुत्वे । तच्च प्रमाणतोऽनुपलब्धेर्नास्ति । …… यस्य पुनर्वृत्तिवृत्तिमतोर्नानात्वं तस्यान्तःकरणसाधनश्चक्षुरादिसाधनश्चात्मा अर्थानुपलभत इति युक्तम् । एतेन विषयान्तरव्यासङ्गः प्रत्युक्तः, पुरुषो जानीते नान्तःकरणमिति । …… यः पुनरयं सन्निधानासन्निधानलक्षणोऽन्तःकरणस्य व्यासङ्गः सोऽनुज्ञात इति ॥८॥</div>
+  <div class="tr">（答え）そうではない。（遍在する内官には）動きがないからである。<br>また、内的器官が遍在するなら、順番に感官と結合するということは、「ない。動きがないからである」。感官は内的器官に行きわたられている、というのがスートラの意味である。（内的器官が）遍在するなら、同時に多くの感官と結びつくので、同時に捉えることになってしまう、という誤りがある。（反論）「意が原子大であっても、一つの感官によって捉えられる（多くの）ものを同時に知覚することになってしまう」と言うなら。（感官は一つの）道具であるから、同時に捉えることはない。（反論）「私（の説）にも、同じように答えられないのはなぜか」。そうではない。道具が別々の場合には（同時にはたらくことが）見られるからである。別々の道具が、一つの統御者によって統御されると、同時にはたらくのが見られる。両手で握られた二本の手斧が（同時に）はたらくように。同じように、感官が遍在する内的器官によって統御されるなら、同時にはたらくことになり、そうなれば同時に捉えることになってしまう。<br>また、動きがないからである。遍在する内的器官には、（感官に）届くための移動がないからである。……たとえば、ある人は、近くのもの（手）と遠くのもの（月）とを同時に捉えることから、目の動きを否定した。……否定されても、動きは、遮るものによって妨げられることから推理される。しかし、認識が同時に生じることについては、（それを示す）量がない。<br>ここでの争点は、内的器官（があるかどうか）でもなければ、その常住性でもない。では争点はどこにあるのか。その遍在性にである。そしてそれは、量によって知られないので、ない。……はたらきとそれをもつものとが別であるとする者には、「我が、内的器官を手段とし、目などを手段として、対象を知覚する」というのが正しい。これによって、別の対象に気をとられることについても答えられた。知るのは精神であって、内的器官ではない。……内的器官が（感官のそばに）あるかないかということとしての「気をとられること」は、（われわれも）認めている。</div><div class="exp"><span class="lbl">解説</span><p>サーンキヤが、遍在する内的器官も順に感官と結びつくのだと言い逃れるのを、スートラ 3.2.8 は「遍在するものは動かない」と封じます。遍在する内的器官はすべての感官と常に接しているので、同時にすべてを捉えてしまうはずです。両手に握った二本の斧が同時に動くように、一つの統御者のもとにある別々の道具は同時にはたらくからです。ニヤーヤの原子大の意なら、一度に一つの感官としか結びつかないので、この問題は起こりません。</p><p>Uddyotakara は、争点を「内的器官があるか」でも「常住か」でもなく「遍在するか」に絞り込み、遍在を示す量はない、と結論します。目の場合、ある論者がその動きを否定しても、遮蔽物で見えなくなることから動きが推理できるが、認識が同時に生じることを示す量は何もない、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、スートラ 3.2.8 を定説のスートラとします。「意が原子大であっても…」を前主張者の疑問、「私にも同じように答えられないのはなぜか」をサーンキヤの疑問とし、「道具が別々の場合には見られる」をその答えとします（TṬ p.538）。印刷本には「खल्वभिन्नानि」と「खलु भिन्नानि」の両方があるが、Gaṅgānātha Jhā に従って後者が正しい、と注します。目の動きを否定した「ある人」には「（仏教徒）」と補います。「知るのは精神であって内的器官ではない」は著者自身の立場で、「気をとられているのは知る者であり、内的器官は知らない」「われわれのような者の内的器官の気のそれは否定されない」という TṬ を引きます（TṬ の頁は OCR で p.536 と読めるが、p.539 の誤りかもしれない）（Hi. pp.1031–1034）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「व्यासान्तःकरणेन्द्रियाणि」「युगपदेकेन्द्रियसंबंधाद्」は、それぞれ「व्याप्तान्तःकरणेन्द्रियाणि」「युगपदनेकेन्द्रियसंबन्धाद्」（ヒンディー訳の注の読み）と読みました。省略した箇所の「नायुगपत्प्रत्ययोत्पत्तौ प्रमाणमस्ति」は、写本 C に「न वा युग०」とあり、読みが定まりません。</p></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>水晶のたとえ</h2><span class="sub"><span class="pg">pp.381–383</span>スートラ 3.2.9。はたらきは一つで、対象に応じて違って見える。水晶の色の誤認。量が三つという教えとの矛盾</span></div>
+<div class="mula sutra" id="u9">
+  <span class="ref">pp.381–382 · NS 3.2.9</span>
+  <div class="src deva" lang="sa">स्फटिकान्यत्वाभिमानवत् तदन्यत्वाभिमानः ॥३।२।९॥<br>एकमन्तःकरणं नाना वृत्तय इति नैतन्न्यायवित्संचक्षाणकः प्रतिपत्तुमर्हति । यथैवान्तःकरणमेकं तथैवैका वृत्तिरिति । दृष्टविरोध इति चेत् ? अथ मन्यसे यदि चान्तःकरणात् न वृत्तिर्भिद्यते ननु दृष्टं विरुध्यते, रूपं रसो गन्धः स्पर्श इति दृष्टः प्रत्ययभेदो न स्यात् ? न न स्यात्, विषयभेदानुविधानात् । वृत्तिरभिन्नापि विषयभेदमनुविधीयमाना भिन्नेव ख्याति । यथोपधानभेदमनुविधीयमानं स्फटिकादिद्रव्यं भिन्नमिव प्रकाशते । अस्य चार्थस्य ज्ञापनार्थम् — स्फटिकान्यत्वाभिमानवत् तदन्यत्वाभिमानः — इति सूत्रम् ।<br>न, अनेकान्तात् । उभयथा खल्वयं नानात्वाभिमानो दृष्टः, नानाभूतेषु च गन्धादिषु, अभिन्ने च स्फटिक इति । यथाश्रुति सूत्रे हेत्वभावो दृष्टान्तमात्रत्वात् । …… विकल्पानुपपत्तेश्च । यश्चायं दृष्टान्तः स्फटिकवदिति, विकल्पोऽत्र किमयं स्फटिक उपधानभेदेन भिद्यते उत नेति ? …… यदि भिद्यते न दृष्टान्तः । अथ न भिद्यते, नानात्वाभिमानः कथम् ? यद्युपधानभेदात्, भिन्नमुपधानमिति कथं प्रतिपद्यते ? यदि प्रत्ययभेदात् व्याघातः । अभिन्ना वृत्तिः, प्रत्ययश्च भिन्न इति व्याहतं प्रत्ययपर्यायत्वाद् वृत्तेः ।</div>
+  <div class="tr">（反論）「水晶が別のものだと思いこむように、それ（はたらき）が別々だと思いこむのである」。<br>（反論者の言い分）「『内的器官は一つで、はたらきはいくつもある』というのは、道理を知る（正しい数え方をする）サーンキヤ（<i>saṃcakṣāṇaka</i>）が受け入れるべきことではない。内的器官が一つであるのとまったく同じく、はたらきも一つである」。（問い）「経験と矛盾する」と言うなら。つまり、「もしはたらきが内的器官と別でないなら、経験と矛盾するではないか。色・味・香・触という、経験される認識の違いがなくなってしまうではないか」と考えるなら。（答え）なくなりはしない。（はたらきは）対象の違いに従うからである。はたらきは、別々でなくても、対象の違いに従っているので、別々であるかのように現れる。水晶などの実体が、下に置かれたもの（<i>upadhāna</i>）の違いに従って、別々であるかのように輝くように。このことを知らせるために、「水晶が別のものだと思いこむように、それが別々だと思いこむのである」というスートラがある。<br>そうではない。不確定だからである。この「別々だと思いこむこと」は、両方の場合に見られる。（実際に）別々のものである香などについても、別々でない水晶についても。また、スートラには、文字どおりには論証因がない。たとえにすぎないからである。……また、選択肢が成り立たないからである。「水晶のように」というこのたとえについて、ここで選択肢がある。この水晶は、下に置かれたものの違いによって別々になるのか、ならないのか。……もし別々になるなら、たとえ（として役に立た）ない。もし別々にならないなら、どうして別々だと思いこむのか。もし下に置かれたものの違いによる（と言う）なら、下に置かれたものが別々だということは、どのようにして知られるのか。もし認識の違いによって（知られる）なら、自己矛盾である。はたらきは別々でないが、認識は別々だ、というのは矛盾している。はたらきとは認識の言い換えだからである。</div><div class="exp"><span class="lbl">解説</span><p>サーンキヤの最後の答えがスートラ 3.2.9 です。内的器官が一つなら、はたらきも一つでよい。色・味・香などの認識が違って見えるのは、はたらきが対象の違いに従うからで、透明な水晶が下に敷いた赤い花や青い布によって別々の色に見えるのと同じだ、というのです。</p><p>Uddyotakara の反論は三つです。第一に、「別々だと思いこむこと」は、香と味のように本当に別々のものにも、一つの水晶にも見られるので、それだけでは何も決まりません（不確定）。第二に、スートラはたとえだけで論証因を欠いています。第三に、水晶自体が別々になるのならたとえにならず、ならないのなら、下に置いたものが別々であることを、認識の違いによらずにどう知るのか。認識（<i>pratyaya</i>）は別々だが、はたらき（<i>vṛtti</i>）は一つだ、というのは、両者が同じものの言い換えである以上、自己矛盾だ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.9 をサーンキヤの前主張とします。「<i>saṃcakṣāṇaka</i>」は TṬ によってサーンキヤを指し、「正しく説く者、すなわちサーンキヤ。数（<i>saṃkhyā</i>）とは正しい知であり、それによって振る舞うのでサーンキヤという」と注されます（TṬ の頁は OCR で p.536、p.539 の誤りか）。バーシュヤは「そうではない、論証因がないから」と答え、別々だという思いこみが水晶のような比喩的なものか、香と色のような本当のものかを決める理由がない、とします。注は、前主張者の推理を「はたらきは一つである。別々だという思いこみの対象だから。水晶のように」と再構成し、だから文字どおりには論証因を欠くわけではない、と Vārttika の「選択肢が成り立たない」を位置づけます（TṬ p.540）（Hi. pp.1035–1037）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「न्यायवित्संचक्षणकः」は、ヒンディー訳の読み「न्यायवित्संचक्षाणकः」に従いました。「वृत्तिर्भिन्नापि」は「वृत्तिरभिन्नापि」（別々でなくても）と読みました。</p></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">pp.382–383 · NS 3.2.9</span>
+  <div class="src deva" lang="sa">अथ भवतां वृत्तीनां भेदे किं प्रमाणम् ? ज्ञानानां क्रमेणोपजनापायदर्शनम् । क्रमेण ज्ञानान्युपजायन्तेऽपयन्ति चेति दृश्यते । …… नानात्वाभिमानस्योभयथा दृष्टत्वादिदमेकमिदमनेकमिति न युक्तः प्रत्यय इति । यश्चायमभिन्ने स्फटिके भेदप्रत्ययः, सोऽपि प्रत्ययभेदमन्तरेण न युक्तः । …… स्फटिके नीलादिप्रत्ययोऽसम्बन्धात् न युक्तः । न हि नीलं द्रव्यं चक्षुःसन्निकृष्टमिति । अथ सन्निकृष्टम्, तदेव नीलं न स्फटिक इति स्फटिकसमानाधिकरणः स्फटिके नीलप्रत्ययो न युक्तः । न, नैरन्तर्यदर्शनात् । नैरन्तर्येणावस्थिते स्फटिकनीलद्रव्ये चक्षुषा सन्निकृष्येते । ततः सन्निकर्षात् नीलगुणाध्यारोपेण स्फटिके मिथ्याप्रत्ययो नील इति, यथा सान्तरेष्वन्तरालादर्शनात् संयुक्तप्रत्यय इति ।<br>यस्य च प्रत्ययो न भिद्यते तस्य त्रीणि प्रमाणानीति शास्त्रं व्याहन्यते । न हि प्रत्ययाभेदे प्रमाणभेदः संभवति । विषयभेदात् त्रित्वमिति चेत् ? …… तन्न युक्तम्, प्रमाणाभेदे विषयभेदानधिगतेः । …… विषयतादात्म्यादिति चेत् ? …… तन्न, प्रमाणवैयर्थ्यप्रसङ्गात् । …… यथाध्यवस्यति तथा चेतयत इति च व्याघातः, अप्रकारवत्त्वात् । प्रकारवत्येतद् युक्तम्, अप्रकारे न युक्तम् । बुद्धिस्थं प्रत्ययमुपलभत इति च विरोधोऽधिकरणाधेययोरभेदात् । यः प्रत्ययः सा बुद्धिरित्यधिकरणाधेययोरभेदः । एवं च सति बुद्धिस्थं प्रत्ययमुपलभत इति व्याहतम् ॥९॥<br>॥ बुद्ध्यनित्यताप्रकरणम् ॥</div>
+  <div class="tr">（反論）「では、あなたがたにとって、はたらきが別々であることの量は何か」。知が順に生じては消えるのが見られることである。知が順に生じては去ることが見られる。……（あなたの説では）別々だと思いこむことが両方の場合に見られるので、「これは一つ」「これは多い」という認識は正しくないことになる。また、別々でない水晶について別々だという認識があるのも、認識が別々であることなしには成り立たない。……（ある者の反論）「水晶について『青い』などという認識は、（青いものと目との）結びつきがないので、正しくない。青い実体が目と接触しているわけではないからである。もし接触しているなら、青いのはまさにそれ（青い実体）であって水晶ではないので、水晶について、水晶と同じ基体をもつ『青い』という認識は正しくない」。そうではない。（両者が）隙間なく（並んで）いるのが見えるからである。水晶と青い実体とが隙間なく置かれていると、（両方が）目と接触する。その接触から、青という性質を（水晶に）重ねて、水晶について「青い」という誤った認識が生じる。隙間のある（並んだ）ものについて、間の隙間が見えないために「くっついている」という認識が生じるように。<br>また、認識が別々でないとする者にとっては、「量は三つである」という教えが損なわれる。認識が別々でないなら、量の区別はありえないからである。（反論）「対象が別々だから三つなのだ」と言うなら。……それは正しくない。量が別々でなければ、対象が別々であることは知られないからである。……（反論）「（認識が）対象と一体だからだ」と言うなら。……そうではない。（そうなら）量が無用になってしまうからである。……また、「確定するとおりに意識する」というのも矛盾である。（知には）様態がないからである。様態をもつものについてならこれは正しいが、様態のないものについては正しくない。また、「（精神は）知にある認識を知覚する」というのも矛盾である。基体とそこにあるものとが別でないからである。認識であるもの、それが知である（とするなら）、基体とそこにあるものとが別でないことになる。そうであるなら、「知にある認識を知覚する」というのは自己矛盾である。<br>以上、知の無常性の章。</div><div class="exp"><span class="lbl">解説</span><p>サーンキヤに「はたらきが別々である根拠は何か」と問われ、Uddyotakara は、知が順に生じて消えるのが見られることだ、と答えます。そして、別々だという思いこみが一つのものにも多くのものにも起こるのなら、何を一つ、何を多いと言う認識も成り立たなくなる、と切り返します。</p><p>次に水晶の色の説明です。ある者が、青い布は目と接していないし、接していても青いのは布であって水晶ではない、と言います。Uddyotakara の答えは、水晶と青い布とが隙間なく並んでいると、両方が同時に目と接し、布の青さが水晶に重ねられて「青い水晶」という誤った認識が生じる、というものです。離れて並んだ木々が、隙間が見えないためにくっついて見えるのと同じです。（この問答を誰と誰のものと見るかは、ヒンディー訳でも確定していない。下段を参照。）</p><p>最後に、サーンキヤ自身の教えとの矛盾を三つ挙げます。認識が一つなら、サーンキヤが説く「量は三つ（知覚・推理・証言）」という区別が立たない。様態をもたない知について「確定するとおりに意識する」とは言えない。知と認識が同じものなら、「知にある認識」という言い方が成り立たない。（「量は三つ」をサーンキヤ・カーリカー 4 の規定と見るのは訳者の補足。）</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「水晶について『青い』という認識は結びつきがないので正しくない」を、ある者の反論として示し、「（誰の？）」と問いを残します。答え「隙間なく並ぶのが見えるから」も前主張者の側のものとし、疑問符を付けています。「量は三つ」については、TṬ は「यस्य च प्रत्ययाभेदः」と読み、量の区別は認識の区別から推理される、と注します（TṬ p.540）。「対象が別々だから」と「対象と一体だから」はサーンキヤの疑問とされます。「様態をもつもの」は「別のものは様態をもつが、同じものはもたない」という TṬ（p.541）で説明され、「知と認識が同じなら『知がその認識を知覚する』は矛盾する」という TṬ（p.541）が引かれます。奥書は「以上、知の常住性の考察」です（Hi. pp.1037–1039）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「प्रमाणभेदे विषयभेदानधिगतेः」は、ヒンディー訳の注と訳に従って「प्रमाणाभेदे」（量が別々でなければ）と読みました。注によれば Vācaspati はこの「量」を、量を成り立たせる条件の総体（<i>sāmagrī</i>）と解します。「अन्तरालदर्शनात्」「प्रकारे न युक्तम्」「अधिकरणधेययोः」は、それぞれ「अन्तरालादर्शनात्」「अप्रकारे न युक्तम्」「अधिकरणाधेययोः」と読みました。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>buddhi</dt><dd>知。ニヤーヤでは個々の認識そのもの。サーンキヤでは持続する内的器官</dd>
+    <dt>pratyabhijñāna</dt><dd>再認。「以前知ったものを今知っている」という認識</dd>
+    <dt>antaḥkaraṇa</dt><dd>内的器官。ここではサーンキヤの知（<i>buddhi</i>）を指す</dd>
+    <dt>vṛtti / vṛttimat</dt><dd>はたらき（個々の認識）／はたらきをもつもの</dd>
+    <dt>adhyavasāya / cetanā</dt><dd>確定／意識すること</dd>
+    <dt>kāraka</dt><dd>行為の要素。行為主体・道具・場所など</dd>
+    <dt>vyāsaṅga</dt><dd>気をとられること（別の対象への没頭）</dd>
+    <dt>upadhāna</dt><dd>（水晶の）下に置かれたもの。色を映す原因</dd>
+    <dt>asādhāraṇa / viruddha</dt><dd>特殊な不確定因／矛盾因</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直し、長い箇所は抜粋した（「……」は省略箇所）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号は Thakur 版とヒンディー訳で一致する（Thakur 版の OCR テキストは 3.2.5–8 を「३।२।१५–१८」と誤っている）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。ヒンディー訳は、利用者から提供された OCR 転写によって参照した。転写は解説のためにだけ用い、サンスクリット本文の校訂には用いていない。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第35プラカラナ（スートラ 3.2.1–9）で、第三篇第二日課はここから始まる。第34プラカラナ（スートラ 3.1.62–73）は<a href="nyayavarttika-34-taiyaku.html">第34プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
