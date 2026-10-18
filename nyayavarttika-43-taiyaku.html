@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 43</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-42-taiyaku.html">← プラカラナ42</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>過失の三つのまとまり</a></li><li><a href="#s2"><b>2</b>三つは一つか</a></li><li><a href="#s3"><b>3</b>迷いが最も悪い</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第43プラカラナ「過失の三つのまとまりの章」（スートラ 4.1.3–9、Thakur 版 pp.424–427）</span>
+  <p>人を行為へと駆り立てる過失には、慢心や怠慢など多くの種類があります。スートラ 4.1.3 は、それらはすべて貪り（<i>rāga</i>）・嫌悪（<i>dveṣa</i>）・迷い（<i>moha</i>）の三つのまとまりに収まる、と言います。Uddyotakara は、それぞれのまとまりに属する十四の過失を一つずつ定義し、表にまとめられるほど整然とした分類を示します。</p>
+  <p>反論者は、三つとも真実の知という同じ一つのものによって消えるのだから、一つではないか、と言います（4.1.4）。スートラは、色・味などもみな一つの火で焼かれて変わるが一つではない、と退け（4.1.5）、三つのうちでは迷いが最も悪い、迷っていない者には貪りも嫌悪も起こらないから、と答えます（4.1.6）。迷いは他の過失の原因なので過失ではない、という反論（4.1.7）にも答えて、章は閉じられます。</p>
+  <p>この章の Vārttika は短いので、原文はほぼ全文を載せました（「……」は省略箇所）。第四篇については、ヒンディー語訳注の翻刻がまだ提供されていないので、解説は本文にもとづく訳者の説明です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>過失の三つのまとまりの章<br><small><i>doṣatrairāśyaprakaraṇa</i>。スートラ 4.1.3–9 の注釈。Thakur 版 pp.424–427</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>4.1.3–9<br><small>貪り・嫌悪・迷いの三つのまとまり、三つは一つかという反論、迷いが最も悪い、迷いも過失である</small></dd></div>
+    <div><dt>論敵</dt><dd>過失は一つとする者、迷いは過失でないとする者<br><small>本文は論者の学派を示さない</small></dd></div>
+    <div><dt>見どころ</dt><dd>十四の過失の定義<br><small>§1。嫉み・ねたみ・慢心・怠慢などを一つずつ定義する</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>未参照<br><small>提供された Śrīnivāsa Śāstrī 訳注の翻刻は第三篇の終わりまでで、この章を含まない</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.425</span> は Thakur 版の頁。節見出しの <span class="pg">p.424</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。この章はほぼ全文を載せた</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。本文にもとづく訳者の説明</div>
+    <div><b>解釈の分かれる箇所</b>異読や、読みの定まらない箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 4.1.3–9 の注釈を、テキストの順に3節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">過失の三つのまとまり</a></td><td class="num">pp.424–426</td><td>スートラ 4.1.3。十四の過失の定義。三つを区別する特徴</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">三つは一つか</a></td><td class="num">p.426</td><td>スートラ 4.1.4–5。同じ一つのもので消えるから一つ、という反論。色などの反例</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">迷いが最も悪い</a></td><td class="num">pp.426–427</td><td>スートラ 4.1.6–9。迷っていない者に貪りと嫌悪はない。原因であっても同じ種類でありうる</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>過失の三つのまとまり</h2><span class="sub"><span class="pg">pp.424–426</span>スートラ 4.1.3。十四の過失の定義。三つを区別する特徴</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.424–425 · NS 4.1.3</span>
+  <div class="src deva" lang="sa">तत्त्रैराश्यं रागद्वेषमोहान्तर्भावात् ॥४।१।३॥<br>प्रवर्तनालक्षणा दोषा इत्युक्तम् । तथा च मानादयः प्रवर्तयन्तीति लक्षणसामान्यात् तेऽप्युपसंख्येया इति ? नोपसंख्यायन्ते, संगृहीतत्वात् । केन संग्रहः ? प्रवर्तनालक्षणा दोषा इत्यनेनैव । तत्त्रै……वात् । तेषां तु लक्षणेन संगृहीतानां त्रैराश्यं रागद्वेषमोहान्तर्भावात् । तेषां दोषाणां त्रयो राशयस्त्रयः पक्षाः संभवन्ति — रागपक्षो द्वेषपक्षो मोहपक्ष इति । तत्र रागपक्षः — कामो मत्सरः स्पृहा तृष्णा लोभ इति । द्वेषपक्षः — क्रोध ईर्ष्या असूया द्रोहोऽमर्ष इति । मोहपक्षः — मिथ्याज्ञानं विचिकित्सा मानः प्रमाद इति ।<br>कामो मत्सर इत्येवमादि किं पर्यायवचनम्, आहोऽर्थान्तरभाव इति ? …… अर्थान्तरभाव इति ब्रूमः । तत्र कामः स्त्रीगतोऽभिलाषः । या स्त्रीगता प्रार्थना सा काम इति । एवं चाहुः — नाकामयमानो मण्डयत इति । अक्षीयमाणवस्त्वपरित्यागेच्छा मत्सरः । …… अस्वत्वादानेच्छा स्पृहा । …… पुनर्भवप्रतिसन्धानहेतुभूता तृष्णा । …… प्रमाणविरुद्धपरद्रव्यादानेच्छा लोभः । …… एषां च सामान्यं रागः । सामान्येन विशेषः संगृहीत इति ।<br>शरीरेन्द्रियाधिष्ठानवैकृतहेतुः क्रोधः । …… साधारणे वस्तुनि पराभिनिवेशप्रतिषेधेच्छा ईर्ष्या । …… परगुणाक्षमता असूया । …… परापकारेच्छा द्रोहः । अशक्तस्यापि या परं प्रत्यपचिकीर्षा सा द्रोहः । अपकारासहिष्णुता अमर्षः । …… अस्य च द्वेषः सामान्यं, तेन संग्रहः ।<br>विपर्ययज्ञानं मिथ्याज्ञानम् । अतस्मिंस्तदिति प्रत्ययो विपर्यय इति । संशयो विचिकित्सा किंस्विदिति । विद्यमानाविद्यमानगुणाध्यारोपेणात्मोत्कर्षप्रत्ययो मानः, अहो अहमस्मीति यथा । शक्तस्य कर्तव्याकरणं प्रमादः । …… अस्य च सामान्यं मोहः, तेन संग्रह इति । अतस्त्रैराश्यान्नोपसंख्यायन्त इति ।</div>
+  <div class="tr">それら（過失）は、貪り・嫌悪・迷いに含まれるので、三つのまとまりをなす。<br>「過失は（活動へと）駆り立てることを特徴とする」と（スートラ 1.1.18 で）言われた。（反論）「そうであれば、慢心なども駆り立てるので、定義が共通するから、それらも（過失として）数え加えるべきだ」。数え加えられることはない。（すでに）含まれているからである。何によって含まれているのか。まさに「過失は駆り立てることを特徴とする」によってである。「それら（過失）は……」。定義によって含まれたそれらは、貪り・嫌悪・迷いに含まれるので、三つのまとまりをなす。それらの過失には、三つのまとまり、三つの側がある。貪りの側、嫌悪の側、迷いの側である。そのうち、貪りの側は、愛欲・物惜しみ・欲しがり・渇愛・強欲である。嫌悪の側は、怒り・嫉み・ねたみ・害意・憤りである。迷いの側は、誤った知・疑い・慢心・怠慢である。<br>（問い）「愛欲・物惜しみなどは、同義語なのか、別々のものなのか」。……別々のものだ、とわれわれは言う。そのうち、愛欲とは、女性に向かう欲求である。女性に向かう求めが、愛欲である。人々も「（相手を）欲していない者は着飾らない」と言う。物惜しみとは、減ることのないものを手放したくないという欲求である。……欲しがりとは、自分のものでないものを取りたいという欲求である。……渇愛とは、ふたたび生まれることに結びつく原因となるものである。……強欲とは、量に反して他人の財を取りたいという欲求である。……これらに共通するのが貪りである。共通のものによって特殊なものが含まれる。<br>怒りとは、身体・感官・それらの拠り所が変調をきたす原因である。……嫉みとは、共有のものについて、他人がそれに執着するのを妨げたいという欲求である。……ねたみとは、他人の長所に耐えられないことである。……害意とは、他人を害したいという欲求である。力のない者でも、他人に対して害を加えようと思うこと、それが害意である。憤りとは、害を受けて耐えられないことである。……これらに共通するのが嫌悪であり、それによって含まれる。<br>誤った知とは、逆さまの知である。そうでないものについて「そうだ」と思う認識が、逆さまである。疑いとは、「何だろうか」という迷いである。慢心とは、ある長所やない長所を（自分に）重ねて、自分を高いと思う認識である。「ああ、私はなんと偉いのだ」のように。怠慢とは、力のある者がなすべきことをしないことである。……これらに共通するのが迷いであり、それによって含まれる。だから、三つのまとまりがあるので、（慢心などを別に）数え加えることはない。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 1.1.18 は過失を「駆り立てるもの」と定義しただけでした。慢心や怠慢も人を行為に駆り立てるので、過失の数を増やすべきではないか、という問いに、スートラ 4.1.3 は、どの過失も貪り・嫌悪・迷いのどれかに収まる、と答えます。Uddyotakara の定義を表にまとめます。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>まとまり</th><th>過失</th><th>Uddyotakara の定義</th></tr></thead>
+    <tbody>
+      <tr><td class="k" rowspan="5">貪り<br><small>執着</small></td><td>愛欲 <i>kāma</i></td><td>女性に向かう欲求</td></tr>
+      <tr><td>物惜しみ <i>matsara</i></td><td>使っても減らないものを手放したくない欲求</td></tr>
+      <tr><td>欲しがり <i>spṛhā</i></td><td>自分のものでないものを取りたい欲求</td></tr>
+      <tr><td>渇愛 <i>tṛṣṇā</i></td><td>ふたたび生まれることの原因となる欲求</td></tr>
+      <tr><td>強欲 <i>lobha</i></td><td>正当な手段によらずに他人の財を取りたい欲求</td></tr>
+      <tr><td class="k" rowspan="5">嫌悪<br><small>耐えられないこと</small></td><td>怒り <i>krodha</i></td><td>身体や感官を変調させる原因</td></tr>
+      <tr><td>嫉み <i>īrṣyā</i></td><td>共有のものに他人が執着するのを妨げたい欲求</td></tr>
+      <tr><td>ねたみ <i>asūyā</i></td><td>他人の長所に耐えられないこと</td></tr>
+      <tr><td>害意 <i>droha</i></td><td>（力がなくても）他人を害したい欲求</td></tr>
+      <tr><td>憤り <i>amarṣa</i></td><td>害を受けて耐えられないこと</td></tr>
+      <tr><td class="k" rowspan="4">迷い<br><small>誤った理解</small></td><td>誤った知 <i>mithyājñāna</i></td><td>そうでないものを「そうだ」と思うこと</td></tr>
+      <tr><td>疑い <i>vicikitsā</i></td><td>「何だろうか」という認識</td></tr>
+      <tr><td>慢心 <i>māna</i></td><td>ある長所もない長所も重ねて自分を高いと思うこと</td></tr>
+      <tr><td>怠慢 <i>pramāda</i></td><td>できるのになすべきことをしないこと</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　過失の三つのまとまり。</b>Vārttika pp.424–425 による。各まとまりの特徴（右の小字）は、次のブロックの「内部の特徴」による。</figcaption>
+</figure><p>物惜しみの例として、Vārttika は、使っても減らないもの（井戸の水など）を人に使わせたくない気持ちを挙げています（省略箇所。例文の読みは定まらない）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>省略した物惜しみの例文は、OCR テキストでは「यथा राजकीयोपानान्मोदकं पा इति」と崩れています。「王家の井戸から水を飲むな」（राजकीयादुदपानादुदकं मा पाः）のような文と推定されますが、確かではありません（訳者の推定）。OCR テキストの「संजाते यस्मिन् … विकृतान भवन्ति」は「विकृतानि भवन्ति」、「आत्मेत्कर्ष」は「आत्मोत्कर्ष」と読みました。Thakur 版の脚注は「प्रवर्तनालक्षणा दोषाः」にスートラ 1.1.18 を参照させます。</p></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">pp.425–426 · NS 4.1.3</span>
+  <div class="src deva" lang="sa">कुत एतत् ? लोकतस्तदधिगतेः । लोकत एते कामादय एवम्भूतेष्वभिप्रायेषु प्रयुज्यन्ते, नाभिप्रायमात्रे । न हि भिक्षां प्रार्थयमानः कामयत इति भवति । लक्षणस्य तर्ह्यभेदात् त्रित्वमनुपपन्नम्, एकं रागद्वेषमोहा लक्षणाभेदाद् रागभेदवदिति ? नानुपपन्नम्, रागद्वेषमोहार्थान्तरभावात् । सत्यपि लक्षणस्याभेदे आन्तर्गणिकं भेदकं लक्षणमस्ति, तदुपपत्तेस्त्रित्वम्, यथा रागलक्षणेन संगृहीतानां कामादीनामिति । न च सामान्यमेकत्वे कारणम् । सामान्यस्यैवाभावः स्याद्, यदि रागद्वेषमोहानामेकत्वं स्यात् । …… न ह्येकस्य सामान्यं भवति ।<br>किं पुनरान्तर्गणिकं लक्षणमिति ? सक्तिलक्षणो रागः, यो विषयेष्वभिष्वङ्गः स रागः । अमर्षलक्षणो द्वेषः, असहिष्णुता दुःखस्य दुःखसाधनानां वेति द्वेषः । मिथ्याप्रतिपत्तिलक्षणो मोहः, यथावस्थिते पदार्थे अतथाभावप्रतिपत्तिर्या । एतच्च रागद्वेषमोहानां व्यवच्छेदकं लक्षणमात्मप्रत्यक्षमिति ॥३॥</div>
+  <div class="tr">（問い）「それ（愛欲などが別々のものであること）は何によって（知られるの）か」。世間の用法から知られるからである。世間では、愛欲などの語は、このような（特定の）意図について用いられるのであって、意図一般について（用いられるの）ではない。施しを求めている人について「愛欲している」とは言わないからである。（反論）「それなら、（過失の）定義が同じなので、三つであることは成り立たない。貪り・嫌悪・迷いは一つである。定義が同じだから。貪りの種類（愛欲など）のように」。成り立たないことはない。貪り・嫌悪・迷いは別々のものだからである。定義が同じであっても、（まとまりの）内部の、区別する特徴がある。それが成り立つので、三つなのである。貪りの特徴によってまとめられる愛欲などのように。また、共通するものは、一つであることの理由にはならない。もし貪り・嫌悪・迷いが一つなら、共通するものそのものがなくなってしまうであろう。……一つのものに共通性はないからである。<br>では、（まとまりの）内部の特徴とは何か。貪りは、執着を特徴とする。対象への執着、それが貪りである。嫌悪は、耐えられないことを特徴とする。苦や、苦の手段に耐えられないこと、それが嫌悪である。迷いは、誤った理解を特徴とする。あるとおりにある事物について、そうでないと理解すること、それが迷いである。そしてこれが、貪り・嫌悪・迷いを互いに区別する特徴であり、自分自身で直接知覚される。</div><div class="exp"><span class="lbl">解説</span><p>十四の過失が別々のものであることは、世間の言葉づかいから分かります。施しを求める托鉢者を「愛欲している」とは言いません。愛欲は特定の欲求を指す語だからです。</p><p>反論者は、三つとも「駆り立てる」という同じ定義をもつのだから一つではないか、と言います。Uddyotakara は、共通の定義のほかに、それぞれのまとまりを区別する特徴がある、と答えます。貪りは執着、嫌悪は耐えられないこと、迷いは誤った理解です。そもそも共通性は複数のものの間にしかないので、共通の定義があること自体が、三つが別々であることを前提している、とも付け加えます。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「लोकस्तदधिगतेः」は「लोकतस्तदधिगतेः」、「एकं रागद्वेषमोहाः लक्षणभेदात्」は文脈に従って「…लक्षणाभेदात्」（定義が同じだから）と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>三つは一つか</h2><span class="sub"><span class="pg">p.426</span>スートラ 4.1.4–5。同じ一つのもので消えるから一つ、という反論。色などの反例</span></div>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.426 · NS 4.1.4–5</span>
+  <div class="src deva" lang="sa">नैकप्रत्यनीकत्वात् ॥४।१।४॥<br>एकं रागद्वेषमोहा एकप्रत्यनीकत्वात्, विभागवदिति । यथा विभाग एकेनैव संयोगेन विरुध्यमान एको भवति, तथा तत्त्वज्ञानेनैकेन विरुध्यन्ते रागादयः । तस्मादेकं रागादय इति ॥४॥<br>व्यभिचारादहेतुः ॥४।१।५॥<br>एकप्रत्यनीकाश्च रूपादय एकाग्निसंयोगविरोधिनः, न चैषामेकत्वमित्यनैकान्तिकम् । एकयोनित्वादेकं रागादयः शब्दवदित्यप्यनेनैव प्रत्युक्तम् । एकयोनयो रूपादयो न चैषामेकत्वमिति ॥५॥</div>
+  <div class="tr">（反論）「（三つでは）ない。相反するものが一つだからである」。<br>「貪り・嫌悪・迷いは一つである。相反するものが一つだから。分離のように」。分離は、ただ一つの結合と相反するので一つであるように、貪りなどは、真実の知というただ一つのものと相反する。だから、貪りなどは一つである。<br>（答え）（論証因が）逸脱するので、論証因ではない。<br>色なども、相反するものが一つである。一つの火との結合と相反するからである。しかし、それらは一つではない。だから不確定である。「貪りなどは一つである。生じる源が一つだから。音のように」という（論証）も、まさにこれによって退けられた。色なども生じる源が一つであるが、それらは一つではない。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、貪り・嫌悪・迷いはどれも真実の知という一つのものによって消えるのだから、一つだ、と言います（4.1.4）。スートラ 4.1.5 は、論証因が当てはまらない例を挙げます。Uddyotakara によれば、壺の色・味・香などは、一つの火との結合によって（焼成で）みな変わりますが、だからといって一つではありません。生じる源が一つだから一つだ、という論証も、同じ反例で退けられます。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>スートラ 4.1.4 は、OCR テキストの「नैकाप्रत्यनीकत्वात्」を「नैकप्रत्यनीकत्वात्」と読みました（バーシュヤの伝える形は「…प्रत्यनीकभावात्」とされることが多い）。「एकाग्रिसंयोग」は「एकाग्निसंयोग」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>迷いが最も悪い</h2><span class="sub"><span class="pg">pp.426–427</span>スートラ 4.1.6–9。迷っていない者に貪りと嫌悪はない。原因であっても同じ種類でありうる</span></div>
+<div class="mula sutra" id="u4">
+  <span class="ref">pp.426–427 · NS 4.1.6</span>
+  <div class="src deva" lang="sa">तेषां मोहः पापीयान् नामूढस्येतरोत्पत्तेः ॥४।१।६॥<br>सति चार्थान्तरे — तेषां……पत्तेः । तेषां मोहः पापीयान् । पापतमः पापिष्ठ इति वा प्राप्ते, द्वौ द्वावभिप्रेत्य पापीयानित्युच्यते — रागमोहयोर्मोहः पापीयान्, द्वेषमोहयोर्मोहः पापीयानिति । कस्मात् ? नामूढस्येतरोत्पत्तेः । नामूढस्येतरौ भवतः । मूढः कुप्यति, मूढो रज्यत इति । तत्त्वज्ञानाच्च मोहनिवृत्तौ रागादिनिवृत्तिरित्येकप्रत्यनीकता । यस्मात् तत्त्वज्ञानान्निवृत्ते मोहे न रागद्वेषौ भवतः, अत एकप्रत्यनीकता, न पुनरेकत्वादिति । एवं च कृत्वा — दुःखादीनामुत्तरोत्तरापाये तदनन्तराभावादपवर्ग — इति सिध्यति ॥६॥</div>
+  <div class="tr">（答え）それらのうち、迷いがより悪い。迷っていない者には、ほかの（二つ）は生じないからである。<br>また、（三つが）別のものであるので、「それらのうち……」。それらのうち、迷いがより悪い。（三つのうちなので）「最も悪い」（<i>pāpatama</i>、<i>pāpiṣṭha</i>）と言うべきところを、二つずつを念頭に置いて「より悪い」（<i>pāpīyas</i>）と言う。貪りと迷いとでは迷いがより悪く、嫌悪と迷いとでは迷いがより悪い、ということである。なぜか。「迷っていない者には、ほかの（二つ）は生じないから」である。迷っていない者には、ほかの二つは起こらない。迷っている者が怒り、迷っている者が執着する。そして、真実の知によって迷いがなくなると、貪りなどがなくなる。だから、相反するものが一つなのである。真実の知によって迷いがなくなると、貪りも嫌悪も起こらないので、相反するものが一つなのであって、（三つが）一つだからではない。そしてこのようにして、「苦・生・活動・過失・誤った知が、後のものから順になくなると、その直前のものがなくなるので解脱がある」ということが成り立つ。</div><div class="exp"><span class="lbl">解説</span><p>三つの過失が一つの真実の知によって消えるのは、三つが一つだからではなく、迷いが他の二つの根にあるからです。迷っている者だけが怒り、執着します。真実の知が迷いを除けば、迷いから生じる貪りと嫌悪も起こらなくなる。だから迷いが最も悪い、とスートラ 4.1.6 は言います。</p><p>Uddyotakara は文法にも触れます。三つのうちで比べるなら最上級（最も悪い）を使うべきところで、比較級（より悪い）が使われているのは、貪りと迷い、嫌悪と迷い、という二つずつの比較を念頭に置いているからだ、というのです。そして、迷い（誤った知）が除かれると過失が、過失が除かれると活動が、と順に除かれて解脱に至る、というスートラ 1.1.2 の道筋が、これによって裏づけられる、と結びます。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストは「मूढः कुप्यति, मूढो रज्यते, मूढो मुह्यतीति」と三つを並べますが、最後の「迷っている者が迷う」は意味をなさないので省きました。また OCR テキストは、このスートラ以下 4.1.6–9 の番号を「॥१६॥」「४।१।१७」などと誤っています。</p></div>
+</div>
+<div class="mula sutra" id="u5">
+  <span class="ref">p.427 · NS 4.1.7–9</span>
+  <div class="src deva" lang="sa">निमित्तनैमित्तिकभावादर्थान्तरभावो दोषेभ्यः ॥४।१।७॥<br>प्राप्तस्तर्हि — निमि……भ्यः । अदोषो मोहः, दोषनिमित्तत्वाद्, रूपादिवदिति ॥७॥<br>न दोषलक्षणावरोधान्मोहस्य ॥४।१।८॥<br>नात्र कार्यकारणभावेन पदार्थानां तथाभावोऽतथाभावो वा सिध्यति, किन्तु लक्षणस्याभेदादिति । दोषलक्षणं च मोहेऽस्तीति दोषो मोहः ॥८॥<br>निमित्तनैमित्तिकोपपत्तेश्च तुल्यजातीयानामप्रतिषेधः ॥४।१।९॥<br>तुल्यजातीयानां …… निमित्तनैमित्तिकभावो दृष्ट इति । यथा बुद्धिर्बुद्ध्यन्तरस्य निमित्तं तुल्यजातीया चेति । तन्त्वादयो द्रव्यस्य निमित्तं द्रव्यजातीयाः । "नोदनाभिघातसंयुक्तसंयोगाः संस्कारश्च गुणाः" इति ॥९॥<br>॥ दोषत्रैराश्यप्रकरणम् ॥</div>
+  <div class="tr">（反論）「原因と結果の関係にあるので、（迷いは）過失とは別のものである」。<br>（迷いが他の過失の原因であるなら）それなら、「原因と結果の関係にあるので……別のものである」ということになる。「迷いは過失ではない。過失の原因だから。色などのように」。<br>（答え）（そうでは）ない。迷いは過失の定義に含まれるからである。<br>ここでは、原因と結果の関係によって、ものがそうである（同じ種類である）か、そうでないかが決まるのではない。定義が同じかどうかによって（決まるの）である。そして過失の定義は迷いにもあるので、迷いは過失である。<br>（答え）また、同じ種類のものの間にも原因と結果の関係があるので、（迷いが過失であることは）否定されない。<br>同じ種類のものの間にも、……原因と結果の関係が見られる。たとえば、ある知は別の知の原因であり、しかも同じ種類である。糸などは実体（布）の原因であり、しかも実体という種類に属する。「突き・打撃・結合したものとの結合・勢いは、（運動の原因である）性質である」と（言われる）ように。<br>以上、過失の三つのまとまりの章。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、迷いが貪りと嫌悪の原因なら、原因と結果は別物なので、迷いは過失とは別のものだ、と言います（4.1.7）。スートラ 4.1.8 は、迷いも「駆り立てる」という過失の定義に当てはまるので過失だ、と答えます。同じ種類かどうかは、原因と結果の関係ではなく、定義で決まるのです。</p><p>スートラ 4.1.9 は、さらに、同じ種類のものどうしが原因と結果になることはいくらでもある、と付け加えます。前の知が次の知の原因になり、糸という実体が布という実体の原因になります。最後の引用は、突きなどの性質どうしが（運動の）原因になる例を示すものと見られます（引用の出典は示されていない）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「अदो षो」は「अदोषो」、「तुर्यादयो」は「तन्त्वादयो」（糸など）と読みました。「तुल्यजातीयानामेकविधविकल्पो」は読みが定まらないので省略しました。写本 J は 4.1.7 のスートラの一部を「०त्तिकनिर्देशान्मोहार्यं」と読みます。スートラ 4.1.8 は、OCR テキストの「दोषलक्षणवरोधात्」を「दोषलक्षणावरोधात्」と読みました。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>rāga / dveṣa / moha</dt><dd>貪り／嫌悪／迷い。過失の三つのまとまり</dd>
+    <dt>trairāśya</dt><dd>三つのまとまりをなすこと</dd>
+    <dt>āntargaṇika lakṣaṇa</dt><dd>（まとまりの）内部の、区別する特徴</dd>
+    <dt>ekapratyanīkatva</dt><dd>相反するもの（それを除くもの）が一つであること</dd>
+    <dt>pāpīyas</dt><dd>より悪い（比較級）</dd>
+    <dt>nimittanaimittikabhāva</dt><dd>原因と結果の関係</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直した。この章はほぼ全文を載せた（「……」は省略箇所）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。</p>
+  <p>和訳は試訳であり、解説は本文にもとづく訳者の説明である。第四篇については Śrīnivāsa Śāstrī のヒンディー訳注の翻刻が提供されていないので、参照していない。このページが扱うのは第43プラカラナ（スートラ 4.1.3–9）である。第42プラカラナ（スートラ 4.1.1–2）は<a href="nyayavarttika-42-taiyaku.html">第42プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
