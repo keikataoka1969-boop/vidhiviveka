@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 37</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-36-taiyaku.html">← プラカラナ36</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>感官でも意でもない</a></li><li><a href="#s2"><b>2</b>なぜ同時に知らないのか</a></li><li><a href="#s3"><b>3</b>知はどうして消えるのか</a></li><li><a href="#s4"><b>4</b>意は身体の中にある</a></li><li><a href="#s5"><b>5</b>記憶が同時に起こらない理由</a></li><li><a href="#s6"><b>6</b>欲求と嫌悪は知る者のもの</a></li><li><a href="#s7"><b>7</b>記憶の原因</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第37プラカラナ「知は我の性質であることの章」（スートラ 3.2.18–41、Thakur 版 pp.395–405）</span>
+  <p>知が無常であることは確かめられました。では、知は何の性質なのか。感官か、対象か、意か、我か。スートラはまず、感官や対象が滅んでも「私は見た」と思い出せるので、知は感官や対象の性質ではない、と答えます（3.2.18）。同時に多くのものを知らないことから知られる意も、知の担い手ではありません（3.2.19）。</p>
+  <p>ここから議論は記憶に向かいます。我が遍在するなら、なぜ多くの記憶が同時に起こらないのか。知はどうして消えるのか。記憶は、我のうち知の痕跡が宿る部分に意が触れることで起こるのか。意は身体の外に出るのか。スートラと Uddyotakara は、こうした問いを一つずつ検討し、身体や元素が意識をもつという説も退けて、消去法によって、知は我の性質であると結論します。最後のスートラ 3.2.41 は、記憶を呼び起こす二十あまりの原因を列挙します。</p>
+  <p>この章は Vārttika が長いので、原文は抜粋で載せました（「……」は省略箇所）。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>知は我の性質であることの章<br><small><i>buddher ātmaguṇatvaprakaraṇa</i>。スートラ 3.2.18–41 の注釈。Thakur 版 pp.395–405</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.2.18–41<br><small>感官・対象・意の性質ではない、同時に生じないこと、知の消滅、記憶と意の位置、欲求と嫌悪、記憶の原因</small></dd></div>
+    <div><dt>論敵</dt><dd>知を感官・意・身体の性質とする者<br><small>ヒンディー訳の注は、スートラ 3.2.25 と 3.2.31 をニヤーヤの一部の者（<i>ekadeśin</i>）の説、3.2.34 の相手をサーンキヤ、3.2.35 の相手を元素が意識をもつとする者（Viśvanātha の注釈によりチャールヴァーカ）とする</small></dd></div>
+    <div><dt>見どころ</dt><dd>記憶はどこで起こるのか<br><small>§4–§5。我の「部分」に意が触れて記憶が起こるという説と、意は身体の外に出ないという反論</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.1069–1107</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.396</span> は Thakur 版の頁。節見出しの <span class="pg">p.395</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。長い箇所は「……」で省略した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁。翻刻に頁表示がない箇所は前後から推定した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.2.18–41 の注釈を、テキストの順に7節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">感官でも意でもない</a></td><td class="num">pp.395–396</td><td>スートラ 3.2.18–19。感官と対象が滅んでも記憶がある。意は支配される道具</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">なぜ同時に知らないのか</a></td><td class="num">p.397</td><td>スートラ 3.2.20–22。遍在する我でも同じ難点。意と感官の接触が原因。原因を示さない説</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">知はどうして消えるのか</a></td><td class="num">pp.398–399</td><td>スートラ 3.2.23–24。消滅の原因がない、という反論。後の知が前の知を滅ぼす。音のたとえ</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">意は身体の中にある</a></td><td class="num">pp.399–401</td><td>スートラ 3.2.25–32。我の「部分」と意の接触による説明。意は身体の外ではたらかない</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">記憶が同時に起こらない理由</a></td><td class="num">pp.401–402</td><td>スートラ 3.2.33。注意などの補助原因が同時に起こらない。直観知。潜在印象の「近さ」</td></tr>
+<tr><td class="num">§6</td><td class="k"><a href="#s6">欲求と嫌悪は知る者のもの</a></td><td class="num">pp.402–405</td><td>スートラ 3.2.34–39。欲求は内的器官のものではない。元素は意識をもたない。消去法</td></tr>
+<tr><td class="num">§7</td><td class="k"><a href="#s7">記憶の原因</a></td><td class="num">p.405</td><td>スートラ 3.2.40–41。記憶は我のもの。記憶を呼び起こす原因の列挙</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>感官でも意でもない</h2><span class="sub"><span class="pg">pp.395–396</span>スートラ 3.2.18–19。感官と対象が滅んでも記憶がある。意は支配される道具</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.395 · NS 3.2.18</span>
+  <div class="src deva" lang="sa">नेन्द्रियार्थयोस्तद्विनाशेऽपि ज्ञानावस्थानात् ॥३।२।१८॥<br>सा त्वियं बुद्धिः कस्य गुण इत्येतत् चिन्त्यते । न, गुणभावासिद्धेः । अनित्यत्वे सति नियमेनाचाक्षुषप्रत्यक्षत्वात् रसवत् सिद्धो गुणभावः । सन्निकर्षोत्पत्तेः संशय इति । तत्रायं विशेषः — नेन्द्रियार्थयोस्तद्विनाशेऽपि ज्ञानावस्थानात् । भवति खल्विदमिन्द्रियेऽर्थे च विनष्टे ज्ञानमद्राक्षमिति । अद्राक्षमित्येतन्नेन्द्रियार्थसन्निकर्षात् स्मृतित्वात् । स्मृतिरेषा नेन्द्रियार्थसन्निकर्षाद् भवितुमर्हति । स्मृतावपि तुल्यम् । यथैव ज्ञातारमन्तरेण ज्ञानं न भवति, एवमनुभवितरि नष्टेऽनुभवितारमन्तरेण स्मृतिरप्ययुक्तेति ॥१८॥</div>
+  <div class="tr">（知は）感官と対象（の性質）ではない。それらが滅しても知は存続するからである。<br>では、この知は何の性質なのか、ということが考察される。（反論）「（そうでは）ない。（知が）性質であることが成り立っていないからである」。無常でありながら、決まって目以外（の感官）によって知覚されるので、味のように、性質であることは成り立っている。（我・感官・対象の）接触から生じるので、（そのどれの性質かについて）疑いがある。そこで、次の区別がある。「感官と対象（の性質）ではない。それらが滅しても知は存続するからである」。感官や対象が滅しても、「私は見た」という知はある。（反論）「『私は見た』というこれは、感官と対象の接触からのものではない。記憶だからである。これは記憶であって、感官と対象の接触から生じることはできない」。記憶についても同じである。知る者なしに知がないのとまったく同じく、経験した者が滅したなら、経験した者なしに記憶があるというのも成り立たない。</div><div class="exp"><span class="lbl">解説</span><p>知は我・感官・対象の接触から生じるので、そのどれの性質なのかが問題になります。そもそも知が性質（実体ではないもの）であることは、味と同じく、無常で、目ではなく内官によって知覚されることから認められます。</p><p>スートラ 3.2.18 は、感官と対象を候補から外します。目がつぶれても、見た物がなくなっても、「私はあれを見た」という知は残るからです。反論者は、それは記憶であって、感官と対象から生じた知覚そのものではないと言います。Uddyotakara は、記憶にも同じ理屈が当てはまると答えます。経験した者が滅んでいれば、記憶する者がいなくなるので、記憶があること自体が、経験した者（感官や対象ではないもの）が存続している証拠だ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は「三、知は我の性質であること」という見出しを立てます。バーシュヤは、この点はすでに知られているが、考察の残りを果たすために取り上げる、と言い、注は、刹那滅の後で知が我の性質であることを確立するという章のつながりを説明します（TṬ p.563）。「性質であることが成り立っていない」を前主張者の反論、「無常でありながら」をその答えとし、「接触から生じるので疑いがある」を定説の側の言葉とします（TṬ p.563）。バーシュヤは、感官と対象の接触から生じる知とは別に、我と意の接触から生じる知があり、それは感官や対象がなくなっても存続する、と説き、「他人が見たものを別の人が思い出すことはない」と言います（Hi. pp.1069–1070）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Vārttika の「नियमेनाचाक्षुषप्रत्यक्षत्वात्」を、ヒンディー訳の翻刻は「नियमेन」なしに読みます。</p></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">p.396 · NS 3.2.19</span>
+  <div class="src deva" lang="sa">युगपज्ज्ञेयानुपलब्धेश्च न मनसः ॥३।२।१९॥<br>अस्तु तर्हि मनोगुणो ज्ञानम् — युगपज्ज्ञेयानुपलब्धेश्च न मनसः । यत् खलु युगपज्ज्ञेयानुपलब्ध्या समधिगतं मनः, नातस्तस्य गुणो ज्ञानम् । विशेषणोपादानादन्तःकरणबहुत्वप्रसङ्ग इति चेत् ? …… न, सर्वस्येन्द्रियस्य मनननिमित्तत्वात् । सर्वमेवेन्द्रियं मनननिमित्तत्वात् मन इत्यभिधीयते । एवं च सति युक्तं विशेषणम् …… । कस्य तर्हि ? अस्यार्थस्य प्रदर्शनार्थं ज्ञस्य वशित्वात् । वशी ज्ञाता, वश्यं करणमिति । न चायं ज्ञातरि नियमो ज्ञाता वश्येव, वश्योऽपि भवतीति । अचेतने तु नियमः, अचेतनं सर्वं वश्यमिति । वश्यं मनोऽचेतनत्वात् घ्राणादिवदिति । ज्ञानगुणत्वे च संज्ञाभेदमात्रम् — विभु चान्तःकरणं ज्ञानगुणं चेति संज्ञामात्रं भिद्यते । यथा ज्ञातुर्ज्ञानसाधनमिन्द्रियमेवं मन्तुर्मतिसाधनेनावश्यं भवितव्यमिति । …… विभु चान्तःकरणं ज्ञानगुणमिति सर्वेन्द्रियैर्युगपदुत्पत्तिप्रसङ्गः ॥१९॥</div>
+  <div class="tr">また、知られるものを同時に知覚しないので、（知は）意（の性質）ではない。<br>（反論）「では、知は意の性質であるとしよう」。「また、知られるものを同時に知覚しないので、意（の性質）ではない」。知られるものを同時に知覚しないことによって知られる意、それの性質は知ではない。（反論）「（そのような）限定を付けているので、内的器官が多数あることになってしまう」と言うなら。……そうではない。すべての感官が考えること（<i>manana</i>）の手段なので、すべての感官が「意」（<i>manas</i>）と呼ばれるからである。そうであれば、限定は適切である。……では、（知は）何の（性質）か。この意味を示すために、（バーシュヤは）「知る者は（道具を）支配するから」と（言う）。知る者は支配するものであり、道具は支配されるものである。知る者については、支配するだけだという決まりはない。支配されることもある。しかし、精神をもたないものについては決まりがある。精神をもたないものは、すべて支配されるものである。「意は支配されるものである。精神をもたないから。嗅覚などのように」。また、（意が）知を性質とするなら、名前が違うだけである。「遍在する内的器官であって、知を性質とするもの」と言っても、（我と）名前が違うだけである。知る者に知の手段である感官があるように、考える者には考えの手段が必ずなければならない。……また、内的器官が遍在して知を性質とするなら、すべての感官によって同時に（知が）生じることになってしまう。</div><div class="exp"><span class="lbl">解説</span><p>次の候補は意です。しかし、ニヤーヤにとって意とは、「多くのものを同時に知覚しない」という事実から、その存在が推理される原子大の器官でした（スートラ 1.1.16）。そうして知られる意が、知そのものの担い手であるはずはない、とスートラは言います。</p><p>Uddyotakara は、バーシュヤの「知る者は支配する」という論点を推論にまとめます。精神をもたないものはすべて支配される道具であり、意も嗅覚などと同じく支配される道具である。もし意を「遍在し、知を性質とする内的器官」と呼ぶなら、それは我の別名にすぎず、我には別に考えるための道具が要る。また、遍在するものに知が属するなら、すべての感官から同時に知が生じてしまう、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、このスートラに三つの意味を認めます（Gaṅgānātha Jhā, p.1332 による）。同時でないことから推理される意は知をもたない、同時に知覚しないので意は知をもたない、そして「また」によって、ヨーガ行者は多くの身体を作り出して同時に知覚するが、知が原子大の意のものならそれは不可能だ、という意味です。「知る者は支配するから」はスートラとされることが多いがバーシュヤだ、と注します（TṬ p.564）。省略した箇所の「別の（道具が知をもつ）ことは否定されない。量と認識対象の関係は固定していないから」を、ヒンディー訳は誤って「論難」としているが、TṬ によれば答えであり、「知る者もあるときは量、あるときは認識対象となる」という意味だと説明されます（TṬ p.564）。「支配するだけだという決まりはない」は、バーシュヤの「知る者は支配する」と矛盾しないように調停するもの（TṬ p.564）とされます（Hi. pp.1071–1074）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 J は省略箇所の「अन्यस्यानभ्युपगमात्」を欠き、写本 C は「विभु」を「चित्तं」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>なぜ同時に知らないのか</h2><span class="sub"><span class="pg">p.397</span>スートラ 3.2.20–22。遍在する我でも同じ難点。意と感官の接触が原因。原因を示さない説</span></div>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.397 · NS 3.2.20–21</span>
+  <div class="src deva" lang="sa">तदात्मगुणत्वेऽपि तुल्यम् ॥३।२।२०॥<br>यस्याप्यात्मा विभुश्च ज्ञानगुणश्च तस्यापि सर्वेन्द्रियैः संबन्धस्याप्रतिषेधात् युगपदुत्पत्तिप्रसङ्गः ॥२०॥<br>इन्द्रियैर्मनसः सन्निकर्षाभावात्तदनुत्पत्तिः ॥३।२।२१॥<br>न प्रसङ्गः, कारणान्तरभावात् । इन्द्रियार्थसन्निकर्षवत् इन्द्रियमनःसन्निकर्षोऽपि कारणमिति । तस्य चायौगपद्यमणुत्वान्मनस इति ॥२१॥</div>
+  <div class="tr">（反論）「それは、（知が）我の性質であっても同じである」。<br>我が遍在し、知を性質とする、とする者にとっても、（我が）すべての感官と結びつくことは否定されないので、（知が）同時に生じることになってしまう。<br>（答え）意が感官と接触しないので、それ（知）は生じない。<br>（同時に生じることに）なりはしない。別の原因があるからである。感官と対象との接触と同じく、感官と意との接触も原因である。そして意は原子大なので、それ（感官と意の接触）は同時には起こらない。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、前のブロックの「遍在するなら同時に知が生じる」という論法を、ニヤーヤ自身に向けます。我も遍在し、すべての感官と結びついているではないか、と。スートラ 3.2.21 は、知が生じるには我・感官・対象に加えて、意と感官の接触が要る、と答えます。原子大の意は一度に一つの感官としか接触しないので、知は一つずつしか生じません。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.20 を前主張のスートラとし、「それ」を「同時に知が生じること」と注します。3.2.21 は定説のスートラで、「それは生じない」の「それ」は「（同時に生じるという）帰結」だとします。我と意がともに遍在するなら、どちらの知か区別できなくなる、とも注します（Hi. p.1074）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>ヒンディー訳の翻刻では、スートラ 3.2.20 のサンスクリット本文がバーシュヤの欄から落ちています。</p></div>
+</div>
+<div class="mula sutra" id="u4">
+  <span class="ref">p.397 · NS 3.2.22</span>
+  <div class="src deva" lang="sa">नोत्पत्तिकारणानपदेशात् ॥३।२।२२॥<br>यदि पुनरात्मेन्द्रियार्थसन्निकर्षादेव ज्ञानमुत्पद्येत, किं स्यात् ? — नोत्पत्तिकारणानपदेशात् । अस्मादेवोत्पद्यतामिति न कारणमपदिश्यत इति सूत्रार्थः । …… अयुगपदुत्पत्तौ वा न कारणान्तरमपदिश्यते । विदेहप्रत्ययानुत्पत्तौ वा । यदेन्द्रियमर्थेन बहिरवस्थितेन संबध्यते, आत्मसंबन्धोऽपि तत्रास्तीति कस्माद् विदेहप्रत्ययो न भवतीति वक्तव्यम् । अन्तःकरणप्रत्याख्याने च केवलमात्मा स्मृत्यादिकारणमिति कस्मान्न युगपदुत्पत्तिः स्मृतीनाम् ? यदा चेन्द्रियमात्मा चार्थेन युगपत् संबद्धौ, तदा किमिन्द्रियार्थसन्निकर्षः कारणम्, उतात्मार्थसन्निकर्षः, उतात्मेन्द्रियार्थसन्निकर्ष इति कारणानपदेशः ॥२२॥</div>
+  <div class="tr">（答え）（そうでは）ない。生じる原因が示されていないからである。<br>（問い）「では、知が、我と感官と対象との接触だけから生じるとしたら、どうなるのか」。「（そうでは）ない。生じる原因が示されていないからである」。これ（我・感官・対象の接触）だけから生じるべきだという理由が示されていない、というのがスートラの意味である。……あるいは、（知が）同時に生じないことについて、別の原因が示されていない。あるいは、身体の外での認識が生じないことについて（原因が示されていない）。感官が外にある対象と結びつくとき、そこには我との結びつきもある。それなのに、なぜ身体の外での認識が生じないのか、と言わなければならない。また、内的器官を否定するなら、我だけが記憶などの原因になる。それなら、なぜ記憶が同時に生じないのか。また、感官と我とが同時に対象と結びついているとき、原因は感官と対象の接触なのか、我と対象の接触なのか、我と感官と対象の接触なのか。このように、原因が示されていない。</div><div class="exp"><span class="lbl">解説</span><p>意を否定して、我・感官・対象の接触だけで知が生じるとする説への答えです。その説では、なぜ知が一つずつしか生じないのか、遍在する我は身体の外の対象とも接しているのに、なぜ身体の外で認識が起こらないのか、意がなければ我だけが記憶の原因になるのに、なぜ記憶がいっぺんに起こらないのか、どれも説明がつかない、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、Vārttika がバーシュヤを受けてスートラにつなげる、と記し、ここで示されるのは論証ではなく、相手の説を損なう論である、と TṬ（p.565）を引きます。Viśvanātha の注釈はこれを前主張のスートラとするが、ほかの注釈者はそうしない、と記します。「同時に生じないことについて」「身体の外での認識」「内的器官を否定するなら」「感官と我とが同時に結びつくとき」の四つを、いずれも別の解釈（TṬ p.565）として示します（Hi. pp.1075–1076）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>ヒンディー訳の翻刻のバーシュヤは「आत्मेन्द्रियसन्निकर्षमात्राद्」と「अर्थ」なしに読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>知はどうして消えるのか</h2><span class="sub"><span class="pg">pp.398–399</span>スートラ 3.2.23–24。消滅の原因がない、という反論。後の知が前の知を滅ぼす。音のたとえ</span></div>
+<div class="mula sutra" id="u5">
+  <span class="ref">p.398 · NS 3.2.23</span>
+  <div class="src deva" lang="sa">विनाशकारणानुपलब्धेश्चावस्थाने तन्नित्यत्वप्रसङ्गः ॥३।२।२३॥<br>तदात्मगुणत्वेऽपि तुल्यमित्येतदनेन समुच्चीयते । यद्यात्मगुणो बुद्धिर्भवति, विनाशकारणाभावात् नित्यत्वमस्याः प्रसज्येत । कथमिति ? गुणानां द्विविधो विनाशहेतुः — आश्रयाभावो विरोधिगुणप्रादुर्भावश्च । तत्र नित्यत्वादात्मनोऽनुपपन्नः पूर्वः, विरोधी च गुणो नास्तीति नित्यत्वप्रसङ्गः ॥२३॥</div>
+  <div class="tr">（反論）「また、消滅の原因が知覚されないので、（知が我に）存続するなら、それは常住であることになってしまう」。<br>これ（「また」）によって、「それは、（知が）我の性質であっても同じである」と並べられている。もし知が我の性質なら、消滅の原因がないので、それは常住であることになってしまう。どうしてか。性質の消滅の原因には二種類ある。基体がなくなることと、相反する性質が現れることである。そのうち、我は常住なので前者はありえず、また相反する性質もないので、常住であることになってしまう。</div><div class="exp"><span class="lbl">解説</span><p>反論者のもう一つの難点です。ヴァイシェーシカの体系では、性質が消えるのは、基体が滅ぶか、相反する性質が現れるかのどちらかです。知が常住な我の性質なら基体は滅びず、知に相反する性質も見当たらない。それなら知は消えないはずではないか、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、スートラ 3.2.23 を前主張のスートラとし、「また」が前主張者の先のスートラ 3.2.20 と並べるものだ、と TṬ（p.565）を引きます。バーシュヤも、知が我の性質なら決して滅びないことになる、と説明します（Hi. p.1076）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「विरोधिविगुणाप्रादुर्भावश्च」は「विरोधिगुणप्रादुर्भावश्च」と読みました。</p></div>
+</div>
+<div class="mula sutra" id="u6">
+  <span class="ref">p.398 · NS 3.2.24</span>
+  <div class="src deva" lang="sa">अनित्यत्वग्रहाद् बुद्धेर्बुद्ध्यन्तराद्विनाशः शब्दवत् ॥३।२।२४॥<br>अनित्या बुद्धिरित्येतत् प्रतिपादितम् । तत्रास्या बुद्ध्यन्तराद् वा संस्काराद् वा विनाश इति प्रतिपत्तव्यम् । न द्वे बुद्धी सहेति चेत् ? अथ मन्यसे न द्वे बुद्धी सह भवतो यतः परया पूर्वा निवर्त्येतेति ? तच्च न, युगपदुत्पत्तिप्रतिषेधात् । युगपदुत्पत्तिः प्रतिषिध्यते, न सहभावः । न हि बुद्ध्योर्युगपद्भावे किञ्चिद् विरुध्यत इति । लब्धात्मकेन च कार्येण कारणस्य विनाशाभ्युपगमात् । यदा च कार्यं लब्धात्मकं भवति तदा कारणं विनाशयति, शब्दवत् । यथा लब्धात्मकः कार्यः शब्दः कारणं शब्दं निर्मार्ष्टि, तथा बुद्धिरपीति । अन्त्ययोर्न स्यादिति चेत् ? …… न, स्पर्शवद्द्रव्यसंयोगात् तदुपपत्तेः । स्पर्शवद्द्रव्यसंयोगेनान्त्यशब्दो विरुध्यते । ये कुड्यादिभिराकाशस्य संयोगाः, त एकार्थसमवायिनं शब्दं प्रतिबध्नन्ति । अतोऽन्त्यस्याश्रुतिः शब्दस्येति ।</div>
+  <div class="tr">（答え）（知が）無常であると捉えられるので、知の消滅は別の知による。音のように。<br>知が無常であることは、すでに論証された。そこで、その消滅は、別の知によるか、潜在印象によるか、と理解すべきである。（反論）「二つの知が同時にあることはない」と言うなら。つまり、「二つの知が同時にあることはないので、後の（知）によって前の（知）が退けられることはない」と考えるなら。それは正しくない。（スートラが）否定しているのは同時に生じることであって、同時にあることではないからである。二つの知が同時にあることに、何も矛盾はない。また、結果が自分の存在を得ると、それによって原因が滅することが認められているからである。結果が自分の存在を得ると、そのとき原因を滅ぼす。音のように。存在を得た結果である音が、原因である（前の）音を消し去るように、知もまたそうである。（反論）「最後の二つ（最後の知と最後の音）については、（消滅が）ないことになる」と言うなら。……そうではない。触をもつ実体との結合によって、それ（最後の音の消滅）は説明されるからである。最後の音は、触をもつ実体との結合によって妨げられる。壁などと虚空との結合が、同じもの（虚空）に内属する音を妨げる。だから最後の音は聞こえないのである。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.24 の答えは、知に相反するのは後に生じた知だ、というものです。音が次々に波のように伝わるとき、後の音が前の音を消すのと同じく、後の知が前の知を消します。結果が生じた次の刹那に原因が滅ぶ、という因果の型です。</p><p>反論者は、知は同時に二つ生じないのだから、前の知と後の知が出会うことはない、と言います。Uddyotakara は、否定されているのは「同時に生じる」ことで、前の知がまだ残っている刹那に後の知が生じて「同時にある」ことは否定されていない、と区別します。では最後の音や最後の知は何によって消えるのか。最後の音は、壁などの触れられる物と虚空の結合によって妨げられて消える、というのが答えです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.24 を定説のスートラとします（翻刻は「अनित्यत्वग्रहणाद्」と読む）。バーシュヤは、知が無常であることは身体をもつ誰もが自分で経験しており、知の連続が知覚されるので、音の連続における音のように、後の知が相反する性質だと推理される、と説きます。注は、「二つの知は同時にありうる」「原因の知と結果の知とが並存する」と説明します。最後の音の箇所には「तदुत्पत्तेः」、「लब्धात्मकः」には「लब्धात्मा」という異読が記されます（Hi. pp.1077–1078）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「निर्माण्टि」は「निर्मार्ष्टि」と読みました。写本 C は最後の箇所を「अतोऽत्यन्तमश्रुतिः」と読み、写本 J は「सहभावः」を「संभवः」と読みます。</p></div>
+</div>
+<div class="mula" id="u7">
+  <span class="ref">pp.398–399 · NS 3.2.24</span>
+  <div class="src deva" lang="sa">अन्त्या बुद्धिः स्थितिहेत्वभावाद् विनश्यतीति कालाद् वा संस्काराद् वा । कथं कालात् ? यावन्त्यस्य जन्मनः स्थितिहेतू धर्माधर्मौ, तयोरभावादन्त्या बुद्धिर्विनश्यतीति । कस्मात् पुनरेतदेवमुच्यते, न पुनरहेतुको विनाशोऽभ्युपगम्यत इति ? नाभ्युपगम्यते, उक्तदोषात् । निर्हेतुके विनाशे उक्तो दोषः क्षणभङ्गं निराकुर्वद्भिरिति । यदि कारणस्यायौगपद्याद् बुद्धीनामयुगपदुत्पत्तिः, यत्र कारणस्य यौगपद्यमस्ति तत्र युगपदुत्पत्तिप्रसङ्गो यथा स्मृतिषु । अत्र तावदेकः परिहारः, करणस्यैकक्रियानिर्वृत्तौ सामर्थ्यात् । न हि करणमेकस्मिन् कालेऽनेकां क्रियां निर्वर्तयितुं शक्तमिति । परिच्छेदत्वाच्च स्मृतीनां ज्ञानवदयुगपदुत्पत्तिरिति ॥२४॥</div>
+  <div class="tr">最後の知は、存続の原因がなくなるので滅する。すなわち、時によるか、潜在印象によるかである。どのようにして時によるのか。生（の続く）かぎり（知を）存続させる原因である法と非法、それがなくなることによって、最後の知は滅する。（問い）「なぜこのように言うのか。原因のない消滅を認めないのはなぜか」。認めない。（それについては）誤りが述べられたからである。刹那滅を退けた人々（われわれ）によって、原因のない消滅についての誤りが述べられている。（反論）「もし原因が同時でないので知が同時に生じないのなら、原因が同時にあるところでは、同時に生じることになってしまう。記憶の場合のように」。これについては、まず一つの答えがある。道具には一つの行為をなしとげる力（しかない）からである。道具は、一つの時に多くの行為をなしとげることはできない。また、記憶も（対象を）確定するものなので、知と同じく同時には生じない。</div><div class="exp"><span class="lbl">解説</span><p>最後の知、つまりヒンディー訳の注（TṬ）によれば、その後に我が解脱する知には、それを消す後の知がありません。それは、知を存続させていた条件、つまり法と非法（業の力）が最後の楽と苦の経験によって尽きることで消える、と Uddyotakara は答えます。原因なしに消えるとは言いません。原因のない消滅は、前の章で刹那滅説を退けたときに否定したからです。</p><p>最後に、記憶の問題が予告されます。記憶の原因（我と、知の痕跡である潜在印象）はいつもそろっているので、記憶は同時にいくつも起こるはずではないか。Uddyotakara は、道具（意）は一度に一つの行為しかなしとげられない、と最初の答えを示します。この問題は §4–§5 で詳しく扱われます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「最後の知」を、その後に我が解脱する知とし、それを存続させる原因である法と非法は、最後の楽と苦の経験によって尽きる、と TṬ（p.565）を引きます。「原因のない消滅をなぜ認めないのか」には「（仏教徒の疑問）」と見出しを付け、仏教徒は原因のない消滅を認めるが、その誤りはすでに示した、と注します。記憶についての「一つの答え」を定説の答えとし、ほかの答えはニヤーヤの一部の者に従うもの、と TṬ（p.566）を引きます（Hi. pp.1078–1079）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「यावन्त्यस्य जन्मनः」を、ヒンディー訳は「（その）生の続くかぎり」と訳しており、「यावज्जन्मनः」と読んでいると見られます。和訳もこれに従いました。最後の文の「परिच्छेदत्वाच्च」を、ヒンディー訳の注の見出し語は「अपरिच्छेदत्वाच्च」と読み、香・味・色・触・音の知が記憶を限定するものであり、それらが同時に起こらないので記憶も同時に起こらない、と TṬ（p.566）によって説明します。読みは定まりません。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>意は身体の中にある</h2><span class="sub"><span class="pg">pp.399–401</span>スートラ 3.2.25–32。我の「部分」と意の接触による説明。意は身体の外ではたらかない</span></div>
+<div class="mula sutra" id="u8">
+  <span class="ref">pp.399–400 · NS 3.2.25–26</span>
+  <div class="src deva" lang="sa">ज्ञानसमवेतात्मप्रदेशसन्निकर्षान्मनसः स्मृत्युत्पत्तेर्न युगपदुत्पत्तिः ॥३।२।२५॥<br>अपरे तु कारणस्यायौगपद्यमुपपादयिष्यन्तो — ज्ञानसमवेतात्मप्रदेशसन्निकर्षान्मनसः स्मृत्युत्पत्तेर्न युगपदुत्पत्तिः — इत्याहुः ॥२५॥<br>नान्तःशरीरवृत्तित्वान्मनसः ॥३।२।२६॥<br>एतत्तु न सम्यगिति प्रतिपादयितुमाह — नान्तःशरीरवृत्तित्वान्मनसः । अन्तःशरीरे मनो वर्तत इति को वृत्त्यर्थः ? न तावदाश्रयाश्रयिभावः, न हि मनः क्वचिदाश्रितम् । नापि वृत्तिः स्वकार्यसामर्थ्यम्, बहिः कार्यदर्शनात् । मनसाधिष्ठितं चक्षुर्निःसृत्य रूपादिकमर्थं ग्राहयति, चक्षुर्विसरश्च मनसः कार्यं तद्भावभावात् । न चान्या वृत्तिः संभवति । तस्मान्नान्तःशरीरवृत्ति मन इति । अत्र ब्रूमः — नाश्रयाश्रितभावो मनसो वृत्तिः, नापि कार्यप्रतिलम्भः, अपि तु नाशरीरस्य मनसः कार्यमिति मनसो वृत्त्यर्थः । न ह्यशरीरं मनः पुरुषस्यार्थं करोतीति ॥२६॥</div>
+  <div class="tr">（ある説）「知が内属している我の部分と、意とが接触することから記憶が生じるので、同時には生じない」。<br>ところが、別の人々は、原因が同時でないことを説明しようとして、「知が内属している我の部分と、意とが接触することから記憶が生じるので、同時には生じない」と言う。<br>（答え）（そうでは）ない。意は身体の中ではたらくからである。<br>これは正しくないことを示すために、（スートラは）「（そうでは）ない。意は身体の中ではたらくからである」と言う。（反論）「『意は身体の中ではたらく』の『はたらく』の意味は何か。まず、基体とそこにあるものとの関係ではない。意はどこにも依存していないからである。また、はたらきとは自分の結果（を生む）力のことでもない。（意の）結果は（身体の）外に見られるからである。意に支配された目は、（身体の外へ）出ていって、色などの対象を捉えさせる。そして目が出ていくことは意の結果である。それ（意）があるときにそれ（目の出ていくこと）があるからである。ほかの『はたらき』はありえない。だから、意は身体の中ではたらくのではない」。これに対して、われわれは言う。意のはたらきとは、基体とそこにあるものとの関係でも、結果を得ることでもない。そうではなく、身体の外にある意には結果がない、というのが、意の「はたらき」の意味である。身体の外にある意は、人の目的のために（何も）しないからである。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.25 は、記憶が同時に起こらない理由の別の説明です。我は遍在するので、ある知が生じたとき、その知（と残された潜在印象）は、そのとき意が接していた我の特定の「部分」（<i>pradeśa</i>）に宿る。記憶は、意がその部分にふたたび触れたときに起こる。意は一度に一つの部分にしか触れないので、記憶は一つずつ起こる、というのです。</p><p>スートラ 3.2.26 は、意は身体の中にとどまるので、身体の外にある我の部分に触れに行くことはない、と退けます。反論者は、目は意に支配されて外に出ていく（ニヤーヤは視覚の光線が対象まで届くと考える）のだから、意も外ではたらいている、と言います。Uddyotakara は、意が「身体の中ではたらく」とは、身体を離れた意が人のために何の役にも立たない、という意味だ、と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、スートラ 3.2.25 を、ニヤーヤの一部の者の答えとし（TṬ p.566）、バーシュヤの「知」を「知が生んだ潜在印象」と説明します。3.2.26 には「一部の者の説の誤り」という見出しが付けられます。バーシュヤは、生命とは、熟しつつある業の蓄積とともにある、身体をもつ我と意との接触であり、死ぬまで意は身体の中にとどまる、と説きます。「意はどこにも内属しない。単なる結合なら広すぎる」（TṬ p.566）、「感官と対象の接触という意のはたらきは身体の外で起こる」（TṬ p.566）と注し、「अत्र ब्रूमः」以下について、「我がその身体の業を積んだ、その身体と結合した意だけが特別な知などを生む」という TṬ（p.566）を引きます（Hi. pp.1079–1081）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「चक्षुर्विर्सरावोर्मनसः」の箇所は、ヒンディー訳の注によれば両刊本とも崩れており、Gaṅgānātha Jhā（p.1343）に従って「चक्षुषो विसरावः」（目が出ていくこと）と読むべきだとされます。和訳もその意味で訳しました。写本 J は「विसारो」と読みます。</p></div>
+</div>
+<div class="mula sutra" id="u9">
+  <span class="ref">p.400 · NS 3.2.27–30</span>
+  <div class="src deva" lang="sa">साध्यत्वादहेतुः ॥३।२।२७॥<br>अशरीरं मनः पुरुषार्थसमर्थमिति साध्यमेतत् ॥२७॥<br>स्मरतः शरीरधारणोपपत्तेरप्रतिषेधः ॥३।२।२८॥<br>स्मरणशरीरधारणे युगपद् भवत इति दृष्टम् । दृष्टं च सर्वेण प्रतिपत्तव्यम् । चिरनिश्चरिते च मनसि स्मरतः शरीरधारणं न स्यात् ॥२८॥<br>न तदाशुगतित्वान्मनसः ॥३।२।२९॥<br>उभयं सिध्यति स्मरणं धारणं च ॥२९॥<br>न स्मरणकालानियमात् ॥३।२।३०॥<br>अनियतः स्मृतिकालः । अतोऽयुक्तमेतत् । शरीरसंयोगानपेक्षं चात्ममनःसंयोगं स्मृतिकारणं ब्रुवतः शरीरस्योपभोगायतनत्वं निवर्तते । तन्निवृत्तौ च शरीरोत्पत्तिवैयर्थ्यमिति ॥३०॥</div>
+  <div class="tr">（反論）「論証されるべきことなので、論証因ではない」。<br>身体を離れた意が人の目的のためにはたらきうるか（どうか）、これは（まだ）論証されるべきことである。<br>（答え）記憶している人にも身体の保持があるのだから、（意が身体の中にあることは）否定されない。<br>記憶することと身体を保持することとが同時に起こることは、見られている。そして、見られていることは、誰もが認めなければならない。意が（身体の外へ）長く出ていたなら、記憶している人の身体の保持はないであろう。<br>（反論）「そうではない。意は速く動くからである」。<br>（意が速く行き来するので、）記憶することと保持することの両方が成り立つ。<br>（答え）そうではない。記憶する時間は決まっていないからである。<br>記憶する時間は決まっていない（長くかかることもある）。だから、これは正しくない。また、身体との結合に依存しない我と意との結合を記憶の原因だと言う者には、身体が経験の場であることが失われる。それが失われるなら、身体が生じることが無意味になる。</div><div class="exp"><span class="lbl">解説</span><p>前のブロックの答え（意は身体を離れると役に立たない）に対して、それはまだ証明されていない、と反論者が言います（3.2.27）。スートラ 3.2.28 は事実で答えます。人は何かを思い出している間も、倒れずに身体を支えている。身体を支えるには意の関与が要るので、意が身体の外に出て行っていれば、身体は崩れるはずです。</p><p>反論者は、意はすばやく行き来するので、思い出すことと身体を支えることを両立できる、と言います（3.2.29）。スートラ 3.2.30 は、思い出すのに長くかかることもあるのだから、それでは説明がつかない、と答えます。Uddyotakara は、身体と関係なく我と意が結びついて記憶が起こるなら、身体が経験の場である意味がなくなる、と付け加えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、スートラ 3.2.27 を一部の者の反論、3.2.28 をその答えとします（TṬ p.566）。バーシュヤは、我と意の接触から生じる努力には、（身体を）保つものと促すものの二種があり、意が身体の外に出れば保つ努力がなくなって、身体は重さで倒れるはずだ、と説きます。Vārttika はスートラ 3.2.28 を「…र्न प्रतिषेधः」と読む、と注します。3.2.29 は再度の反論、3.2.30 は定説のスートラで、思い出すのが遅いときは、思い出したいという思考の連続の中で、目印となるものを考えることが記憶の原因になる、とバーシュヤは説明します（TṬ p.566）。「身体との結合に依存する意だけが記憶の原因である」という TṬ（p.567）も引かれます（Hi. pp.1081–1083）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「चात्ममनःसंयोगं」を「चात्मनः सं०」と読みます。</p></div>
+</div>
+<div class="mula sutra" id="u10">
+  <span class="ref">p.401 · NS 3.2.31–32</span>
+  <div class="src deva" lang="sa">आत्मप्रेरणयदृच्छाज्ञताभिश्च न संयोगविशेषः ॥३।२।३१॥<br>अपरे तु — आत्मप्रेरणयदृच्छाज्ञताभिश्च न संयोगविशेषः — इति परिहारं ब्रुवते ॥३१॥<br>व्यासक्तमनसः पादव्यथनेन संयोगविशेषेण समानम् ॥३।२।३२॥<br>एतच्च — व्यासक्तमनसः पादव्यथनेन संयोगविशेषेण समानम् — भवतीत्यपरिहारः । कर्मादृष्टमुपभोगार्थं नियामकं भविष्यतीति न युक्तम्, समानत्वात् । तस्मात् पूर्व एव परिहारो — नान्तःशरीरवृत्तित्वान्मनसः — इति ॥३२॥</div>
+  <div class="tr">（ある説）「また、我が促すことによっても、偶然によっても、（我が）知っていることによっても、（意と我の部分との）特定の結合は（起こら）ない」。<br>別の人々は、「また、我が促すことによっても……特定の結合は（起こら）ない」という答えを述べる。<br>（答え）（それは）気をとられている人の、足の痛みによる特定の結合と同じである。<br>そしてこの「気をとられている人の、足の痛みによる特定の結合と同じ」（という結合）は起こるので、（前のスートラは）答えにならない。（反論）「経験のために、業という見えない力が（結合を）制御するのだろう」。これは正しくない。（記憶の場合にも）同じだからである。だから、前の答え、「（そうではない。）意は身体の中ではたらくからである」だけが（正しい答えである）。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.25 の説（我の部分に意が触れて記憶が起こる）に対する、もう一つの答えがスートラ 3.2.31 です。意が特定の我の部分に触れるのは、我が意を促すからでも、偶然でも、我がその部分を知っているからでもない（どれも不可能だ）、というのです。</p><p>しかしスートラ 3.2.32 は、これが答えにならないことを示します。何かに夢中になっている人が足にとげを刺されると、意は促されも知られもせずに、痛む足の場所と結びつくからです。Uddyotakara は、それは業が制御するのだと言っても、同じことが記憶にも言えてしまう、と付け加え、結局 3.2.26 の答え（意は身体の外に出ない）だけが正しい答えだ、と結論します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、スートラ 3.2.31 をニヤーヤの第二の一部の者の答えとします。バーシュヤは、我が促すなら、すでに思い出していることになり、我はその部分も潜在印象も知覚しない、思い出すのは思い出そうと心を集中してであって偶然ではない、意は知る者ではない、という三つの理由を挙げます。3.2.32 は、ダンスを見ることに夢中の人の足にとげが刺さる例で、一部の者の言うことが誤りであることを示す答えだとされます（TṬ p.567）。注は、バーシュヤも Vārttika も、先の否定（3.2.26）だけを認める、と記します（Hi. pp.1083–1085）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>ヒンディー訳は、3.2.31 の「ज्ञता」を、はじめ「知りたいという欲求によって」と訳し、後で「意に知る性質はない」と説明しており、訳が揺れています。</p></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>記憶が同時に起こらない理由</h2><span class="sub"><span class="pg">pp.401–402</span>スートラ 3.2.33。注意などの補助原因が同時に起こらない。直観知。潜在印象の「近さ」</span></div>
+<div class="mula sutra" id="u11">
+  <span class="ref">pp.401–402 · NS 3.2.33</span>
+  <div class="src deva" lang="sa">प्रणिधानलिङ्गादिज्ञानानामयुगपद्भावादयुगपत्स्मरणम् ॥३।२।३३॥<br>यदि तर्हि ज्ञानसमवेतात्मप्रदेशसन्निकर्षस्यायौगपद्यादिति परिहारो नेष्यते, प्राप्तः स्मृतीनां युगपदुत्पादः, कारणस्य यौगपद्यादिति — प्रणि……णम् । न, अपेक्षाकारणस्यायुगपद्भावात् । …… यत्प्रणिधानाद्यात्ममनःसंयोगस्य सहकारिकारणं तन्न युगपद्भवतीत्ययुगपदुत्पत्तिः स्मृतीनाम् । यदि प्रणिधानाद्यपेक्षात्ममनःसंयोगो न युगपत्स्मृतिकारणम्, याः स्मृतयः प्रणिधानज्ञानादिसन्निधानमन्तरेण भवन्ति, तासां यौगपद्यं स्यात् ? न, अनभ्युपगमात् । न हि प्रणिधानाद्यनपेक्षं स्मार्तमस्ति, सतः स्मृतिहेतोस्त्वसंवेदनात् प्रातिभेन समानाभिमानोऽयमिति । प्रातिभं तर्हि युगपद्भवितुमर्हति, न हि तस्यासन्निहितं कारणमिति ? न, उक्तोत्तरत्वात् । उक्तोत्तरमेतत् — न हि करणस्यानेकक्रियानिर्वृत्तिसामर्थ्यमस्ति । प्रातिभं चानेकं ज्ञानं भवदेकस्मिन्नर्थे भवेदनेकस्मिन् वा ? तत्र तावदेकस्मिन् वैयर्थ्यात्, नानेकस्मिन् सामर्थ्याभावात् ।</div>
+  <div class="tr">（答え）注意・目印などの知が同時に起こらないので、記憶は同時に起こらない。<br>（問い）「では、『知が内属している我の部分との接触が同時に起こらないから』という答えを認めないのなら、記憶が同時に生じることになってしまう。原因が同時にあるからである」。（これに答えて）「注意・目印などの知が……」。そうではない。（我と意の結合が）依存する（補助の）原因が、同時に起こらないからである。……注意などは、我と意との結合の補助原因であり、それは同時には起こらない。だから、記憶は同時には生じない。（反論）「注意などに依存する我と意の結合が、同時の記憶の原因にならないとしても、注意の知などがそこにないのに起こる記憶があるが、それらは同時に起こることになる」。そうではない。（そういう記憶を）認めないからである。注意などに依存しない記憶はない。ただ、実際にある記憶の原因が意識されないので、直観知（<i>prātibha</i>）と同じだと思われているのである。（反論）「では、直観知は同時に起こりうるはずだ。その原因が欠けていることはないからである」。そうではない。（すでに）答えたからである。これにはすでに答えた。道具には多くの行為をなしとげる力はない。また、多くの直観知が生じるなら、一つの対象についてであろうか、多くの対象についてであろうか。一つの対象についてなら無意味であり、多くの対象については（道具に）力がないので、ありえない。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.33 は、記憶が同時に起こらない理由についての、ニヤーヤ自身の答えです。記憶は、我と意の結合と潜在印象だけでは起こらず、補助原因として、思い出そうとする注意（<i>praṇidhāna</i>）や、手がかりとなる目印などの知を必要とする。そして、こうした補助原因は一つずつしか起こらない、というのです。</p><p>反論者は、ふと何の手がかりもなく思い出すことがある、それは同時に起こりうるのではないか、と言います。Uddyotakara は、手がかりのない記憶はない、ただ手がかりが意識されないので、直観のように思えるだけだ、と答えます。直観知そのものが同時に起こりうるのでは、という問いには、道具（意）が一度に一つの行為しかできないことを繰り返し、さらに、一つの対象について同時に複数の直観知があっても無意味だ、と付け加えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.33 を定説のスートラとし、バーシュヤの「注意・目印などの知も記憶の原因である」に「（スートラ 41 に）」と補います。「依存する原因」を補助原因と注します。「直観知のように、注意などに依存しない記憶では、同時に起こることになる」という一文について、これをスートラとする人もおり、Vārttika もスートラとして引くが、『ニヤーヤ・スーチー・ニバンダ』にはない、と注します。直観知もまた、特定の業による意の結合から生じるので、原因と順序をもつ、と説明します（Hi. pp.1086–1088）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>スートラ 3.2.33 は、Thakur 版の OCR テキストでは「…ज्ञानानामुगपद्भावाद् युगपद्स्मरणम्」と崩れているので、ヒンディー訳の読み「…ज्ञानानामयुगपद्भावादयुगपत्स्मरणम्」に従いました。「तस्यासन्नहितं」は「तस्यासन्निहितं」と読みました。写本 J は「प्रातिभ…प्रसङ्गः」の一文を欠きます。</p></div>
+</div>
+<div class="mula" id="u12">
+  <span class="ref">p.402 · NS 3.2.33</span>
+  <div class="src deva" lang="sa">न चायं नियमः प्रत्ययानां यौगपद्यं न भवतीति, ज्ञातुर्विकरणधर्मणो देहनानात्वे प्रत्यययौगपद्यादिति । यदि च ज्ञानसमवेतात्मप्रदेशसन्निकर्षान्न स्मृतीनां युगपदुत्पत्तिः, ये संस्कारा एकदेशास्तेष्ववस्थितशरीरस्यानेकज्ञानसमवायादेकप्रदेशे युगपदेकार्थस्मरणं स्यात् । न चैतदस्तीति, अतश्चापरिहार इति । …… संस्कारप्रत्यासत्त्या स्मृतियौगपद्यं न भवतीति ? का प्रत्यासत्तिः ? न हि संस्काराणां सन्निकृष्टविप्रकृष्टभावोऽस्ति, समानदेशत्वात् । न ब्रूमः सन्निकृष्टा प्रत्यासत्तिः, अपि तु संस्कारस्य सहकारिकारणसमवधानं प्रत्यासत्तिः, शब्दवत् । यथा शब्दाः सन्तानवर्तिनः सर्व एवाकाशे समवयन्ति, समानदेशत्वेऽपि यस्योपलब्धेः कारणानि सन्ति स उपलभ्यते नेतरे, तथा संस्कारेष्वपीति ॥३३॥</div>
+  <div class="tr">また、認識が同時に起こることはない、という決まりがあるわけではない。（ヨーガの力によって）さまざまな身体を作り出す性質をもつ知る者には、身体が多数あるとき、認識が同時に起こるからである。また、もし「知が内属する我の部分との接触から（記憶が起こる）ので、記憶は同時に生じない」というのなら、同じ部分にある潜在印象については、（同じ場所に）とどまっている身体の人には、多くの知が一つの部分に内属するので、その一つの部分で同時に（多くの）対象の記憶があることになろう。しかし、そういうことはない。この点からも、（3.2.25 の説は）答えにならない。……（反論）「潜在印象の近さによって、記憶が同時に起こらないのだ」。「近さ」とは何か。潜在印象には、近い・遠いということはない。同じ場所（我）にあるからである。（答え）われわれは、近接していることが「近さ」だと言うのではない。そうではなく、潜在印象の補助原因がそろうことが「近さ」である。音のように。連続して生じる音は、どれも虚空に内属している。同じ場所にあっても、知覚の原因がそろっている音が知覚され、ほかの音は（知覚され）ない。潜在印象についても同じである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、いくつかの補足をします。第一に、認識が同時に起こらないというのは普通の人の場合で、ヨーガ行者がいくつもの身体を作り出せば、それぞれの身体で同時に認識が起こりうる。第二に、我の部分に意が触れるという説では、同じ場所にじっとしている人の場合、同じ部分に多くの知の痕跡がたまるので、そこに意が触れれば多くの記憶が同時に起こってしまう。</p><p>最後に、潜在印象どうしの「近さ」の問題です。我のどこにあっても、潜在印象に近い遠いはありません。それでも特定の潜在印象だけが記憶になるのは、補助原因がそろったものだけがはたらくからで、虚空に同時に多くの音があっても、知覚の条件がそろった音だけが聞こえるのと同じだ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「さまざまな身体を作り出す性質をもつ」を「さまざまな道具を性質とする者」と説明し、成就を得たヨーガ行者が多くの身体を作る、と TṬ（p.567）を引きます。バーシュヤは、同じ場所にとどまっている人には、多くの知が一つの部分に内属するので、多くの過去の対象が同時に思い出されることになり、我の部分は別の実体ではないので、この否定は成り立たない、と説きます（TṬ p.568）。潜在印象の「近さ」の箇所は、Vārttika がバーシュヤの「音の連続で耳の座に近いものが聞かれるように」を説明したもので（TṬ p.568）、「我は部分をもたないが、潜在印象は（我の全体に）行きわたらずにあるので、補助原因がそろうかどうかが想定される」という TṬ（p.569）が引かれます（Hi. pp.1088–1091）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「युगपदेकार्थस्मरणं」は、バーシュヤ（「多くの過去の対象が同時に思い出される」）に照らすと「युगपदनेकार्थस्मरणं」と読むべきかもしれません。和訳は（多くの）と補いました。ヒンディー訳の注によれば、TṬ は「ज्ञानसमवेतात्मप्रदेशेन सन्निकर्षात्」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>欲求と嫌悪は知る者のもの</h2><span class="sub"><span class="pg">pp.402–405</span>スートラ 3.2.34–39。欲求は内的器官のものではない。元素は意識をもたない。消去法</span></div>
+<div class="mula sutra" id="u13">
+  <span class="ref">pp.402–403 · NS 3.2.34–36</span>
+  <div class="src deva" lang="sa">ज्ञस्येच्छाद्वेषनिमित्तत्वादारम्भनिवृत्त्योः ॥३।२।३४॥<br>पुरुषस्य ज्ञानम्, इच्छादयोऽन्तःकरणस्येति कस्यचिद् दर्शनम् । तत् प्रतिषिध्यते — ज्ञस्येच्छाद्वेषनिमित्तत्वादारम्भनिवृत्त्योः । ज्ञातुरेवेच्छादय इति सूत्रार्थः । यद्यन्तःकरणस्येच्छादयः स्युः, न प्रत्यक्षाः स्युः । न हीच्छादयोऽन्यत्र वर्तमाना अन्यस्य प्रत्यक्षा भवितुमर्हन्तीति । नित्यं चेच्छादयोऽप्रत्यक्षाः स्युः, मनोगुणानां नित्यमतीन्द्रियत्वात् । आरम्भनिवृत्त्योश्च प्रत्यगात्मनि दृष्टत्वात् परत्रानुमानम् ॥३४॥<br>तल्लिङ्गत्वादिच्छाद्वेषयोः पार्थिवाद्येष्वप्रतिषेधः ॥३।२।३५॥<br>प्रवृत्तिनिवृत्तिभ्यां सामानाधिकरण्यात् शरीरादिषु प्रसङ्ग इति सूत्रार्थः ॥३५॥<br>परश्वादिष्वारम्भनिवृत्तिदर्शनात् ॥३।२।३६॥<br>इत्यनेकान्तो वाक्यार्थः ॥३६॥</div>
+  <div class="tr">（答え）（欲求と嫌悪は）知る者の（もの）である。（行為を）始めることとやめることとの原因は欲求と嫌悪だからである。<br>「知は精神（<i>puruṣa</i>）のものであり、欲求などは内的器官のものである」というのが、ある人の見解である。それを、「知る者の……」によって否定する。欲求などは知る者のものである、というのがスートラの意味である。もし欲求などが内的器官のものなら、（知る者に）知覚されないであろう。別のところにある欲求などが、別のものに知覚されることはありえないからである。また、欲求などは、いつも知覚されないことになろう。意の性質は、いつも感官を超えたものだからである。また、始めることとやめることは、自分自身の我において見られるので、他者において（欲求などを）推理する（根拠になる）。<br>（反論）「それ（始めることとやめること）が欲求と嫌悪の目印なので、地からなるものなど（身体）について（欲求などを）否定することはできない」。<br>（欲求などは）活動とその停止と同じ基体にあるので、身体などに（欲求などがある）ことになる、というのがスートラの意味である。<br>（答え）斧などにも、始めることとやめることが見られるからである。<br>（目印は）不確定だ、というのがこの文の意味である。</div><div class="exp"><span class="lbl">解説</span><p>知だけでなく、欲求・嫌悪などもまた我の性質であることが論じられます。最初の相手は、知は精神のものだが、欲求などは内的器官のものだとする見解です。Uddyotakara は、欲求が内的器官にあるなら、知る者がそれを知覚することはできないし、意の性質は感官を超えているので、欲求は決して知覚されないことになる、と退けます。</p><p>次の相手は、身体そのものが欲求をもつとする者です（3.2.35）。活動とその停止は欲求と嫌悪の目印であり、活動するのは身体なのだから、欲求は身体にある、と。スートラ 3.2.36 は、斧も木を切り始め、切るのをやめるが、斧に欲求はない、と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、「ある人の見解」に「（サーンキヤ）」と補い、注もサーンキヤを相手とします。バーシュヤは、楽や苦をもたらすものを知って、得たい・避けたいと欲し、それが始めることとやめることになるので、知・欲求・努力・嫌悪・楽・苦は同じ行為主体、同じ基体をもつ、と説きます。注は、他人の欲求が知覚できるならマイトラの欲求をチャイトラが知覚することになる、と例を挙げます。3.2.35 の相手は、バーシュヤでは「元素が意識をもつとする者」で、注は Viśvanātha の注釈によってチャールヴァーカと同定します。3.2.36 は「反例のスートラ」とされ、Vārttika の「不確定」を「逸脱する論証因」と注します。バーシュヤには、動く身体と動かない身体（植物）で部分の配列が特別な活動の目印になるという、相手の再解釈と、壺などの例によるその反駁が続きます（Hi. pp.1091–1094）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版の OCR テキストはスートラ 3.2.34 を「३।१।३४」と誤っています。</p></div>
+</div>
+<div class="mula sutra" id="u14">
+  <span class="ref">pp.403–404 · NS 3.2.37</span>
+  <div class="src deva" lang="sa">नियमानियमौ तु तद्विशेषकौ ॥३।२।३७॥<br>प्रयुज्यमानभूतविषयत्वं प्रवृत्तिनिवृत्त्योर्नियमः । यानि भूतानि प्रयुज्यन्ते, तेषु प्रवृत्तिनिवृत्ती भवतः, न सर्वेष्विति । यदि पुनर्भूतत्वात् भूतानां प्रवृत्तिनिवृत्ती स्याताम्, भूतमात्रे स्याताम्, यथा गुरुत्वादिभ्यो भूतगुणेभ्यः । यानि गुरुत्वादिमन्ति भूतानि तानि स्वगुणात् पतन्तीति नियमश्च दृष्टः । तस्मान्न भूतानि चेतनानीति । एकशरीरे च ज्ञातृबहुत्वं निरनुमानम् । यस्य भूतानि चेतनानि तस्यैकशरीरे बहूनि भूतानीति बहवश्चेतनाः स्युः । भवन्तु बहवश्चेतनाः, किं नो बाध्यत इति चेत् ? न, बहुत्वे व्यवस्थानुमानं न भवेत् । व्यवस्थां तु न पश्यामः प्रत्ययानाम्, प्रतिसन्धानात् । सर्वः प्रत्ययः प्रतिसन्धीयमान एकस्मिन् कार्यकारणसङ्घाते दृष्ट इति । अन्यथाभिधानाच्च । हिताहितप्राप्तिपरिहारार्थः परिस्पन्दः प्रवृत्तिनिवृत्ती । भवता तु क्रियामात्रं क्रियोपरममात्रं चाश्रित्य — तल्लिङ्गत्वादिच्छाद्वेषयोः पार्थिवाद्येष्वप्रतिषेधः — इत्युक्तम् ॥३७॥</div>
+  <div class="tr">（答え）しかし、決まっていることと決まっていないこととが、それ（両者）を区別する。<br>活動とその停止についての決まりとは、（誰かに）用いられている元素を対象とすることである。用いられている元素に活動と停止があるのであって、すべて（の元素）にあるのではない。もし元素であるから元素に活動と停止があるのなら、元素でありさえすればそれがあることになる。重さなどの元素の性質から（落下がある）ように。重さなどをもつ元素は、自分の性質によって落ちる、という決まりが見られる。だから、元素は精神をもつものではない。また、一つの身体に知る者が多数いることは、推理の根拠を欠く。元素が精神をもつとする者には、一つの身体に多くの元素があるので、多くの精神をもつ者がいることになる。（反論）「多くの精神をもつ者がいるとしよう。それでわれわれに何の不都合があるのか」と言うなら。そうではない。（知る者が）多数なら、（認識の）区別が推理されるはずだが、（そうならない）。しかし、われわれは認識の区別を見ない。結びつけられるからである。結びつけられるすべての認識は、一つの、結果と原因の集まり（である身体）において見られる。また、（あなたは活動と停止を）別の意味で言っているからである。活動と停止とは、望ましいものを得て望ましくないものを避けるための動きである。ところがあなたは、単なる動きと、動きが止むことだけにもとづいて、「それが欲求と嫌悪の目印なので、地からなるものなどについて否定することはできない」と言った。</div><div class="exp"><span class="lbl">解説</span><p>身体（元素）が意識をもつという説への詳しい反論です。石が落ちるのは重さという元素の性質によるので、重さのある元素はどれも落ちる、という決まりがあります。しかし活動と停止はそうではなく、誰かが用いている元素にだけ起こる。だから活動と停止は元素自体の性質から来るのではない、というのです。</p><p>さらに、身体を作る元素の一つひとつが意識をもつなら、一つの身体に何人もの知る者がいることになり、彼らの認識は互いに区別されるはずですが、実際には一つの身体のすべての認識が一人の「私」に結びつけられています。また、ニヤーヤのいう活動・停止とは、好ましいものを得て好ましくないものを避けるための動きであって、斧の上下のような単なる動きではない、とも指摘します。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、TṬ（pp.570–571）を引いて、バーシュヤは「決まり」を「すべてにある」、「決まっていない」を「すべてにはない」の意味で使うが、Vārttika は「用いられているものにだけ」という限定の意味で「決まり」を使っており、言おうとすることが違うだけで矛盾しない、と説明します。「一つの身体に知る者が多数いること」について、認識は一つの身体の中で結びつけられるのであって、身体をまたいでは結びつけられない、という TṬ（p.571）を引き、Gaṅgānātha Jhā は「प्रत्ययव्यवस्था न भवेत्」という読みで訳している、と記します。バーシュヤは、斧や粘土の活動が他のものの性質によるように、生き物の身体の活動も、法と非法と呼ばれる潜在的な力によるのだ、と推理し、TṬ（pp.571–572）はこれを論証式にまとめます。最後の「別の意味で言っている」について、相手は論破の立場「理解しないこと」に陥っている、と注します（TṬ p.572）（Hi. pp.1095–1098）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「व्यवस्थाऽनुमानं」を「प्रत्ययव्यवस्था」、「व्यवस्थां तु」を「अव्यवस्थां तु」と読みます。</p></div>
+</div>
+<div class="mula sutra" id="u15">
+  <span class="ref">pp.404–405 · NS 3.2.38–39</span>
+  <div class="src deva" lang="sa">यथोक्तहेतुत्वात् पारतन्त्र्यात् स्वकृताभ्यागमाच्च न मनसः ॥३।२।३८॥<br>यथाविधे च प्रवृत्तिनिवृत्ती प्रयुज्यमानभूताधारे दृष्टे न तथाविधे भूतमात्रे भवत इति । भूतेन्द्रियमनसां समानः प्रतिषेधः, मनस्तूदाहरणमात्रम् । …… यथोक्तहेतुत्वादिति — दर्शनस्पर्शनाभ्यामेकार्थग्रहणात् — इत्येवमादीनामात्मप्रतिपत्तिहेतूनामप्रतिषेधात् । पारतन्त्र्यादिति — परतन्त्राणि शरीरेन्द्रियमनांसि धारणप्रेरणव्यूहनक्रियासु प्रयत्नवशात् प्रवर्तन्ते, चैतन्ये पुनः स्वतन्त्राणि स्युः । स्वकृताभ्यागमाच्च — चेतनत्वात् शरीरादीनां तैः कृतं कर्म पुरुषेण भुज्यत इत्यकृताभ्यागमकृतनाशदोषप्रसङ्गः । अचेतनत्वे तु तत्साधनस्य पुरुषस्य स्वकृतकर्मफलोपभोग इति ॥३८॥<br>परिशेषाद् यथोक्तहेतूपपत्तेश्च ॥३।२।३९॥<br>अथायं सिद्धोपसंग्रहः — परिशेषाद् यथोक्तहेतूपपत्तेश्च । आत्मनो गुणो ज्ञानमिति प्रकृतम् । यथोक्तहेतूपपत्तेरिति आत्मप्रतिपादकानां हेतूनामप्रतिषेधात् । परिशेषादिति शरीरेन्द्रियमनसां प्रतिषेधात्, अन्यस्य च शिष्यमाणस्यासंभवात्, आत्मनश्च शिष्यमाणत्वात् तस्य गुणो ज्ञानमिति । उपपत्तेरिति वा स्वतन्त्रो हेतुरात्मनो नित्यत्वे इति । कस्योपपत्तेः ? संसारापवर्गयोरुपपत्तेरित्येवमादि भाष्ये ॥३९॥</div>
+  <div class="tr">（答え）（知などは）意の（性質）ではない。上に述べた理由があるからであり、（意は）他に依存するからであり、また、自分がなしたこと（の果報）を（自分が）受けるからである。<br>用いられている元素を基体として見られるような活動と停止は、元素でありさえすればあるのではない。（この）否定は、元素・感官・意に等しく当てはまる。意は例として挙げられているにすぎない。……「上に述べた理由があるから」とは、「視覚と触覚によって同じ対象が捉えられるから」などの、我を知らせる理由が否定されていないからである。「他に依存するから」とは、身体・感官・意は他に依存しており、（身体を）保持し、（感官を）促し、（身体を）組み立てるはたらきにおいて、（我の）努力の力によってはたらく。もし精神をもつなら、それらは自立しているはずである。「自分がなしたことを受けるから」とは、（もし）身体などが精神をもつなら、それらがなした行為を（別の）精神が享受することになり、なしていないことの果報を受け、なしたことの果報が失われる、という誤りになってしまう。精神をもたないなら、それらを手段とする精神（我）が、自分のなした行為の果報を受けることになる。<br>（答え）また、消去法によって、また、上に述べた理由が成り立つので（知は我の性質である）。<br>次は、成り立ったことのまとめである。「また、消去法によって……」。知は我の性質である、ということが主題である。「上に述べた理由が成り立つので」とは、我を論証する理由が否定されていないからである。「消去法によって」とは、身体・感官・意が否定され、ほかに残るものはありえず、我が残っているので、知はその性質である、ということである。あるいは、「成り立つので」は、我が常住であることについての独立の理由である。何が成り立つのか。輪廻と解脱とが成り立つから、などとバーシュヤにある。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.38 は、意を含む道具一般に意識がない理由を三つ挙げます。第一に、第一日課で我の存在を示した理由（「同じ対象を視覚と触覚で捉えるから」など、<a href="nyayavarttika-26-taiyaku.html">第26プラカラナ</a>）がそのまま生きている。第二に、身体も感官も意も、我の努力によって動かされる道具であって、自分で動くのではない。第三に、もし身体などに意識があるなら、行為したのは身体、果報を受けるのは我ということになり、業の因果が成り立たない。</p><p>スートラ 3.2.39 は、ここまでのまとめです。身体・感官・意が知の担い手として否定され、残るのは我だけなので、知は我の性質である。消去法による結論です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、スートラ 3.2.38 を「…अकृताभ्यागमाच्च न मनसः」（なしていないこと（の果報）を受けることになるので）と読みます。注は、三つの理由は意だけでなく元素・感官にも当てはまる、身体と感官は元素からなるので壺のように、意は道具なので手斧のように他に依存する、なした者が果報を受けることはすべての有神論者が認める、と TṬ（pp.572–573）を引きます。3.2.39 の消去法は、スートラ 1.1.5 のバーシュヤの定義「ありうるものを否定し、他に及ばないとき、残るものについて知ること」で説明されます。バーシュヤは「成り立つので」を我の常住性の独立の理由とし、法をなした者は身体が滅んだ後に神々に生まれる、と輪廻を説きます。さらに、我のない「知の連続」だけでは、輪廻も解脱も記憶も成り立たない、と論じ、注は、昨日半分した仕事を今日「私が始めた」と仕上げる例を挙げます（TṬ p.574）（Hi. pp.1099–1104）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版はスートラ 3.2.38 を「स्वकृताभ्यागमाच्च」と読み、ヒンディー訳は「अकृताभ्यागमाच्च」と読みます。和訳は Thakur 版に従いましたが、Vārttika の説明（なしていないことの果報を受け、なしたことの果報が失われる、という誤り）は、どちらの読みとも合います。写本 C は「प्रयुज्यमानभूताधारे दृष्टे न तथाविधे」を「…भूताधारस्ते न तथाभूते」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §7 ============ -->
+<section id="s7" class="wrap">
+  <div class="sec-head"><span class="sec-no">7</span><h2>記憶の原因</h2><span class="sub"><span class="pg">p.405</span>スートラ 3.2.40–41。記憶は我のもの。記憶を呼び起こす原因の列挙</span></div>
+<div class="mula sutra" id="u16">
+  <span class="ref">p.405 · NS 3.2.40–41</span>
+  <div class="src deva" lang="sa">स्मरणं त्वात्मनो ज्ञस्वाभाव्यात् ॥३।२।४०॥<br>स्म……व्यात् ॥४०॥<br>प्रणिधाननिबन्धाभ्यासलिङ्गलक्षणसादृश्यपरिग्रहाश्रयाश्रितसम्बन्धानन्तर्यवियोगैककार्यविरोधातिशयप्राप्तिव्यवधानसुखदुःखेच्छाद्वेषभयार्थित्वक्रियारागधर्माधर्मनिमित्तेभ्यः ॥३।२।४१॥<br>स्मृतिहेतूनामयौगपद्याद् युगपदस्मरणमित्युक्तम् । अथ केभ्यः स्मृतिरुत्पद्यत इति स्मृतिकारणानामयौगपद्यप्रतिपादनार्थं प्रणिधानादिसूत्रम् — प्रणि……तेभ्यः । एवमुपपन्नमनित्या बुद्धिरिति ॥४१॥<br>॥ बुद्धेरात्मगुणत्वप्रकरणम् ॥</div>
+  <div class="tr">しかし、記憶は我の（性質である）。（我は）知る者を本性とするからである。<br>「記憶は……」（Vārttika はスートラを掲げるだけである）。<br>（記憶は）注意・結びつけ・反復・目印・特徴・類似・所有・基体とそこにあるもの・関係・前後の連続・別離・同じ結果・対立・卓越・獲得・遮蔽・楽・苦・欲求・嫌悪・恐れ・必要・行為・愛着・法・非法、という原因から（生じる）。<br>記憶の原因が同時に起こらないので、同時には記憶しない、と（スートラ 3.2.33 で）言われた。では、記憶は何から生じるのか。記憶の原因が同時に起こらないことを示すために、「注意……」のスートラがある。「注意……という原因から」。このように、知は無常である、ということが成り立った。<br>以上、知は我の性質であることの章。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.40 は、記憶もまた知る者である我の性質だと確認し、3.2.41 は記憶を呼び起こす原因を列挙します。Vārttika は、この列挙が 3.2.33 の「注意・目印などの知が同時に起こらない」を具体的に示すものだ、と位置づけるだけで、各項目の説明はバーシュヤに任せています。バーシュヤの例は、ヒンディー訳によって表にまとめました。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>原因</th><th>バーシュヤの例（ヒンディー訳による）</th></tr></thead>
+    <tbody>
+      <tr><td class="k">注意</td><td>思い出そうとして心を一点に保つこと。あるいは、思い出したいものの目印に心を向けること</td></tr>
+      <tr><td class="k">結びつけ</td><td>一つの書物に述べられた事柄が、順に、あるいは順不同に、互いを思い出させる（例：量を思い出して認識対象を、論破の立場を思い出して量を）。記憶術による対象の配置という別解もある</td></tr>
+      <tr><td class="k">反復</td><td>同じ対象を繰り返し知ること。それが生む潜在印象（我の性質）</td></tr>
+      <tr><td class="k">目印</td><td>結合したもの（煙→火）、内属するもの（角→牛）、同じものに内属するもの（手→足、色→触）、相反するもの</td></tr>
+      <tr><td class="k">特徴</td><td>家畜の体の印から、その家系（ゴートラ）を思い出す</td></tr>
+      <tr><td class="k">類似</td><td>絵に描かれた似姿からデーヴァダッタを思い出す</td></tr>
+      <tr><td class="k">所有</td><td>持ち物から持ち主を、持ち主から持ち物を</td></tr>
+      <tr><td class="k">基体／そこにあるもの</td><td>村長から配下を／配下から村長を</td></tr>
+      <tr><td class="k">関係</td><td>弟子から師を、祭官から祭主を</td></tr>
+      <tr><td class="k">前後の連続</td><td>なすべき事柄の順序で、次の務めを</td></tr>
+      <tr><td class="k">別離</td><td>離れている人を繰り返し思い出す</td></tr>
+      <tr><td class="k">同じ結果</td><td>同じ仕事をする一方を見て他方を</td></tr>
+      <tr><td class="k">対立</td><td>勝ちを争う二人の一方を見て他方を</td></tr>
+      <tr><td class="k">卓越</td><td>自分を卓越させてくれた人を</td></tr>
+      <tr><td class="k">獲得</td><td>何かを得た、または得るであろう相手を</td></tr>
+      <tr><td class="k">遮蔽</td><td>鞘などから剣などを</td></tr>
+      <tr><td class="k">楽・苦</td><td>その原因を</td></tr>
+      <tr><td class="k">欲求・嫌悪</td><td>欲するもの、嫌うものを</td></tr>
+      <tr><td class="k">恐れ</td><td>恐れているものを</td></tr>
+      <tr><td class="k">必要</td><td>食物や衣服など、必要なものを</td></tr>
+      <tr><td class="k">行為</td><td>車から車大工を</td></tr>
+      <tr><td class="k">愛着</td><td>愛着している女性を</td></tr>
+      <tr><td class="k">法</td><td>前世の記憶、また学んだこと聞いたことの保持</td></tr>
+      <tr><td class="k">非法</td><td>以前に経験した苦の手段を</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　記憶の原因（スートラ 3.2.41）。</b>ヒンディー訳は25項目に番号を付ける（楽・苦、欲求・嫌悪をそれぞれ一項目とする）。バーシュヤは、これは例示であって網羅ではないと言い、注は、狂気なども記憶の原因になるがここには挙げられていない、と TṬ（p.576）を引く。</figcaption>
+</figure>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳のバーシュヤは、スートラ 3.2.40 に「成り立つ」を補い、我の本性は、三つの時にわたって「知るだろう、知る、知った」と知ることであり、それが我を虚空などから区別する、と注します（TṬ p.574）。Vārttika はスートラを引くだけだ、と注にあります。3.2.41 について、注は、この Vārttika が記憶の原因が同時に起こらないことを示すためのスートラだと位置づけている、と TṬ（p.574）を引きます。記憶の原因の中には、それ自体が記憶の原因であるものと、記憶を呼び覚ますだけのものとがある、と Viśvanātha の注釈によって記します（Hi. pp.1104–1107）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>ヒンディー訳は、各原因の例を示すバーシュヤの「目印」の箇所で、ヴァイシェーシカ・スートラを参照させていますが、翻刻では番号が崩れています。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>ātmaguṇa</dt><dd>我の性質。知・欲求・嫌悪・努力・楽・苦など</dd>
+    <dt>vaśin / vaśya</dt><dd>支配するもの（知る者）／支配されるもの（道具）</dd>
+    <dt>smṛti / saṃskāra</dt><dd>記憶／潜在印象（知が残す痕跡）</dd>
+    <dt>ātmapradeśa</dt><dd>我の「部分」（遍在する我のうち、意が接している箇所）</dd>
+    <dt>praṇidhāna</dt><dd>注意（思い出そうと心を向けること）</dd>
+    <dt>prātibha</dt><dd>直観知。手がかりなしに浮かぶように思われる知</dd>
+    <dt>pratyāsatti</dt><dd>近さ。ここでは補助原因がそろうこと</dd>
+    <dt>ārambha / nivṛtti</dt><dd>（行為を）始めること／やめること</dd>
+    <dt>pariśeṣa</dt><dd>消去法</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直し、長い箇所は抜粋した（「……」は省略箇所）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号は Thakur 版とヒンディー訳で一致する。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。ヒンディー訳は、利用者から提供された OCR 転写によって参照した。転写は解説のためにだけ用い、サンスクリット本文の校訂には用いていない。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第37プラカラナ（スートラ 3.2.18–41）である。第36プラカラナ（スートラ 3.2.10–17）は<a href="nyayavarttika-36-taiyaku.html">第36プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
