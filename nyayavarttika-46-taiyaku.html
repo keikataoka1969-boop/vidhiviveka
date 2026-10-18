@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 46</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-45-taiyaku.html">← プラカラナ45</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>神は業を助ける</a></li><li><a href="#s2"><b>2</b>神の存在の論証</a></li><li><a href="#s3"><b>3</b>根本原質と原子では足りない</a></li><li><a href="#s4"><b>4</b>行為なき行為主体</a></li><li><a href="#s5"><b>5</b>神は何のために作るのか</a></li><li><a href="#s6"><b>6</b>神の本性</a></li><li><a href="#s7"><b>7</b>神と我の結びつき、聖典</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第46プラカラナ「神を原因とする説の章」（スートラ 4.1.19–21、Thakur 版 pp.432–441）</span>
+  <p>人は努力しても、必ずその果報を得るとは限りません。だから行為の果報は人の力だけでは決まらず、神（<i>īśvara</i>）が原因なのだ、という説をスートラ 4.1.19 が紹介します。反論者は、人の行為がなければ果報もないのだから神は原因ではない、と言い（4.1.20）、スートラ 4.1.21 は、その果報も神によって起こされるのだから反論は当たらない、と答えます。</p>
+  <p>この三つの短いスートラに、Uddyotakara はインド哲学史でもよく知られる長い論証を付けます。神は世界の質料因ではなく機会因であり、精神をもたない根本原質・原子・業がはたらき出すには、手斧を使う大工のように、知をもつ監督者が要る。神は何のために作るのか、神はどのような存在か、神の知は常住か、神は縛られているのか解脱しているのか、といった問いに次々と答え、最後に聖典の詩節を引いて章を閉じます。</p>
+  <p>この章は Vārttika が長いので、原文は抜粋で載せました（「……」は省略箇所）。第四篇については、ヒンディー語訳注の翻刻がまだ提供されていないので、解説は本文にもとづく訳者の説明です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>神を原因とする説の章<br><small><i>īśvaropādānatāprakaraṇa</i>。スートラ 4.1.19–21 の注釈。Thakur 版 pp.432–441</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>4.1.19–21<br><small>神は原因である、人の行為がなければ果報はない、果報も神によって起こされる</small></dd></div>
+    <div><dt>論敵</dt><dd>神を認めない者、根本原質や原子だけで世界を説明する者<br><small>本文はサーンキヤ（根本原質を原因とする者）を名指しで批判する。原子を原因とする者の学派は示されない</small></dd></div>
+    <div><dt>見どころ</dt><dd>神の存在の論証と、神の性質の規定<br><small>§2・§6。「精神をもたないものは、知をもつ者に監督されてはたらく。手斧のように」</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>未参照<br><small>提供された Śrīnivāsa Śāstrī 訳注の翻刻は第三篇の終わりまでで、この章を含まない</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.433</span> は Thakur 版の頁。節見出しの <span class="pg">p.432</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。長い箇所は「……」で省略した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。本文にもとづく訳者の説明</div>
+    <div><b>解釈の分かれる箇所</b>異読や、読みの定まらない箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 4.1.19–21 の注釈を、テキストの順に7節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">神は業を助ける</a></td><td class="num">p.432</td><td>スートラ 4.1.19–21。努力が実らないこと。業によらない神なら行為が無意味になる。神は業を助ける</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">神の存在の論証</a></td><td class="num">p.433</td><td>神は機会因。機会因をめぐる諸説。存在と原因であることは同じ論証で示される。手斧の推論</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">根本原質と原子では足りない</a></td><td class="num">pp.433–435</td><td>サーンキヤの根本原質の批判。原子と時。乳のたとえ。我や法・非法は監督者になれない</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">行為なき行為主体</a></td><td class="num">pp.436–437</td><td>動かない神は原因になれないか。二種の行為。依存するなら行為主体でないか。始まりのない輪廻</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">神は何のために作るのか</a></td><td class="num">pp.437–438</td><td>遊びのため、威光を示すため、という説の否定。本性による。神の主宰力は常住か</td></tr>
+<tr><td class="num">§6</td><td class="k"><a href="#s6">神の本性</a></td><td class="num">pp.438–440</td><td>神は実体。六つの性質。知は常住。身体はない。記憶も推理も苦もない。縛られても解脱してもいない</td></tr>
+<tr><td class="num">§7</td><td class="k"><a href="#s7">神と我の結びつき、聖典</a></td><td class="num">pp.440–441</td><td>神はどのように我を監督するか。今も神は原因。聖典の詩節</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>神は業を助ける</h2><span class="sub"><span class="pg">p.432</span>スートラ 4.1.19–21。努力が実らないこと。業によらない神なら行為が無意味になる。神は業を助ける</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.432 · NS 4.1.19–21</span>
+  <div class="src deva" lang="sa">ईश्वरः कारणं पुरुषकर्माफल्यदर्शनात् ॥४।१।१९॥<br>अपर इदानीमाह — ईश्व……नात् । पुरुषोऽयं समीहमानो नावश्यं समीहाफलमाप्नोति । तेनावगम्यते पराधीनं पुरुषस्य कर्मफलाराधनमिति । निरपेक्षश्चेत् पुरुषः कर्मफलोपभोगे समर्थः स्यात्, न कस्यचिदफला क्रिया भवेत्, न कश्चिद् दुःखं कुर्यादिति । उभयं च दृष्टम् । तस्मादीश्वरः कारणमिति ॥१९॥<br>न पुरुषकर्माभावे फलानिष्पत्तेः ॥४।१।२०॥<br>न……त्तेः इति । ईश्वरः कारणं भवेत्, पुरुषकर्मान्तरेणापि सुखदुःखोपभोगो भवेत् । ततश्च क्रियाविलोपोऽनिर्मोक्षप्रसङ्गश्च, ईश्वरस्यैकरूपत्वादेकरूपा क्रियेति । अथेश्वरः कारणभेदानुविधानेन कार्यं निर्वर्तयति, यदपेक्षते तन्न करोतीति प्राप्तम् । न हि कुलालो दण्डादीन् करोति । एवं कर्माद्यपेक्षश्चेदीश्वरो जगदुत्पत्तिकारणं स्यात्, कर्मणि ईश्वरोऽनीश्वरः स्यात् ॥२०॥<br>तत्कारितत्वादहेतुः ॥४।१।२१॥<br>न ब्रूमः कर्माद्यनपेक्ष ईश्वरः कारणमिति, अपि तु पुरुषकर्म ईश्वरोऽनुगृह्णाति । कोऽनुग्रहार्थः ? यद् यथाभूतं यस्य च यदा परिपाककालस्तत् तथा तदा च विनियुङ्क्त इति । यः पुनरीश्वरं कर्मानपेक्षं कारणत्वेन प्रतिपद्यते, तस्यानिर्मोक्षत्वादिदोषः । सापेक्षे त्वीश्वरे यथोक्तो न दोषः । शेषं भाष्ये ।</div>
+  <div class="tr">（ある説）「神が原因である。人の行為に果報がないことが見られるからである」。<br>次に、別の人が「神が……」と言う。この人は努力しても、必ず努力の果報を得るわけではない。このことから、人が行為の果報を得ることは他者に依存している、と知られる。もし人が（他者に）依存せずに行為の果報を享受できるなら、誰の行為も果報のないものにはならないだろうし、誰も（自分に）苦をもたらすことはしないだろう。しかし、その両方が見られる。だから、神が原因である、と。<br>（反論）「（神は原因では）ない。人の行為がなければ果報は生じないからである」。<br>「（神は原因では）ない……」と（反論者は言う）。もし神が原因なら、人の行為がなくても楽と苦の享受があるであろう。そうすると、行為が無意味になり、解脱がないことになってしまう。神は一つの姿をしているので、（その）はたらきも一つの姿になるからである。あるいは、神が原因の違いに従って結果を生じさせるのなら、（神は）依存しているものを作らない、ということになる。陶工は棒などを作るのではないからである。このように、もし神が業などに依存して世界の生起の原因となるのなら、業については、神は主宰者ではないことになろう。<br>（答え）それ（果報）も、それ（神）によって起こされるので、（その反論は）論証因にならない。<br>われわれは、神が業などに依存せずに原因である、と言うのではない。そうではなく、神は人の業を助けるのである。「助ける」とはどういう意味か。（業が）どのようなものであり、誰の（業）が、いつ熟する時を迎えるか、それに応じて、そのように、そのときに（果報へと）振り向けるということである。神を業に依存しない原因と考える者には、解脱がないなどの誤りがある。しかし、（業に）依存する神であれば、上に述べた誤りはない。残りはバーシュヤにある。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 4.1.19 の論拠は、人の努力が必ずしも実を結ばないことです。人だけで果報が決まるなら、努力は必ず報われ、誰も自分に苦をもたらすことはしないはずです。だから人の外に、果報を左右する神がいる、と。</p><p>反論者（4.1.20）は、神がすべてを決めるなら、人が何もしなくても楽や苦が生じることになり、行為の意味も、行為を止めることによる解脱もなくなる、と言います。逆に神が人の業に依存するなら、業の主宰者ではなくなる、とも。スートラ 4.1.21 と Uddyotakara は、神は業と無関係に果報を与えるのではなく、業の熟し方に応じて果報を割り振ることで業を「助ける」のだ、と答えます。業か神か、という二者択一ではないのです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「पुरुषकर्मफल्यदर्शनात्」は、スートラの一般的な形「पुरुषकर्माफल्यदर्शनात्」に、「नावशयं」は「नावश्यं」、「अनिनोक्षत्वादि」は「अनिर्मोक्षत्वादि」と読みました。4.1.20 の Vārttika の冒頭「ईश्वरः कारणं भवेत्」は「もし…なら」の意味にとりました。写本 C は「क्रियाविलोपोऽनिर्मोक्षप्रसङ्गश्च」を「कर्मलोपोऽनिर्मोक्षश्च」、「कर्माद्यपेक्षश्च」を「कर्मसापे०」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>神の存在の論証</h2><span class="sub"><span class="pg">p.433</span>神は機会因。機会因をめぐる諸説。存在と原因であることは同じ論証で示される。手斧の推論</span></div>
+<div class="mula" id="u2">
+  <span class="ref">p.433 · NS 4.1.21</span>
+  <div class="src deva" lang="sa">तत्कारितत्वादित्येवं ब्रुवता निमित्तकारणमीश्वर इत्यभ्युपगतं भवति । यच्च निमित्तं तदितरयोः समवाय्यसमवायिकारणयोरनुग्राहकम्, यथा तुर्यादि तन्तूनां तत्संयोगानां चेति । ईश्वरश्चेज्जगतो निमित्तम्, यज्जगतः साक्षादुपादानकारणं तत् किम् ? उक्तं — पृथिव्यादि परमसूक्ष्मं परमाणुसंज्ञितं व्यक्तं कारणमिति । व्यक्तकारणाभ्युपगमे च सति निमित्तविशेषविप्रतिपत्तावीश्वरप्रक्रिया, यस्मान्निमित्तकारणे विप्रतिपद्यन्ते — केचित् कालं, केचिदीश्वरं, केचित् प्रकृतिमिति । तदेवं निमित्तविशेषविप्रतिपत्तौ किं न्याय्यमिति ? ईश्वर एव न्याय्यः, तत्र हि प्रमाणान्यविघातेन प्रवर्तन्त इति ।<br>अस्तित्वासिद्धिरिति चेत् ? …… न, अत एव तदुपपत्तेः । येनैव न्यायेनेश्वरस्य कारणत्वं सिध्यति, तेनैवास्तित्वमिति । न ह्यविद्यमानं कारणमिति । कः पुनरीश्वरस्य कारणत्वे न्यायः ? अयं न्यायोऽभिधीयते — प्रधानपरमाणुकर्माणि प्राक् प्रवृत्तेर्बुद्धिमत्कारणाधिष्ठितानि प्रवर्तन्ते, अचेतनत्वाद्, वास्यादिवदिति । यथा वास्यादि बुद्धिमता तक्ष्णा अधिष्ठितमचेतनत्वात् प्रवर्तते, तथा प्रधानपरमाणुकर्माण्यचेतनानि प्रवर्तन्ते, तस्मात् तान्यपि बुद्धिमत्कारणाधिष्ठितानीति ।</div>
+  <div class="tr">「それによって起こされるから」とこのように言う者は、神は機会因（<i>nimittakāraṇa</i>）である、と認めていることになる。そして機会因とは、ほかの二つ、すなわち内属因と非内属因とを助けるものである。（機織りの）杼などが、糸と糸の結合とを（助ける）ように。（問い）「神が世界の機会因だとすれば、世界の直接の質料因は何か」。（すでに）述べた。地などの、きわめて微細な、原子と呼ばれる「現れたもの」が原因である、と。そして、現れたもの（原子）が原因であると認めたうえで、特定の機会因について見解が分かれるので、神についての論述がある。機会因については見解が分かれ、ある人々は時を、ある人々は神を、ある人々は根本原質を（機会因と）言うからである。このように特定の機会因について見解が分かれる中で、何が道理にかなうのか。神だけが道理にかなう。そこでは量が妨げられることなくはたらくからである。<br>（反論）「（神の）存在が成り立っていない」と言うなら。……そうではない。まさにこれ（同じ論証）によって、それ（存在）が成り立つからである。神が原因であることを成り立たせるその同じ論証によって、（神の）存在も（成り立つ）。存在しないものが原因であることはないからである。では、神が原因であることについての論証は何か。この論証が述べられる。「根本原質・原子・業は、はたらき出す前に、知をもつ原因に監督されてはたらく。精神をもたないから。手斧などのように」。手斧などは、精神をもたないので、知をもつ大工に監督されてはたらく。同じく、根本原質・原子・業も精神をもたないものとしてはたらく。だから、それらもまた知をもつ原因に監督されている、と。</div><div class="exp"><span class="lbl">解説</span><p>ここから Uddyotakara 自身の論述です。神は世界の質料因（素材）ではなく、機会因です。布で言えば、糸が内属因（布がそこに内属する素材）、糸の結合が非内属因、杼や織り手が機会因にあたります。世界の素材は原子で、それはすでに述べたとおりです（スートラ 4.1.11、<a href="nyayavarttika-44-taiyaku.html">第44プラカラナ</a>）。機会因が何かについては、時とする者、神とする者、根本原質とする者に分かれますが、量に照らして妨げのないのは神だけだ、というのです。</p><p>神の存在の論証は、ここで原因であることの論証と一体になります。精神をもたない手斧は、大工に握られてはじめて木を削ります。同じく、精神をもたない原子や業（法と非法）や、サーンキヤの根本原質がはたらき出すには、知をもつ監督者が要る。その監督者が神だ、という推論です。神が存在しなければ原因にもなれないので、原因であることが示されれば存在も示される、と Uddyotakara は言います。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「समवायिकारणसमवायिकारणयोः」は「समवाय्यसमवायिकारणयोः」、「तक्षणा」は「तक्ष्णा」と読みました。写本 C は「तन्तूनां」を「द्रव्यम्」と読み、写本 J は「निमित्तकारणे」を「०कारणं प्रतिपद्यन्ते」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>根本原質と原子では足りない</h2><span class="sub"><span class="pg">pp.433–435</span>サーンキヤの根本原質の批判。原子と時。乳のたとえ。我や法・非法は監督者になれない</span></div>
+<div class="mula" id="u3">
+  <span class="ref">pp.433–434 · NS 4.1.21</span>
+  <div class="src deva" lang="sa">तत्र प्रधानकारणिकास्तावत् पुरुषार्थमधिष्ठायकं प्रधानस्य वर्णयन्ति — पुरुषार्थेन प्रयुक्तं प्रधानं प्रवर्तत इति । पुरुषार्थश्च द्वेधा भवति — शब्दाद्युपलब्धिर्गुणपुरुषान्तरदर्शनं चेति । तदुभयं प्रधानप्रवृत्तिं विना न भवतीति ? न, प्राक् प्रवृत्तेस्तदभावात् । यावत् प्रधानं महदादिभावेन न परिणमते, तावन्न शब्दाद्युपलब्धिरस्ति, न गुणपुरुषान्तरोपलब्धिरिति हेत्वभावात् प्रधानप्रवृत्तिर्न युक्ता । अथास्ति, नासदात्मानं लभते न सन्निरुध्यत इति ? एवं च सति विद्यमानः पुरुषार्थः प्रधानं प्रवर्तयतीति न पुरुषार्था प्रधानस्य प्रवृत्तिः । न हि लोके यद् यस्य भवति स तदर्थं पुनर्यतत इति । सततं च प्रवृत्तिः प्राप्नोति, कारणस्य सन्निहितत्वात् । …… यां च भवन्तः सत्त्वरजस्तमसां साम्यावस्थां प्रकृतिं वर्णयन्ति, सा कुतो निवर्तत इति वक्तव्यम् । न चानिवृत्तायां साम्यावस्थायां वैषम्येण शक्यं भवितुम् । …… सोऽयं प्रधानवादो यावद् यावद् विचार्यते, तावत् तावत् प्रमाणवृत्तं बाधत इति ।</div>
+  <div class="tr">そのうち、まず根本原質を原因とする人々（サーンキヤ）は、精神の目的を根本原質の監督者だと説明する。根本原質は精神の目的に動かされてはたらく、と。そして精神の目的には二種類ある。音などを知覚することと、（根本原質の）構成要素と精神とが別であることを見ることとである。（彼らは言う）「その両方とも、根本原質のはたらきなしにはありえない」。そうではない。はたらきの前にはそれ（精神の目的）はないからである。根本原質が大などのあり方に転変しないかぎり、音などの知覚も、構成要素と精神とが別であることの知覚もない。だから、（はたらきの）原因がないので、根本原質のはたらきは成り立たない。（反論）「（はたらきの前にも精神の目的は）ある。ないものが自己を得ることはなく、あるものが滅することはないからである」。そうであれば、（すでに）ある精神の目的が根本原質をはたらかせる、ということになるので、根本原質のはたらきは精神の目的のためのものではない。世間では、あるものがすでにある人は、そのためにふたたび努力することはないからである。また、原因がいつもそこにあるので、（根本原質は）絶えずはたらくことになってしまう。……また、あなたがたが、純質・激質・暗質の均衡状態として説く根本原質、それが何によって（均衡を）失うのか、言わなければならない。均衡状態が失われないかぎり、不均衡になることはできない。……この根本原質説は、考察すればするほど、量のはたらきと矛盾する。</div><div class="exp"><span class="lbl">解説</span><p>サーンキヤは、根本原質がはたらき出すのは精神のため（精神に経験させ、最後に自分と精神の違いを見させるため）であり、その「精神の目的」が監督者の役を果たすので、神は要らない、と考えます。Uddyotakara は、精神の目的は根本原質が知などに転変してはじめて生じるもので、転変の前にはないので原因になれない、と批判します。有因中有果論によって前からあると言えば、すでにあるものを得るために動くことになり、しかもいつでもはたらき続けることになる。三つの構成要素の均衡がなぜ崩れるのかも説明できない。第三篇の最後の章（<a href="nyayavarttika-41-taiyaku.html">第41プラカラナ</a>）と同じ論法です。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「सत्वरजस्तमसां」は「सत्त्वरजस्तमसां」と読みました。写本 C は「यां च」を「यदा」と読みます。</p></div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">pp.434–435 · NS 4.1.21</span>
+  <div class="src deva" lang="sa">येऽपि परमाणून् पुरुषकर्माधिष्ठिताञ्जगतः कारणत्वेन वर्णयन्ति, तान् प्रतीदमुच्यते — परमाणवः प्रवर्तन्त इति सततं प्रवृत्त्या भवितव्यम् । अथ कालविशेषापेक्षाः प्रवर्तन्ते, परमाणुभिः कालो व्याख्यातः । यथाचेतनत्वात् परमाणवो बुद्धिमन्तमधिष्ठातारमपेक्षन्ते, तथा कालोऽपीति । न हि तत्राचेतनत्वं निवर्तत इति । क्षीरादिवदचेतनस्यापि प्रवृत्तिरिति चेत् ? यथा अपत्यभरणार्थं क्षीरादेरचेतनस्य प्रवृत्तिः, एवं परमाणवोऽचेतनाः सन्तः पुरुषार्थं प्रवर्तिष्यन्त इति ? तन्न युक्तम्, साध्यसमत्वात् । यथैव परमाणवः स्वतन्त्राः प्रवर्तन्त इति साध्यं, तथा क्षीराद्यचेतनं स्वतन्त्रं प्रवर्तत इति । यदि च क्षीरादि स्वतन्त्रं प्रवर्तेत, मृतेष्वपि पूर्ववत् प्रवर्तेत । न तु प्रवर्तते । अतोऽवगम्यते बुद्धिमत्कारणाधिष्ठितं तदपि । …… एवं यावद् यावदचेतनं प्रवर्तते, सर्वं तद् बुद्धिमत्कारणाधिष्ठितमिति ।</div>
+  <div class="tr">また、人の業に監督された原子を世界の原因として説明する人々に対しては、こう言われる。原子が（自ら）はたらくなら、絶えずはたらくことになるはずである。もし特定の時に依存してはたらくのなら、時は原子と同じように説明される。原子が精神をもたないので知をもつ監督者を必要とするように、時もまた（そうである）。時においても、精神をもたないことは変わらないからである。（反論）「乳などのように、精神をもたないものにも、はたらきはある」と言うなら。つまり、「子を養うために、精神をもたない乳などがはたらく（流れ出る）ように、原子も、精神をもたないまま、人の目的のためにはたらくであろう」と（言うなら）。それは正しくない。論証されるべきことと同じだからである。原子が自立してはたらくことが論証されるべきことであるのとまったく同じく、精神をもたない乳などが自立してはたらくことも、論証されるべきことである。そして、もし乳などが自立してはたらくなら、（母が）死んでも前と同じようにはたらくであろう。しかし、はたらかない。だから、それもまた知をもつ原因に監督されている、と知られる。……このように、精神をもたないものがはたらくときは、どれも知をもつ原因に監督されているのである。</div><div class="exp"><span class="lbl">解説</span><p>人の業が原子を動かして世界を作る、とする人々にも、Uddyotakara は同じ問いを向けます。原子が自分で動くならいつも動いているはずで、特定の時を待つと言うなら、時もまた精神をもたないので、監督者が必要です。</p><p>反論者は、母牛の乳が子牛を養うために、精神をもたないのにひとりでに流れ出るではないか、と言います（この乳のたとえは、Thakur 版の脚注によればサーンキヤ・カーリカー 57 に見えるもの）。Uddyotakara は、乳がひとりでに流れるかどうか自体が問題で、もしそうなら母牛が死んでも流れるはずだ、と退けます。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「कालविशेषानपेक्षाः」は、文脈に従って「कालविशेषापेक्षाः」（特定の時に依存して）と読みました。「प्रवतिष्यन्त」は「प्रवर्तिष्यन्त」、「प्रवर्तत मृतेष्वपि」は「प्रवर्तेत, मृतेष्वपि」と読みました。省略箇所の「न चायं हेतुः । तस्मान्निवर्तते」は読みが定まりません。</p></div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">p.435 · NS 4.1.21</span>
+  <div class="src deva" lang="sa">अयमपरो हेतुः — बुद्धिमत्कारणाधिष्ठितं महाभूतादि व्यक्तं सुखदुःखादिनिमित्तं भवति, रूपादिमत्त्वात्, तुर्यादिवदिति । धर्माधर्मौ बुद्धिमत्कारणाधिष्ठितौ पुरुषस्योपभोगं कुरुतः, करणत्वाद्, वास्यादिवदिति । आत्मैवाधिष्ठाता धर्माधर्मयोर्भविष्यतीति चेत् ? यस्य तौ धर्माधर्मौ स एवाधिष्ठाता भविष्यतीति न युक्तम्, प्राक् कायकरणोत्पत्तेस्तदसम्भवात् । यावत् कायकरणसंघातो नोपजायते पुरुषस्य, तावदयमज्ञः …… उपलभ्यानपि तावद् रूपादीन् नोपलभते, कुतोऽनुपलभ्यौ धर्माधर्मावुपलप्स्यत इति । यदि च पुरुषः स्वतन्त्रः प्रवर्तेत, न दुःखं कुर्यात् । न हि कश्चिदात्मनो दुःखमिच्छतीति । …… यदि पुनर्धर्माधर्माभ्यामेवाधिष्ठिताः परमाणवः प्रवर्तेरन् ? न युक्तमिदम्, अचेतनत्वात् । न हि किञ्चिदचेतनं स्वतन्त्रमधिष्ठायकं दृष्टमिति । …… आत्मा कर्ता भविष्यतीति ? उक्तमेतद् — अज्ञत्वादिति । अकारणोत्पत्तिर्भविष्यतीति न युक्तम्, अदृष्टत्वादिति । न चान्या गतिरस्ति । तस्माद् बुद्धिमत्कारणाधिष्ठिताः परमाणवः कर्माणि च प्रवर्तन्त इति ।</div>
+  <div class="tr">次は別の論証因である。「大元素などの現れたものは、知をもつ原因に監督されて、楽や苦などの原因となる。色などをもつから。杼などのように」。「法と非法は、知をもつ原因に監督されて、人の享受を生じさせる。道具であるから。手斧などのように」。（反論）「我こそが、法と非法の監督者であろう」と言うなら。その法と非法をもつ者自身が監督者になる、というのは正しくない。身体と感官が生じる前には、それはありえないからである。人に身体と感官の集まりが生じないかぎり、その人は知る者ではない。……知覚されうる色なども、その間は知覚しないのに、どうして知覚されない法と非法を知覚するだろうか。また、もし人が自立してはたらくなら、苦をもたらすことはしないであろう。誰も自分の苦を望まないからである。……（反論）「では、原子は法と非法そのものに監督されてはたらくのだろう」。それは正しくない。（法と非法は）精神をもたないからである。精神をもたないもので、自立した監督者であるものは見られない。……（反論）「我が行為主体であろう」。これはすでに言った。（身体の生じる前の我は）知る者ではないからである。（反論）「原因なしに生じるのだろう」。それは正しくない。見られないからである。ほかに道はない。だから、原子と業は、知をもつ原因に監督されてはたらくのである。</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、ほかの論証因も加えたうえで、神以外の監督者の候補を一つずつ消していきます。人の我が自分の業を監督するのではないか。しかし身体と感官を得る前の我は何も知らず、目の前の色さえ見えないのに、見えない法と非法を操ることはできません。我が自由に操れるなら、誰も自分に苦をもたらすはずがありません。法と非法そのものが原子を動かすのでもありません。それらは精神をもたず、道具にすぎないからです。原因なしに生じる、ということもありません。こうして、残るのは知をもつ監督者、すなわち神だけだ、という消去法の論法です。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「तावदयमङ्गः उपसन्धातापि」は崩れているので、「तावदयमज्ञः」と読み、残りを省略しました。写本 J は「उपसन्धातापि नास्ति」と読みます。写本 C は「कायकरण」を「कार्यक」と読みます。「कर्माण च」は「कर्माणि च」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>行為なき行為主体</h2><span class="sub"><span class="pg">pp.436–437</span>動かない神は原因になれないか。二種の行為。依存するなら行為主体でないか。始まりのない輪廻</span></div>
+<div class="mula" id="u6">
+  <span class="ref">p.436 · NS 4.1.21</span>
+  <div class="src deva" lang="sa">क्रियानावेशादकारणमिति चेत् ? अथ मन्यसे ये खलु कर्तारो भवन्ति ते क्रियाविष्टा दृष्टाः कुलालादय इति, क्रियारहितश्चेश्वरः, तस्मादकारणमिति ? न, विकल्पानुपपत्तेः । ईश्वरो निष्क्रिय इति कां क्रियामधिकृत्योच्यते ? द्वयी हि नः शास्त्रे क्रिया — उत्क्षेपणादिका चाख्यातशब्दवाच्या च । यद्याख्यातशब्दवाच्यामधिकृत्योच्यते, तदासिद्धो हेतुः, स्वातन्त्र्याभ्युपगमात् । स्वातन्त्र्यं हि भगवति नित्यमस्ति । किं पुनः स्वातन्त्र्यम् ? अन्यकारकाप्रयोज्यत्वमितरकारकप्रयोक्तृत्वं च । तदुक्तं कारकाणि वर्णयद्भिरिति । अथोत्क्षेपणादिकां क्रियामधिकृत्योच्यते निष्क्रिय इति, तदानेकान्तः । क्रियावच्च कारणं दृष्टं निष्क्रियं चेति । ……</div>
+  <div class="tr">（反論）「（神は）行為に入り込んでいないので、原因ではない」と言うなら。つまり、「行為主体であるものは、陶工などのように、行為に入り込んでいるのが見られる。しかし神には行為がない。だから原因ではない」と考えるなら。そうではない。選択肢が成り立たないからである。「神には行為がない」というのは、どの行為について言っているのか。われわれの学問体系では、行為には二種類あるからである。上げることなど（物の運動）と、動詞によって表されるもの（行為一般）とである。もし動詞によって表される（行為）について言うのなら、論証因は成り立っていない。（神の）自立性を（われわれは）認めるからである。自立性は、尊き方（神）にいつもある。では、自立性とは何か。他の行為の要素に動かされず、他の行為の要素を動かすことである。このことは、行為の要素を説明したときに述べた。もし上げることなどの行為について「行為がない」と言うのなら、（論証因は）不確定である。原因には、運動をもつものも、運動をもたないものも見られるからである。……</div><div class="exp"><span class="lbl">解説</span><p>反論者は、陶工のように行為主体は自ら動いているが、神は動かないので行為主体（原因）になれない、と言います。Uddyotakara は「行為」の二つの意味を区別します。物理的な運動（上げる、下げるなど、ヴァイシェーシカの五種の運動）と、動詞が表す行為一般です。後者の意味では神は行為主体です。行為主体であるとは「他に動かされず、他を動かす」こと（行為の要素の定義、<a href="nyayavarttika-13-taiyaku.html">第13プラカラナ</a>、また<a href="nyayavarttika-35-taiyaku.html">第35プラカラナ</a>も参照）であり、神はいつもその意味で自立しているからです。前者の意味なら、運動しない原因も多い（運動を終えて結合した部分が全体を生むなど）ので、論証因は不確定です。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版の脚注は「कारकाणि वर्णयद्भिः」に Vārttika 2.1.16 を参照させます。省略箇所の最後の「विरोधश्चोत्क्षेपणादिकायाः क्रियाया अनभ्युपगमात्」（（神に）上げることなどの行為を認めないので、矛盾がある）は趣旨が取りにくいので、省きました。</p></div>
+</div>
+<div class="mula" id="u7">
+  <span class="ref">pp.436–437 · NS 4.1.21</span>
+  <div class="src deva" lang="sa">न कारणमीश्वरो विकल्पानुपपत्तेः । कर्ता चेदीश्वरो भवति, किं सापेक्षः करोति, उत निरपेक्ष इति ? किं चातः ? यदि सापेक्षः, यदपेक्षते तस्याकर्तेति । …… अथायं सर्वमनपेक्षः करोति, एवमपि पुरुषकर्मवैफल्यं प्रसज्यते, अनिर्मोक्षप्रसङ्गश्च । यश्चाकर्मनिमित्ते सर्गे दोषः, स इहापि प्रसज्यत इति ? निरपेक्षकर्तृत्वस्यानभ्युपगमाद् धर्माधर्मवैफल्यादिदोषो नास्ति । …… येन करोति तस्याकर्तेति चेत् ? न, अनेकान्तात् । नायमेकान्तोऽस्ति येन करोति स तन्न करोतीति । यथानेकशिल्पपर्यवदातः पुरुषः करान्तरोपादानो वास्यादि करोति, वास्याद्युपादानो दण्डादि करोति, तदुपादानो घटादीन् । न च पर्यायकर्तृत्वे सत्यकर्तृत्वम् । तथेश्वरोऽपि धर्माधर्मोपादानः शरीरसुखादिकं …… । …… यदादौ करोति तस्यासाधनोत्पत्तिरिति चेत् ? …… आदेरनभ्युपगमादचोद्यम् । अनादिरयं संसार इति प्रतिपादितमेतत् । धर्माधर्मसाफल्यं चैवम् ।</div>
+  <div class="tr">（反論）「神は原因ではない。選択肢が成り立たないからである。もし神が行為主体であるなら、（何かに）依存して作るのか、依存せずに（作るの）か。それがどうしたのか、と言うなら。もし依存するなら、依存するものについては、行為主体ではない（ことになる）。……もし何にも依存せずに作るのなら、その場合も、人の行為が無意味になり、解脱がないことになってしまう。業を原因としない創出についての誤りが、ここにも当てはまる」。（われわれは、神が）依存せずに行為主体であることを認めないので、法と非法が無意味になるなどの誤りはない。……（反論）「それによって作るもの（道具）については、行為主体ではない」と言うなら。そうではない。不確定だからである。それによって作るものを、その人は作らない、という決まりはない。たとえば、多くの技術に通じた人が、手を使って手斧などを作り、手斧などを使って棒などを作り、それを使って壺などを作るように。順番に行為主体であるなら、行為主体でないことにはならない。同じく、神も、法と非法を使って身体や楽などを作り、……（反論）「最初に作るとき、（それには）手段なしに生じることになる」と言うなら。……始まりを認めないので、（その問いは）立てられない。この輪廻に始まりがないことは、（すでに）論証された。そして、このようにして、法と非法は無意味にならない。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、神が何かに依存して作るなら、依存するもの（道具）を自分で作ったのではないので全能の行為主体ではなく、何にも依存しないなら人の業が無意味になる、と迫ります。Uddyotakara は、神は人の業（法と非法）に依存して作るので、業は無意味にならない、と答えます。依存するものは作れないのか、という反論には、多芸な職人が手で斧を作り、斧で棒を作り、棒で壺を作るように、順番に作ればよい、と答えます。最初の一つは何によって作ったのか、という問いには、輪廻に始まりはないので、最初の一つはない、と答えます（<a href="nyayavarttika-41-taiyaku.html">第41プラカラナ</a>）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「पुरुषकर्मफलं प्रसज्यते」は、文脈に従って「पुरुषकर्मवैफल्यं प्रसज्यते」と読みました。写本 J は「धर्माधर्मवैफल्यादि」を「वैयर्थ्यादि」と読みます。「करान्तररोपादानो」は「करान्तरोपादानो」と読みました。写本 C は省略箇所の「अदेश्यम्」を「अदेश्यमेतत्」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>神は何のために作るのか</h2><span class="sub"><span class="pg">pp.437–438</span>遊びのため、威光を示すため、という説の否定。本性による。神の主宰力は常住か</span></div>
+<div class="mula" id="u8">
+  <span class="ref">pp.437–438 · NS 4.1.21</span>
+  <div class="src deva" lang="sa">अथायमीश्वरः कुर्वाणः किमर्थं करोतीति ? लोके हि ये कर्तारो भवन्ति ते किञ्चिद् वस्तूद्दिश्य प्रवर्तन्ते — इदमाप्स्यामि, इदं हास्यामि चेति । न पुनरीश्वरस्य हेयमस्ति, दुःखाभावात्; नोपादेयं, वशित्वात् । क्रीडार्थमित्येके । एके तावद् ब्रुवते क्रीडार्थमीश्वरः सृजतीति । नन्विदमयुक्तम् । क्रीडा हि नाम रत्यर्थं भवति, विना क्रीडया रतिमविन्दताम् । न च रत्यर्थी भगवान्, दुःखाभावादित्युक्तम् । दुःखिनश्च सुखोपगमार्थं क्रीडन्ति । विभूतिख्यापनार्थमित्यपरे । …… एतदपि तादृगेव । न हि विभूतिख्यापनेन कश्चिदतिशयो लभ्यते, न चास्याख्यापनेन किञ्चिद्धीयत इति । किमर्थं तर्हि करोति ? तत्स्वाभाव्यात् प्रवर्तत इत्यदुष्टम् । यथा भूम्यादीनि भूतानि धारणादिक्रियां तत्स्वाभाव्यात् कुर्वन्ति, तथेश्वरोऽपि तत्स्वाभाव्यात् प्रवर्तते । प्रवृत्तिस्वभावकं तत्तत्त्वमिति । तत्स्वाभाव्यात् सततं प्रवृत्तिरिति चेत् ? …… नैष दोषः, बुद्धिमत्त्वविशेषणात् । बुद्धिमत्तत्त्वमित्येतत् प्रतिपादितम् । बुद्धिमत्तया च विशेष्यमाणं सापेक्षम् । सापेक्षं च न सर्वं प्रवर्तते । …… स खलु प्रवर्तमानो धर्माधर्मयोः परिपाककालमपेक्षते, कारणोत्पादं, तद्भागिनां च सत्त्वानां तत्र सन्निधानं, तद्भागिसत्त्वधर्माधर्मपरिपाकं, तदप्रतिबन्धं चेति ।</div>
+  <div class="tr">（問い）「では、この神は、作るとき、何のために作るのか。世間で行為主体である者は、何かを目当てにしてはたらく。『これを得よう』『これを捨てよう』と。しかし神には、捨てるべきものはない。苦がないからである。得るべきものもない。（すべてを）支配しているからである」。ある人々は、遊びのためだ、と言う。神は遊びのために（世界を）創る、と。しかし、これは正しくないではないか。遊びとは、遊ばなければ楽しみを得られない者たちが、楽しみのためにするものである。しかし尊き方は、楽しみを求めない。苦がないからである、と（すでに）言った。苦のある者が、楽を得るために遊ぶのである。別の人々は、威光を示すためだ、と言う。……これも同様である。威光を示しても何の優越も得られず、示さなくても何も失われないからである。では、何のために作るのか。その本性によってはたらく、と言えば、誤りはない。地などの元素が、その本性によって（物を）支えるなどのはたらきをするように、神もその本性によってはたらく。その原理は、はたらくことを本性とするのである。（反論）「本性によってなら、絶えずはたらくことになる」と言うなら。……その誤りはない。知をもつという限定があるからである。（その原理が）知をもつ原理であることは、論証された。そして、知をもつことによって限定されたものは、（ほかの原因に）依存する。依存するものは、すべてのことについてはたらくのではない。……（神は）はたらくとき、法と非法の熟する時を、原因の生起を、その果報を受けるべき生き物たちがそこにいることを、その生き物たちの法と非法が熟することを、そしてそれが妨げられないことを、待つのである。</div><div class="exp"><span class="lbl">解説</span><p>得るべきものも捨てるべきものもない神が、なぜ世界を作るのか。遊び（<i>krīḍā</i>、ヴェーダーンタなどで説かれる「遊戯」の考えと見るのは訳者の補足）のためだという説は、遊びは楽しみを欲する者のすることなので、苦のない神には当てはまらない。威光を示すためだという説も、示しても示さなくても神に得失はない。Uddyotakara の答えは、神はその本性によってはたらく、というものです。大地がおのずから物を支えるように、神はおのずからはたらく。</p><p>本性ならいつも無差別にはたらくのではないか、という反論には、神は知をもつので、状況に応じてはたらく、と答えます。神は、人々の業が熟する時、必要な原因、果報を受ける者がその場にいること、妨げがないことを見計らって、はたらくのです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「इदमप्स्यामि」は「इदमाप्स्यामि」、「नन्वेदमयुक्तम्」は「नन्विदमयुक्तम्」と読みました。</p></div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">p.438 · NS 4.1.21</span>
+  <div class="src deva" lang="sa">यत् तदीश्वरस्यैश्वर्यं किं तन्नित्यमनित्यं वेति ? यद्यनित्यं, तस्य कारणं वक्तव्यमिति । यस्य चानित्यमैश्वर्यं तस्य कारणतो भवत्यणिमादि । एवमन्येषामपीत्यनेक ईश्वरः प्रसज्यते । अथानेकत्वे किं बाध्यत इति ? एकस्मिन् वस्तुनि व्याहतकामयोरीश्वरयोः प्रवृत्तिर्न प्राप्नोति । अथैकमितरोऽतिशेते, योऽतिशेते स ईश्वरो नेतर इति । अथ नित्यमैश्वर्यं, धर्मवैयर्थ्यं, न तद् धर्माद् भवति ? नित्यमिति ब्रूमः । न च धर्मवैयर्थ्यं दोषः । …… यो धर्मः स ईश्वरे नासौ तत्रैश्वर्यं करोति, किं तु प्रत्यात्मवृत्तीन् धर्माधर्मसञ्चयाननुगृह्णाति । न चेश्वरे धर्मोऽस्तीत्यचोद्यमेतत् ।</div>
+  <div class="tr">（問い）「神の主宰力は、常住か、無常か。もし無常なら、その原因を言わなければならない。主宰力が無常である者には、微細になる（力）などが、原因から生じる（ことになる）。同様に、ほかの者たちにも（同じ原因から主宰力が生じうる）ので、神が多数あることになってしまう」。（問い）「多数であると、何の不都合があるのか」。一つのものについて、望みが食い違う二人の神のはたらきは成り立たない。もし一方が他方にまさるなら、まさる者が神であって、他方は（神では）ない。（反論）「もし主宰力が常住なら、法は無用になる。それ（主宰力）は法から生じるのではない（ことになる）から」。常住だとわれわれは言う。そして、法が無用になるという誤りはない。……神にある法は、そこで主宰力を生むのではなく、一人ひとりの我にある法・非法の蓄積を助けるのである。また（実は）神には法はないので、この非難は当たらない。</div><div class="exp"><span class="lbl">解説</span><p>神の主宰力（<i>aiśvarya</i>）は、ヨーガ行者が修行によって得る超能力（微細になる力など）のように、原因から生じるものなのか。もしそうなら、同じ原因を得たほかの者も神になり、神が何人もいることになります。神どうしの望みが食い違えば世界は成り立たず、一方がまさるならそちらだけが神です。だから主宰力は常住だ、と Uddyotakara は答えます。主宰力が法（善い行為の力）から生じないなら法は無用になる、という反論には、神の主宰力は人々の法と非法を助けるためにはたらく、と答えます。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>この段落の後半は読みが確かではありません。OCR テキストは「न च धर्मवैयर्थ्य दोषस्तस्यैव। यो धर्मः स ईश्वरे। नासौ तत्रैश्वर्यं करोति」と読み、「法が神にあるとしても主宰力を生むのではない」と「神には法はない」という二つの答えが並んでいるように見えます。写本 C は「अणिमादि」を「अणिमादेः」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>神の本性</h2><span class="sub"><span class="pg">pp.438–440</span>神は実体。六つの性質。知は常住。身体はない。記憶も推理も苦もない。縛られても解脱してもいない</span></div>
+<div class="mula" id="u10">
+  <span class="ref">pp.438–439 · NS 4.1.21</span>
+  <div class="src deva" lang="sa">तत्स्वभावानवधारणात् सन्देहः — ईश्वरः किं द्रव्यमाहो गुणादीनामन्यतम इति । द्रव्यं, बुद्धिगुणत्वाद्, द्रव्यान्तरवदिति । बुद्धिगुणत्वात् तर्ह्यात्मान्तरमिति ? नात्मान्तरं, गुणभेदात् । यथा गुणभेदे सति पृथिव्यादयो नात्मानः, तथा गुणभिन्न ईश्वरः, तस्मादसावपि नात्मेति । कः पुनरस्य गुणभेदः ? एके तावद् ब्रुवते — धर्मज्ञानवैराग्यैश्वर्याण्यतिशयवन्ति तस्मिन्निति, नित्यत्वमतिशयः । एतत् तु न बुध्यामहे । यथा बुद्धिमत्तायामीश्वरस्य प्रमाणसद्भावो, नैवं धर्मादिनित्यत्वे प्रमाणमस्तीति । न चाप्रामाणिकं प्रतिपत्तुं शक्यमिति । अतिशयस्तु बुद्धिनित्यत्वं गुणभेदः । तत्र नित्या बुद्धिः, संख्यादयश्च सामान्यगुणाः । षड्गुण आकाशवदीश्वर इति । अथास्य बुद्धिनित्यत्वे किं प्रमाणमिति ? …… प्रत्यर्थनियमासंभवात् । ये खलु प्रत्यर्थनियता बुद्धिभेदास्ते शरीरादिकारणसन्निधाने सति भवन्ति । न त्वियं प्रत्यर्थनियता, युगपदनेककार्योत्पत्तिदर्शनात्, तद् यथा स्थावरभेदस्यानेकस्य युगपदुत्पाद इति । …… संख्यापरिमाणपृथक्त्वसंयोगविभागबुद्धय एव तस्य गुणाः ।</div>
+  <div class="tr">その本性が確定していないので、疑いがある。神は実体なのか、それとも性質など（ほかの範疇）のどれかなのか、と。実体である。知を性質とするから。ほかの実体のように。（反論）「知を性質とするなら、別の我であることになる」。別の我ではない。性質が違うからである。性質が違うので地などが我でないように、神も性質が違う。だから、それも（ふつうの）我ではない。では、その性質の違いとは何か。ある人々は、「法・知・離欲・主宰力が、神においては卓越している。常住であることが卓越である」と言う。しかし、これはわれわれには理解できない。神が知をもつことについては量があるが、法などが常住であることについては、そのような量はないからである。量によらないことを認めることはできない。卓越、すなわち性質の違いとは、知が常住であることである。そこで、知は常住であり、数などの共通の性質がある。神は、虚空のように、六つの性質をもつ。（問い）「では、その知が常住であることの量は何か」。……一つひとつの対象に限られることがありえないからである。一つひとつの対象に限られた個々の知は、身体などの原因がそろったときに生じる。しかしこれ（神の知）は、一つひとつの対象に限られていない。多くの結果が同時に生じるのが見られるからである。たとえば、多くの種類の植物が同時に生じるように。……数・大きさ・別異性・結合・分離・知だけが、その性質である。</div><div class="exp"><span class="lbl">解説</span><p>神はヴァイシェーシカの範疇のどれにあたるのか。知を性質としてもつので実体であり、しかもふつうの我とは性質が違う、と Uddyotakara は言います。ある人々（ヨーガ学派などの説と見るのは訳者の補足）は、神には法・知・離欲・主宰力が常住に卓越してある、と言いますが、Uddyotakara は、神が知をもつことには論証があるが、法などが常住であることには量がない、と退けます。神の特別な性質は、知が常住であることだけです。</p><p>神の知が常住であることは、無数の植物が同時に芽吹くように、多くの結果が同時に生じることから示されます。私たちの知は一度に一つの対象にしか向かず、身体などの条件がそろって生じるものですが、世界全体を監督する知はそうであってはなりません。こうして神の性質は、数・大きさ・別異性・結合・分離（すべての実体に共通の性質）と、知の六つ、虚空と同じく六つだ、と規定されます。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「गुणादीनामयतम」は「गुणादीनामन्यतम」、「बुद्धिमणत्वात्」は「बुद्धिगुणत्वात्」、「प्रत्यर्थनियमसंभवात्」は文脈に従って「प्रत्यर्थनियमासंभवात्」、「युगपदेककार्योत्पत्ति」は「युगपदनेककार्योत्पत्ति」と読みました。「（ふつうの）別の我ではない」「それも我ではない」と読める箇所は、バーシュヤが神を「性質によって区別された別の我」とすることと食い違うように見え、読みが確かではありません（訳者の注記）。</p></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">pp.439–440 · NS 4.1.21</span>
+  <div class="src deva" lang="sa">अथ बुद्धिमत्तयेश्वरस्य शरीरयोगमपि प्रतिपद्यते ? तेनापि प्रतिपद्यमानेन शरीरादयो नित्या अनित्या वा अवश्यमेषितव्याः । यद्यनित्याः, धर्माधर्मसद्भावोऽप्यभ्युपेयः । तदभ्युपगमे च तत्तन्त्रत्वादीश्वरो नेश्वरः स्यात् । अथ नित्यानि शरीरादीनि कल्पयसि, एवमपि दृष्टविपरीतं कल्पितं भवति । दृष्टविपर्ययं प्रतिपद्यमानेन वरं बुद्धेरेव नित्यत्वं प्रतिपत्तव्यमिति । …… सा च बुद्धिः सर्वार्थातीतानागतवर्तमानविषया प्रत्यक्षा, नानुमानिकी नागमिकी च । …… ज्ञाननित्यत्वाच्च न संस्कारः । …… संस्काराभावाद् बुद्धिनित्यत्वाच्च न स्मृतिः । स्मृतेरभावाच्च नानुमानम् । न दुःखम्, अधर्मस्याभावात् । अत एव न वैराग्यम् …… । अत एव न द्वेषो, दुःखाभावादिति । इच्छा तु विद्यतेऽक्लिष्टाव्याहता सर्वार्थेषु, यथा बुद्धिरिति । अथ किमयं बद्धो मुक्त इति ? न बद्धो, दुःखाभावादेव । अबद्धत्वान्न मुक्त इति । बन्धवान् मुच्यते, न च भगवति बन्धनमस्तीति, अतो न मुक्तः ।</div>
+  <div class="tr">（問い）「では、知をもつのだから、神が身体をもつことも認めるのか」。それを認める者も、身体などが常住か無常か、どちらかを必ず認めなければならない。もし無常なら、（それを生む）法と非法があることも認めなければならない。それを認めるなら、それ（法と非法）に依存するので、神は主宰者でなくなるであろう。もし常住な身体などを想定するなら、その場合も、見られることに反することを想定したことになる。見られることに反することを認めるくらいなら、むしろ知だけが常住であることを認めるべきである。……そしてその知は、過去・未来・現在のすべての対象についての、直接の（知）であって、推理によるものでも聖典によるものでもない。……知が常住なので、潜在印象はない。……潜在印象がなく、知が常住なので、記憶はない。記憶がないので、推理はない。非法がないので、苦はない。だからこそ、離欲もない。……だからこそ、嫌悪もない。苦がないからである。しかし欲求はある。それは、知と同じく、すべての対象について、汚れなく、妨げられないものである。（問い）「では、この（神）は縛られているのか、解脱しているのか」。縛られてはいない。まさに苦がないからである。縛られていないので、解脱してもいない。縛りのある者が解き放たれる（解脱する）のであって、尊き方には縛りはない。だから解脱してもいない。</div><div class="exp"><span class="lbl">解説</span><p>神は身体をもつのか。無常な身体なら、それを生む業（法と非法）が神にもあることになり、神は業に縛られて主宰者でなくなります。常住な身体というのは見られることに反する想定です。どうせ常識に反することを認めるなら、知が常住だと認めるほうがよい、と Uddyotakara は言います。</p><p>神の知は、過去・現在・未来のすべてを直接に知る知です。常住なので潜在印象を残さず、記憶もなく、記憶（証因と証されるものの関係の想起）がないので推理もしません。非法がないので苦もなく、苦がないので嫌悪も離欲もありません。しかし欲求（<i>icchā</i>）はあり、それは知と同じく、すべてに及ぶ妨げのないものです。最後に Uddyotakara は、神は縛られていない、しかし縛られていないので解脱しているのでもない、と述べます。解脱とは縛りから解かれることだからです。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「न दुःखधर्मस्याभावात्」は「न दुःखम्, अधर्मस्याभावात्」と読みました。神の性質の数について、前のブロックでは「六つの性質」（数・大きさ・別異性・結合・分離・知）と言われ、ここでは欲求もあると言われます。省略箇所には、知が連続するとする説や、神と方角・時との比較についての議論があります。</p></div>
+</div>
+</section>
+
+<!-- ============ §7 ============ -->
+<section id="s7" class="wrap">
+  <div class="sec-head"><span class="sec-no">7</span><h2>神と我の結びつき、聖典</h2><span class="sub"><span class="pg">pp.440–441</span>神はどのように我を監督するか。今も神は原因。聖典の詩節</span></div>
+<div class="mula" id="u12">
+  <span class="ref">pp.440–441 · NS 4.1.21</span>
+  <div class="src deva" lang="sa">आत्मान्तराणामसंबन्धादधिष्ठातृत्वमनुपपन्नमिति चेत् ? …… तच्च न, अजसंबन्धोपपत्तेः । अजः संबन्ध आत्मान्तराणामित्येक इच्छन्ति । …… येऽप्यजं संयोगं नेच्छन्ति, तेषामप्यणुमनःसंयोगोपपत्तेरस्ति सम्बन्धः । यानि प्रत्यात्ममनांसि तानि सर्वाणीश्वरसम्बद्धानीत्यतः सम्बन्धिसम्बन्धोपपत्तेरात्मान्तराण्यधितिष्ठतीति …… । यदि तर्हि सर्गादावीश्वरस्य कारणत्वेऽयं न्यायोऽभिधीयते, इदानीमीश्वरो न कारणमिति प्राप्तम् ? इदानीमपि स एव न्यायः । …… बुद्धिमत्कारणाधिष्ठितानि स्वासु स्वासु धारणादिक्रियासु महाभूतानि वाय्वन्तानि प्रवर्तन्ते, अचेतनत्वाद्, वास्यादिवदिति । ……<br>आगमाच्च । आगमश्चास्मिन् पक्षे श्रूयत ईश्वरकारणे, यथा —<br>अज्ञो जन्तुरनीशोऽयमात्मनः सुखदुःखयोः ।<br>ईश्वरप्रेरितो गच्छेत् स्वर्गं वा श्वभ्रमेव वा ॥<br>यदा स देवो जागर्ति तदेदं चेष्टते जगत् ।<br>यदा स्वपिति शान्तात्मा तदा सर्वं निमीलति ॥२१॥<br>॥ ईश्वरोपादानताप्रकरणम् ॥</div>
+  <div class="tr">（反論）「（神は）ほかの我と結びついていないので、（それを）監督することは成り立たない」と言うなら。……それは正しくない。生じたのではない（常住の）結びつきが成り立つからである。ある人々は、ほかの我との生じたのではない結びつきを認める。……生じたのではない結合を認めない人々にとっても、原子大の意との結合が成り立つので、結びつきはある。一人ひとりの我の意は、すべて神と結びついている。だから、結びついたものとの結びつきが成り立つので、（神は）ほかの我を監督するのである。……（問い）「もしこの論証が創造の始まりに神が原因であることについて述べられたのなら、今は神は原因ではない、ということになる」。今も同じ論証が（当てはまる）。……「風に至るまでの大元素は、それぞれ（物を）支えるなどのはたらきにおいて、知をもつ原因に監督されてはたらく。精神をもたないから。手斧などのように」。……<br>また、聖典からも（神が原因であることは知られる）。この立場、すなわち神を原因とする立場について、聖典が聞かれる。たとえば、<br>「この生き物は無知であり、自分の楽と苦を思うままにできない。<br>神に促されて、天に、あるいは奈落に行くであろう。<br>その神が目覚めているとき、この世界は動き、<br>静まった心でその方が眠るとき、すべては目を閉じる」。<br>以上、神を原因とする説の章。</div><div class="exp"><span class="lbl">解説</span><p>神が我を監督するには、神と我が結びついていなければなりません。ある人々は、遍在するものどうしの間にも、生じたのではない（常住の）結合がある、と考えます。それを認めない人々にとっても、神は一人ひとりの我の原子大の意と結合しているので、それを介して我と結びついている、と Uddyotakara は言います。</p><p>神は創造の始まりにだけ必要なのではありません。今も、大地が物を支え、水が流れ、風が吹くのは、神の監督によります。最後に引かれる二つの詩節は、前者が『マハーバーラタ』、後者が『マヌ法典』1.52 に見えるものとして知られています（訳者の補足。Thakur 版には出典の注記がない）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「आत्मान्तराणयधितिष्ठतीति」は「आत्मान्तराण्यधितिष्ठतीति」と読みました。省略箇所には、神と我の結びつきが（相手全体に）行きわたるかどうかは答えるべき問いではない、という一節や、手と鉄の塊を挟む鉗子のたとえがあります。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>īśvara / bhagavat</dt><dd>神／尊き方</dd>
+    <dt>nimittakāraṇa</dt><dd>機会因。内属因（素材）と非内属因を助ける原因</dd>
+    <dt>upādānakāraṇa</dt><dd>質料因（素材としての原因）</dd>
+    <dt>adhiṣṭhātṛ</dt><dd>監督者。精神をもたないものをはたらかせる者</dd>
+    <dt>buddhimat</dt><dd>知をもつ（もの）</dd>
+    <dt>svātantrya</dt><dd>自立性。他に動かされず、他を動かすこと</dd>
+    <dt>aiśvarya</dt><dd>主宰力</dd>
+    <dt>tatsvābhāvya</dt><dd>それ自身の本性によること</dd>
+    <dt>ajasaṃbandha</dt><dd>生じたのではない（常住の）結びつき</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直し、長い箇所は抜粋した（「……」は省略箇所）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。</p>
+  <p>和訳は試訳であり、解説は本文にもとづく訳者の説明である。第四篇については Śrīnivāsa Śāstrī のヒンディー訳注の翻刻が提供されていないので、参照していない。このページが扱うのは第46プラカラナ（スートラ 4.1.19–21）である。第45プラカラナ（スートラ 4.1.14–18）は<a href="nyayavarttika-45-taiyaku.html">第45プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
