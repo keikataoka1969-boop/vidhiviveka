@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 36</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-35-taiyaku.html">← プラカラナ35</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>身体は刻々と別物になる</a></li><li><a href="#s2"><b>2</b>生起と消滅の原因</a></li><li><a href="#s3"><b>3</b>冷たい水晶、熱い水晶</a></li><li><a href="#s4"><b>4</b>主張と消滅の原因</a></li><li><a href="#s5"><b>5</b>「刹那的」とは何か</a></li><li><a href="#s6"><b>6</b>持続の論証と乳の変化</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第36プラカラナ「付随的な刹那滅の章」（スートラ 3.2.10–17、Thakur 版 pp.383–395）</span>
+  <p>前の章の最後で、サーンキヤは「水晶が下の色によって別物のように見える」というたとえを出しました。ここで刹那滅論者が割って入ります。水晶が一つのまま別物に見える、という前提がそもそも誤りだ。水晶も含めて、個物は刻々と生じては滅しており、次々に別の水晶が生じているのだ、と。知の考察の途中に挟まるので、この章は「付随的な」（<i>aupodghātika</i>）章と呼ばれます。</p>
+  <p>スートラは、身体のように成長と衰退が見えるものなら別物になることは認めるが、それを水晶にまで広げる理由はない、と答えます（3.2.11）。生起と消滅には原因が見られるはずだ（3.2.12）、乳が凝乳になるときのように原因が見えなくても認めるべきだ（3.2.13）、乳の場合は目印から原因が分かる（3.2.14）、という応酬の後、Uddyotakara は長い Vārttika で、冷たさ・熱さの違い、「刹那的」という語の意味、灯火のたとえ、落下の速さの違いなど、刹那滅論の論拠を一つずつ検討します。最後に、知は無常であることを確認して章を閉じます（3.2.15–17）。</p>
+  <p>この章は Vārttika が長いので、原文は抜粋で載せました（「……」は省略箇所）。解説では Śrīnivāsa Śāstrī のヒンディー語訳注（第3巻）と、その注に引かれた Vācaspati の <i>Tātparyaṭīkā</i> を参照しました。提供されたヒンディー訳の翻刻は、pp.1043–1047 と pp.1063–1067 を欠いています。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>付随的な刹那滅の章<br><small><i>aupodghātikaṃ kṣaṇabhaṅgaprakaraṇam</i>。スートラ 3.2.10–17 の注釈。Thakur 版 pp.383–395</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>3.2.10–17<br><small>水晶も刹那ごとに別物か、生起と消滅の原因、乳と凝乳、知の無常性の確認</small></dd></div>
+    <div><dt>論敵</dt><dd>刹那滅論者<br><small>ヒンディー訳は「刹那滅論者（仏教徒）」と補うが、学派は特定しない。Thakur 版の脚注は、元素の定義について『倶舎論』1.12 を参照させる</small></dd></div>
+    <div><dt>見どころ</dt><dd>「刹那的」という語の分析<br><small>§5。「滅するもの」「すぐ滅するもの」「一瞬だけあるもの」など、どの意味にとっても主張が成り立たないことを示す</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>Śrīnivāsa Śāstrī 訳注<br><small>本章は同書第3巻 pp.1040–1068。提供された翻刻は pp.1043–1047、pp.1063–1067 を欠く</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">p.384</span> は Thakur 版の頁。節見出しの <span class="pg">p.383</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。長い箇所は「……」で省略した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。（TṬ p.○）はヒンディー訳の注が引く <i>Tātparyaṭīkā</i> の頁</div>
+    <div><b>ヒンディー訳の読み</b>解説欄の下段。（Hi. p.○）はヒンディー訳第3巻の頁。翻刻に欠けている頁にあたるブロックには、その旨を記した</div>
+    <div><b>解釈の分かれる箇所</b>異読や、ヒンディー訳と和訳とで読みが分かれる箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 3.2.10–17 の注釈を、テキストの順に6節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">身体は刻々と別物になる</a></td><td class="num">pp.383–385</td><td>スートラ 3.2.10–11。成長と衰退の連続からの刹那滅の論証。それは身体にしか当てはまらない</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">生起と消滅の原因</a></td><td class="num">pp.385–386</td><td>スートラ 3.2.12–13。原因が見られること。基体と依存者の関係。天秤のたとえ。乳と凝乳</td></tr>
+<tr><td class="num">§3</td><td class="k"><a href="#s3">冷たい水晶、熱い水晶</a></td><td class="num">pp.387–388</td><td>スートラ 3.2.14。冷・熱の違いは水や火の微粒子の入り込みによる。元素の定義との矛盾。火の四種</td></tr>
+<tr><td class="num">§4</td><td class="k"><a href="#s4">主張と消滅の原因</a></td><td class="num">pp.388–390</td><td>「水晶は次々に別物」の意味。灯火も数刹那続く。原因のない消滅はない。生むものと滅ぼすもの</td></tr>
+<tr><td class="num">§5</td><td class="k"><a href="#s5">「刹那的」とは何か</a></td><td class="num">pp.390–392</td><td>「刹那的」の諸解釈。「最後に違いが見える」の吟味。見え隠れ。落下の速さの違い</td></tr>
+<tr><td class="num">§6</td><td class="k"><a href="#s6">持続の論証と乳の変化</a></td><td class="num">pp.393–395</td><td>刹那的でないことの推論。スートラ 3.2.15–17。乳の変化をめぐる二説。知は無常である</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>身体は刻々と別物になる</h2><span class="sub"><span class="pg">pp.383–385</span>スートラ 3.2.10–11。成長と衰退の連続からの刹那滅の論証。それは身体にしか当てはまらない</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">pp.383–384 · NS 3.2.10</span>
+  <div class="src deva" lang="sa">स्फटिकेऽप्यपरापरोत्पत्तेः क्षणिकत्वाद् व्यक्तीनामहेतुः ॥३।२।१०॥<br>स्फटिकान्यत्वाभिमानवत् तदन्यत्वाभिमान इत्येतदमृष्यमाणः क्षणिकवाद्याह — स्फटिकेऽप्यपरापरोत्पत्तेः क्षणिकत्वाद् व्यक्तीनामहेतुः । स्फटिकस्याभेदेनावस्थितस्यान्यत्वाभिमान इत्ययुक्तं क्षणिकत्वाद् व्यक्तीनाम् । क्षणिकत्वमुपचयापचयप्रबन्धदर्शनात् । यस्मात् शरीरादिषु पक्तिनिर्वृत्तं रसद्रव्यं प्रतिक्षणमुपचीयते चापचीयते च, उपचयाद् व्यक्तीनामुत्पादः, अपचयाद् व्यक्तिनिरोधः, तौ चोत्पादनिरोधावस्य कालान्तरेण दृष्टौ । अतोऽवगम्यते प्रतिक्षणमुपचीयते चापचीयते च शरीरमिति । यस्य खलु प्रतिक्षणमुपचयापचयौ न दृष्टौ तस्य कालान्तरेणापि न भवतः, यथा भूमेरपच्यमानायाः पाकजानामिति । पच्यमानभूमिपाकजवच्च प्रतिक्षणं विशेष इति । अस्य प्रयोगः — प्रतिक्षणं शरीरमन्यच्चान्यच्च भवति, बाह्यप्रत्ययाभेदे सत्यन्ते विशेषदर्शनात्, पच्यमानभूमिपाकजवत्, अपच्यमानभूमिपाकजवच्चेति ॥१०॥</div>
+  <div class="tr">（反論）「水晶においても次々に（新しい個物が）生じているので、（あなたの理由は）論証因ではない。個物は刹那的だからである」。<br>「水晶が別のものだと思いこむように、それが別々だと思いこむのである」ということを受け入れずに、刹那滅論者が言う。「水晶においても次々に（新しい個物が）生じているので、論証因ではない。個物は刹那的だからである」。別でないまま持続している水晶について、別のものだと思いこむ、というのは正しくない。個物は刹那的だからである。刹那的であることは、成長と衰退の連続が見られることから（知られる）。身体などにおいては、消化によって生じた体液という実体が、刹那ごとに増え、また減る。増えることから個物の生起が、減ることから個物の消滅が（ある）。そして、その生起と消滅は、時間をおいて見られる。だから、身体は刹那ごとに増え、また減る、と知られる。刹那ごとに増減が起こっていないものには、時間をおいても（増減は）起こらない。焼かれていない土の、焼成によって生じる（色などの）ように。そして、焼かれている土の、焼成によって生じる（色など）のように、刹那ごとに違いがある。その論証式は、「身体は刹那ごとに次々と別のものになる。外的な条件が違わないのに、最後に違いが見られるから。焼かれている土の、焼成によって生じる（色など）のように。また（異類例として）焼かれていない土の、焼成によって生じる（色など）のように」。</div><div class="exp"><span class="lbl">解説</span><p>前の章のサーンキヤのたとえは「水晶は一つのまま、別物に見える」という前提に立っていました。刹那滅論者はこの前提を突きます。水晶も含めてすべての個物は刹那ごとに生じては滅するので、「一つのまま持続する水晶」などはない、というのです。</p><p>論拠は身体の成長と衰退です。食物から生じた体液は刻々と増減しているが、変化が目に見えるのは時間がたってからだ。刻々と変化していないものは、時間がたっても変化しない。壺を焼くと、色の変化は最後にはっきり見えるが、実は刻々と進んでいたのと同じだ。だから、外的な条件が同じなのに最後に違いが見えるものは、刹那ごとに別のものになっている、という論証です。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は「二、刹那滅の考察」という見出しを立て、刹那滅論者に「（仏教徒）」と補います。注は、著者は自分の立場からサーンキヤの誤りを示した後、刹那滅説を退けるために、仏教徒がサーンキヤに見いだした誤りを示す、という TṬ（p.541）を引きます。バーシュヤは刹那を最も短い時間と定義します。注は、身体が時とともに目に見えて縮むことから刻々の変化（実は消滅）が推理され、変化が見えない水晶についても同じことが推理される、と説明し、仏教徒の推論を「存在するものは刹那的である。身体のように」と示します（TṬ p.541）。「外的な条件」（<i>bāhyapratyaya</i>）について、Vācaspati は <i>pratyaya</i> を原因と解するが、上の訳では認識と訳した、と注自身が記しています（TṬ p.542）（Hi. pp.1040–1041）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「इत्युक्तं क्षणिकत्वाद्」は、ヒンディー訳の訳（「正しくない」）に従って「इत्ययुक्तं」と読みました。「पक्तिनिवृत्तं」は「पक्तिनिर्वृत्तं」と読みました。ヒンディー訳は「रसद्रव्यं」に「रक्तवद् द्रव्यं」という異読を記します。ヒンディー訳は最後の実例を「焼かれていない土…」と同類例のように訳しますが、本文は「च」で結んでおり、和訳は異類例と解しました。</p></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.384–385 · NS 3.2.11</span>
+  <div class="src deva" lang="sa">नियमहेत्वभावाद् यथादर्शनमभ्यनुज्ञा ॥३।२।११॥<br>तदिदमुपचयापचयप्रबन्धदर्शनं शरीरे दृष्टत्वात् शरीरस्यान्यत्वं साधयतु, न पुनरनुपलभ्यमानोपचयापचयविशेषाणां स्फटिकादीनामेतस्मादन्यत्वं सिध्यतीत्यहेतुः । यत्रोपलब्धिस्तस्यान्यत्वमिति चेत् ? …… सत्यम्, यस्य यस्योपचयापचयप्रबन्ध उपलभ्यते, तस्य तस्यान्यत्वमिति, न तु क्षणिकत्वम् । उपचयापचयप्रबन्धदर्शनं चान्यथाभवदहेतुः क्षणिकत्वे । कथमन्यथा ? पूर्वशरीरावयवसंहिता आहारावयवाः पूर्वव्यूहपरित्यागेन व्यूहान्तरमापद्यमानाः शरीरान्तरमुत्पादयन्तीति युक्तो भेद इत्यहेतुरेषः । तुल्यं पक्षप्रतिज्ञानमिति चेत् ? …… न, असाधनात् । न मया आहारावयवोपयोगात् शरीरस्यान्यता साध्यते, अपि तु भवता विशेषदर्शनात् शरीरस्यान्यत्वमभ्यधायि, ततश्च क्षणिकत्वमिति विशेषदर्शनं क्षणिकत्वसाधनम् । तदस्माभिर्विशेषदर्शनमन्यथाभवत् क्षणिकत्वे न साधनमित्येतावन्मात्रमुच्यते, न साधनमभिधीयत इति ॥११॥</div>
+  <div class="tr">（答え）（すべてが刹那的だという）決まりの理由がないので、見られるとおりに認めるべきである。<br>この成長と衰退の連続が見られることは、身体に見られるのだから、身体が別のものになることを論証してもよい。しかし、成長と衰退の特徴が知覚されない水晶などが別のものになることは、これからは成り立たない。だから、論証因ではない。（反論）「（成長と衰退が）知覚されるものについて、それが別のものになる（と言っているのだ）」と言うなら。……そのとおり。成長と衰退の連続が知覚されるものは、どれも別のものになる。しかし、刹那的なのではない。また、成長と衰退の連続が見られることは、別の仕方でも成り立つので、刹那的であることの論証因ではない。どのように別の仕方でか。前の身体の部分と結びついた食物の部分が、前の配列を捨てて別の配列になり、別の身体を生み出す。だから違いが生じるのは当然である。だから、これは論証因ではない。（反論）「（あなたの説も）同じく主張にすぎない」と言うなら。……そうではない。（われわれは）論証を立てていないからである。私は、食物の部分がはたらくことから身体が別のものになることを論証しているのではない。あなたが、違いが見られることから身体が別のものになると述べ、そこから刹那的であると（述べた）。（あなたにとっては）違いが見られることが、刹那的であることの論証である。われわれはただ、違いが見られることは別の仕方でも成り立つので、刹那的であることの論証ではない、と言っているだけで、論証を述べているのではない。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.11 の答えは単純です。すべての個物が身体のように変化する、という決まりの理由はない。見られるとおりに、身体については認め、水晶については認めなければよい。</p><p>Uddyotakara はさらに二点を加えます。第一に、成長と衰退は「別のものになる」ことは示すが、「刹那的である」ことまでは示さない。第二に、身体の変化は、刹那滅を持ち出さなくても、食物の微粒子が前の身体の部分と結びついて配列を変え、新しい身体を作る、という仕方で説明できる。相手が「それもあなたの主張にすぎない」と言うと、自分は論証を立てているのではなく、相手の論証因が別の仕方でも成り立つ（不確定である）ことを指摘しているだけだ、と答えます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、スートラ 3.2.11 を定説のスートラとします（TṬ p.542）。バーシュヤは、すべての個物が身体のように成長し衰えるという決まりはない、知覚も推理もそれを示さない、だから見られるとおりに、身体については認め、石や水晶については認めない、と説き、それに反する推論は、アルカ草が苦いからすべての実体は苦い、と推理するようなものだ、と言います。提供された翻刻は Hi. pp.1043–1047 を欠いており、Vārttika はこのブロックの冒頭の一文しか参照できず、ヒンディー訳を参照できていません。（Hi. p.1042）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「पूर्वशरीरावयवसंहिता आहारावयवाः」を「पूर्वावयवाः आहारावयवसंहिताः」と読みます。OCR テキストの「नासाधनात्」は「न, असाधनात्」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>生起と消滅の原因</h2><span class="sub"><span class="pg">pp.385–386</span>スートラ 3.2.12–13。原因が見られること。基体と依存者の関係。天秤のたとえ。乳と凝乳</span></div>
+<div class="mula sutra" id="u3">
+  <span class="ref">p.385 · NS 3.2.12</span>
+  <div class="src deva" lang="sa">नोत्पत्तिविनाशकारणोपलब्धेः ॥३।२।१२॥<br>अथावश्यं साधनं वक्तव्यम्, इदं ब्रूमः — नोत्पत्तिविनाशकारणोपलब्धेः । उत्पत्तिकारणं विनाशकारणं चोपचयापचयौ वल्मीकघटादीनां दृष्टाविति तदुभयं क्षणिकत्वे न स्यात् । उपचय इति वृद्धिः, अवर्धत गौरिति; अपचय इति ह्रासः, अपचितो गौरिति । उभयं चैतदवस्थितवस्तुविषयम् । न ह्यपूर्वं जायमानं वर्धत इत्युच्यते, नापि विनश्यदपचितमित्युच्यते । उपचयापचयोत्पत्तिविनाशकारणोपलब्धेरिति सूत्रार्थः ।<br>अथवा कारणमित्याधारोऽभिधीयते, कार्यमित्याधेयम् । न च क्षणिकत्वे आधाराधेयभावः संभवति । न चाधाराधेयभावमन्तरेण कार्यकारणभावः । तस्मात् कार्यकारणभावोपलब्धेरक्षणिकत्वमिति । अस्य प्रयोगः — कार्यकारणे एककालानुभाविनी, आधाराधेयभावात्, क्षीरकुण्डवदिति । …… न, आधाराधेयभावस्यासिद्धत्वादिति चेत् ? …… नैव हि नः किञ्चित् कार्यमाधारवद् दृष्टमिति । न, अनेकान्तात् । नायमेकान्तः सर्वं कार्यमनाधारमिति । यथोभयपक्षसंप्रतिपत्त्या रूपं कार्यं चाधारवच्च, स्पर्शस्तदाश्रय इति व्याघातः । यदि च रूपमनाश्रितं भवति, स्पर्शस्तदाश्रय इति व्याहतम् । ……</div>
+  <div class="tr">（答え）そうではない。生起と消滅の原因が知覚されるからである。<br>では、どうしても論証を述べなければならないなら、こう言おう。「そうではない。生起と消滅の原因が知覚されるからである」。蟻塚や壺などには、生起の原因と消滅の原因、すなわち成長と衰退とが見られる。その両者は、刹那的であるなら、ありえないであろう。「成長」とは増大である。「牛が育った」のように。「衰退」とは減少である。「牛がやせた」のように。そして、この両者は持続しているものについて言われる。新しく生じたばかりのものが「育つ」とは言わないし、滅しつつあるものが「やせた」とも言わない。成長と衰退、すなわち生起と消滅の原因が知覚されるから、というのがスートラの意味である。<br>あるいは、「原因」によって基体が言われ、「結果」によってそこにあるもの（依存者）が言われる。そして刹那的であるなら、基体と依存者の関係はありえない。また、基体と依存者の関係なしに、原因と結果の関係はない。だから、原因と結果の関係が知覚されるので、刹那的ではない。その論証式は、「結果と原因とは同じ時を経験する。基体と依存者の関係にあるから。乳と鉢のように」。……（反論）「そうではない。基体と依存者の関係は成り立っていないからである」と言うなら。……「われわれにとって、基体をもつ結果は何一つ見られない」。そうではない。不確定だからである。すべての結果が基体をもたない、という決まりはない。というのも、両者の合意によって、色は結果であって基体をもつからである。（そうでなければ、あなたがたの）「触がその支え（である）」というのと矛盾する。もし色が支えをもたないなら、「触がその支えである」というのは自己矛盾である。……</div><div class="exp"><span class="lbl">解説</span><p>Uddyotakara は、スートラ 3.2.12 から刹那滅への反論を二通りに読み取ります。一つ目は語の用法です。「育つ」「やせる」は、持続しているものについてしか言わない。生じたばかりで次の刹那に消えるものが育つことはない。成長と衰退が見られる以上、持続するものがある、というのです。</p><p>二つ目は原因と結果の関係です。ニヤーヤでは、結果（たとえば布）は原因（糸）を基体としてそこに内属します。基体と依存者は同時に存在しなければならないので、刹那滅説では原因と結果の関係が成り立たない。相手が「結果に基体などない」と言うと、Uddyotakara は、相手も色を、触（地・水・火・風の四大種）に依って生じるものと認めているではないか、と反論します。（「触がその支え」を、色などが四大種に依って生じるという仏教の説を指すと見るのは訳者の補足。）</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>提供された翻刻は Hi. pp.1043–1047 を欠いており、このブロックはその範囲にあたるので、ヒンディー訳を参照できていません。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「अवधत」は「अवर्धत」と読みました（写本 C は「अपचितो」を「उपचितः」と読む）。省略した箇所の最後の文「अनेन च रूपदृष्टान्तेन…सिद्धः कार्यकारणभावः क्षणिकेष्वपि」は、読みが定まらないので訳していません。</p></div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">p.386 · NS 3.2.12</span>
+  <div class="src deva" lang="sa">नाशोत्पादयोरेककालत्वात् तुलान्तनामोन्नामवदिति चेत् ? अथ मन्यसे कार्यकारणभावः क्षणिकेष्वपि संभवति, कारणविनाशसमकालं कार्यभावात् । यदा कारणं विनश्यति तदा कार्यमुत्पद्यत इति …… यथा तुलाया अन्तयोर्नामोन्नामाविति ? न, हेत्वर्थापरिज्ञानात् । न ब्रूमः क्षणिकेषु कार्यकारणभावो नास्ति, अपि तु क्षणिकेष्वाधाराधेयभावो भिन्नकालत्वात् कार्यकारणयोर्न युक्तः । …… यदि तावत्तुलामधिकृत्य ब्रवीषि, तदेकं कर्म भ्रमणाख्यम्, एकत्वाच्च युगपद्भावो न युक्तः । न ह्येकं युगपद् भवतीति । अथावयवकर्मणी, तयोरपि कार्यकारणभावेनानभ्युपगमात् किं केन संबध्यते ? अथ युगपद्भावमात्रं विवक्षितमिति ? युगपद्भावः कारणयौगपद्यात् । यावतामर्थानां कारणानि यौगपद्येन भवन्ति, तावतामेकस्मिन् काले भाव इति नामोन्नामावसंबद्धौ । …… यथा च भावानामुत्पत्तिविनाशकारणमुपलभ्यते नैवं स्फटिकस्य । न चानुपलभ्यमानं शक्यमभ्यनुज्ञातुमिति ॥१२॥</div>
+  <div class="tr">（反論）「消滅と生起とは同時なので、天秤の両端が下がり上がるように（原因と結果の関係はありうる）」と言うなら。つまり、「刹那的なものの間でも、原因と結果の関係はありうる。原因の消滅と同時に結果があるからである。原因が滅するとき、結果が生じる。……天秤の両端が下がり、上がるように」と考えるなら。そうではない。（われわれの）論証因の意味を理解していないからである。われわれは、刹那的なものの間に原因と結果の関係がない、と言っているのではない。刹那的なものの間では、原因と結果とが別の時にあるので、基体と依存者の関係が成り立たない、と言っているのである。……もし天秤（の竿）について言うなら、それは「揺れ」という一つの運動であり、一つなので、同時にあることは成り立たない。一つのものが（二つとして）同時にあることはないからである。もし（両端の）部分の二つの運動（を言う）なら、それらも原因と結果の関係にあるとは認められないので、何が何と結びつくのか。もし同時にあることだけを言いたいのなら、同時にあるのは原因が同時にあるからである。原因が同時にあるものは、それだけ同じ時にある。だから、下がることと上がることとは（因果的に）結びついていない。……そして、（ほかの）ものの生起と消滅の原因は知覚されるが、水晶についてはそうではない。そして知覚されないものを認めることはできない。</div><div class="exp"><span class="lbl">解説</span><p>刹那滅論者は、原因の消滅と結果の生起とが同時に起こるのだと言い、天秤の一方が下がると同時に他方が上がるたとえを出します。Uddyotakara は、因果関係そのものを否定しているのではなく、基体と依存者の関係が成り立たないと言っているのだ、と論点を確認したうえで、天秤のたとえを分解します。竿の揺れなら一つの運動であって、二つのものが同時に起こるのではない。両端の動きなら、互いに原因でも結果でもない。両端が同時に動くのは、それぞれの原因（重さ・力・結合）が同時にはたらくからにすぎない、というのです。最後に、ほかのものとは違って、水晶には生起と消滅の原因が知覚されないので、それを認めることはできない、とスートラの趣旨に戻ります。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>翻刻はこのブロックの終わり近く（天秤の議論）から再開します（Hi. p.1048）。注は、上がることと下がることの原因を区別する TṬ（pp.543–544）を引きます。上がるのは重さ・力・結合により、下がるのは、重い物との結合に助けられた紐と竿の結合による、というのです。「相手（<i>para</i>）が運動や結合を別のものと認めないなら」の「相手」には「（仏教徒）」と補い、これはすでに答えた疑問だと注します（Hi. p.1048）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「तुलान्तनामोन्नामवद्」を「तुलान्तयोस्तमनावनमनवद्」、「कर्मणो」を「व्यापारस्य」と読みます。OCR テキストの「क्षणिकेष्पपि」は「क्षणिकेष्वपि」と読みました。</p></div>
+</div>
+<div class="mula sutra" id="u5">
+  <span class="ref">p.386 · NS 3.2.13</span>
+  <div class="src deva" lang="sa">क्षीरविनाशकारणानुपलब्धिवद् दध्युत्पत्तिवच्च तदुपपत्तिः ॥३।२।१३॥<br>यथा क्षीरस्य विनाशकारणमनुपलभ्यमानमभ्यनुज्ञायते दध्नश्चोत्पत्तिकारणम्, एवं स्फटिकादिव्यक्तीनामनुपलभ्यमाने उत्पत्तिविनाशकारणे अभ्यनुज्ञेये इति ॥१३॥</div>
+  <div class="tr">（反論）「乳の消滅の原因が知覚されないように、また凝乳の生起のように、それ（水晶の生起と消滅）は成り立つ」。<br>乳の消滅の原因は知覚されないのに認められ、凝乳の生起の原因も（知覚されないのに認められる）ように、水晶などの個物の生起と消滅の原因も、知覚されなくても認めるべきである。</div><div class="exp"><span class="lbl">解説</span><p>刹那滅論者の切り返しです。乳が凝乳に変わるとき、乳を滅ぼす原因も凝乳を生む原因も目には見えないが、誰もそれを認めている。だから水晶の刹那ごとの生滅の原因も、見えなくても認めるべきだ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、これを前主張者のスートラとします。バーシュヤの側のスートラは「तदुत्पत्तिः」、Vārttika の側は「तदुपपत्तिः」と読まれています。Vārttika には「स्फटिकादीनाम्」という異読が記されます（Hi. p.1049）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>冷たい水晶、熱い水晶</h2><span class="sub"><span class="pg">pp.387–388</span>スートラ 3.2.14。冷・熱の違いは水や火の微粒子の入り込みによる。元素の定義との矛盾。火の四種</span></div>
+<div class="mula sutra" id="u6">
+  <span class="ref">p.387 · NS 3.2.14</span>
+  <div class="src deva" lang="sa">लिङ्गतो ग्रहणान्नानुपलब्धिः ॥३।२।१४॥<br>यल्लिङ्गत उपलभ्यते न तन्नास्तीति । विपर्ययस्तु स्फटिकादिषु । न हि स्फटिकादिव्यक्तीनामपरापरोत्पत्तौ लिङ्गमस्तीति । न नास्ति, शीतोष्णस्पर्शभेदस्य नानात्वसाधनत्वात् । शीतोष्णस्पर्शभेदो नानात्वे दृष्टः, यथाग्नावुदके च । अस्त्ययं शीतोष्णस्पर्शभेदः स्फटिके । स तु निमित्तान्तराद् भवति । किं पुनर्निमित्तम् ? अप्तेजोऽवयवानुप्रवेशः । उदकावयवानुप्रवेशाच्छीतः, तेजोऽवयवानुप्रवेशाच्चोष्ण इति ।<br>अप्तेजोऽवयवानुप्रवेशो न युक्तः, अल्पतरबहुतरानुप्रवेशे हेत्वभावात् । हेमन्ते ह्याकाशे पर्युषितानां काष्ठभूम्यश्मलोहानां शैत्यस्योत्तरोत्तरविशेषो दृष्टः, तथा पुनर्ग्रीष्मातपसन्तापितानां तेषामेवौष्ण्यस्य । …… तस्मात् स्वगतमहाभूतविशेषापेक्षाण्यासादितबाह्यनिमित्तानि भूतान्येव तथा तथोत्पद्यन्त इति युक्तम् ।<br>न युक्तम् । न ह्यप्तेजोऽवयवानुप्रवेशेन भूतस्वभावो निवार्यते । भूतस्वभावस्योभयपक्षसाम्यादसाधनं भूतस्वभाव इति ।</div>
+  <div class="tr">（答え）目印によって捉えられるので、知覚されないのではない。<br>目印によって知覚されるものは、ないのではない。しかし水晶などについては逆である。水晶などの個物が次々に生じることについては、目印がないからである。（反論）「ないのではない。冷たい触と熱い触との違いは、別々であることを論証するからである。冷たい触と熱い触との違いは、別々のものに見られる。火と水とにおけるように。そしてこの冷たい触と熱い触との違いが、水晶にある」。（答え）それは別の原因から生じるのである。では、その原因は何か。水や火の微粒子が入り込むことである。水の微粒子が入り込むので冷たく、火の微粒子が入り込むので熱い。<br>（反論）「水や火の微粒子が入り込むというのは正しくない。より少なく、より多く入り込むことについて、理由がないからである。冬に戸外に置かれた木・土・石・鉄の冷たさは、次第に強まるのが見られる。また夏の日差しに焼かれた同じものの熱さも（次第に強まる）。……だから、自分の中にある特定の大元素に依存し、外的な条件を得て、元素そのものがそのように生じる、とするのが正しい」。<br>正しくない。水や火の微粒子が入り込むことによって、元素の本性が否定されるのではない。元素の本性は両方の側に共通なので、元素の本性は（刹那滅の）論証にはならない。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.14 は、乳と凝乳の場合は原因が目印（たとえば温度や容器）から推理されるので「知覚されない」のではない、水晶にはそうした目印がない、と答えます。刹那滅論者は目印を挙げます。同じ水晶が冷たくなったり熱くなったりするのは、火と水のように別々のものであることの印だ、と。</p><p>Uddyotakara は、冷たさや熱さは水や火の微粒子が水晶に入り込むことによる、と説明します。相手は、冬の戸外に置いた石が次第に冷たくなるのに、微粒子が少しずつ多く入り込む理由はない、元素そのものが条件に応じてそのように生じるのだ、と応じます。Uddyotakara は、元素がそういう本性をもつことは双方が認めることで、刹那滅の証拠にはならない、と退けます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳のバーシュヤは、乳の消滅と凝乳の生起の原因は目印によって知られるので知覚されないのではないが、水晶については、次々に生じることの目印がないので逆だ、と説きます。注は、「ないのではない…」を論難とし、それに「それは別の原因から生じる」が答える、と TṬ（p.544）を引きます。「水や火の微粒子が入り込むというのは正しくない」も論難で、「正しくない」がその答えです（TṬ p.544）。「元素の本性は論証にはならない」の「論証」を、刹那的であることの論証、と TṬ（p.544）によって補います（Hi. pp.1049–1051）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「असेजो」は「अप्तेजो」、「न तत्रास्ति」は「न तन्नास्ति」と読みました。写本 C は「उदकावयवानुप्रवेशात्」を欠きます。</p></div>
+</div>
+<div class="mula" id="u7">
+  <span class="ref">pp.387–388 · NS 3.2.14</span>
+  <div class="src deva" lang="sa">विरुद्धश्चायं हेतुः । यद्यवयवानुप्रवेशं न प्रतिपद्यसे, खरस्नेहोष्णेरणात्मकानि भूतानीति व्याहन्यते । कथमिति ? यत् कठिनं तदेकस्मिन् काले उष्णमपि भवतीति, यच्चोष्णं तत् कठिनं गच्छतीति । तदेकं वस्तु द्विस्वभावकं त्रिस्वभावकं च प्राप्नोति । यस्य पुनरवयवानुप्रवेशस्तस्यैष दोषो नास्ति, अन्यत्रावस्थितस्य संयुक्तसमवेतस्यौष्ण्यस्य ग्रहणादिति । …… अथ मन्यसे न विशेषमात्रं नानात्वं प्रतिपादयति, अपि तु विरोधी विशेषो नानात्वे साधनमिति ? न, अभिप्रायापरिज्ञानात् । वयमपि ब्रूमो न विशेषमात्रं नानात्वम्, अपि तु भूतानां यो विशेष इतरेतरव्यावृत्तो लक्षणत्वेनोपात्तः स विरुद्धः । …… एकवृत्तित्वे वा लक्षणत्रयस्य तत्तद्वस्तु किमित्यभिधीयते ? यदि तावत् पृथिवीति, तन्न युक्तम्, औष्ण्यस्य दर्शनात् । अथ तेजः, तदपि न युक्तम्, काठिन्यस्य दर्शनात् । एतेन वायुर्व्याख्यातः । सोऽयं हेतुर्भूतलक्षणं वा बाधते, नानात्वसाधनं वा न भवति ।</div>
+  <div class="tr">また、この論証因は矛盾因である。もし微粒子が入り込むことを認めないなら、「元素は、堅さ・湿り・熱さ・動きを本質とする」というのが損なわれる。どうしてか。堅いものが同じ時に熱くもあり、熱いものが堅くて動きもする、ということになるからである。そうすると、一つのものが二つの本性、三つの本性をもつことになってしまう。一方、微粒子が入り込むとする者には、この誤りはない。別のところにある、結合したもの（火の微粒子）に内属する熱さを捉えるからである。……（反論）「単なる違いが別々であることを示すのではなく、相反する違いが、別々であることの論証因なのだ」と考えるなら。そうではない。（われわれの）意図を理解していないからである。われわれも、単なる違いが別々であること（を示す）と言うのではない。元素の違いのうち、互いを区別し、定義として取り上げられているもの、それが相反するのである。……あるいは、三つの定義が一つのものにあるなら、そのものを何と呼ぶのか。もし地と（呼ぶ）なら、それは正しくない。熱さが見られるからである。もし火（と呼ぶ）なら、それも正しくない。堅さが見られるからである。これによって風も説明された。この論証因は、元素の定義を損なうか、別々であることを論証しないか、どちらかである。</div><div class="exp"><span class="lbl">解説</span><p>ここで Uddyotakara は、刹那滅論者自身の元素論を逆手にとります。相手の説では、地・水・火・風の四元素はそれぞれ堅さ・湿り・熱さ・動きを本質とします。微粒子の入り込みを認めないなら、熱い石は、一つのものが堅さと熱さという二つの本質をもつことになり、元素の定義が崩れる。ニヤーヤのように入り込みを認めれば、石の熱さは石と結合した火の微粒子の熱さなので、問題はない、というのです。（元素の四つの本質は、Thakur 版の脚注が『倶舎論』1.12 を参照させる。）</p><p>相手が「単なる違いではなく、相反する違いが別々であることを示すのだ」と言い直しても、Uddyotakara は、まさにその相反する違いこそ元素の定義であり、一つのものに三つの定義が同居するなら、それを地とも火とも呼べなくなる、と応じます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、最初の「矛盾因」を、一つのものが二つ・三つの本性をもつことになるという不合理として説明し（TṬ p.544）、二つ目の「矛盾因」を、違いを示すために使った同じ特徴が、今度は同一性を示すことになる、と説明します（TṬ pp.544–545）。矛盾因の定義「定説を認めておきながらそれに反するもの」はスートラ 1.2.6 のものです。「単なる違いではなく…と考えるなら」は疑問で、「意図を理解していないから」がその答えです（Hi. pp.1051–1052）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「भूतानां यो」を「विरोधी」と読みます。OCR テキストの「द्विसुभावकं」「त्रिसुभावकं」「हेतुभूतलक्षणं」は、それぞれ「द्विस्वभावकं」「त्रिस्वभावकं」「हेतुर्भूतलक्षणं」と読みました。</p></div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">p.388 · NS 3.2.14</span>
+  <div class="src deva" lang="sa">एतेन जले तापविशेषग्रहणं प्रत्युक्तम् । तत्राप्यौष्ण्यं स्निग्धतेरणाभावश्च युगपद् भवन्तीति । जलेऽग्निरूपग्रहणप्रसङ्गस्तु न युक्तोऽभिभवात् । तन्न, सिद्धान्तापरिज्ञानात् । नायं सिद्धान्तो जलरूपेणाग्निरूपमभिभूतमिति, अपि तु तेजसश्चातुर्विध्यात् तत्र रूपाग्रहणम् । चतुर्विधं तेज इत्येतत् प्रतिपादितमिन्द्रियप्रकरणे इति ।</div>
+  <div class="tr">これによって、水に特定の熱さが捉えられることについても答えられた。そこでも、熱さと、湿り（と）動きのなさとが同時にあるからである。（反論）「（火の微粒子が水に入り込むなら）水に火の色が捉えられることになってしまう」。（ある者の答え）「（それは）正しくない。（火の色は水の色に）圧倒されているからである」。それは正しくない。（われわれの）定説を理解していないからである。水の色によって火の色が圧倒されている、というのがわれわれの定説なのではない。火が四種あるので、そこでは（火の）色が捉えられないのである。火が四種であることは、感官の章で論じた。</div><div class="exp"><span class="lbl">解説</span><p>湯が熱いのも、水に火の微粒子が入り込んでいるからです。では、なぜ湯に火の色（赤い光）が見えないのか。「水の色に圧倒されているから」という答えを、Uddyotakara は定説ではないとして退け、火には四種類あり、湯の中の火は色が現れない種類の火なのだ、と答えます。火の四種（色も触も現れるもの、色だけが現れるもの、触だけが現れるもの、どちらも現れないもの）は、感官は元素からなることの章（<a href="nyayavarttika-32-taiyaku.html">第32プラカラナ</a>）で論じられています。（四種の内訳は訳者の補足。）</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「圧倒されているから」を、ニヤーヤの一部の者の立場からの答え（TṬ p.545）とし、「火が四種あるので」を本当の答えとします（TṬ p.545）。TṬ は四種を列挙します。ヒンディー訳の編者は、「感官の章で論じた」にあたる箇所をバーシュヤにも Vārttika にも見つけられなかったと記し、代わりに Praśastapāda の注釈の火の項（「……対象と呼ばれるものは四種」）を参照させます（Hi. p.1052）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版の編者は「感官の章」に p.357 を参照させており、これは第32プラカラナ（スートラ 3.1.37 前後）の火の四種の議論を指すと見られます。ヒンディー訳の編者の注とは異なります。OCR テキストの「तत्र, सिद्धान्त」「चातुर्विवध्यात्」は、それぞれ「तन्न, सिद्धान्त」「चातुर्विध्यात्」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>主張と消滅の原因</h2><span class="sub"><span class="pg">pp.388–390</span>「水晶は次々に別物」の意味。灯火も数刹那続く。原因のない消滅はない。生むものと滅ぼすもの</span></div>
+<div class="mula" id="u9">
+  <span class="ref">p.388 · NS 3.2.14</span>
+  <div class="src deva" lang="sa">या चेयं प्रतिज्ञा अन्यश्चान्यश्च स्फटिक इति, अस्याश्च कोऽर्थः ? यदि तावदन्यत्वमात्रम्, ततः सिद्धसाधनं भवति, स्तम्भादिभ्योऽन्यः स्फटिक इति । अथ स्फटिकान्तरादन्य इति, एतदपि तादृगेव । अथ पूर्वस्फटिकादन्यः ? कतमोऽसौ पूर्वः स्फटिको यतोऽयमन्य इति ? व्यवच्छेदस्याशक्यत्वादनभिधानम् । …… अथोभयपक्षसंप्रतिपन्नं पूर्वं स्फटिकान्तरम् ? व्यर्थं साधनम् । …… अथ तदेवान्यदिति ? व्याघातः, तदेवान्यच्चेति । एवं यथा यथान्यत्वं विचार्यते, तथा तथा सिद्धसाधनं भवति सिद्धान्तं वा बाधत इति ।</div>
+  <div class="tr">また、「水晶は次々に別のものである」というこの主張、その意味は何か。もし単に別であるということなら、すでに成り立っていることを論証することになる。水晶は柱などとは別だからである。もし別の水晶とは別だ、ということなら、これも同様である。もし前の水晶とは別だ、ということなら、それとは別だというその前の水晶とはどれか。（それを他から）区別することができないので、（主張は）何も言っていない。……もし前の別の水晶が両者に認められているのなら、論証は無用である。……もし「まさにそれが別のものだ」ということなら、「まさにそれであり、しかも別のものである」というのは自己矛盾である。このように、「別であること」をどのように考えても、すでに成り立っていることを論証するか、（自分の）定説を損なうか、どちらかになる。</div><div class="exp"><span class="lbl">解説</span><p>相手の主張そのものの分析です。「水晶は次々に別のもの」とは何と別なのか。柱と別、ほかの水晶と別、というのなら誰も否定しない。「前の水晶と別」というなら、その前の水晶を特定できない。特定できるほど両者が認める前の水晶があるなら、論証するまでもない。「同じものが別」というなら矛盾です。どの意味にとっても、すでに成り立っていることを論証するか、自説を損なうか、どちらかだ、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、ここから主張を可能な選択肢に分けて退ける、と TṬ（p.545）を引き、二つの誤りを、すでに成り立っていることの論証（<i>siddhasādhana</i>）と、定説を損なうこと（<i>siddhāntabādha</i>）と名づけます（Hi. p.1053）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 C は「स्तम्भादिभ्यो」を「कुम्भादिभ्यो」と読みます。OCR テキストの「स्फटिकान्तरदन्य」は「स्फटिकान्तरादन्य」と読みました。</p></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">p.389 · NS 3.2.14</span>
+  <div class="src deva" lang="sa">अथायुगपत्कालप्रत्ययानामालम्बनं स्फटिको न भवतीत्ययं प्रतिज्ञार्थः ? एतस्मिन्नपि प्रतिज्ञार्थे न दृष्टान्तोऽस्ति । न नास्ति, प्रदीपादिर्दृष्टान्त इति । …… न, असिद्धत्वात् । असिद्धमेतत्, अयुगपत्कालप्रत्ययानालम्बनाः प्रदीपादय इति, तेषामनेकक्षणावस्थानात् । प्रदीपस्य तावत् स्वकारणसत्तासम्बन्धकालः, सामान्याभिव्यक्तिकालः, अवयवकर्मकालः, तदनन्तरं तद्विभागकालः, तदनन्तरं तत्संयोगविनाशकालः, ततो द्रव्यविनाश इति । यथा च प्रदीप एवं सर्वे भावाः स्वकारणसत्तासम्बन्धाभिव्यक्तितद्विरोध्याश्रयविनाशानुविधानेन विनश्यन्ति, अकारणस्य विनाशस्यानभ्युपगमात् । न हि नः किञ्चित् निष्कारणं विनश्यतीति । विनश्यदवस्थद्रव्यकर्मवदेतत् स्यात् ? न, कर्मणोऽनभ्युपगमे विरोधात्, अनभ्युपगमाच्च ।</div>
+  <div class="tr">（反論）「水晶は、別々の時の認識の対象ではない、というのがこの主張の意味である」。この主張の意味でも、実例がない。（反論）「ないのではない。灯火などが実例である」。……そうではない。成り立っていないからである。灯火などが別々の時の認識の対象ではない、というのは成り立っていない。それらは多くの刹那にわたって存続するからである。まず灯火には、自分の原因および存在性と結びつく時、（灯火という）普遍が現れる時、部分の運動の時、その次にその（部分の）分離の時、その次にその（部分の）結合の消滅の時があり、それから実体の消滅がある。そして、灯火と同じように、すべてのものは、自分の原因および存在性との結びつき、（普遍の）現れ、それに相反するものや基体の消滅に従って滅する。原因のない消滅は認められないからである。われわれにとって、原因なしに滅するものは何もない。（反論）「これは、滅しつつある状態の実体の運動のようなもの（で、刹那的なもの）であろう」。そうではない。（あなたは）運動を認めていないので、（それを実例にするのは）矛盾するからであり、また（われわれは、それを刹那的とは）認めないからである。</div><div class="exp"><span class="lbl">解説</span><p>主張を「水晶は別々の時の認識の対象にならない（二度見ることはできない）」と言い換えても、実例が要ります。刹那滅論者の定番の実例は灯火です。炎は刻々と別の炎に入れ替わっている、と。Uddyotakara は、灯火も数刹那は存続する、とヴァイシェーシカの消滅の順序で説明します。まず原因と結びついて生じ、灯火であることが現れ、部分が動き、部分が離れ、部分どうしの結合が消え、その後に全体が滅する。すべてのものは、反対のもの（たとえば後の性質）や基体の消滅という原因によって滅するのであって、原因のない消滅はない、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、TṬ が「विनश्यन्ति」でなく「विनश्यति」と読むことを記し、性質は相反する性質によって、あるいは基体（内属因）の消滅によって、ときには機会因の消滅によって滅する、という TṬ（pp.545–546）を引きます。「滅しつつある状態の実体の運動のよう」を前主張の疑問とし、刹那滅論者は運動を認めない（TṬ p.546）、われわれはその運動を刹那的とは認めない（TṬ p.546）と、答えの二つの理由を説明します（Hi. p.1054）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストは灯火の消滅の順序を「अवयवकर्मकालः, तदनन्तरं तद्विनाशकालः, तदनन्तरं तत्संयोगविनाशकालः」と読みますが、ヒンディー訳の訳（部分の分離）と、運動→分離→結合の消滅→実体の消滅というヴァイシェーシカの順序に従って「तद्विभागकालः」と読みました。「अयुगत्」は「अयुगपत्」、「तद्विरोधाश्रय」は「तद्विरोध्याश्रय」と読みました。</p></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">p.389 · NS 3.2.14</span>
+  <div class="src deva" lang="sa">विनाशहेत्वभावादिति चेत् ? अथ मन्यसे नात्र विनाशस्य कारणमस्ति, तस्मादुत्पन्नमात्र एवायं भावो विनश्यतीति ? न, विकल्पानुपपत्तेः । विनाशस्य हेतुर्नास्तीति ब्रुवाणः पर्यनुयोक्तव्यः, किमकारणत्वाद् विनाशो नास्ति, उताकारणत्वान्नित्य इति । भवतां पक्षे अकारणं द्विधा — नित्यमसच्च । अस्माकं तु नित्यमेव । तद् यद्यकारणत्वान्नित्यो विनाशः, कार्यस्योत्पादो न प्राप्नोति । …… ततश्च भावानामभावाविरोधित्वादत्यन्तावस्थानमिति । अथासन् विनाशः, एवमपि सर्वनित्यत्वं विनाशाभावात् । यदि चासन् विनाशः, विनश्यतीत्यसति विनाशे प्रत्ययो न प्राप्नोति । नासत्यां गतौ गच्छतीति भवति ।</div>
+  <div class="tr">（反論）「消滅の原因がないからである」と言うなら。つまり、「ここには消滅の原因がない。だから、このものは生じるやいなや滅する」と考えるなら。そうではない。選択肢が成り立たないからである。消滅の原因はないと言う者には、こう問い返すべきである。原因がないので消滅はないのか、それとも原因がないので（消滅は）常住なのか、と。あなたがたの説では、原因のないものは二通り、常住なものと存在しないものとである。われわれにとっては、常住なものだけである。そこで、もし原因がないので消滅が常住なら、結果が生じることはありえない。……そうすると、ものは非存在と相反しないので、永久に存続することになる。もし消滅が存在しないものなら、この場合も、消滅がないので、すべてが常住になる。また、もし消滅が存在しないものなら、消滅がないのに「滅する」という認識はありえない。行くことがないのに「行く」ということはないように。</div><div class="exp"><span class="lbl">解説</span><p>刹那滅論の中心的な論拠の一つが「消滅には原因がない」です。ものは原因によって滅ぼされるのではなく、生じたものは原因を待たずに自ら滅する。だから生じた次の刹那には滅している、というのです。Uddyotakara は、原因のない消滅とは何かを問います。原因のないものは、相手の説では常住なものか、存在しないもの（たとえば兎の角）かのどちらかです。消滅が常住なら、消滅がいつもあるので何も生じえず、あるいは、ものと消滅が並存してものが永遠に続く。消滅が存在しないものなら、やはりものは滅しない。どちらにしても刹那滅は出てきません。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、Vācaspati は TṬ でもっと多くの選択肢を立てており、おそらく後代の著作によるものだが、Vārttika は「消滅の原因はない」と言うだけだ、と記します（TṬ p.546。答えは TṬ pp.547–548）。「あなたがたの説では」以下を、原因のないものは常住か存在しないかの二通り、という仏教徒の説とし、「存在しない」を「空虚なもの」（<i>tuccha</i>）と言い換えます（Hi. p.1055）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「भावानामभावविरोधित्वाद्」は、文脈（ものと消滅とが並存する）に従って「अभावाविरोधित्वाद्」と読みました。「विनाश प्रत्ययो」は「विनाशे प्रत्ययो」と読みました。写本 C には「उत्पन्नस्य च भावस्य विनाशेन」という異読があります。</p></div>
+</div>
+<div class="mula" id="u12">
+  <span class="ref">pp.389–390 · NS 3.2.14</span>
+  <div class="src deva" lang="sa">अथाविनाशित्वादकारणो विनाश इति मन्यसे ? विनाशो न विनश्यतीति कुत एतत् ? विनष्टानां पुनरुत्पत्तेरिति चेत् ? …… न युक्तमेतत् । न हि विनाशाभावो भावो यतो विनाशविनाशाद् भवेत्, अपि तु कारणवान् भावः, तस्य यदा कारणं भवति तदोत्पाद इति । अपि च विनाशः कारणवांश्च, न च विनश्यत्यभावत्वात् । भावधर्म एष यत् कारणवत् तद् विनश्यतीति । अभावस्त्वकारणोऽपि विनश्यति, यथा प्रागभावः । कारणवानपि न विनश्यति, यथा प्रध्वंसाभावः । यदि कारणवान् विनाशः, ननु जनकं विनाशकं प्राप्नोति । …… न, अनवबोधात् । नेदं भवता काश्यपीयं दर्शनं व्यज्ञायि । न हि नो य एवाग्निसंयोगः पाकजानुत्पादयति, स एव छिनत्ति, अपि त्वग्निसंयोगान्तरं पूर्वरूपादीनुच्छिनत्ति । तत्समकालं रूपादीनारभते । ततस्तानप्यन्यस्तानप्यन्य इत्येवं जनकस्य विनाशकत्वप्रसङ्गो नास्ति ।<br>अथ मन्यसे जनकस्वरूपमपि विनाशकं न भवतीति ? न न भवति । दृष्टो ह्यबादिसंयोगादङ्कुरस्योत्पादः, स एवाबादिसंयोगस्तद्विनाशक इति । नास्ति दृष्टेऽनुपपन्नं नाम । …… एवं तावदन्यत्वे साध्ये दोष उक्तः ।</div>
+  <div class="tr">（反論）「消滅は滅しないので原因がない」と考えるなら。消滅が滅しないというのは、何によって（知られる）のか。（反論）「（消滅が滅するなら）滅したものがふたたび生じることになるからである」と言うなら。……これは正しくない。消滅の非存在は、存在するもの（の生起）ではない。だから、消滅の消滅によって（もの）が生じるのではない。そうではなく、存在するものは原因をもち、その原因があるときに生じるのである。また、消滅は原因をもつが、非存在なので滅しない。原因をもつものは滅する、というのは存在するものの性質である。非存在は、原因がなくても滅する。生起以前の非存在のように。原因があっても滅しない。消滅後の非存在のように。（反論）「もし消滅が原因をもつなら、生むものが滅ぼすものになってしまうではないか。……」。そうではない。（あなたは）理解していないからである。あなたはこのカーシャピーヤ（ヴァイシェーシカ）の学説を理解していない。われわれにとって、焼成による（色など）を生み出す火との結合と、それを断つ（火との結合）とは同じではない。別の火との結合が前の色などを断ち、それと同時に（さらに別の結合が新しい）色などを生み出す。そしてさらにそれらを別の（結合が断ち）、それらを別の（結合が生む）。このように、生むものが滅ぼすものになることはない。<br>（反論）「生むものと同じ性格のものも、滅ぼすものにはならない」と考えるなら。ならないのではない。水などとの結合から芽が生じるのが見られ、まさにその水などとの結合が芽を滅ぼすのである。見られることについて、ありえないということはない。……以上で、「別のものであること」を論証しようとする場合の誤りが述べられた。</div><div class="exp"><span class="lbl">解説</span><p>相手は「消滅は滅びないので原因がない。もし消滅が滅びたら、滅したものが復活してしまう」と言います。Uddyotakara は、ニヤーヤ・ヴァイシェーシカの非存在の区分で答えます。生起以前の非存在（壺が作られる前の壺の非存在）は原因がないのに終わり、消滅後の非存在（壊れた壺の非存在）は原因（棒の一撃など）があるのに終わらない。「原因をもつものは滅する」は存在するものの性質で、非存在には当てはまらない、というのです。</p><p>「原因があるなら、同じ火が色を生みも滅ぼしもすることになる」という反論には、壺を焼くとき、前の色を滅ぼす火の結合と、新しい色を生む火の結合とは別だ、と答えます。Uddyotakara はこの学説を「カーシャピーヤ（カナーダの系統）」の学説と呼んでいます。（カーシャピーヤをヴァイシェーシカとするのはヒンディー訳の注による。）</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳は、この問答に「疑問」「解決」の見出しを付けます。「消滅の非存在は存在するものではない…」の箇所について、Gaṅgānātha Jhā は「नहि विनाशाभावो यतोऽयं विनाशविनाशाद् भवेत्」と読んで訳した、と注します。「あなたはこのカーシャピーヤの学説を理解していない」を「ヴァイシェーシカの体系を正しく理解していない」と注し、「समनन्तरकालान् रूपादीनारभते」という異読を記して、一つの結合が前の色を滅ぼし、次の結合が次の刹那に新しい色を生む、と訳します。芽の例では「水など」と訳します。「以上で、別のものであることを論証しようとする場合の誤りが述べられた」について、刹那滅はすでに論じたが、ここでは（水晶が）別であることが主題だ、と TṬ（p.550）を引きます（Hi. pp.1056–1057）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版は「तत्समकालं रूपादीनारभते」と読み、写本 C は「समनन्तरकालाद्」と読みます。和訳は Thakur 版に従いましたが、ヒンディー訳は「次の刹那に」と訳します。OCR テキストの「अकारणेऽपि」は「अकारणोऽपि」と読みました。</p></div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>「刹那的」とは何か</h2><span class="sub"><span class="pg">pp.390–392</span>「刹那的」の諸解釈。「最後に違いが見える」の吟味。見え隠れ。落下の速さの違い</span></div>
+<div class="mula" id="u13">
+  <span class="ref">pp.390–391 · NS 3.2.14</span>
+  <div class="src deva" lang="sa">ये तु क्षणिकत्वं साधयन्त्यन्ते विशेषदर्शनाद् विनाशहेत्वभावाच्च, तान् प्रतीदमुच्यते । क्षणिकाः संस्कारा इति ब्रुवाणः क्षणिकशब्दस्यार्थं प्रष्टव्यः — किमुक्तं भवति क्षणिका इति ? यदि विनाशिन इति, सिद्धसाधनम् । अथाशुविनाशिन इति, तथापि विशेषणं सिद्धान्तविरोधि । अथोत्पन्नप्रध्वंसिन इति, एतदपि तादृगेव । …… अथोत्पन्नं विनष्टमित्येकः कालः, उत्पत्तिविनाशावेककालाविति ? तेन यथानुत्पन्नस्योत्पत्तिः, एवमनुत्पन्नस्य विनाश इति प्राप्तम् । अथोत्पन्नं विनश्यतीति ? एतस्मिन्नपि पक्षे उत्पत्तिवद् विनाशः कारणवान् …… । यश्चायं मत्वर्थीयः क्षणिक इति स कथम् ? यदि निरुक्तन्यायेन क्षयः क्षण इति, क्षणोऽस्यास्तीति क्षणिक इति ? तन्न युक्तम्, कालभेदात् । …… अथ पुनर्भाव एवानन्तरविनाशेन विशिष्यमाणः क्षण इत्युच्यते ? तदापि तेनैव तदेव तद्वन्न भवतीति न युक्तो मत्वर्थीयः । अथ क्षणावस्थितिकालाः क्षणिका इति, सर्वान्त्यं कालं क्षणत्वेन प्रतिपद्य तत्रावतिष्ठन्ते ते क्षणिका इति ? एतदपि न युक्तम्, संज्ञाभेदमात्रेण कालस्याभ्युपगमात् । "पञ्च भिक्षवः संज्ञाभेदमात्रम्" इति शास्त्रम् । न च संज्ञामात्रं वस्तुविशेषणत्वेन युक्तम् ।</div>
+  <div class="tr">一方、最後に違いが見られることと、消滅の原因がないこととによって、刹那的であることを論証する人々に対しては、こう言われる。「形成されたもの（<i>saṃskāra</i>）は刹那的である」と言う者には、「刹那的」という語の意味を問うべきである。「刹那的」とは何を言っているのか。もし「滅するもの」ということなら、すでに成り立っていることを論証している。もし「すぐに滅するもの」ということなら、その場合も、限定（「すぐに」）が（あなたの）定説と矛盾する。もし「生じて滅するもの」ということなら、これも同様である。……もし「生じたことと滅したこととが同じ時である」、つまり「生起と消滅とが同じ時である」ということなら、それによって、生じていないものが生じるように、生じていないものが滅することになってしまう。もし「生じたものが滅する」ということなら、この立場でも、消滅は生起と同じく原因をもつ。……また、この「刹那的」（<i>kṣaṇika</i>）という所有の接尾辞（をもつ語）は、どのようにして（成り立つの）か。もし語源解釈の方法で「刹那（<i>kṣaṇa</i>）とは尽きること（<i>kṣaya</i>）である」として、「刹那がそれにある」から「刹那的」だ、というなら、それは正しくない。時が違うからである。……もしまた、直後の消滅によって特徴づけられたもの自体が「刹那」と言われるのなら、その場合も、それ自身がそれ自身によってそれをもつものにはならないので、所有の接尾辞は正しくない。もし「一刹那だけ存続する時間をもつものが刹那的である」、つまり、最も小さい時間を刹那として、そこにとどまるものが刹那的だ、というなら、これも正しくない。（あなたがたは）時間を単なる名前の違いとして認めているからである。「比丘たちよ、五つは単なる名前の違いである」という教えがある。そして、単なる名前が、ものを限定するものとなるのは正しくない。</div><div class="exp"><span class="lbl">解説</span><p>「すべての形成されたものは刹那的である」は仏教の定型句です（訳者の補足）。Uddyotakara はその「刹那的」という語を、考えられるかぎりの意味に分けて検討します。</p><figure>
+  <div class="tbl" style="margin:0;border:0">
+  <table>
+    <thead><tr><th>「刹那的」の意味</th><th>Uddyotakara の批判</th></tr></thead>
+    <tbody>
+      <tr><td class="k">滅するもの</td><td>ニヤーヤも認める。すでに成り立っていることを論証している</td></tr>
+      <tr><td class="k">すぐに滅するもの</td><td>すべてがすぐ滅するなら、「すぐに」は何も区別しない。定説と矛盾</td></tr>
+      <tr><td class="k">生じて滅するもの</td><td>同上</td></tr>
+      <tr><td class="k">生起と消滅が同時</td><td>生じていないものが滅することになる</td></tr>
+      <tr><td class="k">生じたものが滅する</td><td>それなら消滅も生起と同じく原因をもつ</td></tr>
+      <tr><td class="k">「尽きること」をもつもの</td><td>尽きるときにはもうそのものはない。所有の接尾辞が成り立たない</td></tr>
+      <tr><td class="k">直後の消滅に特徴づけられたもの</td><td>自分が自分をもつことになり、所有の接尾辞が成り立たない</td></tr>
+      <tr><td class="k">最小の時間だけ存続するもの</td><td>相手の説では時間は名前だけのもの。名前はものを限定しない</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <figcaption><b>表1　「刹那的」の解釈と批判。</b>Vārttika pp.390–391 による。「すぐに」の項の説明はヒンディー訳の注（TṬ p.550）による。</figcaption>
+</figure><p>最後の項で引かれる「比丘たちよ、五つは単なる名前の違いである」は、Thakur 版の索引では「仏教の教え」とされるだけで、出典は示されていません。ヒンディー訳も出典を特定しません。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「すぐに滅する」について、すべてがすぐに滅するなら「すぐに」は何も区別しない、という TṬ（p.550）を引きます。「生じたものが滅する」の箇所を、OCR の本文は「すでに成り立っていることの論証」と読みますが、ヒンディー訳は「これは定説である」と訳しています。所有の接尾辞についてパーニニ 5.2.115（<i>ata iniṭhanau</i>）の <i>ṭhan</i> を挙げ（TṬ p.550）、「特徴づけられた」を「示された」と言い換えます（TṬ p.550）。「比丘たちよ、五つは…」については、仏教の教えだと言うだけで出典を示しません。TṬ は「सर्वान्तकालम्」と読み、天文学の最小の時間は実在しないが、刹那滅論者は刹那性を実在と考える、と説明します（TṬ pp.550–551）（Hi. pp.1057–1059）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「मत्यर्थीयो」は「मत्वर्थीयो」、「अधाशु」は「अथाशु」と読みました。省略した「यदा क्षयो न तदा क्षयीति भिन्नकालयोगे मत्वर्थीयो दृष्टः」は、文脈からは「अभिन्नकालयोगे」（同じ時に結びつく場合に所有の接尾辞が見られる）と読むべきかもしれません。</p></div>
+</div>
+<div class="mula" id="u14">
+  <span class="ref">p.391 · NS 3.2.14</span>
+  <div class="src deva" lang="sa">क्षणिका इति च प्रतिज्ञां कृत्वा न दृष्टान्तोऽस्तीत्युक्तम्, प्रदीपादेरसिद्धत्वात् । येऽपि हेतवोऽन्ते विशेषदर्शनादित्येवमादयः, तेऽप्यसिद्धा वा अन्यथासिद्धा वा विरुद्धा वा भवन्तीत्यहेतवः । उपेत्य वा विशेषवत्त्वं वर्तमानैकक्षणविशेषत्वेनानैकान्तिकम् । उभयपक्षसंप्रतिपत्त्या य एकक्षणो वर्तमानः स विशेषवान् भवत्येकश्चेत्यनेकान्तः । अन्ते विशेषदर्शनादिति च विशेषणानर्थक्यम्, अन्तार्थानभिधानात् । कतमस्मिन्नन्ते विशेषदर्शनमिति वक्तव्यम् । अथान्तो विनाशः, नैतस्मिन् विशेषदर्शनमस्ति । अथान्त्यं वस्त्वेवान्तशब्दवाच्यम्, एवं सत्येकस्मिन् विशेष इति विरुद्धो हेतुः ।</div>
+  <div class="tr">また、「刹那的である」という主張を立てても、実例がないことは（すでに）述べた。灯火などは（刹那的であることが）成り立っていないからである。また、「最後に違いが見られるから」などの論証因も、成り立たないか、別の仕方で成り立つか、矛盾するかであるので、論証因ではない。あるいは、違いをもつことを認めたとしても、現在の一刹那が違いをもつ（のに一つである）ので、不確定である。両者が合意するように、現在の一刹那は、違いをもち、しかも一つである。だから不確定である。また、「最後に違いが見られるから」という（論証因の）限定は無意味である。「最後」の意味を言っていないからである。どの「最後」に違いが見られるのか、と言わなければならない。もし「最後」が消滅なら、そこには違いが見られることはない。もし最後のもの自体が「最後」という語で言われるのなら、そうであれば、一つのものに違いがあることになるので、矛盾因である。</div><div class="exp"><span class="lbl">解説</span><p>刹那滅の論証因として最初に挙げられた「最後に違いが見られるから」（u1）を、Uddyotakara は論証因の誤りの分類によって退けます。違いをもつものが刹那ごとに別だというなら、両者が「一つ」と認める現在の一刹那も、（過去と未来との）違いをもっているので、不確定になる。「最後」が消滅のことなら、消滅に違いは見えない。最後の状態のことなら、一つのものに違いがあることを認めることになり、主張と反対のことを示す矛盾因になる、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、ここで主張を退けた後に論証因を退ける、という TṬ（p.551。TṬ は「ये चापि」と読む）を引きます。「など」は、存在すること（<i>sattva</i>）と作られたものであること（<i>kṛtakatva</i>）を含む、と注し、TṬ が「存在するとは目的にかなうはたらきをすること」として刹那滅の論証を展開し、順次に作用することも同時に作用することも常住なものにはできない、と論じたうえで（TṬ pp.551–556）、「これに対して言う」以下でそれを退ける（TṬ pp.556–561）ことを紹介します。これは Vārttika の本文にはない議論です（Hi. p.1059）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「भत्येकश्चत्यनेकान्तः」は「भवत्येकश्चेत्यनेकान्तः」、「अन्तमं」は「अन्त्यं」と読みました。</p></div>
+</div>
+<div class="mula" id="u15">
+  <span class="ref">pp.391–392 · NS 3.2.14</span>
+  <div class="src deva" lang="sa">योऽप्ययं हेतुर्दर्शनादर्शनादिति, अस्यार्थः — नीयमानस्य किल प्रदीपादेर्द्रव्यस्य देशान्तरे उत्पादो देशान्तरे च निरोधः, तत्कृते दर्शनादर्शने स्तः । तथा च गच्छतो देवदत्तादेर्दर्शनादर्शने, तस्मादस्यापि प्रतिक्षणमुत्पादविनाशाविति । नैतन्न्याय्यम्, देवदत्तादेर्दर्शनादर्शनयोरन्यनिमित्तत्वात् । संयोगविभागकृते दर्शनादर्शने, नोत्पादविनाशकृते । …… यत् पुनरेतत् प्रदीपस्य देशान्तर उत्पाद इति, एतदपि न बुध्यामहे । कथमिति ? यत् तावद् भवतां पक्षे वस्तूत्पन्नं यत्र, तत्रैव तद् ध्वंसते । यदुत्पित्सु तदनाहितसंस्कारवत्त्वाद् देशान्तरे नोत्पत्तुमर्हति । …… अथ कारणं संस्कृतमिति ? …… यथैव कार्ये संस्कार आधातुमशक्यः, तथा कारणेऽपीति तुल्यम् ।</div>
+  <div class="tr">また、「見えたり見えなかったりするから」という論証因もある。その意味はこうである。「運ばれていく灯火などの実体は、ある場所で生じ、別の場所で滅する。それによって見えたり見えなかったりする。同じように、歩いていくデーヴァダッタなども見えたり見えなかったりする。だから、彼もまた刹那ごとに生じては滅する」。これは道理に合わない。デーヴァダッタなどが見えたり見えなかったりするのは、別の原因によるからである。見えたり見えなかったりするのは、結合と分離によるのであって、生起と消滅によるのではない。……また、「灯火が別の場所に生じる」ということも、われわれには理解できない。どうしてか。まず、あなたがたの説では、ものは生じたその場所で滅する。（また）生じようとしているものは、勢い（<i>saṃskāra</i>）が与えられていないので、別の場所に生じることはできない。……（反論）「原因に勢いが与えられているのだ」。……結果に勢いを与えることができないのと同じく、原因にもできないので、同じことである。</div><div class="exp"><span class="lbl">解説</span><p>運ばれる灯火は、ある場所で消えて次の場所で生じる、というのが刹那滅論者の説明です。歩く人も同じだ、と。Uddyotakara は、人が見えたり見えなかったりするのは、場所との結合と分離によるのであって、生滅によるのではない、と答えます。そして、刹那滅説では「別の場所に生じる」ことがそもそも説明できない、と反撃します。ものは生じた場所で滅し、まだ生じていないものには動きを与える勢いがないので、どうして別の場所に生じられるのか。原因に勢いがあると言っても、刹那的な原因に勢いを与えることはできない、というのです。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、「違いをもつことを認めたとしても」を TṬ（p.560）によって説明し、「見えたり見えなかったりする」という論証因は別の仕方で成り立つ、という TṬ（p.560）を引きます。「道理に合う」（<i>nyāyya</i>）を「道理から得られた」と注します。「勢いが与えられていないので」の箇所を、ヒンディー訳は「力がないので」と訳しています（Hi. pp.1060–1061）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「अनाहितसंस्कारमत्त्वाद्」は「अनाहितसंस्कारवत्त्वाद्」と読みました。写本 C は省略した箇所の「अभिन्नदेशम्」を「स्वभिन्न०」と読みます。</p></div>
+</div>
+<div class="mula" id="u16">
+  <span class="ref">p.392 · NS 3.2.14</span>
+  <div class="src deva" lang="sa">एतेनैवातुल्यपातो व्याख्यातः । अतुल्यपातात् क्षणिकत्वमिति । न किलाकाशे पततो लोष्टादेः प्रतिबन्धकं किञ्चिदस्ति, यदनुविधानेन लोष्टादि किञ्चिच्चिरेण पतति किञ्चिदाश्विति । तस्मात् क्षणिकत्वात् काश्चिदवस्थास्तादृश्य उत्पद्यन्ते यासां न भवत्यधःसन्तानोत्पत्तौ सामर्थ्यम्, पुनश्च तादृश्य उत्पद्यन्ते यासां भवतीति । एतदप्यन्यथासिद्धमेव । तुल्यानां गुरुत्ववतां द्रव्याणामेकस्य गुरुत्वप्रयत्नक्षेपाः कारणम्, एकस्य गुरुत्वमात्रम्, एकस्य गुरुत्वप्रयत्नाविति । …… यदीदमिषोश्चापतनं भवेदिति संस्कारैकत्ववादिनो दोषः, अयमपि संस्कारैकत्वानभ्युपगमेन प्रत्युक्तः । यथा चानेकः संस्कार इति तथोक्तं पाणिनिमित्तप्रश्लेषसूत्रे इति । एकश्च संस्कारो निमित्तभेदात् कदाचित् पटूनि कर्माणि करोति, कदाचिन्मन्दानीति गुरुत्ववद् द्रष्टव्यम् । …… दृष्टो हि ग्राव्ण आकाशे मुक्तस्य पटुः पातो मन्दोऽपामिति । तदेवमतुल्यपातोऽप्यहेतुः ।</div>
+  <div class="tr">これによって、「落下が等しくない」ということも説明された。（反論）「落下が等しくないので、刹那的である。空中を落ちていく土くれなどには、何も妨げるものがない。それに従って、ある土くれはゆっくり落ち、あるものは速く（落ちる）ような（妨げ）はない。だから、刹那的であるので、下へ向かう連続を生み出す力をもたないような状態が生じ、またそれ（力）をもつような状態が生じるのである」。これもまた、別の仕方で成り立つ。同じ重さをもつ実体のうち、一つには重さ・意図的な力・投げる力が原因であり、一つには重さだけ、一つには重さと意図的な力が（原因である）。……（反論）「そうだとすると、矢は落ちないことになってしまう」というのは、勢いを一つとする者に対する誤りであって、これも、勢いが一つであることを認めないことによって答えられた。勢いがいくつもあることは、「手が触れることによって」のスートラで述べたとおりである。また、一つの勢いでも、条件の違いによって、あるときは強い運動を、あるときは弱い運動を生むことは、重さと同じだと見るべきである。……空中で放された石の落下は速く、水の（落下）は遅いのが見られるからである。このように、落下が等しくないことも論証因ではない。</div><div class="exp"><span class="lbl">解説</span><p>最後に検討されるのは、物の落ちる速さが違うことです。空中には何も妨げがないのに、速く落ちる物と遅く落ちる物がある。それは、物が刹那ごとに、落下の連続を生む力の強い状態や弱い状態として生まれ変わっているからだ、と刹那滅論者は言います。Uddyotakara は、落下の速さの違いは原因の違いで説明できる、と答えます。ただ落ちる物、力を込めて落とされた物、投げつけられた物とでは、原因が違うのです。</p><p>放たれた矢が最後に落ちることについては、勢い（<i>saṃskāra</i>、慣性に近い）が一つしかないとすれば「矢は落ちない」という難点があるが、ニヤーヤは勢いを複数と認めるので問題はない、と答えます。これはスートラ 2.2.36（「手が触れることによって音がなくなるので…」）の注釈で論じられた点です（<a href="nyayavarttika-23-taiyaku.html">第23プラカラナ</a>）。（スートラ番号の同定は訳者の補足。）</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>ヒンディー訳の注は、同じ重さの物でも、宮殿の屋根から鳩めがけて急降下する鷹は、重さ・意図的な力・投げる力によって速く落ち、土くれはもっとゆっくり落ちるので、速く落ちることは刹那滅を示さない、と TṬ（p.561）を引きます。「一つの勢いでも…」の箇所は、オールーキヤ（ヴァイシェーシカ）の説によっても誤りはないことを示す、と TṬ（p.561）によって注します。「手が触れることによって」のスートラは特定していません。翻刻は p.1062 のこのブロックで切れています（Hi. pp.1061–1062）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「मन्दोऽस्विाति」は「मन्दोऽपामिति」（ヒンディー訳の翻刻は「मन्द्रोऽपाम्」）と読みました。OCR テキストの「संस्कारैकत्ववादिनो」の箇所を、ヒンディー訳の翻刻は崩れた形で伝えます。</p></div>
+</div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>持続の論証と乳の変化</h2><span class="sub"><span class="pg">pp.393–395</span>刹那的でないことの推論。スートラ 3.2.15–17。乳の変化をめぐる二説。知は無常である</span></div>
+<div class="mula" id="u17">
+  <span class="ref">p.393 · NS 3.2.14</span>
+  <div class="src deva" lang="sa">अथाक्षणिकत्वे किं प्रमाणम् ? उक्तम्, आधाराधेयभावादेककालानुभाविनी कार्यकारणे, कुण्डे बदरवदिति । अतश्च — विप्रतिपन्ना अयुगपत्कालाः प्रत्यया एकविषयाः, अव्युत्थायितत्प्रत्ययसामानाधिकरण्ये सति समानशब्दवाच्यत्वात्, वर्तमानैकक्षणानेकपुरुषप्रत्ययवत् । …… प्रत्यात्मं नानेककर्तृकाः प्रत्ययाः, अप्रतिसन्धानप्रसङ्गात्, देवदत्तादिप्रत्ययवदिति । रूपरसगन्धस्पर्शप्रत्यया एकानेकनिमित्ताः, प्रतिसन्धानात्, कृतसमयानां बहूनां वर्तमानैकक्षणानेकविज्ञानवदिति । ह्यस्तनाद्यतनानि विज्ञानान्येकसन्ततौ एकानेकनिमित्तानि, मयेति प्रतिसन्धानात्, पूर्ववत् । ……</div>
+  <div class="tr">（反論）「では、刹那的でないことの量は何か」。（すでに）述べた。「原因と結果とは同じ時を経験する。基体と依存者の関係にあるから。鉢の中のナツメのように」。さらにまた、（次の推論がある。）「（刹那的か否かが）争われている、別々の時の認識は、同じ対象をもつ。その認識（「これは水晶だ」）との同一基体性が覆されることなく、同じ語で言い表されるから。現在の一刹那における多くの人の認識のように」。……「一人ひとりの中の認識は、多くの行為主体をもつのではない。（もしそうなら）結びつけることがありえなくなってしまうから。デーヴァダッタなど（別々の人）の認識のように」。「色・味・香・触の認識は、一つの原因と多くの原因とをもつ。結びつけられるから。申し合わせをした多くの人々の、現在の一刹那における多くの認識のように」。「同じ連続の中の昨日と今日の知は、一つの原因と多くの原因とをもつ。『私が』と結びつけられるから。前と同様である」。……</div><div class="exp"><span class="lbl">解説</span><p>批判を終えて、Uddyotakara は持続を積極的に論証します。基体と依存者の関係からの推論（§2）に加えて、いくつかの推論が並びます。たとえば、時を隔てた「これは水晶だ」という二つの認識は、否定されることなく同じ語で言い表されるので、同じ対象をもつ。同じ瞬間に何人もが一つのものを見て「水晶だ」と言うときに、それが同じ対象をもつのと同じだ、というのです。また、色・味・香・触の認識や、昨日と今日の知が「私が」と結びつけられることは、一つの共通の原因（知る者）と、別々の原因（感官など）とを示す、とします（「一つの原因と多くの原因」の解釈は訳者による）。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>提供された翻刻は Hi. pp.1063–1067 を欠いており、このブロックはその範囲にあたるので、ヒンディー訳を参照できていません。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>写本 J は「एककालानुभाविनी」の箇所を「एककालानुभवः」と読み、写本 C は「तस्मात्」を欠きます。</p></div>
+</div>
+<div class="mula sutra" id="u18">
+  <span class="ref">pp.393–394 · NS 3.2.15–16</span>
+  <div class="src deva" lang="sa">न पयसः परिणामगुणान्तरप्रादुर्भावात् ॥३।२।१५॥<br>नैवं क्षीरं विनश्यति नापि दध्युत्पद्यते, अपि त्ववस्थितस्य द्रव्यस्य पूर्वधर्मनिवृत्तौ धर्मान्तरमुत्पद्यत इत्येके वर्णयन्ति । अपरे त्ववस्थितस्य द्रव्यस्य गुणनिवृत्तौ गुणान्तरमुत्पद्यत इति । स खल्वयमेकपक्षीभाव इव । क उपमानार्थः ? उभयत्र द्रव्यमवतिष्ठते । एकस्य तिरोभावाभिव्यक्ती, एकस्य विनाशप्रादुर्भावावित्युपमानार्थः ॥१५॥<br>व्यूहान्तराद् द्रव्यान्तरोत्पत्तिदर्शनं पूर्वद्रव्यनिवृत्तेरनुमानम् ॥३।२।१६॥<br>उभयोरपि चोत्तरम् — व्यूहान्तराद् …… अनुमानम् । शेषं भाष्ये । यत् पुनरेतत् एकस्य तिरोभावाभिव्यक्ती, एकस्य विनाशप्रादुर्भावाविति, तन्न, पूर्वावस्थापरित्यागात् । यदि विनाशोत्पादौ निवृत्तिप्रादुर्भावौ अथाप्यभिव्यक्त्यनभिव्यक्ती, सर्वथा पूर्वावस्थां जहाति द्रव्यमिति । न ह्यप्रच्युतस्य पूर्वावस्थातोऽभिव्यक्त्यनभिव्यक्ती भवतः विनाशप्रादुर्भावौ वेति । तस्मादयुक्तमवस्थितस्य परिणाम इति ॥१६॥</div>
+  <div class="tr">（反論）「（乳の消滅と凝乳の生起は）ない。乳には、変化、すなわち別の性質の現れがあるからである」。<br>「このように乳が滅するのでもなく、凝乳が生じるのでもない。そうではなく、持続している実体において、前の性質がなくなると、別の性質が生じるのだ」と、ある人々は説明する。別の人々は、「持続している実体において、性質がなくなると、別の性質が生じる」と（説明する）。これは、（両者が）一つの立場をとっているかのようである。「かのよう」というたとえの意味は何か。どちらにおいても実体は持続する。一方では隠れることと現れること、一方では滅することと生じること（がある）、というのがたとえの意味である。<br>（答え）別の配列から別の実体が生じるのが見られることは、前の実体がなくなったことの推理（の根拠）である。<br>（このスートラは）両者に対する答えでもある。……残りはバーシュヤにある。また、「一方では隠れることと現れること、一方では滅することと生じること」と言われたことについては、正しくない。前の状態を捨てるからである。滅することと生じること、つまりなくなることと現れることであっても、あるいは現れることと現れないことであっても、いずれにしても実体は前の状態を捨てる。前の状態から離れていないものに、現れることと現れないこと、あるいは滅することと生じることはないからである。だから、持続しているものの変化（というの）は正しくない。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.15 は、乳と凝乳の例（3.2.13）そのものに異を唱える説です。乳が滅して凝乳が生じるのではなく、乳という実体は持続したまま、性質だけが入れ替わる。Vārttika は、この説に二通りあると言います。前の性質が隠れて別の性質が現れるとする人々と、前の性質が滅して別の性質が生じるとする人々です。どちらも実体の持続を認める点で似ています。（前者を、結果は原因の中に潜在して現れるとするサーンキヤの転変説と見るのは訳者の補足。）</p><p>スートラ 3.2.16 は、乳の粒子が別の配列になって別の実体（凝乳）が生じるのが見られるのだから、前の実体（乳）はなくなったと推理される、と答えます。Uddyotakara は、隠れる・現れるであれ、滅する・生じるであれ、実体は前の状態を捨てているので、「持続するものの変化」とは言えない、と補います。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>提供された翻刻は Hi. pp.1063–1067 を欠いており、このブロックはその範囲にあたるので、ヒンディー訳を参照できていません。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>スートラ 3.2.15 は、Thakur 版の OCR テキストでは「न पयसः परिणामो गुणान्तरप्रादुर्भावात्」ですが、一般に伝わる形「परिणामगुणान्तरप्रादुर्भावात्」に従いました（訳者の判断）。写本 C は「उभयोरपि चोत्तरम्」を「उभयत्रोत्तरम्」と読みます。OCR テキストの「पूर्ववस्था」は「पूर्वावस्था」と読みました。</p></div>
+</div>
+<div class="mula sutra" id="u19">
+  <span class="ref">pp.394–395 · NS 3.2.17</span>
+  <div class="src deva" lang="sa">क्वचिद्विनाशकारणानुपलब्धेः क्वचिच्चोपलब्धेरनेकान्तः ॥३।२।१७॥<br>अभ्यनुज्ञाय च निष्कारणं क्षीरविनाशं निष्कारणं च दध्युत्पादम् — क्वचिद् …… अनेकान्तः । क्षीरदधिवन्निष्कारणौ विनाशोत्पादौ स्फटिकव्यक्तीनाम्, न पुनः कुम्भादिवत् सकारणाविति नात्र हेतुरस्तीति । निरधिष्ठानं च दृष्टान्तवचनम् । कोऽधिष्ठानार्थः ? आश्रयः । किमुक्तं भवति निरधिष्ठानमिति ? धर्मी नास्तीति यावदुक्तं भवति । न हि स्फटिकस्योत्पादविनाशौ प्रतिक्षणमुपलभ्येते, यत इयं चिन्ता भवेत् किमेतौ सकारणावाहोस्विदकारणाविति । यथानभ्युपगतशब्दसत्त्वं प्रति कश्चिद् ब्रूयात् कृतकत्वादनित्यः शब्द इति, तादृगेतदिति । ……<br>…… उभावेतौ दृष्टान्तौ क्षीरदधिवत् कुम्भादिवच्च । तत्र किं कुम्भादिदृष्टान्तो भवत्वथ क्षीरदधिनी इति ? कुम्भादिवदिति युक्तम्, कुम्भाद्युत्पत्तिविनाशकारणस्य दृष्टत्वात् । क्षीरदधिवत्तु न युक्तम्, अनुमानतो ग्रहणादिति सिद्धमिदमनित्या बुद्धिरिति । इतश्चानित्या बुद्धिः — गुणत्वे सति प्रत्यक्षतया व्यापकद्रव्यसमवायात्, शब्दवत् । जातिमत्त्वे सति अस्मदादिप्रत्यक्षत्वादाश्रितत्वाच्च, शब्दवत् । करणभावे सत्ययोगिप्रत्यक्षत्वात्, शब्दवदेव ॥१७॥<br>॥ औपोद्घातिकं क्षणभङ्गप्रकरणम् ॥</div>
+  <div class="tr">（答え）ある場合には消滅の原因が知覚されず、ある場合には知覚されるので、不確定である。<br>また、乳の消滅が原因のないものであり、凝乳の生起も原因のないものであることを認めたとしても、「ある場合には……不確定である」。水晶の個物の消滅と生起とが、乳と凝乳のように原因のないものであって、壺などのように原因のあるものではない、ということには理由がない。また、実例を述べることは、よりどころを欠いている。「よりどころ」の意味は何か。基体である。「よりどころを欠く」とは何を言っているのか。有法がない、ということである。水晶の生起と消滅とが刹那ごとに知覚されるわけではない。そうであれば、「これらは原因をもつのか、もたないのか」という考察もありえようが。音の存在を認めていない者に向かって、誰かが「音は作られたものなので無常である」と言うようなもので、これはそれと同様である。……<br>……乳と凝乳のように、そして壺などのように、という二つの実例がある。そのうち、壺などが実例になるべきか、乳と凝乳か。「壺などのように」が正しい。壺などの生起と消滅の原因は見られるからである。「乳と凝乳のように」は正しくない。（その原因は）推理によって捉えられるからである。だから、「知は無常である」ということが成り立った。さらに、次の理由からも知は無常である。「性質であって、知覚されるものとして遍在する実体に内属するから。音のように」。「普遍をもち、われわれのような者に知覚され、また（他のものに）依存するから。音のように」。「（他の認識の）道具でありながら、ヨーガ行者でない者に知覚されるから。まさに音のように」。<br>以上、付随的な刹那滅の章。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 3.2.17 は、刹那滅論者が乳と凝乳の例（3.2.13）を出したことへの最終的な答えです。仮に乳の消滅と凝乳の生起に原因がないと認めても、原因の見られる壺の例もあるので、水晶をどちらに合わせるべきかは決まらない（不確定）。しかも、水晶の刹那ごとの生滅はそもそも知覚されていないので、その原因を論じる足場がない。音の存在を認めない人に「音は作られたものだから無常だ」と言うのと同じだ、というのです。</p><p>こうして刹那滅をめぐる脇道を終え、Uddyotakara は章の本題である知の無常性に戻ります。原因が見られる壺の例こそ実例にふさわしく、知は無常である。さらに、知は音と同じく、遍在する実体（我。音の場合は虚空）に内属する知覚可能な性質である、などの推論を加えて章を閉じます。</p>
+<div class="stk"><span class="lbl">ヒンディー訳の読み</span><p>翻刻はこのブロックの後半から再開します。ヒンディー訳のバーシュヤは、「壺のように」という実例を認めなければならない、水晶などの生起と消滅は原因のないものではない、乳と凝乳の場合は結果が原因の目印なので原因が推理される、だから知は無常である、と説きます。Vārttika の訳は「否定。この二つの実例…」という断片から始まります。三つの推論について、注は TṬ（p.563）による語ごとの説明を記し、「ヨーガ行者でない」を「ヨーガ行者以外の」と訳します（Hi. p.1068）。</p></div></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「कच्चिद्」は「क्वचिद्」、「सिद्धमिदमित्या」は「सिद्धमिदमनित्या」、「कृतकत्वादित्यः」は「कृतकत्वादनित्यः」と読みました。省略した箇所の「अभ्यनुज्ञाय च स्फटिकस्योत्पादविनाशौ योऽत्र साधकस्तस्याभ्यनुज्ञानात् प्रतिषेधः」は、読みが定まらないので訳していません。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>kṣaṇika / kṣaṇabhaṅga</dt><dd>刹那的／刹那滅（ものは生じた次の刹那に滅するという説）</dd>
+    <dt>aupodghātika</dt><dd>付随的な（本題の途中に挟まる）</dd>
+    <dt>upacaya / apacaya</dt><dd>成長／衰退</dd>
+    <dt>ādhāra / ādheya</dt><dd>基体／そこにあるもの（依存者）</dd>
+    <dt>avayavānupraveśa</dt><dd>（水や火の）微粒子の入り込み</dd>
+    <dt>khara / sneha / uṣṇa / īraṇa</dt><dd>堅さ／湿り／熱さ／動き。四元素の本質</dd>
+    <dt>prāgabhāva / pradhvaṃsābhāva</dt><dd>生起以前の非存在／消滅後の非存在</dd>
+    <dt>pākaja</dt><dd>焼成によって生じる（色などの性質）</dd>
+    <dt>saṃskāra (vega)</dt><dd>勢い。投げられた物の運動を続けさせるもの</dd>
+    <dt>pariṇāma</dt><dd>変化（持続する実体の性質が入れ替わること）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直し、長い箇所は抜粋した（「……」は省略箇所）。頁番号は Thakur 版、写本略号（C、J）は Thakur 版の脚注による。スートラ番号は Thakur 版とヒンディー訳で一致する（Thakur 版の OCR テキストは、3.2.11–13 の末尾の番号を崩している）。</p>
+  <p>和訳は試訳であり、解説は本文とヒンディー訳注にもとづく訳者の説明である。ヒンディー訳は、利用者から提供された OCR 転写によって参照した。転写は解説のためにだけ用い、サンスクリット本文の校訂には用いていない。転写は pp.1043–1047 と pp.1063–1067 を欠く。（TṬ p.○）は、ヒンディー訳の注が引く Vācaspati の <i>Tātparyaṭīkā</i> の頁で、訳者は原典を直接確認していない。このページが扱うのは第36プラカラナ（スートラ 3.2.10–17）である。第35プラカラナ（スートラ 3.2.1–9）は<a href="nyayavarttika-35-taiyaku.html">第35プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
