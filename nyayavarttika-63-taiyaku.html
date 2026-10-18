@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nyāyavārttika 対訳 63</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。節はテキストの頁順に並べ、各節の頭に Thakur 版の頁番号を置く。各ブロックは原文・和訳・解説（解説の下段にヒンディー訳の読み）の順。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="nyayavarttika-62-taiyaku.html">← プラカラナ62</a></li>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>六種の誤った反論</a></li><li><a href="#s2"><b>2</b>何らかの同質性で十分である</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのニヤーヤ</div>
+  <h1>Nyāyavārttika</h1>
+  <p class="deva-title" lang="sa">न्यायभाष्यवार्त्तिकम्</p>
+  <p class="sub">Uddyotakara の「ニヤーヤ・ヴァールッティカ」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　第63プラカラナ「付加と同様なものなどの章」（スートラ 5.1.4–6、Thakur 版 pp.500–501）</span>
+  <p>スートラ 5.1.4 は、論証されるべきもの（音）と実例（壺）の性質の違いによって、また両方とも論証されるべきだとすることによって、六種の誤った反論が生じる、と言います。付加、削減、論証されるべきもの、論証されるべきでないもの、区別、論証されるべきことと「同様」なものです。</p>
+  <p>たとえば「音が壺のようなら、壺のように色をもつはずだ」（付加）、「音に色がないなら、壺にも色がないはずだ」（削減）といった反論です。スートラ 5.1.5–6 は、論証は何らかの同質性によって成り立つのであって、すべての性質が同じである必要はない、と答えます。Uddyotakara は最後に、誤った反論の数をめぐる議論に触れ、二十四という数も、十四という数も、例の分け方によるにすぎない、と言います。</p>
+  <p>この章は短いので、原文はほぼ全文を載せました。第四篇については、ヒンディー語訳注の翻刻がまだ提供されていないので、解説は本文にもとづく訳者の説明です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この章</dt><dd>付加と同様なものなどの章<br><small><i>utkarṣasamādiprakaraṇa</i>。スートラ 5.1.4–6 の注釈。Thakur 版 pp.500–501。Thakur 版の章名は、冒頭で「八種」、末尾と柱で「六種」</small></dd></div>
+    <div><dt>扱うスートラ</dt><dd>5.1.4–6<br><small>付加・削減・論証されるべきもの・論証されるべきでないもの・区別・論証されるべきことと同様なもの、それへの答え</small></dd></div>
+    <div><dt>論敵</dt><dd>誤った反論は重複する、数が定まらない、とする者<br><small>§2。本文は名を挙げない</small></dd></div>
+    <div><dt>見どころ</dt><dd>二十四か十四か<br><small>§2。誤った反論の数え方</small></dd></div>
+    <div><dt>ヒンディー訳</dt><dd>未参照<br><small>提供された Śrīnivāsa Śāstrī 訳注の翻刻は第三篇の終わりまでで、この章を含まない</small></dd></div>
+    <div><dt>本文</dt><dd>Anantalal Thakur 校訂本（ICPR, 1997）<br><small>OCR テキストに拠り、明らかな誤りは直した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の頁番号は Thakur 版の頁。節見出しの頁はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。Thakur 版の本文を写し、OCR の明らかな誤りは直した。長い箇所は「……」で省略した</div>
+    <div><b>和訳</b>（　）は訳者の補い。「〜と言うなら」は反論者の発言で、それに続くのが Uddyotakara の答え</div>
+    <div><b>解説</b>灰色の欄。本文にもとづく訳者の説明</div>
+    <div><b>解釈の分かれる箇所</b>異読や、読みの定まらない箇所の注記</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">スートラ 5.1.4–6 の注釈を、テキストの順に2節に分けた</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">§1</td><td class="k"><a href="#s1">六種の誤った反論</a></td><td class="num">p.500</td><td>スートラ 5.1.4。音が壺のようなら色をもつはずだ。壺も論証されるべきだ</td></tr>
+<tr><td class="num">§2</td><td class="k"><a href="#s2">何らかの同質性で十分である</a></td><td class="num">pp.500–501</td><td>スートラ 5.1.5–6。牛と野牛。実例は論証されるべきものではない。誤った反論の数</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>六種の誤った反論</h2><span class="sub"><span class="pg">p.500</span>スートラ 5.1.4。音が壺のようなら色をもつはずだ。壺も論証されるべきだ</span></div>
+<div class="mula sutra" id="u1">
+  <span class="ref">p.500 · NS 5.1.4</span>
+  <div class="src deva" lang="sa">साध्यदृष्टान्तयोर्धर्मविकल्पादुभयसाध्यत्वाच्चोत्कर्षापकर्षवर्ण्यावर्ण्यविकल्पसाध्यसमाः ॥५।१।४॥<br>अविद्यमानधर्माध्यारोप उत्कर्षः । विद्यमानधर्मापचयोऽपकर्षः । वर्ण्यः साध्यः । अवर्ण्यः असाध्यः । विकल्पो विशेषः । एतेषां धर्माणामुद्भावनार्थाः प्रयोगा उत्कर्षसमाद्या जातय इति । साध्यसाधनधर्मयोस्तुल्यतया प्रत्यवस्थानं साध्यसम इत्युच्यते । यथा तस्मिन्नेव हेतौ घटसाधर्म्यादिति कृते — यदि यथा घटस्तथा शब्दः, तदा घटो रूपादिमान्, शब्दोऽप्येवं प्रसक्त इत्युत्कर्षसमः । शब्दो वा अरूप इति घटोऽप्येवं प्रसक्त इत्यपकर्षसमः । घटोऽनित्य इत्यवर्ण्यः, शब्दोऽप्येवम्, शब्दो वा वर्ण्य इति घटोऽप्येवमिति वर्ण्यावर्ण्यसमौ । सत्येतस्मिन्नुत्पत्तिधर्मकत्वे विभागजः शब्दो न विभागजो घटः, विभागजाविभागजविकल्पवच्च नित्यानित्यविकल्प इति विकल्पसमः । घटो वा अनित्य इत्यत्र को हेतुः ? अयमपि साध्यवत् प्रज्ञापयितव्य इति साध्यवत् प्रत्यवस्थानात् साध्यसमः ॥४॥</div>
+  <div class="tr">論証されるべきものと実例とについて性質の区別があるので、また両方が論証されるべきものであるので、付加、削減、論証されるべきもの、論証されるべきでないもの、区別、論証されるべきことと「同様」なものがある。<br>ない性質を付け加えることが「付加」である。ある性質を減らすことが「削減」である。「論証されるべきもの」とは論証されるべきものであり、「論証されるべきでないもの」とは論証されるべきでないものである。「区別」とは違いである。これらの性質を持ち出すために用いられるのが、「付加と同様なもの」などの誤った反論である。論証されるべき性質と論証する性質とを等しいとして反論することが、「論証されるべきことと同様なもの」と言われる。たとえば、同じ理由について「壺と同質であるから」と（論証が）なされたとき、「もし壺のように音もそうであるなら、壺は色などをもつので、音もそうなってしまう」というのが「付加と同様なもの」である。あるいは、「音は色をもたないので、壺もそうなってしまう」というのが「削減と同様なもの」である。「壺は無常であるということは論証されるべきでないもので、音もそうだ」、あるいは「音は論証されるべきもので、壺もそうだ」というのが、「論証されるべきでないものと同様なもの」と「論証されるべきものと同様なもの」である。「この生じる性質があっても、音は分離から生じ、壺は分離から生じない。分離から生じるか生じないかの区別があるように、常住か無常かの区別もある」というのが「区別と同様なもの」である。「では、壺が無常であることには、どんな理由があるのか。これも、論証されるべきもの（音）と同じく、知らせなければならない」と、論証されるべきものと同じように反論するので、「論証されるべきことと同様なもの」である。</div><div class="exp"><span class="lbl">解説</span><p>「音は生じるものだから、壺のように無常だ」という論証に対して、六つの言い返し方があります。音が壺のようなら色もあるはずだ（付加）。音に色がないなら壺にも色がないはずだ（削減）。音が論証されるべきものなら壺もそうだ、壺が論証されるべきでないなら音もそうだ（論証されるべきもの・されるべきでないもの）。音は分離から生じるが壺は違う、同じように常住か無常かも違いうる（区別）。壺が無常であることも論証せよ（論証されるべきこと）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>OCR テキストの「धर्मानाम्」「साध्यसाधनधर्मोस्तुल्यतया」「साध्यसमेत्युच्यते」は、それぞれ「धर्माणाम्」「साध्यसाधनधर्मयोस्तुल्यतया」「साध्यसम इत्युच्यते」と読みました。スートラ番号は OCR テキストで「५।१।१४」と崩れています。写本 J は「०धर्मापनयोऽप०」と読み、写本 C は「घटसाधर्म्यादित्युक्ते」と読みます。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>何らかの同質性で十分である</h2><span class="sub"><span class="pg">pp.500–501</span>スートラ 5.1.5–6。牛と野牛。実例は論証されるべきものではない。誤った反論の数</span></div>
+<div class="mula sutra" id="u2">
+  <span class="ref">pp.500–501 · NS 5.1.5–6</span>
+  <div class="src deva" lang="sa">किञ्चित्साधर्म्यादुपसंहारसिद्धेर्वैधर्म्यादप्रतिषेधः ॥५।१।५॥<br>न, हेत्वर्थापरिज्ञानादिति सूत्रार्थः । न ब्रूमो यावन्तो घटधर्मास्ते सर्व एव शब्दे संभवन्तीति, अपि तु यो यस्य साधको धर्म उपपद्यते स तत्साधनं तत्रोपसंह्रियते । …… यथा गौस्तथा गवय इत्युक्ते न गोधर्माः सर्व एव गवये, न गवयधर्माः सर्व एव गवि प्राप्नुवन्ति । अपि तु यदितरस्येतरेण संबध्यते तावन्मात्रमेवोपसंह्रियते । अशेषधर्मोपसंहारे तु यथा तथेत्येवं न स्यात्, स एवासाविति स्यात् । …… यथोत्पत्तिधर्मकत्वमन्वयव्यतिरेकि, नैवं विभागजत्वम् ……॥५॥<br>साध्यातिदेशाच्च दृष्टान्तोपपत्तेः ॥५।१।६॥<br>दृष्टान्तः साध्य इति ब्रुवता भवता न दृष्टान्तलक्षणं व्यज्ञायि । दृष्टान्तो हि नामाविहतयोर्दर्शनयोर्विषयः । तथा च साध्यत्वमनुपपन्नम् । अथ दर्शनं विहन्यते, नासौ दृष्टान्तो लक्षणाभावादिति ।<br>यत्तु अत्रोक्तं जातीनां पौनरुक्त्यं प्रसज्यत इति, न पौनरुक्त्यम्, अर्थभेदात् । …… आनन्त्यमिति चेत् ? अथ मन्यसे यदि प्रयोगभेदाद् भेदो, न चतुर्विंशतिर्जातय इति प्राप्तम् । न, अनवधारणात् । नैवेदमवधार्यते चतुर्विंशतिर्जातय इति, अपि तूदाहरणानां भेदः । कथमवगम्यते ? तथा हि प्रकरणसमैका चतुर्धा भिन्नेति । अथ सामान्यतोऽभिन्ना जातय इत्यभेदं ब्रूयात्, तस्याप्यभ्युपगतं चतुर्दशत्वं निवर्तते । अथ कुतश्चिद् भेदाद् भेदः, अदेश्यं तर्हि एतत् — उत्कर्षसमाद्या न विकल्पसमातो भिद्यन्त इति । यथा केनचिद् भेदेन चतुर्दशत्वम्, तथा केनचिद् भेदेन चतुर्विंशतित्वम् । अविशेषसमा चेयं जातिः — उत्कर्षसमादीनामेकत्वं किञ्चित्साधर्म्यादिति । अस्याश्च जातेरुक्तमुत्तरम् ॥६॥<br>॥ साध्यदृष्टान्तधर्मविकल्पप्रभवोत्कर्षसमादिजातिषट्कप्रकरणम् ॥</div>
+  <div class="tr">（答え）何らかの同質性によって結論が成立するので、異質性によっては否定されない。<br>「そうではない。理由の意味を正しく理解していないからである」というのがスートラの意味である。われわれは、壺の性質のすべてが音にもありうる、と言うのではない。そうではなく、或るもの（無常性）を論証する性質が成り立つなら、その論証手段がそこで結論づけられるのである。……「牛のように、野牛もそうだ」と言われるとき、牛の性質のすべてが野牛にあるのでも、野牛の性質のすべてが牛にあるのでもない。そうではなく、一方が他方と結びつく、その部分だけが結論づけられる。すべての性質が結論づけられるのなら、「～のように、そうだ」とは言わず、「それがこれだ」と言うであろう。……生じる性質をもつことは肯定的随伴と否定的随伴とをもつが、分離から生じることはそうではない。……<br>（答え）また、論証されるべきもの（の性質）を（実例に）移すことに対しては、実例が成り立つので（否定されない）。<br>「実例は論証されるべきものだ」と言うあなたは、実例の定義を理解していない。実例とは、（世間の人と専門家との）妨げられない見方の対象である（スートラ 1.1.25）。だから、論証されるべきものであることは成り立たない。もし見方が妨げられるなら、それは定義を欠くので実例ではない。<br>また、ここで「誤った反論は重複することになる」と言われたことについては、重複ではない。意味が違うからである。……（反論）「（そうなら誤った反論は）無限になる」と言うなら。すなわち、もし用い方の違いによって区別されるのなら、誤った反論は二十四ではないことになる、と考えるなら。（答え）そうではない。（数を）確定していないからである。「誤った反論は二十四である」と確定しているのではなく、例の違い（を示しているの）である。どうして知られるのか。たとえば、「論題と同様なもの」は一つだが、四種に分かれる。もし（反論者が）一般的に誤った反論は区別されない、と区別のなさを言うなら、その人が認めている十四という数もなくなる。もし何らかの区別によって区別があるなら、それなら、「付加と同様なものなどは区別と同様なものと違わない」ということは言えない。何らかの区別によって十四という数があるように、何らかの区別によって二十四という数がある。また、この（反論）は「無差別と同様なもの」という誤った反論である。何らかの同質性によって、付加と同様なものなどを一つとするからである。そして、この誤った反論への答えは（スートラ 5.1.24 で）述べられている。<br>以上、論証されるべきものと実例との性質の区別から生じる、付加と同様なものなどの六種の誤った反論の章。</div><div class="exp"><span class="lbl">解説</span><p>スートラ 5.1.5 は、論証は何らかの同質性で成り立つと答えます。「野牛は牛のようだ」と言っても、牛のすべての性質が野牛にあるわけではありません。すべてが同じなら「ようだ」ではなく「同じものだ」と言うでしょう。肝心なのは、論証されるべき性質（無常性）と肯定的・否定的随伴の関係にある性質（生じる性質）が共通していることで、色や分離から生じることなどの違いは関係がありません。スートラ 5.1.6 は、実例は世間の人も専門家も認めるもの（スートラ 1.1.25）なので、論証される必要はない、と答えます。</p><p>最後に、誤った反論は互いに重複している、数が定まらない、という批判に Uddyotakara は答えます。二十四という数は例の分け方にすぎず、確定した数ではない。誤った反論を十四種に数える人も、何らかの区別によってそう数えているのだから、二十四と数えることを否定できない、というのです。十四種の数え方は、ディグナーガの『プラマーナ・サムッチャヤ』第6章などに見られるものです（この同定は訳者の補足）。</p></div><div class="chk"><span class="lbl">解釈の分かれる箇所</span><p>Thakur 版の章名は、冒頭で「…जात्यष्टकप्रकरणम्」（八種）、末尾と p.501 の柱では「…जातिषट्कप्रकरणम्」（六種）です。扱う誤った反論は六種です。OCR テキストの「हेत्वर्थपरिज्ञानात्」「असानिति」「दृष्टान्तोषपत्तेः」は、それぞれ「हेत्वर्थापरिज्ञानात्」「असाविति」「दृष्टान्तोपपत्तेः」と読みました。最初の読みは推定です。</p></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>utkarṣa / apakarṣa</dt><dd>付加／削減</dd>
+    <dt>varṇya / avarṇya</dt><dd>論証されるべきもの／論証されるべきでないもの</dd>
+    <dt>vikalpa</dt><dd>区別</dd>
+    <dt>sādhyasama</dt><dd>論証されるべきことと同様なもの</dd>
+    <dt>kiñcitsādharmya</dt><dd>何らかの同質性</dd>
+    <dt>caturviṃśati / caturdaśa</dt><dd>二十四／十四（誤った反論の数）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、提供された Anantalal Thakur 校訂『ニヤーヤ・バーシュヤ・ヴァールッティカ』（<i>Nyāyabhāṣyavārttika of Bhāradvāja Uddyotakara</i>, New Delhi: Indian Council of Philosophical Research, 1997）の OCR テキストによる。OCR の明らかな誤りは直し、長い箇所は抜粋した（「……」は省略箇所）。頁番号は Thakur 版、写本略号は Thakur 版の脚注による。</p>
+  <p>和訳は試訳であり、解説は本文にもとづく訳者の説明である。第四篇については Śrīnivāsa Śāstrī のヒンディー訳注の翻刻が提供されていないので、参照していない。このページが扱うのは第63プラカラナ（スートラ 5.1.4–6）である。第62プラカラナ（スートラ 5.1.1–3）は<a href="nyayavarttika-62-taiyaku.html">第62プラカラナのページ</a>にある。</p>
+</footer>
+</main>
+</body>
+</html>
