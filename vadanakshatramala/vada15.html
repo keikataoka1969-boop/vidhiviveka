@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Antaryāmiviṣayapṛthivyādiśabdavācyatvasamarthanavāda 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#map">第15論の地図</a></li>
+    <li><a href="#s1"><b>1</b>第1〜3段：大地は身体か</a></li>
+    <li><a href="#s2"><b>2</b>第4〜6段：定義の吟味</a></li>
+    <li><a href="#s3"><b>3</b>第7段（1）：行きわた…</a></li>
+    <li><a href="#s4"><b>4</b>第7段（2）：誰にも統…</a></li>
+    <li><a href="#s5"><b>5</b>第7段（3）：憑依の反…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ヴァーダ・ナクシャトラ・マーラー　第15論</div>
+  <h1>Antaryāmiviṣayapṛthivyādiśabdavācyatvasamarthanavāda</h1>
+  <p class="deva-title" lang="sa">अन्तर्यामिविषयपृथिव्यादिशब्दवाच्यत्वसमर्थनवादः</p>
+  <p class="sub">大地や川や山も身体である——内制者が「地」などの語で表されることの論証</p>
+  <span class="sample">対訳　第15論 全文（pp.292–297、第1〜7段）</span>
+  <p>第9〜14論で、「色白」「バラモン」のように身体の属性を表す語が内制者にまで及ぶことが確定しました。しかし「地」「水」のような、身体の外にある物を表す語はどうでしょうか。『ブリハッド・アーラニヤカ』3.7 の内制者ブラーフマナは「地を身体とし…水を身体とし…」と言いますが、大地や川を本当に<strong>身体</strong>と呼べるかどうかが問題になります。</p>
+  <p>そこで第15論は、<strong>身体の定義</strong>を争います。反論者は、手足など（感官）の担い手が身体だとします。立論者は、ある者が全体に行きわたって統御するものがその者の身体だとします。召使いや舟や虎の作り物、取り憑かれた身体などの反例が検討され、最後には、ヨーガの力で山どうしを戦わせたヴィルーパークシャの物語まで登場します。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>論題</dt><dd>大地・川・海・山などは身体か</dd></div>
+    <div><dt>立論者（定説）</dt><dd>身体である<br><small>身体の定義をそなえているから</small></dd></div>
+    <div><dt>反論者</dt><dd>身体ではない<br><small>手足など（感官）の担い手ではないから</small></dd></div>
+    <div><dt>身体の定義（立論者）</dt><dd>ある者が全体に行きわたって統御するもの<br><small>その行きわたりが統御をもたらしているもの</small></dd></div>
+    <div><dt>結論</dt><dd>大地などは身体。その神格の「私は地だ」は内制者まで及ぶ<br><small>だから内制者も「地」などの語で表される</small></dd></div>
+  </dl>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">第15論の地図</h2><span class="sub">奇数段が立論者、偶数段が反論者</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>段</th><th>話者</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">1–3</td><td>交互</td><td class="num">pp.292–293</td><td class="k"><a href="#s1">大地は身体か。手足の有無と「統御されるもの」</a></td></tr>
+<tr><td class="num">4–6</td><td>交互</td><td class="num">pp.293–294</td><td class="k"><a href="#s2">定義の吟味：不成立・不充足・過剰充足</a></td></tr>
+<tr><td class="num">7</td><td><span class="pill c">立論者</span></td><td class="num">pp.294–295</td><td class="k"><a href="#s3">行きわたりが統御をもたらすこと。シヴァ・ヨーギンの力</a></td></tr>
+<tr><td class="num">7（続）</td><td><span class="pill c">立論者</span></td><td class="num">pp.295–296</td><td class="k"><a href="#s4">解脱者と神群は誰にも統御されない。リグ・ヴェーダ 1.49.3</a></td></tr>
+<tr><td class="num">7（結）</td><td><span class="pill c">立論者</span></td><td class="num">pp.296–297</td><td class="k"><a href="#s5">憑依の反例。反論者の定義の欠陥。結論</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>第1〜3段：大地は身体か</h2><span class="sub"><span class="pg">pp.292–293</span></span></div>
+<div class="mula" id="u1">
+  <span class="ref">292</span>
+  <div class="src deva" lang="sa">अन्तर्यामिविषयपृथिव्यादिशब्दवाच्यत्वसमर्थनवादः ॥ अथ शरीरवाचिनां गुणवचनब्राह्मणादिशब्दानामन्तर्यामिपर्यन्तत्वसिद्धावपि पृथिव्युदकादितटस्थद्रव्यवाचिनां तत्पर्यन्तत्वं तावता न सिध्यतीति शङ्कानिरासाय तेषामपि शरीरत्वप्रसाधनार्थं कथान्तरं प्रस्तूयते-- भूगोलसरित्समुद्रमहीधरादिकं शरीरं भवितुमर्हति, शरीरलक्षणयोगित्वात्, यत् शरीरलक्षणयोगि तत् शरीरम्-यथा अस्मदादिशरीरम् - इति प्रथमा कक्ष्या ॥</div>
+  <div class="tr">内制者を対象として「地」などの語で表されることを論証する論。さて、身体を表す、属性語や「バラモン」などの語が内制者にまで及ぶことは確立されても、それだけでは、地や水など（身体の）外にある実体を表す語がそこまで及ぶことは成り立たない——この疑いを退けるために、それらも身体であることを立証すべく、別の論議を始める。<br>（第1段）大地・川・海・山などは身体でありうる。身体の定義をそなえているからである。身体の定義をそなえているものは身体である。たとえばわれわれの身体のように。以上が第1段。</div>
+  <div class="exp"><span class="lbl">解説</span><p>これまでの論で、「色白」や「バラモン」の語は、身体→個我→内制者と及ぶことが示されました。しかし「地」や「水」は、誰かの身体の属性ではなく、外の物を表します。それらが内制者まで及ぶには、地や水がまず誰か（地の神格など）の身体でなければならない。第15論はそれを示します。</p></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">292</span>
+  <div class="src deva" lang="sa">असिद्धोऽयं हेतुः, शरीरलक्षणस्य करचरणादेः भूगोलकादिष्वभावात् । अतो भूगोलकादिकं शरीरं न भवति, तल्लक्षणरहितत्वात्, यत् शरीरलक्षणरहितं न तत् शरीरम् - यथा परं ब्रह्म इति द्वितीया ॥</div>
+  <div class="tr">（第2段）この論証因は成り立たない。身体の特徴である手足などが、大地などにはないからである。だから大地などは身体ではない。その特徴を欠いているからである。身体の特徴を欠いているものは身体ではない。たとえば最高ブラフマンのように。以上が第2段。</div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">293</span>
+  <div class="src deva" lang="sa">करचरणादिकं न शरीरलक्षणम्, मनुष्यपशुपक्षिसरीसृपतरुगुल्मलतादिशरीरेषु तस्य तथाभूतस्य वा कस्य चिदवयवसंस्थानस्यानुगतस्य अभावात् । किंतु यस्य यत् द्रव्यं सर्वात्मना नियम्यं तत् तस्य शरीरम् इति शरीरलक्षणम्। तथा च पृथिव्युदकादिकं तत्तदभिमानिनां देवानां सर्वात्मना नियम्यमिति न मद्धेतुरसिद्धः, त्वद्धेतुरेवासिद्धः -- इति तृतीया ॥</div>
+  <div class="tr">（第3段）手足などは身体の特徴ではない。人間・獣・鳥・爬虫類・樹木・灌木・蔓草などの身体に、それも、またそのような何らかの部分の配置も、共通してはないからである。そうではなく、「ある実体がある者によって全面的に統御されるなら、それはその者の身体である」というのが身体の定義である。そして地や水などは、それぞれを司る神々によって全面的に統御されるので、私の論証因は成り立たないことはなく、あなたの論証因こそ成り立たない。以上が第3段。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者の最初の定義は「全面的に統御されるもの」です。樹木や蔓草も身体とされるのに手足はないので、手足は身体の定義になりません。インドの伝統では、大地・水・火などにはそれぞれを司る神格（<i>abhimānidevatā</i>）がいて、それを統御しています。</p></div>
+  <div class="nt">「सर्वात्मना न नियम्यमिति」は文脈に合わないので「न」を除いた。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第4〜6段：定義の吟味</h2><span class="sub"><span class="pg">pp.293–294</span></span></div>
+<div class="mula" id="u4">
+  <span class="ref">293</span>
+  <div class="src deva" lang="sa">त्वदुक्तमपि शरीरलक्षणमयुक्तम्, तत्र सर्वात्मना इत्यनेन यस्यैव नियम्यं नान्यस्य इत्यन्ययोगव्यवच्छेदविवक्षायाम् असंभवापत्तेः; सर्वेषां शरीराणां तत्तदभिमानिनं देवमनुष्यादिकं प्रतीव सर्वनियन्तारं परमेश्वरं प्रत्यपि नियम्यत्वात् । यस्य नियम्यमेव न कदाचिदनियम्यम् इत्ययोगव्यवच्छेदविवक्षायां सुषुप्तिमूर्छादिशरीराणां तत्तदभिमानिनं प्रत्यनियम्यत्वेन कल्पादौ परमेश्वरेण सृष्टानां कल्पान्तपर्यन्तस्थायिनां प्राणेन्द्रियादीनां प्रतिमन्वन्तरभिन्नान् तत्तदभिमानिदेवान् प्रति कालान्तरेषु अनियम्यत्वेन च तेष्वव्याप्त्यापत्तेः । न च वाच्यम् नियम्यत्वं योग्यतामात्रेण विवक्षितम्, सुषुप्तमूर्छितादिशरीरेषु योग्यता स्पष्टैव, प्राणेन्द्रियादिष्वपि सा अस्ति, निवृत्ताधिकाराणामभिमानिदेवानां तदनुप्रवेशादिनियमनसहकारिसमवधानाभावात् नियम्यत्वाभाव इति; तथा सति चैत्रमैत्रादिशरीराणां परस्परनियमनयोग्यतास्ति, त्वदुक्तसहकारिसमवधानाभावादेव नियमनाभावः इति चैत्रशरीरस्यापि मैत्रं प्रति शरीरत्वप्रसङ्गेन अतिव्याप्त्यापत्तेः ।</div>
+  <div class="tr">（第4段）あなたの言う身体の定義も正しくない。そこで「全面的に」という語によって、「その者だけに統御され、他の者には統御されない」と、他との結びつきの排除を意図するなら、（定義に当てはまるものが）ありえないことになってしまう。すべての身体は、それぞれを司る神や人間などに対してと同じく、すべての統御者である最高神に対しても統御されるからである。<br>「その者に必ず統御され、決して統御されないことはない」と、結びつかないことの排除を意図するなら、熟睡や気絶などの状態の身体は、それを司る者に統御されないので、またカルパの初めに最高神が造り、カルパの終わりまで続く生気や感官などは、マヌの期ごとに異なるそれぞれを司る神々に、別の時には統御されないので、それらに（定義が）及ばないことになってしまう。<br>「統御されることは、単なる可能性として意図されている。熟睡・気絶などの身体に可能性があるのは明らかで、生気や感官などにもそれはある。職を終えた司る神々については、それに入り込むなどの、統御の補助条件がそろわないので、統御されないのだ」と言うべきでもない。そうだとすると、チャイトラやマイトラなどの身体にも互いを統御する可能性があり、あなたの言う補助条件がそろわないので統御がないだけだ、ということになり、チャイトラの身体もマイトラに対して身体であることになって、（定義が）広すぎることになってしまうからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は立論者の定義を三方向から攻めます。インドの定義論では、定義の欠陥を三つに分けます。当てはまるものがない「不成立」（<i>asaṃbhava</i>）、当てはまるべきものに及ばない「不充足」（<i>avyāpti</i>）、当てはまるべきでないものに及ぶ「過剰充足」（<i>ativyāpti</i>）です。</p><p>「全面的に」を「その者だけに」と読むと、すべての身体は最高神にも統御されているので、定義に当てはまるものがなくなる。「常に」と読むと、熟睡中の身体や、神々の任期を超えて続く生気・感官に当てはまらない。「可能性として」と読むと、他人の身体まで自分の身体になってしまう、というのです。</p></div>
+  <div class="nt">「असंभावापत्तेः」を「असंभवापत्तेः」と正した。</div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">293</span>
+  <div class="src deva" lang="sa">तस्मात्करचरणाद्याश्रयत्वमेव शरीरलक्षणमास्थेयम् । करचरणादिकं च अवयवसंस्थानरूपं न विवक्षितम् । किंतु इन्द्रियरूपम् । इन्द्रियाणां च एकादशानामपि आमोक्षम् अनुवृत्तिमत्त्वेन पशुवृक्षसरीसृपादिरूपेषु जङ्गमस्थावरात्मकेषु सर्वेष्वपि शरीरत्वेन संप्रतिपन्नेषु सद्भावोऽस्त्येव । अतः पृथिव्युदकादिषु तत्तदभिमानिदेवताधिष्ठितसंचारिशरीरेष्विव तस्याभावात् त्वद्धेतुरसिद्धः, मद्धेतुश्च नासिद्ध इति चतुर्थी ॥</div>
+  <div class="tr">だから、まさに手足などの担い手であることを身体の定義とすべきである。そして手足などは、部分の配置としての手足を意図しているのではなく、感官としてのそれを意図している。十一の感官は解脱まで続くので、獣・樹木・爬虫類など、動くものも動かないものも、身体だと一致して認められるすべてのものにある。だから地や水などには、それを司る神格が宿る動く身体とは違って、それがないので、あなたの論証因は成り立たず、私の論証因は不成立ではない。以上が第4段。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者の定義は「手足など（感官）の担い手」です。ここでの手足は形ではなく、五つの行動器官（手・足・言葉・排泄・生殖）を含む十一の感官（五知覚器官・五行動器官・意）のことです。樹木にも感官があるとインドでは考えられているので、樹木も身体に入ります。地の神格は感官をもつ身体で動き回りますが、大地そのものには感官はない、というのです。</p></div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">293–294</span>
+  <div class="src deva" lang="sa">अथ पञ्चमी-- करचरणादीन्द्रियाश्रयत्वं न शरीरलक्षणम्, अन्तर्यामिब्राह्मणे 'यस्य पृथिवी शरीरम्...यस्यापः शरीरम्.... यस्य तेजः शरीरम्' इत्यादिवाक्यैः परमेश्वरशरीरत्वेन प्रतिपादितेषु पृथिव्यादिष्वभावात् । तस्मात् मदुक्तमेव लक्षणं ग्राह्यम् । न च उक्तदोषप्रसङ्गः, सर्वात्मशब्देन मध्यमपदलोपिसमासवता सर्वानुप्रविष्टस्य आत्मनो विवक्षितत्वात् । सर्वशब्दश्चात्र सर्वः पटो रक्तः इत्यत्रेव एकैकस्य द्रव्यस्य अवयवकार्त्स्न्यपरः । तथा च यद्रव्यं स्वकीयसर्वावयवावच्छेदेन व्याप्य अधितिष्ठता यस्यात्मना नियम्यं तत्तस्य शरीरम् इति लक्षणं पर्यवस्यति । इदं च लक्षणं गुणाश्रयत्वादिवत् यावद्द्रव्यभाव्ययावद्द्रव्यभाविनियमनसाधारण्येन योग्यतामात्ररूपं विवक्षितम् । अतः सुषुप्तमूर्छितादिशरीरेषु प्राणेन्द्रियादिषु तत्तदभिमानिदेवताशरीरेषु च नाव्याप्तिः । नापि भृत्यादिशरीरेषु स्वाम्यादिशरीरत्वापत्तिरूपातिव्याप्तिः, यतः स्वामी भृत्यमननुप्रविष्ट एव आज्ञामात्रेण नियच्छति, नाविको नावमनुप्रविष्टोऽपि न तां सर्वावयवावच्छेदेन व्याप्य अधितिष्ठति । दारुचर्मादिव्याघ्राकारयन्त्रानुप्रविष्टकृत्रिमव्याघ्रादिभिरपि तथा । तस्मात् पृथिव्युदकादीनां शरीरलक्षणयोगित्वम्। अतो मद्धेतुर्नासिद्धः, त्वद्धेतुरेवासिद्ध इति ॥</div>
+  <div class="tr">第5段——手足などの感官の担い手であることは身体の定義ではない。内制者ブラーフマナで「その身体は地であり…その身体は水であり…その身体は火であり」などの文によって最高神の身体だと説かれる地などには、それがないからである。だから私の言う定義こそ採るべきである。<br>そして先に述べた欠点は生じない。「全面的に」（<i>sarvātman</i>）の語は、中間の語が落ちた複合語であり、「すべてに入り込んだ自己」を意図しているからである。そしてここで「すべて」の語は、「布はすべて赤い」と同じく、一つ一つの実体の部分の全体を指す。こうして、「ある実体が、自分のすべての部分にわたって行きわたって宿る者の自己によって統御されるなら、それはその者の身体である」という定義に落ち着く。<br>そしてこの定義は、「属性の担い手であること」などと同じく、実体が存続するかぎり続く統御にも、続かない統御にも共通する、単なる可能性として意図されている。だから熟睡・気絶などの身体、生気・感官など、それぞれを司る神格の身体に（定義が）及ばないことはない。また、召使いなどの身体が主人などの身体になる、という過剰充足もない。主人は召使いに入り込まずに命令だけで統御し、船頭は舟に入り込んでも、舟のすべての部分にわたって行きわたって宿るわけではないからである。木や革などでできた虎の形の仕掛けに入り込んだ作り物の虎なども同じである。だから地や水などは身体の定義をそなえている。だから私の論証因は成り立たないことはなく、あなたの論証因こそ成り立たない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者は定義を言い直します。「全面的に統御される」とは、「すべての部分に行きわたって宿る者によって統御される」ことだ。こう読めば、主人と召使い（入り込まない）、船頭と舟（部分すべてに行きわたらない）、虎の着ぐるみ（同じく）は除かれます。ただし統御は「可能性」として言われるので、熟睡中の身体なども含まれます。内制者ブラーフマナが地や水を最高神の身体と言うのは、神が地のすべての部分に宿って統御するからです。</p></div>
+  <div class="nt">「अवयवकास्यपरः」を「अवयवकार्त्स्न्यपरः」、「अधितिष्टता」を「अधितिष्ठता」、「यावद्रद्रव्यभावि」を「यावद्द्रव्यभावि」と正した。</div>
+</div>
+<div class="mula" id="u7">
+  <span class="ref">294</span>
+  <div class="src deva" lang="sa">अथ षष्ठी-- त्वदुक्तलक्षणं तावत् न युज्यते, कायव्यूहपरिग्रहवतां भृत्यशरीरनौदारुयन्त्रादिषु सर्वावयवव्याप्त्या नियामकत्वमस्तीति तेषां तत्तच्छरीरत्वप्रसङ्गेन रक्षः पिशाचगन्धर्वाद्याविष्टशरीराणां रक्षः पिशाचादिभोगोपयुक्तानां रक्षःपिशाचादिशरीरत्वप्रसङ्गेनातिव्याप्तेः अनिवार्यत्वात् । तस्मादगत्या मदुक्तमेव शरीरलक्षणमास्थेयम् । तन्निर्वाहाय च श्रुतिषु पृथिव्यादीनां परमेश्वरशरीरत्वप्रतिपादनं शरीरवन्नियम्यत्वसद्भावेन गौणमुपपादनीयम् । अतः पृथिव्यादिषु शरीरलक्षणाभावात् त्वद्धेतुरसिद्धो मद्धेतुर्नासिद्ध इति ॥</div>
+  <div class="tr">第6段——まずあなたの言う定義は成り立たない。多くの身体をとる（ヨーギン）は、召使いの身体、舟、木の仕掛けなどに、すべての部分に行きわたって統御するので、それらがその者の身体になってしまう。また羅刹・ピシャーチャ・ガンダルヴァなどに取り憑かれた身体は、羅刹・ピシャーチャなどの享受に役立つので、羅刹・ピシャーチャなどの身体になってしまう。こうして過剰充足は避けられないからである。<br>だから他に道がないので、私の言う身体の定義こそ採るべきである。そしてそれを維持するために、ウパニシャッドで地などが最高神の身体だと説かれるのは、身体と同じように統御されることがあるので、比喩的な言い方だと説明すべきである。だから地などには身体の定義がないので、あなたの論証因は成り立たず、私の論証因は不成立ではない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は新たな反例を出します。ヨーガの力で多くの身体をとる者（<i>kāyavyūha</i>）は、他人の身体や舟に入り込んで行きわたることができる。悪霊に取り憑かれた身体も、悪霊がそれに宿って享受する。どちらも立論者の定義に当てはまってしまう、というのです。だからウパニシャッドの「地を身体とする」は比喩だと読むしかない、と反論者は言います。</p></div>
+  <div class="nt">「नियामकत्वस्तीति」を「नियामकत्वमस्तीति」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第7段（1）：行きわたりと統御</h2><span class="sub"><span class="pg">pp.294–295</span><span class="pill c">立論者</span></span></div>
+<div class="mula" id="u8">
+  <span class="ref">294–295</span>
+  <div class="src deva" lang="sa">अथ सप्तमी-- मदुक्तलक्षणस्य तावता नातिव्याप्तिः, कायव्यूहपरिग्रहवतः शिवयोगिनोऽपि राजवदाज्ञावचनेन भृत्यं प्रेरयतो लीलया नाविकवत् नावमधिरुह्य क्षेपण्या तां क्षिपतो दारुचर्मादियन्त्राच्छादनेन व्याघ्रादिवत्संचरतश्च भृत्यशरीरादिव्याप्तिसत्त्वेऽपि तद्व्याप्तेः भृत्यादिनियमनाप्रयोजकत्वात्; तस्या एव तत्प्रयोजकतायामाज्ञावचनादिवैयर्थ्यात् ।</div>
+  <div class="tr">第7段——それでも私の言う定義は広すぎない。多くの身体をとるシヴァ・ヨーギンが、王のように命令の言葉で召使いを動かし、戯れに船頭のように舟に乗って櫂で漕ぎ、木や革などの仕掛けをかぶって虎などのように歩き回るとき、召使いの身体などに行きわたっていても、その行きわたりが召使いなどの統御をもたらしているのではないからである。もしそれがそれをもたらしているなら、命令の言葉などは無駄になってしまうからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者は定義にもう一つの条件を加えます。行きわたることが統御を<strong>もたらしている</strong>こと、です。ヨーギンが召使いの身体に行きわたっていても、実際に召使いを動かしているのは命令です。行きわたりで動かしているなら、命令はいらないはずです。</p></div>
+  <div class="nt">「अत सप्तमी」を「अथ सप्तमी」、「व्याघ्घ्रादि」を「व्याघ्रादि」と正した。</div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">295</span>
+  <div class="src deva" lang="sa">अवश्यं च लक्षणे नियम्यव्याप्तेः नियमनप्रयोजकत्वं विवक्षणीयम्, अन्यथा सर्वाङ्गीणसुखदुःखानुभवानुरोधात् चिच्छक्तिविकासेन स्वशरीरमन्तर्बहिश्च व्याप्य स्थितस्य स्वकुक्षिस्थकृम्यादिकमौषधसेवादिना यमयतश्च पुरुषस्य कुक्षिस्थकृम्यादिशरीरमपि शरीरं भवेत् ।</div>
+  <div class="tr">そして定義では、統御されるものへの行きわたりが統御をもたらしていることを、必ず意図しなければならない。そうでなければ、全身で苦楽を感じることに応じて、知の力の広がりによって自分の身体の内外に行きわたっていて、薬を飲むなどして自分の腹の中の虫などを抑える人にとって、腹の中の虫などの身体も（自分の）身体になってしまうだろう。</div>
+  <div class="exp"><span class="lbl">解説</span><p>この条件は必要です。人は全身で苦楽を感じるので、自分の身体の内側にも行きわたっています。そして薬で腹の虫を抑えます。条件がなければ、腹の虫も自分の身体になってしまう。しかし虫を抑えているのは薬であって、行きわたりではない、というわけです。</p></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">295</span>
+  <div class="src deva" lang="sa">यदि तु शिवयोगी मन्त्रमहिम्ना योषिदाद्याकर्षणमिव चिच्छक्तिव्याप्तिमहिम्ना विनैवाज्ञावचनम् अन्तर्यामिवत् भृत्यादीन् प्रेरयेत्, नावमनधिरुह्यैव जले तां संचारयेत्, व्याघ्राकृतिदारुयन्त्रादिकमननुप्रविष्ट एव संचारयेत्, तदा किमतिव्याप्तिर्न भवति इत्येतावच्छङ्कनीयम्; तत्रेदमुत्तरम् - शिवयोगिनः तथा तथा कर्तुं प्रभवन्त्येव । अत एव विरूपाक्षयोगिना गगनमार्गे दिग्गजानानीय द्वौ द्वौ दिग्गजौ परस्परं योधयन्तं तेन स्वीयमैश्वर्यं लोकातिशायीति दर्पभरोष्मलं सहस्राक्षं दृष्ट्वा तद्दर्पमपनीय शिवयोगे रुच्युत्पादनेन तमनुग्रहीतुं द्वौ शैलौ गजवत् परस्परोपसर्पणेन योधितौ; तदत्यन्तमाश्चर्यं दृष्ट्वा गगनतलादवरुह्य प्रणिपत्य कथमिदमाश्चर्यं भवता कारितम् ? इति पृष्टवन्तं सहस्राक्षं प्रति तव हस्तौ त्वदिच्छया परस्परास्फालन इव मदिच्छया इमौ पर्वतौ परस्परयुद्धे प्रवर्तेते ; शिवयोगप्रभावः तादृशः इति विरूपाक्षयोगिना प्रतिबोधितम्; ततो विलक्षः सहस्राक्षः तुच्छमिदमैश्वर्यम् इति ततो विरज्य ततः प्रभृति निरन्तरशिवयोगाभ्यासे एव निरतोऽभूत् - इति कथामभियुक्ता वर्णयन्ति ।</div>
+  <div class="tr">では、もしシヴァ・ヨーギンが、マントラの威力で女性などを引き寄せるように、知の力の行きわたりの威力によって、命令の言葉なしに、内制者のように召使いなどを動かし、舟に乗らずに水上でそれを動かし、虎の形の木の仕掛けなどに入り込まずにそれを動かすなら、そのときは広すぎることにならないか——疑うべきはこの点である。<br>それへの答えはこうである。シヴァ・ヨーギンたちは、たしかにそのようにすることができる。まさにそれゆえ、識者たちは次の物語を語っている。<br>千の眼をもつインドラが、天空の道に方角の象たちを連れてきて、二頭ずつ方角の象を戦わせ、それによって自分の主権が世を超えていると驕り高ぶっていた。それを見たヨーギンのヴィルーパークシャは、その驕りを取り除き、シヴァ・ヨーガへの関心を起こさせて彼を恵もうと、二つの山を象のように互いに近づけて戦わせた。そのきわめて驚くべきさまを見たインドラは、天空から降りてひれ伏し、「どのようにしてこの驚くべきことをなさったのですか」と尋ねた。ヴィルーパークシャは「あなたの両手があなたの意志で打ち合うように、私の意志でこの二つの山は互いに戦う。シヴァ・ヨーガの力とはそのようなものだ」と教えた。恥じ入ったインドラは「（私の）この主権はつまらないものだ」と思って離欲し、それ以来、絶え間ないシヴァ・ヨーガの修習にひたすら励むようになった、と。</div>
+  <div class="exp"><span class="lbl">解説</span><p>次の難問です。シヴァ・ヨーギンが命令も道具も使わず、行きわたりだけで他人や舟を動かせるなら、それらはヨーギンの身体になるのではないか。立論者はそれを認めます。ヨーギンにはそれができるのです。ヴィルーパークシャの物語は、山を自分の手のように動かすヨーギンの力を示します。インドラの象の戦いは見世物にすぎず、ヨーギンの力の前ではつまらないものでした。</p></div>
+  <div class="nt">「नावमनधिरुचैव」を「नावमनधिरुह्यैव」、「त्वदिच्छ्या」を「त्वदिच्छया」と正した。</div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">295</span>
+  <div class="src deva" lang="sa">एवमपि नातिव्याप्तिः, शिवयोगिनां चिच्छक्तिविकासेन प्रपञ्चं व्याप्य शिवयोगप्रभावेन स्वेच्छया तत्तन्नियच्छतां शिववदेव प्रपञ्चशरीरकत्वाङ्गीकारात् । अत एव 'सर्वं खल्विदं ब्रह्म' 'सर्वो वै रुद्रः' इत्यादिषु स्वतःसिद्धतया शिवस्येव 'यद्ब्रह्मविद्यया सर्वं भविष्यन्तो मनुष्या मन्यन्ते' इति ब्रह्मविद्याफलत्वेन 'सर्वमेधेन दशरात्रेण यजेत यः कामयेत सर्वमिदं भवेयमिति' इत्यादिश्रुतिषु विद्यासाधनसहकारिकर्मफलत्वेन च जीवानामपि सर्वशरीरकत्वरूपं सार्वात्म्यं श्रूयते ।</div>
+  <div class="tr">そうであっても、広すぎることにはならない。知の力の広がりによって世界に行きわたり、シヴァ・ヨーガの力によって意のままにそれぞれを統御するシヴァ・ヨーギンたちは、シヴァとまったく同じく、世界を身体とすることが認められるからである。<br>まさにそれゆえ、「この一切はまさにブラフマンである」「一切はまさにルドラである」などでは、シヴァについては本来成り立っているものとして、また「人々はブラフマンの知によってすべてとなると考える」ではブラフマンの知の果として、「『私はこの一切となりたい』と望む者は、十夜のサルヴァメーダによって祭祀すべし」などのヴェーダでは知の手段を補助する行為の果として、個我にも、一切を身体とするという意味での「一切を自己とすること」が聞かれるのである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>ヨーギンが行きわたりで世界を動かすなら、世界はヨーギンの身体です。それは定義の欠陥ではなく、事実です。ヴェーダも、ブラフマンを知る人や特別な祭祀を行う人が「一切となる」と説いています（『ブリハッド・アーラニヤカ』1.4.9、『シャタパタ・ブラーフマナ』13.7.1 のサルヴァメーダ）。シヴァにとって一切が身体であるのは本来のことで、個我にとっては知や行為の果として得られる、という違いです。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>第7段（2）：誰にも統御されない者</h2><span class="sub"><span class="pg">pp.295–296</span><span class="pill c">立論者</span></span></div>
+<div class="mula" id="u12">
+  <span class="ref">295–296</span>
+  <div class="src deva" lang="sa">एवं तर्हि जीवानामपि सर्वशरीरकत्वेन सर्वशब्दवाच्यतया शिवसाम्यं स्यात् न च वाच्यम् शिवयोगे सिद्धे चिच्छक्तौ च विकासितायां तत्कालवर्तिप्रपञ्चमात्रं जीवानां नियम्यम्, न त्वतीतप्रपञ्चोऽपि, अतः सर्वप्रपञ्चशरीरकत्वं शिवस्यैव न कस्यापि जीवस्येति, नियमनं हि योग्यतया लक्षणेऽनुप्रविष्टम्; तत् अतीतप्रपञ्चे शिवयोगसिद्धचिच्छक्तिविकासरूपसहकारिविरहात् नियमनफलानुदयेऽपि अक्षतमिति चेत्, सत्यम् जीवानामतीतप्रपञ्चशरीरकत्वमपि अस्त्येव; अत एव संसारदशायामपि विश्वाकारपराहंभावयोग्यतामङ्गीकृत्य देवमनुष्यादिना अहंभावस्य भ्रान्तिरूपत्वं भाष्ये तत्र तत्र वर्णितम् ; एवमपि शिवस्येव न कस्यापि जीवस्य स्वव्यतिरिक्तसर्वप्रपञ्चशरीरकत्वं प्रसज्यते; शिवयोगिस्कन्दनन्दिकेश्वरादिनित्यसिद्धदिव्यगणानां च केनापि जीवेन नियम्यताभावात् ।</div>
+  <div class="tr">では、個我も一切を身体とするので、一切の語で表されることになり、シヴァと等しくなってしまうだろう。<br>「シヴァ・ヨーガが成就し、知の力が広がったとき、個我が統御するのはその時に存在する世界だけであって、過去の世界までは統御しない。だから全世界を身体とするのはシヴァだけであって、どの個我でもない」と言うべきでもない。統御は可能性として定義に入っているのであり、それは、過去の世界については、シヴァ・ヨーガで成就した知の力の広がりという補助条件がないために統御の結果が生じないとしても、損なわれないからである——と言うなら、そのとおりである。個我にも過去の世界を身体とすることは、たしかにある。まさにそれゆえ、輪廻の状態にあっても、全世界の形をとる最高の「私」の意識の可能性を認めたうえで、神や人間などとしての「私」の意識は錯覚だと、注釈のあちこちで述べられている。<br>しかしそうであっても、シヴァのように、自分以外の全世界を身体とすることが、どの個我にも生じるわけではない。シヴァ・ヨーギン、スカンダ、ナンディケーシュヴァラなど、永遠に完成した天の神群は、どの個我にも統御されないからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>では個我もシヴァと等しくなるのか、という問いです。立論者は、統御の「可能性」で言えば、個我にも全世界を身体とする可能性があることを認めます。シュリーカンタの注釈が、「私は神だ」「私は人間だ」という意識を錯覚と呼ぶのは、本来の「私」が全世界に及ぶからです。</p><p>それでも個我がシヴァと等しくなることはない。スカンダ（シヴァの子）やナンディケーシュヴァラ（シヴァの従者）のような永遠の神群は、シヴァ以外の誰にも統御されないので、個我の身体にはならない。全世界を身体とするのはシヴァだけです。</p></div>
+</div>
+<div class="mula" id="u13">
+  <span class="ref">296</span>
+  <div class="src deva" lang="sa">तदभावश्च 'वयश्चित्ते पतत्रिणो द्विपाच्चतुष्पादर्जुनि उषः प्रारन्नृतूँरनु दिवो अन्तेभ्यस्परि' इति मन्त्रेण दर्शितः । अस्य च अयमर्थः पतत्रिणः शोभनपत्राः वयः पतत्रिणः, चित् इत्युपमार्थे, पक्षबलयुक्ताः पक्षिण इव ऊर्ध्वगमनोत्साहयुक्ताः ते ऋषयः, ये 'वयः सुपर्णा उपसेदुरिन्द्रं प्रियमेधा ऋषयो नाधमानाः' इति मन्त्रे मुमुक्षया इन्द्रमुपसन्नाः प्रतिपादिताः, ते ऋषयः, द्विपाच्चतुष्पात् द्विपाच्चतुष्पादात्मकम्, सर्वं प्रपञ्चम्, प्रारन् प्रकर्षेण प्राविशन्; नियन्तृत्वरूपोऽत्र प्रकर्षो विवक्षितः; कदा, ऋतून्, ऋतुशब्देन संसारदशायां वृत्ताः मासर्तुसंवत्सरादयः सर्वेऽप्यवच्छिन्नकाला विवक्षिताः; 'मधुश्च माधवश्च वासन्तिकावृतू' इत्यादिश्रुतिषु मासविषयोऽपि हि ऋतुशब्दप्रयोगो दृष्टः; तथा च सांसारिकजरापरिणत्यादिहेत्ववच्छिन्नकालभोगानन्तरं प्राविशन्नित्यर्थः; किम् अविशेषेण सर्वद्विपाच्चतुष्पादात्मकं प्रपञ्चं नियन्तृत्वेन प्राविशन् ? नेत्युच्यते दिवो अन्तेभ्यस्परीति, दिवः परमशिवस्थानस्य महाकैलासाख्यस्वर्गस्य, अन्तेभ्यः पर्यन्तदेशेभ्यः मध्ये विलसन्तीं शिवराजधानीं परितः स्थितेभ्यः दिव्यगणानां मुक्तानां च धामभ्यः, परि तानि वर्जयित्वा, दिव्यगणा मुक्ताः शिवैकनियम्या इति तद्वर्जनमात्रं विवक्षितम्; परित्रिगर्तेभ्यो वृष्टो देवः इत्यादिष्विव परि-शब्दो वर्जनार्थः; शिवराजधानीं परितः स्थितेषु तद्धृत्यगृहेष्वपि नियन्तृत्वेन प्रवेशाभावे शिवराजधान्यां तदभावः कैमुतिकन्यायसिद्धः;</div>
+  <div class="tr">そのこと（統御されないこと）は、「（ウシャスよ、）輝く者よ、翼ある鳥たちも、二本足も四本足も、季節に従って、天の果てから（離れて）進み入った」というマントラによって示されている。<br>その意味はこうである。「翼ある」とは美しい翼をもつ、「鳥たち」とは鳥で、「も」（<i>cit</i>）は比喩の意味である。翼の力をそなえた鳥のように、上昇の意欲をそなえたその聖仙たち、すなわち「美しい翼の鳥たち、祭祀を愛する聖仙たちが、乞い求めつつインドラのもとに来た」というマントラで、解脱を望んでインドラのもとに来たと述べられたその聖仙たちが、「二本足も四本足も」すなわち二本足と四本足からなる全世界に、「進み入った」すなわち優れた仕方で入った。ここでの優れた仕方とは、統御者として、ということである。<br>いつか。「季節に従って」。「季節」の語によって、輪廻の状態で経過した月・季節・年などのすべての区切られた時が意図されている。「マドゥとマーダヴァは春の二つの季節である」などのヴェーダで、月について「季節」の語が用いられているのが見られるからである。だから、輪廻における老いや変化などの原因で区切られた時を享受した後に、進み入った、という意味である。<br>彼らは区別なく、二本足・四本足からなる全世界に統御者として進み入ったのか。そうではない、と「天の果てから離れて」が言う。「天」とは最高シヴァの住処であるマハーカイラーサという天界で、その「果て」とは周縁の場所、すなわち中央に輝くシヴァの都を取り巻く、天の神群と解脱者たちの住まいである。「離れて」（<i>pari</i>）とはそれらを除いて、ということである。天の神群と解脱者たちはシヴァだけに統御されるので、それらを除くことだけが意図されている。「トリガルタを除いて雨の神は降った」などと同じく、<i>pari</i> の語は除外の意味である。シヴァの都を取り巻くその僕たちの家にさえ統御者として入らないのなら、シヴァの都にそれがないことは「まして」の理屈で成り立つ。</div>
+  <div class="exp"><span class="lbl">解説</span><p>典拠は『リグ・ヴェーダ』1.49.3 です。本来は暁の女神ウシャスへの讃歌で、「鳥も人も獣も、暁とともに天の果てから動き出す」という情景を歌います。立論者はこれを独自に読み替えます。「鳥」は解脱を求める聖仙（第12論で引いた 10.73.11 の「鳥たち」と同じ）、「進み入った」は統御者として世界に入ったこと、「天の果て」はシヴァの天界の周縁にある神群と解脱者の住まいで、<i>pari</i> は除外を表す（パーニニ 1.4.88）。つまり悟った聖仙たちも、神群と解脱者だけは統御できない、という意味になります。</p></div>
+  <div class="nt">「द्विपाञ्च्चतुष्पात्」を「द्विपाच्चतुष्पात्」、「प्रारनृतूरनु」を『リグ・ヴェーダ』に従い「प्रारन्नृतूँरनु」、「इत्यउपमार्थे」を「इत्युपमार्थे」、「नाथमानाः」を「नाधमानाः」と正した。</div>
+</div>
+<div class="mula" id="u14">
+  <span class="ref">296</span>
+  <div class="src deva" lang="sa">मुक्तानां यद्यपि परस्परनियम्यत्वयोग्यता अस्ति; तथापि न मुक्त्यनन्तरम् 'अत एव चानन्याधिपतिः' इति सूत्रोक्तन्यायेन शिवैकनियम्यानां तेषां तदा परस्परनियम्यत्वं नास्तीत्येतावता तेषु तद्वर्जनमुक्तम्; अर्जुनि धवलवर्णे तमोविवासनसमर्थस्वच्छतायुक्ते, उषः महाप्रलयरूपशर्वर्यपगमकालरूपे इति इदं द्वयं शैवचिच्छक्तेः संबोधनम्; इन्द्रं गुरुमुपसन्नानामृषीणामेवंभूतं सकलपशुपाशनियन्तृत्वं तत्प्रसादादासीदिति भावः ।</div>
+  <div class="tr">解脱者たちには、互いに統御される可能性はたしかにある。しかし解脱の後は、「まさにそれゆえ、他の主をもたない」というスートラで述べられた原則により、シヴァだけに統御されるので、そのとき互いに統御されることはない。そのことだけによって、彼らを除くことが言われたのである。<br>「輝く者よ」すなわち白い色の、闇を払うことのできる清らかさをそなえた者よ、「ウシャスよ」すなわち大帰滅という夜が去る時の姿をとる者よ——この二つは、シヴァの知の力（<i>cicchakti</i>）への呼びかけである。師であるインドラのもとに来た聖仙たちには、このような、すべての家畜（個我）と縄（束縛）を統御する力が、その恵みによって生じた、という趣旨である。</div>
+  <div class="exp"><span class="lbl">解説</span><p>『ブラフマ・スートラ』4.4.9「まさにそれゆえ、他の主をもたない」は、解脱者はブラフマン以外の誰にも支配されないと言います。マントラの呼びかけ「輝く者よ」「ウシャス（暁）よ」は、世界の大帰滅という夜を明けさせるシヴァの知の力（シャクティ）に向けられたもの、と読まれます。シヴァ派の術語で「家畜」（<i>paśu</i>）は個我、「縄」（<i>pāśa</i>）は束縛です。</p></div>
+  <div class="nt">「मुक्तत्यनन्तरम्」を「मुक्त्यनन्तरम्」、「इन्द्रं गुरुषूपसन्नानाम्」を「इन्द्रं गुरुमुपसन्नानाम्」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>第7段（3）：憑依の反例と結論</h2><span class="sub"><span class="pg">pp.296–297</span><span class="pill c">立論者</span></span></div>
+<div class="mula" id="u15">
+  <span class="ref">296–297</span>
+  <div class="src deva" lang="sa">एवं च अनया प्रक्रियया यद्यपि सर्वमुक्तिपक्षे स्वामिभृत्यादिशरीराणां परस्परनियम्यत्वयोग्यतारूपं परस्परशरीरत्वमुपपद्यते, अथापि 'अत एव हि विद्वत्सु मुच्यमानेषु सर्वदा । ब्रह्माण्डलोके जीवानामनन्तत्वादशून्यता' इति वार्तिकोक्ते सर्वमुक्त्यभावपक्षे तत् क्वचित् क्वचित् नास्ति । भृत्यादीनामाज्ञादिना नियमनमात्रं च न शरीरत्वप्रयोजकम्; किं तु व्याप्त्या नियमनमेवेति व्यञ्जयितुं तावद्दूरं लक्षणमुक्तम्। न चैवमपि पिशाचाद्याविष्टशरीराणामपि पिशाचादिशरीरत्वप्रसङ्गो दोषः; पिशाचादीनामतीन्द्रियेण स्वशरीरेण मनुष्यादीनाविश्य भोक्तृत्वात् मनुष्यादिशरीरताडने तदन्तर्गतपिशाचादिशरीरस्य कञ्चकताडने कञ्चकान्तर्गतशरीरस्येव ताडनाभिघातेन दुःखोपपत्तेः । यदि तु आविष्टशरीरेणैव पिशाचादीनां भोक्तृत्वमिष्यते, तदा तस्य पिशाचादिशरीरत्वमपि इष्यत एव, तदा तद्भोगायतनत्वसत्त्वात् । तस्मान्मदुक्तशरीरलक्षणे न कश्चिद्दोषः ।</div>
+  <div class="tr">こうして、この手順によれば、万人解脱の立場では、主人と召使いなどの身体が互いに統御される可能性という意味で、互いの身体であることが成り立つとしても、『ヴァールッティカ』で「まさにそれゆえ、賢者たちが常に解脱していっても、ブラフマーの卵の世界は、個我が無限なので空にならない」と言われる、万人解脱はないという立場では、それはところどころで成り立たない。<br>そして、召使いなどを命令などで統御するだけでは身体であることをもたらさず、行きわたって統御することだけがそれをもたらす、ということを示すために、あそこまで詳しく定義を述べたのである。<br>またそうだとしても、ピシャーチャなどに取り憑かれた身体もピシャーチャなどの身体になってしまう、という欠点があるわけではない。ピシャーチャなどは、感官を超えた自分自身の身体で人間などに入り込んで享受するので、人間などの身体を叩けば、鎧を叩けば鎧の中の身体が痛むように、その中にあるピシャーチャなどの身体が叩かれた衝撃で苦しむのが理にかなうからである。もし取り憑かれた身体そのものによってピシャーチャなどが享受すると認めるなら、そのときはそれがピシャーチャなどの身体であることも、まさに認められる。そのときそれはピシャーチャの享受の場だからである。だから私の言う身体の定義には何の欠点もない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>最初の段落は、互いの身体になりうるかどうかが、すべての個我がいつか解脱するかどうかの立場で変わる、という補足です。スレーシュヴァラの『ブリハッド・アーラニヤカ注解ヴァールッティカ』は、個我は無限なので世界が空になることはないとします。</p><p>憑依の反例（第6段）への答えはこうです。悪霊は自分の目に見えない身体で人に入り込むので、享受しているのは悪霊自身の身体です。人を叩くと中の悪霊が痛がるのは、鎧を叩くと中の人が痛むのと同じです。もし取り憑いた人の身体そのもので享受するなら、それは悪霊の身体だと認めてよい。どちらにしても定義の欠陥にはなりません。</p></div>
+  <div class="nt">「अनयो प्रक्रियया」を「अनया प्रक्रियया」と正した。</div>
+</div>
+<div class="mula" id="u16">
+  <span class="ref">297</span>
+  <div class="src deva" lang="sa">त्वदुक्तं तु लक्षणमयुक्तम्, पृथिव्यादीनां परब्रह्मशरीरत्वाभावप्रसङ्गात् । पृथिव्यादिपर्यायेषु सर्वेष्वपि प्रतिपर्यायम् आदरेण शरीरत्वप्रतिपादनस्य गौणत्वोक्त्ययोगाच्च । 'विग्रहं देवदेवस्य जगदेतच्चराचरम् । एतमर्थं न जानन्ति पशवः पाशगौरवात् । विद्येति चेतनं प्राहुस्तथाविद्यामचेतनम् । विद्याविद्यात्मकं सर्वं विश्वं विश्वगुरोर्विभोः । रूपमेव न संदेहो विश्वं तस्य वशे यतः' इति प्रपञ्चस्य परब्रह्मशरीरत्वासंदेहोक्त्या 'विश्वं तस्य वशे यतः' इति तस्य तच्छरीरत्वव्यवस्थापकलक्षणानुगतिप्रदर्शनेन च तद्गौणत्वाशङ्कायाः सुदूरनिरस्तत्वाच्च । 'विश्वं तस्य वशे यतः' इत्यनेन नियम्यत्वमात्रं लक्षणतया न विवक्षितम्, यतः तावन्मात्रेण भृत्यादिशरीरमपि स्वाम्यादीनां शरीरं भवेदिति दोषः स्यात् । किं तु व्यापनेन नियमनं लक्षणतया विवक्षितम् । तच्च 'विभोः' इति विशेषणेनाविष्कृतम् । न च तद्विशेषणं नियमनसामर्थ्यपरम्, तस्य 'विश्वगुरोः' इत्यनेन लाभात् । तस्मात् मदुक्तमेव लक्षणं युक्तमिति पृथिव्यादीनां तद्योगात् मद्धेतुर्नासिद्धः, त्वद्धेतुरेवासिद्ध इति । अतः मदनुमाने पृथिव्यादीनां शरीरत्वसिद्धौ तदभिमानिदेवानां पृथिव्यहम् उदकमहम् तेजोऽहम् इत्याद्यनुसंधानैः तेषां पृथिवीत्वाद्याश्रयत्वसिद्धौ तेषामपि अन्तर्यामिब्राह्मणोक्तरीत्या अन्तर्यामिशरीरत्वात् ब्रह्मविदां तेषां पृथिव्यहम् इत्याद्यनुसंधानम् अन्तर्यामिपर्यन्तं भवेदिति ततोऽन्तर्यामिणः परमेश्वरस्य पृथिवीत्वाद्याश्रयत्वलाभे सति तस्य तत्प्रवृत्तिनिमित्तकपृथिव्यादिशब्दवाच्यत्वमपि सिध्यतीति सर्वं समञ्जसम् ॥ इत्यन्तर्यामिविषयपृथिव्यादिशब्दवाच्यत्वसमर्थनवादः ॥१५॥</div>
+  <div class="tr">一方、あなたの言う定義は正しくない。地などが最高ブラフマンの身体ではないことになってしまうからである。また地などの各節のすべてで、節ごとにことさらに身体であると説いているのを比喩だと言うのは不適切だからである。<br>さらに、「動くもの動かないものからなるこの世界は、神々の神の御姿である。家畜たち（個我）は縄の重さのためにこの意味を知らない。意識あるものを明知と呼び、意識なきものを無明と呼ぶ。明知と無明からなる一切の世界は、世界の師であり遍在する方の姿にほかならない。疑いはない。世界はその方の意のままだからである」と、世界が最高ブラフマンの身体であることを疑いなく述べ、「世界はその方の意のままだからである」と、それが身体であることを確立する定義が当てはまることを示しているので、比喩ではないかという疑いはまったく退けられているからである。<br>「世界はその方の意のままだからである」によって、単に統御されることが定義として意図されているのではない。それだけなら、召使いなどの身体も主人などの身体になってしまう、という欠点が生じるからである。そうではなく、行きわたることによる統御が定義として意図されている。そしてそれは「遍在する方の」という限定語によって明らかにされている。その限定語が統御の能力を指すのでもない。それは「世界の師の」によって得られるからである。<br>だから私の言う定義こそ正しいので、地などはそれをそなえており、私の論証因は成り立たないことはなく、あなたの論証因こそ成り立たない。<br>こうして私の推論によって地などが身体であることが確立されると、それを司る神々の「私は地である」「私は水である」「私は火である」などの省察によって、彼らが地性などの担い手であることが確立される。そして彼らもまた、内制者ブラーフマナで述べられた仕方で内制者の身体なので、ブラフマンを知る彼らの「私は地である」などの省察は内制者にまで及ぶ。そこから、内制者である最高神が地性などの担い手であることが得られ、その適用根拠をもつ「地」などの語で表されることも成り立つ。こうしてすべてが整う。<br>以上、内制者を対象として「地」などの語で表されることを論証する論。（第15論）</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者の定義では、内制者ブラーフマナが二十の節（地、水、火…）ごとに繰り返す「その身体は〜である」が、すべて比喩になってしまいます。引用された詩句（シヴァ派のプラーナかアーガマの句）は、世界がシヴァの姿であることを「疑いはない」と断言し、その理由として「世界はその方の意のまま」と述べ、さらに「遍在する方」と言う。行きわたって統御する、という立論者の定義そのものです。</p><p>結論の筋道は次のとおりです。</p><ol><li>大地は身体であり、地の神格がそれを統御する。</li><li>地の神格は「私は地だ」と省察する。</li><li>地の神格も内制者の身体なので、その「私」は内制者まで及ぶ。</li><li>こうして内制者は地性の担い手となり、「地」の語で表される。</li></ol></div>
+  <div class="nt">「गौणत्वोक्तत्ययोगाच्च」を「गौणत्वोक्त्ययोगाच्च」、「परब्रह्मशरीत्वा」を「परब्रह्मशरीरत्वा」、「विश्व तस्य」を「विश्वं तस्य」と正した。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この論に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>śarīralakṣaṇa</dt><dd>身体の定義</dd>
+    <dt>asaṃbhava / avyāpti / ativyāpti</dt><dd>定義の三つの欠陥：不成立／不充足／過剰充足</dd>
+    <dt>anyayogavyavaccheda / ayogavyavaccheda</dt><dd>「他との結びつき」の排除（〜だけ）／「結びつかないこと」の排除（必ず〜）</dd>
+    <dt>abhimānidevatā</dt><dd>司る神格。地・水などを自分のものとして統御する神</dd>
+    <dt>kāyavyūha</dt><dd>多身。ヨーギンが同時に多くの身体をとること</dd>
+    <dt>śivayogin</dt><dd>シヴァ・ヨーギン。シヴァ・ヨーガを成就した修行者</dd>
+    <dt>cicchakti</dt><dd>知の力。シヴァの、また個我の意識の力</dd>
+    <dt>sārvātmya</dt><dd>一切を自己とすること</dd>
+    <dt>paśu / pāśa</dt><dd>家畜（個我）／縄（束縛）。シヴァ派の術語</dd>
+    <dt>divyagaṇa</dt><dd>天の神群。シヴァに仕える永遠の存在</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.292–297 のOCRテキストに拠る。この部分のOCRの頁番号は、補遺OCRの頁付けと1ずれている可能性がある（第14論の注記参照）。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>
