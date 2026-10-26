@@ -16,13 +16,19 @@ def fill_text(body, text):
         frm = fm.group(1) if fm else None
         cur = state['cur']
         if frm:
-            cur = text.index(frm, cur)
+            try:
+                cur = text.index(frm, cur)
+            except ValueError:
+                raise SystemExit(f'data-from not found: {frm!r}')
         while True:
             sm = re.match(r'\s*(\[p\.\d+\])?\s*', text[cur:])
             if not sm.group(0):
                 break
             cur += len(sm.group(0))
-        end = text.index(to, cur) + len(to)
+        try:
+            end = text.index(to, cur) + len(to)
+        except ValueError:
+            raise SystemExit(f'not found after cursor: {to!r} (from {text[cur:cur+40]!r})')
         state['cur'] = end
         seg = text[cur:end]
         p0 = page_at(cur)
