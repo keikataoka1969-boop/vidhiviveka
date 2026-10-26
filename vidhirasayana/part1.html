@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Vyākhyānaślokāḥ, Prakaraṇārthapratijñā 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#s1"><b>1</b>注の序の偈</a></li>
+    <li><a href="#s2"><b>2</b>第1偈：小論の目的の宣言</a></li>
+    <li><a href="#s3"><b>3</b>クマーリラの言う三種の…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ヴィディ・ラサーヤナ　第1部</div>
+  <h1>Vyākhyānaślokāḥ, Prakaraṇārthapratijñā</h1>
+  <p class="deva-title" lang="sa">व्याख्यानश्लोकाः, प्रकरणार्थप्रतिज्ञा, मन्त्राधिकरणस्थवार्तिकोक्तत्रिविधविधिविवरणम्</p>
+  <p class="sub">自注の序の偈、第1偈（小論の目的）、そしてクマーリラの言う三種の規定</p>
+  <span class="sample">対訳　第1部（pp.9–14）</span>
+  <p>『ヴィディ・ラサーヤナ』（規定の霊薬）は、ヴェーダの規定（<i>vidhi</i>）の三つの種類、すなわちアプールヴァ規定（まったく新しいことを命じる）、限定規定（<i>niyama</i>、いくつかある手段を一つに限る）、除外規定（<i>parisaṅkhyā</i>、他のものを除く）を論じる小論です。本文は難解なスラグダラー調の偈で書かれ、著者アッパイヤ自身が散文の注『スコーパヨージニー』（たやすく役立つもの）を付けました。</p>
+  <p>この部では、注の冒頭の五つの偈（ヴィシュヌとシヴァへの祈り、執筆の動機、パトロンへの言及）と、本文第1偈「三種の規定はすでに確立している。だが、さまざまな例によってもっと明らかにしよう」を読みます。続いて、クマーリラの偈「まったく得られていないことに規定、選択的に得られているとき限定、そこにも他にも得られているとき除外」が、三つの例とともに説明されます。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>アプールヴァ規定</dt><dd>まったく得られていないことを命じる<br><small>「籾に水を振りかける」</small></dd></div>
+    <div><dt>限定規定</dt><dd>選択的に得られているものを一つに限る<br><small>「籾を搗く」（爪で剥くことも可能だった）</small></dd></div>
+    <div><dt>除外規定</dt><dd>そこにも他にも得られるとき、他を除く<br><small>「『手綱を取った』と唱えて馬の手綱を取る」（驢馬の手綱は除く）</small></dd></div>
+    <div><dt>限定と除外の違い</dt><dd>限定は「搗くこと」を決めるのが果報、除外は「他」を除くのが果報<br><small>eva（だけ）の二つの用法</small></dd></div>
+  </dl>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>注の序の偈</h2><span class="sub"><span class="pg">pp.9–10</span></span></div>
+<div class="mula" id="r1">
+  <span class="ref">9</span>
+  <div class="src deva" lang="sa">व्याख्यानश्लोकाः उद्घाट्य योगकलया हृदयाब्जकोशम् धन्यैश्चिरादपि यथारुचि गृह्यमाणः । यः प्रस्फुरत्यविरतं परिपूर्णरूपः श्रेयः स मे दिशतु शाश्वतिकं मुकुन्दः ॥१॥ जन्म-स्थेम-लयं समस्तजगतां यस्यैव लीलायितम् यस्मिन्नाऽऽयतते भवस्थिरमहापाशक्षयः प्राणिनाम् । तद्ब्रह्मादिभिरप्यगम्यविभवं विश्वाधिकं शाश्वतम् साम्बं ब्रह्मरसालमूलरसिकं पश्येयमन्तर्दृशा ॥२॥</div>
+  <div class="tr">〔注の序の偈〕<br>ヨーガの技で心臓の蓮の蕾を開いて、幸いな人々が長い時をかけ、思いのままに捉え、絶えず輝き出る、満ちた姿のもの——そのムクンダ（ヴィシュヌ）が、私に永遠の幸いを授けたまえ。（1）<br>全世界の誕生・存続・消滅がその戯れにすぎず、生き物の、輪廻という固く大きな縄の滅びがそれにかかっている。ブラフマーらにも測りえない威力をもち、世界を越え、永遠である、その妃とともにある者、ブラフマンなるマンゴーの樹の根元を好む者（シヴァ）を、内なる眼で見たいものだ。（2）</div>
+  <div class="exp"><span class="lbl">解説</span><p>シヴァ派のアッパイヤが、ヴィシュヌとシヴァの両方に祈りを捧げます。「マンゴーの樹の根元を好む者」は、カーンチープラムのエーカームラナータ（一本のマンゴーの樹の主）、すなわちマンゴーの樹の下に祀られるシヴァを指すと思われます。</p></div>
+</div>
+<div class="mula" id="r2">
+  <span class="ref">9</span>
+  <div class="src deva" lang="sa">यत्कुमारिलमतानुसारिणा निर्मितं विधिरसायनं मया । पद्यरूपमनतिस्फुटाशयं तत्सुखावगतये विविच्यते ॥३॥ प्राप्तं तत्प्रापणीयं किल यदिह कियान्पूरणीयोऽस्ति नांशो नाऽनिष्टं वा निवर्त्यं निजविषयतया दृश्यते किञ्चिदस्य । किन्तु व्यापारमेव प्रथयति फलसंयोजनार्थं परेषाम् प्राप्तः पुण्यैरगण्यैरिव विबुधगणो वेङ्कटक्षोणिपालम् ॥४॥ विलक्षणान्यप्युदितानि लक्षणान्यपूर्वविध्यादिविभागसिद्धये । भवन्ति भूम्नेह कृतां पदावलिं परस्परामप्यपरस्परामिमाम् ॥५॥</div>
+  <div class="tr">クマーリラの説に従う私が作った『ヴィディ・ラサーヤナ』は、韻文の形であるため趣旨があまり明らかではない。それを、たやすく理解されるように解き明かす。（3）<br>得られるべきものは得られている。ここに補うべき部分も何もない。退けるべき望ましくないものも、自分の対象として何も見えない。ただ、他の者たちを果報に結びつけるために、働きだけを広げる——数えきれない功徳によってヴェーンカタ王のもとに至った学者たちの群れのように。（4）<br>アプールヴァ規定などの区別を立てるために、互いに異なる定義が述べられてきた。〔それでも〕ここで作られたこの言葉の連なりは、多くの場合、互いにつながりながら、つながりのないものともなるだろう。（5）</div>
+  <div class="exp"><span class="lbl">解説</span><p>第3偈は注を書く動機です。第4偈は掛詞の偈で、表の意味は、ヴェーンカタ王（ヴィジャヤナガラ朝のヴェーンカタパティ・ラーヤか）の宮廷に招かれた学者たちには、もう手に入れるべきものも補うべきものも退けるべき災いもなく、ただ他の人々に恵みを分けるために働く、ということです。裏の意味では、三種の規定の働き（得られていないものを得させる＝アプールヴァ、欠けた部分を補う＝限定、望ましくないものを退ける＝除外）のいずれにも当たらず、ただ果報へと人を動かす働きだけをもつ規定（第2偈以下で問題になる、得られているものの規定）を暗示していると思われます。第5偈は読みが難しく、訳は試訳です。</p></div>
+  <div class="nt">「नांऽशो」を「नांशो」、「निवर्यं」を「निवर्त्यं」と正した。</div>
+</div>
+<div class="mula" id="r3">
+  <span class="ref">9</span>
+  <div class="src deva" lang="sa">व्याख्यानश्लोकाः समाप्ताः श्रीमदप्पय्यदीक्षितेन्द्रविरचितम् स्वोपज्ञसुखोपयोजिनीसहितम् सुखोपयोजिनी-व्याख्या उद्घाट्य योगकलया हृदयाब्जकोशम् धन्यैश्चिरादपि यथारुचि गृह्यमाणः । यः प्रस्फुरत्यविरतं परिपूर्णरूपः श्रेयः स मे दिशतु शाश्वतिकं मुकुन्दः ॥१॥ जन्म-स्थेम-लयं समस्तजगतां यस्यैव लीलायितम् यस्मिन्नाऽऽयतते भवस्थिरमहापाशक्षयः प्राणिनाम् । तद्ब्रह्मादिभिरप्यगम्यविभवं विश्वाधिकं शाश्वतम् साम्बं ब्रह्मरसालमूलरसिकं पश्येयमन्तर्दृशा ॥२॥ यत्कुमारिलमतानुसारिणा निर्मितं विधिरसायनं मया । पद्यरूपमनतिस्फुटाशयं तत्सुखावगतये विविच्यते ॥३॥</div>
+  <div class="tr">〔以上で注の序の偈は終わる。〕尊きアッパイヤ・ディークシタ作、自注『スコーパヨージニー』つき。『スコーパヨージニー』注。〔以下、序の偈の第1–3偈がくり返される。〕</div>
+  <div class="exp"><span class="lbl">解説</span><p>校訂本では、序の偈がまとめて掲げられた後、注の本体の冒頭で第1–3偈がくり返されます。訳は上を参照してください。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第1偈：小論の目的の宣言</h2><span class="sub"><span class="pg">pp.11–12</span></span></div>
+<div class="mula" id="r4">
+  <span class="ref">11</span>
+  <div class="src deva" lang="sa">प्रारिप्सितप्रकरणाविघ्नसमाप्तये सूत्रकारस्य महर्षेरनुस्मरणरूपं मङ्गलमाचरन्नेव प्रकरणारम्भं तावदाक्षिप्य समाधत्ते---- प्रकरणार्थप्रतिज्ञा विख्याता मुनिवर्यसूक्तिषु विधास्तिस्रो विधिस्रोतसाम् आचार्यैर्विशदं विविक्तविषयास्ताश्च व्यवस्थापिताः । किं तत्राऽस्ति विचार्यमार्यमथिते मार्गे निसर्गोज्ज्वले नानोदाहरणैस्तु ताः प्रविशदीकर्तुं प्रवर्तामहे ॥१॥</div>
+  <div class="tr">着手しようとする小論が障りなく完成するように、スートラの作者である大仙を想い起こすという吉祥を行いながら、まず小論を始めることに異議を立てて答える。<br>〔小論の目的の宣言〕<br>聖仙の中の最上者の言葉の中に、規定の流れの三つの種類がよく知られている。そして師たちによって、それらは対象が区別されて明瞭に確立されている。尊い人々が攪拌した、本来輝かしいその道に、何を考察すべきことがあろうか。しかし、さまざまな例によって、それらをいっそう明瞭にするために、我々は取りかかる。（1）</div>
+  <div class="exp"><span class="lbl">解説</span><p>本文の第1偈です。「聖仙の中の最上者」はジャイミニ、「師たち」はクマーリラとその後継者たちです。三種の規定はもう確立しているが、それを例によって明らかにする、というのが小論の目的です。実際には、以下の偈はクマーリラの定義に次々と難点を突きつけ、最後に定義を精錬する、という形で進みます。</p></div>
+  <div class="nt">第1偈の二句目と三句目の順がOCRで入れ替わっていたので、本頌に合わせて正した。「विघास्तिस्रो विधिस्त्रोतसाम्」を「विधास्तिस्रो विधिस्रोतसाम्」、「निसर्गोज्वले」を「निसर्गोज्ज्वले」、「प्रकरणाविघन」を「प्रकरणाविघ्न」と正した。</div>
+</div>
+<div class="mula" id="r5">
+  <span class="ref">12</span>
+  <div class="src deva" lang="sa">मुनिवर्यस्य-भगवतो जैमिनेः सूत्रेषु "विधिर्वा स्यादपूर्वत्वात्" (मी० सू० १।२।२।१९) "नियमार्था वा श्रुतिः" (४।२।९।२४) "परिसंख्या" (१।२।४।३४) इत्येवमादिषु त्रयो विधिप्रकाराः प्रसिद्धाः अपूर्वविधिः, नियमविधिः, परिसंख्याविधिश्चेति । ते च भट्टपादैः परस्परासंकीर्णविषयतया स्पष्टमेवोपपादिताः । तत्र स्वत एव निरवद्ये ग्रन्थकारैश्च बहुभिर्निष्कर्षं प्रापितेऽपूर्वविध्यादिविभागे नूतनं किञ्चिद्विचारणीयं नास्त्येव; यद्यप्येवम्, तथाप्यपूर्वविध्यादीनां द्वादशस्वप्यध्यायेषु विप्रकीर्णैरिहापूर्वविध्यादिलक्षणविचारव्याजेन तत्र-तत्र प्रदर्शनीयैरुदाहरणविशेषैस्तमेवार्थमतिस्पष्टीकर्तुं प्रकरणमिदमारभ्यत इत्यर्थः ॥१॥ इति प्रथमश्लोकस्य व्याख्या</div>
+  <div class="tr">聖仙の中の最上者、すなわち尊きジャイミニのスートラの中で、「あるいは規定であろう、新しいことだから」（1.2.19）、「あるいは限定のための天啓」（4.2.24）、「除外」（1.2.34）などによって、三つの規定の種類、すなわちアプールヴァ規定、限定規定、除外規定が知られている。そしてそれらは、バッタ（クマーリラ）によって、互いに混じり合わない対象をもつものとして明らかに論証された。<br>そこで、それ自体で非の打ちどころがなく、多くの著者によって精確にされた、アプールヴァ規定などの区別について、新たに考察すべきことは何もない。そうではあるが、十二の巻に散らばっている、アプールヴァ規定などの特別の例を、ここでアプールヴァ規定などの定義を考察するのにかこつけて、あちこちで示すことによって、まさにその意味をいっそう明らかにするために、この小論を始める、という意味である。（1）<br>以上、第1偈の解説。</div>
+  <div class="exp"><span class="lbl">解説</span><p>三種の規定の名は、それぞれジャイミニのスートラに出典があります。アッパイヤの狙いは、定義の検討を口実にして、『ミーマーンサー・スートラ』全十二巻から興味深い例を集めて示すことだ、と自ら述べています。実際、この小論は多くの主題の要約を含んでいます。</p></div>
+  <div class="nt">スートラ番号の表記（「(मी० सू० १।२। २।१९।) … ४।२।९।२४। 'परिसंख्या" १।२।४।३४।」）を整えた。番号は校訂本の「巻・章・主題・スートラ」の表示。</div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>クマーリラの言う三種の規定</h2><span class="sub"><span class="pg">pp.12–14</span></span></div>
+<div class="mula" id="r6">
+  <span class="ref">12</span>
+  <div class="src deva" lang="sa">मन्त्राधिकरणस्थवार्तिकोक्तत्रिविधविधिविवरणम् । अथ-"विधिरत्यन्तमप्राप्ते नियमः पाक्षिके सति । तत्र चाऽन्यत्र च प्राप्ते परिसंख्येति गीयते ॥" इति श्लोकेनऽऽचार्यैरपूर्वविध्यादीनां लक्षणमुखेन विभागः कृतः । तत्र '"व्रीहीन् प्रोक्षती"त्यत्रापूर्वविधिः । एतदभावे हि दार्शपौर्णमासिकेषु व्रीहिषु प्रोक्षणं कथमपि न प्राप्नोति । "व्रीहीनवहन्तीति" नियमविधिः । एतदभावे पुरोडाशार्थमुपात्तेषु व्रीहिषु तुषविमोके लोकसिद्धकारणत्वात्, तदाक्षिप्ततयाऽवघातः प्राप्नोत्येव; किन्तु लोकसिद्धकारणत्वाविशेषात्कदाचिन्नखविदलनमपि प्राप्नोतीति पाक्षिकी तस्याऽऽक्षेपतः प्राप्तिः। ""इमामगृभ्णन् रशनामृतस्येत्यश्वाभिधानीमादत्त" इति परिसंख्याविधिः । एतदभावेऽप्यगृभ्णन् रशनामिति लिङ्गादग्निचयनप्रकरणाम्नातो मन्त्रस्तत्रत्याश्वरशनाग्रहणे नियतमेव प्राप्नोति; किन्तु लिङ्गाविशेषात्तत्रत्यगर्दभरशनाग्रहणेऽपि प्राप्नोतीति तत्र चाऽन्यत्र च प्राप्तिः ।</div>
+  <div class="tr">〔マントラの主題にある、ヴァールッティカの言う三種の規定の説明〕さて、「まったく得られていないことについては〈規定〉、選択的に得られているときには〈限定〉、そこにも他にも得られているときには〈除外〉と歌われる」という偈で、師（クマーリラ）によって、アプールヴァ規定などの区別が定義を通じてなされた。<br>そこで、「籾に水を振りかける」はアプールヴァ規定である。これがなければ、新月満月祭の籾に水を振りかけることは、どうしても得られないからである。<br>「籾を搗く」は限定規定である。これがなくても、供物の菓子のために取られた籾の殻を取ることについては、世間で知られた手段であるから、それが含意するものとして搗くことは得られる。しかし、世間で知られた手段である点で違いがないので、ときには爪で剥くことも得られる。だから、含意による搗くことの得られ方は選択的である。<br>「『彼らは天則の手綱を取った』と〔唱えて〕馬の手綱を取る」は除外規定である。これがなくても、「彼らは手綱を取った」という標識から、アグニチャヤナの文脈で伝えられるマントラは、そこにある馬の手綱を取ることに必ず得られる。しかし、標識に違いがないので、そこにある驢馬の手綱を取ることにも得られる。だから、そこにも他にも得られるのである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>クマーリラ『タントラ・ヴァールッティカ』のマントラの主題（1.2.31 以下）にある有名な偈が、三種の規定の定義の出発点です。三つの例を表にすると次のようになります。</p>
+  <div class="tbl"><table><thead><tr><th>規定</th><th>例</th><th>規定がなければ</th><th>得られ方</th></tr></thead>
+  <tbody><tr><td>アプールヴァ</td><td>籾に水を振りかける</td><td>まったく行われない</td><td>まったく得られない</td></tr>
+  <tr><td>限定</td><td>籾を搗く</td><td>搗くか爪で剥くか（殻取りの手段は何でもよい）</td><td>選択的</td></tr>
+  <tr><td>除外</td><td>「手綱を取った」と唱えて馬の手綱を取る</td><td>馬の手綱にも驢馬の手綱にも唱える</td><td>そこにも他にも</td></tr></tbody></table></div></div>
+  <div class="nt">「व्रीहीन प्रोक्षती" त्यत्र」を「"व्रीहीन् प्रोक्षती"त्यत्र」と正した。</div>
+</div>
+<div class="mula" id="r7">
+  <span class="ref">12–13</span>
+  <div class="src deva" lang="sa">नियम-परिसंख्ययोरप्यपूर्वविधित्वापादनम् यद्यपि नियम-परिसंख्योदाहरणयोः पाक्षिकी, नियता च प्राप्तिर्वस्तुतो नास्त्येव; तुषविमोकेन कार्येणाऽऽक्षिप्ततया ह्यवघातस्य पाक्षिकी प्राप्तिर्वक्तव्या; आक्षेपात्प्रागेव "व्रीहीनवहन्तीति" प्रत्यक्षशास्त्रं झटिति प्रवर्तते । तदनन्तरं प्रत्यक्षशास्त्रसिद्धेनैकेनोपायेन नैराकाङ्क्ष्यादनियतोपायाक्षेप एव न प्रवर्तते । एवं प्रत्यक्षशास्त्रेणाऽश्वरशनाग्रहणे झटिति विनियुक्तस्य मन्त्रस्य तेनैव नैराकाङ्क्ष्याद्रशनाद्वयसाधारण्येन लैङ्गिकविनियोगकल्पनं न प्रवर्तते । एवञ्च नियम-परिसंख्ययोरप्यपूर्वविधिवद्वस्तुतोऽत्यन्ताऽप्राप्त एव विषयः । फलद्वाराऽपूर्वविधितो नियम-परिसंख्ययोर्भेदनिरूपणम् तथापि नियम-परिसंख्याशास्त्रयोरप्रवृत्तौ अर्थाक्षेपेण नखविदलनस्याऽपि कदाचित्प्राप्त्याऽवघातस्याऽपि पाक्षिक्येव प्राप्तिः स्यात् । मन्त्रस्य लिङ्गाविशेषेण गर्दभरशनाग्रहणेऽपि विनियोगः स्यात् । तयोः प्रवृत्तौ त्वाक्षेप-मन्त्रलिङ्गावतारप्रतिबन्धद्वाराऽवघातस्य नियतता; मन्त्रस्य गर्दभरशनातो निवृत्तिश्च लभ्यत इति नियमपरिसंख्याविध्योः प्रवृत्तावपूर्वविध्यविशेषेऽप्याक्षेपमन्त्रलिङ्गावतारप्रतिबन्धद्वाराऽवघातनियमेन; गर्दभरशनायां मन्त्रवर्जनेन च फलवत्त्वात्फलतो नियमपरिसंख्याव्यपदेश इति; अपूर्वविधितस्तयोर्भेदः ।</div>
+  <div class="tr">〔アプールヴァ規定の定義への異議〕〔限定と除外もアプールヴァ規定になってしまうこと〕たしかに、限定と除外の例では、選択的な得られ方も、必ずの得られ方も、実際にはない。殻を取るという目的によって含意されるものとして、搗くことの選択的な得られ方が言われるはずだが、含意より前に「籾を搗く」という直接の教えがすぐ働く。その後では、直接の教えで成り立つ一つの手段によって期待がなくなるので、定まらない手段の含意そのものが働かない。同様に、直接の教えによって馬の手綱を取ることにすぐ配当されたマントラは、それによって期待がなくなるので、二つの手綱に共通な標識による配当の想定は働かない。こうして、限定と除外も、アプールヴァ規定と同じく、実際にはまったく得られていないことを対象とする。<br>〔果報を通じて、アプールヴァ規定から限定と除外を区別すること〕それでも、限定・除外の教えが働かなければ、意味の含意によって爪で剥くことも時には得られるので、搗くことも選択的にしか得られないだろう。マントラは、標識に違いがないので、驢馬の手綱を取ることにも配当されるだろう。その二つ（の教え）が働けば、含意とマントラの標識の出番を妨げることを通じて、搗くことが決まり、マントラが驢馬の手綱から退けられることが得られる。だから、限定・除外の規定は、働く点ではアプールヴァ規定と違わないが、含意とマントラの標識の出番を妨げることを通じて、搗くことの限定と、驢馬の手綱からのマントラの除外という果報をもつので、果報の面から「限定」「除外」と呼ばれる。これがアプールヴァ規定とその二つとの違いである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>一つの異議と答えです。厳密に言えば、規定の言葉は含意や標識より先に（直接に）働くので、限定や除外の対象も、規定の時点では「まったく得られていない」。すると三つとも同じアプールヴァ規定になってしまう。答えは、違いは規定の「果報」にある、というものです。もし規定がなかったら起きたはずのこと（爪で剥く、驢馬の手綱に唱える）を防ぐ、という効果によって、限定と除外が区別されます。</p></div>
+  <div class="nt">「नैराकाङ्ख्या」「नैराकाक्ष्या」を「नैराकाङ्क्ष्या」、「विषयः ;」を「विषयः ।」、「फलद्वारा ऽपूर्व」を「फलद्वाराऽपूर्व」、「…द्वाराऽ - वघात नियमेन」を「…द्वाराऽवघातनियमेन」と正した。校訂本の章見出し「अपूर्वविधिलक्षणाक्षेपः」（アプールヴァ規定の定義への異議）はこの直前にある。</div>
+</div>
+<div class="mula" id="r8">
+  <span class="ref">13–14</span>
+  <div class="src deva" lang="sa">इतरव्यावृत्तेरेवकारेण फलविवरणस्य चैक्येन नियम-परिसंख्ययोः साङ्कर्यशङ्का-परिहारौ यद्यपि नियमे नखविदलनादिनिवृत्तिः परिसंख्यायां गर्दभरशनादिनिवृत्तिः, इतीतरनिवृत्तिलाभ उभयत्राऽप्यविशिष्टः; अवघातेनैव तुषविमोकः कार्यः, अश्वरशनायामेव मन्त्रः कार्य इति; एवकारेण फलविवरणमप्यविशिष्टम्, तथाऽप्यवघातशास्त्रेणाऽवघातनियमस्याऽऽक्षेपतोऽवघाताप्राप्यव्रीह्यंशेष्ववघातप्रापणरूपस्याऽकरणे उपायान्तरसाधारणेनाऽऽक्षेपेणाऽऽपतत उपायान्तरस्य निराकर्तुमशक्यतया तन्निवृत्त्यसम्भवेन नियमस्य प्रथमोपस्थितत्वात्; विधेयगतत्वेन प्रत्यासन्नत्वाच्चाऽप्राप्तांशप्रापणरूपो नियम एव फलम् । उपायान्तरनिवृत्तिस्तु चरमोपस्थितत्वात्, अविधेयगतत्वेन विप्रकृष्टत्वाच्च तदनुनिष्पादिनी न फलम् । परिसंख्योदाहरणे तु द्वयोरपि नित्यप्राप्तिसंभवेन स्वरूपप्राप्तेः; नियमस्य वा फलत्वायोगादितरनिवृत्तिरेव फलम् । एवं नियम-परिसंख्याविध्योः फलभेदे स्थिते सति एवकारेण फलविवरणमेकत्राऽयोगव्यवच्छेदार्थम्; अन्यत्राऽन्ययोगव्यवच्छेदार्थमिति विशेषो द्रष्टव्यः ।</div>
+  <div class="tr">〔他を退けることと、eva による果報の説明が同じなので、限定と除外が混じるのではないか、という疑いとその回避〕たしかに、限定では爪で剥くことなどの除去が、除外では驢馬の手綱などの除去が〔果報となり〕、他を除去することが得られるのはどちらにも同じである。「搗くことによってだけ殻を取るべし」「馬の手綱にだけマントラを用いるべし」と、eva（だけ）による果報の説明も同じである。<br>それでも、搗くことの教えでは、含意によっては搗くことが得られない籾の部分に搗くことをもたらすという、搗くことの限定を行わなければ、他の手段に共通な含意によって現れてくる他の手段を退けることができないので、その除去は不可能である。だから、限定が最初に現れ、規定されるものにあるので近いので、得られていない部分をもたらすという限定こそが果報である。他の手段の除去は、最後に現れ、規定されないものにあるので遠いので、それに付随して生じるものであり、果報ではない。<br>一方、除外の例では、両方とも常に得られうるので、本体の得られ方〔を生じること〕や限定が果報であることはありえないから、他の除去だけが果報である。<br>こうして限定・除外の規定の果報が違うと確定したので、eva による果報の説明は、一方（限定）では「結びつかないこと」の排除のため、他方（除外）では「他との結びつき」の排除のためである、という違いを見るべきである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>限定も除外も「他を除く」結果をもつので、混同されそうです。違いは何が主な果報か、です。</p>
+  <div class="tbl"><table><thead><tr><th></th><th>主な果報</th><th>付随する結果</th><th>eva の働き</th></tr></thead>
+  <tbody><tr><td>限定</td><td>搗くことが得られない場面にも搗くことを命じる（欠けた部分を補う）</td><td>爪で剥くことなどの除去</td><td>「搗くことと結びつかない」ことの排除（<i>ayogavyavaccheda</i>）</td></tr>
+  <tr><td>除外</td><td>驢馬の手綱からマントラを除く</td><td>—</td><td>「馬の手綱以外と結びつく」ことの排除（<i>anyayogavyavaccheda</i>）</td></tr></tbody></table></div>
+  <p>インドの論理学で eva（だけ）の三つの用法とされるもののうち、二つがここで使い分けられています。</p></div>
+  <div class="nt">「अवघाताऽ प्राप्यव्रीह्यशेष्व…」を「अवघाताप्राप्यव्रीह्यंशेष्व…」、「…णाऽ ऽपतत」を「…णाऽऽपतत」、「प्रथमोपस्थित्वात्」を「प्रथमोपस्थितत्वात्」、「विप्रकृष्टत्वाच्चतदनुनिष्पादिनी」を「…त्वाच्च तदनु…」と正した。p.14 の標識は語の途中（「निराकर्तु|मशक्यतया」）にある。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この部に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>apūrvavidhi</dt><dd>アプールヴァ規定。まったく得られていないことを命じる規定</dd>
+    <dt>niyamavidhi</dt><dd>限定規定。選択的に得られるものを一つに限る規定</dd>
+    <dt>parisaṅkhyāvidhi</dt><dd>除外規定。複数に得られるものから、他を除く規定</dd>
+    <dt>ākṣepa</dt><dd>含意。目的から手段を推し量ること</dd>
+    <dt>liṅga</dt><dd>標識。マントラの語の意味がその用途を示すこと</dd>
+    <dt>pratyakṣaśāstra</dt><dd>直接の教え。明言された規定</dd>
+    <dt>ayoga- / anyayogavyavaccheda</dt><dd>「結びつかないこと」の排除／「他との結びつき」の排除。eva の用法</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.9–14 のOCRテキストに拠る。〔　〕内は校訂本の小見出し。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>
