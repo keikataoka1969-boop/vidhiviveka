@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Svapnāyathārthatvavāda 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#map">第24論の地図</a></li>
+    <li><a href="#s1"><b>1</b>序と第1〜3段：夢の火…</a></li>
+    <li><a href="#s2"><b>2</b>第4〜6段：典拠と経験…</a></li>
+    <li><a href="#s3"><b>3</b>第7〜8段：弁明とその…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ヴァーダ・ナクシャトラ・マーラー　第24論</div>
+  <h1>Svapnāyathārthatvavāda</h1>
+  <p class="deva-title" lang="sa">स्वप्नायथार्थत्ववादः</p>
+  <p class="sub">夢の認識は誤りである</p>
+  <span class="sample">対訳　第24論 全文（pp.368–371、第1〜8段）</span>
+  <p>第23論の貝殻と銀に続いて、夢の認識を扱います。夢で火に焼かれ、水を飲んで渇きが癒えるのは、本当に起きているのか。反論者は夢を<strong>真実</strong>とみなします。『ブリハッド・アーラニヤカ』4.3 によれば、夢の中で個我は身体の「巣」を出てさまよい、神（主宰神）が車や道や池を<strong>創造する</strong>からです。</p>
+  <p>著者は、夢は誤りだとします。閉め切った部屋で眠る人が外に出て火に触れることはないし、起きてから行ってみても灰はない。同じ場所で別々の人が森や軍勢や海を夢に見る。ウパニシャッドの「創造」の句も、文脈（自己の自己照明性の教え）から比喩と読むべきだ、というのです。この論では奇数段が反論者、偶数段が立論者です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>論題</dt><dd>夢の中の火や水の認識は正しいか</dd></div>
+    <div><dt>反論者</dt><dd>正しい<br><small>個我は別の身体で外に出て、神が夢の対象を創造する</small></dd></div>
+    <div><dt>立論者（定説）</dt><dd>誤り<br><small>正しい認識の原因がそろわないまま生じる。蜃気楼の水のように</small></dd></div>
+    <div><dt>決め手</dt><dd>「自分の身体の中で意のままにめぐる」という句<br><small>創造の句は、文脈（自己の自己照明性）と矛盾するので比喩</small></dd></div>
+  </dl>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">第24論の地図</h2><span class="sub">奇数段が反論者、偶数段が立論者</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>段</th><th>話者</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">序・1–3</td><td>交互</td><td class="num">p.368</td><td class="k"><a href="#s1">夢の火は本物か。別の身体で外に出る</a></td></tr>
+<tr><td class="num">4–6</td><td>交互</td><td class="num">pp.369–370</td><td class="k"><a href="#s2">ウパニシャッドの典拠。経験との矛盾</a></td></tr>
+<tr><td class="num">7–8</td><td>交互</td><td class="num">pp.370–371</td><td class="k"><a href="#s3">矛盾の弁明とその反駁。結論</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>序と第1〜3段：夢の火は本物か</h2><span class="sub"><span class="pg">p.368</span></span></div>
+<div class="mula" id="u1">
+  <span class="ref">368</span>
+  <div class="src deva" lang="sa">स्वप्नायथार्थत्ववादः ॥ शुक्तिरजतज्ञानवत् स्वप्नज्ञानमपि अयथार्थमिति समर्थनार्थं कथान्तरं प्रस्तूयते - स्वाप्नं वह्निजलादिज्ञानं वह्नित्वादिमति वह्नित्वादिप्रकारकम्, दाहपिपासोपशमादिसमर्थविषयप्रवृत्तिजनकत्वे सति वह्नित्वादिप्रकारकत्वात्, भूतजाग्रद्बोधवत् - इति प्रथमा कक्ष्या ॥</div>
+  <div class="tr">夢の誤りの論。貝殻の上の銀の認識と同じく、夢の認識も誤りであることを論証するために、別の論議を始める。<br>（第1段）夢の火や水などの認識は、火性などをもつものについて、火性などを様態とする。焼くこと・渇きを鎮めることなどのできる対象への行動を生み、しかも火性などを様態とするからである。過去の目覚めた時の認識のように。以上が第1段。</div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">368</span>
+  <div class="src deva" lang="sa">अथ द्वितीया कक्ष्या-- असिद्धोऽयं हेतुः, न च स्वाप्नेन वह्निजलादिना स्वप्ने दाहपिपासोपशमादि दृश्यते इति वाच्यम्, तद्दर्शनस्यारोपरूपत्वात् स्वप्ने स्वशरीरस्य दग्धत्वदर्शनेऽपि प्रबोधानन्तरं तस्य यथापूर्वमवस्थानात्, स्वापारम्भे सम्यगपां तृप्तस्य पिपासाया एवानुदयात्, पिपासितस्यैव शयितस्य प्रबोधनानन्तरं पिपासानुवृत्तिदर्शनाच्च, अर्गलितापवरकशयितेन प्रबोधकालेऽपि तत्रैवोत्तिष्ठता शरीरेण बहिर्देशदृश्यस्वाप्नवह्निस्पर्शस्वाप्नजलपानादेः अत्यन्तासंभावितत्वेन तत्प्रयुक्तदाहपिपासोपशमादिप्रत्ययस्य प्रमात्वायोगाच्च; तस्मात् स्वाप्नवह्न्यादिज्ञानम् अयथार्थम्, यथार्थवह्न्यादिज्ञानसामग्रीं विना जायमानत्वात्, गुञ्जापुञ्जमरुमरीचिकादिषु जलवह्निज्ञानवत् इति ॥</div>
+  <div class="tr">第2段——この論証因は成り立たない。夢の火や水などによって夢の中で焼けることや渇きが鎮まることなどが見られる、と言うべきではない。その見え方は重ね合わせだからである。夢で自分の身体が焼けたのを見ても、目覚めた後にはそれは以前のとおりである。眠り始めに水を十分に飲んで満たされた人には、そもそも渇きが生じない。渇いたまま眠った人は、目覚めた後も渇きが続くのが見られる。閂をかけた奥の部屋で眠り、目覚めるときもそこで同じ身体で起きる人には、外の場所に見える夢の火に触れることや夢の水を飲むことなどはまったくありえないので、それによる焼けることや渇きが鎮まることの認識が正しい認識であることはありえないからである。<br>だから夢の火などの認識は誤りである。正しい火などの認識の原因の総体なしに生じるからである。グンジャーの実の山に火を、砂漠の陽炎に水を見る認識のように。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者の論拠は日常の経験です。夢で焼けても、起きれば身体は無事。眠る前に水を飲めば夢でも渇かず、渇いて眠れば起きても渇いている。閉め切った部屋で眠る人が外の火に触れることはない。だから夢の火は、赤いグンジャーの実（トウアズキ）の山を火と見間違えるのと同じ錯誤だ、というのです。</p></div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">368</span>
+  <div class="src deva" lang="sa">अथ तृतीया कक्ष्या-- न मद्धेतुरसिद्धः, स्वप्ने हि दाहप्रयुक्तदुःखाद्यनुभवेन दाहादिसद्भावनिश्चयात्; न च अग्रे सुप्तस्य शरीरदाहादिकार्यादर्शनात् स्वप्नसमये तच्छरीरस्य बहिर्निर्गमनाभावाच्च दाहादिर्न संभवतीति शङ्क्यम्, सुप्तशरीरं विना शरीरान्तरेण जीवस्य बहिर्वह्न्यादिदर्शनदेशपर्यन्तनिर्गमनाङ्गीकारात् तस्मिन्देहे दग्धेऽपि पूर्वदेहस्य यथापूर्वमवस्थानोपपत्तेः, तद्देहावच्छेदेनैव स्वप्नदृशः पिपासोदयतच्छान्त्योः संभवाच्च; एवं च त्वदीयहेतुरेवासिद्धः, न मद्धेतुः बहिः शरीरान्तरेण जीवस्य निर्गमनाङ्गीकारेण तदीयचक्षुर्वह्न्यादिसंनिकर्षरूपतत्प्रमाकरणसद्भावादिति ॥</div>
+  <div class="tr">第3段——私の論証因は成り立たないことはない。夢では、焼けることによる苦しみなどを経験するので、焼けることなどがあると確定するからである。<br>「目の前で眠っている人の身体が焼けるなどの結果は見られず、夢の時にその身体が外に出ることもないので、焼けることなどはありえない」と疑うべきではない。眠っている身体ではなく別の身体で、個我が外の火などが見える場所まで出ていくと認めるからである。その身体が焼けても、前の身体が以前のとおりにあることは成り立つし、その身体に限定されたかたちで夢を見る人に渇きが生じ、鎮まることもありうるからである。<br>こうして、あなたの論証因こそ成り立たず、私の論証因ではない。外に別の身体で個我が出ていくと認めることで、その眼と火などとの接触という、その正しい認識の手段があるからである。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第4〜6段：典拠と経験との矛盾</h2><span class="sub"><span class="pg">pp.369–370</span></span></div>
+<div class="mula" id="u4">
+  <span class="ref">368–369</span>
+  <div class="src deva" lang="sa">अथ चतुर्थी कक्ष्या-- त्वद्धेतुरसिद्ध एव, शरीरान्तरे तेन बहिर्निर्गमने च प्रमाणाभावात्, वस्तुतो यत्र देशे वह्निजलादिकं नास्ति, तत्र स्वप्नदृक् वह्निजलादिकं पश्यति, तत्प्रयुक्तदाहपानादेः भ्रमविजृम्भितत्वावश्यंभावात्; अत एव न मद्धेतुरसिद्ध इति ॥</div>
+  <div class="tr">第4段——あなたの論証因はまさに成り立たない。別の身体と、それによって外に出ることには認識手段がないからである。実際には火や水などのない場所で、夢を見る人は火や水などを見るのだから、それによる焼けることや飲むことなどは、必ず錯誤の産物である。まさにそれゆえ、私の論証因は成り立たないことはない。</div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">369</span>
+  <div class="src deva" lang="sa">अथ पञ्चमी-- शरीरान्तरे तेन निर्गमे च तावदस्ति प्रमाणम्- 'प्राणेन रक्षन्नवरं कुलायं बहिष्कुलायादवरश्चरित्वा । स ईयते अमृतो यत्र कामं हिरण्मयः पुरुष एकहंसः' इति श्रुतिः; यत्र देशे स्वप्नदृक् वह्निजलादिकं पश्यति, तत्र तदा परमेश्वरः तत्सृजति, 'न तत्र रथा न रथयोगा न पन्थानो भवन्ति अथ रथान्रथयोगान्पथः सृजते न तत्र वेशान्ताः पुष्करिण्यः स्रवन्त्यो भवन्ति अथ वेशान्तान् पुष्करिण्यः सृजते स हि कर्ता' इति श्रुतेः; अतो नास्ति विषयासंभवदोषोऽपीति न मद्धेतुरसिद्धः त्वद्धेतुरेवासिद्ध इति ॥</div>
+  <div class="tr">第5段——別の身体と、それによって外に出ることには、まず認識手段がある。「低い巣（身体）を生気によって守りつつ、不死なる者は巣の外にさまよい出る。彼は望むところへ行く、金色のプルシャ、ただ一羽の白鳥は」という天啓である。また夢を見る人が火や水などを見る場所に、そのとき最高神がそれを創造する。「そこには車も、車の軛も、道もない。そこで彼は車を、車の軛を、道を創造する。そこには喜びも、池も、流れもない。そこで彼は喜びを、池を、流れを創造する。彼こそが作り手である」という天啓があるからである。だから対象がありえないという欠点もない。だから私の論証因は成り立たないことはなく、あなたの論証因こそ成り立たない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者の典拠は『ブリハッド・アーラニヤカ』4.3.10–12 です。夢の中で自己（白鳥）は身体の巣を出てさまよい、そこに車や池が創造される。ウパニシャッド自身がそう言うのだから、夢の対象は実在する、というのです。</p></div>
+  <div class="nt">「बहिष्वकुलायाद」を「बहिष्कुलायाद」と正した。</div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">369–370</span>
+  <div class="src deva" lang="sa">अथ षष्ठी कक्ष्या-- शरीरान्तरेण निर्गमनं तावत् अर्गलितेऽपवरके शयितस्य विरुद्धः, निर्गतस्य च वह्न्यादिदेशपर्यन्तं गच्छतो मध्ये वस्तुतो यद्यद्यथा वर्तते तस्य तस्य तथा दर्शनाभावो विरुद्धः; वह्न्यादिदेशे स्थित्वा दाहादिकमनुभवतः तत्काले एव केनचित् प्रबोधितस्य अपवरके एव उत्थानं च विरुद्धम्; प्रबोधकाले प्रत्यागमनाङ्गीकारे तावद्दूरं गतस्य आह्वानमात्रेण झटिति उत्थानं विरुद्धम्; तथा काञ्च्यां रात्रौ शयितस्य स्वप्ने दिवा दक्षिणादिशं प्रस्थाय घटिकामात्रेण काशीप्राप्तिदर्शनम्, काञ्च्यां शयितस्य अप्रस्थायैव काशीवृत्तान्तदर्शनं च विरुद्धम्; मुहूर्तमात्रवर्तिनि स्वप्ने बहुकालं काश्यादिसंचारदर्शनं च विरुद्धम्; तस्मात् सर्वविधविरोधपरिहारार्थं बहिष्कुलायश्रुतिः बहिष्कुलायादिव चरित्वा इति भाक्ततया व्याख्येया; अत एव 'यत्रैतत्स्वप्नया चरति' इत्युपक्रम्य 'स्वे शरीरे यथाकामं परिवर्तते' इति श्रुत्यन्तरम्; एवं च शरीरान्तरेऽपि नास्ति प्रमाणम्; देशान्तरं गच्छन्तमात्मानमनुभवन्नपि स्वप्नदृक् येन शरीरेण शयितः तेनैव शरीरवन्तमात्मानं मन्यते; शरीरान्तरग्रहणे तदंशे भ्रमत्वं स्वप्नस्य त्वयापि स्वीकरणीयं स्यात्; एवं वह्न्यादिरहिते देशे वह्न्यादिसृष्ट्यङ्गीकारे प्रबोधनानन्तरं तद्देशं गत्वा पश्यतः तत्र भस्माद्यदर्शनं च विरुद्धम्; यत्र देशे महाह्रदादिकं तिष्ठति तत्र वह्निजलादिदर्शनं च विरुद्धम्, यत्र गोपुरप्रासादादिकं तत्र कश्चित् स्वप्नदृक् वनं पश्यति, तदैव कश्चित् सेनां पश्यति, अन्यः समुद्रम्, परः शैलमिति बहूनां मूर्तानां युगपत् एकत्रावस्थानं च विरुद्धम्; तस्मात् उक्तसकलविधविरोधपरिहारार्थं रथादिसृष्टिश्रुतिरपि भाक्ततया व्याख्येया; अत एव तत्रैव 'न तत्र रथा न रथयोगा न पन्थानो भवन्ति' इत्यादौ तदभावोऽपि श्रूयते; तस्मात् न मद्धेतुरसिद्धः; त्वद्धेतुरेवासिद्ध इति ॥</div>
+  <div class="tr">第6段——まず別の身体で出ていくことは、閂をかけた奥の部屋で眠る人には矛盾する。出ていって火などの場所まで行く人が、途中で実際にあるものをそのとおりに見ないことも矛盾する。火などの場所にいて焼けることなどを経験している人が、まさにその時に誰かに起こされて、奥の部屋で起き上がることも矛盾する。目覚める時に戻ってくると認めるなら、それほど遠くまで行った人が呼ばれただけですぐ起き上がることも矛盾する。<br>同じく、カーンチーで夜に眠った人が、夢で昼に南の方へ出発して、一ガティカー（二十四分）でカーシーに着くのを見ること、カーンチーで眠った人が出発もせずにカーシーの出来事を見ることも矛盾する。ひと時（四十八分）しか続かない夢で、長い間カーシーなどをめぐるのを見ることも矛盾する。<br>だからあらゆる矛盾を避けるために、「巣の外に」という天啓は、「巣の外にいるかのようにさまよって」と、比喩的に説明すべきである。まさにそれゆえ、「彼が夢でこのようにさまようとき」と始めて、「自分の身体の中で意のままにめぐる」という別の天啓がある。こうして別の身体にも認識手段はない。別の場所に行く自分を経験していても、夢を見る人は、眠ったときの身体そのものをもつ自分だと思っている。別の身体を認めるなら、その部分で夢が錯誤であることをあなたも認めなければならなくなる。<br>同じく、火などのない場所で火などが創造されると認めるなら、目覚めた後にその場所に行って見ても灰などが見えないことも矛盾する。大きな湖などがある場所で火や水などを見ることも矛盾する。門の塔や宮殿などがあるところで、ある夢を見る人は森を見、同じときにある人は軍勢を見、別の人は海を、また別の人は山を見るので、多くの固体が同時に一か所にあることも矛盾する。<br>だから、述べたあらゆる矛盾を避けるために、車などの創造の天啓も比喩的に説明すべきである。まさにそれゆえ、そこでまさに「そこには車も、車の軛も、道もない」などで、それらがないことも聞かれるのである。だから私の論証因は成り立たないことはなく、あなたの論証因こそ成り立たない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者は、夢が真実だとすると生じる矛盾を次々に挙げます。閉め切った部屋からどう出るのか。途中の景色はなぜ見えないのか。起こされると一瞬で戻るのか。南インドのカーンチーから北のカーシー（ヴァーラーナシー）まで、二十四分で行けるのか。短い夢で長い時間が過ぎるのはなぜか。起きてから行っても灰がないのはなぜか。同じ場所で別々の人が森や海を見るのはなぜか。</p><p>だから『ブリハッド・アーラニヤカ』4.3.12 は比喩であり、2.1.18「自分の身体の中で意のままにめぐる」が文字どおりの真実だ、というのです。</p></div>
+  <div class="nt">「निर्गममस्तावत्」を「निर्गमनं तावत्」、「काञ्यां」を「काञ्च्यां」、「सृष्टट्य」を「सृष्ट्य」、「भस्माद्यंदर्शनं」を「भस्माद्यदर्शनं」、「महाहदादिकं」を「महाह्रदादिकं」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第7〜8段：弁明とその反駁</h2><span class="sub"><span class="pg">pp.370–371</span></span></div>
+<div class="mula" id="u7">
+  <span class="ref">370</span>
+  <div class="src deva" lang="sa">अथ सप्तमी कक्ष्या-- स्वप्नशरीरमर्गलितादप्यपवरकात् निर्गमनयोग्यं योजनशतप्राप्यं देशं क्षणेन गन्तुं क्षणेन तत आगन्तुं च शक्तं स्वप्नार्थमात्रग्रहणयोग्यचक्षुरादियुक्तं च कल्प्यते; देशकालविपर्यासश्च स्वप्नदृगेकानुभाव्यादित्यगत्याद्युपाधिविशेषप्रयुक्तादिक्कालविशेषकल्पनेन उपपद्यते; अगत्वा देशान्तरदर्शनम् अल्पमार्गं गत्वा दूरदेशदर्शनं च अगमनदूरमार्गगमनयोः अननुसंधानेन उपपद्यते; बहुकालातिवाहनं च देवादिकालोपाधिभ्यो मनुष्यादिकालोपाधीनामिव जाग्रत्कालोपाधिभ्यः स्वप्नकालोपाधीनां सूक्ष्मत्वतारतम्यकल्पनेन उपपद्यते; मूर्तानां विरुद्धानां च समावेशस्तु तेष्वन्यानुभाव्यमूर्तद्रव्यान्तरावस्थितिप्रतिघातकत्वाभावान्यानुभाव्यविरुद्धत्वाभावकल्पनेन उपपद्यते; भस्माद्यदर्शनं परमेश्वरः स्वप्नदृगेकानुभाव्यमर्थजातं सृष्ट्वा तदैव स्वप्नान्ते तत्सर्वं निरवशेषमुपसंहरतीति कल्पनेन उपपद्यते; अतो नात्र युक्तिविरोधः कश्चिदस्ति; 'स्वे शरीरे' इति श्रुतिः शरीरान्तरस्यापि स्वशरीरत्वादुपपद्यते; तत्र शयितशरीराभिमानमात्रं भ्रमोऽस्तु; न हि स्वप्नसत्यत्ववादिनः स्वप्ने भ्रम एव नास्ति, स्वप्नेऽपि शुक्तिरजतादिभ्रमाङ्गीकारात्; 'न तत्र रथाः' इत्यादिश्रुतिः स्वप्नरथादिसृष्टेः प्राक् तत्र देशे रथाद्यभावविषया; अत एव 'अथ रथान्' इत्यादौ अथशब्दः; तस्मात् न मद्धेतुरसिद्धः, त्वद्धेतुरेवासिद्ध इति ॥</div>
+  <div class="tr">第7段——夢の身体は、閂をかけた奥の部屋からでも出ることができ、百ヨージャナ先の場所に一瞬で行き、一瞬でそこから戻ることができ、夢の対象だけを捉えることのできる眼などをそなえている、と想定される。<br>場所と時間の食い違いは、夢を見る人だけが経験する太陽の運行などの特別な条件による、特別な方角と時間を想定することで説明がつく。行かずに別の場所を見ること、短い道を行って遠い場所を見ることは、行かなかったことや遠い道を行ったことを省みないことで説明がつく。長い時間が過ぎることは、神々などの時間の条件に対する人間などの時間の条件と同じく、目覚めた時間の条件に対して夢の時間の条件が微細であるという程度の差を想定することで説明がつく。<br>固体や互いに矛盾するものが同居することは、それらには、他人が経験する別の固体の存在を妨げることがなく、他人が経験するものと矛盾することがない、と想定することで説明がつく。灰などが見えないことは、最高神が夢を見る人だけが経験する対象を創造し、夢の終わりにそのすべてを残りなく回収する、と想定することで説明がつく。だからここには理屈との矛盾は何もない。<br>「自分の身体の中で」という天啓は、別の身体も自分の身体なので成り立つ。そこで眠っている身体を自分と思うことだけは錯誤だとしよう。夢を真実とする論者も、夢に錯誤がまったくないと言うのではない。夢の中でも貝殻を銀とする錯誤などを認めるからである。「そこには車も」などの天啓は、夢の車などが創造される前に、その場所に車などがなかったことを対象とする。まさにそれゆえ、「そこで（<i>atha</i>）車を」などで「そこで」の語がある。だから私の論証因は成り立たないことはなく、あなたの論証因こそ成り立たない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は、矛盾の一つ一つに想定で答えます。夢の身体は壁を抜け、一瞬で遠くまで行ける。夢の世界には夢を見る人だけの太陽と時間がある。夢の時間は、神々の時間に比べた人間の時間のように、細かく刻まれている。夢の対象は他人の世界を妨げず、夢が終われば神が回収するので灰は残らない。「車もない。そこで車を創造する」は、創造の前にはなかったという意味だ、というのです。</p></div>
+  <div class="nt">「स्वप्नअर्थमात्र」を「स्वप्नार्थमात्र」、「बहुकालादिवाहनं」を「बहुकालातिवाहनं」、「जाग्रत्कालोपादिभ्यः」を「…पाधिभ्यः」と推定して正した。</div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">370–371</span>
+  <div class="src deva" lang="sa">अथ अष्टमी कक्ष्या-- तावल्लोकदृष्टविरुद्धं किमवलम्ब्य कल्प्यते; बहिष्कुलायश्रुतिं रथादिसृष्टिश्रुतिं च इति चेत्, न, बहिष्कुलायश्रुतेः 'स्वे शरीरे' इति श्रुत्यनुसारेण भाक्ततया व्याख्यातव्यत्वात्, शरीरान्तरं परिगृह्णाति चेत्, तस्यापि पूर्वशरीरवत् स्वीयत्वमनुभवसिद्धमिति तस्यावक्तव्यतया, तस्याः श्रुतेः विकृतशरीरान्तरपरिग्रहदर्शनेऽपि बहिः संचारदर्शनेऽपि शयिते पूर्वशरीर एव परिवर्तते, न शरीरान्तरं परिगृह्णाति, नापि बहिः संचरतीति तस्य सर्वस्य मिथ्यात्वप्रदर्शनेनैव साफल्यस्य उपपादनीयत्वात्; रथादिसृष्टिश्रुतेः 'न तत्र रथाः' इत्युपक्रमानुरोधेन भाक्ततया व्याख्यातव्यत्वाच्च; तत्र लडाख्याताभ्यां रथाद्यभावरथादिसृष्ट्योः समानकालत्वप्रतिपादनेन रथादिमिथ्यात्वावश्यंभावात्; 'अथ' इत्यव्ययं तु अथापि इत्येतदर्थत्वेनापि उपपन्नम्; किं च सृष्टिशरीरान्तरश्रुत्योः स्वार्थपरत्वे प्रकरणप्रतिपाद्यप्रधानार्थविरोधोऽपि स्यात्; तद्धि प्रकरणमात्मनः स्वयंज्योतिष्ट्वं प्रतिपादयितुं प्रवृत्तम्; तत्र जाग्रदवस्थायाम् आदित्यादिज्योतिर्व्यतिकरात् तद्दुर्विवेचमिति तद्विवेचनार्थं स्वप्नावस्था अवतारिता; तत्र यदि सृष्टिः प्रतिपाद्यते, तदा तस्यामपि तद्दुर्विवेचं स्यात् आदित्यादिसद्भावात्; अतः प्रधानप्रतिपाद्यविरोधात् स्वर्गार्थज्योतिष्टोमप्रकरणे तदङ्गविध्यर्थवादरूपस्य 'को हि तद्वेद यद्यमुष्मिँल्लोकेऽस्ति वा न वेति' इति वाक्यस्येव स्वप्नसृष्टशरीरान्तरपरिग्रहवचनस्य न स्वार्थे तात्पर्यम्, किंतु तन्मिथ्यात्वप्रदर्शन एव उक्तरीत्या तात्पर्यमिति योजयितुं युक्तम्; किं च स्वप्ने महासेनायां गजतुरगवृषभोष्ट्रपदातिरूपाः पारेपरार्धं चेतना दृश्यन्ते; कस्यचित् स्वप्नं निर्वोढुं कियन्तश्चेतनाः कुतः समानीय परमेश्वरेणापि मेलनीयाः; न हि स्वप्ननिर्वाहार्थमेव तेन क्वचित्केचन चेतनाः पृथङ्निवेशिताः सन्ति; चेतनांशे चेत् स्वप्नानामयथार्थता अचेतनांशेऽपि तथास्तु, किमर्धजरतीयेन; अत एव लोकानाम् आरुक्षमिव शैलाग्रम् अद्राक्षमिव काननम् इत्यादिरूपेण स्वाप्नमिथ्यात्वानुवादः; 'उतेव स्त्रीभिः सह मोदमानः जक्षदुतेवापि भयानि पश्यन्' इति श्रुतावपि लोकप्रसिद्धिसिद्धतन्मिथ्यात्वानुवादः ; तस्मात् त्वद्धेतुरसिद्धः न मद्धेतुरिति सिद्धम् बहिः संचारवह्निजलतदर्थक्रियादिदर्शनं सर्वमयथार्थम् ॥ इति स्वप्नायथार्थत्ववादः ॥२४॥</div>
+  <div class="tr">第8段——世間で見られることに反するそれほどのことを、何に頼って想定するのか。「巣の外に」の天啓と車などの創造の天啓に（頼って）と言うなら、そうではない。「巣の外に」の天啓は、「自分の身体の中で」という天啓に従って、比喩的に説明すべきだからである。もし別の身体をとるなら、それも前の身体と同じく自分のものであることは経験で成り立つので、（「自分の身体の中で」と）言う必要がない。だからその天啓は、「変化した別の身体をとるのが見え、外をさまようのが見えても、眠っている人は前の身体の中でめぐるのであって、別の身体をとるのでも、外をさまようのでもない」と、そのすべてが偽りであることを示すことによってこそ、その意義が説明されるべきだからである。<br>また車などの創造の天啓は、「そこには車も」という冒頭に従って、比喩的に説明すべきだからである。そこでは現在形の二つの動詞によって、車などがないことと車などの創造が同時であると説かれるので、車などが偽りであることは避けられないからである。不変化詞「そこで」（<i>atha</i>）は、「それでもなお」（<i>athāpi</i>）の意味でも成り立つ。<br>さらに、創造と別の身体の天啓がそれ自身の意味を目指すなら、文脈が説く主要な意味とも矛盾することになるだろう。その文脈は、自己が自ら輝く光であること（自己照明性）を説くために始まる。そこで目覚めた状態では、太陽などの光が入り混じるので、それを見分けにくい。それを見分けるために夢の状態が持ち出された。そこでもし創造が説かれるなら、そこでも太陽などがあるので、それは見分けにくくなってしまうだろう。だから主要な説く内容と矛盾するので、天界のためのジョーティシュトーマ祭の文脈で、その補助の規定の釈義である「あの世に（自分が）あるかないか、誰が知ろうか」という文と同じく、夢の創造と別の身体をとることの言葉は、それ自身の意味を趣旨とするのではなく、先に述べた仕方で、それが偽りであることを示すことこそを趣旨とする、と解するのが正しい。<br>さらに、夢では大軍の中に、象・馬・牛・駱駝・歩兵の姿をした、数えきれない意識あるものが見られる。誰かの夢を成り立たせるために、最高神でさえ、どれほど多くの意識あるものを、どこから連れてきて集めなければならないのか。夢を成り立たせるためだけに、神がどこかに何かの意識あるものを別に置いているわけではないからである。もし意識あるものの部分で夢が誤りなら、意識のないものの部分でもそうであればよい。「半分老婆」の理屈がなぜ必要か。まさにそれゆえ、人々は「山の頂に登ったかのようだった」「森を見たかのようだった」などの形で、夢が偽りであることを再述する。「女たちとともに楽しむかのように、笑うかのように、あるいは恐ろしいものを見るかのように」という天啓でも、世間でよく知られて成り立つそれ（夢）の偽りが再述されている。<br>だからあなたの論証因は成り立たず、私の論証因は（成り立たないことは）ない。こうして、外をさまようこと、火や水、その働きなどを見ることは、すべて誤りであることが確定した。<br>以上、夢の誤りの論。（第24論）</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者の最後の論拠は三つです。第一に、「自分の身体の中で」が別の身体も含むなら、わざわざ言う必要がない。第二に、『ブリハッド・アーラニヤカ』4.3 の文脈は、外の光がない夢の中でこそ自己が自ら輝くことを示すためのものです（4.3.9「ここではこのプルシャが自ら光となる」）。夢に太陽まで創造されるなら、その目的が崩れる。第三に、夢の大軍の兵士や象は意識あるものですが、神がそれを夢のためにどこかから集めてくるとは考えられない。意識あるものが偽りなら、物も偽りと考えるべきです。人々も「〜したかのようだった」と言い、ウパニシャッド（4.3.13）も「かのように」と言っている、というのです。</p></div>
+  <div class="nt">「पूर्वशरीरं एव」を「पूर्वशरीर एव」、「स्वयंज्योतिष्टुं」を「स्वयंज्योतिष्ट्वं」と正した。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この論に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>svapna / jāgrat</dt><dd>夢／目覚め</dd>
+    <dt>kulāya</dt><dd>巣。身体の比喩（『ブリハッド・アーラニヤカ』4.3.12）</dd>
+    <dt>svayaṃjyotiṣṭva</dt><dd>自己照明性。自己が自ら輝く光であること</dd>
+    <dt>bhākta</dt><dd>比喩的な（文字どおりでない）</dd>
+    <dt>āropa</dt><dd>重ね合わせ</dd>
+    <dt>marīcikā</dt><dd>陽炎（蜃気楼）</dd>
+    <dt>guñjā</dt><dd>グンジャー（トウアズキ）の赤い実。火と見間違えられる</dd>
+    <dt>ghaṭikā / muhūrta</dt><dd>ガティカー（約二十四分）／ムフールタ（約四十八分）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.368–371 のOCRテキストに拠る。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>
