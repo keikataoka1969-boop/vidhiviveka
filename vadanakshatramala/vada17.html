@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Vyākaraṇaśrutigatatṛtīyaikavacanasamarthanavāda 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#map">第17論の地図</a></li>
+    <li><a href="#s1"><b>1</b>序と第1〜3段：二つの…</a></li>
+    <li><a href="#s2"><b>2</b>第4〜6段：「私は食べ…</a></li>
+    <li><a href="#s3"><b>3</b>第7〜8段：どの語が余…</a></li>
+    <li><a href="#s4"><b>4</b>第9〜10段：単数形と…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ヴァーダ・ナクシャトラ・マーラー　第17論</div>
+  <h1>Vyākaraṇaśrutigatatṛtīyaikavacanasamarthanavāda</h1>
+  <p class="deva-title" lang="sa">व्याकरणश्रुतिगततृतीयैकवचनसमर्थनवादः</p>
+  <p class="sub">「この生命である自己として」の具格は、行為者ではなく「〜とともに」を表す</p>
+  <span class="sample">対訳　第17論 全文（pp.301–304、第1〜10段）</span>
+  <p>第16論で引いた『チャーンドーギヤ・ウパニシャッド』6.3.2「この生命である自己として入り込み、名と形を展開しよう」（<i>anena jīvenātmanānupraviśya nāmarūpe vyākaravāṇi</i>）の、具格 <i>jīvena</i> の読み方をめぐる、文法学の論です。</p>
+  <p>ヴィシュヌ派（<i>viṣṇubhāgavata</i>、ラーマーヌジャの流れ）は、これを<strong>行為者</strong>を表す具格と読みます。「個我を身体とする私によって入り込み」という意味です。著者の定説では、これは<strong>「〜とともに」</strong>を表す具格で、「この個我とともに入り込み」という意味になります。パーニニ文法の「表されていないもの」のスートラ、絶対分詞 <i>-tvā</i> の行為者、「宮殿に座る」の処格など、文法学の議論が中心です。この論では、奇数段がヴィシュヌ派（反論者）、偶数段が立論者です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>論題</dt><dd>『チャーンドーギヤ』6.3.2 の具格 <i>jīvena</i> は何を表すか</dd></div>
+    <div><dt>反論者（ヴィシュヌ派）</dt><dd>行為者<br><small>「個我を身体とする私が」入り込む</small></dd></div>
+    <div><dt>立論者（定説）</dt><dd>「〜とともに」<br><small>「この個我とともに」入り込む</small></dd></div>
+    <div><dt>決め手</dt><dd>文法学の決まりでは、絶対分詞の行為者は主格で表される<br><small>行為者の具格は成り立たない</small></dd></div>
+    <div><dt>残る問題</dt><dd>どちらの読みでも、語が一つ余る<br><small>ヴィシュヌ派では「この」、定説では「自己として」</small></dd></div>
+  </dl>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">第17論の地図</h2><span class="sub">奇数段が反論者（ヴィシュヌ派）、偶数段が立論者</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>段</th><th>話者</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">序・1–3</td><td>交互</td><td class="num">p.301</td><td class="k"><a href="#s1">行為者の具格か、「〜とともに」の具格か</a></td></tr>
+<tr><td class="num">4–6</td><td>交互</td><td class="num">pp.302–303</td><td class="k"><a href="#s2">「私は食べてから行く」と「宮殿に座る」</a></td></tr>
+<tr><td class="num">7–8</td><td>交互</td><td class="num">p.303</td><td class="k"><a href="#s3">「自己として」と「この」はどちらが余るか</a></td></tr>
+<tr><td class="num">9–10</td><td>交互</td><td class="num">pp.303–304</td><td class="k"><a href="#s4">単数形と「個我」の語。結論</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>序と第1〜3段：二つの読み</h2><span class="sub"><span class="pg">p.301</span></span></div>
+<div class="mula" id="u1">
+  <span class="ref">301</span>
+  <div class="src deva" lang="sa">व्याकरणश्रुतिगततृतीयैकवचनसमर्थनवादः ॥ उदाहृतायां नामरूपव्याकरणश्रुतौ 'जीवेन' इति तृतीया कर्तृत्वार्था इति विष्णुभागवताः; सहार्था इति सिद्धान्तः; प्रसङ्गात् तद्व्यवस्थापनार्थं कथान्तरं प्रस्तूयते नामरूपव्याकरणश्रुतिगता 'जीवेन' इति तृतीया कर्तृत्वार्था, कर्त्रतिरिक्तकारकार्थत्वरहितकारकविभक्तित्वात्; मया शिवः सेव्यते इत्यत्र तृतीयावत् । 'जीवेन' इति तृतीयायाः कारकान्तरार्थत्वराहित्यस्य वादिद्वयसंप्रतिपन्नत्वात् न हेतोर्विशेषणासिद्धिः, नापि विशेष्यासिद्धिः, उपपदविभक्तितः कारकविभक्तेर्बलीयस्त्वेन संभवतः कारकविभक्तित्वस्य त्यागायोगात् इति पूर्वपक्षिणः प्रथमा कक्ष्या ॥</div>
+  <div class="tr">展開のウパニシャッドにある具格の単数を擁護する論。例に挙げた名と形の展開のウパニシャッドで、「個我によって」（<i>jīvena</i>）という具格は行為者であることを意味する、とヴィシュヌ派の人々は言う。「〜とともに」を意味する、というのが定説である。ことのついでに、それを確定するために別の論議を始める。<br>（第1段）名と形の展開のウパニシャッドにある「個我によって」という具格は、行為者であることを意味する。行為者以外の行為要素を意味しない、行為要素の格語尾だからである。「私によってシヴァは仕えられる」の具格のように。「個我によって」という具格が他の行為要素を意味しないことは、論者双方が一致して認めているので、論証因の限定部分が成り立たないことはない。また被限定部分が成り立たないこともない。副次語による格語尾よりも行為要素の格語尾の方が強いので、ありうる行為要素の格語尾であることを捨てることはできないからである。以上が反論者の第1段。</div>
+  <div class="exp"><span class="lbl">解説</span><p>パーニニ文法では、格語尾には二種類あります。行為に対する役割（行為者・対象・手段など、<i>kāraka</i>）を表す「行為要素の格語尾」と、特定の語（たとえば「〜とともに」<i>saha</i>）と並ぶことで付く「副次語による格語尾」（<i>upapadavibhakti</i>）です。パーニニ 2.3.19 によれば、<i>saha</i> と並ぶ語は具格をとります。文法学には「副次語による格語尾より行為要素の格語尾が強い」という原則があります。</p><p>ヴィシュヌ派はこの原則に訴えます。<i>jīvena</i> が手段などを表さないことは双方が認めているので、行為要素の格語尾と読めるかぎり行為者の具格と読むべきだ、というのです。ラーマーヌジャは、この句を「個我を身体とする私（ブラフマン）として」と読みます。</p></div>
+  <div class="nt">「तृतीय कर्तृत्वार्था」を「तृतीया…」、「वादिद्वंसंप्रतिपन्नत्वात्」を「वादिद्वयसंप्रतिपन्नत्वात्」、「हेतोविशेषणासिद्धिः」を「हेतोर्विशेषणासिद्धिः」と正した。</div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">301</span>
+  <div class="src deva" lang="sa">अथ द्वितीया-- बाधितमिदमनुमानम्, कर्तुः 'व्याकरवाणि' इत्याख्याताभिहितत्वेन तृतीयायास्तादर्थ्यायोगात् । अतः कारकार्थत्वासंभवात् उपपदविभक्तित्वमेवाश्रयणीयम् इति हेतुरप्यसिद्धः । तस्मादुदाहृता 'जीवेन' इति तृतीया कर्त्रर्था न भवति, तदभिधायिपदान्तरसमभिव्याहृतत्वात्; पुत्रेण सह अहं भोक्ष्ये - इत्यत्र तृतीयावत् इति ॥</div>
+  <div class="tr">第2段——この推論は（他の認識手段によって）否定されている。行為者は「展開しよう」という定動詞の語尾によって表されているので、具格がそれを意味することはありえないからである。だから行為要素を意味することはありえないので、副次語による格語尾であることを採るしかない。だから論証因も成り立たない。<br>したがって、例に挙げた「個我によって」という具格は行為者を意味しない。それを表す別の語と並んで言われているからである。「息子とともに私は食べよう」の具格のように。</div>
+  <div class="exp"><span class="lbl">解説</span><p>パーニニ 2.3.1「表されていないとき」によれば、格語尾は、その役割がまだ他の語で表されていない場合にだけ付きます。「名と形を展開しよう」（<i>vyākaravāṇi</i>）の一人称語尾がすでに行為者（私＝ブラフマン）を表しているので、<i>jīvena</i> の具格が重ねて行為者を表すことはできない、と立論者は言います。</p></div>
+  <div class="nt">「अथ द्विताया」を「अथ द्वितीया」と正した。</div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">301</span>
+  <div class="src deva" lang="sa">अथ तृतीया-- व्याकरणक्रियाकर्तृशक्तेः आख्यातेनाभिहितत्वेऽपि प्रवेशक्रियाकर्तृशक्तेः केनाप्यनभिहितत्वेन तदर्थत्वं तृतीयायाः संभवतीति मदनुमानस्य न बाधासिद्धिदोषः ; त्वदनुमानस्यैव तु बाधासिद्धिदोषः इति ॥</div>
+  <div class="tr">第3段——展開という行為の行為者の力は定動詞の語尾で表されているが、入り込むという行為の行為者の力は何によっても表されていないので、具格がそれを意味することはありうる。だから私の推論には、否定されていることや成り立たないことの欠点はない。あなたの推論にこそ、否定されていることや成り立たないことの欠点がある。</div>
+  <div class="exp"><span class="lbl">解説</span><p>ヴィシュヌ派の反撃です。文には二つの行為があります。「入り込んで」（絶対分詞 <i>anupraviśya</i>）と「展開しよう」です。定動詞が表すのは展開の行為者だけで、入り込みの行為者はまだ表されていない。だから具格がそちらを表せばよい、というのです。</p></div>
+  <div class="nt">「मदनुमानस्य . न」の誤った句点を除いた。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第4〜6段：「私は食べてから行く」</h2><span class="sub"><span class="pg">pp.302–303</span></span></div>
+<div class="mula" id="u4">
+  <span class="ref">302</span>
+  <div class="src deva" lang="sa">अथ चतुर्थी-- तथा सति अहं भुक्त्वा व्रजामि इत्यादिप्रयोगविषयेऽपि मया भुक्त्वा इत्यादिप्रयोगः स्यात्; भोजनादिक्रियाकर्तुः प्रत्ययान्तरेणानभिधानात् ; तदिहापि कर्तृशक्त्यधिष्ठाने प्रथमयैव भाव्यमिति तृतीयायाः कर्त्रर्थत्वकारकविभक्तित्वयोरसंभवात् त्वद्धेतोरेव प्रागुक्तदोषः न मद्धेतोरिति ॥</div>
+  <div class="tr">第4段——そうだとすると、「私は食べてから行く」などの用法の場面でも、「私によって食べてから」などの用法がありうることになってしまう。食べるなどの行為の行為者は、別の接尾辞によって表されていないからである。だからここでも、行為者の力の担い手には主格だけがあるべきなので、具格が行為者を意味し、行為要素の格語尾であることはありえない。だから先に述べた欠点はあなたの論証因にこそあり、私の論証因にはない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者の反例です。「私は食べてから行く」（<i>ahaṃ bhuktvā vrajāmi</i>）でも、「食べて」の行為者はどの語尾でも表されていません。ヴィシュヌ派の理屈なら「私によって食べてから行く」（<i>mayā bhuktvā</i>）と具格になるはずですが、実際には主格の「私は」と言います。絶対分詞の行為者は主格で表されるのです。</p></div>
+  <div class="nt">「कर्तृशक्तत्यधिष्ठाने」を「कर्तृशक्त्यधिष्ठाने」と正した。</div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">302</span>
+  <div class="src deva" lang="sa">अथ पञ्चमी-- व्याकरणमर्यादया प्रसज्यमानोऽयं दोषः तवापि तुल्यः, अहं भुक्त्वा व्रजामि इति प्रयोगे हि यथा अहमर्थोऽभिहितव्रजनक्रियाकर्तृशक्त्याश्रयः एवमनभिहितभोजनक्रियाकर्तृशक्त्याश्रयोऽपि, क्त्वाप्रत्ययस्य शब्दान्तराभिहितकर्तृशक्तिद्वयाभेदमात्रार्थकत्वेन कर्तृशक्त्यनभिधायकत्वात् । अनभिहितसूत्रेण च अनभिहितकारकशक्त्याश्रये यथायथं विभक्तयो विधीयन्ते; न त्वभिहिताश्रये प्रतिषिध्यन्ते ; पर्युदासपक्षाश्रयणात् । अत एव अनभिहितसूत्रे द्वयोः क्रिययोः कारकेऽन्यतरेणाभिहिते विभक्त्यभावप्रसङ्ग इति वार्तिकेन प्रासाद आस्ते - इत्यत्र प्रसीदन्त्यस्मिन्निति अधिकरणार्थे निष्पन्नेन सदेर्घञ्प्रत्ययेन प्रासादगताधिकरणकारकशक्तेरभिधानात् सप्तमी न स्यात् इति प्रतिषेधपक्षाश्रयणेन शङ्कामुद्भाव्य, 'न वान्यतरेणानभिधानात्' इति वार्तिकेन आसिक्रियाधिकरणशक्तेः आसेरुपरितनाख्यातप्रत्ययेनानभिधानात् नायं दोषः प्रसज्यते इति पर्युदासपक्षाश्रयणेन सप्तम्युपपादिता । तस्माद्व्याकरणमर्यादया प्रसज्यमानोऽयं दोषः तन्मर्यादयैव यत्नान्तरमास्थाय अहं भुक्त्वा इत्यादौ कथं चित् प्रथमासमर्थनेन समाधेय इति, इह तृतीयायाः कर्त्रर्थत्वकारकविभक्तित्वयोरनुपपत्त्यभावात् न मद्धेतोः प्रागुक्तदोषः, त्वद्धेतोरेव स दोष इति ॥</div>
+  <div class="tr">第5段——文法学の決まりによって生じるこの欠点は、あなたにとっても同じである。「私は食べてから行く」という用法では、「私」の意味するものは、表された「行く」という行為の行為者の力の担い手であるのと同じく、表されていない「食べる」という行為の行為者の力の担い手でもある。絶対分詞の接尾辞 <i>-tvā</i> は、他の語で表される二つの行為者の力が同一であることだけを意味し、行為者の力を表すものではないからである。そして「表されていないとき」のスートラによって、表されていない行為要素の力の担い手には、それぞれにふさわしい格語尾が規定されるのであって、表されたものの担い手に（格語尾が）禁じられるのではない。「除外」（<i>paryudāsa</i>）の立場をとるからである。<br>まさにそれゆえ、「表されていないとき」のスートラについて、「二つの行為の行為要素が、一方によって表されている場合、格語尾がないことになる」というヴァールッティカは、禁止の立場をとって、次の疑いを提起する。「宮殿に座る」（<i>prāsāda āste</i>）では、「人々がそこで喜ぶ（<i>prasīdanti</i>）」という所在の意味で作られた語根 <i>sad</i> の接尾辞 <i>ghañ</i> によって、宮殿にある所在の行為要素の力が表されているので、処格は付かないことになろう、と。そして「いや、そうではない。他方によって表されていないからである」というヴァールッティカは、座るという行為の所在の力が、語根 <i>ās</i> の後の定動詞の語尾によって表されていないので、この欠点は生じない、と、除外の立場をとって処格を説明した。<br>だから、文法学の決まりによって生じるこの欠点は、まさにその決まりに従って別の工夫をこらし、「私は食べてから」などで何とか主格を擁護することで解決すべきである。ここでは具格が行為者を意味し、行為要素の格語尾であることに不都合はないので、先に述べた欠点は私の論証因にはなく、あなたの論証因にこそその欠点がある。</div>
+  <div class="exp"><span class="lbl">解説</span><p>ヴィシュヌ派は、立論者の反例が文法学そのものの難問だと言います。パーニニ 2.3.1 の「表されていないとき」は、二通りに解釈されます。「表されたものには格語尾を付けるな」という禁止（<i>prasajyapratiṣedha</i>）と、「表されていないものに格語尾を付けよ」という除外（<i>paryudāsa</i>）です。カーティヤーヤナのヴァールッティカは、宮殿の例で後者を採ります。「宮殿」（<i>prāsāda</i>）という語は「そこで喜ぶ場所」という意味で作られ、所在をすでに表していますが、「座る」の所在はまだ表されていないので、処格「宮殿に」が付く、というのです。</p><p>同じ理屈なら「私は食べてから行く」でも、「食べる」の行為者は表されていないので、具格が付くことになる。これは文法学全体が抱える問題で、ヴィシュヌ派だけの欠点ではない、と反論者は言います。</p></div>
+  <div class="nt">「शक्त्याश्रयःएवम」を分かち書きにし、「क्त्त्वाप्रत्ययस्य」を「क्त्वाप्रत्ययस्य」、「कारकशक्तत्याश्रये」を「कारकशक्त्याश्रये」、「प्रसीदन्त्यस्मन्निति」を「प्रसीदन्त्यस्मिन्निति」、「असिक्रिया」を「आसिक्रिया」と正した。</div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">302–303</span>
+  <div class="src deva" lang="sa">अथ षष्ठी-- वैयाकरणमर्यादया नैष दोषः प्रसज्यते । एवं हि तन्मर्यादा - अहं भुक्त्वा व्रजामि - इत्यत्र अहमर्थस्य भोजनव्रजनक्रियाभ्यामुभाभ्यामपि न शाब्दोऽन्वयः ; किंतु व्रजनक्रिययैव, प्राधान्यात्; आर्थस्तु भोजनक्रियया अन्वयः । अतः शब्दव्यापारापेक्षायामभिधानमेव, न त्वनभिधानमपि इति न अहमर्थे तृतीया प्रसज्यते । अत एव पक्त्वा भुज्यते ओदनः इत्यत्र पाककर्मत्वानभिधानमाश्रित्य ओदनमिति द्वितीया न प्रवर्तते; पाके कर्मान्वयस्य आर्थत्वात् । प्रासाद आस्ते इत्यत्र तु प्रासादस्य प्रसदनासनक्रियाभ्यां शाब्द एवान्वयः पदार्थदशायां घञन्तप्रातिपदिकेन प्रसदनेनाधिकरणतया अन्वितस्यैव हि प्रासादद्रव्यस्य वाक्यार्थदशायाम् आसनक्रियाधिकरणत्वेनापि अन्वयात् । अतस्तत्र शाब्दव्यापारापेक्षयैव अनभिहितासनक्रियाधिकरणकारकशक्त्याश्रयत्वमपि प्रासादस्यास्तीति तत्र सप्तम्युपपद्यते। एवमसङ्कीर्णा प्राक्सिद्धा वैयाकरणमर्यादेति तदाश्रयणेनैव सर्वोपपादने संभवति लौकिकप्रयोगे कर्तरि प्रथमामुपपादयितुं न यत्नान्तरमास्थेयमिति, इह तृतीयायाः कर्त्रर्थत्वकरणार्थत्वयोरसंभवात् त्वद्धेतोरेव पूर्वोक्तदोषः, न मद्धेतोरिति ॥</div>
+  <div class="tr">第6段——文法学者の決まりによれば、この欠点は生じない。その決まりとはこうである。「私は食べてから行く」では、「私」の意味するものは、食べると行くの二つの行為の両方と語のうえで結びつくのではない。主要なものなので、行くという行為とだけ結びつく。食べるという行為との結びつきは、意味のうえでのものである。だから語の働きに関しては表されているだけで、表されていないことはないので、「私」の意味するものに具格は付かない。<br>まさにそれゆえ、「炊いてから飯が食べられる」（<i>paktvā bhujyate odanaḥ</i>）では、炊くことの対象であることが表されていないことに頼って「飯を」という対格が働くことはない。炊くことに対象が結びつくのは意味のうえでのことだからである。<br>一方「宮殿に座る」では、宮殿は喜ぶことと座ることの二つの行為と、語のうえで結びつく。語の意味の段階で、<i>ghañ</i> で終わる名詞語幹によって喜ぶことの所在として結びついた宮殿という実体が、文の意味の段階で座るという行為の所在としても結びつくからである。だからそこでは、まさに語の働きに関して、宮殿は表されていない「座る」という行為の所在の行為要素の力の担い手でもあるので、処格が成り立つ。<br>このように、文法学者の決まりは混乱なく、もとから確立している。それに頼ってすべてが説明できるのだから、世間の用法で行為者に主格を擁護するために別の工夫をする必要はない。だからここでは、具格が行為者を意味することも、行為要素を意味することもありえないので、先に述べた欠点はあなたの論証因にこそあり、私の論証因にはない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者は文法学の通説で答えます。「私は食べてから行く」で、「私」が語のうえで結びつくのは主要な行為「行く」だけで、「食べる」の行為者であることは意味から分かるにすぎない。格語尾は語のうえでの結びつきに付くので、「食べる」の行為者のために具格が付くことはない。「炊いてから飯が食べられる」で「飯を」と対格にならないのも同じ理由です。</p><p>「宮殿に」の処格は事情が違います。「宮殿」という語そのものが「喜ぶ場所」という意味を含むので、宮殿は二つの行為と語のうえで結びつく。だから表されていない「座る」の所在に処格が付く。こうして文法学の決まりには矛盾がない、というのです。</p></div>
+  <div class="nt">「भुक्त्वा • व्रजामि」の記号を除き、「न शाब्द अन्वयः」を「न शाब्दोऽन्वयः」、「शक्त्त्याश्रयत्वमपि」を「शक्त्याश्रयत्वमपि」、「एक्मसङ्कीर्णा」を「एवमसङ्कीर्णा」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第7〜8段：どの語が余るか</h2><span class="sub"><span class="pg">p.303</span></span></div>
+<div class="mula" id="u7">
+  <span class="ref">303</span>
+  <div class="src deva" lang="sa">अथ सप्तमी-- 'जीवेन' इति तृतीयायाः सहार्थत्वेन उपपदविभक्तित्वे येन जीवेन परमेश्वरस्य साहित्यं तस्य आत्मत्वाव्यभिचारात् 'आत्मना' इत्येतत् व्यर्थं भवेत्, कारकविभक्तित्वे तु जीवशरीरकेण मया इत्येतदर्थलाभार्थत्वेन तत् सार्थकं भवति । तस्मादभ्यर्हितस्य कारकविभक्तित्वस्य 'आत्मना' इति पदसार्थकत्वस्य च लाभार्थं यत्नान्तरमास्थायैव प्रथमोपपादनं युक्तम् । यदि तु प्राक्सिद्धमर्यादयैव तदुपपादनं कार्यम्, तदा जीवशरीरकेण मया इत्यस्य प्रवेशक्रियामात्रान्वयोऽस्तु; तदा हि तस्योपसर्जनक्रियान्वयः शाब्दव्यापारविषयो भवति । तस्य प्रधानक्रियान्वयाभावेन अर्थात् सिद्ध्यसंभवात् । ततश्च तत्र शाब्दव्यापारविषयानाश्रयम् अनभिहितसूत्रं प्रवर्तत इति भाव्यं तत्र कारकविभक्त्या । दृश्यते च तथैव प्रयोगः 'इष्टकाः पक्त्वा भुङ्क्ते' इति। अत्र खलु इष्टकानां पाकक्रिययैवान्वय इति तदन्वयस्य शाब्दव्यापारविषयत्वात् अनभिहिताधिकारविहिता कर्मणि द्वितीया दृश्यते । एवमिहापि कर्तरि तृतीया उपपद्यते । तस्मान्न मद्धेतोः पूर्वोक्तदोषः, त्वद्धेतोरेव स दोष इति ॥</div>
+  <div class="tr">第7段——「個我によって」という具格が「〜とともに」を意味する副次語による格語尾だとすると、最高神がともにある個我は必ず自己なので、「自己として」（<i>ātmanā</i>）という語は無駄になってしまう。しかし行為要素の格語尾なら、「個我を身体とする私によって」という意味を得るためのものとして、それは意味をもつ。だから、より重んじられる行為要素の格語尾であることと、「自己として」という語が意味をもつことを得るために、別の工夫をこらして主格を説明するのが正しい。<br>もし、もとから確立した決まりだけでそれを説明すべきだというなら、そのときは「個我を身体とする私によって」が、入り込むという行為とだけ結びつくとしよう。そうすれば、その従属的な行為との結びつきは語の働きの対象となる。主要な行為と結びつかないので、意味のうえで成り立つことはありえないからである。そしてそこでは、語の働きの対象に関わる「表されていないとき」のスートラが働くので、そこには行為要素の格語尾があるはずである。<br>そして実際にそのような用法が見られる。「煉瓦を焼いてから食べる」（<i>iṣṭakāḥ paktvā bhuṅkte</i>）である。ここでは煉瓦は焼くという行為とだけ結びつくので、その結びつきは語の働きの対象であり、「表されていないとき」の項目で規定される、対象の対格が見られる。同じくここでも、行為者の具格が成り立つ。だから先に述べた欠点は私の論証因にはなく、あなたの論証因にこそある。</div>
+  <div class="exp"><span class="lbl">解説</span><p>ヴィシュヌ派は二つの手で応じます。第一に、定説の読み（個我とともに）では「自己として」が余計になる。個我はもちろん自己なのだから。行為者の読み（個我を身体とする私が）なら「自己として」に意味がある。</p><p>第二に、文法学の通説に従っても行為者の具格は説明できる。「個我を身体とする私」が従属的な行為（入り込む）とだけ結びつくなら、その結びつきは意味から得られないので語のうえでのものになり、格語尾が必要になる。「煉瓦を焼いてから食べる」で、煉瓦が「焼く」とだけ結びつくので対格になるのと同じだ、というのです。</p></div>
+  <div class="nt">「शाब्दव्यपार」を「शाब्दव्यापार」、「इष्टकाः पक्त्त्वा भुङ्गे」を「इष्टकाः पक्त्वा भुङ्क्ते」、「अनभिहिताधिकरविहिता」を「अनभिहिताधिकारविहिता」と正した。</div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">303</span>
+  <div class="src deva" lang="sa">अथाष्टमी-- 'जीवेनात्मना' इत्यस्य जीवशरीरकेण मया इत्यर्थवर्णनायाम् 'अनेन' इति पदं व्यर्थं स्यात् । न हि मया इत्यस्य अर्थः स्वातिरिक्तोऽपि कश्चिदस्ति । येन तद्व्यावर्तनाय तत्सार्थकं भवेत् । जीवरूपेण केनचिदात्मना सह इत्यर्थवर्णनायां तु त्रिवृत्करणीयभूताभिमानित्वेन संनिहितं परामृशतः 'अनेन' इत्यस्यासंनिहितजीवान्तरव्यावर्तनया सार्थकत्वं लभ्यते । अतः प्रथमश्रुतपदसार्थकत्वलम्भनार्थं चरमश्रुतपदस्य अनतिप्रयोजनत्वाश्रयणं न दोषाय । तस्मात् 'आत्मना' इत्यस्य सार्थकत्वलाभमनुरुध्य न यत्नान्तरमास्थेयम् । यत्तु प्रवेशक्रियामात्रान्वयमङ्गीकृत्य प्राक्सिद्धवैयाकरणमर्यादयैव कर्तरि तृतीयासमर्थनम् तत्तुच्छम्, क्त्वाप्रयोगे कारकान्तरस्य एकक्रियान्वयेऽपि समानकर्तृकत्वनिर्वाहार्थं कर्तुः क्रियाद्वयान्वयावश्यंभावात्, कर्तुर्व्याकरणासंबन्धे अहमिति प्रथमान्तानन्वयप्रसङ्गाच्च । व्याकरणकर्तुः आख्यातेनाभिधानमपेक्ष्यैव तत्र प्रथमायाः समर्थनीयत्वात् । संज्ञामूर्तिक्लृप्त्यधिकरणे परमेश्वरस्यानुप्रवेश इव व्याकरणेऽपि कर्तृत्वव्यवस्थापनेन तद्विरोधापत्तेश्च । तस्मात्त्वद्धेतोरेव प्रागुक्तदोषः, न मद्धेतोरिति ॥</div>
+  <div class="tr">第8段——「個我である自己として」を「個我を身体とする私によって」という意味に説明すると、「この」（<i>anena</i>）という語が無駄になる。「私」の意味するものには、自分以外の何かがあって、それを除外するためにその語が意味をもつ、というようなことはないからである。一方、「個我という何らかの自己とともに」という意味に説明すれば、三重化されるべき元素を司るものとして近くにあるものを指す「この」の語は、近くにない他の個我を除外することで意味をもつ。だから、最初に聞かれる語に意味をもたせるために、最後に聞かれる語の役割が小さいことを認めるのは欠点にならない。だから「自己として」が意味をもつことに配慮して、別の工夫をする必要はない。<br>また、入り込むという行為とだけの結びつきを認めて、もとから確立した文法学者の決まりだけで行為者の具格を擁護するのは、取るに足りない。絶対分詞の用法では、他の行為要素は一つの行為と結びつくとしても、同じ行為者であることを成り立たせるために、行為者は必ず二つの行為と結びつくからである。また行為者が展開と関係しないなら、主格の「私」が結びつかないことになってしまうからである。そこでは、展開の行為者が定動詞の語尾によって表されることに頼ってこそ、主格を擁護すべきだからである。また「名称と形態の形成」の主題で、最高神の入り込みと同じく展開についても行為者であることが確立されているので、それと矛盾してしまうからである。だから先に述べた欠点はあなたの論証因にこそあり、私の論証因にはない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者は、ヴィシュヌ派の読みでは別の語「この」が余ると言い返します。「この私」の「この」は何も区別しません。定説の読みなら、「この個我」は、直前の『チャーンドーギヤ』6.3.2 で三重化（火・水・食物を混ぜ合わせること）される元素を司る神格を指し、他の個我と区別する役目を果たす。最初に出る語「この」を生かすためなら、最後の語「自己として」の役割が小さいのは許される、というのです。</p><p>ヴィシュヌ派の第二の手も退けます。絶対分詞の構文では、行為者は二つの行為（入り込む・展開する）を同じくするものなので、両方と結びつくはずです。また『ブラフマ・スートラ』2.4.20「名称と形態の形成は、三重化をなす者による。そう説かれているから」の主題は、最高神を入り込みと展開の両方の行為者としています。</p></div>
+  <div class="nt">「लम्भनार्थ चरम」を「लम्भनार्थं चरम」、「क्रियाद्वयान्वया वश्यंभावात्」を「क्रियाद्वयान्वयावश्यंभावात्」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>第9〜10段：単数形と「個我」の語</h2><span class="sub"><span class="pg">pp.303–304</span></span></div>
+<div class="mula" id="u9">
+  <span class="ref">303</span>
+  <div class="src deva" lang="sa">अथ नवमी-- 'अनेन जीवेन' इत्यस्य संनिहितजीवपरत्वे त्रिवृत्करणीयतेजोऽबन्नाभिमानिदेवतात्रयपरत्वं वक्तव्यम्, संनिधाने विशेषाभावात्; तथा च 'जीवेन' इति एकवचनमनुपपन्नम्; जीवपदं च जलाभिमानिनि नारायणेऽनुपपन्नम्; तस्य ब्रह्मकोटित्वाङ्गीकारात्; ततश्च 'जीवेन' इत्यत्र प्रकृतिप्रत्ययोः असामञ्जस्यम्, 'आत्मना' इत्यस्य वैयर्थ्यम् इति बहुदोषाभ्युपगमात् वरमेकस्यैव 'अनेन' इति इदंशब्दस्य - अयमहमागच्छामि - इत्यादाविव न अतिप्रयोजनत्वाभ्युपगमः अतः तन्निर्वाहाय यत्नान्तराश्रयणमेव युक्तमिति न मद्धेतोरुक्तदोषः, किं तु त्वद्धेतोरेव इति ॥</div>
+  <div class="tr">第9段——「この個我とともに」が近くにある個我を指すなら、三重化されるべき火・水・食物を司る三つの神格を指すと言わなければならない。近くにあることに区別がないからである。そうすると、「個我によって」という単数形は合わない。また「個我」の語は、水を司るナーラーヤナには合わない。彼はブラフマンの側に属すると認められているからである。そしてそうなると、「個我によって」の語幹と接尾辞の両方が合わず、「自己として」は無駄になる。こうして多くの欠点を認めることになるのだから、「この私が来る」などと同じく、「この」という指示語一語だけの役割が小さいと認める方がよい。だからそれを成り立たせるために、別の工夫に頼るのが正しい。だから述べた欠点は私の論証因にはなく、あなたの論証因にこそある。</div>
+  <div class="exp"><span class="lbl">解説</span><p>ヴィシュヌ派の反撃です。「この個我」が火・水・食物を司る神格を指すなら、三柱いるので複数形のはずなのに、単数形 <i>jīvena</i> です。また、水を司る神格はナーラーヤナ（ヴィシュヌ）ですが、ヴィシュヌ派ではナーラーヤナは最高神の側に属し、個我ではありません。語幹（「個我」）も語尾（単数）も合わず、「自己として」も余る。それなら「この」一語が余ると認める方がまだよい。「この私が来る」のように、「この」は特に区別しなくても使える、というのです。</p></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">304</span>
+  <div class="src deva" lang="sa">अथ दशमी-- 'जीवेन' इत्यत्र एकवचनं जीवाजीवसमुदाये जीवपदं च काकाद्दधि रक्ष्यताम् इत्यत्र एकवचनवत्, काकतदन्यसमुदाये काकपदवच्च उपपद्यते ; त्रिमूर्त्यन्तर्गतो नारायणः परनारायणादन्यो जीव इति पक्षे तु तत्र प्रकृत्यंशस्य न काप्यनुपपत्तिः; तस्मात् 'आत्मना' इत्येतावन्मात्रस्य मत्पक्षे नातिप्रयोजनत्वम् 'अनेन' इति प्रथमश्रुतपदसार्थकत्वानुसारेण सोढुं युक्तमिति तद्व्याकरणमर्यादामतिलङ्घ्य - अहं भुक्त्वा इत्यादि प्रयोगसमर्थनस्याकर्तव्यत्वात् व्याकरणमर्यादया च अत्र कर्तरि तृतीयानुपपत्तेः त्वद्धेतोरेव बाधासिद्धिदोषः, न मद्धेतोरिति सहार्थैवात्र तृतीया इति युक्तम् ॥ इति व्याकरणश्रुतिगततृतीयैकवचनसमर्थनवादः ॥१७॥</div>
+  <div class="tr">第10段——「個我によって」の単数形は個我と非個我の集まりについて、また「個我」の語も、「カラスから凝乳を守れ」の単数形がカラスとそれ以外のものの集まりについて、また「カラス」の語がその集まりについて成り立つのと同じく、成り立つ。また、三神一体のうちのナーラーヤナは最高のナーラーヤナとは別の個我である、という立場では、そこで語幹の部分には何の不都合もない。<br>したがって、私の立場では「自己として」という一語だけの役割が小さいことは、最初に聞かれる語「この」に意味をもたせることに従って、我慢してよい。だから、文法学の決まりを越えて「私は食べてから」などの用法を擁護すべきではない。そして文法学の決まりによれば、ここで行為者の具格は成り立たないので、否定されていることや成り立たないことの欠点はあなたの論証因にこそあり、私の論証因にはない。だからここでの具格は、まさに「〜とともに」を意味する、というのが正しい。<br>以上、展開のウパニシャッドにある具格の単数を擁護する論。（第17論）</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者の答えです。「カラスから凝乳を守れ」は、カラスだけでなく凝乳を狙うすべての動物から守れ、という意味です。単数形の「カラス」が、カラスとそれに類するものの集まりを表しています。同じく単数形の「個我」も、三つの神格（個我）と元素（非個我）の集まりを表しうる。またシヴァ派では、ブラフマー・ヴィシュヌ・ルドラの三神一体のうちのナーラーヤナは、最高神とは別の個我です。こうして単数形と「個我」の語は説明がつき、残るのは「自己として」の役割が小さいことだけになります。</p><p>文法学の決まりでは、絶対分詞の行為者は主格で表されるので、行為者の具格は成り立たない。だから <i>jīvena</i> は「個我とともに」の意味だ、という結論です。論題名の「単数を擁護する」は、この最後の論点を指します。</p></div>
+  <div class="nt">「मतिलङ्घय」を「मतिलङ्घ्य」、「मद्धोतोरिति」を「मद्धेतोरिति」と正した。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この論に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>tṛtīyā</dt><dd>具格（第三格）</dd>
+    <dt>kāraka / kārakavibhakti</dt><dd>行為要素（行為者・対象・手段など）／それを表す格語尾</dd>
+    <dt>upapadavibhakti</dt><dd>副次語による格語尾。「〜とともに」などの語と並ぶために付く格</dd>
+    <dt>sahārtha</dt><dd>「〜とともに」の意味</dd>
+    <dt>abhihita / anabhihita</dt><dd>（他の語で）表された／表されていない。パーニニ 2.3.1</dd>
+    <dt>prasajyapratiṣedha / paryudāsa</dt><dd>禁止（〜するな）／除外（〜以外に）。否定の二つの解釈</dd>
+    <dt>ktvā</dt><dd>絶対分詞の接尾辞（〜してから）</dd>
+    <dt>śābda / ārtha</dt><dd>語のうえでの／意味のうえでの（結びつき）</dd>
+    <dt>trivṛtkaraṇa</dt><dd>三重化。火・水・食物の三元素を混ぜ合わせること（『チャーンドーギヤ』6.3）</dd>
+    <dt>viṣṇubhāgavata</dt><dd>ヴィシュヌ派。ここではラーマーヌジャの学派</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.301–304 のOCRテキストに拠る。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>
