@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Prapañcasattānirākaraṇavāda 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#map">第26論の地図</a></li>
+    <li><a href="#s1"><b>1</b>序と第1〜4段：「ある…</a></li>
+    <li><a href="#s2"><b>2</b>第5〜7段：色のないも…</a></li>
+    <li><a href="#s3"><b>3</b>第8段：虚空と時間。究…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ヴァーダ・ナクシャトラ・マーラー　第26論</div>
+  <h1>Prapañcasattānirākaraṇavāda</h1>
+  <p class="deva-title" lang="sa">प्रपञ्चसत्तानिराकरणवादः</p>
+  <p class="sub">世界は自分の存在によってではなく、ブラフマンの存在によって「ある」と見える</p>
+  <span class="sample">対訳　第26論 全文（pp.377–381、第1〜8段）</span>
+  <p>貝殻の上の銀は、後で「これは銀ではない」と打ち消されますが、錯誤の間は「ある」と見えます。それは銀自身の存在ではなく、その基体である貝殻の存在によって「ある」と見えるのです。第26論は、<strong>世界全体</strong>も同じだと論じます。「壺がある」と言うときの「ある」（存在、<i>sattā</i>）は壺の属性ではなく、万物の質料因である<strong>ブラフマンの存在</strong>だ、というのです。</p>
+  <p>反論者（ニヤーヤ派）は、存在は壺の属性（類としての存在）だと主張します。議論は、色のない実体が目に見えるか（ブラフマンの存在は見えるか）という問題に移り、虚空や時間が見えることが証拠に挙げられます。最後に著者は、シュリーカンタの注釈は念想の道を説くために<strong>純粋な不二一元</strong>（<i>śuddhādvaita</i>）を覆い隠しているが、その究極の定説は、世界が打ち消されうるもの（<i>bādhya</i>）だということだ、と明かします。この論では奇数段が反論者です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>論題</dt><dd>「壺がある」の「ある」は壺の属性か</dd></div>
+    <div><dt>反論者</dt><dd>壺の属性<br><small>「壺性」と同じく、壺を限定するものとして現れる</small></dd></div>
+    <div><dt>立論者（定説）</dt><dd>ブラフマンの存在<br><small>万物の質料因であるブラフマンの存在によって、世界は「ある」と見える</small></dd></div>
+    <div><dt>決め手</dt><dd>「ある」という言い方をすべてに共通に説明できるのはブラフマンの存在だけ<br><small>色のない虚空や時間も見えるので、ブラフマンの存在も見えうる</small></dd></div>
+    <div><dt>帰結</dt><dd>世界は、貝殻の銀や夢と同じく打ち消されうる</dd></div>
+  </dl>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">第26論の地図</h2><span class="sub">奇数段が反論者、偶数段が立論者</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>段</th><th>話者</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">序・1–4</td><td>交互</td><td class="num">pp.377–378</td><td class="k"><a href="#s1">「ある」は壺の属性か。共通の説明</a></td></tr>
+<tr><td class="num">5–7</td><td>交互</td><td class="num">pp.378–379</td><td class="k"><a href="#s2">色のないものは見えるか</a></td></tr>
+<tr><td class="num">8</td><td><span class="pill c">立論者</span></td><td class="num">pp.380–381</td><td class="k"><a href="#s3">虚空と時間。注釈の究極の定説。結論</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>序と第1〜4段：「ある」は壺の属性か</h2><span class="sub"><span class="pg">pp.377–378</span></span></div>
+<div class="mula" id="u1">
+  <span class="ref">377</span>
+  <div class="src deva" lang="sa">प्रपञ्चसत्तानिराकरणवादः ॥ यथा शुक्तिरजतादिकम् अग्रे नेदं रजतमित्यादिप्रकारेण बाध्यमपि भ्रमकाले शुक्तीदंतया इदमितिवत् शुक्तिसत्तया सदिति प्रतीयते, एवं जगदपि ब्रह्मसत्तया सदिति प्रतीयते, न त्वधर्मरूपया सत्तयेति निर्णयार्थं कथान्तरं प्रस्तूयते - सन् घटः इति प्रतीतौ भासमानसत्ता घटधर्मः, सन् घटः इति प्रतीतिप्रकारत्वात्, घटत्ववत् इति पूर्वपक्षिणः प्रथमा कक्ष्या ॥</div>
+  <div class="tr">世界の存在を退ける論。貝殻の上の銀などは、後に「これは銀ではない」などの仕方で打ち消されるものでありながら、錯誤の時には、貝殻の「これ」性によって「これ」と見えるのと同じく、貝殻の存在によって「ある」と見える。それと同じく、世界もまた、ブラフマンの存在によって「ある」と見えるのであって、属性としての存在によってではない——このことを確定するために、別の論議を始める。<br>（第1段）「壺がある」という認識に現れる存在は、壺の属性である。「壺がある」という認識の様態だからである。壺性のように。以上が反論者の第1段。</div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">378</span>
+  <div class="src deva" lang="sa">अथ द्वितीया-- अप्रयोजकमिदम् - शुक्तिरजतस्य अधिष्ठानसत्तयेव प्रपञ्चस्य सर्वोपादानभूतया ब्रह्मसत्तया सत्प्रतीतिविषयत्वोपपत्तेः; तस्मात् सन् घट इत्यत्र भासमानसत्ता घटधर्मो न भवति, सन्मात्रवृत्तित्वात्, आनन्त्यवत् इति ॥</div>
+  <div class="tr">第2段——これは決め手にならない。貝殻の銀が基体の存在によってそうであるのと同じく、世界は、万物の質料因であるブラフマンの存在によって「ある」という認識の対象となることが成り立つからである。だから「壺がある」でここに現れる存在は、壺の属性ではない。純粋な有だけにあるからである。無限性のように。</div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">378</span>
+  <div class="src deva" lang="sa">अथ तृतीया-- नाप्रयोजकं मदनुमानं, घटः सन्निति घटत्वतौल्येन घटविशेषणतया घटधर्मत्वेन भासमानायाः सत्तायाः बाधकाभावेन तथात्वस्यैव स्वीकरणीयत्वात् त्वदनुमानमेवाप्रयोजकम्, सत्तायाः सन्मात्रप्रवृत्तित्वेऽपि घटादिवृत्तित्वोपपत्तेः तेषामपि सत्त्वे बाधकाभावात् इति ॥</div>
+  <div class="tr">第3段——私の推論は決め手にならないことはない。「壺がある」と、壺性と同じく壺の限定として、壺の属性として現れる存在は、覆すものがないので、まさにそのとおりのものと認めなければならないからである。むしろあなたの推論こそ決め手にならない。存在が純粋な有だけにあるとしても、壺などにもあることが成り立つ。それら（壺など）の存在にも覆すものがないからである。</div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">378</span>
+  <div class="src deva" lang="sa">अथ चतुर्थी-- घटधर्मः सत्ता स्वरूपसत्ता वा स्यात्, जातिसत्ता वा नाद्यः, स्वरूपस्य तद्धर्मत्वानुपपत्तेः; नापि द्वितीयः, सामान्यादिषु सत्ताजातिरहितेषु ताद्धर्म्येण सद्व्यवहारानिर्वाहात्; घटादिषु ताद्धर्म्येण सामान्यादिषु तदेकार्थसमवायादिसंबन्धान्तरेण इत्यभ्युपगमे अननुगमात्; तस्मात् सर्वानुगतया ब्रह्मसत्तयैव प्रपञ्चानुगतसद्व्यवहारो निर्वोढव्यः, स्वरूपसत्ताया इव ब्रह्मसत्तायां प्रपञ्चानुगतसद्व्यवहारनिर्वाहकत्वे बाधकाभावात्; एवं ब्रह्मसत्तयैव सर्वत्र सद्व्यवहारनिर्वाहे तस्याः प्रपञ्चधर्मत्वप्रसाधनम् अप्रयोजकमेव; मदनुमानं नाप्रयोजकम्, घटधर्मसत्ताभ्युपगमेऽपि तया सद्व्यवहारानिर्वाहेण घटः सन्निति प्रतीतौ भासमाना सत्ता ब्रह्मसत्तैव इत्यभ्युपगन्तव्यत्वात् इति ॥</div>
+  <div class="tr">第4段——壺の属性である存在は、本性としての存在か、類としての存在か、のどちらかであろう。前者ではない。本性がそれの属性であることは成り立たないからである。後者でもない。存在という類をもたない普遍などについて、それを属性とすることで「ある」という言い方を説明できないからである。「壺などにはそれを属性とすることで、普遍などには同じ基体への内属などの別の関係によって」と認めれば、共通性がなくなるからである。<br>だから、すべてに共通するブラフマンの存在によってこそ、世界に共通する「ある」という言い方を説明すべきである。本性としての存在と同じく、ブラフマンの存在が世界に共通する「ある」という言い方を説明することに、覆すものはないからである。こうしてブラフマンの存在によってこそすべてで「ある」という言い方が説明されるのだから、それが世界の属性であることを証明するのは、まさに決め手にならない。私の推論は決め手にならないことはない。壺の属性である存在を認めても、それによって「ある」という言い方は説明できないので、「壺がある」という認識に現れる存在はブラフマンの存在にほかならない、と認めなければならないからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>ニヤーヤ・ヴァイシェーシカ派では、存在（<i>sattā</i>）は実体・性質・運動にだけ内属する最高の類です。普遍・特殊・内属などには存在の類がありませんが、それらも「ある」と言われます。立論者は、壺には類として、普遍には別の関係で、と使い分けると、「ある」という言い方に共通の根拠がなくなる、と指摘します。すべてに共通する根拠は、万物の質料因であるブラフマンの存在だけだ、というのです。</p></div>
+  <div class="nt">「संत्ता」を「सत्ता」、「ताद्धम्र्येण」を「ताद्धर्म्येण」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第5〜7段：色のないものは見えるか</h2><span class="sub"><span class="pg">pp.378–379</span></span></div>
+<div class="mula" id="u5">
+  <span class="ref">378–379</span>
+  <div class="src deva" lang="sa">अथ पञ्चमी कक्ष्या-- घटः सन्निति व्यवहारविषयसत्ताया ब्रह्मसत्तारूपत्वे बाधकं नास्ति इत्येतदसिद्धम्, सर्वोपादानब्रह्मशक्तिरूपा सा द्रव्यमिति त्वयाङ्गीकृतत्वेन नीरूपद्रव्यस्य चाक्षुषत्वायोगात्; अतः संबन्धाननुगमेऽपि जातिसत्तयैव प्रपञ्चे सद्व्यवहारो निर्वोढव्यः, तवापि ब्रह्मणि सद्व्यवहारः ताद्धर्म्येण जगति उपादानानुवेधेन सत्ताया भेदेनेति संबन्धाननुगमस्य अङ्गीकर्तव्यत्वात्; तस्मात् मदनुमानं नाप्रयोजकम्; किंतु त्वदनुमानमेवेति ॥</div>
+  <div class="tr">第5段——「壺がある」という言い方の対象である存在がブラフマンの存在であることに覆すものはない、というのは成り立たない。それは万物の質料因であるブラフマンの力（シャクティ）であって実体だと、あなたは認めている。そして色のない実体が視覚の対象であることはありえないからである。だから関係に共通性がなくても、類としての存在によってこそ、世界での「ある」という言い方を説明すべきである。あなたにとっても、ブラフマンには（存在を）属性とすることによって、世界には質料因の浸透によって、存在が別であることで「ある」という言い方があるので、関係の共通性のなさを認めなければならないからである。だから私の推論は決め手にならないことはなく、あなたの推論こそそうである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者の反撃です。立論者のシヴァ派では、世界の質料因はブラフマンの力（シャクティ）で、それは実体です。色のない実体は目に見えないはずなのに、「壺がある」は目で見て分かる。だから見えている「ある」はブラフマンの存在ではない、というのです。</p></div>
+  <div class="nt">「ताद्धर्येण」を「ताद्धर्म्येण」と正した。</div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">379</span>
+  <div class="src deva" lang="sa">अथ षष्ठी-- नीरूपापि ब्रह्मसत्ता प्रपञ्चसत्तावत् चाक्षुषी भवितुमर्हति; नीरूपद्रव्यं न चाक्षुषमित्येतत् अप्रयोजकम्, घटः स्फुरतीति स्फुरणरूपायास्तस्याः चाक्षुषत्वदृष्टेश्च; न च सत्ताया नीरूपत्वमपि, उपादानोपादेययोः अभिन्नतया घटरूपेणापि तस्या रूपवत्त्वात्; अत एव जातिसत्तयेव ब्रह्मसत्तया सद्व्यवहारनिर्वाहे संबन्धाननुगमोऽपि नास्ति, ब्रह्मणा धर्मिणा उपादेयेन प्रपञ्चेन चाभिन्नाया ब्रह्मसत्तायाः सर्वत्राभेदसंबन्ध एव सद्व्यवहारनिर्वाहक इत्युपपत्तेः; तस्मात् त्वदनुमानमेव अप्रयोजकम्; मदनुमानं नाप्रयोजकमिति ॥</div>
+  <div class="tr">第6段——色がなくても、ブラフマンの存在は、世界の存在と同じく視覚の対象でありうる。「色のない実体は視覚の対象でない」というのは決め手にならない。「壺が輝く」と、輝きとしてのそれ（ブラフマンの力）が視覚の対象であることも見られるからである。また存在が色をもたないわけでもない。質料因と結果は別でないので、壺の姿としても、それは色をもつからである。<br>まさにそれゆえ、類としての存在と同じく、ブラフマンの存在によって「ある」という言い方を説明しても、関係に共通性がないことはない。基体であるブラフマンとも、結果である世界とも別でないブラフマンの存在は、どこでも不異の関係こそによって「ある」という言い方を説明する、と成り立つからである。だからあなたの推論こそ決め手にならず、私の推論は決め手にならないことはない。</div>
+</div>
+<div class="mula" id="u7">
+  <span class="ref">379</span>
+  <div class="src deva" lang="sa">अथ सप्तमी कक्ष्या-- नीरूपद्रव्यं न चाक्षुषम् इत्येतन्नाप्रयोजकम्, द्रव्यचाक्षुषतायां महत्त्वसमानाधिकरणोद्भूतरूपस्य प्रयोजकत्वेन क्लृप्तत्वात्; घटः स्फुरतीत्येतत् घटवृत्त्यनुभवविषयार्थकम्, न तु ब्रह्मशक्तिरूपस्फुरणवत्त्वार्थकम् ; घटादिरूपेण ब्रह्मसत्ता रूपिणीत्येतदपि अयुक्तम्, तथा च सति इन्द्रियेष्वपि सत्तायाश्चाक्षुषत्वप्रसङ्गात्; अभेदसंबन्धानुगमोक्तिरपि अयुक्ता, तेन हि सुवर्णं कुण्डलमितिवत् घटः सत्ता इत्येव अनुभवः स्यात्, मम तु सत्तायामपि सत्तैकार्थसमवायोऽस्ति; अत एव अभेदेऽपि सामानाधिकरण्यरूपा व्याप्तिरभ्युपेयते; तस्मात् घटादिसत्तयैव तेषु सद्व्यवहारनिर्वाहः कार्यः, न ब्रह्मसत्तयेति यथा घटगन्धेनैव घटो गन्धवानित्यादिव्यवहारनिर्वाहः कार्यः, न तु 'सर्वकर्मा सर्वकामः सर्वगन्धः सर्वरसः' इति श्रुतिप्रतिपन्नब्रह्मगन्धेनेति नाप्रयोजकं मदनुमानम्, त्वदनुमानमेवाप्रयोजकमिति ॥</div>
+  <div class="tr">第7段——「色のない実体は視覚の対象でない」というのは決め手にならないことはない。実体が視覚の対象であることには、大きさと同じ基体にある顕現した色がもたらす条件であることが確定しているからである。「壺が輝く」というのは、壺にある経験の対象であることを意味するのであって、ブラフマンの力としての輝きをもつことを意味するのではない。<br>「壺などの姿としてブラフマンの存在は色をもつ」というのも正しくない。そうであれば、感官についても存在が視覚の対象であることになってしまうからである。不異の関係が共通すると言うのも正しくない。それによれば、「金は耳飾りである」と同じく、「壺は存在である」という経験になってしまうからである。私の説では、存在についても、存在の同じ基体への内属がある。まさにそれゆえ、不異の場合でも、同格という形の遍充が認められる。<br>だから壺などの存在によってこそ、それらについての「ある」という言い方を説明すべきであって、ブラフマンの存在によってではない。「壺に香りがある」などの言い方を、壺の香りによってこそ説明すべきであって、「すべてを行い、すべてを望み、すべての香りをもち、すべての味をもつ」という天啓で知られるブラフマンの香りによってではないのと同じである。だから私の推論は決め手にならないことはなく、あなたの推論こそ決め手にならない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は、ニヤーヤ派の知覚の条件を持ち出します。実体が目に見えるのは、ある大きさと顕現した色（<i>udbhūtarūpa</i>）をもつときだけです。「壺が輝く」は壺が見えるという意味にすぎない。ブラフマンの存在が壺の色をもつなら、目に見えない感官の存在も見えることになる。また、「壺は存在である」とは言わず「壺がある」と言うので、壺と存在は同一ではない。ブラフマンが「すべての香りをもつ」（『チャーンドーギヤ』3.14.2）としても、壺の香りは壺の香りであるのと同じだ、というのです。</p></div>
+  <div class="nt">「ब्रह्मासत्ता」を「ब्रह्मसत्ता」、「प्रसङ्गात्ः」を「…प्रसङ्गात्;」、「व्यापितरभ्युपेयते」を「व्याप्तिरभ्युपेयते」と推定して正した。</div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第8段：虚空と時間。究極の定説</h2><span class="sub"><span class="pg">pp.380–381</span><span class="pill c">立論者</span></span></div>
+<div class="mula" id="u8">
+  <span class="ref">380</span>
+  <div class="src deva" lang="sa">अथाष्टमी-- द्रव्यचाक्षुषतायामुद्भूतरूपं न प्रयोजकम्, इह पक्षी इह नेत्यादिप्रत्यक्षे इहप्रत्ययवेद्यदेशत्वेन नीरूपस्यापि आकाशस्य चाक्षुषत्वात्; नन्वस्तु आलोकः इहप्रत्ययवेद्यदेशः, आकाशस्य तथात्वाङ्गीकारेऽपि तस्य पक्ष्याधारत्वानाधारत्वव्यवस्थार्थम् आलोक उपासनीयः, निरवयवस्य आकाशस्य स्वावयवभेदेनावच्छेदासंभवेन आलोकावयवभेदैरेवावच्छेदभेदस्य वक्तव्यत्वात्; न च तत्तदधःक्षितिभागभेदोऽवच्छेदकः स्यादिति वाच्यम्, ऊर्ध्वाधरदेशयोः इह पक्षी इह नेति प्रतीतावाधारत्वव्यवस्थायां तद्भेदाभावात्; निबिडमूर्तद्रव्याभावो वा इहप्रत्ययवेद्यो देशोऽस्तु; आकाशाङ्गीकारेऽपि हि तदभावोऽपेक्षितः, अन्यथा कुड्याद्यावरणेऽपि अप्रतिघातपक्षिसंचारापत्तेः; न च यत्र कुड्याद्यावरणम्, तत्र आकाशो नास्तीति शक्यं वक्तुं, तस्य असर्वगतत्वप्रसङ्गात्; आवरणापायेऽपि आकाशाभावप्रसङ्गाच्च; न हि आकाशस्तत्र पूर्वमसन् आवरणाभावे समुत्पद्यते इति चेत्, उच्यते - अस्त्यालोकातिरिक्तः प्रागादिदेशरूप आकाशः, प्राग्भागे चन्द्रालोकः समुन्मिषति प्रत्यग्भागे तमोऽनुवर्तते इत्यादिप्रतीतिषु आलोकादेरपि आधारत्वेन प्रागादिदेशरूपस्याकाशस्य प्रतिभासात्; आकाशस्यैव सूर्यगत्याद्यवच्छेदभेदेन प्रागादिदेशत्वाङ्गीकारात्; एतेन आकाशे प्रदेशभेदार्थम् आलोकावयवापेक्षणमावश्यकमित्यपि शङ्का निरस्ता, प्रागाद्युपाधिभिः तदवच्छेदोपपत्तेः; निबिडमूर्तद्रव्याभावरूपोऽवकाश इहप्रत्ययवेद्यः इत्यपि न युक्तम्, इह प्राग्भागेऽवकाशोऽस्ति, न प्रत्यग्भागे भुञ्जानैर्निबिडे-इत्यादिव्यवहारदर्शनेन प्रागादिदेशस्य ततोऽपि व्यतिरेकावसायात्;</div>
+  <div class="tr">第8段——実体が視覚の対象であることに、顕現した色はもたらす条件ではない。「ここに鳥がいる、ここにはいない」などの知覚で、「ここ」という認識で知られる場所として、色のない虚空も視覚の対象だからである。<br>「では光が『ここ』という認識で知られる場所だとしよう。虚空がそうだと認めても、それが鳥の支えであるかないかを定めるためには、光に頼らなければならない。部分のない虚空は、自分の部分の違いによって区切られることがありえないので、光の部分の違いによってこそ区切りの違いを言わなければならないからである。その下の地面の部分の違いが区切るのだ、と言うべきでもない。上と下の場所で『ここに鳥がいる、ここにはいない』と認識して支えを定めるとき、その違いがないからである。あるいは密な固体の欠如が『ここ』という認識で知られる場所だとしよう。虚空を認めても、その欠如は必要である。そうでなければ、壁などで覆われていても、鳥が妨げられずに動けることになってしまうからである。壁などの覆いがあるところに虚空はない、と言うこともできない。それが遍在しないことになってしまうからであり、覆いがなくなっても虚空がないことになってしまうからである。虚空は、以前そこになくて、覆いがなくなったときに生じるのではないからである」と言うなら、答えよう。<br>光とは別の、東などの方角としての虚空がある。「東の方に月光が現れ、西の方には闇が続く」などの認識で、光などの支えとしても、東などの方角としての虚空が現れるからである。虚空そのものが、太陽の運行などの区切りの違いによって東などの方角であると認めるからである。これによって、「虚空に区域の違いを立てるためには光の部分が必要だ」という疑いも退けられた。東などの条件によってそれが区切られることが成り立つからである。また「密な固体の欠如である空き（<i>avakāśa</i>）が『ここ』という認識で知られる」というのも正しくない。「ここ東の方には空きがあるが、西の方は食事をする人々で混んでいる」などの言い方が見られることで、東などの方角はそれとも別であると確定するからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者は、色のない虚空が見える例を挙げます。「ここに鳥がいる」の「ここ」は虚空（場所）で、目で見て分かる。反論者が「ここ」は光だ、あるいは物の欠如だ、と言い換えようとしても、「東に月光が出た」のように光の支えとして方角（虚空）が現れるし、「ここは空いているが、あちらは混んでいる」のように空き（物の欠如）とも別に方角がある、というのです。</p></div>
+  <div class="nt">「इह नइत्यादि」を「इह नेत्यादि」と正した。</div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">380–381</span>
+  <div class="src deva" lang="sa">इदानीं घटः अयं घटः इत्यादिप्रतीतिषु नियमेन स्फुरतः कालस्य चाक्षुषत्वादपि न रूपं द्रव्यचाक्षुषत्वे प्रयोजकम्; संप्रतिपन्नं च ब्रह्मशक्तेः स्फुरणरूपेण चाक्षुषत्वम्; घटः स्फुरति इत्यादिप्रत्ययो हि सविता स्फुरति भाति प्रकाशते इत्यादिप्रत्ययवत् स्फुरणवैशिष्ट्यविषयः; तच्च स्फुरणं चैतन्यरूपा ब्रह्मशक्तिः इत्येव युक्तम्, अत एव श्रुतिः-- 'तस्य भासा सर्वमिदं विभाति' इति; ब्रह्मसत्ताया घटादिरूपेण रूपवत्त्वाभ्युपगमेऽपि नातिप्रसङ्गः, घटाद्यवच्छेदेन हि तस्या रूपवत्त्वम्; अभेदेऽपि सन् घट इत्यादिविशेषणविशेष्यभाव उपपद्यते इदानीमभिजिन्मुहूर्तः इत्यादावभेदेऽपि तथात्वदर्शनात्; अथवा प्रपञ्चे ब्रह्मसत्तानुवेधो नाम सर्वोपादानभूतसत्ताधिष्ठानभूतब्रह्मतादात्म्यानुभवः; अतः सन् घटः इत्यादिप्रत्ययः सदित्यंशे सत्ताविशिष्टब्रह्मविषयकः इति न काचिदनुपपत्तिः</div>
+  <div class="tr">また、「今、壺がある」「これは壺だ」などの認識で必ず現れる時間が視覚の対象であることからも、色は実体が視覚の対象であることをもたらす条件ではない。<br>そして、ブラフマンの力が輝きとして視覚の対象であることは一致して認められている。「壺が輝く」などの認識は、「太陽が輝く、照る、光る」などの認識と同じく、輝きとの結合を対象とする。そしてその輝きは、意識としてのブラフマンの力だとするのが正しい。まさにそれゆえ、天啓は「その光によってこの一切は輝く」と言う。<br>ブラフマンの存在が壺などの姿として色をもつと認めても、過剰適用はない。それが色をもつのは、壺などに区切られたかぎりでのことだからである。不異であっても、「ある壺」などの限定と被限定の関係は成り立つ。「今がアビジットのムフールタ（時刻）だ」などで、不異であってもそうであることが見られるからである。<br>あるいは、世界にブラフマンの存在が浸透するとは、万物の質料因である存在の基体であるブラフマンとの同一性の経験のことである。だから「ある壺」などの認識は、「ある」という部分では、存在に限定されたブラフマンを対象とする。こうして何の不都合もない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>時間も色がないのに「今、壺がある」と見える。だから色は知覚の必要条件ではない。そして「壺が輝く」の輝きは、太陽が輝くのと同じ光の現れで、それはブラフマンの意識の力です。『カタ・ウパニシャッド』2.2.15「その光によってこの一切は輝く」がその典拠です。「今」と「アビジットの時刻」が同じ時でも「今はアビジットだ」と言えるように、ブラフマンの存在と壺が不異でも「ある壺」と言える、というのです。</p></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">381</span>
+  <div class="src deva" lang="sa">अत एव भाष्यम् - 'सञ्चिद्रूपेण शिवेन यदि न व्याप्तं जगत्, तदा सत्तास्फूर्तिभ्यां विनाकृतं कथमस्ति स्फुरति इति च दृश्येत; अतो मृदा घटादिकमिव कारणेन शिवेन कार्यमिदं व्याप्तम्' इति; अनेन भाष्येण वस्तुतः प्रपञ्चः सन्न भवति किंतु बाध्यः इति दर्शितम्; इत्थमेव हि भाष्यकारस्य उपासनामार्गनिरूपणतात्पर्येण तत्र विनेयानां रुच्युत्पादनार्थं सर्वत्र शुद्धाद्वैतं प्रच्छादितवतोऽपि अनियमाधिकरणादिषु निर्विशेषब्रह्मविद्यायामचिरादिमार्गं प्रतिषिद्धवतः परमसिद्धान्तः; न च ब्रह्मशक्तिः सत्तेति परिभाषा कृता, तस्याः प्रपञ्चधर्मत्वनिषेधमात्रेण प्रपञ्चस्य बाध्यत्वं कथं सिध्येत् इति शङ्कनीयम्, नित्यत्वप्रामाण्यादेरनित्यत्वाप्रमाण्यादिविरोधित्ववत् ब्रह्मसत्ताया बाध्यत्वविरोधित्वमिष्यत इति नित्यत्वव्यतिरेकेणानित्यत्ववत् तद्व्यतिरेकेण बाध्यत्वसिद्धेरप्रत्यूहत्वात् न चैवं सति गन्धरसादिकमपि घटादिषु प्राकृतं न सिध्येत् इति शङ्कनीयम्; ब्रह्मणि हि निर्दोषे सुरभिरेव गन्धः हृद्य एव रसः; स च तस्य दिव्यनित्यविग्रहे; अत एव पर्यङ्कविद्यायाम् अर्चिरादिमार्गेण ब्रह्मलोकं गतस्य दिव्यविग्रहसंनिकर्षं प्राप्तस्यैव ब्रह्मगन्धरससंक्रान्तिभाजनता श्रूयते 'तं ब्रह्मगन्धः प्रविशति तं ब्रह्मरसः प्रविशति' इति; तस्मात् प्रागुक्तरीत्या त्वदनुमानमप्रयोजकम्, मदनुमानं नाप्रयोजकमिति ब्रह्म सत्तयैव प्रपञ्चः सन्निति प्रतीयते न स्वसत्तयेति सिद्धम्; एवं च शुक्तिरजतस्वाप्नपदार्थजातवत् वियदादिप्रपञ्चस्यापि बाध्यत्वसिद्धिः अखण्डाद्वितीयब्रह्मभावपरममुक्त्युपयोगिनी अव्याहता; 'न विलक्षणत्वात्' इत्यधिकरणन्यायेन सत्यमिथ्यावस्तुनोरपि उपादानोपादेयभावोपपत्तेः इति ॥ इति प्रपञ्चसत्तानिराकरणवादः ॥२६॥</div>
+  <div class="tr">まさにそれゆえ注釈（シュリーカンタ）に言う。「もし世界が、有と知を姿とするシヴァによって浸透されていないなら、存在と輝きを欠いたものが、どうして『ある』『輝く』と見られようか。だから、土によって壺などが浸透されているように、原因であるシヴァによってこの結果は浸透されている」と。この注釈によって、実際には世界は有ではなく、打ち消されうるものだと示された。<br>まさにこれこそが、注釈者の究極の定説である。注釈者は、念想の道を説くことを趣旨とするので、弟子たちに関心を起こさせるために、至るところで純粋な不二一元を覆い隠したが、「決まりはない」の主題などでは、属性のないブラフマンの知に光などの道を否定しているからである。<br>「『ブラフマンの力が存在である』というのは用語の取り決めにすぎない。それが世界の属性であることを否定するだけで、どうして世界が打ち消されうることが成り立つのか」と疑うべきではない。永遠性や正しさなどが無常性や誤りなどと相容れないのと同じく、ブラフマンの存在は打ち消されうることと相容れないものと認められる。だから、永遠性の欠如によって無常性が成り立つのと同じく、それ（ブラフマンの存在）の欠如によって打ち消されうることが成り立つのに、妨げはないからである。<br>「そうであれば、壺などの香りや味なども、物質的なものだと成り立たなくなる」と疑うべきでもない。欠陥のないブラフマンにおいては、香りはただ芳しく、味はただ心地よい。そしてそれは、その神的で永遠の姿にある。まさにそれゆえ、パルヤンカの念想で、光などの道によってブラフマンの世界に行き、神的な姿のそばに至った者にだけ、「ブラフマンの香りが彼に入り、ブラフマンの味が彼に入る」と、ブラフマンの香りと味が移ることが聞かれるのである。<br>だから先に述べた仕方で、あなたの推論は決め手にならず、私の推論は決め手にならないことはない。こうして、世界はブラフマンの存在によってこそ「ある」と見えるのであって、自分の存在によってではない、ということが確定した。そしてこうして、貝殻の銀や夢の対象と同じく、虚空などの世界も打ち消されうることが成り立ち、それは、部分のない第二のないブラフマンとなるという最高の解脱に役立つものとして、妨げられない。「異なる性質をもつので（質料因ではない）、ということはない」という主題の原則によって、真実のものと偽りのものの間にも、質料因と結果の関係が成り立つからである。<br>以上、世界の存在を退ける論。（第26論）</div>
+  <div class="exp"><span class="lbl">解説</span><p>この論の山場です。著者アッパイヤ・ディークシタは、シヴァ派の注釈者シュリーカンタを引きつつ、その「究極の定説」（<i>paramasiddhānta</i>）は世界が打ち消されうること、つまりシャンカラ派と同じ不二一元論だと言います。シュリーカンタは念想の道を勧めるために、表向きは限定不二一元論のように説いたが、『ブラフマ・スートラ』3.3.31 の注釈などで本心をのぞかせている、というのです。これはアッパイヤの『シヴァールカマニ・ディーピカー』などにも見られる立場です。</p><p>壺の香りや味は世界のもので、ブラフマンの香り（『カウシータキ』1.4）は神の姿にある芳香です。そして『ブラフマ・スートラ』2.1.4「異なる性質をもつので、ということはない」の原則によれば、真実のブラフマンが偽りの世界の質料因であっても矛盾はない、と結ばれます。</p></div>
+  <div class="nt">「प्रञ्चः」を「प्रपञ्चः」、「अचिरादि」を「अर्चिरादि」、「बाध्यत्वविरोधित्व मिष्यत」を一語に、「परममुक्तत्युपयोगिनी」を「परममुक्त्युपयोगिनी」と正した。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この論に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>sattā</dt><dd>存在。「ある」ということ</dd>
+    <dt>svarūpasattā / jātisattā</dt><dd>本性としての存在／類としての存在</dd>
+    <dt>prapañca</dt><dd>世界（現象世界）</dd>
+    <dt>bādhya</dt><dd>打ち消されうるもの。後の認識で否定されるもの</dd>
+    <dt>sphuraṇa / sphūrti</dt><dd>輝き。現れること</dd>
+    <dt>udbhūtarūpa</dt><dd>顕現した色。知覚の条件とされる</dd>
+    <dt>ananugama</dt><dd>共通性のなさ</dd>
+    <dt>ekārthasamavāya</dt><dd>同じ基体への内属</dd>
+    <dt>śuddhādvaita</dt><dd>純粋な不二一元</dd>
+    <dt>paramasiddhānta</dt><dd>究極の定説</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.377–381 のOCRテキストに拠る。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>
