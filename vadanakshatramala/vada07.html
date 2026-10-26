@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aruṇaikahāyanīsāmānādhikaraṇyavāda 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#map">第7論の地図</a></li>
+    <li><a href="#s1"><b>1</b>序と第1段</a></li>
+    <li><a href="#s2"><b>2</b>第2段：同格はありえない</a></li>
+    <li><a href="#s3"><b>3</b>第3段：格語尾の意味は…</a></li>
+    <li><a href="#s4"><b>4</b>第4〜6段：女性形は同…</a></li>
+    <li><a href="#s5"><b>5</b>第7段：性の規則と「依…</a></li>
+    <li><a href="#s6"><b>6</b>第8段：一つの語は同時…</a></li>
+    <li><a href="#s7"><b>7</b>第9段：同格は動詞との…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ヴァーダ・ナクシャトラ・マーラー　第7論</div>
+  <h1>Aruṇaikahāyanīsāmānādhikaraṇyavāda</h1>
+  <p class="deva-title" lang="sa">अरुणैकहायनीसामानाधिकरण्यवादः</p>
+  <p class="sub">「赤い、黄褐色の目の、一歳の牝牛でソーマを買う」——「赤い」は牝牛と同格か</p>
+  <span class="sample">対訳　第7論 全文（pp.252–261、序と第1〜9段）</span>
+  <p>ソーマ祭では、ソーマ草を「赤く、黄褐色の目をもつ、一歳の牝牛」と引き換えに買います。ミーマーンサー・スートラ第3章1節の「赤い」の論題（<i>aruṇādhikaraṇa</i>）で、シャバラとクマーリラは、「赤い」（具格 <i>aruṇayā</i>）を牝牛の形容ではなく<strong>赤さという属性そのもの</strong>と読み、赤さもまた購入の手段だと結論しました。三つの語は同じ格に置かれていますが、その「同格」（<i>sāmānādhikaraṇya</i>）は見かけだけだ、というのです。</p>
+  <p>第7論の立論者（Appayya の定説）は、同格をそのまま生かしたうえで、赤さが購入の手段であることも説明できる、と主張します。第3〜6論で論じた属性語の表示力の理論が、ここでミーマーンサーの代表的な論題に適用されます。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>論題</dt><dd>「赤い」<i>aruṇayā</i> は「一歳の」<i>ekahāyanyā</i> と同格か<br><small>規定文 <i>aruṇayā piṅgākṣyaikahāyanyā somaṃ krīṇāti</i></small></dd></div>
+    <div><dt>立論者（定説）</dt><dd>同格である<br><small>同格関係を保ったまま、格語尾の「手段」の意味が赤さに移る、と説明できる</small></dd></div>
+    <div><dt>反論者</dt><dd>前ミーマーンサーの学者（シャバラ・クマーリラ）<br><small>「赤い」は赤さだけを表し、三つの語は別々に購入と結びつく。同格に見えるのは錯覚</small></dd></div>
+    <div><dt>鍵になる論点</dt><dd>格語尾の役割と、語の性（女性形 <i>aruṇā</i>）<br><small>属性だけを表すなら男性形になるはずなのに、なぜ女性形なのか</small></dd></div>
+    <div><dt>援用される論題</dt><dd>MS 第5章（一握りと皿）、第10章（数と一握り）、第2章（数による祭式の別）など<br><small>「四握りを取り分ける」「十七頭のプラジャーパティの獣を屠る」の数詞の働き</small></dd></div>
+    <div><dt>次の論</dt><dd>第8論で、赤さが購入とどう結びつくかをさらに論じる</dd></div>
+  </dl>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">第7論の地図</h2><span class="sub">奇数段が立論者、偶数段が反論者（前ミーマーンサーの学者）</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>段</th><th>話者</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">序・1</td><td>—</td><td class="num">p.252</td><td class="k"><a href="#s1">疑い、前ミーマーンサーの説、定説の立場</a></td></tr>
+<tr><td class="num">2</td><td><span class="pill j">反論者</span></td><td class="num">pp.253–254</td><td class="k"><a href="#s2">属性語と実体語は同格になれない</a></td></tr>
+<tr><td class="num">3</td><td><span class="pill c">立論者</span></td><td class="num">pp.254–255</td><td class="k"><a href="#s3">格語尾の意味が限定語に移る五つの道</a></td></tr>
+<tr><td class="num">4–6</td><td>交互</td><td class="num">pp.255–256</td><td class="k"><a href="#s4">女性形 aruṇā は同格の証拠か</a></td></tr>
+<tr><td class="num">7</td><td><span class="pill c">立論者</span></td><td class="num">pp.256–257</td><td class="k"><a href="#s5">性の規則と、註解の「依拠するものの性」</a></td></tr>
+<tr><td class="num">8</td><td><span class="pill j">反論者</span></td><td class="num">p.258</td><td class="k"><a href="#s6">一つの語は動詞と名詞の両方に同時には結びつけない</a></td></tr>
+<tr><td class="num">9</td><td><span class="pill c">立論者</span></td><td class="num">pp.258–261</td><td class="k"><a href="#s7">同格は動詞との結びつきと両立する。「四握り」の数詞</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>序と第1段</h2><span class="sub"><span class="pg">p.252</span>疑いの提起と二つの立場</span></div>
+<div class="mula" id="u1">
+  <span class="ref">252</span>
+  <div class="src deva" lang="sa">अरुणैकहायनीसामानाधिकरण्यवादः ॥ एवं गुणवचनानां शब्दानां शक्तिवैचित्र्यादिना गुणिपरशब्दसामानाधिकरण्येन तद्वैयधिकरण्येन च प्रयोगः संभवतीति स्थितौ 'अरुणया पिङ्गाक्ष्यैकहायन्या सोमं क्रीणाति' इति वाक्याम्नातम् 'अरुणया' इति पदम् 'पिङ्गाक्ष्या एकहायन्या' इति पदाभ्यां सामानाधिकरण्येन स्वार्थं प्रतिपादयति, तद्वैयधिकरण्येन वा इति भवति संशयः ॥</div>
+  <div class="tr">「赤い一歳の牝牛」の同格論。このように、属性語は、表示力の多様さなどによって、属性者を指す語と同格でも、同格でなくても用いられうる、と確定した。そこで、「赤い、黄褐色の目の、一歳の（牝牛）によってソーマを買う」という文に唱えられる「赤い」という語は、「黄褐色の目の」「一歳の」という二つの語と同格で自らの意味を示すのか、それとも同格でなくて示すのか、という疑いが生じる。</div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">252</span>
+  <div class="src deva" lang="sa">तत्र पूर्वमीमांसकाः प्राहुः एको हायनोऽस्या अस्तीति यौगिकोऽपि एकहायनीशब्दः धेनुशब्दवत् गोसमवेतयौगिकार्थप्रतिपादकत्वात् गौरूपान्यपदार्थपरः । तथा च 'एकहायन्या' इति पदेन एकहायनविशिष्टा गौः सोमक्रयभावनां प्रति करणत्वेन प्रतिपाद्यते । पिङ्गाक्षीशब्दोऽपि बहुव्रीहिसमासत्वात् पिङ्गाक्षत्वगुणविशिष्टे क्वचिदन्यपदार्थे वर्तमानः समभिव्याहृतपदान्तरोपस्थापितं गोद्रव्यमवलम्बते । ततः तृतीयाविभक्तिः विशेषणविभक्तित्वात् प्रयोगसाधुत्वार्था, विशेष्यविभक्तिप्रतिपादितगोद्रव्यगतकरणत्वानुवादिनी वा । 'अरुणया' इत्यत्र तृतीयाविभक्तिस्तु न तद्गतकरणत्वानुवादिनी; अरुणाशब्दस्य हि पिङ्गाक्षी इति बहुव्रीहेरिव द्रव्यपरत्वावश्यंभावाभावेन उपात्तद्रव्यतया गुणमात्रपरत्वावगमेन च तस्या गुणगतकरणत्वप्रतिपादकत्वसंभवात् । तत्संभवे च कारकविभक्तेरनुवादकत्वेन वैयर्थ्यकल्पनायोगात् । तस्मात् 'अरुणया' इति पदं पिङ्गाक्ष्यैकहायनीपदवैयधिकरण्येन वाक्यार्थप्रतिपादनोपयोगि । तस्य ताभ्यां सामानाधिकरण्यप्रतीतिस्तु विभक्त्यैक्यनिबन्धना भ्रान्तिरूपेति ।</div>
+  <div class="tr">そこで前ミーマーンサーの学者たちは次のように言う。「一歳」（<i>ekahāyanī</i>）の語は、「これには一つの年がある」という語源的なものであっても、「乳牛」（<i>dhenu</i>）の語と同じく、牛に内属する語源的な意味を示すので、牛という別のものを指す。そうすると、「一歳の」という語によって、一年に限定された牛が、ソーマの購入の促しに対する手段として示される。「黄褐色の目の」の語も、所有複合語（<i>bahuvrīhi</i>）なので、黄褐色の目に限定された何か別のものに用いられ、並んで発せられた他の語が示す牛という実体に依拠する。そこでの具格語尾は、限定語の格語尾なので用法の正しさのためのものか、被限定語の格語尾が示す牛という実体にある手段であることを言い直すものである。しかし「赤い」の具格語尾は、それ（牛）にある手段であることを言い直すものではない。「赤い」の語は、「黄褐色の目の」という所有複合語のように必ず実体を指すわけではなく、実体は（他の語で）取り上げられているので属性だけを指すと理解され、それ（その語尾）が属性にある手段であることを示しうるからである。そしてそれがありうるのに、格の語尾を言い直しとして無駄なものと想定することはできないからである。したがって「赤い」という語は、「黄褐色の目の」「一歳の」という語と同格でなく文の意味を示すのに役立つ。それがそれら二つと同格だという理解は、格語尾が同じことにもとづく錯覚である、と。</div><div class="exp"><span class="lbl">解説</span><p>シャバラ以来の定説（MS 3.1.12）の要約です。三つの語の役割は次のように分かれます。</p>
+  <div class="tbl"><table><thead><tr><th>語</th><th>表すもの</th><th>具格語尾の役割</th></tr></thead><tbody>
+  <tr><td class="k">一歳の <i>ekahāyanyā</i></td><td>一歳の牝牛（実体）</td><td>牝牛が購入の手段であることを示す</td></tr>
+  <tr><td class="k">黄褐色の目の <i>piṅgākṣyā</i></td><td>所有複合語なので牝牛を指す</td><td>正しさのため、あるいは言い直し</td></tr>
+  <tr><td class="k">赤い <i>aruṇayā</i></td><td>赤さ（属性）だけ</td><td>赤さが購入の手段であることを示す（独自の役割）</td></tr>
+  </tbody></table></div>
+  <p>格語尾をただの言い直しにするより、独自の意味をもたせる方がよい。だから「赤い」は属性を表し、赤さと牝牛はそれぞれ別々に購入と結びつく。三語が同格に見えるのは、格が同じだからにすぎない、というのです。</p></div>
+  <div class="nt">「' अरुणया'」の余分な空白を除いた。</div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">252</span>
+  <div class="src deva" lang="sa">वयं तु प्रतीतसामानाधिकरण्याबाधेन गुणगतकरणत्वप्रतिपादनसंभवात् न तद्वाधनं युक्तमिति 'अरुणया' इति पदं पिङ्गाक्ष्यैकहायनीपदसामानाधिकरण्येनैव वाक्यार्थप्रतिपादनोपयोगि इति सिद्धान्तमुररीकुर्मः । तमिमं सिद्धान्तं व्यवस्थापयितुं कथा प्रस्तूयते 'अरुणया पिङ्गाक्ष्यैकहायन्या सोमं क्रीणाति' इति वाक्याम्नातम् 'अरुणया' इति पदम् 'एकहायन्या' इति पदसामानाधिकरण्येन वाक्यार्थप्रतिपादकम्, यथा 'पिङ्गाक्ष्या' इति पदम् - इति प्रथमा कक्ष्या ॥</div>
+  <div class="tr">しかし我々は、理解される同格関係を覆さずに、属性にある手段であることを示すことができるので、それを覆すのは妥当でない、と考え、「赤い」という語は「黄褐色の目の」「一歳の」という語と同格でこそ文の意味を示すのに役立つ、という定説を受け入れる。この定説を確立するために論議を始める。——「赤い、黄褐色の目の、一歳の（牝牛）によってソーマを買う」という文に唱えられる「赤い」という語は、「一歳の」という語と同格で文の意味を示す。たとえば「黄褐色の目の」という語のように。これが第1段である。</div><div class="exp"><span class="lbl">解説</span><p>Appayya は、「我々」（<i>vayam</i>）と一人称で自分の立場を明言します。第3論の第17段で予告されていた読み方です。立論者の推論の喩例は「黄褐色の目の」で、これが牝牛と同格であることには異論がありません。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第2段：同格はありえない</h2><span class="sub"><span class="pg">pp.253–254</span>反論者（前ミーマーンサーの学者）</span></div>
+<div class="mula" id="u4">
+  <span class="ref">253</span>
+  <div class="src deva" lang="sa">गुणद्रव्यरूपभिन्नार्थपरयोः अरुणैकहायनीशब्दयोः सामानाधिकरण्यासंभवात् बाधितमिदम् अनुमानम् । न च गुणवचनानां केवलगुण इव गुणिन्यपि सामर्थ्यसद्भावात् 'वायव्यं श्वेतमालभेत' इत्यादिवैदिकप्रयोगेषु श्वेतादिशब्दानां द्रव्यपर्यन्तत्वस्य 'नैमित्तिके कार्यत्वात्प्रकृते स्यात्तदापत्तेः' इति दशमाध्यायाधिकरणे व्यवहृतत्वाच्च अरुणाशब्दस्यापि द्रव्यपर्यन्तत्वमिष्यताम्, अतो नास्ति सामानाधिकरण्यबाध इति वाच्यम्; पदान्तरेणानुपात्ते हि द्रव्ये गुणवचनानां द्रव्यपर्यन्तत्वम्; न तु उपात्तेऽपि; 'पटस्य शुक्लो गुणः' 'एतद्वै पशूनां भूयिष्ठं रूपं यद्रोहितम्' इत्यादिलौकिकवैदिकप्रयोगेषु उपात्ते द्रव्ये तेषां केवलगुणपरत्वदर्शनेन तथैव व्युत्पत्तिसिद्धत्वात् ।</div>
+  <div class="tr">属性と実体という別の意味を指す「赤い」と「一歳の」の語は同格になりえないので、この推論は（反対の推論に）覆されている。また次のように言ってはならない。「属性語は、属性だけでなく属性をもつものにも能力があるので、また『風神のために白い（獣）を屠るべし』などのヴェーダの用例で『白い』などの語が実体にまで及ぶことが、第10章の論題『臨時のものでは、為すべきものなので、原型（の獣）に。それ（白さ）が当てはまるから』で述べられているので、『赤い』の語も実体にまで及ぶとしよう。だから同格関係が覆されることはない」と。属性語が実体にまで及ぶのは、実体が他の語で取り上げられていない場合であって、取り上げられている場合ではないからである。「布の白い属性」「牛たちの最も多い色は赤である」などの世間とヴェーダの用例では、実体が取り上げられているとそれら（属性語）が属性だけを指すことが見られるので、まさにそのように語法が成り立っているからである。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、属性語が実体を指せることは認めます（ミーマーンサー・スートラ第10章でも「白い（獣）を屠る」の「白い」は獣を指すと扱われる）。しかしそれは、実体が他の語で言われていない場合に限る、と言います。「白い（獣）を屠る」では獣の語がないので「白い」が獣を指すが、「赤い一歳の牝牛」では牝牛が「一歳の」で言われているので、「赤い」は属性だけを指す、というのです。</p></div>
+  <div class="nt">「अतो नस्ति」を「अतो नास्ति」と正した。</div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">253</span>
+  <div class="src deva" lang="sa">तथा च 'श्वेतमालभेत' इत्यादौ पदान्तरेण द्रव्यविशेषानुपादानात् श्वेतशब्दस्य गुणवद्रव्यपरत्वेऽपि अत्र एकहायनीशब्देनाविशेषोपादानात् अरुणाशब्दस्य केवलगुणपरत्वं युक्तम् । न च षष्ठ्यन्तेन द्रव्योपादानं केवलगुणपरत्वे प्रयोजकमिति वाच्यम्; लाघवेन द्रव्योपादानमात्रस्य एतत्प्रयोजकत्वोपपत्तेः । न च द्रव्योपादानमात्रमपि न तत्र प्रयोजकम्, 'नीलो घटः' इत्यत्र व्यभिचारादिति वाच्यम्; तत्र द्रव्यपरपदसामानाधिकरणस्य गुणपरत्वबाधकत्वेन क्लृप्तस्य सत्त्वात् । षष्ठ्यन्तपदेन द्रव्योपादानं गुणपरत्वप्रयोजकमिति वदतापि 'घटस्य नीलो भागः' इत्यत्र व्यभिचारवारणार्थं तस्य तद्वाधकत्वक्लृप्तेरवश्याभ्युपगन्तव्यत्वात् । न चैवं तर्हि 'अरुणया पिङ्गाक्ष्यैकहायन्या' इत्यत्रापि सामानाधिकरण्यं तद्वाधकं स्यादिति वाच्यम्; तत्र कारकविभक्तेः सामानाधिकरण्यबाधिकायाः सत्त्वात् । अन्यथा कारकविभक्तिवैयर्थ्यापत्तेः । 'घटस्य नीलो भागः' इत्यत्र 'नीलो घटः' इत्यत्रेव न कारकविभक्तिरस्ति । किंच उभयत्रापि सामानाधिकरण्यबाधे वाक्यभेदः स्यात् । अरुणावाक्ये तु न तत्प्रसक्तिरस्ति; आरुण्येन यथोक्तगुणकेन गोद्रव्येण च विशिष्टायाः क्रयभावनाया विधातुं शक्यत्वात् । कारकविभक्तिसत्त्वेऽपि वाक्यभेदप्रसङ्गे तामनादृत्य सामानाधिकरण्यमिष्यते यथा 'नीलं घटमाहर' इत्यादौ । यत्र तु कारकविभक्तिरस्ति वाक्यभेदोऽपि न प्रसज्यते 'नीलेन घटेन जलमाहर' इत्यादौ तथाभूतमुदाहरणमरुणावाक्यतुल्यमस्तु ।</div>
+  <div class="tr">そうすると、「白い（獣）を屠る」などでは他の語によって特定の実体が取り上げられていないので「白い」の語が属性をもつ実体を指すとしても、ここでは「一歳の」の語によって（実体が）区別なく取り上げられているので、「赤い」の語が属性だけを指すのが妥当である。また、「属格で終わる語で実体が取り上げられることが、属性だけを指すことの根拠だ」と言ってはならない。簡潔さによって、実体が取り上げられることだけがその根拠であることが成り立つからである。また、「実体が取り上げられることだけでもその根拠ではない。『青い壺』で逸脱するからだ」と言ってはならない。そこには、実体を指す語との同格関係が、属性を指すことを覆すものとして確立してあるからである。属格で終わる語で実体が取り上げられることが属性を指すことの根拠だと言う者も、「壺の青い部分」での逸脱を防ぐために、それ（同格関係）がそれ（属性を指すこと）を覆すものとして確立していることを必ず認めなければならないからである。また、「それなら『赤い、黄褐色の目の、一歳の』でも、同格関係がそれを覆すものになろう」と言ってはならない。そこには、同格関係を覆す格の語尾があるからである。そうでなければ、格の語尾が無駄になってしまうからである。「壺の青い部分」には、「青い壺」と同じく格の語尾はない。さらに、両方の場合に同格関係を覆すと、文の分裂になろう。しかし「赤い」の文にはそれは起こらない。赤さと、先に述べた属性をもつ牛という実体とに限定された購入の促しを規定できるからである。格の語尾があっても、文の分裂が起こる場合には、それを顧みずに同格関係が認められる。たとえば「青い壺を持ってこい」などのように。一方、格の語尾があり、文の分裂も起こらない場合、たとえば「青い壺で水を運べ」などのように、そのような例が「赤い」の文と同等であるとしよう。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、同格が守られる場合と覆される場合を分けます。</p>
+  <div class="tbl"><table><thead><tr><th>例</th><th>格語尾</th><th>同格を覆すと</th><th>判定</th></tr></thead><tbody>
+  <tr><td class="k">青い壺（主格）</td><td>手段などの格ではない</td><td>文が分裂する</td><td><span class="pill a">同格</span></td></tr>
+  <tr><td class="k">青い壺を持ってこい（対格）</td><td>あり</td><td>文が分裂する（「青を持ってこい、壺を持ってこい」）</td><td><span class="pill a">同格</span></td></tr>
+  <tr><td class="k">青い壺で水を運べ（具格）</td><td>あり</td><td>分裂しない</td><td><span class="pill j">同格でない</span></td></tr>
+  <tr><td class="k">赤い一歳の牝牛で買う（具格）</td><td>あり</td><td>分裂しない（一つの購入が赤さと牝牛で限定される）</td><td><span class="pill j">同格でない</span></td></tr>
+  </tbody></table></div></div>
+  <div class="nt">「कैवलगुण」を「केवलगुण」、「वाच्यम्'」を「वाच्यम्;」と正した。</div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">253–254</span>
+  <div class="src deva" lang="sa">न च उदाहरणद्वयेऽपि अमूर्तस्य गुणस्य क्रियासाधनत्वासंभवो दोषः, साक्षात्तदसंभवेऽपि द्रव्यपरिच्छेदद्वारा तत्संभवात् । न च तथा सति द्रव्यान्तरस्यापि तद्द्वारत्वप्रसक्तिः, वाक्यार्थप्रतीतिवेलायां द्रव्यगुणयोः परस्परान्वयं विना प्रत्येकं क्रियासाधनतया अन्वयेऽपि द्रव्यस्य परिच्छेदकगुणाकाङ्गया गुणस्य परिच्छेद्यद्रव्याकाङ्गया च पश्चादार्थिकपरस्परान्वयोपपत्तेः । तस्मात्सामानाधिकरण्यासंभवात् अनुमानमिदं बाधितमेव । प्रत्यनुमानं च - अरुणावाक्याम्नातम् 'अरुणया' इति पदं न 'एकहायन्या' इति पदसामानाधिकरण्येन वाक्यार्थप्रतिपादकम् यथा 'अरुणिम्ना शोभते पादः' इति लौकिकवाक्यगतम् अरुणिम्ना इति पदम् इत्येवं द्वितीया कक्ष्या ॥</div>
+  <div class="tr">また、「二つの例のどちらでも、形のない属性が行為の手段であることはありえない、という欠点がある」と言ってはならない。直接にはありえなくても、実体を限定することを通じてそれ（手段であること）がありうるからである。また、「そうだとすると、別の実体もそれ（限定）の媒介になってしまう」と言ってはならない。文の意味が理解されるときに、実体と属性が互いに結びつかずにそれぞれ行為の手段として結びついても、後で、実体は限定する属性を期待し、属性は限定される実体を期待することによって、意味上の相互の結びつきが成り立つからである。したがって、同格関係はありえないので、この推論は覆されている。そして逆の推論は（次のとおりである）。——「赤い」の文に唱えられる「赤い」という語は、「一歳の」という語と同格で文の意味を示すのではない。たとえば「足は赤みによって輝く」という世間の文にある「赤みによって」という語のように。これが第2段である。</div><div class="exp"><span class="lbl">解説</span><p>赤さのような形のない属性がどうやって「買う」手段になるのか、という古典的な疑問にも答えます。属性は実体（牝牛）を限定することを通じて手段になる。文の理解の段階では赤さと牝牛がそれぞれ購入と結びつき、その後で互いを必要として結びつく（意味上の、後からの結びつき）、というシャバラ・クマーリラの説明です。</p></div>
+  <div class="nt">「सामानाधिकरण्यांसंभवात्」を「…असंभवात्」、「प्रतिपदकम्」を「प्रतिपादकम्」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第3段：格語尾の意味は限定語に移れる</h2><span class="sub"><span class="pg">pp.254–255</span>立論者。属性語の四つの説ごとの説明</span></div>
+<div class="mula" id="u7">
+  <span class="ref">254</span>
+  <div class="src deva" lang="sa">अथ तृतीय कक्ष्या-- प्रतीयमानसामानाधिकरण्याबाधेन वाक्यार्थनिर्वाहे संभवति न तद्वाधनं युक्तम् । न च कारकविभक्तिसाफल्याय तद्वाधनम्; अरुणाशब्दस्य गुणगतजात्यैव प्रवृत्तिनिमित्तेन द्रव्यपर्यन्तत्वमिति पक्षे गुणगतजातेः द्रव्ये परम्परासंबन्धघटकतया अर्थाक्षिप्ते गुणे कारकविभक्त्यर्थसंक्रमोपपत्तेः । 'आग्नेयमष्टाकपालं निर्वपेत्' इत्यत्र आख्यातार्थस्य विधेः प्रकृत्यर्थं निर्वापमतिलङ्घय द्रव्यदेवतासंबन्धाक्षिप्ते यागे संक्रान्त्यभ्युपगमात् । तस्य गुणेन प्रवृत्तिनिमित्तेन द्रव्यपर्यन्तत्वमिति पक्षे विशेष्यमतिलङ्घय विशेषणे तत्संक्रमोपपत्तेः । 'चतुरो मुष्टीन्निर्वपति' इति संख्यामुष्टिरूपकारकद्वयविशिष्टनिर्वापविधौ 'चतुरः' इति द्वितीयोक्तकारकत्वस्य तत्प्रातिपदिकेन विशेष्यतया अभिहितं समभिव्याहृतमुष्टिद्रव्यरूपं संख्येयमतिलङ्घय तद्विशेषणे संख्यायां संक्रान्त्यभ्युपगमात् ।</div>
+  <div class="tr">第3段——理解される同格関係を覆さずに文の意味を説明できるなら、それを覆すのは妥当でない。格の語尾を有意味にするために覆す、ということもない。（第一に）「赤い」の語が、属性にある類を適用根拠として実体にまで及ぶ、という説では、属性にある類が実体に及ぶ間接の関係を構成するものとして意味上導かれる属性に、格語尾の意味が移ることが成り立つからである。「アグニのための八皿（の祭餅）を取り分けるべし」で、動詞語尾の意味である規定が、語幹の意味である「取り分けること」を越えて、供物と神格の関係によって導かれる祭祀に移ると認められるのと同じである。（第二に）それ（「赤い」の語）が属性を適用根拠として実体にまで及ぶ、という説では、被限定語を越えて限定語にそれ（格語尾の意味）が移ることが成り立つからである。「四つの一握りを取り分ける」という、数と一握りという二つの格（の要素）に限定された取り分けの規定において、「四つの」の対格が言う格（の意味）が、その語幹によって被限定語として表され、並んで発せられた一握りという実体の形をとる、数えられるものを越えて、その限定語である数に移ると認められるのと同じである。</div><div class="exp"><span class="lbl">解説</span><p>立論者は、格語尾の意味（ここでは具格の「手段」）が、語の主たる意味を越えて、限定要素のほうに移る（<i>saṃkrānti</i>）例がミーマーンサーで認められていることを示し、どの属性語理論を採っても「赤さが手段」は同格のままで説明できる、と論じます。以下、五つの説明が並びます。</p>
+  <div class="tbl"><table><thead><tr><th>「赤い」の理論</th><th>手段の意味が移る先</th><th>先例</th></tr></thead><tbody>
+  <tr><td class="k">① 類を根拠に実体を表す（第3論）</td><td>間接の関係を媒介する属性（赤さ）</td><td>「アグニのために取り分けよ」の規定は祭祀に移る</td></tr>
+  <tr><td class="k">② 属性を根拠に実体を表す（第4論）</td><td>限定語（赤さ）</td><td>「四つの一握り」の格の意味は数に移る</td></tr>
+  <tr><td class="k">③ 接尾辞 -a による派生語</td><td>語幹の意味（赤さ）</td><td>「杖をもつ者が指示を唱える」</td></tr>
+  <tr><td class="k">④ 所有接尾辞の脱落</td><td>語幹が一般の表示力で示す属性</td><td>「赤い衣の祭官たち」</td></tr>
+  <tr><td class="k">⑤ 属性だけを表し、同格は比喩</td><td>属性（そのまま）</td><td>—</td></tr>
+  </tbody></table></div></div>
+  <div class="nt">「तत्प्रातिपादिकेन.」を「तत्प्रातिपदिकेन」と正した。</div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">254–255</span>
+  <div class="src deva" lang="sa">अरुणाशब्दस्य अर्शआद्यजन्ततया द्रव्यपर्यन्तत्वमिति कल्पने विभक्त्यर्थस्य तद्धितार्थमतिलङ्घय तत्प्रकृत्यर्थे संक्रान्त्युपपत्तेः, 'दण्डी प्रैषानन्वाह' इत्यादौ तथा दर्शनात् । तस्य लुप्तमतुबन्तत्वकल्पने लुप्तस्य मतुपोऽर्थः प्रकृत्यैव विशेषशक्त्या लक्षणया वा बोधनीयः इति द्रव्यमपहाय तत्सामान्यशक्त्युपस्थापिते गुणे विभक्त्यर्थान्वयोपपत्तेः 'लोहितोष्णीषा लोहितवसना ऋत्विजः प्रचरन्ति' इति श्येनयागवैशेषिकाङ्गविधायके वाक्ये 'लोहितवसनाः' इति बहुव्रीहिसमासवर्तिपदयोः सामानाधिकरण्यनिर्वाहार्थं लोहितशब्दस्य अवश्यवक्तव्यं द्रव्यपर्यन्तत्वं मतुब्लोपेन निर्वाह्यमिति तत्र प्रकृतेः सामान्यविशेषवृत्तिभ्यामुपस्थाप्ययोः गुणद्रव्ययोर्मध्ये द्रव्यमपहाय गुणे विधिसंक्रान्तिसंप्रतिपत्तेः अरुणापदं गुणपरमेव; गुणगुणिनोरभेदोपचारेण 'अरुणया एकहायन्या' इति पदयोः सामानाधिकरण्यमिति तन्निर्वाहे, ऋजुनैव मार्गेण गुणे करणकारकत्वान्वयसंभवात् ।</div>
+  <div class="tr">（第三に）「赤い」の語が arśas などの -a で終わる語として実体にまで及ぶ、と想定するなら、格語尾の意味が、二次接尾辞の意味を越えてその語幹の意味に移ることが成り立つ。「杖をもつ者が指示を唱える」などでそのように見られるからである。（第四に）それが所有接尾辞の脱落したものと想定するなら、脱落した所有接尾辞の意味は、語幹自体が特別な表示力あるいは転義によって知らせるべきなので、実体を除いて、その（語幹の）一般の表示力によって示された属性に格語尾の意味が結びつくことが成り立つ。「赤い頭巾をかぶり、赤い衣を着た祭官たちが行う」という、シェーナ祭の特別な補助を規定する文で、「赤い衣を着た」という所有複合語の中の二語の同格を説明するために、「赤い」の語が必ず実体にまで及ぶと言わねばならず、それは所有接尾辞の脱落によって説明すべきである。そこで、語幹の一般と特別の働きによって示される属性と実体のうち、実体を除いて属性に規定が移ることが認められているからである。（第五に）「赤い」の語は属性だけを指し、属性と属性者の同一視の比喩によって「赤い」「一歳の」の二語が同格なのだ、と説明するなら、まっすぐな道で、属性に手段という格が結びつくことが成り立つからである。</div><div class="exp"><span class="lbl">解説</span><p>シェーナ祭（呪殺の祭）では祭官が赤い頭巾と赤い衣を着けます。「赤い衣を着た」<i>lohitavasanāḥ</i> は所有複合語で、「赤い」と「衣」が同格です。ここで規定されるのは衣の赤さであって衣そのものではない、とミーマーンサーでは解されています。同格のまま、規定が属性に移っている実例です。</p></div>
+  <div class="nt">「विभक्त्तत्यर्थ」を「विभक्त्यर्थ」、「उपपत्तेः'दण्डी」を区切り、「मार्गेणगुणेकरण」を「मार्गेण गुणे करण」と正した。</div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">255</span>
+  <div class="src deva" lang="sa">न च एतेषां पक्षाणां मध्ये विशेष्यं विहाय विशेषणे विभक्त्यर्थान्वयः इति पक्षे 'पिङ्गाक्ष्या' इति पदेऽपि तथात्वापत्तिर्दोषः ; इष्टापत्तेः । न हि 'अरुणया' इति पद एव कारकविभक्तिः साफल्यं नेतव्या, न 'पिङ्गाक्ष्या' इति पदे इत्यत्र विशेषहेतुरस्ति । न च आरुण्यस्येव पैङ्गल्यविशिष्टस्य अक्ष्णः क्रयसाधनत्वं न संभवति । न च अन्यदीयस्यापि पैङ्गल्यविशिष्टस्याक्ष्णः उद्धृतस्य क्रयसाधनत्वं संभवत्, 'अश्वशफेन क्रीणाति' इति वाक्यादश्वशफस्येवेति आरुण्यस्येव तस्य नियमेन गोद्रव्यान्वयापेक्षा न स्यादिति वाच्यम्; अर्थतः स्वातन्त्र्यसंभवेऽपि बहुव्रीहिसमासेन गोद्रव्यविशेषणभूतस्यैव तस्य समर्पणात् । तस्मात् सामानाधिकरण्यस्य अत्रासंभवात् नास्ति मदनुमाने बाधशङ्का । त्वदनुमानं तु अप्रयोजकम्, 'अरुणिम्ना शोभते' इति लौकिकवाक्ये एकहायनीपदाभावात् इमनिच्प्रत्ययसद्भावाच्च तत्सामानाधिकरण्यप्रतिपादकत्वाभावेऽपि, अत्र एकहायन्यादिश्रवणेन तत्सामानाधिकरण्यविरोधिनो भावप्रत्ययस्य अभावेन च तत्सामानाधिकरण्येन वाक्यार्थप्रतिपादकत्वोपपत्तेः इति ॥</div>
+  <div class="tr">また、「これらの説のうち、被限定語を除いて限定語に格語尾の意味が結びつく、という説では、『黄褐色の目の』という語でもそうなってしまう、という欠点がある」と言ってはならない。それは望ましい帰結だからである。格の語尾を「赤い」という語でだけ有意味にし、「黄褐色の目の」という語ではしない、ということに特別な理由はないからである。また、「赤さと同じく、黄褐色に限定された目が購入の手段であることはありえない。また別の（牛）の黄褐色の目をくり抜いたものが、『馬の蹄で買う』という文による馬の蹄のように購入の手段になりうるので、赤さと同じく、それ（目）が必ず牛という実体と結びつく必要はないことになろう」と言ってはならない。意味の上で独立がありうるとしても、所有複合語によって、牛という実体の限定語としてだけそれが提示されているからである。したがって、ここで同格関係がありえないということはないので、私の推論に覆される疑いはない。あなたの推論は決め手にならない。「赤みによって輝く」という世間の文には「一歳の」という語がなく、-iman という接尾辞があるので、それと同格であることを示さないとしても、ここでは「一歳の」などが聞かれ、それとの同格に反する状態の接尾辞がないので、それと同格で文の意味を示すことが成り立つからである。</div>
+  <div class="nt">「इष्टापत्तेःन हि」を区切った。</div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>第4〜6段：女性形は同格の証拠か</h2><span class="sub"><span class="pg">pp.255–256</span>「属性については白などは男性形」</span></div>
+<div class="mula" id="u10">
+  <span class="ref">255</span>
+  <div class="src deva" lang="sa">अथ चतुर्थी कक्ष्या-- अरुणाशब्दस्य गुणमात्रपरत्वमङ्गीकृत्य आर्जवेन तत्र विभक्त्यर्थान्वयसंगमनाय समानपदश्रुतिनिर्वाहोपपत्तौ वाक्यरूपपदान्तरसामानाधिकरण्यनिर्वाहाय श्रुतिस्वारस्यभङ्गो न युक्तः । अभेदोपचारकल्पनेऽपि उपचार एव दोषः । अतोऽत्र सामानाधिकरण्यं न संभवतीति बाधितमेव त्वदनुमानम् । मदनुमानं च नाप्रयोजकम्, तृतीयार्थस्य करणत्वस्य स्वारस्येन गुणसंगतेः अरुणाशब्दस्य गुणमात्रपरतया वैयधिकरण्य एव संभवात् - इति ॥</div>
+  <div class="tr">第4段——「赤い」の語が属性だけを指すと認め、まっすぐにそこに格語尾の意味の結びつきを合わせることで、同じ語の天啓（直接の表示力）が保たれるのに、文という他の語との同格を保つために天啓の自然さを損なうのは妥当でない。同一視の比喩を想定しても、比喩そのものが欠点である。だからここで同格はありえないので、あなたの推論は覆されている。そして私の推論は決め手を欠くものではない。具格の意味である手段が自然に属性と結びつくので、「赤い」の語が属性だけを指すことによって、同格でないことだけが成り立つからである。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、ミーマーンサーの認識手段の序列（天啓＞標識＞文＞…、MS 3.3.14）を持ち出します。語そのものの直接の働き（天啓）の方が、語の並び（文）より強い。同格は文の働きにすぎないので、語の自然な意味（属性）を曲げてまで守る必要はない、と言います。</p></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">255–256</span>
+  <div class="src deva" lang="sa">अथ पञ्चमी-- इह सामानाधिकरण्यं न एकविभक्त्यन्तपदद्वयसमभिव्याहारमात्रनिबन्धनमिष्यते; किंतु स्त्रीलिङ्गारुणाशब्दश्रुत्याप्यानीतम् । स्वातन्त्र्येण गुणमात्रपरत्वे हि 'गुणे शुक्लादयः पुंसि' इत्यनुशासनात् पुँल्लिङ्गता स्यात् । अतः सामानाधिकरण्यमेवाभ्युपगन्तव्यमिति न बाधितं मदनुमानम् । त्वदनुमानं तु अप्रयोजकमेव, अन्यत्र वैयधिकरण्येऽपि अत्र उक्तरीत्या सामानाधिकरण्योपपत्तेः इति ॥</div>
+  <div class="tr">第5段——ここでの同格関係は、同じ格語尾で終わる二つの語が並んで発せられることだけにもとづくと考えられているのではない。そうではなく、女性形の「赤い」（<i>aruṇā</i>）の語の天啓によってももたらされている。独立に属性だけを指すなら、「属性については白などは男性形」という規定によって男性形になるはずだからである。だから同格関係をこそ認めるべきなので、私の推論は覆されていない。あなたの推論はやはり決め手にならない。他の場合には同格でなくても、ここでは先に述べた仕方で同格が成り立つからである。</div><div class="exp"><span class="lbl">解説</span><p>立論者は、反論者の「天啓」の論拠を逆手に取ります。辞書『アマラコーシャ』の規定によれば、白などの色の語は、属性そのものを指すときは男性形です（<i>aruṇaḥ</i>）。ところが規定文では女性形 <i>aruṇā</i> になっている。これは「赤い」が女性名詞である牝牛と同格であることを、語そのもの（天啓）が示している、というのです。</p></div>
+</div>
+<div class="mula" id="u12">
+  <span class="ref">256</span>
+  <div class="src deva" lang="sa">अथ षष्ठी कक्ष्या-- गुणेषु प्रयोगसाधून्येव लिङ्गानि नार्थसाधूनि । न हि गुणेषु पुंस्त्वं वा मुख्यम् । अतः स्त्रीत्वमपि तद्वदिष्यताम् । तथैव बुद्धिकरुणादिशब्देषु गुणवाचिष्वपि स्त्रीलिंगं दृश्यते । तस्मादरुणाश्रुतिस्वारस्येन सामानाधिकरण्यं नोपनीयते । किं तु एकविभक्त्यन्तपदद्वयसमभिव्याहारमात्रेणेति तस्य एकपदश्रुतिस्वारस्यविरोधिन औपचारिकत्वापादकस्य च त्याग एव युक्तः । अतः त्वदनुमानं बाधितम्। मदनुमानं च नाप्रयोजकम्, उक्तयुक्त्या वैयधिकरण्यावश्यंभावात् - इति ॥</div>
+  <div class="tr">第6段——属性についての性は、用法を正しくするためだけのもので、意味を正しくするものではない。属性について男性形が本来のものであるわけではない。だから女性形も同様だと認めよう。同じように、属性を表す語でも、「知性」（<i>buddhi</i>）「憐れみ」（<i>karuṇā</i>）などの語では女性形が見られる。だから、同格関係は「赤い」の天啓の自然さによってもたらされるのではない。そうではなく、同じ格語尾で終わる二語が並んで発せられることだけによる。だから、同じ語の天啓の自然さと矛盾し、比喩的なものにしてしまうそれ（同格関係）を捨てるのが妥当である。だからあなたの推論は覆されている。私の推論は決め手を欠くものではない。先に述べた理屈によって、同格でないことは避けられないからである。</div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>第7段：性の規則と「依拠するものの性」</h2><span class="sub"><span class="pg">pp.256–257</span>立論者。パタンジャリの『大註解』の一節</span></div>
+<div class="mula" id="u13">
+  <span class="ref">256–257</span>
+  <div class="src deva" lang="sa">अथ सप्तमी-- यदुक्तं प्रयोगसाध्विह लिंगं नार्थसाध्विति, तदयुक्तम्, 'गुणे शुक्लादयः पुंसि' इत्यनुशासनविरोधेन प्रयोगसाधुत्वस्याप्यसिद्धेः । न हि करुणादिशब्दसामान्यतः दृष्टम् अनुशासनविरोधे प्रभवति । तथा सति शुक्लादिशब्देषु पुँल्लिंगदर्शनेन करुणादिशब्देष्वपि कदाचित् पुँल्लिंगप्रयोगापत्तेः । न च कारकविभक्त्यन्वयस्वारस्यसिद्ध्यर्थमिहैव स्त्रीलिंगप्रयोगस्य साधुत्वं कल्प्यतामिति वाच्यम्, उभयोरपि मदुक्तरीत्या अर्थसाधुत्वसंभवे कस्य चित् प्रयोगसाधुत्वकल्पनानौचित्यात् । अन्यथा लिंगमेवार्थसाधु, कारकविभक्तिः प्रयोगसाधुरिति वैपरीत्यस्यापि कल्पनाप्रसङ्गात् । विशेषणविभक्तेः साधुत्वार्थत्वस्य अन्यत्र बहुशः क्लृप्ततया गुणशब्दः स्त्रीलिंग एव स्यात् । अक्लृप्तस्य प्रयोगसाधुत्वस्य अकल्पनीयत्वेन तस्यैवौचित्याच्च । एतेन लिंगकारकयोः कारकस्य प्राधान्यात् कारकान्वयस्वारस्यमेवानुरोद्धव्यम्, न च लिंगस्याप्राधान्येऽपि 'स्त्रियाम्' इति व्याकरणसूत्रभाष्याद्युक्तरीत्या तस्य प्रातिपदिकस्त्रीप्रत्ययान्यतरार्थत्वेन प्रथमश्रुतत्वात् प्रथमश्रुतस्य अप्राधान्येऽपि 'न प्रथमयज्ञे प्रवृञ्जयात्' इत्यत्र प्राथम्यविशेषणस्यैव प्राबल्यात् लिंगमेवानुरोद्धव्यमिति वाच्यम्, लिंगस्य प्राथमिकप्रातिपदिकस्त्रीप्रत्ययान्तरार्थत्वेऽपि तत्प्राबल्यहेतोः प्रथमप्रतीतेरसिद्धेः ; 'अरुणया' इति तृतीयाप्रयोगे स्त्रीप्रत्ययस्य टाबाकारस्याश्रवणेन टापं स्त्रीलिङ्गासाधारणेन विभक्तिविकारेणोन्नीय तदनन्तरं तेन स्वयं वाचकेन प्रातिपदिकार्थद्योतकेन वा लिंगस्य प्रत्येतव्यत्वात् इति निरस्तम् क्लृप्तकल्प्ययोः क्लृप्तस्य बलीयस्त्वात् स्वातन्त्र्येण गुणपरेषु शुक्लादिशब्देषु क्वचिदपि स्त्रीलिंगस्य क्लृप्त्यभावात् लिंगानुशासनविरोधेन कल्पनस्यायुक्तत्वाच्च ।</div>
+  <div class="tr">第7段——「ここでの性は用法を正しくするためのもので、意味を正しくするものではない」と言われたが、それは不当である。「属性については白などは男性形」という規定と矛盾するので、用法の正しさも成り立たないからである。「憐れみ」などの語についての一般的な観察は、規定と矛盾するところでは力をもたない。そうだとすると、「白い」などの語に男性形が見られることによって、「憐れみ」などの語にもときに男性形を用いることになってしまうからである。また、「格語尾の結びつきの自然さを成り立たせるために、ここでだけ女性形の用法の正しさを想定しよう」と言ってはならない。私の言う仕方で両方（性と格語尾）が意味の上で正しくありうるのに、どちらか一方を用法の正しさのためと想定するのは不適切だからである。そうでなければ、性こそが意味の上で正しく、格の語尾は用法の正しさのためだ、という逆の想定もできることになってしまうからである。限定語の格語尾が正しさのためのものであることは他の所で何度も確立しているので、属性語は（ここでは）女性形でこそあるべきであり、確立していない用法の正しさは想定すべきでないので、それ（女性形が意味をもつこと）こそが適切だからでもある。これによって、次の議論も退けられた。「性と格のうち格が主たるものなので、格の結びつきの自然さこそに従うべきである。また『性は主たるものでなくても、「女性において」という文法のスートラへの註解などで言われる仕方で、語幹か女性接尾辞のどちらかの意味として最初に聞かれる。そして最初に聞かれるものは主たるものでなくても、「最初の祭祀ではプラヴァルギャを行うべきでない」で「最初の」という限定語こそが強いように、性にこそ従うべきだ』と言ってはならない。性が最初の語幹か女性接尾辞の意味であっても、その強さの理由である最初の理解が成り立たないからである。『赤い』（<i>aruṇayā</i>）という具格の用法では、女性接尾辞 -ā（<i>ṭāp</i>）が聞かれないので、女性形に特有の格語尾の変化から -ā を推し量り、その後でそれが表すにせよ語幹の意味を顕示するにせよ、それによって性を理解すべきだからである」と。確立したものと想定されるものとでは確立したものが強いからであり、独立に属性を指す「白い」などの語に女性形が確立していることはどこにもないので、性の規定と矛盾する想定は不当だからでもある。</div><div class="exp"><span class="lbl">解説</span><p>立論者は、女性形を「正しさのためだけ」とする反論者の説明を退けます。辞書の規定に反するので、正しさのためとさえ言えない、というのです。後半では、反論者側から出るであろう議論（格は性より主要だ、性は具格では語尾に隠れて最初には理解されない、など）を退けます。確立した規則（属性語は男性形）と、この箇所のための想定（女性形でも属性を表せる）とでは、確立した規則が強い、と結論します。</p></div>
+  <div class="nt">「स्त्रीलिङ्गासाधरणेन」を「…असाधारणेन」と正した。</div>
+</div>
+<div class="mula" id="u14">
+  <span class="ref">257</span>
+  <div class="src deva" lang="sa">अपि च अरुणापदस्य द्रव्यपर्यन्तत्वपक्षेष्वेव कारकविभक्त्यन्वयस्वारस्यविरोधशङ्कापि । न तु गुणमात्रपरोऽरुणाशब्दः. एकहायनीसामानाधिकरण्यं परमौपचारिकाभेदावलम्बनमिति पक्षेऽपि । न च तस्मिन्पक्षे सामानाधिकरण्यस्य औपचारिकत्वापत्तिरेव दोषः ; प्रतीयमानसामानाधिकरण्यात्यन्तबाधनात् तदौपचारिकत्वकल्पनस्य ज्यायस्त्वात् । किंचायमुपचारः सांप्रतिकलक्षणान्यायेन अत्रैव न कल्पनीयः; किंतु निरूढलक्षणान्यायेन क्लृप्त एव । तथा हि 'स्त्रियाम्' इति सूत्रे भाष्यकारैः स्त्रीत्वस्य टाबाद्यर्थत्वपक्षे तस्य स्वयमस्त्रीत्वात् एकत्वाच्च 'कुमारी, कुमायौं, कुमार्यः' इत्यादिषु स्त्रीलिंगस्य द्विवचनबहुवचनयोश्च अनुपपत्तिमाशङ्कय, समाहितम् गुणवचनानां हि शब्दानामाश्रयतो लिंगवचनानि भवन्ति; तद्यथा 'शुक्लं वस्त्रम्, शुक्ला शाटी, शुक्लः कम्बलः, शुक्लौ कम्बलौ, शुक्लाः कम्बलाः' इति, यद्रव्यं श्रितो भवति गुणः, तस्य यल्लिङ्गं वचनं च, तत् गुणस्यापि भवति; एवमिहापि यदि द्रव्याश्रितं भवति स्त्रीत्वम्, तस्य यल्लिंगं वचनं च तत् स्त्रीत्वस्यापि भविष्यति इति । तत्र हि शुक्लशब्दः केवलगुणपर एव उदाहृतः । तस्य द्रव्यपर्यन्तत्वे स्वत एव लिंगवचनयोरुपपन्नत्वेन आश्रयतस्तयोरसमर्थनीयत्वात् । अतस्तत्र भिन्नार्थयोर्गुणद्रव्यशब्दयोः सामानाधिकरण्यमभेदोपचारावलम्बनमिति स्पष्टमेव इति । एतेन अरुणाशब्दस्य केवलगुणपरत्वपक्षे तवापि स्त्रीलिंगमयुक्तमित्यपि शङ्का निरस्ता; यत्र गुणवाचिनामौपचारिकद्रव्यवाचिपदसामानाधिकरण्यम्, तत्र आश्रयलिङ्गानुरोधस्य 'शुक्ला शाटी' इत्यत्र क्लृप्तत्वात् । तस्मात् प्रतीयमानसामानाधिकरण्याबाधनेन कारकविभक्त्यर्थसमर्थनोपपत्तेः न तद्वाधनं युक्तमित्यतः मदनुमानं न बाधितम्, त्वदनुमानमेव तु अप्रयोजकमिति ॥</div>
+  <div class="tr">さらに、格語尾の結びつきの自然さと矛盾するという疑いも、「赤い」の語が実体にまで及ぶという説でだけ生じる。「赤い」の語は属性だけを指し、「一歳の」との同格はただ比喩的な同一に依拠するにすぎない、という説では（生じない）。また、その説で同格が比喩的になってしまうこと自体が欠点だ、ということもない。理解される同格を完全に覆すより、それが比喩的だと想定する方がまさるからである。さらに、この比喩は、その場かぎりの転義の原則でここでだけ想定すべきものではなく、慣用的な転義の原則によって確立しているものである。すなわち、「女性において」というスートラで、註解者（パタンジャリ）は、女性性が -ā などの意味だという説で、それ自体は女性でなく単数なので、「少女は」「二人の少女は」「少女たちは」などで女性形と双数・複数が説明できない、と疑ったうえで、次のように答えている。「属性語は依拠するものに従って性と数をとる。たとえば『白い布』『白い衣』『白い毛布』『二枚の白い毛布』『白い毛布たち』のように。属性が依拠する実体の性と数が属性にもある。同様にここでも、女性性が実体に依拠しているなら、その（実体の）性と数が女性性にもあることになろう」と。そこでは「白い」の語は属性だけを指すものとして例に挙げられている。それが実体にまで及ぶなら、性と数はおのずから成り立つので、依拠するものによってそれらを擁護する必要はないからである。だからそこでは、別の意味をもつ属性語と実体語の同格が、同一視の比喩に依拠することは明らかである。これによって、「『赤い』の語が属性だけを指す説では、あなたにとっても女性形は不当だ」という疑いも退けられた。属性語が実体を指す語と比喩的に同格である場合には、依拠するものの性に従うことが「白い衣」（<i>śuklā śāṭī</i>）で確立しているからである。したがって、理解される同格を覆さずに格語尾の意味を擁護できるので、それを覆すのは妥当でない。だから私の推論は覆されていない。あなたの推論こそ決め手にならない。</div><div class="exp"><span class="lbl">解説</span><p>決め手は、パタンジャリの『大註解』（パーニニ 4.1.3「女性において」）の一節です。パタンジャリは、属性語は依拠する実体の性と数をとる、と説明し、「白い布（中性）」「白い衣（女性）」「白い毛布（男性・双数・複数）」を例に挙げます。ここで「白い」は属性だけを指す語として扱われている、と立論者は読みます。つまり、属性だけを指す語が実体語と比喩的に同格になり、実体の性をとる、という用法は、文法学の権威によって確立している。だから、「赤い」を属性だけと読む場合でも、女性形 <i>aruṇā</i> は「牝牛」との比喩的な同格を示しており、同格関係を覆す理由はない、というのです。</p></div>
+  <div class="nt">「आशङ्कय」を「आशङ्क्य」、「उपन्नत्वेन」を「उपपन्नत्वेन」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>第8段：一つの語は同時に二つと結びつけない</h2><span class="sub"><span class="pg">p.258</span>反論者。クマーリラの一節の読み方</span></div>
+<div class="mula" id="u15">
+  <span class="ref">258</span>
+  <div class="src deva" lang="sa">अथाष्टमी-- सामानाधिकरण्याबाधनेन कारकविभक्तिसाफल्यसमर्थनमयुक्तम्, कारकविभक्त्यन्तत्वे क्रियापदान्वयस्य सामानाधिकरण्ये एकहायनीपदान्वयस्य च वक्तव्यत्वात् 'अरुणया क्रीणाति, अरुणयैकहायन्या' इत्येवमेकस्य पदस्य युगपदुभयान्वयायोगात् । न च पर्यायेण उभयान्वयः; एकस्माद्वा वाक्यात् क्रमिकार्थद्वयप्रतीत्यसंभवात् । न च वार्तिककारैः अरुणिमैकहायन्योः पार्ष्ठिकान्वयसमर्थनानन्तरम् 'एवं च वाक्यगतमपि सामानाधिकरण्यं समर्थितं भविष्यति' इत्युक्तत्वात् तत्र विभक्तिश्रुत्यानीतक्रियान्वयविरोधमाशङ्कय, 'क्रियापेक्षित एवायं संबन्धः क्रियते तयोः । न चात्रानुगुणा वृत्तिर्दुर्बलापि निरुध्यते' इति पर्यायेण उभयान्वयः स्वीकृत इति शङ्कनीयम्; अरुणाशब्दस्य प्रथमं निष्कृष्टगुणमात्रशक्त्या अरुणिममात्रविषयत्वेन कारकविभक्त्या क्रियान्वितस्य पश्चाद्वार्तिककाराभिमतया गुणिलक्षणया तस्य एकहायनीविशेषणतयापि अन्वयासंभवात्, शब्दानां युगपदावृत्त्या वा अर्थद्वयप्रतिपादकत्वस्य वार्तिककारैरेव नामधेयपेटिकादिषु बहुषु प्रदेशेषु प्रतिषिद्धत्वात् । तस्मात् 'एवं च' इत्यादिग्रन्थस्य अरुणिमैकहायन्योः आर्थिकपरस्परान्वयसमर्थनानन्तरं प्रवृत्तत्वात् तत्रैव अभ्युच्चयकथनपरः इति नेतव्यम्, अतः कारकविभक्तितया साफल्यसमर्थनप्रवृत्तस्य तवापि सामानाधिकरण्यासंभवात् त्वदनुमानं बाधितमेव । मदनुमानं च नाप्रयोजकमिति ॥</div>
+  <div class="tr">第8段——同格を覆さずに格の語尾が有意味であることを擁護するのは不当である。格の語尾で終わるので動詞との結びつきを、同格なので「一歳の」の語との結びつきを、言わなければならないが、一つの語が「赤さによって買う」「赤い一歳の（牝牛）によって」と、同時に両方と結びつくことはありえないからである。また交互に両方と結びつくこともない。一つの文から順に二つの意味を理解することはありえないからである。また次のように疑うべきでもない。「『ヴァールッティカ』の作者は、赤さと一歳の（牝牛）が後から結びつくことを擁護した後で、『こうして文の中の同格も擁護されることになろう』と言った。そこで格語尾の天啓がもたらす動詞との結びつきとの矛盾を疑って、『この二つの関係は動詞が求めるものとしてなされる。ここで、ふさわしい働きは、弱いものであっても妨げられない』と、交互に両方と結びつくことを認めている」と。「赤い」の語は、まず抽出された属性だけについての表示力によって赤さだけを対象として、格の語尾によって動詞と結びつき、その後で、『ヴァールッティカ』の作者が考える属性者の転義によって「一歳の」の限定語としても結びつく、ということはありえないからであり、語が同時の働きや繰り返しの働きによって二つの意味を示すことは、『ヴァールッティカ』の作者自身が「名称」の章など多くの箇所で否定しているからである。だから「こうして」以下の文は、赤さと一歳の（牝牛）の意味上の相互の結びつきを擁護した後に続くので、まさにそこに付け加えを述べるものだ、と解すべきである。それゆえ、格の語尾として有意味であることを擁護しようとするあなたにとっても同格はありえないので、あなたの推論は覆されている。私の推論は決め手を欠くものではない。</div><div class="exp"><span class="lbl">解説</span><p>反論者の最後の論拠です。「赤い」は、具格として動詞「買う」と結びつく（赤さで買う）と同時に、「一歳の」と同格で結びつく（赤い一歳の牝牛）ことはできない。一つの語が一度に二つの働きをすることはない、とクマーリラ自身が言っています。クマーリラは確かに「こうして文の中の同格も擁護される」と書いていますが、それは赤さと牝牛が後で意味上結びつくことへの付け足しの感想にすぎない、と反論者は読みます。</p></div>
+  <div class="nt">「एक हायनी」を「एकहायनी」、「पाष्ट्रिकान्वय」を「पार्ष्ठिकान्वय」（後からの結合）、「अनुगुणाणवृत्तिः」を「अनुगुणा वृत्तिः」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §7 ============ -->
+<section id="s7" class="wrap">
+  <div class="sec-head"><span class="sec-no">7</span><h2>第9段：同格は動詞との結びつきと両立する</h2><span class="sub"><span class="pg">pp.258–261</span>立論者。「四つの一握り」と「十七頭の獣」</span></div>
+<div class="mula" id="u16">
+  <span class="ref">258–259</span>
+  <div class="src deva" lang="sa">अथ नवमी-- क्रियान्वयः सामानाधिकरण्येनाविरुद्धः भिन्नप्रवृत्तिनिमित्तानां शब्दानामेकस्मिन्नर्थे वृत्तिर्हि सामानाधिकरण्यम् । तत्र एकस्मिन्निति पदोक्तमर्थेक्यं तात्त्विकं चेत् मुख्यं सामानाधिकरण्यम्, औपचारिकं चेत् अमुख्यमिति विशेषः । द्विविधमपि सामानाधिकरण्यं प्रकृते संभवति इत्युपपादितम् । तद्विविधमपि क्रियान्वये सति असत्यपि नापैति । न हि आद्यपक्षानुसारेण विशेषणे कारकविभक्त्यर्थसंक्रान्त्या द्रव्यपर्यन्तत्वमरुणाशब्दस्य अपैति । न वा द्वितीयपक्षानुसारेण तस्य आश्रयलिंगग्राहित्वं क्रियान्वये अपैति । न च अनपेतमपि सामानाधिकरण्यं क्रियान्वये वाक्यार्थप्रतीत्यनुपयोगि जातमित्ययं दोषः । न हि तस्य वाक्यार्थप्रतीत्युपयोगित्वपर्यन्तम् अस्माभिः सिसाधयिषितम्; किं तु वाक्यार्थप्रतीतिसमये सत्त्वमात्रम् ।</div>
+  <div class="tr">第9段——動詞との結びつきは同格と矛盾しない。適用根拠の異なる語が一つのものに用いられることが同格である。そこで「一つのものに」という語で言われる意味の一つであることが、実際のものなら本来の同格、比喩的なものなら本来でない同格、という違いがある。二種類の同格のどちらも、当面の場合にありうることは示した。その二種類のどちらも、動詞との結びつきがあってもなくても消えない。第一の説に従えば、限定語に格語尾の意味が移ることによって、「赤い」の語が実体にまで及ぶことが消えるわけではない。第二の説に従えば、動詞と結びついても、それが依拠するものの性をとることが消えるわけではない。また、「消えていなくても、動詞と結びつけば同格は文の意味の理解に役立たなくなる」という欠点もない。それが文の意味の理解に役立つことまで、我々は論証しようとしたのではない。そうではなく、文の意味の理解のときにそれがあることだけである。</div><div class="exp"><span class="lbl">解説</span><p>立論者は、同格とは「適用根拠の違う語が一つのものに用いられること」だと定義します。その一つであることが実際なら本来の同格、比喩なら本来でない同格です。どちらの場合も、「赤い」が動詞「買う」と（手段として）結びついても、同格は消えません。立論者が主張したいのは、同格が文の理解のときに<strong>存在する</strong>ことであって、それが文の意味に寄与することまでではない、と言います。</p></div>
+</div>
+<div class="mula" id="u17">
+  <span class="ref">259</span>
+  <div class="src deva" lang="sa">न च तदनुपयोगिना किं तेन सामानाधिकरण्येन इति शङ्कनीयम्, प्रयोजनाभावेन लिंगविभक्त्यैकरूप्यावगतस्य तस्य प्रतिक्षेपायोगात् अरुणिमैकहायन्योः परस्परान्वयस्य न्यायलभ्यत्वेऽपि तत्प्रतिष्ठाहेतुतया सप्रयोजनत्वात् । न च क्रियान्वये सति सामानाधिकरण्यस्य वाक्यार्थप्रतीत्यनुपयोगित्वमपि, सामानाधिकरण्यबलात् द्रव्यावच्छेदकतया प्रतीयमानस्यैव गुणस्य क्रियाशेषत्वेनाप्यन्वयसंभवात् । अभ्युपगन्तव्यश्च पूर्वमीमांसकैरपि तथा अन्वयः 'चतुरो मुष्टीन्निर्वपति' इत्यत्र । तथा हिपाञ्चमिके मुष्टिकपालाधिकरणे चतुर्मुष्टिनिर्वाप एकः पदार्थः ; न तु एकैकमुष्टिनिर्वापश्चत्वारः पदार्थाः । अतो नैकपूरोडाशास्विष्टिषु पदार्थानुसमयेन अङ्गकलापे कर्तव्ये स्थिते सति, प्रतिपुरोडाशम् एकैकमुष्टिना अनुसमयो न कार्यः ; प्रतिमुष्टि निर्वापपदार्थस्य भिन्नत्वाभावात् । किं तु प्राथमिकस्य पुरोडाशस्य चतुर्मुष्टिनिर्वापं समाप्य द्वितीयस्य स आरम्भणीयः इत्येवं चतुर्मुष्टिनिर्वापेण अनुसमयः कार्यः, तावत एकपदार्थत्वात् इति व्यवस्थापितम् ।</div>
+  <div class="tr">また、「役立たないなら、その同格に何の意味があるのか」と疑うべきでもない。性と格語尾が同じであることによって知られるそれを、目的がないという理由で退けることはできないからであり、また赤さと一歳の（牝牛）の相互の結びつきは道理によって得られるとしても、それを定着させる根拠として目的をもつからである。また、動詞との結びつきがあるとき同格が文の意味の理解に役立たない、ということさえない。同格の力によって実体を限定するものとして理解される属性そのものが、動詞の補助としても結びつくことができるからである。そして前ミーマーンサーの学者たちも、「四つの一握りを取り分ける」でそのような結びつきを認めなければならない。すなわち、第5章の「一握りと皿」の論題では、四握りの取り分けが一つの項目であって、一握りずつの取り分けが四つの項目なのではない、とされた。だから、祭餅が一つでない祭祀で、項目ごとの順次の実行によって補助の一群を行うべき場合に、祭餅ごとに一握りずつ順次に行うのではない。一握りごとに取り分けの項目が別になるわけではないからである。そうではなく、最初の祭餅の四握りの取り分けを終えてから二番目のそれを始めるべきだ、というように、四握りの取り分けによって順次の実行をすべきである。それだけで一つの項目だからである、と確立された。</div><div class="exp"><span class="lbl">解説</span><p>ミーマーンサーの先例が引かれます。新・満月祭などでは祭餅のために米を「四握り」取り分けます。祭餅が複数ある祭では、補助的な手順を項目ごとに順に（全部の祭餅について）行う原則（<i>padārthānusamaya</i>）があります。そのとき「一握りずつ祭餅を回る」のか「一つの祭餅に四握りを済ませてから次へ」なのか。ミーマーンサー・スートラ第5章の論題は、四握りで一つの項目だとして後者に決めました。</p></div>
+</div>
+<div class="mula" id="u18">
+  <span class="ref">259–260</span>
+  <div class="src deva" lang="sa">अत्रेयं शङ्का समुन्मिषति - दाशमिके संख्यामुष्ट्यधिकरणे चतुः संख्याया मुष्टिद्रव्यशेषत्वं निराकृत्य निर्वापक्रियाशेषत्वं समर्थितम् ; तथा च 'तिस्र आहुतीः' इत्यत्र आहुतिक्रियान्वयिन्या त्रित्वसंख्यया आहुतिक्रियाभेद इव निर्वापक्रियान्वयिन्या चतुःसंख्यया निर्वापक्रियाभेदोऽपि स्यात्; अतो मुष्टिना अनुसमय इति पूर्वपक्ष एव युक्तः इति । तत्रेदमुत्तरं वाच्यम् युक्तं 'तिस्र आहुतीर्जुहोति' इत्यत्र संख्यया क्रियाभेदः; तत्र त्रित्वसंख्यायाः साक्षादाहुतिक्रियावच्छेदकत्वेनान्वयात्; इह चतुः संख्या न निर्वापक्रियावच्छेदकत्वेन अन्वेति; तथा सति 'संख्यायाः क्रियाभ्यावृत्तिगणने कृत्वसुच्' 'द्वित्रिचतुर्थ्यः सुच्' इति पाणिनीयविहितक्रियाभ्यावृत्तिगणनाविषयसुजन्ततया चतुः इति रूपप्रसङ्गात् । न च 'तिस्र आहुतीः' इत्यत्र आहुतिशब्दवत् इह 'चतुरो निर्वापान्' इति निर्वापशब्दः 'चतुरो वारान्' इति वारशब्दो वा अस्ति । न च तदध्याहारो युक्तः; लिंगविभक्त्यैकरूप्यावगतमुष्टिसामानाधिकरण्यनिर्वृतस्य 'चतुरः' इत्यस्य अध्याहारनिरपेक्षत्वात् । अत एव मुष्ट्यतिरिक्तद्रव्यवाचिशब्दान्तराध्याहारेण लिंगविभक्त्युपपादनाशङ्कापि निरस्ता स्यात्; मुष्टिसामानाधिकरण्यात् मुष्ट्यवच्छेदिकैव सती कारकविभक्तिबलात् क्रियायां शेषत्वमात्रेण अन्वेति; न तु तदवच्छेदकत्वेनापि; किंचिदवच्छेदकसंख्याया तदितरावच्छेदकत्वविरोधात् ।</div>
+  <div class="tr">ここで次の疑いが浮かぶ。「第10章の『数と一握り』の論題では、四という数が一握りという実体の補助であることを退け、取り分けという行為の補助であることを擁護した。そうすると、『三つの献供を』では献供という行為と結びつく三という数によって献供の行為が別々になるのと同じく、取り分けという行為と結びつく四という数によって取り分けの行為も別々になろう。だから一握りごとの順次の実行という前主張こそ妥当だ」と。これには次のように答えるべきである。「三つの献供を献供する」で数によって行為が別々になるのは妥当である。そこでは三という数が直接に献供の行為を限定するものとして結びつくからである。（しかし）ここでは四という数は取り分けの行為を限定するものとして結びつくのではない。そうだとすると、パーニニが規定する、行為の繰り返しを数える意味の -s（<i>suc</i>）で終わる語として、「四回」（<i>catuḥ</i>）という形になってしまうからである。また、「三つの献供を」での「献供」の語のように、ここに「四つの取り分けを」と「取り分け」の語や、「四回」と「回」の語があるわけでもない。またそれを補うのも妥当でない。性と格語尾が同じであることから知られる一握りとの同格によって完結している「四つの」は、補いを必要としないからである。だからこそ、一握り以外の実体を表す別の語を補って性と格語尾を説明しようという疑いも退けられるだろう。一握りとの同格によって一握りを限定するものでありながら、格語尾の力によって行為に補助としてだけ結びつくのであって、それ（行為）を限定するものとしても（結びつく）のではない。何かを限定する数が、それ以外のものを限定することは矛盾するからである。</div><div class="exp"><span class="lbl">解説</span><p>反論者の側から想定される疑問：第10章の論題では「四つ」は一握りではなく取り分けの行為に属するとされた。それなら「三つの献供」と同じく、取り分けが四回の別々の行為になるのではないか。答え：「三つの献供」では数が行為を直接限定するが、「四つの一握り」では数は一握りを限定する。もし行為の回数なら、パーニニ 5.4.17–18 により「四回」<i>catuḥ</i> という副詞形になるはずだからです。「四つの」は一握りと同格で一握りを数えつつ、格語尾によって行為の補助として結びつく。<strong>同格と動詞との結びつきが両立している</strong>実例だ、というのが立論者の狙いです。</p></div>
+  <div class="nt">「निर्वानि याभेदोऽपि」を「निर्वापक्रियाभेदोऽपि」、「म्यात्」を「स्यात्」、「किंचिद्रवच्छेदक」を「किंचिदवच्छेदक」と正した。</div>
+</div>
+<div class="mula" id="u19">
+  <span class="ref">260</span>
+  <div class="src deva" lang="sa">अवच्छेदकत्वेन द्रव्यान्विताया अपि संख्यायाः शेषत्वेन क्रियान्वयस्तु न विरुध्यते; कया चिद्विधया किंचित्संबन्धिनोऽपि विधान्तरेण तदितरसंबन्धसंभवात्; 'सप्तदशारत्निर्वाजपेयस्य यूपः' इत्यत्र अरत्न्यवच्छेदिकायाः संख्याया विषयतया विध्यन्वयस्य संप्रतिपन्नत्वाच्च । अत एव 'सप्तदश प्राजापत्यान्पशूनालभेत' इत्यादिषु तथा अन्वयोऽभ्युपगन्तव्यः। तद्यथा - 'पृथक्त्वनिवेशित्वात्संख्यया कर्मभेदः स्यात्' इति द्वैतीयीकाधिकरणे 'तिस्र आहुतीर्जुहोति' इत्येतत् संख्यया कर्मभेदस्य उदाहरणम् इति प्रथममुदाहृत्य आहुतिक्रियारूपकर्मान्वयिन्या संख्यया कर्मभेदसिद्धेः स्पष्टत्वेन अत्र व्युत्पाद्यन्यायाभावात् नेदमुदाहरणमिति तत् परित्यज्य प्राजापत्यवाक्यमुदाहृतम् । तत्र संख्यया कर्मभेदसिद्धेरस्पष्टत्वं च एवं व्युत्पादितम् नात्र क्रियान्वयिनी संख्या; किंतु द्रव्यान्वयिनी; तया यागक्रियारूपकर्मभेदसिद्धिः इत्थम् सा न केवलं पशुद्रव्यान्वयिनी; येन बहुष्वपि पशुषु प्रजापतिदेवतासंबन्धस्य एकत्वात् तदाक्षिप्तो यागोऽपि एको भवेत्; किं तु प्रजापतिदेवताविशिष्टपश्वन्वयिनी । तथा च पशूनामिव प्रजापतिदेवतासंबन्धानामपि साप्तदश्यसिद्धौ तैराक्षेप्या यागा अपि सप्तदश भवेयुरिति ।</div>
+  <div class="tr">限定するものとして実体と結びついた数でも、補助として行為と結びつくことは矛盾しない。ある仕方で何かと関係するものでも、別の仕方でそれ以外のものと関係することがありうるからである。また、「ヴァージャペーヤの祭柱は十七腕尺」で、腕尺を限定する数が、対象として規定と結びつくことは認められているからでもある。だからこそ、「十七頭のプラジャーパティの獣を屠るべし」などでも、そのような結びつきを認めなければならない。すなわち、第2章の「別個のものに入るので、数によって祭式の別がある」という論題では、まず「三つの献供を献供する」が数による祭式の別の例として挙げられた。しかし献供の行為という祭式と結びつく数によって祭式の別が成り立つのは明らかで、ここで論じるべき原則がないので、これは例ではないとしてそれを捨て、プラジャーパティの文が例として挙げられた。そこで数による祭式の別が成り立つことが明らかでない理由は、次のように説明された。ここでは数は行為と結びつくのではなく、実体と結びつく。それによって祭祀の行為という祭式の別が成り立つのは、次のようにしてである。それ（数）は単に獣という実体と結びつくのではない。もしそうなら、多くの獣に対してもプラジャーパティという神格との関係は一つなので、それによって導かれる祭祀も一つになってしまうだろう。そうではなく、プラジャーパティという神格に限定された獣と結びつく。そうすると、獣と同じく、プラジャーパティという神格との関係も十七であることが成り立つので、それらによって導かれる祭祀も十七になろう、と。</div><div class="exp"><span class="lbl">解説</span><p>もう一つの先例は、ミーマーンサー・スートラ第2章の「数による祭式の別」の論題です。「十七頭のプラジャーパティの獣を屠る」では、数「十七」は獣（実体）を限定しますが、それが「プラジャーパティに捧げられた獣」を十七にし、神格との関係を十七にし、その結果、祭祀も十七になる。数は実体を限定しつつ、間接に行為を区別している。ここでも、同格（数と獣）と行為との結びつきが両立しています。</p></div>
+  <div class="nt">「सप्तदशारनिर्वाजपेयस्य」を「सप्तदशारत्निर्वाजपेयस्य」、「पृथक्त्त्व」を「पृथक्त्व」、「साप्तदश्यसिद्धौं」を「साप्तदश्यसिद्धौ」と正した。</div>
+</div>
+<div class="mula" id="u20">
+  <span class="ref">260–261</span>
+  <div class="src deva" lang="sa">तत्रापि एवं शङ्का उन्मिषति यत्र संख्या कर्मान्वयिनी तन्नोदाहार्यमिति मन्वानानामिदमपि नोदाहरणं भवितुमर्हति; 'प्राजापत्यान्पशून' इति पदद्वयसमभिव्याहारप्रतीतद्रव्यदेवतासंबन्धाक्षिप्तयागक्रियायामेव अरुणाधिकरणन्यायेन साक्षात् संख्यान्वयोपपत्तेः; न हि परिपूर्णवाक्यार्थप्रत्ययानन्तरं यागाक्षेपः; येन संख्या यागक्रियाक्षेपात्प्रागेव द्रव्यान्विता जाता, न तस्याः पुनः क्रियान्वयो भावीति शङ्क्येतापि । प्राजापत्यपशूनां विनियोगानवगमेन वाक्यभेदप्रसङ्गेन पशुमात्रोद्देशे देवतापदवैयर्थ्यप्रसङ्गेन च स्पर्शरूपस्यालम्भस्य संस्कारकर्मतया यागान्वयिदेवतापदानन्वयप्रसङ्गेन अर्थकर्मतया वा अन्वयासंभवेन द्रव्यदेवतासंबन्धाक्षिप्तविधियोग्ययागक्रियाध्याहारपर्यन्तं परिपूर्णवाक्यार्थप्रतीत्यसंभवात्, तदसंभवे च श्रुतविधिनिर्वाहार्थं विधियोग्ययागक्रियाध्याहारे सति, तत्रान्वययोग्यायाः संख्यायाः 'गुणानां च परार्थत्वादसंबन्धः समत्वात्स्यात्' इति न्यायविरुद्धस्य गुणभूतद्रव्यान्वयस्यासंभवेन 'सप्तदश' इत्यस्यापि आख्यातवत् द्रव्यान्वयोपपत्तेः, यागक्रियाक्षेपात्प्रागपि यावच्छ्रुतपदसमभिव्याहारलभ्यवाक्यार्थप्रत्ययोत्पत्त्यभ्युपगमेन 'प्राजापत्यान्पशून' इत्यस्येव 'सप्तदश' इत्यस्यापि कारकविभक्तितः क्रियान्वयस्यैव प्राप्त्या द्रव्यान्वयालाभात् इति । तत्राप्येवमुत्तरं वाच्यम् सामानाधिकरण्यात् द्रव्यावच्छेदकत्वेन द्रव्यान्विताया एव संख्यायाः कारकतामात्रेण क्रियान्वयो भवेत्। तच्च कारकत्वं द्रव्यावच्छेदद्वारा निर्वाह्यमिति देवतासंबन्धविशिष्टद्रव्यान्वयिन्या संख्यया तद्विशिष्टद्रव्यभेदवत् द्रव्यदेवतासंबन्धभेदस्यापि सिद्धौ तद्वारैव संख्यया कर्मभेदसिद्धिः ; न साक्षादिति । तस्मात् अरुणापदम् एकहायनीपदसमानाधिकरणं सदेव क्रियान्वयीति मदनुमानं न बाधितम् । त्वदनुमानमेव तु अप्रयोजकमिति सिद्धम् ॥ इति अरुणैकहायनीसामानाधिकरण्यवादः ॥७॥</div>
+  <div class="tr">そこでもまた次の疑いが浮かぶ。「数が祭式と結びつく場合は例に挙げるべきでない、と考える人々にとって、これも例にはなりえない。『プラジャーパティの獣を』という二語が並んで発せられることで理解される、供物と神格の関係によって導かれる祭祀の行為にこそ、『赤い』の論題の原則によって、直接に数が結びつくことが成り立つからである。完全な文の意味が理解された後で祭祀が導かれるのではない。もしそうなら、数は祭祀の行為が導かれる前にすでに実体と結びついてしまい、再び行為と結びつくことはないだろう、と疑うこともできようが。プラジャーパティの獣の用途が知られないこと、文の分裂が帰結すること、獣だけを目的とすると神格の語が無駄になること、触れることである屠り（<i>ālambha</i>）を浄めの行為とすると祭祀と結びつく神格の語が結びつかなくなること、また意味の行為としては結びつきがありえないこと、によって、供物と神格の関係によって導かれる、規定にふさわしい祭祀の行為を補うまでは、完全な文の意味の理解はありえない。そしてそれがありえないので、聞かれた規定を成り立たせるために規定にふさわしい祭祀の行為を補ったとき、そこに結びつくのにふさわしい数は、『属性は他のためのものなので、同等であるから互いに結びつかない』という原則に反する、補助である実体との結びつきはありえない。だから『十七』も、動詞語尾と同じく、実体との結びつきが成り立たない（祭祀と結びつく）。祭祀の行為が導かれる前にも、聞かれた語が並ぶことで得られるかぎりの文の意味の理解が生じると認めるなら、『プラジャーパティの獣を』と同じく『十七』も格語尾によって行為との結びつきだけが得られるので、実体との結びつきは得られないからである」と。そこでもまた次のように答えるべきである。同格によって実体を限定するものとして実体と結びついた数こそが、格（の要素）であることだけによって行為と結びつくであろう。そしてその格であることは実体を限定することを通じて成り立つべきなので、神格との関係に限定された実体と結びつく数によって、それに限定された実体が別々になるのと同じく、供物と神格の関係も別々であることが成り立ち、まさにそれを通じて、数によって祭式の別が成り立つのであって、直接ではない、と。したがって、「赤い」という語は、「一歳の」という語と同格でありながら、行為と結びつく。こうして私の推論は覆されず、あなたの推論こそ決め手にならない、と確定した。<br>以上、「赤い一歳の牝牛」の同格論。（第7論）</div><div class="exp"><span class="lbl">解説</span><p>最後に、プラジャーパティの獣の例にも疑いが向けられます。「赤い」の論題の原則（属性は直接行為と結びつく）を当てはめれば、「十七」も直接に祭祀と結びつくのではないか、という疑いです。立論者は、数はまず同格によって獣を限定し、そのうえで格であることによって行為と結びつく、と答えます。祭式の別は、獣と神格の関係が十七に分かれることを通じて生じるのであって、数が直接に祭祀を区別するのではありません。</p><p>こうして、「同格を保ったまま、格語尾の意味（手段であること）が限定語に及ぶ」という構造が、ミーマーンサーの他の論題にも見られることが示されました。「赤い」も「一歳の」と同格でありながら、赤さが購入の手段となる、というのが第7論の結論です。</p></div>
+  <div class="nt">「शङ्कयेतापि」を「शङ्क्येतापि」、「एगहायनी」を「एकहायनी」と正した。この段落の後半は議論が込み入っており、訳は暫定的。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この論に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>sāmānādhikaraṇya / vaiyadhikaraṇya</dt><dd>同格（同じものを指すこと）／非同格</dd>
+    <dt>aruṇādhikaraṇa</dt><dd>「赤い」の論題（MS 3.1.12）</dd>
+    <dt>ekahāyanī</dt><dd>一歳の（牝牛）</dd>
+    <dt>piṅgākṣī</dt><dd>黄褐色の目をもつ（牝牛）。所有複合語</dd>
+    <dt>bahuvrīhi</dt><dd>所有複合語。「〜をもつ（もの）」の意の複合語</dd>
+    <dt>kārakavibhakti</dt><dd>格の語尾（手段・対象などの格関係を表す）</dd>
+    <dt>saṃkrānti</dt><dd>（意味の）移行</dd>
+    <dt>pārṣṭhika anvaya</dt><dd>後からの（意味上の）結びつき</dd>
+    <dt>śruti / vākya</dt><dd>語の直接の表示力／語の並び</dd>
+    <dt>sāṃpratikalakṣaṇā / nirūḍhalakṣaṇā</dt><dd>その場かぎりの転義／慣用として定着した転義</dd>
+    <dt>padārthānusamaya</dt><dd>項目ごとの順次の実行</dd>
+    <dt>suc / kṛtvasuc</dt><dd>回数を表す接尾辞（catuḥ「四回」、pañcakṛtvaḥ「五回」）</dd>
+    <dt>ālambha</dt><dd>屠り（供犠獣に触れて屠ること）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.252–261 のOCRテキストに拠る。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。ミーマーンサー・スートラの論題番号は、確かめていないものは章だけを記した。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>
