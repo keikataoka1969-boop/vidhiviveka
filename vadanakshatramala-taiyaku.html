@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Vādanakṣatramālā 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">第1論の地図</a></li>
+    <li><a href="#s1"><b>1</b>序頌</a></li>
+    <li><a href="#s2"><b>2</b>論題と疑い</a></li>
+    <li><a href="#s3"><b>3</b>第1段：立論</a></li>
+    <li><a href="#s4"><b>4</b>第2段：反論</a></li>
+    <li><a href="#s5"><b>5</b>第3段：再反論</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのミーマーンサー</div>
+  <h1>Vādanakṣatramālā</h1>
+  <p class="deva-title" lang="sa">पूर्वोत्तरमीमांसावादनक्षत्रमाला</p>
+  <p class="sub">Appayya Dīkṣita の「前後ミーマーンサー論争の星の首飾り」を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">見本　第1論「マーサーグニホートラ論」冒頭（pp.185–189、第1〜3段）</span>
+  <p>同じ名前で呼ばれる祭式は、同じ祭式なのか。ミーマーンサー学派は、祭式の同一性と別異を決める規準を細かく論じてきました。『ヴァーダ・ナクシャトラ・マーラー』第1論は、その一例である<strong>「一か月のアグニホートラ」</strong>を取り上げます。これは、毎日の朝夕に行う常規のアグニホートラと同じ祭式なのか、別の祭式なのか。</p>
+  <p>本書は27の論（<i>vāda</i>）からなり、27の星宿（<i>nakṣatra</i>）を連ねた首飾りに見立てられています。各論は、立論者（<i>vādin</i>）と反論者（<i>prativādin</i>）が交互に推論式を出し合う<strong>段</strong>（<i>kakṣyā</i>）で組み立てられています。このページでは、デーヴァナーガリーの原文と和訳を対照させ、各ブロックに解説を付け、要所に表を添えました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>著者</dt><dd>Appayya Dīkṣita<br><small>16世紀南インドの学匠。ミーマーンサー、ヴェーダーンタ、修辞学など多分野にわたる著作がある</small></dd></div>
+    <div><dt>書名</dt><dd><i>Pūrvottaramīmāṃsāvādanakṣatramālā</i><br><small>前（祭事）ミーマーンサーと後（ヴェーダーンタ）ミーマーンサーにわたる27論。奥書に <i>navyā nakṣatramāleyaṃ prītyai somasya nirmitā</i> とある</small></dd></div>
+    <div><dt>第1論の主題</dt><dd>マーサーグニホートラ（<i>māsāgnihotra</i>）<br><small>クンダパーインの行程という長期のソーマ祭の中で、一か月間行うアグニホートラ</small></dd></div>
+    <div><dt>対立する二つの立場</dt><dd>反論者＝「古いミーマーンサー学者」に従う者／立論者＝Śrīkaṇṭha に従う者<br><small>前者は「別の祭式」、後者は「常規のアグニホートラと同じ」と主張する</small></dd></div>
+    <div><dt>論の形</dt><dd>23段の応酬<br><small>奇数段が立論者、偶数段が反論者。各段は推論式と、その論証因（<i>hetu</i>）の限定語の吟味からなる</small></dd></div>
+    <div><dt>本文</dt><dd>2007年 Hyderabad 刊の校訂本（P. Sri Ramachandrudu 編）のOCR<br><small>頁番号は校訂本のもの。OCRの明らかな誤りは正して示し、その都度「注」で元の形を記した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">185</span> などは校訂本の頁。節見出しの <span class="pg">pp.185–186</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリー。校訂本の連声と句読をそのまま写し、行末のハイフンでの分綴は詰めた</div>
+    <div><b>和訳</b>（　）は訳者の補い。推論式は「主張—理由—喩例」の順に訳した</div>
+    <div><b>解説</b>各ブロックの下の灰色の欄。祭式の背景と、限定語がなぜ必要かを説明する</div>
+    <div><b>注</b>OCRの訂正や、読みに迷った箇所</div>
+    <div><b>表</b>限定語と、それが除外する例を整理したもの。本文の訳ではない</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">第1論の地図</h2><span class="sub">第1論は pp.185–202。この見本は網掛けの部分を扱う</span></div>
+  <p>応酬は、立論者の「同じ名前だから同じ祭式」という単純な推論から始まります。反論者は「名前が同じでも別の祭式の例がある」と切り返し、名前の「本来の働き」をめぐる議論へ進んでいきます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>段</th><th>話者</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr class="here"><td class="num">序</td><td>—</td><td class="num">p.185</td><td class="k"><a href="#s1">序頌二偈</a>・<a href="#s2">論題と疑い</a></td></tr>
+<tr class="here"><td class="num">1</td><td><span class="pill c">立論者</span></td><td class="num">pp.185–186</td><td class="k"><a href="#s3">「アグニホートラ」の名が規定文で聞かれるから同一</a></td></tr>
+<tr class="here"><td class="num">2</td><td><span class="pill j">反論者</span></td><td class="num">pp.186–188</td><td class="k"><a href="#s4">名の同一は決め手にならない。限定語を重ねた逆の推論式</a></td></tr>
+<tr class="here"><td class="num">3</td><td><span class="pill c">立論者</span></td><td class="num">pp.188–189</td><td class="k"><a href="#s5">別だとすると「アグニホートラ」の語が本来の意味で働かなくなる</a></td></tr>
+<tr><td class="num">4</td><td><span class="pill j">反論者</span></td><td class="num">p.189</td><td>（未訳）</td></tr>
+<tr><td class="num">5–23</td><td>交互</td><td class="num">pp.190–202</td><td>（未訳）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>序頌</h2><span class="sub"><span class="pg">p.185</span>本書の目的と、注釈書との関係</span></div>
+<p>本書の冒頭に置かれた二偈です。第一偈は「何を、どのように」論じるかを述べ、第二偈は本書と「注釈書」（<i>bhāṣya</i>）との関係を、第1論の主題そのものにかけた比喩で語ります。</p>
+<div class="mula sutra" id="u1">
+  <span class="ref">185</span>
+  <div class="src deva" lang="sa">तन्त्रान्तरेष्वनुपपादितमर्थजातं यत्सिद्धवद्व्यवहृतं ध्वनितं च भाष्ये । तस्य प्रसाधनमिह क्रियते नयोक्त्या बालप्रियेण मृदुवादकथापथेन ॥</div>
+  <div class="tr">他の学説体系では論証されていないのに、注釈書（<i>bhāṣya</i>）の中では既に成り立ったものとして扱われ、あるいは暗に示されている一群の事柄がある。ここでは、初学者に好まれる、穏やかな論議（<i>vāda</i>）という対論の道によって、道理を述べながらそれを論証する。</div><div class="exp"><span class="lbl">解説</span><p>「注釈書」が何を指すかは偈の中では言われていません。第1論で立論者が「Śrīkaṇṭha の説に従う者」とされていることから、Śrīkaṇṭha の『ブラフマ・スートラ』注（Appayya 自身が『シヴァールカマニ・ディーピカー』で復注した書）を指すと考えるのが自然です。ただし、Śrīkaṇṭha の注のどの箇所がマーサーグニホートラを扱うかは、この見本の範囲では確かめていません。</p><p>「論議」（<i>vāda</i>）は、インドの討論論で、真理を知ろうとする者同士の討論を言います。勝つための論争（<i>jalpa</i>）や、相手を崩すだけの論詰（<i>vitaṇḍā</i>）と区別されます。校訂者の Introduction は、本書の議論は実際には自説の確立を目指すので「ジャルパ」に近い、と述べています。「穏やかな」（<i>mṛdu</i>）「初学者に好まれる」という形容は、謙遜の定型と読めます。</p></div>
+</div>
+<div class="mula sutra" id="u2">
+  <span class="ref">185</span>
+  <div class="src deva" lang="sa">शेषीभवदपि भाष्ये सुमहति सत्रेऽग्निहोत्रमिव । स्वातन्त्र्येण प्रकरणमर्थप्रतिपादने समर्थमिदम् ॥</div>
+  <div class="tr">この論書（<i>prakaraṇa</i>）は、大部の注釈書に対しては従属的なものとなるが、それでも、きわめて大きなサットラ祭の中のアグニホートラのように、独立して意味を示すことができる。</div><div class="exp"><span class="lbl">解説</span><p>この比喩は第1論の主題を先取りしています。長期のソーマ祭（サットラ）の中で行われるアグニホートラは、サットラの一部です。それでも「アグニホートラ」という独立の祭式として働きうる。本書も、注釈書の補遺でありながら単独で読める、というわけです。</p><p>「従属的になる」（<i>śeṣībhavat</i>）の <i>śeṣa</i> も、「論書」と訳した <i>prakaraṇa</i> も、ミーマーンサーの術語です。<i>śeṣa</i> は主たるものに仕える補助要素、<i>prakaraṇa</i> は規定が置かれた「章節・文脈」を指します。第1論の対立点は、まさに「別の <i>prakaraṇa</i> に置かれた祭式は別の祭式か」という問題です。二つの語は掛詞として選ばれていると見てよいでしょう。</p></div>
+  <div class="nt">韻律は第一偈がヴァサンタティラカー、第二偈がアーリヤー。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>論題と疑い</h2><span class="sub"><span class="pg">p.185</span>一か月のアグニホートラは、常規のアグニホートラと別の祭式か</span></div>
+<p>ミーマーンサーの論題（<i>adhikaraṇa</i>）は、まず規定文を挙げ、それについて疑い（<i>saṃśaya</i>）を立てるところから始まります。本書もこの型に従います。</p>
+<div class="mula" id="u3">
+  <span class="ref">185</span>
+  <div class="src deva" lang="sa">कुण्डपायिनामयनाख्ये सत्रे श्रूयते 'उपसद्भिश्चरित्वा मासमग्निहोत्रं जुहोति' इति । तन्मासाग्निहोत्रं नैयमिकाग्निहोत्राद्भिद्यते न वेति जरन्मीमांसकमतानुसारिणः पूर्वपक्षिणः श्रीकण्ठाचार्यमतानुसारिणः सिद्धान्तिनश्च विप्रतिपत्त्या संशये सति, सिद्धान्तमतानुसारिणो वादिनः प्रथमा कक्ष्या—</div>
+  <div class="tr">「クンダパーインの行程」（<i>kuṇḍapāyinām ayana</i>）というサットラ祭において、「ウパサドを行い終えてから、一か月間アグニホートラを献供する」と聞かれる。この一か月のアグニホートラは、常規のアグニホートラと別のものか、そうでないか。古いミーマーンサー学者の説に従う前主張者と、Śrīkaṇṭha 師の説に従う定説論者とが見解を異にするので、疑いが生じる。そこで、定説に従う立論者の第1段——</div><div class="exp"><span class="lbl">解説</span><p><strong>祭式の背景。</strong>アグニホートラは、家長が生涯毎日、朝と夕に火へ乳を献じる祭式です。本文はこれを「常規の」（<i>naiyamika</i>）アグニホートラと呼びます。一方「クンダパーインの行程」は、複数の祭官が全員祭主となって長期間行うソーマ祭（サットラ）の一つです。その中で、ウパサド（ソーマ圧搾に先立つ数日間の儀礼）のあとに、一か月間アグニホートラを行うよう規定されています。</p><p><strong>何が問題か。</strong>ジャイミニの『ミーマーンサー・スートラ』第2章は、祭式どうしの別異（<i>karmabheda</i>）を決める規準を論じます。その一つが「別の章節（<i>prakaraṇāntara</i>）に置かれていること」です。本書と同じ巻に収められた『プールヴァミーマーンサー・ヴィシャヤ・サングラハ・ディーピカー』も、第2章の要約で「別の章節によって、常規のアグニホートラからマーサーグニホートラが別であること」を挙げています（p.503）。つまり、従来のミーマーンサーでは「別の祭式」が定説でした。本書の「古いミーマーンサー学者」（<i>jaranmīmāṃsaka</i>）はこの立場を指します。</p><p>これに対し本書は、Śrīkaṇṭha の説に従う者を「定説論者」とし、「別ではない」という側に立ちます。ミーマーンサー内部では前主張だった側を、ヴェーダーンタの注釈家に依拠して定説に据え直すわけで、書名の「前後ミーマーンサー」がよく表れています。</p></div>
+  <div class="nt">立論者（<i>vādin</i>）は定説論者、反論者（<i>prativādin</i>）は前主張者。以下、奇数段が立論者、偶数段が反論者の段になる。</div>
+</div>
+<div class="talk">
+  <div class="row v"><div class="who">立論者<i>vādin</i></div><div class="say">マーサーグニホートラは常規のアグニホートラと<strong>別ではない</strong>（Śrīkaṇṭha 説）。</div></div>
+  <div class="row j"><div class="who">反論者<i>prativādin</i></div><div class="say">マーサーグニホートラは常規のアグニホートラと<strong>別である</strong>（古いミーマーンサー学者の説）。</div></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第1段：立論</h2><span class="sub"><span class="pg">pp.185–186</span>「アグニホートラ」の名が規定文で聞かれるから、同じ祭式である</span></div>
+<p>立論者の最初の推論式は単純です。「アグニホートラ」という名が規定文の中で使われているのだから同じ祭式だ、と言います。議論の中心は、論証因に付けた限定語「規定文で聞かれる」がなぜ必要か、の説明です。</p>
+<div class="mula" id="u4">
+  <span class="ref">185</span>
+  <div class="src deva" lang="sa">मासाग्निहोत्रं नैयमिकाग्निहोत्रान्न भिद्यते, विधिवाक्यश्रुताग्निहोत्रनामकत्वात् । यद्विधिवाक्यश्रुताग्निहोत्रनामकं न तन्नैयमिकाग्निहोत्राद्भिद्यते, यथा 'यवाग्वाग्निहोत्रं जुहोति' इति श्रुतं यवागूगुणकमग्निहोत्रम् ।</div>
+  <div class="tr">マーサーグニホートラは、常規のアグニホートラと別ではない。規定文で聞かれる「アグニホートラ」という名をもつからである。規定文で聞かれる「アグニホートラ」という名をもつものは、常規のアグニホートラと別ではない。たとえば、「粥（<i>yavāgū</i>）でアグニホートラを献供する」と聞かれる、粥を属性とするアグニホートラのように。</div><div class="exp"><span class="lbl">解説</span><p>ここで使われているのは、新ニヤーヤの推論式の形です。主張（マーサーグニホートラは別ではない）、論証因（規定文で聞かれる名をもつから）、遍充（そういうものは別ではない）、喩例（粥のアグニホートラ）が並びます。</p><p>喩例の「粥のアグニホートラ」は、常規のアグニホートラの献供物を乳から粥に替える規定です。献供物という<strong>属性</strong>（<i>guṇa</i>）が替わるだけで、祭式は同じアグニホートラだと双方が認めています。だから喩例として使えるのです。</p></div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">185</span>
+  <div class="src deva" lang="sa">अत्र वैश्वानरविद्याङ्गभूते प्राणाहुतिकर्मणि 'स य इदमविद्वानग्निहोत्रं जुहोति यथाङ्गारानपोह्य भस्मनि जुहुयात्तादृक् तत्स्यात्' इत्यर्थवादश्रुताग्निहोत्रनामके व्यभिचारवारणार्थं विधिवाक्यश्रुतेति हेतुविशेषणम् ।</div>
+  <div class="tr">ここで「規定文で聞かれる」という論証因の限定語は、逸脱を防ぐためのものである。ヴァイシュヴァーナラ念想の一部である「生気への献供」（<i>prāṇāhuti</i>）の行為は、「これを知らずにアグニホートラを献供する者は、炭火を取りのけて灰に献供するのと同じことになろう」という<strong>釈義文</strong>（<i>arthavāda</i>）の中で「アグニホートラ」の名で呼ばれている。（限定語がなければ）そこで逸脱が生じるからである。</div><div class="exp"><span class="lbl">解説</span><p>『チャーンドーギヤ・ウパニシャッド』第5章のヴァイシュヴァーナラ念想では、食事の最初の数口を自分の生気（プラーナ）に献じる行為が「アグニホートラ」と呼ばれます。引用はその一節です（ChU 5.24.1）。生気への献供は火に献じる常規のアグニホートラとは明らかに別の行為です。だから「アグニホートラという名をもつから」とだけ言うと、論証因はあるのに所証（別ではない）がない例ができてしまいます。これが「逸脱」（<i>vyabhicāra</i>）です。</p><p>ただしこの文は、行為を命じる<strong>規定文</strong>（<i>vidhi</i>）ではなく、知の功徳を称える<strong>釈義文</strong>（<i>arthavāda</i>）です。そこで「規定文で聞かれる」と限定すれば、この例は外れます。</p></div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">185–186</span>
+  <div class="src deva" lang="sa">तथा च विधिवाक्यश्रुतत्वविशिष्टं यदग्निहोत्रनाम तद्विषयत्वादिति हेतोरर्थः । तेन अर्थवादश्रुतं यदग्निहोत्रनाम तदेव विधिवाक्येष्वपि श्रुतमिति तदुपलक्षितत्वमादाय व्यभिचारतादवस्थ्यमिति शङ्काया नावकाशः । यद्वा अग्निहोत्रनामसमानाधिकरणविध्युद्देशश्रुतजुहोतिविषयत्वादिति हेतुः ।</div>
+  <div class="tr">したがって論証因の意味は、「規定文で聞かれることによって限定された『アグニホートラ』という名の対象であるから」ということである。それゆえ、次のような疑いの余地はない。「釈義文で聞かれる『アグニホートラ』という名は、まさにそのまま規定文でも聞かれる。だから、その（規定文で聞かれる名）によって指し示されていることを取れば、逸脱は依然として残る」。あるいは、論証因は「『アグニホートラ』という名と同格の、規定文の主題部で聞かれる『献供する』（<i>juhoti</i>）の対象であるから」としてもよい。</div><div class="exp"><span class="lbl">解説</span><p>予想される揚げ足取りを先に封じています。「アグニホートラ」という語そのものは規定文にも釈義文にも出てくる。だから「規定文で聞かれる名」は、釈義文で使われた場合にも「同じ名」として当てはまってしまうのではないか、という疑いです。</p><p>立論者は、論証因を「規定文で聞かれる、という限定を帯びた名の<strong>対象</strong>であること」と精密に言い直します。生気への献供は、規定文の中の「アグニホートラ」の対象ではありません。</p><p>代案の論証因は、名詞ではなく動詞に目を向けます。「アグニホートラを献供する」の「献供する」（<i>juhoti</i>）が、規定文の主題部（<i>uddeśa</i>）でアグニホートラの名と同格に使われ、マーサーグニホートラがその対象になっている、という言い方です。</p></div>
+</div>
+<div class="mula" id="u7">
+  <span class="ref">186</span>
+  <div class="src deva" lang="sa">न च आधानाङ्गे तूष्णीहोमे पुनराधानाङ्गसप्तवतीहोमे प्रवर्ग्याङ्गघर्मशेषहोमे च व्यभिचारः, तेषां 'ततस्तूष्णीमग्निहोत्रं जुहोति' 'सप्त ते अग्ने समिधः सप्त जिह्वा इत्यग्निहोत्रं जुहोति' 'एतस्मादेव घर्मशेषादुपयमनेनाग्निहोत्रं जुहोति' इति विधिवाक्यश्रुताग्निहोत्रनामकत्वात्, तत्समानाधिकरणविधिवाक्यश्रुतजुहोतिधातुविषयत्वाच्चेति वाच्यम् । तेष्वपि उक्तसाध्याभ्युपगमेन तेषां पक्षसमत्वादिति ।</div>
+  <div class="tr">また、次のように言ってはならない。「設火祭（<i>ādhāna</i>）の一部である無言の献供、再設火祭の一部である七の語を含む（<i>saptavatī</i>）献供、プラヴァルギャの一部である熱乳の残りの献供で逸脱が生じる。それらは、『それから無言でアグニホートラを献供する』『〈アグニよ、汝に七つの薪、七つの舌あり〉と唱えてアグニホートラを献供する』『まさにこの熱乳の残りから、受け匙でアグニホートラを献供する』という規定文で聞かれる『アグニホートラ』の名をもち、またそれと同格の、規定文で聞かれる『献供する』の語根の対象でもあるからだ」と。それらについても（常規のアグニホートラと別ではないという）先の所証を認めるので、それらは主題と同列（<i>pakṣasama</i>）だからである。</div><div class="exp"><span class="lbl">解説</span><p>規定文の中で「アグニホートラを献供する」と言われながら、別の祭式の一部として行われる献供が三つ挙げられます。設火祭、再設火祭、プラヴァルギャ（熱した乳を献じる儀礼）の中の献供です。これらが常規のアグニホートラと別なら、論証因はあるのに所証がない反例になります。</p><p>立論者の答えは、反例ではなく「主題と同列」だ、というものです。これらもマーサーグニホートラと同じく、常規のアグニホートラと別ではないと主張する。つまり、まだ結論が決まっていない、主題の側に入る例なので、逸脱の証拠には使えない、という答えです。</p></div>
+  <div class="nt">「प्रवर्याङ्ग」を「प्रवर्ग्याङ्ग」、「विधिवाक्यश्रुताग्रिहोत्र」を「…ग्निहोत्र」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>第2段：反論</h2><span class="sub"><span class="pg">pp.186–188</span>名の同一は決め手にならない。限定語を重ねた逆の推論式</span></div>
+<p>反論者は二つのことをします。まず、立論者の論証因には「反対の場合を退ける推論」（<i>vipakṣabādhakatarka</i>）がないので決め手にならない、と批判します。次に、逆の結論を導く推論式を出します。その論証因には限定語がいくつも付き、本文の大半はそれぞれの限定語の必要性の説明に充てられます。</p>
+<div class="mula" id="u8">
+  <span class="ref">186</span>
+  <div class="src deva" lang="sa">विपक्षबाधकतर्काभावात् अप्रयोजकोऽयं हेतुः नोक्तसाध्यसाधनक्षमः ; 'प्रायणीयोऽतिरात्रः' इति द्वादशाहिके प्रथमेऽहनि श्रुतस्य प्रायणीयनाम्नः गावामयनिके च प्रथमेऽहनि 'वैश्वानरो ज्योतिष्टोमः प्रायणीयमेतदहर्भवति ज्योतिरेव पुरस्ताद्दधते' इति श्रवणेन नामाभेदे सत्यपि कर्मभेदस्याभ्युपगततया नामैक्यस्य तदैक्याप्रयोजकत्वात् ।</div>
+  <div class="tr">この論証因は、反対の場合を退ける推論（<i>tarka</i>）を欠くので、決め手にならず（<i>aprayojaka</i>）、先の所証を論証することはできない。「プラーヤニーヤはアティラートラである」として十二日祭の初日に聞かれるプラーヤニーヤという名は、「牛の行程」の初日についても「ヴァイシュヴァーナラというジョーティシュトーマ、これがプラーヤニーヤの日となる。（それによって）光を前に置くのである」と聞かれる。このように名が同じであっても祭式は別だと認められているので、名が一つであることは、それ（祭式）が一つであることの決め手にはならないからである。</div><div class="exp"><span class="lbl">解説</span><p>「決め手にならない」（<i>aprayojaka</i>）は、新ニヤーヤの論証批判の用語です。論証因と所証のあいだに必然的な結びつきがあることを示す推論（「もし所証がなければ、こういう不都合が起こる」）が示されていない、という批判です。</p><p>反例として挙げられるのは「プラーヤニーヤ」（開始の日）という名です。</p>
+  <div class="tbl"><table><thead><tr><th>祭</th><th>初日の名</th><th>その日の祭式</th></tr></thead><tbody>
+  <tr><td class="k">十二日祭<span class="sm ia">dvādaśāha</span></td><td>プラーヤニーヤ</td><td>アティラートラ（夜通しのソーマ祭）</td></tr>
+  <tr><td class="k">牛の行程<span class="sm ia">gavām ayana</span></td><td>プラーヤニーヤ</td><td>ヴァイシュヴァーナラという名のジョーティシュトーマ</td></tr>
+  </tbody></table></div>
+  <p>同じ名で呼ばれても、中身は別の祭式です。だから「同じ名だから同じ祭式」は成り立たない、というわけです。第3段で立論者はこの例に反論します。</p></div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">186</span>
+  <div class="src deva" lang="sa">तस्मान्मासाग्निहोत्रं नैयमिकाग्निहोत्राद्भिद्यते, नैयमिकाग्निहोत्रहोमविध्यसंनिहितानेकाविषयकस्वाभिधेयानङ्गनामार्थसंक्रान्तिरहितविधिपरजुहोतिविषयत्वात्—यदुक्तसाधनवत् तदुक्तसाध्यवत्, यथा 'सप्तवत्या पूर्णाहुतिं जुहोति' इति विहितं पूर्णाहुतिकर्म ।</div>
+  <div class="tr">したがって、マーサーグニホートラは常規のアグニホートラと別である。それは次のような「献供する」（<i>juhoti</i>）の対象だからである。すなわち、（1）常規のアグニホートラの献供の規定の近くにはなく、（2）多くのものを対象とせず、（3）規定を目指し、（4）その規定は、自分の表すもの（献供）の補助ではない「名の意味」に移っていない。先に述べた論証因をもつものは、先に述べた所証をもつ。たとえば、「七の語を含む（詩句）でプールナーフティを献供する」と規定されたプールナーフティの行為のように。</div><div class="exp"><span class="lbl">解説</span><p>反論者の推論式です。論証因は一語の長大な複合語で、「献供する」という動詞に四つの限定（訳では番号を付けた）がかかっています。この後の本文は、限定語を一つずつ取り上げ、それがないとどの例で逸脱が起こるかを示していきます。下の表にまとめました。</p><p>喩例の「プールナーフティ」（満杓の献供）は、設火祭などで行う別個の献供で、常規のアグニホートラと別であることに争いはありません。</p></div>
+  <div class="nt">「…अनङ्गनांमार्थ…」を「…अनङ्गनामार्थ…」と正した。番号（1）〜（4）は訳者が付けたもの。最終的な形（p.187）では、「名の意味」が「名だけによって提示される意味」に、「規定を目指す」が「称賛を介さずに働きをもつ」に言い換えられる。</div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">186</span>
+  <div class="src deva" lang="sa">तत्र यवागूगुणकाग्निहोत्रहोमे नैयमिकाग्निहोत्रप्रकरणपठितयवागूगुणविधिपरजुहोतिविषये व्यभिचारवारणार्थं नैयमिकाग्निहोत्रहोमविध्यसंनिहितेति विशेषणम् ।</div>
+  <div class="tr">そのうち「常規のアグニホートラの献供の規定の近くにはない」という限定語は、粥を属性とするアグニホートラの献供で逸脱が起こるのを防ぐためのものである。それは、常規のアグニホートラの章節で読まれる、粥という属性の規定を目指す「献供する」の対象だからである。</div><div class="exp"><span class="lbl">解説</span><p>第1段で立論者が喩例に使った「粥のアグニホートラ」が、ここでは反論者の側の除外例になります。粥の規定は常規のアグニホートラと同じ章節にあり、常規のアグニホートラそのものを指すので「別」ではありません。「規定の近くにはない」の限定で、これを外します。</p></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref">186</span>
+  <div class="src deva" lang="sa">नैयमिकाग्निहोत्रहोमः स्वविध्यसंनिहितस्य आहवनीयाख्यगुणविधिपरस्य 'यदाहवनीये जुहोति' इत्यनारभ्याधीतवाक्यश्रुतस्य जुहोतेर्विषयो भवन् न स्वस्माद्भिद्यत इति तत्र व्यभिचारवारणार्थम् अनेकाविषयकेति । आहवनीयवाक्यानुगतो जुहोतिधातुः नानाप्रकरणपठिताननारभ्याधीतांश्च सर्वानपि होमान् आहवनीयगुणविधानार्थमनुवदति—इत्यनेकविषयकत्वात् न व्यभिचारः ।</div>
+  <div class="tr">常規のアグニホートラの献供は、「アーハヴァニーヤ（火）において献供する」という、章節を立てずに読まれる文で聞かれる「献供する」の対象である。この「献供する」は、自分（常規のアグニホートラ）の規定の近くにはなく、アーハヴァニーヤという属性の規定を目指している。それでも常規のアグニホートラが自分自身と別であることはない。そこで逸脱を防ぐために「多くのものを対象としない」と言う。アーハヴァニーヤの文に含まれる「献供する」の語根は、さまざまな章節で読まれるものも、章節を立てずに読まれるものも、すべての献供を、アーハヴァニーヤという属性を規定するために言い直している。このように多くのものを対象とするので、逸脱はない。</div><div class="exp"><span class="lbl">解説</span><p>「章節を立てずに読まれる」（<i>anārabhyādhīta</i>）は、特定の祭式の章節に属さない一般的な規定のことです。「献供はアーハヴァニーヤ火で行う」は、あらゆる献供に通じる規定です。そこでの「献供する」は常規のアグニホートラの規定の近くにはないので、限定（1）だけでは常規のアグニホートラ自身が反例になってしまいます。しかしこの「献供する」はすべての献供を対象にしているので、「多くのものを対象としない」と加えれば外れます。</p></div>
+</div>
+<div class="mula" id="u12">
+  <span class="ref">186–187</span>
+  <div class="src deva" lang="sa">'य एवं विद्वानग्निहोत्रं जुहोति यावदग्निष्टोमेनोपाप्नोति तावदुपाप्नोति'—इत्यर्थवादे श्रुतस्य नैयमिकाग्निहोत्रहोमविध्यसंनिहितस्य होमान्तराविषयस्य जुहोतेर्विषयो भवति नैयमिकाग्निहोत्रम् ; अतस्तत्र पुनरपि व्यभिचारः स्यात्; तद्वारणार्थं विधिपरेति विशेषणम् । न च अर्थवादस्थजुहोतेरपि विधौ तात्पर्यमस्ति, अर्थवादानां यत्किंचिद्विध्येकवाक्यतां विना प्रामाण्याभावादिति शङ्क्यम् ; विधिपरशब्देन स्तुतिद्वारानपेक्षविध्यर्थत्वस्य विवक्षितत्वात् ।</div>
+  <div class="tr">「このように知ってアグニホートラを献供する者は、アグニシュトーマによって得るだけのものを得る」という釈義文で聞かれる「献供する」は、常規のアグニホートラの献供の規定の近くにはなく、他の献供を対象としない。常規のアグニホートラはその対象である。それゆえそこでまた逸脱が起こるであろう。それを防ぐために「規定を目指す」という限定語がある。また、「釈義文の中の『献供する』も規定を目指している。釈義文は何らかの規定と一つの文をなさなければ権威をもたないから」と疑うべきではない。「規定を目指す」という語では、称賛を介さずに規定を意味とすることが意図されているからである。</div><div class="exp"><span class="lbl">解説</span><p>ミーマーンサーでは、釈義文は単独では権威をもたず、規定文と結びついて「その行為は良いものだ」と称える働きをすることで意味をもちます。だから広い意味では、釈義文も規定を目指している、と言えなくもない。反論者は、ここで言う「規定を目指す」は、称賛を介さずに直接規定する、という意味だと限定します。</p></div>
+  <div class="nt">「विषयम्य」を「विषयस्य」、「शङ्कयम्」を「शङ्क्यम्」と正した。</div>
+</div>
+<div class="mula" id="u13">
+  <span class="ref">187</span>
+  <div class="src deva" lang="sa">'अमावास्यायां रात्रौ स्वयं यजमानो यवाग्वाग्निहोत्रं जुहोति' इत्युक्तरूपजुहोतिविषये नैयमिकाग्निहोत्रे व्यभिचारवारणाय स्वाभिधेयानङ्गसंक्रान्तिरहितेति विधिविशेषणम् । तेन भवति व्यभिचारनिरासः ; तस्मिन्वाक्ये श्रुतस्य विधेरग्निहोत्रहोमानङ्गामावस्यार्थदधिप्रयुक्तयवागूसंक्रान्तत्वात् ।</div>
+  <div class="tr">「新月の夜には、祭主が自ら粥でアグニホートラを献供する」という、先に述べた性格の「献供する」の対象である常規のアグニホートラで逸脱が起こるのを防ぐために、規定に「自分の表すものの補助ではないものに移っていない」という限定語が付く。これによって逸脱が除かれる。その文で聞かれる規定は、粥へと移っているからである。その粥は、アグニホートラの献供の補助ではなく、新月祭のための凝乳によって必要になったものである。</div><div class="exp"><span class="lbl">解説</span><p>新月の夜には、牛の乳を翌日の新月祭の凝乳を作るのに使うので、アグニホートラには乳が使えません。そこで粥で代える規定がある、という背景です。この粥は、アグニホートラそのものの都合ではなく、新月祭の凝乳の都合で持ち込まれます。この文の規定の力は「献供する」よりも「粥で」の方に移っている（<i>saṃkrānta</i>）のです。だから「献供の補助ではないものに移っていない」と限定すれば、この例は外れます。</p></div>
+  <div class="nt">「इत्यउक्तरूप」を「इत्युक्तरूप」と正した。</div>
+</div>
+<div class="mula" id="u14">
+  <span class="ref">187</span>
+  <div class="src deva" lang="sa">एवं सति हेतोः स्वरूपासिद्धिः स्यात्, मासाग्निहोत्रविधेः जुहोत्यभिधेयानङ्गतत्करणकाख्यातार्थभावनासंक्रान्तिसत्त्वादिति । तद्वारणाय नामार्थविशेषणम् । नामार्थत्वमिह नाममात्रसमर्पितत्वं विवक्षितम् । अतो जुहोत्यभिधेयो होमः स्वस्य स्वयमङ्गम् अग्निहोत्रनामार्थश्च भवतीति विधेस्तत्रापि संक्रान्तिसत्त्वात् स्वरूपासिद्धितादवस्थ्यमिति शङ्काया नावकाशः ।</div>
+  <div class="tr">そうすると、論証因が主題そのものに成り立たない（<i>svarūpāsiddhi</i>）ことになろう。マーサーグニホートラの規定は、動詞語尾の意味である「促し」（<i>bhāvanā</i>）に移っているからである。その促しは、献供を手段とし、「献供する」が表すもの（献供）の補助ではない。それを防ぐために「名の意味」という限定語がある。ここで「名の意味であること」とは、名だけによって提示されることを意味する。それゆえ、次のような疑いの余地はない。「『献供する』が表す献供は、自分自身にとって自分の補助であり、また『アグニホートラ』という名の意味でもある。だからそこでも規定が移っていることになり、不成立はやはり残る」。</div><div class="exp"><span class="lbl">解説</span><p>限定（4）をそのままにしておくと、今度は反論者自身の主題で論証因が成り立たなくなります。ミーマーンサーでは、どんな規定の力も最終的には動詞語尾の表す「促し」（<i>bhāvanā</i>、行為へ人を向かわせる働き）に向かうからです。そこで、移っていてはならない先を「名だけによって示される意味」に絞ります。</p><p>最後の疑いは、「献供はそれ自身の補助であり、かつ『アグニホートラ』という名の意味でもあるから、やはり移っているのでは」というものです。「名だけによって」示されるものに限るので、動詞も表している献供は外れる、と答えています。</p></div>
+  <div class="nt">「स्वरूपासिद्धितावस्थ्य」を「स्वरूपासिद्धितादवस्थ्य」と正した。</div>
+</div>
+<div class="mula" id="u15">
+  <span class="ref">187</span>
+  <div class="src deva" lang="sa">तथा च नैयमिकाग्निहोत्रहोमविध्यसंनिहितानेकाविषयकस्वाभिधेयानङ्गनाममात्रसमर्पितार्थसंक्रान्तिरहितविधानविषयकस्तुतिद्वारानपेक्षोपयोगवज्जुहोतिधातुविषयत्वात्—इति हेत्वर्थनिष्कर्षः ।</div>
+  <div class="tr">こうして、論証因の意味を精確にすると次のようになる。「（マーサーグニホートラは）次のような『献供する』の語根の対象であるから。すなわち、常規のアグニホートラの献供の規定の近くにはなく、多くのものを対象とせず、自分の表すものの補助ではない、名だけによって提示される意味へと移っていない規定を内容とし、称賛を介さずに働きをもつ（語根である）」。</div><div class="exp"><span class="lbl">解説</span><p>ここまでの限定語の吟味をまとめた、論証因の最終形です。限定語と、それぞれが除外する例を表にしておきます。</p></div>
+</div>
+<div class="tbl min">
+  <table>
+    <thead><tr><th>限定語</th><th>なければ反例になるもの</th><th>なぜ外れるか</th></tr></thead>
+    <tbody>
+      <tr><td class="k">（1）常規の規定の近くにない<span class="sm ia">vidhyasaṃnihita</span></td><td>粥のアグニホートラ</td><td>常規のアグニホートラの章節の中の規定</td></tr>
+      <tr><td class="k">（2）多くのものを対象としない<span class="sm ia">anekāviṣayaka</span></td><td>「アーハヴァニーヤで献供する」</td><td>あらゆる献供に通じる規定</td></tr>
+      <tr><td class="k">（3）規定を目指す<span class="sm ia">vidhipara</span></td><td>「このように知ってアグニホートラを献供する者は…」</td><td>称賛を介して働く釈義文</td></tr>
+      <tr><td class="k">（4）補助でないものに移っていない<span class="sm ia">svābhidheyānaṅgasaṃkrāntirahita</span></td><td>新月の夜の粥のアグニホートラ</td><td>規定の力が、新月祭の都合で持ち込まれた粥に移っている</td></tr>
+      <tr><td class="k">（4′）「名だけによって提示される」意味<span class="sm ia">nāmamātrasamarpita</span></td><td>（反論者の主題そのもの）</td><td>これがないと、規定が「促し」に移るので主題に論証因がなくなる</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="mula" id="u16">
+  <span class="ref">187</span>
+  <div class="src deva" lang="sa">यद्युच्येत—यवागूविधिः नातञ्चनार्थः, किं तु 'नास्यैतां रात्रिं कुमाराः अपि पयसो लभन्ते' इत्यस्य दृष्टार्थत्वलाभाय सर्वस्यापि यजमानगवीनां पयसो दार्शिकदध्यर्थत्वेन विनियोक्तव्यत्वात्, अग्निहोत्रस्य पयोऽभावेन दधितण्डुलयवाग्वादियत्किंचिद्विकल्पितद्रव्यान्तरग्रहणे प्राप्ते, यवागूनियमार्थः ;</div>
+  <div class="tr">もし次のように言われるとしよう。「粥の規定は凝乳を作るため（<i>ātañcana</i>）のものではない。そうではなく、『この夜には、彼の子供たちでさえ乳を得られない』という文に、目に見える目的をもたせるために、祭主の牝牛の乳はすべて新月祭の凝乳に充てるべきである。そうするとアグニホートラには乳がないので、凝乳・米・粥など、選択的に認められた別の献供物のどれかを取ることになる。そこで（粥の規定は）粥に限定するためのものである。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、自分の推論式に対して予想される異論を取り上げ、論証因を作り直す準備をします。異論は、新月の夜の粥の規定の役割の理解を改めるものです。粥は凝乳のために必要になったのではない。乳が使えないので代用品の選択肢が開かれ、その中から粥に絞る「限定の規定」（<i>niyama</i>）だ、と言います。そうだとすると、限定（4）でこの例を外すことはできなくなります。</p></div>
+  <div class="nt">この異論の終わりは次のブロックの「…तदा」（そのときは）までかかる。</div>
+</div>
+<div class="mula" id="u17">
+  <span class="ref">187</span>
+  <div class="src deva" lang="sa">'यवाग्वैतां रात्रिमग्निहोत्रं जुहोति' इति 'आदिष्टं वा इदं देवतायै हविर्गृहीतं भवति यत्पयः यद्धि पयसा जुहुयाद्यथान्यस्यै देवतायै हविर्गृहीतं तदन्यस्यै जुहुयादेवं ह तं समदं कुर्यात् तस्माद्यवाग्वैतां रात्रिमग्निहोत्रं जुहोति' इति शतपथब्राह्मणदर्शनात् । गृहमेधीयेष्टौ आतञ्चनाभावेऽपि 'सर्वासां दुग्धे सायं चरुम्' इति सर्वस्य यजमानगवीनां पयसो गृहमेधीये विनियुक्ततया अग्निहोत्रस्य पयोऽभावेनैव 'यवाग्वैतां रात्रिमग्निहोत्रं जुहोति' इति शतपथब्राह्मण एव विधानाच्च । तथा च उदाहृतयवागूविधिविषये व्यभिचारतादवस्थ्यमिति—</div>
+  <div class="tr">というのも、『シャタパタ・ブラーフマナ』に次の文が見られるからである。「この夜には粥でアグニホートラを献供する」。「乳は神格のために取り分けられた献供物である。もし乳で献供すれば、ある神格のために取り分けた献供物を別の神格に献供するようなものだ。そうすれば彼は神と争いを起こすことになろう。だからこの夜には粥でアグニホートラを献供する」。また、凝乳を作らないグリハメーディーヤ祭でも、「すべての（牝牛の乳を）夕方に搾って粥飯（<i>caru</i>）を」という規定で祭主の牝牛の乳がすべてグリハメーディーヤ祭に充てられる。そのためアグニホートラに乳がないので、同じ『シャタパタ・ブラーフマナ』で「この夜には粥でアグニホートラを献供する」と規定されている。そうすると、先に挙げた粥の規定の場合に、逸脱は依然として残る」——</div><div class="exp"><span class="lbl">解説</span><p>異論の典拠です。粥を使う理由は「乳がほかの神格のために取り分けられているから」と説明されます。凝乳とは関係ありません。その証拠に、凝乳を作らないグリハメーディーヤ祭（四月祭の一部）でも、乳がほかに充てられる夜には同じ粥の規定がある、と言います。</p></div>
+  <div class="nt">「हविगृहीतं」を「हविर्गृहीतं」と正した（二箇所）。</div>
+</div>
+<div class="mula" id="u18">
+  <span class="ref">187</span>
+  <div class="src deva" lang="sa">तदा, नैयमिकाग्निहोत्रप्रकरणानाम्नातविधिगोचरत्वादिति हेतुः कार्यः। आहवनीयादिवाक्येषु विधेर्गुणसंक्रान्तत्वान्न व्यभिचारः ।</div>
+  <div class="tr">そのときは、「常規のアグニホートラの章節で唱えられていない規定の対象であるから」という論証因を立てるべきである。アーハヴァニーヤなどの文では、規定は属性（アーハヴァニーヤ）に移っているので、逸脱はない。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、長い論証因を捨てて、もっと簡潔な論証因に替えます。「常規のアグニホートラの章節の外にある規定の対象であるから」。従来のミーマーンサーの「別の章節にあるから別」という規準を、そのまま論証因にした形です。「アーハヴァニーヤで献供する」も章節の外にあります。しかしその規定は献供ではなく「アーハヴァニーヤで」という属性を命じているので、献供はその規定の対象にならない、と説明します。</p></div>
+</div>
+<div class="mula" id="u19">
+  <span class="ref">187–188</span>
+  <div class="src deva" lang="sa">एवमपि अश्वमेधसंकल्पानन्तरं दीक्षणीयायाः प्राग्रात्रौ वाग्यमं विधाय श्रुते 'वाग्यतस्यैतां रात्रिमग्निहोत्रं जुहोति' इति प्रातरग्निहोत्रस्य रात्रावुषःकाले अपकर्षविधौ व्यभिचारः स्यात्, कालस्य गुणस्यापि अनुपादेयस्य विधानायोगेन कालमुद्दिश्य होमस्य विधेयत्वादिति । तदा नैयमिकाग्निहोत्रप्रकरणानाम्नातहोमानुष्ठापकविधिगोचरत्वादिति वा, उभयसिद्धनैयमिकाग्निहोत्रविषयविधिभिन्नविधिगोचरत्वादिति वा हेतुर्द्रष्टव्यः ।</div>
+  <div class="tr">それでもなお、次のような逸脱があろう。アシュヴァメーダ祭の決意の後、ディークシャニーヤ（入門儀礼）の前の夜に言葉の制御を規定してから、「言葉を制した者は、この夜にアグニホートラを献供する」と聞かれる。これは朝のアグニホートラを夜の暁の時刻に繰り上げる規定である。時は属性であっても取り扱いうるものではないので規定できず、時を主題として献供が規定されるからである。そのときは、論証因は「常規のアグニホートラの章節で唱えられていない、献供を実行させる規定の対象であるから」とするか、あるいは「双方が認める、常規のアグニホートラを対象とする規定とは別の規定の対象であるから」と見るべきである。</div><div class="exp"><span class="lbl">解説</span><p>簡潔な論証因にも反例が見つかります。アシュヴァメーダ祭の準備で、朝のアグニホートラを暁前に繰り上げる規定です。この規定は章節の外にあり、しかも「時」は取り扱える物ではないので、規定の対象は献供そのものになります。それでも祭式は常規のアグニホートラのままです。</p><p>そこで反論者は二つの改訂案を出します。一つは「献供を<strong>実行させる</strong>規定」に限ること。繰り上げの規定は、すでに行うべき献供の時を動かすだけです。もう一つは、「常規のアグニホートラを対象とする規定」とは別の規定、と言うこと。何が常規のアグニホートラの規定かは双方が認めるもので定めます。</p></div>
+  <div class="nt">「वाग्यवतस्य」を「वाग्यतस्य」と正した。</div>
+</div>
+<div class="mula" id="u20">
+  <span class="ref">188</span>
+  <div class="src deva" lang="sa">अपकर्षार्थविधेः होमानुष्ठानार्थत्वाभावात् आद्यहेतोर्न व्यभिचारः । द्वितीयहेतौ संदिग्धसिद्धिवारणार्थम् उभयसिद्ध इति विशेषणम् । यद्वा स्वाभिधेयानङ्गेति विशेषणरहितः पूर्वहेतुरस्तु । तेन विशिष्टव्यतिरेकप्रयुक्तोद्भावितव्यभिचारशङ्काया नावकाशः । प्राक् त्विदं दत्वा इदं देयमिति मते, विशिष्टव्यतिरेको भिन्न इति मते च वैयर्थ्यं नास्तीति यवाग्वाः शतपथब्राह्मणसिद्धहोमाङ्गत्वपक्षप्रसञ्जनावकाशलाभाय तद्विशेषणमुक्तम् । अत्रापि अपकर्षविधौ व्यभिचारः समान इति अनुपदोक्तावेव हेतू ग्राह्यौ ॥</div>
+  <div class="tr">繰り上げのための規定は献供を実行させることを目的としないので、第一の論証因に逸脱はない。第二の論証因で「双方が認める」という限定語は、成立が疑わしい（論証因になる）のを防ぐためである。あるいは、「自分の表すものの補助ではない」という限定語を除いた先の論証因でもよい。そうすれば、限定されたものの否定から生じるとして指摘された逸脱の疑いの余地はない。ただし、「まずこれを与えてからこれを与えるべきだ」という説や、「限定されたものの否定は（単なるものの否定と）別だ」という説によれば、（その限定語は）無駄ではない。だから、粥が『シャタパタ・ブラーフマナ』によって献供の補助として成り立つという立場を持ち出す余地を得るために、その限定語が述べられたのである。ここでも繰り上げの規定で逸脱は同じく起こるので、すぐ前に述べた二つの論証因をこそ採るべきである。</div><div class="exp"><span class="lbl">解説</span><p>反論者の段の締めくくりです。結論として、繰り上げの規定にも耐えられる、直前の二つの論証因を採ります。</p><p>途中の「限定語を除いた先の論証因でもよい」以下は、限定（4）の「補助ではない」が本当に必要かどうかの技術的な議論です。新ニヤーヤで、限定語が余分なときは論証因の欠陥（<i>vyarthaviśeṣaṇa</i>、無駄な限定語）とされるかどうか、に関わります。この部分の訳は試訳で、特に「まずこれを与えてからこれを与えるべきだ」という説が何を指すのかは確かめられていません。</p></div>
+  <div class="nt">この段落の後半は文意が取りにくく、訳は暫定的。</div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>第3段：再反論</h2><span class="sub"><span class="pg">pp.188–189</span>別だとすると「アグニホートラ」の語が本来の意味で働かなくなる</span></div>
+<p>立論者は、反論者が求めた「反対の場合を退ける推論」を出します。マーサーグニホートラが常規のアグニホートラと別だとすると、「アグニホートラ」という語がそこでどういう働きで使われているのか説明がつかない、という推論です。語の働き（<i>vṛtti</i>）の可能性を一つずつ消していく、典型的な消去法の議論です。</p>
+<div class="mula" id="u21">
+  <span class="ref">188</span>
+  <div class="src deva" lang="sa">यदुक्तं मदीयो हेतुरप्रयोजक इति, तत् तावत् दुरुक्तम्, मासाग्निहोत्रस्य नैयमिकाग्निहोत्रात् भेदे तद्विधिवाक्यश्रुताग्निहोत्रनामस्वारस्यभङ्गप्रसङ्गस्य विपक्षबाधकस्य सत्त्वात् ।</div>
+  <div class="tr">私の論証因は決め手にならない、と言われたが、それはまず誤りである。反対の場合を退けるもの（推論）があるからである。すなわち、マーサーグニホートラが常規のアグニホートラと別だとすれば、その規定文で聞かれる「アグニホートラ」という名の自然な意味（<i>svārasya</i>）が損なわれる、という不都合が生じる。</div><div class="exp"><span class="lbl">解説</span><p>第2段冒頭の「決め手にならない」という批判に正面から答えます。「もし所証（別ではない）が成り立たないなら、こういう不都合がある」という推論（<i>tarka</i>）を示せば、論証因と所証の結びつきは保証されます。示される不都合は、名がその自然な意味で使われなくなる、ということです。</p></div>
+</div>
+<div class="mula" id="u22">
+  <span class="ref">188</span>
+  <div class="src deva" lang="sa">तथाहि तस्य नैयमिकाग्निहोत्रात् भेदाभ्युपगमे, तस्मिन् अग्निहोत्रशब्दस्य मुख्यवृत्तिरिष्यते अमुख्या वा, आद्येऽपि अग्नये होत्रं होमद्रव्यम् अस्मिन् इति प्रतीतयोगरूपा, वाक्यप्रतीतिकल्प्या रूढिरूपा वा? नाद्यः, यथा नैयमिकाग्निहोत्रे 'यदग्नये च प्रजापतये च सायं जुहोति' इति तत्प्रकरणाम्नातेन देवताविधिना 'अग्निर्ज्योतिः' इति मन्त्रवर्णेन वा अग्निदेवत्यत्वमवगतम्—एवं मासाग्निहोत्रे केनचिदुपायेन तस्यानवगतत्वात् । न द्वितीयः, 'अन्याय्यश्चानेकार्थः' इति न्यायविरुद्धानेकार्थत्वकल्पनस्य अयुक्तत्वात् ।</div>
+  <div class="tr">すなわち、それ（マーサーグニホートラ）が常規のアグニホートラと別だと認めるなら、そこでの「アグニホートラ」という語には、本来の働き（<i>mukhyavṛtti</i>）を認めるのか、本来でない働きを認めるのか。前者の場合でも、「アグニのための献供物（<i>hotra</i>）がそこにある」と理解される語源的な（<i>yoga</i>）働きか、文の理解から想定される慣用的な（<i>rūḍhi</i>）働きか。前者ではない。常規のアグニホートラでは、その章節で唱えられる「アグニとプラジャーパティのために夕方に献供する」という神格の規定や、「アグニは光」という祭詞の文言によって、アグニを神格とすることが知られる。しかしマーサーグニホートラでは、どんな手段によってもそのことは知られないからである。後者でもない。「多義は道理に合わない」という原則に反して多義を想定するのは不当だからである。</div><div class="exp"><span class="lbl">解説</span><p>語の働きの分類は次の通りです。</p>
+  <div class="tbl"><table><thead><tr><th>働き</th><th>マーサーグニホートラに当てはめると</th><th>判定</th></tr></thead><tbody>
+  <tr class="grp"><td colspan="3">本来の働き（mukhyavṛtti）</td></tr>
+  <tr><td class="k">語源的<span class="sm ia">yoga</span></td><td>「アグニへの献供」と分解して読む。だが神格がアグニだと示す規定も祭詞もない</td><td><span class="pill j">不可</span></td></tr>
+  <tr><td class="k">慣用的<span class="sm ia">rūḍhi</span></td><td>常規のものとは別の祭式の名として、もう一つの意味を立てる。多義の想定になる</td><td><span class="pill j">不可</span></td></tr>
+  <tr class="grp"><td colspan="3">本来でない働き（amukhyavṛtti）</td></tr>
+  <tr><td class="k">転義<span class="sm ia">lakṣaṇā</span></td><td>常規のアグニホートラとの関係によって転用する（次のブロック）</td><td><span class="pill j">不可</span></td></tr>
+  <tr><td class="k">比喩<span class="sm ia">gauṇī</span></td><td>常規のアグニホートラとの類似によって転用する（次のブロック）</td><td><span class="pill g">きわめて無理</span></td></tr>
+  </tbody></table></div>
+  <p>「多義は道理に合わない」（<i>anyāyyaś cānekārthaḥ</i>）は、一つの語に複数の本来の意味を認めるのは最後の手段だ、というミーマーンサーの原則です。</p></div>
+  <div class="nt">「नाद्यः, द्यद्यः नैयमिकाग्निहोत्रे」の「द्यद्यः」は、後の「एवं」と対応させて「यथा」と読んだ（推定）。</div>
+</div>
+<div class="mula" id="u23">
+  <span class="ref">188</span>
+  <div class="src deva" lang="sa">न च अग्निदेवत्यत्वाभावेऽपि प्रातरग्निहोत्रे प्राणाहुतिकर्मणि च प्रवृत्तस्य तस्य अनेकार्थत्वकल्पनम् अवर्जनीयमिति वाच्यम्, 'अग्निहोत्रं जुहोति' इति वाक्योत्पन्नस्य एकस्यैव नैयमिकाग्निहोत्रहोमस्य 'सायं जुहोति' 'प्रातर्जुहोति' इति तत्प्रकरणाम्नातवाक्याभ्यां सायंप्रातःकालयोरभ्यासस्य चोदितत्वेन सायंहोमाभिन्ने प्रातर्होमेऽपि अग्निदेवत्यत्वसंभवात् ; प्राणाहुतिषु आर्थवादिकस्य अग्निहोत्रशब्दस्य अन्यदीयनाम्न एव सतः दर्शपूर्णमासयोरपामुत्सेके 'एष वै दर्शपूर्णमासयोरवभृथः' इत्यत्र अवभृथशब्दस्येव, प्रस्तरादिषु यजमानशब्दस्येव च औपचारिकत्वेन तासु वृत्त्यर्थं शक्तिकल्पनानपेक्षणात् ।</div>
+  <div class="tr">また、次のように言ってはならない。「アグニを神格としない朝のアグニホートラや生気への献供の行為にも、その語は使われている。だから多義の想定は避けられない」と。「アグニホートラを献供する」という文から生じた常規のアグニホートラの献供はただ一つであり、その章節で唱えられる「夕方に献供する」「朝に献供する」という二つの文によって、夕方と朝の時に繰り返すことが命じられている。だから、夕方の献供と別ではない朝の献供にも、アグニを神格とすることがありうるからである。また、生気への献供における「アグニホートラ」の語は釈義文のものであり、別のものの名である。それは、新・満月祭の水を注ぎ捨てる行為について「これがまさに新・満月祭の沐浴（<i>avabhṛtha</i>）である」と言う場合の「沐浴」の語や、敷き草の束などについての「祭主」の語と同じく、比喩的な用法である。だから、それらに適用するために（別の）表示力を想定する必要はないからである。</div><div class="exp"><span class="lbl">解説</span><p>「アグニホートラ」の語は、すでにアグニ以外を神格とする場合にも使われているのではないか、という反問への答えです。朝のアグニホートラの祭詞は「スーリヤは光」で、太陽神が神格です。立論者は、朝と夕は一つの祭式の繰り返しなので、全体としてアグニを神格とすると言える、と答えます。</p><p>生気への献供の方は、釈義文の中で別の行為を称えるために借りた名にすぎない、と処理します。比べられているのは、ソーマ祭の終わりの「沐浴」（<i>avabhṛtha</i>）の名を、新・満月祭の水の注ぎ捨てに転用する例です。もう一つは、敷き草の束（<i>prastara</i>）を「祭主」と呼ぶ例です。どちらも比喩であって、語の本来の意味を増やすものではありません。</p></div>
+</div>
+<div class="mula" id="u24">
+  <span class="ref">188–189</span>
+  <div class="src deva" lang="sa">द्वितीयपक्षे अमुख्या वृत्तिः लक्षणा गौणी वा ? नाद्यः, तन्मुख्यार्थभूतनैयमिकाग्निहोत्रसंबन्धानवगमात् । सत्रमध्ये कर्तव्यस्य मासाग्निहोत्रस्य 'न ददाति न जुहोति न पचति' इति सोमप्रयोगमध्ये पर्युदस्तेन तेन एककालत्वसंबन्धस्याप्यभावात् । गौण्यपि प्रसिद्धसादृश्यमूला न संभवति, मासाग्निहोत्रे तेन सह होमान्तरव्यावृत्तस्य अनत्यन्तबहिरङ्गस्य कस्यचित्सादृश्यस्य अप्रसिद्धत्वात् ।</div>
+  <div class="tr">第二の立場（本来でない働き）の場合、その本来でない働きは転義（<i>lakṣaṇā</i>）か、比喩（<i>gauṇī</i>）か。前者ではない。その本来の意味である常規のアグニホートラとの関係が知られないからである。マーサーグニホートラはサットラ祭の中で行うべきものである。一方それ（常規のアグニホートラ）は、「与えず、献供せず、煮炊きせず」によってソーマ祭の執行中には除外されている。だから同じ時に行うという関係さえないのである。比喩も、よく知られた類似にもとづくものはありえない。マーサーグニホートラには、それ（常規のアグニホートラ）と共通で、他の献供からは区別され、しかもまったく外的ではない、何らかの類似がよく知られていないからである。</div><div class="exp"><span class="lbl">解説</span><p>転義は、本来の意味と何らかの関係があるものに語を転用する働きです（「ガンガー（の岸）の村」の類）。ここで考えうる関係は「同じ時に行う」ことぐらいです。しかしソーマ祭の期間中、常規のアグニホートラは「献供せず」の規定で停止されています。だからその関係も成り立ちません。</p><p>比喩は、本来の意味と似ているものに語を転用する働きです（「デーヴァダッタは獅子だ」の類）。転用の根拠になる類似は、他の献供にはなく、しかも祭式の本質から外れすぎない性質でなければなりません。そういう類似は見つからない、と言います。</p></div>
+  <div class="nt">「अनत्यन्तबहिरङ्गस्यकस्यचित्」を分かち書きした。</div>
+</div>
+<div class="mula" id="u25">
+  <span class="ref">189</span>
+  <div class="src deva" lang="sa">तस्मात् लक्षणातो जघन्यत्वेन मीमांसकैरभ्युपगतासु गौणवृत्तिष्वपि कल्प्यसादृश्यमूलत्वेन अतिक्लिष्टगौणवृत्तिरभ्युपगन्तव्या । न च नैयमिकाग्निहोत्राभेदाङ्गीकारेण मुख्यवृत्तिसमर्थनसंभवे तदभ्युपगमो युक्तः ।</div>
+  <div class="tr">したがって、ミーマーンサー学者が転義よりも劣るとして認める比喩的働きの中でも、想定された類似にもとづくものとして、きわめて無理な比喩的働きを認めなければならないことになる。しかし、常規のアグニホートラと別ではないと認めることで本来の働きを擁護できるのに、そのようなものを認めるのは妥当ではない。</div><div class="exp"><span class="lbl">解説</span><p>消去法の結論です。「別の祭式」説を取ると、語の働きの中でいちばん劣る「想定された類似にもとづく比喩」に頼るしかなくなる。「同じ祭式」説なら、語を本来の意味で読める。だから後者を取るべきだ、と論じます。</p><p>第4段で反論者は、まさにこの「想定された類似にもとづく比喩」の方が、ここではむしろ優れていると切り返します（p.189）。マーサーグニホートラには手順の規定がない。だから「常規のアグニホートラのように行え」と細則を持ち込む（<i>atideśa</i>）働きがあってこそ、名に実際の役割が生まれる、と言うのです。</p></div>
+</div>
+<div class="mula" id="u26">
+  <span class="ref">189</span>
+  <div class="src deva" lang="sa">प्रायणीयनाम्नस्तु यथा प्रयन्ति प्रारभन्ते अनेन—इति व्युत्पत्त्या द्वादशाहिके प्रथमेऽहनि वृत्तिः तथा गावामयनिकेऽपि वृत्तिरुपपद्यते इत्यतिक्लिष्टवृत्त्यन्तरकल्पनादोषाभावात् तस्य तस्माद्भेद इष्यते । तस्मिन् प्रथमश्रुतस्य ज्योतिष्टोमनाम्नः प्रवृत्तिनिमित्तस्याक्लृप्तत्वात् अतिक्लिष्टकल्प्यसादृश्यमूलकगौणवृत्तिकल्पनादोषपरिहाराय 'ज्योतिरेव पुरस्तात् दधते' इति ज्योतिष्टोमप्राथम्यप्रतिपादकवाक्यशेषसामञ्जस्याय च तस्य ज्योतिष्टोमरूपस्य प्रकृत्यतिरात्रात् भेद एव इष्यते ।</div>
+  <div class="tr">一方、プラーヤニーヤという名は、「それによって出発する、すなわち始める」という語源によって十二日祭の初日に適用されるのと同じように、「牛の行程」の初日にも適用されうる。だから、きわめて無理な別の働きを想定するという欠点はないので、それ（牛の行程の初日）がそれ（十二日祭の初日）と別であることが認められるのである。そこ（牛の行程の初日）では、最初に聞かれる「ジョーティシュトーマ」という名の適用根拠が（アティラートラには）確立されていない。だから、きわめて無理な、想定された類似にもとづく比喩的働きを想定するという欠点を避けるために、また「光を前に置く」というジョーティシュトーマが最初であることを述べる文の残りと整合させるために、ジョーティシュトーマであるそれは、原型のアティラートラと別であると認められるのである。</div><div class="exp"><span class="lbl">解説</span><p>第2段の反例（プラーヤニーヤ）への答えです。「プラーヤニーヤ」は、もともと「始まりの（日）」という語源的な意味で、どの祭の初日にも無理なく使える名です。だから、同じ名で別の祭式を呼んでも、語の働きに無理は生じません。「アグニホートラ」の場合とは事情が違う、というわけです。</p><p>しかも牛の行程の初日には「ジョーティシュトーマ」という別の名もついています。それをアティラートラと同じだとすれば、今度は「ジョーティシュトーマ」の名に無理な比喩を想定しなければならなくなります。</p></div>
+  <div class="nt">「तम्य」を「तस्य」、「अक्लप्तत्वात्」を「अक्लृप्तत्वात्」と正した。</div>
+</div>
+<div class="mula" id="u27">
+  <span class="ref">189</span>
+  <div class="src deva" lang="sa">तस्मात् मदीयहेतोरुक्तसाध्यानङ्गीकारे अग्निहोत्रनामस्वारस्यभङ्गप्रसङ्ग इति विपक्षबाधकसत्त्वात् नाप्रयोजकत्वशङ्कावकाशः । त्वदीयहेतुस्तु उपन्यस्तप्रतिकूलतर्कपराहतत्वात् न साध्यसाधनक्षम इति ॥</div>
+  <div class="tr">したがって、私の論証因について先の所証を認めなければ、「アグニホートラ」という名の自然な意味が損なわれるという不都合がある。このように反対の場合を退けるものがあるので、決め手にならないという疑いの余地はない。一方あなたの論証因は、いま示した反対の推論によって打ち破られるので、所証を論証することはできない。</div><div class="exp"><span class="lbl">解説</span><p>各段は決まった定型で終わります。「私の論証因は（欠陥が）なく、あなたの論証因は（欠陥が）ある」。この定型は、本書の27論すべてに共通しています。</p></div>
+  <div class="nt">「मदीयहोतोः」を「मदीयहेतोः」と正した。</div>
+</div>
+<div class="talk">
+  <div class="row v"><div class="who">第1段<i>vādin</i></div><div class="say">規定文で「アグニホートラ」と呼ばれるものは、常規のアグニホートラと別ではない。</div></div>
+  <div class="row j"><div class="who">第2段<i>prativādin</i></div><div class="say">名が同じでも別の祭式はある（プラーヤニーヤ）。常規のアグニホートラの章節の外で規定された献供は別の祭式である。</div></div>
+  <div class="row v"><div class="who">第3段<i>vādin</i></div><div class="say">別だとすると、「アグニホートラ」は本来の意味で使えず、最も無理な比喩になる。プラーヤニーヤは語源的な名だから事情が違う。</div></div>
+  <div class="row j"><div class="who">第4段<i>prativādin</i></div><div class="say">（次頁以降・未訳）想定された類似にもとづく比喩こそ、細則を持ち込む役に立つので優れている。</div></div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この見本に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>vāda / kakṣyā</dt><dd>論議／段。立論者と反論者の応酬の一回り</dd>
+    <dt>vādin / prativādin</dt><dd>立論者／反論者</dd>
+    <dt>siddhāntin / pūrvapakṣin</dt><dd>定説論者／前主張者</dd>
+    <dt>agnihotra</dt><dd>朝夕に火へ乳を献じる祭式</dd>
+    <dt>naiyamika agnihotra</dt><dd>常規のアグニホートラ。生涯毎日行うもの</dd>
+    <dt>māsāgnihotra</dt><dd>一か月のアグニホートラ。クンダパーインの行程の中で行う</dd>
+    <dt>sattra</dt><dd>サットラ祭。祭官全員が祭主となる長期のソーマ祭</dd>
+    <dt>karmabheda</dt><dd>祭式の別異。ミーマーンサー・スートラ第2章の主題</dd>
+    <dt>prakaraṇa / prakaraṇāntara</dt><dd>章節（規定の文脈）／別の章節</dd>
+    <dt>anārabhyādhīta</dt><dd>章節を立てずに読まれる（一般的な）規定</dd>
+    <dt>vidhi / arthavāda</dt><dd>規定文／釈義文（称賛などで規定を支える文）</dd>
+    <dt>guṇa</dt><dd>属性。献供物・時・場所など、祭式に付く要素</dd>
+    <dt>aṅga / śeṣa</dt><dd>補助（要素）。主たるものに仕えるもの</dd>
+    <dt>bhāvanā</dt><dd>促し。動詞語尾が表す、行為へ向かわせる働き</dd>
+    <dt>atideśa</dt><dd>細則の移入。原型の祭式の手順を別の祭式に持ち込むこと</dd>
+    <dt>hetu / sādhya</dt><dd>論証因／所証</dd>
+    <dt>vyabhicāra</dt><dd>逸脱。論証因があるのに所証がない例があること</dd>
+    <dt>svarūpāsiddhi</dt><dd>論証因が主題そのものに成り立たないこと</dd>
+    <dt>aprayojaka</dt><dd>決め手にならない論証因。必然的な結びつきの保証を欠く</dd>
+    <dt>tarka / vipakṣabādhaka</dt><dd>帰謬の推論／反対の場合を退けるもの</dd>
+    <dt>pakṣasama</dt><dd>主題と同列。結論がまだ争われている例</dd>
+    <dt>mukhyavṛtti / amukhyavṛtti</dt><dd>語の本来の働き／本来でない働き</dd>
+    <dt>yoga / rūḍhi</dt><dd>語源的な意味／慣用的な意味</dd>
+    <dt>lakṣaṇā / gauṇī</dt><dd>転義（関係による転用）／比喩（類似による転用）</dd>
+    <dt>svārasya</dt><dd>語の自然な意味、文の素直な読み</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.185–189 のOCRテキストに拠る。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。行末のハイフンによる分綴は詰め、「॥」は校訂本の「।।」を統一したもの。</p>
+  <p>和訳は試訳である。祭式の背景の説明は一般的な概説に拠り、個々の典拠（『シャタパタ・ブラーフマナ』などの引用箇所、Śrīkaṇṭha の注の該当箇所）は、この見本では特定していない。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+</body>
+</html>
