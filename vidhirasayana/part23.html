@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ukthyādisaṃsthā 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#s1"><b>1</b>第38偈：ウクティヤの…</a></li>
+    <li><a href="#s2"><b>2</b>第39偈：十七詩節の例…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ヴィディ・ラサーヤナ　第23部</div>
+  <h1>Ukthyādisaṃsthā</h1>
+  <p class="deva-title" lang="sa">अपूर्वनियमपरिसंख्योदाहरणाक्षेपसमाधानम् — अष्टत्रिंश-एकोनचत्वारिंशश्लोकौ</p>
+  <p class="sub">第38偈：ウクティヤなどの終わり方を祭祀の変形とする別説でも不及は生じない。第39偈：十七詩節の例への異議</p>
+  <span class="sample">対訳　第23部（pp.160–165）</span>
+  <p>第33偈では、「家畜を望む者はウクティヤを汲むべし」などの文は、ジョーティシュトーマに依る終わり方という補助を果報のために規定する、という見方に立って、ウクティヤ・アティラートラの文に不及はないとしました。第38偈は、それらの文が「ウクティヤの終わり方をもつ祭祀そのもの」を果報のために規定する、という別の見方をとっても、ウクティヤの祭祀がアグニシュトーマの変形になるわけではないので、やはり不及は出ない、と論じます。注釈は、そもそもその別の見方が正しくないことと、第一の異議への答えの結びも述べます。</p>
+  <p>第39偈からは、第1偈で挙げたほかの異議への答えに移ります。第1偈では、「天を望む者は」などの文の不及を、十七詩節の文と同じく繁栄のためとすることで避ければ、制限・除外の規定に過大適用が出る、と言われていました。第39偈は、そこで十七詩節の文を例に挙げたこと自体が正しくない、と退けます。文脈なしの十七詩節は、変形祭祀で十五詩節と選択になり、ミトラヴィンダーなどでの再規定は制限になるので、ただの繁栄のためとする必要がないのです。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>別説（第38偈）</dt><dd>「家畜を望む者はウクティヤを」は、ウクティヤの祭祀そのものを果報のために規定する。だからそれはアグニシュトーマの祭祀の変形で、そこでアグニは類推適用</dd></div>
+    <div><dt>答え</dt><dd>果報は全願望の文がすでに与える。その文は、本来の祭祀での終わり方の割り当てをするだけ。変形にはならない</dd></div>
+    <div><dt>異議（第39偈）</dt><dd>文脈なしの十七詩節の文は、ただの繁栄のためではない</dd></div>
+    <div><dt>理由</dt><dd>変形祭祀で十五詩節と選択。ミトラヴィンダーなどでの再規定は制限。「それらを獣祭では行わない」と同じ構造</dd></div>
+  </dl>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>第38偈：ウクティヤの祭祀を変形とする別説</h2><span class="sub"><span class="pg">pp.160–162</span></span></div>
+<div class="mula" id="r232">
+  <span class="ref">160</span>
+  <div class="src deva" lang="sa">गुणफलसम्बन्धविधयाऽव्याप्तिपरिहारवर्णनम् अथाष्टत्रिंशश्लोकस्य व्याख्या एवं द्विरात्रादिवाक्येष्वव्याप्तेरनवकाशत्वं सप्रपञ्चमुपपादितम् । "पशुकाम उक्थ्यं गृह्णीयात्" "षोडशिना वीर्यकामः स्तुवीत" "अतिरात्रेण प्रजाकामं याजयेत्" इति वाक्यानि पश्वादिफलार्थं ज्योतिष्टोमाश्रितोक्थ्यादिसंस्थारूपगुणविधायकानीति मतमाश्रित्य उक्थ्यातिरात्रवाक्ययोरप्यव्याप्तेरनवकाशत्वं प्रागुपपादितम् ।</div>
+  <div class="tr">〔補助と果報の結びつきを規定するものとして、不及を避けることの説明〕<br>〔第38偈の解説〕このように、二夜祭などの文に不及の余地がないことを詳しく論じた。「家畜を望む者はウクティヤを汲むべし」「力を望む者はショーダシンで讃えるべし」「子孫を望む者にはアティラートラで祭らせるべし」という文は、家畜などの果報のために、ジョーティシュトーマに依るウクティヤなどの終わり方という補助を規定する、という見解に立って、ウクティヤとアティラートラの文にも不及の余地がないことを、前に論じた。</div>
+  <div class="exp"><span class="lbl">解説</span><p>第33偈の解説（第21部）で、ウクティヤなどの終わり方は願望のための補助（乳搾りの器と同じ）として扱われました。ここからは、その前提を変えた場合を検討します。</p></div>
+  <div class="nt">小見出しは校訂本のもの。このブロックの冒頭に p.160 の標識を補った。</div>
+</div>
+<div class="mula" id="r233">
+  <span class="ref">160–161</span>
+  <div class="src deva" lang="sa">केषाञ्चिन्मतेनाव्याप्त्युपपादनम् ये तु मन्यन्ते—पशुकामादिवाक्यानि पश्वाद्यर्थमुक्थ्याद्यधिकावृत्तियुक्तप्रकृतसोमयागविधायकानि न तु तदाश्रितोक्थ्यादिसंस्थामात्रविधायकानि । यत्र हि लोकतः क्रतोर्गुणान्वयो लभ्यते, तत्रैव फलाय गुणमात्रस्य विधिर्युज्यते । यथा गोदोहनादेः । यत्र तु शास्त्रादृते न तत्सिद्धिः तत्र न स युज्यते, गुणाश्रयसंबन्धे, गुणफलसंबन्धे च शास्त्रव्यापारायोगात्, किन्तु तत्र गुणविशिष्टक्रतोरेव फलाय विधानं वाच्यम् । अत एव "दाक्षायणयज्ञेन स्वर्गकामो यजेत" (तै.सं. २।५।५) इत्यादिष्वप्यावृत्तिगुणविशिष्टस्य क्रतोरेव फलाय विधानमभ्युपगम्यते । एवं च फलकामनानिमित्तकतदधिकावृत्तियुक्तोक्थ्यादिसंस्थः सोमयागो नित्यवदाम्नाततदावृत्त्ययुक्तस्याऽग्निष्टोमसंस्थस्य "वसन्ते वसन्ते ज्योतिषा यजेत" "ज्योतिष्टोमेन स्वर्गकामो यजेत" (आप श्रौ. सू.) इति विधिद्वयप्राप्तनित्यकाम्योभयावस्थस्य सोमयागस्य विकार इति तत्र दीक्षणीयादेरङ्गकलापस्याऽतिदेशेनैव प्राप्तिर्न तूपदेशेन । नित्यवदाम्नातदीक्षणीयाद्युपदेशस्य शीघ्रोपस्थितिकनित्यवदाम्नाताग्निष्टोमसंस्थनित्यकाम्यक्रतुप्रयोगान्वयेन चरितार्थस्य विलम्बितोपस्थितकनैमित्तिकोक्थ्यादिग्रहाऽऽक्षेप्याधिकावृत्तियुक्तप्रयोगान्तरान्वयकल्पने द्विरुक्तिप्रसङ्गात्—इति, तन्मताश्रयणेनोक्थ्यातिरात्राग्निवाक्ययोरतिदेशतः सम्भवत्प्राप्तिकाग्निविधिरूपयोरव्याप्तिर्वक्तुं शक्यत इत्यत आह— उक्थ्यादिस्पृक्फलानां क्रतुसमधिगतिं मन्वते येऽपि तेषाम् तेनाऽग्निष्टोमसंस्थक्रतुविकृतितयोक्थ्यादिसंस्था न सिध्येत् । किन्तु स्यात्सार्वकाम्योक्त्युदितफलभिदासाधिकायां प्रकृत्याम् उक्थ्यादीनां व्यवस्था प्रकरणपठनात्सर्वतस्तत्प्रसक्तौ ॥३८ ॥</div>
+  <div class="tr">〔ある人々の見解によって不及を論じる〕一方、ある人々はこう考える——家畜を望む者などの文は、家畜などのために、ウクティヤなどの余分の繰り返しを備えた、問題のソーマ祭を規定するものであって、それに依るウクティヤなどの終わり方だけを規定するのではない。補助が祭祀と結びつくことが日常の経験から得られるところでだけ、果報のために補助だけを規定するのがふさわしいからである。乳搾りの器などのように。しかし、シャーストラなしにはそれが成り立たないところでは、それはふさわしくない。補助と基体の結びつきと、補助と果報の結びつきとの両方にシャーストラが働くことはできないからである。そうではなく、そこでは、補助で限定された祭祀そのものを果報のために規定する、と言わなければならない。だからこそ、「ダークシャーヤナ祭で天を望む者は祭るべし」（TS 2.5.5）などでも、繰り返しという補助で限定された祭祀そのものを果報のために規定する、と認められている。<br>そうすると、果報への願望を機縁とする、その余分の繰り返しを備えたウクティヤなどの終わり方をもつソーマ祭は、〔p.161〕常時のもののように教えられ、その繰り返しを備えない、アグニシュトーマの終わり方をもつソーマ祭、すなわち「春ごとにジョーティスで祭るべし」「ジョーティシュトーマで天を望む者は祭るべし」（アーパスタンバ・シュラウタスートラ）という二つの規定で、常時と願望の両方のあり方を得たソーマ祭の変形である。だから、そこではディークシャニーヤーなどの補助の群れは、類推適用だけで得られ、教示によるのではない。常時のもののように教えられたディークシャニーヤーなどの教示は、すばやく思い浮かぶ、常時のもののように教えられたアグニシュトーマの終わり方をもつ、常時・願望の祭祀の実行と結びつくことで目的を果たしているので、遅れて思い浮かぶ、機縁によるウクティヤなどの杯から推し量られる、余分の繰り返しを備えたほかの実行と結びつくと想定すると、二度言うことになってしまうからである——。<br>その見解に立てば、類推適用で獲得がありうるアグニの規定であるウクティヤとアティラートラのアグニの文に、不及を言うことができる。それに対して言う——<br>ウクティヤなどに触れる果報が祭祀に結びつく、と考える者たちがいても、彼らにとっても、それによって、ウクティヤなどの終わり方〔をもつ祭祀〕がアグニシュトーマの終わり方をもつ祭祀の変形として成り立つことはないだろう。そうではなく、全願望の言葉で述べられた別々の果報を成し遂げる本来の祭祀において、文脈で唱えられることによって、それら〔ウクティヤなど〕がすべてに及ぶときの、ウクティヤなどの割り当てがあるだろう。（38）</div>
+  <div class="exp"><span class="lbl">解説</span><p>別説によれば、ウクティヤの終わり方をもつ祭祀は、アグニシュトーマの終わり方をもつジョーティシュトーマの変形になり、そこでのアグニは類推適用によるものになります。すると、ウクティヤ・アティラートラのアグニの文に不及が出ます。第38偈はこの別説に答えます。</p></div>
+  <div class="nt">「याजयेदि」を「याजयेत्」、「पश्वादिफलार्थ」を「पश्वादिफलार्थं」、「उक्थ्येऽतिरात्र」を「उक्थ्यातिरात्र」と正した。「सोमयागो नित्यवदाम्नातः - तदावृत्तियुक्तस्या」は文意から「सोमयागो नित्यवदाम्नाततदावृत्त्ययुक्तस्या」と読んだ。その前の柱を本文から除いた。「ग्रहाऽ ऽ क्षेप्या」を「ग्रहाऽऽक्षेप्या」、「प्रयोगन्तर」を「प्रयोगान्तर」と正した。偈の「फलभिदा साधिकायां」は根本偈に従って続けた。p.161 の標識はこのブロックの中にある。</div>
+</div>
+<div class="mula" id="r234">
+  <span class="ref">161–162</span>
+  <div class="src deva" lang="sa">पशुकाम उक्थ्यं गृह्णीयात्" इत्यादिवाक्येषूक्थ्यादिशब्दवाच्यामुक्थ्यादिस्तोत्रैः क्रतुसमाप्तिरूपोक्थ्यादिसंस्थामतिलङ्घ्योक्थ्यादिपदलक्ष्यस्योक्थ्यादिसंस्थाविशिष्टस्य क्रतोः पश्वादिफलसङ्गतिरङ्गीक्रियते चेत्, पशुकामादिवाक्यानि क्रतुफलविधयो न भवेयुः । "सर्वेभ्यः कामेभ्यः" इति वाक्यान्तरेणैव क्रतोः पश्वादिसकलफलान्वयसिद्धेः । ततश्चोक्थ्यादिसंस्थे क्रतौ फलार्थस्य विध्यन्तरस्याऽभावात्तद्विधिविधेय उक्थ्याद्यधिकावृत्तियुक्तः क्रतुरग्निष्टोमसंस्थस्य क्रतोर्विकृतिरित्येवं न सिध्येदेव । किं तर्हि पशुकामादिवाक्यैः सिध्येदिति चेत्, उच्यते—वसन्तादिवाक्येन जीवदधिकारतया सर्वकामवाक्येन तत्तत्फलकामाधिकारतया चाऽवगते प्रकृतिभूते ज्योतिष्टोमे तत्प्रकरणोत्पन्नानामुक्थ्यादीनामविशेषेण संबन्धे प्राप्ते पशुकामादिवाक्यैरुक्थ्यस्य पशुफलार्थे तस्मिन्संबन्धः षोडशिनो वीर्यफलार्थ इत्यादिरूपा व्यवस्था परं तैर्वाक्यैः सिध्यति । यथा वृष्ट्यादिफलत्रयार्थविहितसौभरपठितानां त्रयाणामपि हीषीत्येवमादीनां निधनानामविशेषेण तत्संबन्धे प्राप्ते "हीषिति वृष्टिकामाय निधनं कुर्यात्" "ऊर्गित्यन्नाद्यकामाय" "ऊ इति स्वर्गकामाय" इत्यादिवाक्यैर्वृष्ट्यर्थे हीषिति निधनमित्यादिव्यवस्था सिध्यति, एवं दाक्षायणयज्ञ-साकंप्रस्थायीयादावपि दार्शपौर्णमासिकसार्वकाम्यवाक्यलब्धस्वर्गपश्वादिफलविशेषे क्रतावावृत्तिसहप्रस्थानादिगुणव्यवस्थैव सिध्येन्न तु गुणविशिष्टस्य क्रतोः सार्वकाम्यवाक्योदितफलात्फलान्तरेणान्वयः । तस्मादुक्थ्यादिवाक्योदितफलानां क्रतुसङ्गतिस्वीकारेऽप्युक्थ्यादीनामग्निष्टोमविकारत्वासिद्धेस्तन्मताश्रयणेऽप्युक्थ्यातिरात्राग्निवाक्ययोरव्याप्तेर्नावकाश इति भावः ॥३८ ॥</div>
+  <div class="tr">「家畜を望む者はウクティヤを汲むべし」などの文で、ウクティヤなどの語が直接に表す、ウクティヤなどの讃歌による祭祀の完了というウクティヤなどの終わり方を飛び越えて、ウクティヤなどの語が間接に指す、ウクティヤなどの終わり方で限定された祭祀が、家畜などの果報と結びつくと認めるなら、家畜を望む者などの文は、祭祀の果報の規定ではなくなるだろう。「すべての願望のために」という別の文だけで、祭祀が家畜などのすべての果報と結びつくことが成り立っているからである。そうすると、ウクティヤなどの終わり方をもつ祭祀については、果報のためのほかの規定がないので、その規定で規定される、ウクティヤなどの余分の繰り返しを備えた祭祀がアグニシュトーマの終わり方をもつ祭祀の変形である、ということは、まったく成り立たないだろう。<br>「では、家畜を望む者などの文によって何が成り立つのか」と言うなら、答える。春などの文によって生きている者を資格者とし、全願望の文によってそれぞれの果報を望む者を資格者とすると知られた、本来の祭祀であるジョーティシュトーマにおいて、その文脈で生じたウクティヤなどの結びつきが区別なく得られるとき、家畜を望む者などの文によっては、「ウクティヤのそれとの結びつきは家畜という果報のため、ショーダシンのそれは力という果報のため」といった形の割り当てだけが成り立つ。<br>ちょうど、雨などの三つの果報のために規定されたサウバラ〔のサーマン〕で唱えられる「ヒーシュ」などの三つの終わりの句がどれも区別なくそれと結びつくとき、「雨を望む者にはヒーシュという終わりの句をすべし」「食物を望む者にはウールジュと」「天を望む者にはウーと」などの文によって、「雨のためにはヒーシュという終わりの句」などの割り当てが成り立つように。そのように、〔p.162〕ダークシャーヤナ祭やサーカンプラスターイーヤなどでも、新月満月祭の全願望の文で得られる天や家畜などの特定の果報のための祭祀において、繰り返しや一緒に出発することなどの補助の割り当てだけが成り立つのであって、補助で限定された祭祀が、全願望の文で述べられた果報とは別の果報と結びつくのではない。<br>だから、ウクティヤなどの文で述べられた果報が祭祀と結びつくと認めても、ウクティヤなどがアグニシュトーマの変形であることは成り立たないので、その見解に立っても、ウクティヤとアティラートラのアグニの文に不及の余地はない、という趣旨である。（38）</div>
+  <div class="exp"><span class="lbl">解説</span><p>祭祀にすべての果報を与えるのは全願望の文です。それと別にウクティヤの文が祭祀の果報を規定する余地はなく、その文は、本来の祭祀ジョーティシュトーマの中で、どの終わり方をどの果報に当てるかを割り当てるだけです。サウバラ・サーマンの三つの終わりの句と同じ形です。</p>
+  <table class="tbl min"><thead><tr><th>文</th><th>割り当て</th></tr></thead><tbody>
+    <tr><td>家畜を望む者はウクティヤを</td><td>ウクティヤ → 家畜</td></tr>
+    <tr><td>力を望む者はショーダシンで</td><td>ショーダシン → 力</td></tr>
+    <tr><td>子孫を望む者にはアティラートラで</td><td>アティラートラ → 子孫</td></tr>
+    <tr><td>雨を望む者にはヒーシュ（サウバラ）</td><td>ヒーシュ → 雨</td></tr>
+  </tbody></table></div>
+  <div class="nt">「उक्थं गृह्णीयात्」を「उक्थ्यं गृह्णीयात्」、「अतिलङ्घयो」を「अतिलङ्घ्यो」、「कतौ」を「क्रतौ」、「सिद्धयेत्」を「सिध्येत्」、「पशुपलार्थे」を「पशुफलार्थे」と正し、引用符を補った。p.162 の標識はこのブロックの中にある。</div>
+</div>
+<div class="mula" id="r235">
+  <span class="ref">162</span>
+  <div class="src deva" lang="sa">इत्यष्टत्रिंशश्लोकस्य व्याख्या अथोनचत्वारिंशश्लोकस्य व्याख्या वस्तुतस्तु तेषां क्रतुसङ्गतिस्वीकार एवाऽयुक्तः, संस्थाविशेषविशिष्टेषु क्रतुषूक्थ्यादिशब्दप्रयोगस्य "विशेष्यं नाभिधा गच्छेत् क्षीणशक्तिर्विशेषेण" इतिन्यायेन लाक्षणिकत्वात्, उक्थ्यादिफलवाक्येषु च लक्षणाकल्पने प्रमाणाभावात् । न च तेषां गुणाश्रयसंबन्धे गुणफलसंबन्धे च व्यापारायोगाल्लक्षणाकल्पनम्, प्रकरणादेव गुणानामाश्रयसंबन्धलाभात् । तस्मादुक्थ्यादिफलवाक्येषु स्तोत्रविशेषैः क्रतुसमाप्तय एवोक्थ्यादिशब्दवाच्याः फलाय विधीयन्ते । "गृह्णीयात्" "स्तुवीत" "याजयेत्" इति तु सौर्यादिषु निर्वपत्यादिवदनुवादमात्रम् । तदेतत्सर्वं शास्त्रदीपिकादिष्वेव स्पष्टम् । एवमत्राऽस्वरसो "मन्वते येऽपी"त्युक्त्या सूचितः ।</div>
+  <div class="tr">以上、第38偈の解説。〔第39偈の解説〕<br>実のところ、それら〔ウクティヤなどの果報〕が祭祀と結びつくと認めること自体が正しくない。特定の終わり方で限定された祭祀にウクティヤなどの語を用いるのは、「表示は、限定するものによって力が尽きているので、限定されるものには及ばない」という原則によって、間接的な用法であり、ウクティヤなどの果報の文で間接的な用法を想定する根拠はないからである。また、それらが補助と基体の結びつきと補助と果報の結びつきとの両方に働くことができないので、間接的な用法を想定する、ということもない。補助と基体の結びつきは文脈だけから得られるからである。<br>だから、ウクティヤなどの果報の文では、ウクティヤなどの語が直接表す、特定の讃歌による祭祀の完了そのものが、果報のために規定される。「汲むべし」「讃えるべし」「祭らせるべし」は、スーリヤへの〔供物〕などでの「取り分ける」などと同じく、言い直しにすぎない。これはすべて、シャーストラディーピカーなどにはっきり述べられている。このように、ここでの不満は「と考える者たちがいても」という言い方で示されている。</div>
+  <div class="exp"><span class="lbl">解説</span><p>別説そのものを退けます。ウクティヤなどの語は、讃歌による祭祀の完了を直接に表します。それを「その終わり方をもつ祭祀」と読むのは間接的な用法で、根拠がありません。偈の「考える者たちがいても」という言い方に、作者の不満がこめられています。</p></div>
+  <div class="nt">ここに「以上、第38偈の解説。では第39偈の解説」という区切りがあるが、内容はなお第38偈の解説が続き、のちに改めて「以上、第38偈の解説」とある。校訂本の誤りと見て、訳では〔　〕に入れた。「लाक्षणिक्त्त्वात्」を「लाक्षणिकत्वात्」と正し、引用符を補った。</div>
+</div>
+<div class="mula" id="r236">
+  <span class="ref">162–163</span>
+  <div class="src deva" lang="sa">पूर्वोत्तरभाष्ययोस्तात्पर्यम् "संस्थास्तु समानविधानाः प्रकरणाविशेषात्" (३।६।१६।४१) इति संस्थाधिकरणे "किं सर्वसंस्थं ज्योतिष्टोमं प्रकृत्य दीक्षणीयादयो धर्मा उक्ताः, उताग्निष्टोमसंस्थमभिप्रेत्य" (शा. भा. पृ. १०६०) इत्यादिभाष्यवचनं तु ज्योतिष्टोमस्यैवाऽग्निष्टोमसंस्थस्योक्थ्यादिसंस्थस्य च सामानविध्यासामानविध्यविचारपरं न ग्राह्यम्, किन्तु ज्योतिष्टोमेन तदाश्रितानामुक्थ्यादिसंस्थानां पृथक् फलवत्त्वेनेतिकर्तव्यतापेक्षिणीनां सामानविध्यासामानविध्यविचारपरं नेतव्यम् । अत एव "यत्र यत्र गुणकामो भवति तत्र तत्र क्रियायां साध्यमानायां नान्यथा, तत्रेतिकर्तव्यताया अन्तिकमुपनिपतति सा साधनस्य वा साध्यस्य वेति सन्दिह्यमाना साध्यस्य भवितुमर्हति, नाऽसौ साध्यस्याऽभवन्ती साधनेन संबध्यते" (शा०भा० १०६९-७०) इति सिद्धान्तभाष्यवचनं सङ्गच्छते ।</div>
+  <div class="tr">〔前と後のバーシュヤの趣旨〕「しかし終わり方は規定を共にする。文脈に違いがないから」（3.6.16.41）という終わり方の主題で、「ディークシャニーヤーなどの規則は、すべての終わり方をもつジョーティシュトーマについて述べられたのか、それともアグニシュトーマの終わり方を念頭に置いてか」（『シャーバラ・バーシュヤ』p.1060）などのバーシュヤの言葉を、ジョーティシュトーマ自体が、アグニシュトーマの終わり方とウクティヤなどの終わり方で規定を共にするかどうかを検討するもの、と取ってはならない。そうではなく、ジョーティシュトーマに依るウクティヤなどの終わり方が、別々の果報をもつので手順を求めるとき、それらが規定を共にするかどうかを検討するもの、と解すべきである。<br>だからこそ、「補助による願望があるところではどこでも、そこで、行為が成し遂げられつつあるときにだけ、それ以外ではなく、手順が近くに降りてくる。それが手段のものか目的のものかと疑われるとき、目的のものとなるのがふさわしい。それは目的のものとならずに手段と結びつくことはない」（同 pp.1069–70）という定説のバーシュヤの言葉が整合する。</div>
+  <div class="exp"><span class="lbl">解説</span><p>終わり方の主題（3.6.16.41）の前主張は、ウクティヤなどの終わり方の祭祀にもディークシャニーヤーなどの補助が教示によって及ぶのか、を問うものと解されがちです。アッパイヤは、それはジョーティシュトーマの変形かどうかの問題ではなく、願望の補助である終わり方が手順を求めるかどうかの問題だ、と読み直します。</p></div>
+  <div class="nt">小見出しは校訂本のもの。「अभिप्रेत्ये"त्यादि」を「अभिप्रेत्य" इत्यादि」と正し、引用符の位置を整えた。「साध्यमानायाम् नान्यथा」の後の柱を本文から除いた。p.163 の標識はこのブロックの中にある。</div>
+</div>
+<div class="mula" id="r237">
+  <span class="ref">163</span>
+  <div class="src deva" lang="sa">पूर्वोक्तभाष्यस्य तात्पर्यवर्णनमुखेन वैकृताग्निविधिष्वपूर्वविधिलक्षणस्याव्याप्तिपरिहारोपन्यासः इदं हि क्रतोः क्रत्वाश्रितगुणकामानाञ्च फलार्थत्वेनेतिकर्तव्यताकाङ्क्षालक्षणप्रकरणाविशेषाद्दीक्षणीयादिषु सामानविध्यमिति पूर्वपक्षे प्राप्ते सिद्धान्तयुक्तिप्रदर्शनपरम् । अस्य चेदं तात्पर्यम्—गुणः फलाय चोद्यमानः पूर्वप्राप्तां परप्रयुक्तक्रियामाश्रित्य पश्चाच्चोद्यते त्र्यंशयुक्ता च क्रिया प्रयुज्यते । ततश्च प्राक्तनस्वतः कर्त्तव्यरूपक्रियाविधिसमय एवाऽङ्गविधीनां व्यापारः, न पश्चाद्गुणफलविधानेऽपि विरम्य व्यापारायोगादिति । तस्मादयुक्तं वैकृताग्निविधिष्वपूर्वविधिलक्षणस्याऽव्याप्तिकथनमित्येवं प्रथमाक्षेपः प्रपञ्चेनाक्षिप्तः ॥३८ ॥ इत्यष्टत्रिंशश्लोकस्य व्याख्या</div>
+  <div class="tr">〔前に述べたバーシュヤの趣旨を説明することを通じて、変形祭祀のアグニの規定へのアプールヴァ規定の定義の不及を避けることを示す〕これ〔後のバーシュヤ〕は、祭祀と、祭祀に依る補助による願望とが、果報のためのものとして、手順への期待という形の文脈に違いがないので、ディークシャニーヤーなどで規定を共にする、という前主張が出たときに、定説の論拠を示すものである。その趣旨はこうである——補助は、果報のために命じられるとき、先に得られた、ほかのものに用いられる行為に依って、あとから命じられる。そして行為は、三つの部分を備えて用いられる。だから、補助の規定が働くのは、先の、それ自体としてなすべきものという形の行為の規定の時だけであって、あとの補助と果報の規定のときではない。いったん止まってから働くことはできないからである。<br>だから、変形祭祀のアグニの規定にアプールヴァ規定の定義の不及を言うのは正しくない——このように、第一の異議は詳しく退けられた。（38）以上、第38偈の解説。</div>
+  <div class="exp"><span class="lbl">解説</span><p>補助の規定（ディークシャニーヤーなど）は、祭祀そのものの規定とともに一度だけ働きます。補助による願望の規定が後から来ても、補助の規定が改めて働くことはありません。第35偈で見た「いったん止まってから働くことはない」原則の別の適用です。これで第1偈の第一の異議（変形祭祀のアグニの規定への不及）への答えが終わります。</p></div>
+  <div class="nt">小見出しは校訂本のもの。「काङ्ग」を「काङ्क्ष」、「न पश्चात् गुणफल」を「न पश्चाद्गुणफल」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第39偈：十七詩節の例への異議</h2><span class="sub"><span class="pg">pp.163–165</span></span></div>
+<div class="mula" id="r238">
+  <span class="ref">163</span>
+  <div class="src deva" lang="sa">अथैकोनचत्वारिंशश्लोकस्यावतारिका अथाक्षेपान्तराण्यपि यथा सम्भवमाक्षिप्यन्ते । यदुक्तम्—साप्तदश्यवाक्यवदभ्युदयार्थत्वाङ्गीकारेण स्वर्गकामादिवाक्येष्वपूर्वविधिलक्षणाव्याप्त्युद्धारे, तस्य नियमपरिसंख्याविध्योरतिव्याप्तिः स्यादिति, तत्र साप्तदश्यवाक्यदृष्टान्तकथनमयुक्तमित्याक्षिपति— तासु स्यात्साप्तदश्यं प्रकरणरहितं यासु न श्रूयते तत्तास्वस्य स्याद्विकल्पो विकृतिषु कथिते चोदकात्पाञ्चदश्ये । सत्येवं मित्रविन्दादिषु नियमविधिस्तस्य भूयो विधिस्स्यात् सार्थक्ये सम्भवत्यभ्युदयफलकता केवलं नैव कल्प्या ॥३९ ॥</div>
+  <div class="tr">〔第39偈への導入〕では、ほかの異議も、できる限り退ける。「十七詩節の文と同じく繁栄のためと認めることで、天を望む者などの文でのアプールヴァ規定の定義の不及を除くなら、それは制限・除外の規定に過大適用となるだろう」と言われたが、そこで十七詩節の文を例として言うのは正しくない、と退ける——<br>文脈のない十七詩節は、それが聞かれない〔変形祭祀〕、それらのものとなるとしよう。そして、類推適用によって十五詩節が述べられている変形祭祀、それらで、これには選択があるだろう。そうであれば、ミトラヴィンダーなどで、それを改めて規定するのは、制限の規定となるだろう。有意味であることが成り立つときに、ただの繁栄を果報とすることは、決して想定すべきではない。（39）</div>
+  <div class="exp"><span class="lbl">解説</span><p>第1偈の解説では、十七詩節の文が「ただの繁栄」（見えない果報）のためとされる例が引かれました。第39偈は、その例が成り立たないと示して、第1偈の第二の異議の土台を崩します。</p></div>
+  <div class="nt">「लक्षणाव्याप्युद्धारे」を「लक्षणाव्याप्त्युद्धारे」と正した。p.164 の標識はこのブロックの直後にある。</div>
+</div>
+<div class="mula" id="r239">
+  <span class="ref">164</span>
+  <div class="src deva" lang="sa">अनारभ्याधीतस्य साप्तदश्यस्यातिदेशकेन पाञ्चदश्यविकल्पः, मित्रविन्दादिषु पुनः साप्तदश्यविधानं विकल्पापवादरूपं साप्तदश्यनियमार्थमिति स्वमतस्योपपादनम् अनारभ्याधीतसाप्तदश्यवाक्यस्याऽपि प्राकरणिकसाप्तदश्यवाक्यवन्मित्रविन्दादिमात्रशरणत्वे स्यादेवमगत्याभ्युदयार्थत्वकल्पनम् । तदेवाऽसिद्धम्, तस्य प्रवृत्तिविशेषकरत्वपर्यवसायिगत्यन्तरसम्भवात् । तथा हि—यासु सौर्यादिविकृतिषु साप्तदश्यं न श्रूयते, तास्वनारभ्यवादप्राप्तसाप्तदश्यस्याऽतिदेशप्राप्तेन पाञ्चदश्येन विकल्पः प्राप्नोतु; मित्रविन्दादिषु पुनः साप्तदश्यविधानं विकल्पापवादरूपं साप्तदश्यनियमार्थमस्तु । एवं सर्वस्याऽपि साप्तदश्यवाक्यस्य प्रवृत्तिविशेषकरत्वसम्भवे किमित्यन्यतः सिध्यत्यर्थे केवलाभ्युदयार्थविधित्वमभ्युपगम्यते ।</div>
+  <div class="tr">〔自説を論じる——文脈なしに教えられた十七詩節は、類推適用によって十五詩節と選択になる。ミトラヴィンダーなどで十七詩節を改めて規定するのは、選択の例外として、十七詩節を制限するためである〕<br>文脈なしに教えられた十七詩節の文も、文脈にある十七詩節の文と同じく、ミトラヴィンダーなどだけを拠りどころとするのであれば、このように、ほかに道がないので繁栄のためと想定することになろう。しかしそれこそが成り立たない。それには、特定の働きを生むことに落ち着く、ほかの道がありうるからである。すなわち——十七詩節が聞かれない、スーリヤへの〔供物〕などの変形祭祀では、文脈なしの言明で得られた十七詩節が、類推適用で得られた十五詩節と選択になるとしよう。一方、ミトラヴィンダーなどで十七詩節を改めて規定するのは、選択の例外として、十七詩節を制限するためであるとしよう。このように、どちらの十七詩節の文も特定の働きを生みうるのに、なぜ、ほかからことが成り立つときに、ただの繁栄のための規定であると認めるのか。</div>
+  <div class="exp"><span class="lbl">解説</span><p>十七詩節の文は二つあります。文脈なしのものは、十七詩節が聞かれない変形祭祀で十五詩節（類推適用）と選択になり、ミトラヴィンダーなどの文脈にあるものは、そこで選択を除いて十七詩節に限る制限となります。どちらも働きをもつので、見えない繁栄を想定する必要はありません。</p></div>
+  <div class="nt">小見出しは校訂本のもの。「कल्पनम् तदेवाऽसिद्धम्」に句切りを補い、「सिद्धयत्यर्थे」を「सिध्यत्यर्थे」と正した。</div>
+</div>
+<div class="mula" id="r240">
+  <span class="ref">164</span>
+  <div class="src deva" lang="sa">अनारभ्याधीतसाप्तदश्यस्य "न तौ पशौ करोति" इति दृष्टान्तेन विकल्पद्वारा केवलादृष्टार्थत्वं साप्तदश्योदाहरणस्य विघटनोपसंहारः नन्वनारभ्याधीतसाप्तदश्यस्य सौर्यादिगामित्वे सौर्यादिष्वतिदेशात्पाञ्चदश्यं न प्राप्नुयात्, उपदेशेनाऽतिदेशबाधादिति चेत्, सत्यमन्यत्र तथैव । इह तु सौर्यादिषु साप्तदश्यं पाञ्चदश्यातिदेशबाधनेन स्वयं नियतत्वं प्राप्नोति चेन्मित्रविन्दादिषु पुनः साप्तदश्यविधानं व्यर्थं स्यात् । तथैव मित्रविन्दादिष्वपि साप्तदश्यनियमलाभोपपत्तेः । अतोऽनारभ्याधीतं साप्तदश्यवाक्यं स्वस्य मित्रविन्दादिगतौ स्ववैयर्थ्यं सौर्यादिगतौ पाञ्चदश्यातिदेशबाधेन प्राकरणिकसाप्तदश्यवाक्यवैयर्थ्यं चालोच्य, सौर्यादिकं गत्वा तत्र पाञ्चदश्यातिदेशञ्च सोढ्वा, तेन सह विकल्पमनुमन्यते, यथा "न तौ पशौ करोति" इति पशावाज्यभागप्रतिषेधस्तत्र चोदकादाज्यभागयोरप्राप्तावप्रसक्तप्रतिषेधतया स्ववैयर्थ्यं चोदकात्तयोः प्राप्तौ सर्वथा तयोः प्रतिषेधे च तत्प्रापकस्य चोदकस्याऽप्रामाण्यापत्तिं चालोच्याज्यभागातिदेशं सोढ्वा तदनुष्ठानेन सह विकल्पमङ्गीकरोति । एवं हि तत्र चोदकनिषेधशास्त्रयोरिवात्राऽपि प्राकरणिकाप्राकरणिकसाप्तदश्यवाक्ययोः प्रवृत्तिविशेषकरतया साफल्यं भवति । तस्मात् केवलादृष्टार्थत्वे साप्तदश्यवाक्योदाहरणमयुक्तमिति भावः ॥ ३९ ॥ इत्येकोनचत्वारिंशश्लोकस्य व्याख्या</div>
+  <div class="tr">〔「それらを獣祭では行わない」という例によって、選択を通じて、十七詩節の例がただ見えない果報のためのものであることを崩す、という結び〕「しかし、文脈なしに教えられた十七詩節がスーリヤへの〔供物〕などに及ぶなら、スーリヤへの〔供物〕などでは類推適用によって十五詩節は得られないだろう。教示によって類推適用が退けられるからだ」と言うなら——その通り。ほかではそうである。しかしここでは、スーリヤへの〔供物〕などで、十七詩節が十五詩節の類推適用を退けて自ら決まったものとなるなら、ミトラヴィンダーなどで十七詩節を改めて規定するのは無意味になるだろう。同じようにして、ミトラヴィンダーなどでも十七詩節の制限が得られるからである。<br>だから、文脈なしに教えられた十七詩節の文は、ミトラヴィンダーなどに行けば自分が無意味になり、スーリヤへの〔供物〕などに行って十五詩節の類推適用を退ければ文脈にある十七詩節の文が無意味になる、と考え合わせて、スーリヤへの〔供物〕などに行き、そこで十五詩節の類推適用を受け入れて、それと選択になることを認める。ちょうど、「それら二つを獣祭では行わない」という、獣祭でのアージュヤ・バーガの禁止が、そこに類推適用によって二つのアージュヤ・バーガが得られないなら、当てはまらないものの禁止として自分が無意味になり、類推適用によって二つが得られたのに完全に禁止すれば、それを得させる類推適用が根拠でなくなってしまう、と考え合わせて、アージュヤ・バーガの類推適用を受け入れ、それを行うこととの選択を認めるように。<br>こうして、そこで類推適用と禁止のシャーストラがそうであるように、ここでも、文脈にある十七詩節の文と文脈なしの十七詩節の文とが、特定の働きを生むものとして、どちらも果報をもつ。だから、ただ見えない果報のためのものの例として十七詩節の文を挙げるのは正しくない、という趣旨である。（39）以上、第39偈の解説。</div>
+  <div class="exp"><span class="lbl">解説</span><p>教示は普通は類推適用を退けますが、ここでそうすると、ミトラヴィンダーなどの十七詩節の文が無意味になります。そこで、文脈なしの十七詩節は類推適用の十五詩節と並んで選択となります。獣祭でのアージュヤ・バーガの禁止が、類推適用を残して選択となるのと同じ解き方です。</p>
+  <table class="tbl min"><thead><tr><th></th><th>十七詩節</th><th>アージュヤ・バーガ</th></tr></thead><tbody>
+    <tr><td>類推適用で来るもの</td><td>十五詩節</td><td>二つのアージュヤ・バーガ</td></tr>
+    <tr><td>それに対する文</td><td>文脈なしの十七詩節</td><td>「獣祭では行わない」</td></tr>
+    <tr><td>完全に退けると</td><td>ミトラヴィンダーの文が無意味</td><td>類推適用が根拠でなくなる</td></tr>
+    <tr><td>結果</td><td>選択</td><td>選択</td></tr>
+  </tbody></table></div>
+  <div class="nt">小見出しは校訂本のもの。「साप्तदस्य」を「साप्तदश्य」、「चेत्मित्र」を「चेन्मित्र」、「पञ्चदश्या」を「पाञ्चदश्या」、「संह」を「सह」、「न तो पशौ」を「न तौ पशौ」、「अप्रामाण्यापत्ति」を「अप्रामाण्यापत्तिं」、「आज्यभामा」を「आज्यभागा」と正した。末尾の柱を本文から除いた。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この部に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>adhikāvṛtti</dt><dd>余分の繰り返し。ウクティヤなどの終わり方で加わる讃歌・杯</dd>
+    <dt>sārvakāmya</dt><dd>全願望。「すべての願望のために」という文で、祭祀にすべての果報を与えること</dd>
+    <dt>vyavasthā</dt><dd>割り当て。区別なく得られた補助を、特定の果報に振り分けること</dd>
+    <dt>nidhana</dt><dd>終わりの句。サーマンの最後の部分</dd>
+    <dt>lākṣaṇika</dt><dd>間接的な用法</dd>
+    <dt>sāptadaśya / pāñcadaśya</dt><dd>十七〔のサーミデーニー詩節〕であること／十五であること</dd>
+    <dt>abhyudaya</dt><dd>繁栄。見えない果報</dd>
+    <dt>pravṛttiviśeṣakara</dt><dd>特定の働きを生むもの。選択・制限などで実行を変えること</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.160–165 のOCRテキストに拠る。この部分は別のOCRで補ったもの。〔　〕内は校訂本の小見出し、および訳者の補足。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>

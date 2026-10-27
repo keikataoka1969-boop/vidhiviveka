@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Śuktirajatādyutpattisamarthanavāda 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#map">第25論の地図</a></li>
+    <li><a href="#s1"><b>1</b>序と第1〜2段：銀は目…</a></li>
+    <li><a href="#s2"><b>2</b>第3〜4段：生起か、遠…</a></li>
+    <li><a href="#s3"><b>3</b>第5〜9段：認識による…</a></li>
+    <li><a href="#s4"><b>4</b>第10〜12段：「香し…</a></li>
+    <li><a href="#s5"><b>5</b>第13段：蛇・兎の角・…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ヴァーダ・ナクシャトラ・マーラー　第25論</div>
+  <h1>Śuktirajatādyutpattisamarthanavāda</h1>
+  <p class="deva-title" lang="sa">शुक्तिरजताद्युत्पत्तिसमर्थनवादः</p>
+  <p class="sub">貝殻の上の銀は、そのとき、その場に生じている</p>
+  <span class="sample">対訳　第25論 全文（pp.372–377、第1〜13段）</span>
+  <p>第23・24論で、貝殻の銀や夢の火は誤った認識だと確定しました。では、その誤った認識に現れている銀は何なのか。反論者（ニヤーヤ派）は、どこか<strong>別の場所にある本物の銀</strong>が、特別な接触（認識による接触、<i>jñānalakṣaṇa</i>）によって現れているのだと言います（別様の顕現説）。</p>
+  <p>著者は、銀は錯誤の間だけ、<strong>目の前のその場に生じている</strong>（見かけだけの、<i>prātibhāsika</i>）と論じます。原因は認識者の欠陥（<i>doṣa</i>）と、人を惑わせる主宰神の意志です。手品の蛇、「兎の角」、夢の中の何にでも変わる一つの姿など、遠くの本物では説明できない錯誤が決め手になります。この論では奇数段が立論者です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>論題</dt><dd>貝殻の上の銀は、どこにあるのか</dd></div>
+    <div><dt>立論者（定説）</dt><dd>目の前のその場に、そのとき生じている<br><small>欠陥と主宰神の意志による。「これは銀だ」という経験に合う</small></dd></div>
+    <div><dt>反論者</dt><dd>どこか別の場所の本物の銀が現れている<br><small>認識（記憶）が接触の役をする</small></dd></div>
+    <div><dt>決め手</dt><dd>見たことのない蛇の錯誤、「兎の角」、「青い水」<br><small>以前に知ったものがないので、記憶による接触は働かない</small></dd></div>
+    <div><dt>派生</dt><dd>夢・心の迷い・空想の対象も同じく説明される</dd></div>
+  </dl>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">第25論の地図</h2><span class="sub">奇数段が立論者、偶数段が反論者</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>段</th><th>話者</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">序・1–2</td><td>交互</td><td class="num">pp.372–373</td><td class="k"><a href="#s1">銀は目の前にあるか。貝殻に銀の部分があるか</a></td></tr>
+<tr><td class="num">3–4</td><td>交互</td><td class="num">p.373</td><td class="k"><a href="#s2">新しい銀の生起か、遠くの銀の顕現か</a></td></tr>
+<tr><td class="num">5–9</td><td>交互</td><td class="num">p.375</td><td class="k"><a href="#s3">認識による接触と推論の競合</a></td></tr>
+<tr><td class="num">10–12</td><td>交互</td><td class="num">pp.375–376</td><td class="k"><a href="#s4">「香しい白檀」の例。輝きの類似</a></td></tr>
+<tr><td class="num">13</td><td><span class="pill c">立論者</span></td><td class="num">pp.376–377</td><td class="k"><a href="#s5">蛇・兎の角・夢の例。結論</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>序と第1〜2段：銀は目の前にあるか</h2><span class="sub"><span class="pg">pp.372–373</span></span></div>
+<div class="mula" id="u1">
+  <span class="ref">372</span>
+  <div class="src deva" lang="sa">शुक्तिरजताद्युत्पत्तिसमर्थनवादः ॥ अथ शुक्तिरजतादिकं स्वाप्नवह्निजलादिकं च नासंनिहितमयथार्थज्ञानविषयः ; किं तु तत्रत्यमेवेति निर्णयार्थं कथान्तरं प्रस्तूयते-- एतच्छुक्तीदंतया गृह्यमाणं रजतम् एतद्देशवर्ति, एतदिदंतया गृह्यमाणत्वात् एतच्छुक्तिवत्; यस्याः शुक्तेरधस्तात् रजतं नास्ति सा शुक्तिः एतच्छब्देन विवक्षिता; अतो नास्ति सिद्धसाधनशङ्का इति प्रथमा कक्ष्या ॥</div>
+  <div class="tr">貝殻の上の銀などの生起を論証する論。さて、貝殻の上の銀など、夢の火や水などは、そこにない（遠くの）ものが誤った認識の対象になっているのではなく、そこにあるものにほかならない、と確定するために、別の論議を始める。<br>（第1段）この貝殻の「これ」として捉えられている銀は、この場所にある。「これ」として捉えられているからである。この貝殻のように。「この」の語で意図されているのは、その下に銀のない貝殻である。だから、すでに成り立っていることを証明するという疑いはない。以上が第1段。</div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">372</span>
+  <div class="src deva" lang="sa">अथ द्वितीया-- बाधितविषयं त्वदनुमानम्, न हि तत्र प्राक्सिद्धं रजतमस्ति, न वा अभिनवरजतोत्पत्तौ अन्यत्र क्लृप्तं रजतकारणमस्ति; अभिनवरजतोत्पत्तौ च पश्चादपि तदुपलब्धिप्रसङ्गः; ननु शुक्तौ रजतावयवानुप्रवेशोऽस्ति, तत्सदृशत्वात्, भूयो ऽवयवसामान्यं सादृश्यमित्यङ्गीकारात्; मीमांसकैरपि प्रतिनिधिपेटिकायाम् अवश्यकर्तव्येषु व्रीहिद्रव्यकेषु कर्मसु व्रीह्यलाभे तत्सदृशा नीवाराः ग्राह्याः, तेषु व्रीहित्वजात्यभावेऽपि तदवच्छेद्यानां व्रीह्यवयवानां सत्त्वेन किंचित् व्रीहिशास्त्रानुग्रहलाभात् - इति उक्तत्वात्; न च शुक्तौ रजतावयवसत्त्वे दोषाभावदशायामपि तदुपलब्धिप्रसङ्गः, शुक्तौ शुक्त्यवयवा भूयांस इति तदा तेषां ग्रहणेन प्रतिबन्धात् रजताग्रहणम्, दोषदशायां तेषामग्रहणेन प्रतिबन्धाभावात् रजतग्रहणमित्युपपत्तेः; अतः शुक्त्यनुप्रविष्टरजतावयवविषयत्वेन साध्यपर्यवसानसंभवात् न बाध इति चेत्; मैवम्, एवं शुक्तिरजतभ्रमनिर्वाहेऽपि नीवारादिषु व्रीह्यादिभ्रमानिर्वाहात्; न हि यथा रजतावयवा रजतानि तथा व्रीह्यवयवा व्रीहयः, रजतावयवेषु रजतत्वस्येव व्रीह्यवयवेषु व्रीहित्वाभावात्; अतः तादृशस्थलपक्षीकरणे बाधो नापैति; उपलक्षणं हि स्थालीपुलाकन्यायेन रजतभ्रमस्थलपक्षीकरणम्; एवं नीलं जलम् इत्यादिभ्रमस्थलपक्षीकरणेऽपि बाधो द्रष्टव्यः;</div>
+  <div class="tr">第2段——あなたの推論は対象が否定されている。そこにもとから成り立っている銀はないし、新しい銀が生じるのに、他で確定している銀の原因もないからである。また新しい銀が生じるなら、後でもそれが知覚されることになってしまう。<br>「貝殻には銀の部分が入り込んでいる。それ（銀）に似ているからである。似ていることとは、多くの部分の共通性だと認められるからである。ミーマーンサー学者たちも代替物の章で、米を材料とする必ず行うべき祭祀で米が得られないとき、それに似たニーヴァーラ（野生米）を採るべきだ、と言っている。それには米性という類はなくても、それで限定される米の部分があるので、米の規定にいくらか従うことができるからである。また、貝殻に銀の部分があるなら、欠陥がないときにもそれが知覚されることになる、ということもない。貝殻には貝殻の部分が多いので、そのときはそれを捉えることで妨げられて銀は捉えられず、欠陥があるときにはそれを捉えないので妨げがなく、銀が捉えられる、と説明がつくからである。だから貝殻に入り込んだ銀の部分を対象とすることで、証明されるべきことが成り立ちうるので、否定はない」と言うなら——そうではない。<br>そうしても、貝殻の銀の錯誤は説明できても、ニーヴァーラなどに米を見る錯誤などは説明できないからである。銀の部分が銀であるのと同じように、米の部分が米であるわけではない。銀の部分に銀性があるのと違い、米の部分には米性がないからである。だからそのような場合を主題とすると、否定は去らない。銀の錯誤の場合を主題にしたのは、「鍋の飯粒」の原則によって（一例で全体を示す）目印だからである。同じく、「青い水」などの錯誤の場合を主題としても、否定があると見るべきである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は、目の前に銀はないと言います。もとからない。新しく生じる原因（銀の鉱石など）もない。生じたなら後でも見えるはずだ。</p><p>反論者は、貝殻に銀の微粒子が混じっているという説も検討して退けます。ミーマーンサーでは、米がないとき似ているニーヴァーラ（野生米）で代用します（『ミーマーンサー・スートラ』6.3）。似ているのは米の部分を共有するからだ、という説明がありますが、米の部分は米ではないので、ニーヴァーラを米と見る錯誤はこれでは説明できない。「鍋の飯粒」の原則（一粒で鍋全体の炊け具合が分かる）のとおり、銀の例は錯誤全体の代表にすぎない、というのです。</p></div>
+  <div class="nt">「गृह्यमाणत्वात्एतच्छुक्तिवत्」を分かち書きに、「कृप्त」を「क्लृप्त」、「शुक्तत्य」「शुक्त्तत्य」を「शुक्त्य」と正した（以下この論で同様）。</div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">372–373</span>
+  <div class="src deva" lang="sa">वस्तुतस्तु उपन्यस्तानुमानपक्षेऽपि बाधस्तदवस्थः, शुक्तौ रजतावयवानाम् अभावात्; शुक्त्यवयवानां शौक्ल्यं चाकचक्यं च अस्ति, एतावतैव हि तयोः सादृश्यम्, शुक्तौ रजतावयवानाम् अपि सत्त्वे, तस्याम् अत्यन्ताग्निसंयोगेन शुक्त्यवयवेषु भस्मीभवत्सु, रजतावयवेषु द्रवत्वोत्पत्तिप्रसङ्गात्; तस्मात् एतच्छुक्तीदंतया गृह्यमाणं रजतम्, एतच्छुक्तिदेशवर्ति न भवति, रजतत्वात्, देशान्तरद्वीपान्तरगतरजतवत् इति ॥</div>
+  <div class="tr">実のところ、示された推論の主題（銀の場合）でも否定はそのまま残る。貝殻には銀の部分がないからである。貝殻の部分には白さと輝きがあり、まさにそれだけで両者は似ている。もし貝殻に銀の部分もあるなら、それを強く火に当てると、貝殻の部分が灰になるとき、銀の部分は溶けることになってしまうからである。<br>だから、この貝殻の「これ」として捉えられている銀は、この貝殻の場所にあるのではない。銀だからである。別の場所や別の島にある銀のように。</div>
+  <div class="nt">「शोक्लयं」を「शौक्ल्यं」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第3〜4段：生起か、遠くの銀の顕現か</h2><span class="sub"><span class="pg">p.373</span></span></div>
+<div class="mula" id="u4">
+  <span class="ref">373</span>
+  <div class="src deva" lang="sa">अथ तृतीया कक्ष्या-- न बाधितविषयं मदनुमानम्, भ्रमदशायाम् अभिनवरजतोत्पत्तेः तस्य बाधकाले लयस्य च अङ्गीकारात्; कारणाभावदोषस्तु असंनिहितरजतस्फुरणपक्षेऽपि तुल्यः, असंनिकृष्टस्य भानायोगात्; न च भ्रमे शुक्तिर्विशेष्यं रजतं विशेषणमिति न रजतसंनिकर्षापेक्षा, विशेषणज्ञानविशेष्यसंनिकर्षतदुभयासंसर्गाग्रहमात्रात् विशिष्टप्रत्यक्षोत्पत्तिसंभवादिति वाच्यम्, तथा सति संनिकृष्टपर्वतपक्षकवह्न्यनुमितिस्थले प्रत्यक्षोदयप्रसङ्गात्; अनुमित्साविहरदशायां समाने विषये प्रत्यक्षसामग्र्या बलवत्त्वात्; यदि प्रमारूपे ज्ञाने क्लृप्तस्य कारणस्याभावेऽपि दोषवशात् भ्रमरूपं ज्ञानं जायते इत्युच्येत, तदा सत्यरजते क्लृप्तस्य कारणस्याभावेऽपि भ्रमग्राह्यमसत्यं रजतं दोषवशाज्जायते इत्येव वक्तुं युक्तम्, अनुभवानुरोधात्; इदंतया पुरोदेशवर्ति हि रजतमनुभूयते; न च दोषवशादसंनिकृष्टभानस्येव रजतावयवानपेक्षस्य रजतस्योत्पत्तिः स्वीकर्तुं न युक्ता, निरुपादानद्रव्योत्पत्त्ययोगादिति वाच्यम्, दोषसहितात् मूलकारणादेव भ्रमयितुरीश्वरस्य इच्छया तदुत्पत्त्युपपत्तेः ; तस्मात् मदनुमानं न बाधितविषयम्, त्वदनुमानमेव बाधितविषयम् इति ॥</div>
+  <div class="tr">第3段——私の推論は対象が否定されていない。錯誤の状態で新しい銀が生じ、それが打ち消される時に消滅すると認めるからである。原因がないという欠点は、そこにない銀が現れるという立場でも同じである。接触していないものが現れることはありえないからである。<br>「錯誤では貝殻が被限定、銀が限定なので、銀との接触は必要ない。限定の認識、被限定との接触、その二つの非関係の把握のなさだけから、限定されたものの知覚が生じうるからである」と言うべきでもない。そうであれば、接触している山を主題として火を推論する場合に、（火の）知覚が生じることになってしまう。推論しようという欲求がないときには、同じ対象については、知覚の原因の総体の方が強いからである。<br>もし「正しい認識で確定している原因がなくても、欠陥によって錯誤としての認識が生じる」と言うなら、そのときは「本物の銀で確定している原因がなくても、錯誤で捉えられる偽りの銀が欠陥によって生じる」と言うのがまさに正しい。経験に従うからである。銀は「これ」として目の前の場所にあるものとして経験されるからである。<br>「欠陥によって接触していないものが現れることと同じく、銀の部分を必要としない銀が生じると認めるのは正しくない。質料因のない実体の生起はありえないからである」と言うべきでもない。欠陥を伴う根本の原因から、人を惑わせる主宰神の意志によってそれが生じることが成り立つからである。だから私の推論は対象が否定されておらず、あなたの推論こそ対象が否定されている。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者は、原因がないという欠点は相手も同じだと言い返します。遠くの銀は目と接触していないので、見えるはずがない。限定（銀）は記憶でよいという説明では、山の煙から火を推論するとき、火も記憶にあり山とは接触しているので、推論ではなく火の知覚になってしまう。どちらにしても欠陥に頼るなら、「欠陥によって偽りの銀がその場に生じる」と言う方が、「これは銀だ」という経験に合う。質料がないという問題には、根本原因（マーヤーなど）から主宰神の意志で生じる、と答えます。</p></div>
+  <div class="nt">「संभवदिति」を「संभवादिति」、「वह्नय」を「वह्न्य」と正した。</div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">373</span>
+  <div class="src deva" lang="sa">अथ चतुर्थी-- त्वदनुमानं बाधितविषयमेव, रजतसामान्ये क्लृप्तस्य कारणस्याभावे रजतोत्पत्त्ययोगात्; मन्मते तु असंनिहितेऽपि ज्ञानरूपः संनिकर्षोऽस्तीति न ज्ञानसामान्ये क्लृप्तस्य कारणस्याभावः; एवं च रजतस्य पुरोदेशवर्तित्वासंभवेनासंनिहितस्यैव तस्य भानेऽवश्यं वक्तव्ये शुक्तीदमंशतादात्म्येन स्फुरणात् इदं रजतमिति व्यवहारः इत्युपपादनीयम्; अतोऽनुभवविरोधपरिहारात् मदनुमानं न बाधितविषयम् इति ॥</div>
+  <div class="tr">第4段——あなたの推論はまさに対象が否定されている。銀一般について確定している原因がなければ、銀は生じえないからである。私の説では、そこにないものについても認識としての接触があるので、認識一般について確定している原因がないことはない。そしてこうして、銀が目の前の場所にあることはありえないので、そこにない銀が現れると必ず言わなければならないとき、「貝殻の『これ』の部分との同一性として現れるので、『これは銀だ』という言い方がある」と説明すべきである。だから経験との矛盾は除かれるので、私の推論は対象が否定されていない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者の説（ニヤーヤ派の別様の顕現説）です。銀の記憶が「認識による接触」（<i>jñānalakṣaṇa pratyāsatti</i>）となり、遠くの銀が貝殻と一体のものとして知覚される。だから「これは銀だ」という経験とも矛盾しない、というのです。</p></div>
+  <div class="nt">「रजतासामान्ये」を「रजतसामान्ये」、「अनुभवविरोद」を「…विरोध」と正した。本体OCRでは、この段の後に p.374 の頁番号だけがあって本文がなく、すぐ p.375 が続く。p.374 の本文が欠けている可能性がある。</div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第5〜9段：認識による接触と推論</h2><span class="sub"><span class="pg">p.375</span></span></div>
+<div class="mula" id="u6">
+  <span class="ref">375</span>
+  <div class="src deva" lang="sa">अथ पञ्चमी कक्ष्या-- रजते ज्ञानं संनिकर्षश्चेत् वह्नावपि संनिकर्षः स्यादिति तत्प्रत्यक्षोदयः दुर्वारः ; अतः क्लृप्तकारणाभावेऽपि भ्रमोत्पत्तौ दोष एव शरणीकरणीयः इति तद्विषयोत्पत्त्युपपादनमेव युक्तम्, अनुभवस्वारस्यानुरोधात्, सर्वथा तदसंभवे हि कथंचित् तदुपपादनं कार्यम्; तस्मात् मदनुमानं न बाधितविषयम्, किं तु त्वदनुमानमेवेति ॥</div>
+  <div class="tr">第5段——銀についての認識が接触なら、火についても（認識が）接触となり、その（推論の場合の）知覚の生起は避けられない。だから確定した原因がなくても錯誤が生じることについては、欠陥こそを頼りにすべきなので、その対象の生起を説明することこそが正しい。経験の本来の意味に従うからである。それがまったくありえない場合にこそ、何とかしてそれを説明すべきである。だから私の推論は対象が否定されておらず、あなたの推論こそそうである。</div>
+</div>
+<div class="mula" id="u7">
+  <span class="ref">375</span>
+  <div class="src deva" lang="sa">अथ षष्ठी कक्ष्या-- त्वत्पक्ष एव क्लृप्तकारणाभावदोषः, न तु मत्पक्षे, ज्ञानसंनिकर्षसत्त्वात्; न च तथा सति वह्न्यनुमितिस्थले प्रत्यक्षोदयप्रसङ्गः, अलौकिकप्रत्यक्षसामग्र्यपेक्षया समानेऽपि विषये अनुमितिसामग्र्या बलवत्त्वाभ्युपगमात्; अतः प्रागुक्तरीत्या त्वदनुमानमेव बाधितविषयम् इति ॥</div>
+  <div class="tr">第6段——確定した原因がないという欠点はあなたの立場にこそあり、私の立場にはない。認識による接触があるからである。そうすると火の推論の場合に知覚が生じることになる、ということもない。同じ対象でも、超常的な知覚の原因の総体よりも推論の原因の総体の方が強いと認めるからである。だから先に述べた仕方で、あなたの推論こそ対象が否定されている。</div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">375</span>
+  <div class="src deva" lang="sa">अथ सप्तमी-- तथा सति संशयोत्तरभ्रमरूपप्रत्यक्षस्थले अनुमितिप्रसङ्गः; अतो गत्यन्तराभावात् दोष एव उपपादनीयः इति मदुक्तरीत्या मदनुमानं न बाधितविषयम्; किं तु त्वदनुमानमेवेति ॥</div>
+  <div class="tr">第7段——そうであれば、疑いの後に生じる錯誤としての知覚の場合に、推論が生じることになってしまう。だから他に道がないので、欠陥こそを（原因として）説明すべきである。だから私の述べた仕方で、私の推論は対象が否定されておらず、あなたの推論こそそうである。</div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">375</span>
+  <div class="src deva" lang="sa">अथाष्टमी-- प्रमारूपालौकिकप्रत्यक्षसामग्र्यपेक्षयैव अनुमितिसामग्री बलवती; संशयोत्तरप्रत्यक्षस्थले भ्रमरूपालौकिकप्रत्यक्षसामग्री तु अनुमितिसामग्र्यपेक्षया बलवतीति नोक्तदोष इति ॥</div>
+  <div class="tr">第8段——推論の原因の総体が強いのは、正しい認識としての超常的な知覚の原因の総体に対してだけである。疑いの後の知覚の場合には、錯誤としての超常的な知覚の原因の総体の方が、推論の原因の総体より強い。だから述べた欠点はない。</div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">375</span>
+  <div class="src deva" lang="sa">अथ नवमी-- तथा सति भ्रमरूपधूमपरामर्शस्थले वह्न्याभाववति भ्रमरूपवह्निप्रत्यक्षप्रसङ्गः ; अतस्तत्र ज्ञानस्य संनिकर्षत्वायोगात् दोष एव शरणीकरणीय इति तदवस्थो मदुक्तदोषः इति ॥</div>
+  <div class="tr">第9段——そうであれば、煙を誤って考察する場合に、火のないところで火の錯誤としての知覚が生じることになってしまう。だからそこでは認識が接触であることはありえないので、欠陥こそを頼りにすべきであり、私の述べた欠点はそのまま残る。</div>
+  <div class="exp"><span class="lbl">解説</span><p>第5〜9段は短い応酬です。認識による接触を認めると、火の推論が火の知覚になってしまう（第5段）。反論者は、推論の原因の方が強いと答える（第6段）。それなら、「これは銀か貝殻か」と疑ってから「銀だ」と錯誤する場合、推論になってしまう（第7段）。反論者は、錯誤の知覚の原因は推論より強いと区別する（第8段）。それなら、煙を見誤って火を推論する錯誤の場合、知覚になってしまう（第9段）。どう区別しても破綻するので、欠陥を原因とするしかない、と立論者は言います。</p></div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>第10〜12段：「香しい白檀」と輝きの類似</h2><span class="sub"><span class="pg">pp.375–376</span></span></div>
+<div class="mula" id="u11">
+  <span class="ref">375</span>
+  <div class="src deva" lang="sa">अथ दशमी-- ज्ञानं न संनिकर्षः इति तावदयुक्तम्, सुरभि चन्दनम् इत्यादिप्रत्यक्षस्थले तस्य संनिकर्षत्वक्लृप्तेः, तथैवात्रापि ज्ञानस्य संनिकर्षत्वसंभवात्; न च तथा सति संशयोत्तरभ्रमस्थल इव भ्रमरूपवह्न्यनुमितिस्थलेऽपि प्रत्यक्षोदयप्रसङ्गः; तत्र प्रत्यक्षभ्रमप्रयोजकदोषविशेषाभावात्; तदभावश्च तत्र वह्नि पश्यामीति अनुव्यवसायाभावात् वह्निमनुमिनोमि इत्येवानुव्यवसायदर्शनाच्च कल्प्यते; आरोपे सति निमित्तानुसरणम्, न तु निमित्तमस्तीत्यारोपः इति हि न्यायविदः; एवं च दोषासहकृतालौकिकप्रत्यक्षसामग्र्यपेक्षया समाने विषयेऽपि अनुमितिसामग्री बलवतीति फलबलात् कल्प्यते; तस्मादिह ज्ञानस्य संनिकर्षत्वाभ्युपगतौ न कश्चिद्दोष इति त्वदनुमानमेव बाधितविषयम्, न तु मदनुमानम् - इति ॥</div>
+  <div class="tr">第10段——認識は接触ではない、というのはまず正しくない。「香しい白檀」などの知覚の場合に、それが接触であることが確定しているからである。同じくここでも、認識が接触であることはありうる。<br>そうすると、疑いの後の錯誤の場合と同じく、火の錯誤の推論の場合にも知覚が生じることになる、ということもない。そこには知覚の錯誤をもたらす特別な欠陥がないからである。そしてそれがないことは、そこで「私は火を見ている」という自覚がなく、「私は火を推論している」という自覚だけが見られることから想定される。原則を知る人々は、「重ね合わせがあれば原因を探るのであって、原因があるから重ね合わせがあるのではない」と言うからである。こうして、欠陥に助けられない超常的な知覚の原因の総体よりも、同じ対象でも推論の原因の総体の方が強い、と結果の力によって想定される。だからここで認識が接触であることを認めても何の欠点もないので、あなたの推論こそ対象が否定されており、私の推論ではない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は、ニヤーヤ派の典型例「香しい白檀」を挙げます。目で見えるのは白檀の木片だけですが、「香しい白檀」と見える。それは以前に嗅いだ香りの記憶が接触の役をするからです。どの場合に知覚の錯誤になり、どの場合に推論になるかは、「私は見ている」「私は推論している」という自覚から後で決めればよい、というのです。</p></div>
+</div>
+<div class="mula" id="u12">
+  <span class="ref">375–376</span>
+  <div class="src deva" lang="sa">अथैकादशी कक्ष्या-- क्वचिदपि ज्ञानं न संनिकर्षः इति न प्रत्याख्यायते, किंतु वह्न्यनुमितिस्थल इव रजतभ्रमस्थलेऽपि ज्ञानं संनिकर्षो भवितुं नार्हति इत्येतावदुच्यते; यत्र चन्दनखण्डे पूर्वं सौरभमवगतम्, तत्रैव हि स्मृत्युपनीतसौरभविषयं सुरभिचन्दनमिति प्रत्यक्षम्; न हि क्वचिच्चन्दनखण्डे सौरभमननुभूतवतः चन्दनखण्डान्तरदर्शनेऽपि सुरभि चन्दनखण्डमिति प्रत्यक्षमस्ति; न च शुक्तिरजतस्य पूर्वमनुभवोऽस्ति; अतो न तत्र तज्ज्ञानं संनिकर्षः इति युज्यते; यदि यदवच्छेदेन यत्पूर्वमवगतम्, तद्वत्त्वेन, ज्ञाते तज्ज्ञानं संनिकर्षः चन्दनत्वावच्छेदेन प्राक् सौरभं गृहीतवतः तद्वत्त्वेन ज्ञाते चन्दनखण्डान्तरेऽपि सुरभि चन्दनमिति प्रत्यक्षम् इष्टमित्युच्येत, तदापि प्रकृते ज्ञानस्य संनिकर्षत्वं न युज्यते, रजततादात्म्यावच्छेदकत्वेन गृहीतस्य कस्यचित् शुक्तावदर्शनात्; तस्मात् प्रागुक्तरीत्या त्वदनुमानमेव बाधितविषयम् इति ॥</div>
+  <div class="tr">第11段——認識がどこでも接触ではない、と退けるのではない。火の推論の場合と同じく、銀の錯誤の場合にも認識は接触になりえない、ということだけを言うのである。以前に香りを知った白檀の木片についてこそ、記憶でもたらされた香りを対象とする「香しい白檀」という知覚がある。どの白檀の木片でも香りを経験したことのない人には、別の白檀の木片を見ても「香しい白檀の木片」という知覚はない。そして貝殻の銀には以前の経験がない。だからそこでそれの認識が接触だ、というのは成り立たない。<br>もし「以前に何かによって限定されて知られたものについて、それ（限定するもの）をもつと知られたものに、その認識が接触となる。白檀性に限定された香りを以前に捉えた人には、それ（白檀性）をもつと知られた別の白檀の木片にも『香しい白檀』という知覚がある」と言うとしても、そのときもここで認識が接触であることは成り立たない。銀との同一性の限定として捉えられた何ものも、貝殻には見られないからである。だから先に述べた仕方で、あなたの推論こそ対象が否定されている。</div>
+</div>
+<div class="mula" id="u13">
+  <span class="ref">376</span>
+  <div class="src deva" lang="sa">अथ द्वादशी-- रजततादात्म्यावच्छेदकत्वेन रजते गृहीतं चाकचक्यं शुक्तौ रजतभ्रमात्पूर्वं गृह्यते, सादृश्यज्ञानस्य तद्धेतुत्वसंप्रतिपत्तेः, अतोऽत्र ज्ञानस्य संनिकर्षत्वं युज्यते; अतो देशान्तरस्थरजतभाने क्लृप्तकारणसद्भावात् रजतान्तरोत्पत्तौ तदभावाच्च असंनिहितभानमेवाङ्गीकृत्य तत्र शुक्तीदमंशतादात्म्यस्फुरणात् इदं रजतमिति व्यवहारः इत्युपपादनीयम्, अन्यथा चैत्रादिव्यक्तिविशेषभ्रमस्थले तदेवेदं रजतमिति व्यक्तिविशेषप्रत्यभिज्ञाभ्रमस्थले च का गतिः; न हि रजतसामान्यार्थिप्रवृत्तिः प्रातिभासिकरजतज्ञानादिव प्रसिद्धचैत्रोद्देश्यकप्रवृत्तिः प्रातिभासिकचैत्रज्ञानात् नष्टान्विष्यमाणस्वकीयरजतोद्देश्यकप्रवृत्तिः प्रातिभासिकरजतज्ञानाद्वा उपपद्यते; तस्मात् त्वदनुमानमेव बाधितविषयम् इति ॥</div>
+  <div class="tr">第12段——銀において銀との同一性の限定として捉えられた輝きは、銀の錯誤の前に貝殻においても捉えられる。類似の認識がその（錯誤の）原因であることが一致して認められているからである。だからここで認識が接触であることは成り立つ。<br>だから、別の場所にある銀が現れることには確定した原因があり、別の銀が生じることにはそれがないので、そこにないものが現れることを認めたうえで、そこで貝殻の「これ」の部分との同一性として現れるので「これは銀だ」という言い方がある、と説明すべきである。そうでなければ、チャイトラなど特定の個人の錯誤の場合や、「これはあの銀だ」という特定の個物の再認の錯誤の場合はどうなるのか。銀一般を欲する人の行動は、見かけだけの銀の認識からでも成り立つかもしれない。しかし、よく知られたチャイトラを目指す行動が見かけだけのチャイトラの認識から、なくして探している自分の銀を目指す行動が見かけだけの銀の認識から生じることは、成り立たないからである。だからあなたの推論こそ対象が否定されている。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者の最後の論拠です。貝殻の輝きは銀の輝きに似ているので、輝きが銀の「限定」として働く。また、知人チャイトラに似た人を見て「チャイトラだ」と駆け寄る錯誤や、なくした自分の銀を見つけたと思う錯誤では、その場に生じた見かけだけのものでは説明がつかない。本物のチャイトラ、本物の自分の銀が現れているはずだ、というのです。</p></div>
+  <div class="nt">「असंनिहितभानमेवाह्नीकृत्य」を「…मेवाङ्गीकृत्य」、「प्रातिभासिकरजतज्ञानद्वा」を「…ज्ञानाद्वा」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>第13段：蛇・兎の角・夢。結論</h2><span class="sub"><span class="pg">pp.376–377</span><span class="pill c">立論者</span></span></div>
+<div class="mula" id="u14">
+  <span class="ref">376–377</span>
+  <div class="src deva" lang="sa">अथ त्रयोदशी-- शुक्तावतिप्रसक्तं चाकचक्यसामान्यं न रजततादात्म्यावच्छेदकम्; शुक्तिचाकचक्ये रजतवृत्तिचाकचक्यविशेषतादात्म्यभ्रमेण अवच्छेदकत्वज्ञानोपपादने रजतचाकचक्यविशेषस्यापि देशान्तरगतस्य भानानुपपत्तिस्तुल्या; तथा नीलं जलमिति भ्रमस्थले प्राक् जलस्य नीलिमावच्छेदकवत्त्वेन ज्ञानं नास्ति, रूपं विना केवलजलाप्रतीतेः; नीलिमावच्छेदकत्वेन शङ्कनीयस्य कस्यचिदभावाच्च; प्रागदृष्टोरगस्य ऐन्द्रजालिकप्रदर्शितोरगभ्रमे मण्डूकवसाञ्जनदोषजन्यवंशोरगभ्रमे च उरगतादात्म्यावच्छेदकवत्त्वेन अधिष्ठानस्य ज्ञानं नास्ति, तदवच्छेदकस्य प्रागविज्ञातत्वात्; एवं संनिकर्षस्येव निरालोकदेशान्तरस्थितवस्तुभ्रमे विषयालोकसंयोगस्याभावादपि न देशान्तरस्थस्य भ्रमविषयत्वमुपपद्यते; अपि च प्रतारकवाक्यात् - शशस्य शृङ्गमस्ति, तदेवंलक्षणमरण्ये पतितमन्विष्य लब्धुं शक्यम्; तेन च इदं प्रयोजनं भवति इत्येवंरूपात् अवाप्तमोहस्य तथैवारण्यं गत्वा तदन्वेषमाणस्य यथोक्तचिह्नयुक्तकाष्ठशृङ्गान्तरादिदर्शने शशशृङ्गमिदम् इत्यनुभवोऽस्ति; अस्ति च स्वप्ने मनुष्यपशुपक्षिवृक्षाद्यनेकरूपस्य एकस्यैवावयविनोऽनुभवः; न च तत्र असंनिहितं शशशृङ्गादिकं भ्रमविषय इति वक्तुं शक्यमिति अगत्या दोषात् प्रातिभासिकस्यैव तस्योत्पत्तिरङ्गीकरणीया; एवं तत्र दोषस्य प्रातिभासिकविषयोत्पत्तिकारणत्वक्लृप्तौ तेनैव रजतभ्रमेऽपि विषयोत्पत्तेरङ्गीकरणं युक्तम्; एवं च भ्रमविषयाणाम् इदंतया अनुभवः स्वारस्यं प्रापितो भवति;</div>
+  <div class="tr">第13段——貝殻にも過剰に及ぶ輝き一般は、銀との同一性の限定ではない。貝殻の輝きに、銀にある特定の輝きとの同一性を錯誤することで限定であるという認識を説明するなら、別の場所にある銀の特定の輝きが現れることも、同じく説明がつかない。<br>また「青い水」という錯誤の場合、以前に水を青さの限定をもつものとして認識したことはない。色なしに水だけが認識されることはないからであり、青さの限定と疑われるようなものもないからである。以前に蛇を見たことのない人が、手品師の見せる蛇を錯誤する場合や、蛙の脂の目薬の欠陥から生じる竹を蛇と見る錯誤の場合、その基体を、蛇との同一性の限定をもつものとして認識したことはない。その限定は以前に知られていないからである。同じく、暗い別の場所にある物の錯誤では、接触がないのと同じく、対象と光の結合もないので、別の場所にあるものが錯誤の対象であることは成り立たない。<br>さらに、「兎に角がある。こういう特徴のものが森に落ちている。探せば見つかる。それでこういう役に立つ」というような詐欺師の言葉から惑わされた人が、そのとおりに森に行って探し、言われたとおりの特徴をもつ木の角などを見たとき、「これは兎の角だ」という経験がある。また夢では、人・獣・鳥・木など多くの姿をもつ一つの全体の経験がある。そこで、そこにない兎の角などが錯誤の対象だとは言えないので、他に道がないことから、欠陥によって見かけだけのそれ（兎の角など）が生じると認めなければならない。<br>こうしてそこで、欠陥が見かけだけの対象の生起の原因であると確定すれば、まさにそれによって銀の錯誤でも対象が生じると認めるのが正しい。こうして、錯誤の対象が「これ」として経験されることは、その本来の意味を保たれる。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者の決め手は、遠くの本物では説明できない錯誤です。</p><ul><li>「青い水」：水が青い本物はどこにもない。</li><li>手品の蛇、目薬で竹が蛇に見える錯誤：その人は以前に蛇を見たことがないので、記憶による接触が働かない。</li><li>暗い場所の物：光が当たっていないので見えるはずがない。</li><li>「兎の角」：兎の角はどこにも存在しない。</li><li>夢の中で人にも獣にも木にもなる一つの姿：そんなものはどこにもない。</li></ul><p>これらは欠陥によって見かけだけのものがその場に生じると考えるしかない。それなら銀の錯誤も同じだ、というのです。</p></div>
+  <div class="nt">「श्रृङ्ग」を「शृङ्ग」、「शशश्श्रृङ्ग」を「शशशृङ्ग」、「क्लप्तौ」を「क्लृप्तौ」と正した。</div>
+</div>
+<div class="mula" id="u15">
+  <span class="ref">377</span>
+  <div class="src deva" lang="sa">चैत्रादिव्यक्तिविशेषभ्रमेण अप्रसिद्धचैत्राद्युद्देश्यकप्रवृत्तिस्तु तन्निष्ठचैत्रत्वादेः प्रातिभासिकविषयेऽपि स्फुरणात् उपपद्यते; अस्ति हि चैत्रशरीरे चैत्रत्वं तदाकृतिविशेषव्यङ्ग्यम्; तत्प्रातिभासिकचैत्रशरीरेऽपि व्यञ्जकसत्त्वेन अभिव्यक्तं स्फुरति; तत्स्फुरणमात्रं प्रसिद्धचैत्रोद्देश्यकप्रवृत्तौ तन्त्रम्; इष्टतावच्छेदकज्ञानादेव प्रवृत्त्युपपत्तेः; रजतव्यक्तिविशेषविषयप्रत्यभिज्ञाभ्रमेण तदर्थप्रवृत्तिरपि प्रातिभासिकरजतस्यैव शुक्तौ विशेषवैशिष्ट्येन स्फुरणादुपपद्यते; सत्यरजतान्तरविषये तदिदं रजतम् इति प्रत्यभिज्ञाभ्रमे हि पुरोवर्तिन्येव रजते तत्तावैशिष्ट्यस्फुरणमङ्गीकर्तव्यम्; तत् प्रातिभासिकरजतेऽपि अस्तु; सा तत्ता तवासंनिहिता, मम रजतेन सह तद्विशेषणभावेन उत्पन्नेति विशेषः; तत् पुरोदेशे प्रत्यग्ररजतोत्पत्तौ कारणसत्त्वात् असंनिहितरजतभाने कारणाभावाच्च मदनुमानं न बाधितविषयम्, त्वदनुमानमेव बाधितविषयमिति सिद्धं शुक्तिरजतादिकमिदं पुरोदेशवर्ति प्रसिद्धरजतादिभिन्नमिति; एतेन स्वप्नचित्तभ्रममनोराज्यविषया अपि व्याख्याताः ॥ इति शुक्तिरजताद्युत्पत्तिसमर्थनवादः ॥२५॥</div>
+  <div class="tr">チャイトラなど特定の個人の錯誤によって、よく知られたチャイトラなどを目指す行動が生じるのは、彼にあるチャイトラ性などが見かけだけの対象にも現れることで説明がつく。実際、チャイトラの身体にあるチャイトラ性は、その特定の姿かたちによって現れる。その見かけだけのチャイトラの身体にも、それを現すもの（姿かたち）があるので、現されて（チャイトラ性が）現れる。その現れだけが、よく知られたチャイトラを目指す行動の決め手である。欲しいものであることの限定の認識だけから行動が成り立つからである。<br>特定の銀の個物を対象とする再認の錯誤によってそれを目指す行動が生じるのも、見かけだけの銀が、貝殻に、その特定のもの（あの銀であること）との結合をもって現れることで説明がつく。別の本物の銀について「これはあの銀だ」という再認の錯誤では、目の前の銀に「あれであること」の結合が現れると認めなければならない。それは見かけだけの銀でもそうであってよい。違いは、その「あれであること」が、あなたにとってはそこにないもの、私にとっては銀とともにその限定として生じたもの、という点である。<br>だから、目の前の場所に新しい銀が生じることには原因があり、そこにない銀が現れることには原因がないので、私の推論は対象が否定されておらず、あなたの推論こそ対象が否定されている。こうして、この貝殻の上の銀などは目の前の場所にあり、よく知られた銀などとは別のものだ、ということが確定した。これによって、夢・心の迷い・空想の対象も説明された。<br>以上、貝殻の上の銀などの生起を論証する論。（第25論）</div>
+  <div class="exp"><span class="lbl">解説</span><p>第12段の反論への答えです。チャイトラだと思って駆け寄るのは、見かけだけの姿にもチャイトラの顔かたちがあり、そこにチャイトラ性が現れるからです。人が向かうのは「チャイトラ」という欲しいものの目印を認識したからで、本物のチャイトラがそこに現れている必要はない。再認の錯誤でも、「あの銀であること」が見かけだけの銀とともに生じる、と考えればよい、というのです。</p></div>
+  <div class="nt">「व्यङ्गन्यम्」を「व्यङ्ग्यम्」、「कारणाभावाच्चं」を「…च्च」と正した。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この論に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>prātibhāsika</dt><dd>見かけだけの。錯誤の間だけ存在するもの</dd>
+    <dt>asaṃnihita</dt><dd>そこにない（遠くにある）もの</dd>
+    <dt>jñānalakṣaṇa (saṃnikarṣa)</dt><dd>認識による接触。記憶などが知覚の接触の役をすること（ニヤーヤ派）</dd>
+    <dt>alaukika pratyakṣa</dt><dd>超常的な知覚</dd>
+    <dt>sāmagrī</dt><dd>原因の総体</dd>
+    <dt>doṣa</dt><dd>欠陥。目の病気や暗さなど、錯誤を生む条件</dd>
+    <dt>cākacakya</dt><dd>輝き。貝殻と銀に共通する光沢</dd>
+    <dt>pratyabhijñā</dt><dd>再認。「これはあれだ」という認識</dd>
+    <dt>pratinidhi</dt><dd>代替物。祭祀で材料が得られないときの代用品</dd>
+    <dt>sthālīpulākanyāya</dt><dd>「鍋の飯粒」の原則。一例で全体を示すこと</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.372–377 のOCRテキストに拠る。本体OCRでは p.374 の頁番号の直後に p.375 が続き、p.374 の本文が欠けている可能性がある（第4段と第5段のあいだ）。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>

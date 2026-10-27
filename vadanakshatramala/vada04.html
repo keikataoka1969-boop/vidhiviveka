@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Guṇaguṇyanekaśaktivāda 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#map">第4論の地図</a></li>
+    <li><a href="#s1"><b>1</b>第1〜6段：青色も適用…</a></li>
+    <li><a href="#s2"><b>2</b>第7段：「壺の青さ」は…</a></li>
+    <li><a href="#s3"><b>3</b>第8段：文法家の作り事</a></li>
+    <li><a href="#s4"><b>4</b>第9段：抽象接尾辞は適…</a></li>
+    <li><a href="#s5"><b>5</b>第10段：表示力を認め…</a></li>
+    <li><a href="#s6"><b>6</b>第11〜12段：「青さ…</a></li>
+    <li><a href="#s7"><b>7</b>第13段：知覚と補則に…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ヴァーダ・ナクシャトラ・マーラー　第4論</div>
+  <h1>Guṇaguṇyanekaśaktivāda</h1>
+  <p class="deva-title" lang="sa">गुणगुण्यनेकशक्तिवादः</p>
+  <p class="sub">「青い」は、青色と青い壺を、別々の表示力で表すとしてもよい</p>
+  <span class="sample">対訳　第4論 全文（pp.233–238、序と第1〜13段）</span>
+  <p>第3論は、「青い」が一つの表示力で青色と青い壺を表すと論じました。第4論は、定説の側に立つ<strong>もう一つの立場</strong>を取り上げます。「青い」は、青色には「青さ」の類を根拠として、青い壺には「青色」そのものを根拠として、<strong>二つの別々の表示力</strong>で働く、という立場です。</p>
+  <p>反論者はこれまでと同じくニヤーヤ学派で、壺を「青い」と言うのは転義だ、と主張します。勝負を決めるのは、パーニニ文法の接尾辞の規則、特に抽象名詞「青さ」（<i>nailya</i>・<i>nīliman</i>）が何を表すか、という問題です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>論題</dt><dd>属性語は属性と属性者を<strong>別々の</strong>表示力（<i>anekaśakti</i>）で表すか<br><small>第3論の単一表示力説とは別の、もう一つの定説の立場</small></dd></div>
+    <div><dt>立論者</dt><dd>二つの表示力で表す<br><small>青色については「青さ」の類が、青い壺については「青色」という属性が、適用根拠である</small></dd></div>
+    <div><dt>反論者</dt><dd>ニヤーヤ学派<br><small>「青い」は青色だけを表し、壺には転義で用いられる</small></dd></div>
+    <div><dt>主な論拠</dt><dd>パーニニ 5.1.123「色などの語の後に -ya（ṣyañ）も」<br><small>「壺の青さ」（<i>nailya</i>）が青色を指すことから、「青い」が壺を表すことを導く</small></dd></div>
+    <div><dt>文法の典拠</dt><dd>カーティヤーヤナの補則、パーニニの諸規則、『アマラコーシャ』<br><small>文法学者の用例・規則を、語の意味の決定にどこまで使えるかも争点になる</small></dd></div>
+    <div><dt>次の論との関係</dt><dd>第5論で、二つの立場のうち単一表示力説がまさることを論じる</dd></div>
+  </dl>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">第4論の地図</h2><span class="sub">奇数段が立論者（二つの表示力説）、偶数段が反論者（ニヤーヤ学派）</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>段</th><th>話者</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">1–6</td><td>交互</td><td class="num">p.233</td><td class="k"><a href="#s1">青色も適用根拠になるか。簡潔さか用例か</a></td></tr>
+<tr><td class="num">7</td><td><span class="pill c">立論者</span></td><td class="num">p.233</td><td class="k"><a href="#s2">「壺の青さ」は青色を指す（パーニニ 5.1.123）</a></td></tr>
+<tr><td class="num">8</td><td><span class="pill j">反論者</span></td><td class="num">pp.233–235</td><td class="k"><a href="#s3">文法家の作り事と、転義からの派生</a></td></tr>
+<tr><td class="num">9</td><td><span class="pill c">立論者</span></td><td class="num">pp.235–236</td><td class="k"><a href="#s4">抽象接尾辞は適用根拠を表す。「ガンガー性」は流れを表さない</a></td></tr>
+<tr><td class="num">10</td><td><span class="pill j">反論者</span></td><td class="num">p.236</td><td class="k"><a href="#s5">表示力を認めると、かえって立論者の解釈が崩れる</a></td></tr>
+<tr><td class="num">11–12</td><td>交互</td><td class="num">pp.236–237</td><td class="k"><a href="#s6">「青さ」は類を指すのか、属性を指すのか</a></td></tr>
+<tr><td class="num">13</td><td><span class="pill c">立論者</span></td><td class="num">pp.237–238</td><td class="k"><a href="#s7">知覚とカーティヤーヤナの補則による結論</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>第1〜6段：青色も適用根拠か</h2><span class="sub"><span class="pg">p.233</span>推論式の応酬</span></div>
+<div class="mula" id="u1">
+  <span class="ref">233</span>
+  <div class="src deva" lang="sa">गुणगुण्यनेकशक्तिवादः अथ एषां गुणवचनानां शब्दानां गुणगुणिनोभिन्ना शक्तिरिति सैद्धान्तिकं पक्षान्तरमाश्रित्य कथा प्रस्तूयते नीलगुणाश्रयो घटो नीलशब्दस्य वाच्यः, घटनीलगुणान्याप्रतियोगिकाभावप्रतियोगित्वात्, यो घटनीलगुणान्याप्रतियोगिकाभावप्रतियोगी, स नीलशब्दवाच्यः यथा नीलगुणः इति प्रथमा कक्ष्या ॥</div>
+  <div class="tr">属性と属性者の複数表示力論。さて、これらの属性語は属性と属性者に別々の表示力をもつ、という定説のもう一つの立場に拠って、論議を始める。青い属性の担い手である壺は「青い」の語で表される。壺と青い属性以外のものを否定対象としない不在の、否定対象だからである。壺と青い属性以外のものを否定対象としない不在の否定対象であるものは、「青い」の語で表される。たとえば青い属性のように。これが第1段である。</div><div class="exp"><span class="lbl">解説</span><p>立論者の論証因は、新ニヤーヤ風の技巧的な作りです。「壺と青い属性以外のものを否定対象としない不在」とは、否定対象が壺と青色だけである不在（たとえば「ここに壺も青色もない」）のことです。その否定対象になるものは、壺か青色しかありません。だからこの論証因は、主題（壺）と喩例（青色）にだけある性質になります。肯定的な随伴を、壺と青色の二つの上に人工的に作り出す仕掛けです。議論の実質は、以下の段で「青色も『青い』の適用根拠になるか」に移っていきます。</p></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">233</span>
+  <div class="src deva" lang="sa">अप्रयोजकमिदमनुमानम्, नीलगुणस्य नीलशब्दप्रवृत्तिनिमित्तनीलत्वजात्याश्रयत्वेन नीलशब्दवाच्यत्वेऽपि घटस्य तदनाश्रयत्वेन नीलशब्दावाच्यत्वोपपत्तेः । तस्मात् घटो न नीलशब्दवाच्यः, नीलत्वजात्यनाश्रयत्वात्, यो नीलत्वजात्यनाश्रयः, स न नीलशब्दवाच्यः यथा शुक्लगुणः । नीलशब्दवाच्यत्वाभावव्याप्यनीलत्वजात्यनाश्रयत्ववांश्च अयम्, तस्मात् न नीलशब्दवाच्यः - इति द्वितीया कक्ष्या ॥</div>
+  <div class="tr">この推論は決め手にならない。青い属性は、「青い」の語の適用根拠である青さの類の担い手なので「青い」の語で表されるとしても、壺はその担い手でないので「青い」の語で表されないことが成り立つからである。したがって、壺は「青い」の語で表されない。青さの類の担い手でないからである。青さの類の担い手でないものは「青い」の語で表されない。たとえば白い属性のように。そしてこれは、「青い」の語で表されないことに遍充される、青さの類の担い手でないことをもつ。だから「青い」の語で表されない。これが第2段である。</div>
+  <div class="nt">OCRで繰り返されていた一句（「नीलशब्दवाच्यत्वेऽपि घटस्य तदनाश्रयत्वेन」）を一つにした。</div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">233</span>
+  <div class="src deva" lang="sa">न अप्रयोजकमिदमनुमानम्, नीलत्वजातिवत् नीलगुणस्यापि नीलशब्दप्रवृत्तिनिमित्तत्वेन तदाश्रयस्य नीलशब्दवाच्यताया अव्याहतत्वात् । त्वदनुमानमेव अप्रयोजकम्, घटस्य नीलत्वानाश्रयत्वेऽपि नीलशब्दप्रवृत्तिनिमित्तान्तराश्रयत्वेन तद्वाच्यत्वोपपत्तेः इति तृतीया ॥</div>
+  <div class="tr">この推論は決め手を欠くものではない。青さの類と同じく青い属性も「青い」の語の適用根拠なので、その担い手が「青い」の語で表されることは妨げられないからである。あなたの推論こそ決め手にならない。壺は青さの担い手でなくても、「青い」の語の別の適用根拠の担い手なので、それで表されることが成り立つからである。これが第3段である。</div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">233</span>
+  <div class="src deva" lang="sa">त्वदनुमानं अप्रयोजकमेव, लाघवात् नीलत्वजातिमात्रस्य नीलशब्दप्रवृत्तिनिमित्तत्वोपपत्तौ तया अक्रोडीकृतानां नीलगुणानामपि तत्प्रवृत्तिनिमित्तत्वकल्पनायोगात् । अत एव मदनुमानं न अप्रयोजकम्, प्रवृत्तिनिमित्तानाश्रयस्य तद्वाच्यत्वायोगात् - इति चतुर्थी ॥</div>
+  <div class="tr">あなたの推論はやはり決め手にならない。簡潔さによって、青さの類だけが「青い」の語の適用根拠であることが成り立つので、それに包摂されない青い属性まで適用根拠だと想定することはできないからである。だからこそ私の推論は決め手を欠くものではない。適用根拠の担い手でないものがそれで表されることはありえないからである。これが第4段である。</div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">233</span>
+  <div class="src deva" lang="sa">मदनुमानं तावत् न अप्रयोजकम्, 'नीलो गुणः' इति व्यवहारात् गुणगतनीलत्वजातेरिव 'नीलो घटः' इति व्यवहारात् तद्गतनीलगुणस्यापि तत्प्रवृत्तिनिमित्तत्वकल्पनावश्यंभावात्; व्यवहारमनुरुध्य प्रवृत्तिनिमित्तकल्पनौचित्यात् । अत एव त्वदनुमानमप्रयोजकम्, प्रवृत्तिनिमित्ताश्रयस्य तद्वाच्यत्वोपपत्तेः इति पञ्चमी ॥</div>
+  <div class="tr">まず私の推論は決め手を欠くものではない。「青い性質」という用例から、属性にある青さの類が（適用根拠と想定される）のと同じく、「青い壺」という用例から、それ（壺）にある青い属性もその適用根拠と想定せざるをえないからである。用例に従って適用根拠を想定するのが適切だからである。だからこそあなたの推論は決め手にならない。適用根拠の担い手はそれで表されることが成り立つからである。これが第5段である。</div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">233</span>
+  <div class="src deva" lang="sa">त्वदनुमानं तावत् अप्रयोजकमेव, नीलशब्दस्य स्ववाच्यनीलगुणसंबन्धात् घटे लक्षणया 'नीलो घटः' इति व्यवहारोपपत्तौ तत्रापि नीलशब्दस्य शक्त्यन्तरकल्पने गौरवात् । अत एव मदनुमानं न अप्रयोजकम्, प्रवृत्तिनिमित्तानाश्रयस्य शब्दवाच्यताया व्याहतत्वात् - इति षष्ठी ॥</div>
+  <div class="tr">あなたの推論はやはり決め手にならない。「青い」の語は、自らの表す青い属性との関係によって、壺に転義で（用いられ）、「青い壺」という用例が成り立つので、そこにも「青い」の語の別の表示力を想定するのは煩雑だからである。だからこそ私の推論は決め手を欠くものではない。適用根拠の担い手でないものが語で表されることは妨げられているからである。これが第6段である。</div><div class="exp"><span class="lbl">解説</span><p>第3〜6段は、適用根拠を一つにする「簡潔さ」と、用例に従う「適切さ」の綱引きです。反論者は、用例「青い壺」は転義で説明できるので、別の表示力を立てるのは煩雑だと言います。第7段から、立論者は文法の規則を持ち出して、転義説の不備を突きます。</p></div>
+  <div class="nt">「शक्तत्यन्तर」を「शक्त्यन्तर」と正した（以下も同様）。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第7段：「壺の青さ」は青色を指す</h2><span class="sub"><span class="pg">p.233</span>立論者。パーニニ 5.1.123</span></div>
+<div class="mula" id="u7">
+  <span class="ref">233</span>
+  <div class="src deva" lang="sa">अथ सप्तमी-- यदि नीलादिशब्दानां द्रव्ये लक्षणा स्यात्, तदा 'वर्णदृढादिभ्यः ष्यञ् च' इति पाणिनिसूत्रेण वर्णवाचिभ्यो नीलादिशब्देभ्यः 'तस्य भावे' इत्यर्थे विहितौ ष्यञिमनिचौ प्रत्ययौ नीलादिगुणस्य भावे नीलत्वादिजातौ भवेताम् । नीलादिद्रव्यस्य भावे नीलादिगुणे तौ दृश्येते - घटस्य नैल्यं नीलिमा इति हि लोके नीलादिगुण एव उच्येते । अतः नीलादिशब्दानां द्रव्यवाचकत्वमवश्यमभ्युपगन्तव्यमिति द्रव्ये तेषां शक्तिकल्पनं न गौरवेण त्यक्तुं शक्यते - इति ॥</div>
+  <div class="tr">第7段——もし「青い」などの語が実体に転義で用いられるのなら、「色・堅いなどの語の後に -ya（<i>ṣyañ</i>）も」というパーニニのスートラによって、色を表す「青い」などの語の後に「それの状態」の意味で規定される二つの接尾辞 <i>-ya</i>（<i>ṣyañ</i>）と <i>-iman</i>（<i>imanic</i>）は、青い属性の状態、すなわち青さの類について付くことになろう。（ところが実際には）青い実体の状態、すなわち青い属性についてそれらが見られる。世間では「壺の <i>nailya</i>（青さ）」「<i>nīliman</i>（青み）」と、まさに青い属性が言われるからである。だから「青い」などの語は実体を表すと必ず認めなければならない。それゆえ、実体についてそれらの表示力を想定することを、煩雑さを理由に捨てることはできない。</div><div class="exp"><span class="lbl">解説</span><p>立論者の決め手です。パーニニ 5.1.123（<i>varṇadṛḍhādibhyaḥ ṣyañ ca</i>）は、色の語や「堅い」などの語の後に、「〜の状態」（<i>bhāva</i>、抽象名詞）を作る接尾辞 <i>-ya</i>、<i>-iman</i> が付くことを規定します。「青い」<i>nīla</i> から <i>nailya</i>・<i>nīliman</i>（青さ・青み）ができます。</p><p>「〜の状態」は、元の語の適用根拠を表します。ところで世間では「壺の青み」と言い、これは壺の<strong>青色</strong>（属性）を指します。すると元の語「青い」は、青色を適用根拠とする語、つまり壺を本来の意味で表す語でなければならない。もし「青い」が青色だけを表すなら、その「状態」は青色の適用根拠である「青さの類」を指すはずです。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第8段：文法家の作り事</h2><span class="sub"><span class="pg">pp.233–235</span>反論者。転義の語からも接尾辞は付く</span></div>
+<div class="mula" id="u8">
+  <span class="ref">233–234</span>
+  <div class="src deva" lang="sa">अथ अष्टमी कक्ष्या-- वैयाकरणैः नीलादिशब्दाः केवलाः लुप्तमतुबन्ताश्च - इति द्विविधाः इष्यन्ते । तत्र आद्याः गुणेषु, द्वितीयाः तद्विशिष्टद्रव्येषु च प्रवर्तन्ते । तदिह वर्णदृढादिसूत्रे नीलादिशब्दाः केवलाः धर्मविषया ग्राह्याः, द्वितीयाः धर्मिविषया वा इति संदेहे धर्मिपरदृढादिशब्दसाहचर्यात् द्वितीया एव ग्राह्या इति च तैरिष्यते । एवमकल्पितनित्यशब्दस्वरूपपरिज्ञानार्थं चित्रतुरगन्यायेन कल्पितप्रकृतिप्रत्ययतल्लोपादियुक्तानित्यशब्दनिष्पादने प्रवृत्तैः वैयाकरणैः मतुब्लोपस्य व्यवहृतत्वेऽपि वस्तुतत्त्वमनुरुध्य सिद्धशब्दानामेव अर्थनिर्णये प्रवृत्तैः न्यायविद्भिः न्यायानुसारेण शब्दार्थनिर्णयः कार्यः । तदनुसारेण च मतुब्लोपस्य वैयाकरणकल्पितत्वात् केवला एव नीलादिशब्दाः गुणेषु गुणिषु च प्रवर्तन्ते इत्यभ्युपगन्तव्यम् ।</div>
+  <div class="tr">第8段——文法家たちは、「青い」などの語を、単独のものと、所有接尾辞が脱落したものとの二種類と認める。そのうち前者は属性に、後者はそれに限定された実体に用いられる。そして、この「色・堅いなど」のスートラでは、「青い」などの語として、単独の、性質を対象とするものを取るべきか、後者の、性質をもつものを対象とするものを取るべきか、という疑いについて、性質をもつものを指す「堅い」などの語と並んでいることから後者だけを取るべきだ、とも彼らは認める。このように、文法家たちは、作られたものではない常住の語の形を知らせるために、「絵の馬」の原則によって、作り出された語幹・接尾辞・その脱落などを備えた非常住の語を派生させることに取り組んでいるので、所有接尾辞の脱落を用いていても、ものの真相に従ってすでに成り立った語の意味の決定に取り組む論理学者たちは、道理に従って語の意味を決定すべきである。それに従えば、所有接尾辞の脱落は文法家たちの作り事なので、単独の「青い」などの語が属性にも属性者にも用いられる、と認めるべきである。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、文法家の説明と、語の意味の真相とを分けます。文法家によれば、5.1.123 の「色の語」は、所有接尾辞が脱落して実体を指す方の「青い」です（「堅い」など実体を指す語と並んでいるから）。しかし、語幹や接尾辞や脱落は、文法家が常住の語を教えるために作り出した仮の仕組みにすぎない。絵に描いた馬で本物の馬を教えるようなものだ（「絵の馬」の原則）。だから論理学者は、文法家の脱落の説明に縛られず、道理に従って意味を決めてよい、というのです。</p></div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">234</span>
+  <div class="src deva" lang="sa">ततश्च लाघवात् गुणवाचिनामेव तेषां गुणिषु लक्षणया प्रवृत्त्युपपत्तेः गङ्गादिशब्दानां तीरादिष्विव - तेषां गुणिषु शक्त्यन्तरं न कल्पनीयम् । ननु गुणवाचिनामेव नीलादिशब्दानां गुणिषु लक्षणा चेत्, मतुब्लोपानुशासनं न कर्तव्यं स्यात्, न हि गङ्गादिशब्दानां तीरादिषु लक्षणया प्रवृत्त्यर्थं तीरादिप्रत्यायककिंचित्प्रत्ययलोपानुशासनं क्रियते । अतः तदनुशासनेन इदमवगम्यते प्रत्ययप्रयोगे यावानर्थः तावदर्थकत्वमपि नीलादिशब्दानामस्तीति वैयाकरणानामभिप्रायः इति । मतुप्प्रत्ययप्रयोगे च नीलगुणवत्त्वमर्थो भवति इति निर्विवादम् । अतो नीलादिशब्दानां गुणिषु शक्तिकल्पनमावश्यकम् । अन्यथा शब्दार्थनिर्णयाभियुक्तवैयाकरणकृतमतुब्लोपानुशासनवैयर्थ्यप्रसङ्गात् - इति चेत्, मैवम्, यतो नीलादिशब्दानां गुणिषु लक्षणाभ्युपगमेऽपि न मतुब्लोपानुशासनवैयर्थ्यं प्रसज्यते यथा हि गङ्गाशब्दस्य लक्षणया तीरे कदाचित्प्रयोगः 'गङ्गायां घोषः' इति; कदाचित्तीरवाचकशब्देन सह प्रयोगः 'गङ्गातीरे घोषः' इति एवं गुणशब्दानां कदाचित् लक्षणया गुणिषु प्रयोगः 'नीलो घटः' 'पीतो घटः' इत्यादि, कदाचिद्द्रव्यवाचिना मतुपा सह प्रयोगः 'नीलवान्घटः' 'पीतवान्घटः' इति एवं द्विविधव्यवहारप्रसक्तौ लक्षणया प्रयोग एव साधुः मतुबन्तप्रयोगस्तु असाधुः इति ज्ञापनार्थत्वोपपत्तेः ।</div>
+  <div class="tr">そうすると、簡潔さによって、属性を表すそれらの語が属性をもつものに転義で用いられることが成り立つので、「ガンガー」などの語が岸などに（転義で用いられる）のと同じく、属性をもつものについてそれらの別の表示力を想定すべきではない。「もし属性を表す『青い』などの語が属性をもつものに転義で用いられるのなら、所有接尾辞の脱落の規定を作る必要はなかったはずだ。『ガンガー』などの語を岸などに転義で用いるために、岸などを知らせる何かの接尾辞の脱落の規定が作られることはないからである。だからその規定から次のことが知られる。接尾辞を用いた場合にあるだけの意味を、『青い』などの語ももつ、というのが文法家の意図である、と。そして所有接尾辞を用いた場合、『青い属性をもつこと』が意味であることに異論はない。だから『青い』などの語に属性をもつものについての表示力を想定することが必要である。そうでなければ、語の意味の決定に通じた文法家が作った所有接尾辞の脱落の規定が無意味になってしまうからだ」と言うなら、そうではない。「青い」などの語が属性をもつものに転義で用いられると認めても、所有接尾辞の脱落の規定は無意味にならないからである。「ガンガー」の語は、ときには転義によって岸に用いられ（「ガンガーに牛飼いの村」）、ときには岸を表す語とともに用いられる（「ガンガーの岸に牛飼いの村」）。同じように、属性語も、ときには転義によって属性をもつものに用いられ（「青い壺」「黄色い壺」など）、ときには実体を表す所有接尾辞とともに用いられる（「青をもつ壺」<i>nīlavān ghaṭaḥ</i>「黄をもつ壺」）。このように二種類の用法が出てくるとき、転義による用法だけが正しく、所有接尾辞を付けた用法は正しくない、と知らせるためのものとして説明がつくからである。</div><div class="exp"><span class="lbl">解説</span><p>予想される反論への答えです。転義なら脱落の規則は要らないのでは、という反論に対し、反論者は、脱落の規則は「青をもつ壺」（<i>nīlavān</i>）という形が<strong>正しくない</strong>ことを知らせるためのものだ、と読みます。「ガンガーの岸」と言ってもよいが、「青をもつ壺」とは言わない。だから「青い壺」と転義で言え、という規則だ、というわけです。第3論の第6段の反論者の読み方と同じです。</p></div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">234–235</span>
+  <div class="src deva" lang="sa">एवं च नीलादिशब्दानां शक्त्या गुणमात्रपरत्वं लक्षणया गुणिपर्यन्तत्वम् इति स्थिते गुणिपर्यन्तानामेव तेषां वर्णदृढादिसूत्रे ग्रहणमिति धर्मिपरदृढादिशब्दसाहचर्यात् नैल्यादिशब्दैः नीलादिगुणानामिव तद्गतनीलत्वादिजातीनामभिधानदर्शनाच्च अवसीयते । न च शक्तादेव प्रत्ययनिष्पत्तिः, न लाक्षणिकात् इति नियमोऽस्ति; धर्मवाचकानामेव शब्दानां वृत्तिविषये लक्षणया धर्मिपर्यन्तत्वस्य 'निद्रायते' 'करुणायते' 'ओजायते' इत्यादौ बहुलमुपलम्भात् । तेषु हि अनिद्रो निद्रावान्भवतीत्याद्यर्थेषु निद्रादिशब्दाः निद्रावदादिधर्मिलक्षकाः । एवमलोहितो लोहितो भवति लोहितायते इति शब्दनिष्पत्त्यर्थं प्रत्ययविधायके 'लोहितादिडाज्भ्यः क्यष्' इति सूत्रे लोहितग्रहणमपि लक्षणया धर्मिपरम्, लोहितगुणरहितस्य घटादेः पाकादिना लोहितगुणवैशिष्ट्यवत् अलोहितगुणस्य लोहितगुणतायाः क्वचिदपि भावस्य अदर्शनात् । तस्मात् नीलादिशब्दानां द्रव्यपरत्वस्य लक्षणया उपपन्नत्वात् अप्रयोजकं त्वदनुमानम्, मदनुमानं च न अप्रयोजकम् - इति ॥</div>
+  <div class="tr">そうすると、「青い」などの語は、表示力によって属性だけを指し、転義によって属性をもつものにまで及ぶ、ということが確定する。そのうえで、「色・堅いなど」のスートラでは、属性をもつものにまで及ぶそれらだけが取られる、ということが、性質をもつものを指す「堅い」などの語と並んでいることから、また <i>nailya</i> などの語によって、青などの属性と同じくそれらにある青さなどの類も表されることが見られることから、確定される。また、「表示力をもつ語からだけ接尾辞が派生し、転義の語からは派生しない」という規則はない。性質を表す語が、派生の対象となるときに転義によって性質をもつものにまで及ぶことが、「眠りにつく」（<i>nidrāyate</i>）「憐れむ」（<i>karuṇāyate</i>）「力強くなる」（<i>ojāyate</i>）などで多く見られるからである。それらで、「眠りのない者が眠りのある者になる」などの意味の場合、「眠り」などの語は、眠りをもつ者などの性質をもつものを転義で示す。同様に、「赤くないものが赤くなる」すなわち <i>lohitāyate</i> という語を派生させるために接尾辞を規定する「<i>lohita</i> などと -ḍāc で終わる語の後に -kyaṣ」というスートラでの <i>lohita</i> の語の取り上げも、転義によって性質をもつものを指す。赤い属性をもたない壺などが焼くことなどによって赤い属性に限定されるようにはなっても、赤くない属性が赤い属性になることはどこにも見られないからである。したがって、「青い」などの語が実体を指すことは転義によって成り立つので、あなたの推論は決め手にならず、私の推論は決め手を欠くものではない。</div><div class="exp"><span class="lbl">解説</span><p>反論者は、転義の語にも接尾辞が付く例を挙げます。<i>nidrāyate</i>（眠りにつく）は名詞「眠り」から派生した動詞ですが、意味は「眠りのない者が眠りある者になる」で、元の語「眠り」は転義で「眠る者」を指しています。パーニニ 3.1.13 の <i>lohitāyate</i>（赤くなる）も同様で、赤くなるのは色ではなく物（焼かれる壺など）だからです。だから 5.1.123 で接尾辞が付く「青い」も、転義で壺を指す「青い」でかまわない、というのです。</p></div>
+  <div class="nt">「लक्षणयार्मिपरम्」を「लक्षणया धर्मिपरम्」、「धर्मिलक्षकाःएवम्」を区切った。</div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>第9段：抽象接尾辞は適用根拠を表す</h2><span class="sub"><span class="pg">pp.235–236</span>立論者。「ガンガー性」は流れを指さない</span></div>
+<div class="mula" id="u11">
+  <span class="ref">235</span>
+  <div class="src deva" lang="sa">अथ नवमी-- नीलादिशब्दानां द्रव्यवाचकत्वाभावे द्रव्यपरेभ्यस्तेभ्यः ष्यञादिप्रत्ययविधिरेव न संभवति । भावार्थे हि तद्विधानम्; 'तस्य भावस्त्वतलौ' इति भावार्थाधिकारात् । भावशब्देन च यस्माच्छब्दात् भावार्थप्रत्ययविधानं क्रियते, तत्प्रवृत्तिनिमित्तभूतो धर्म उच्यते, न तु तद्वाच्यधर्मिगतधर्ममात्रम्, घटत्वशब्देन घटशब्दप्रवृत्तिनिमित्तजातेरिव घटगतक्रियागुणादिधर्मान्तरस्य अनभिधानात् । यस्य गुणस्य हि भावाद्द्रव्ये शब्दनिवेशः तदभिधाने त्वतलौ इत्यादिवदद्भिः शब्दविद्भिरपि तथैवाङ्गीकृतत्वाच्च । न च शक्त्या शब्दप्रवृत्तौ निमित्तस्य शक्यतावच्छेदकस्येव लक्षणया शब्दप्रवृत्तौ निमित्तस्य मुख्यार्थस्यापि शब्दप्रवृत्तिनिमित्तत्वाविशेषात् इह भावशब्देन ग्रहणमस्त्विति वाच्यम्, तथा सति लक्षणया तीरे गङ्गाशब्दप्रवृत्तिनिमित्तस्य प्रवाहत्वस्यापि गङ्गात्वशब्देन अभिधानप्रसङ्गात् । तस्मात् नीलादिशब्दानां गुणेष्विव द्रव्येष्वपि शक्तिरङ्गीकरणीया ।</div>
+  <div class="tr">第9段——「青い」などの語が実体を表さないのなら、実体を指すそれらの語の後に -ya などの接尾辞を規定することそのものがありえない。それの規定は「状態」の意味においてであり、「それの状態に -tva と -tā」という「状態」の意味の主題規定があるからである。そして「状態」の語によっては、ある語の後に「状態」の意味の接尾辞が規定されるとき、その語の適用根拠である性質が言われるのであって、その語が表す性質をもつものにある性質なら何でも言われるのではない。「壺性」（<i>ghaṭatva</i>）の語によっては、「壺」の語の適用根拠である類は表されても、壺にある行為や属性などの他の性質は表されないからである。また、「ある属性があることによって実体に語が当てはまるとき、それを表すのに -tva と -tā」などと言う語の学者たちも、そのとおりに認めているからでもある。また次のように言ってはならない。「表示力によって語が当てはまる場合には、表されるものを限定するもの（類など）が根拠であるのと同じように、転義によって語が当てはまる場合には、本来の意味も同じく語の適用根拠なので、ここで『状態』の語によってそれが取られるとしよう」と。そうだとすると、転義によって岸に「ガンガー」の語が当てはまる根拠である「流れであること」も、「ガンガー性」（<i>gaṅgātva</i>）の語によって表されることになってしまうからである。したがって、「青い」などの語は、属性と同じく実体にも表示力をもつと認めるべきである。</div><div class="exp"><span class="lbl">解説</span><p>立論者の反撃です。抽象名詞の接尾辞は、元の語の<strong>適用根拠</strong>を表します。「壺性」は「壺」の適用根拠（壺という類）を表し、壺の色や動きは表しません。転義の場合、本来の意味が適用根拠だと考えればよい、という逃げ道もありますが、それでは「ガンガー性」が、岸を指すガンガーの適用根拠である「流れであること」を表すことになってしまう。だから「壺の青み」が青色を指すなら、「青い」は青色を適用根拠として、壺を本来の意味で表していなければならない、と言います。</p></div>
+  <div class="nt">「भावाद्रव्ये」を「भावाद्द्रव्ये」と正した。</div>
+</div>
+<div class="mula" id="u12">
+  <span class="ref">235</span>
+  <div class="src deva" lang="sa">अत एव 'वर्णो वर्णेन' इति वर्णवाचिनां वर्णवाचिभिः सह समानाधिकरणसमासविधायकसूत्रेण गुणवाचिना गुणिवाचिनां च तेषामविशेषेण ग्रहणमिष्यते । तत एव हि द्रव्येष्वपि नीललोहित इत्यादिप्रयोगाः । तेषु श्वेतलोहितादिगुणानां भिन्नभिन्नावयवाश्रितत्वेऽपि अवयवगुणेन समुदायः तथा निर्दिश्यते इति सामानाधिकरण्यं भाष्यादिषु उपपादितम् । अत एव नातिश्वेते नातिरक्ते गुणिनि गुणे च 'श्वेतरक्तस्तु पाटलः' इति श्वेतरक्तशब्दप्रयोगः । तस्य च गुणगुण्युभयसाधारण्यम् 'गुणे शुक्लादयः पुंसि गुणिलिङ्गास्तु तद्वति' इत्यग्रिमवचनेन स्फुटीकृतम् । तस्मात् नीलादिशब्दानां द्रव्येष्वपि शक्तेरवश्यंभावात् नाप्रयोजकं मदनुमानम्, त्वदनुमानमेव अप्रयोजकम् - इति ॥</div>
+  <div class="tr">だからこそ、色を表す語が色を表す語と同格の複合語を作ることを規定する「色（の語）は色（の語）と」というスートラによって、属性を表すものも属性をもつものを表すものも区別なく取られると認められる。そのことからこそ、実体についても「青赤の」（<i>nīlalohita</i>）などの用例がある。それらでは、白や赤などの属性が別々の部分に宿っていても、部分の属性によって全体がそのように示される、と註解などで同格関係が説明されている。だからこそ、白すぎも赤すぎもしない属性をもつものと属性とについて、「白赤は淡紅色（<i>pāṭala</i>）である」と「白赤」の語が用いられる。そしてそれが属性と属性者の両方に共通であることは、すぐ後の「属性については白などは男性形。それをもつものについては、属性をもつものの性に従う」という言葉で明らかにされている。したがって、「青い」などの語は実体にも表示力を必ずもつので、私の推論は決め手を欠くものではなく、あなたの推論こそ決め手にならない。</div><div class="exp"><span class="lbl">解説</span><p>文法と辞書からの補強です。パーニニ 2.1.69（<i>varṇo varṇena</i>）は色の語どうしの複合を認め、実体について「青赤の」と言えます。辞書『アマラコーシャ』は「白赤は淡紅色」と言い、続けて「属性には男性形、それをもつものにはその物の性に従う」と述べます。つまり色の語が属性者を表すことが、辞書の上でも前提されている、というのです。</p></div>
+  <div class="nt">「कदाचिद्रव्यवाचिना」を「कदाचिद्द्रव्यवाचिना」と正した（前ブロック）。</div>
+</div>
+</section>
+
+<!-- ============ §5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>第10段：表示力を認めると立論者の解釈が崩れる</h2><span class="sub"><span class="pg">p.236</span>反論者</span></div>
+<div class="mula" id="u13">
+  <span class="ref">236</span>
+  <div class="src deva" lang="sa">अथ दशमी-- नीलादिशब्दानां द्रव्येष्वपि शक्तिरिष्यते चेत्, गुणेषु तत्प्रवृत्तिनिमित्तानां नीलत्वादिजातीनां परंपरासंबन्धेन द्रव्याश्रितत्वस्यापि 'नीलो गुणः' 'नीलो घटः' इत्यादिव्यवहारैकरूप्यानुसारेण कल्पयितुं शक्यत्वात् त्वदभिमत 'नीलो घटः' इत्यादिप्रतीतिव्यवहारयोः नीलादिगुणविशिष्टद्रव्यविषयत्वमेव न सिध्येत् । दूरे नीलादिगुणानां प्रवृत्तिनिमित्तत्वम् । अतः तयोः नीलत्वादिजातिविशिष्टद्रव्यविषयत्वपक्षमपहाय नीलादिगुणविशिष्टद्रव्यविषयत्वपक्षमाश्रयता तीरे गङ्गाशब्दस्य प्रयोगप्रतीत्योः तस्मिन्प्रवाहत्ववैशिष्ट्यविषयत्वमपहाय प्रवाहसंबन्धितीरत्वविषयत्वमिच्छता गङ्गाशब्दस्य तीर इव नीलादिशब्दानां द्रव्येषु लक्षणैवाभ्युपेतव्या । एवं न्यायतः स्थितौ क्वचिल्लक्ष्यतावच्छेदकेऽपि प्रयोगानुसारेण भावप्रत्ययो भविष्यति, प्रयोगमूलत्वाद्व्याकरणस्य । 'वर्णो वर्णेन' इत्यत्र तु प्रयोगानुसारेण द्रव्यलक्षकाणामपि नीलादिशब्दानां ग्रहणं भविष्यति । अतः त्वदनुमानमप्रयोजकम्, मदनुमानं नाप्रयोजकमिति ॥</div>
+  <div class="tr">第10段——「青い」などの語に実体についても表示力を認めるなら、属性にあるその適用根拠である青さなどの類が、間接の関係によって実体に宿ることも、「青い性質」「青い壺」などの用例が同じ形であることに従って想定できる。だから、あなたの考える、「青い壺」などの認識と用例が、青などの属性に限定された実体を対象とすることは成り立たなくなる。まして青などの属性が適用根拠であることは遠い。だから、その二つが青さなどの類に限定された実体を対象とする立場を捨てて、青などの属性に限定された実体を対象とする立場を採る者は、岸についての「ガンガー」の語の用法と理解が、そこ（岸）に流れであることが限定として及ぶことを対象とするのではなく、流れと関係する岸であることを対象とすると望む者が「ガンガー」の語の岸（への転義）を（認める）のと同じように、「青い」などの語の実体への転義をこそ認めるべきである。道理によってこのように確定しているので、ある場合には、用例に従って、転義で示されるものを限定するもの（青色）にも状態の接尾辞が付くことになろう。文法は用例を根本とするからである。また「色は色と」でも、用例に従って、実体を転義で示す「青い」などの語も取られることになろう。だからあなたの推論は決め手にならず、私の推論は決め手を欠くものではない。</div><div class="exp"><span class="lbl">解説</span><p>反論者は立論者を挟み撃ちにします。実体に表示力を認めるなら、第3論の単一表示力説のように「青さの類が間接に壺に宿る」とも言えるので、立論者が主張したい「壺は<strong>青色</strong>によって限定されて理解される」は根拠を失う。立論者がそれを守りたいなら、ガンガーの岸のように、「青色と関係する壺」と理解する転義説を採るしかない。文法の規則は用例に従うものなので、転義の語に接尾辞が付く用例があってもかまわない、というのです。</p></div>
+  <div class="nt">「जातिनां」を「जातीनां」、「प्रयोगानुसारणे」を「प्रयोगानुसारेण」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>第11〜12段：「青さ」は類か属性か</h2><span class="sub"><span class="pg">pp.236–237</span>「カラスの黒さ」「茨の鋭さ」</span></div>
+<div class="mula" id="u14">
+  <span class="ref">236</span>
+  <div class="src deva" lang="sa">अथैकादशी-- द्रव्येषु नीलादिशब्दप्रवृत्तौ नीलादिगुणानां निमित्तत्वाभावे तेषु नैल्यनीलिमादिशब्दप्रयोगो न स्यात्, नीलत्वादिजातीनां निमित्तत्वे तासु तेषां प्रयोगश्च स्यात्, भावार्थप्रत्ययानां प्रवृत्तिनिमित्तवाचित्वात् - इति दोषसद्भावादेव नीलत्वादिजातिप्रवृत्तिनिमित्तत्वाप्रसक्तेः, तद्भयात् द्रव्येषु न शक्तिर्वक्तव्या । व्याकरणं च नान्यथाकरणीयम्; किंतु गुणेषु नीलिमादिशब्दसिद्धये गुणविशिष्टेषु द्रव्येषु शक्तिरङ्गीकरणीया । अतो नाप्रयोजकं मदनुमानम्, त्वदनुमानमप्रयोजकमिति ॥</div>
+  <div class="tr">第11段——実体に「青い」などの語が当てはまるときに青などの属性が根拠でないなら、それら（属性）について <i>nailya</i>・<i>nīliman</i> などの語が用いられないことになり、青さなどの類が根拠なら、それら（類）についてそれら（の語）が用いられることになる。状態の意味の接尾辞は適用根拠を表すからである。こうした欠点があるからこそ、青さなどの類が（実体について）適用根拠であることはありえない。それを恐れて、実体について表示力がないと言うべきではない。また文法を別のものにしてはならない。そうではなく、属性について <i>nīliman</i> などの語を成り立たせるために、属性に限定された実体について表示力を認めるべきである。だから私の推論は決め手を欠くものではなく、あなたの推論は決め手にならない。</div>
+</div>
+<div class="mula" id="u15">
+  <span class="ref">236–237</span>
+  <div class="src deva" lang="sa">अथ द्वादशी-- शक्यमत्र लाघवमूलकैकशक्तिपक्षानुसारेण नीलिमादिशब्दप्रयोगस्य नीलत्वादिजातिविषयतायां इष्टापत्त्या परिहर्तुम्, 'घटस्य नैल्यम्' 'घटस्य नीलत्वम्' इति प्रतीतिव्यवहाराणां विषयैक्यानुभवात् । न च वाच्यम् 'पूरणगुणसुहितार्थसदव्ययतव्यसमानाधिकरणेन' इति सूत्रभाष्ये गुणवाचिना सह षष्ठीसमासनिषेधस्य बलाकायाः शौक्ल्यं काकस्य कार्ष्ण्यम् इत्युदाहृतम्, अतः ष्यञादिप्रत्ययान्तानां गुणवाचिशब्दानां शुक्लत्वादिगुणवाचित्वमेव अङ्गीकर्तव्यमिति; तस्मिन्सूत्रे गुणशब्दस्य रूपादिपञ्चकासाधारण्याभावात् 'गुणवचनब्राह्मणादिभ्यः कर्मणि च' इत्यादिसूत्रेष्विव धर्मान्तरसाधारण्यात् । अत एव भाष्ये कण्टकस्य तैक्ष्ण्यम् इत्यपि गुणवाचिना सह षष्ठीसमासनिषेधस्य उदाहरणान्तरं दर्शितम् । अवश्यं च नीलत्वादिजातिष्वपि त्वया नीलिमादिशब्दोऽभ्युपेयः । अन्यथा तासु नीलत्वादिशब्दोऽपि न स्यात् । भावार्थत्वेन त्वतलोः इमनिजाद्यविशेषात् । तस्मादिष्टापत्त्या परिहारसंभवात् शक्तिपक्षे 'नीलो घटः' इत्यादिप्रतीतिव्यवहारयोः त्वदभिमतं नीलगुणविशिष्टविषयत्वं न सिध्येदिति तत्सिद्धिमन्विच्छता लक्षणैवाश्रयणीया इति अप्रयोजकं त्वदनुमानम्, मदनुमानं च नाप्रयोजकमिति ॥</div>
+  <div class="tr">第12段——ここでは、簡潔さにもとづく単一表示力の立場に従って、<i>nīliman</i> などの語の用法が青さなどの類を対象とすることを、望ましい帰結として受け入れることで（その欠点を）避けることができる。「壺の <i>nailya</i>」「壺の <i>nīlatva</i>」という認識と用例は、対象が同じだと経験されるからである。また次のように言ってはならない。「『序数・属性・満足の意味の語・現在分詞・不変化詞・-tavya・同格のものとは（属格の複合を作らない）』というスートラへの註解で、属性語との属格複合の禁止の例として『鶴の白さ』『カラスの黒さ』が挙げられている。だから -ya などの接尾辞で終わる属性語は白などの属性を表すと認めるべきだ」と。そのスートラでは「属性」の語は、色など五つ（の感覚的属性）に限られず、「属性語・バラモンなどの後に、行為の意味でも」などのスートラと同じく、他の性質にも共通だからである。だからこそ註解では「茨の鋭さ」も、属性語との属格複合の禁止の別の例として示されている。また、あなたも青さなどの類について必ず <i>nīliman</i> などの語を認めるべきである。そうでなければ、それら（類）に <i>nīlatva</i> などの語も使えなくなってしまう。状態の意味である点で、-tva・-tā は -iman などと違いがないからである。したがって、望ましい帰結として避けることができるので、表示力の立場では、「青い壺」などの認識と用例が、あなたの考える青い属性に限定されたものを対象とすることは成り立たない。それを成り立たせたいなら、転義をこそ採るべきである。だからあなたの推論は決め手にならず、私の推論は決め手を欠くものではない。</div><div class="exp"><span class="lbl">解説</span><p>「壺の青み」が類（青さ）を指すとしてもかまわない、と反論者は受け流します。「壺の <i>nailya</i>」と「壺の <i>nīlatva</i>」は同じものを指すと感じられるからです。パーニニ 2.2.11 への註解で「カラスの黒さ」が属性語の例とされるのも、ここでの「属性」は広い意味の性質で、「茨の鋭さ」も同じ例に挙がっている、と言います。<i>-tva</i> で類を表せる以上、<i>-iman</i> でも表せるはずだ、とも付け加えます。</p></div>
+  <div class="nt">「घटस्य. नैल्यम्」の句点を除き、「शौक्लयं」を「शौक्ल्यं」、「काष्र्ण्यम्」を「कार्ष्ण्यम्」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §7 ============ -->
+<section id="s7" class="wrap">
+  <div class="sec-head"><span class="sec-no">7</span><h2>第13段：知覚と補則による結論</h2><span class="sub"><span class="pg">pp.237–238</span>立論者。「壺の色の青み」という変な言い方</span></div>
+<div class="mula" id="u16">
+  <span class="ref">237</span>
+  <div class="src deva" lang="sa">अथ त्रयोदशी-- यदि साक्षात्परंपरासंबन्धाभ्यां गुणगतजातिरेव गुणगुणिनोः नीलादिशब्दप्रवृत्तौ निमित्तमिति सैव नीलिमादिशब्दभागपि भवेत्, तदा 'घटस्य नीलिमा' इतिवत् 'घटरूपस्य नीलिमा' इत्यपि व्यवहारः प्रसज्येत । न चैवं सति सा नीलत्वशब्दभागपि न भवेत् इति वाच्यम्, न हि वर्णदृढादिसूत्रेण त्वतलोर्विधिः; येन द्रव्यविषयेभ्य एव नीलादिशब्देभ्यस्तावपि स्याताम्; किं तु 'तस्य भावस्त्वतलौ' इति सूत्रेण । तत्र च 'तस्य' इति षष्ठीसमर्थमात्रात् त्वतलौ विधीयमानौ गुणवाचिभ्योऽपि नीलादिशब्देभ्यो भवेतामेव । अपि च द्रव्येष्वपि नीलादिशब्दानां यदि नीलत्वादिजातिरेव प्रवृत्तिनिमित्तं भवेत्, तदा तेभ्यो नीलत्वादिविशिष्टतयैव द्रव्याणां प्रतीतिः स्यात्; न तु नीलत्वादिविशिष्टगुणविषयतया । तथैव च तेभ्यस्तत्प्रतीतिरभ्यर्थ्यते; मतुब्लोपानुशासनदर्शनात् व्यवहारमूलभूतप्रत्यक्षानुसाराच्च । प्रत्यक्षेण यथाभूतमर्थम् आप्तः पश्यति, तथाभूतार्थबुबोधयिषया स वाक्यं प्रयुङ्के । श्रोतुश्च वक्तृतात्पर्यमवगच्छतः ततो वाक्यात्तथाभूतार्थविषय एव प्रत्ययो भवतीति वस्तुस्थितिः।</div>
+  <div class="tr">第13段——もし直接と間接の関係によって、属性にある類だけが属性と属性者に「青い」などの語が当てはまる根拠であり、それこそが <i>nīliman</i> などの語の対象であるなら、そのときは、「壺の青み」と同じように「壺の色の青み」という用例も帰結してしまうだろう。また、「そうだとすると、それ（類）は <i>nīlatva</i> の語の対象にもならないことになろう」と言ってはならない。-tva と -tā は「色・堅いなど」のスートラで規定されるのではない。もしそうなら、実体を対象とする「青い」などの語の後にだけそれら二つも付くことになろうが。そうではなく、「それの状態に -tva と -tā」というスートラで（規定される）。そしてそこでは「それの」と、属格に置かれうるものの後に一般に規定されるので、属性を表す「青い」などの語の後にも付くからである。さらに、実体についても「青い」などの語の適用根拠が青さなどの類であるなら、そのときは、それら（の語）から実体は青さなどに限定されたものとして理解されることになり、青さなどに限定された属性を対象とするものとしては理解されないことになる。ところが、まさにそのような理解（後者）こそがそれらから求められている。所有接尾辞の脱落の規定が見られるからであり、用例の根本である知覚に従うからである。信頼できる人が知覚によってどのような対象を見るか、そのような対象を知らせたいという意図で彼は文を用いる。そして話し手の意図を理解する聞き手にも、その文からそのような対象を対象とする認識が生じる。これが事の実情である。</div><div class="exp"><span class="lbl">解説</span><p>立論者の最終の論拠は二つです。一つは不合理な帰結です。「青み」が類を指すなら、類は青色にも壺にも宿るので、「壺の色の青み」とも言えるはずですが、そうは言いません。もう一つは知覚です。言葉は、信頼できる人が見たとおりのものを伝えるためにある。そして青い壺を見るとき、私たちは「青色をもつ壺」を見ているのであって、「青色にある青さの類をもつ壺」を見ているのではない。</p></div>
+  <div class="nt">「विधि-; येन」を「विधिः; येन」と正した。</div>
+</div>
+<div class="mula" id="u17">
+  <span class="ref">237–238</span>
+  <div class="src deva" lang="sa">इह च नीलं घटमवलोकयतः पुरुषस्य नीलगुणविशिष्टद्रव्यविषयिणी बुद्धिः जायते; न तु नीलगुणगतनीलत्वजातिविशिष्टद्रव्यबुद्धिः; रूपरूपिणोः समानवित्तिवेद्ययोः प्रकारप्रकारिभावेन भाननियमस्य सर्वसंप्रतिपन्नत्वात् । तथा च प्रत्यक्षमूलः 'नीलो घटः' इति व्यवहारः तज्जन्यशाब्दप्रत्ययश्च कथं नीलगुणविशिष्टद्रव्यविषयौ न भवेताम् । न च 'नीलो घटः' इति प्रतीतेः 'नीलो गुणः' इति प्रतीत्यविशेषानुभवस्यापि सामञ्जस्यार्थं मतुब्लोपमनपेक्ष्य 'नीलो घटः' इति व्यवहारो नीलत्ववैशिष्ट्यविषयः, तमपेक्ष्य तद्व्यवहारो नीलगुणवैशिष्ट्यविषयः इति कल्प्यतामिति वाच्यम्;</div>
+  <div class="tr">ここで、青い壺を見ている人には、青い属性に限定された実体を対象とする認識が生じるのであって、青い属性にある青さの類に限定された実体の認識が生じるのではない。同じ認識で知られる色と色をもつものとが、限定するものと限定されるものの関係で現れるという規則は、すべての人が認めているからである。そうすると、知覚にもとづく「青い壺」という用例と、それから生じる言葉による認識とが、どうして青い属性に限定された実体を対象としないことがあろうか。また次のように言ってはならない。「『青い壺』という認識と『青い性質』という認識とに違いがないという経験とも整合させるために、所有接尾辞の脱落を前提しない『青い壺』の用例は青さによる限定を対象とし、それを前提するその用例は青い属性による限定を対象とする、と想定すればよい」と。</div>
+</div>
+<div class="mula" id="u18">
+  <span class="ref">238</span>
+  <div class="src deva" lang="sa">मतुब्लोपवार्तिकानन्तरं प्रवृत्तेन 'अव्यतिरेकात्सिद्धमिति चेद्दृष्टो व्यतिरेकः' इति वार्तिकेन शुक्लादिशब्दैरभिधीयमानानां गुणानामव्यतिरेकात् गुण्यव्यभिचारात् शुक्लं वस्त्रम् इति गुणिना सहैवाभिधानात् शुक्लादिशब्दशक्त्यैव गुण्यभिधानसिद्धेः मतुब्लोपानुशासनं व्यर्थमिति शङ्कामुद्भाव्य, वस्त्रस्य शुक्लः इति गुणाभिधानस्य गुणिव्यभिचारदृष्टेः केवलगुणवाचकोऽपि शुक्लादिशब्दोऽस्तीति तस्य द्रव्यपर्यन्तत्वविवक्षायां मतुपः प्राप्तौ तल्लोपानुशासनं सार्थकमिति परिहारार्थं प्रवृत्तेन मतुब्लोपानपेक्षस्यापि द्रव्येषु शुक्लादिशब्दस्य गुणविशिष्टाभिधायकत्वावगमात् शब्दशक्तिनिर्णयाभियुक्तवृद्धव्यवहारविरुद्धस्य लौकिकानामितरसारूप्यानुभवस्य प्रमाणीकरणायोगात् । तत्प्रमाणीकरणे लुप्तमतुप्प्रयोगजन्यज्ञानात्यन्तसारूप्यानुभवबलात् तदन्यस्यापि 'नीलो घटः' इति ज्ञानस्य गुणवैशिष्ट्यविषयत्वकल्पनस्यैव उचितत्वात् । 'नीलो घटः' इति प्रयोगयोरेव सारूप्यम्, न तज्जन्यज्ञानयोरिति कल्पने 'नीलो गुणः' 'नीलो घटः' इति प्रयोगयोरेव नीलत्वांशे सारूप्यम् न तज्जन्यज्ञानयोरिति वक्तुं शक्यत्वात् ।</div>
+  <div class="tr">（なぜなら、次のとおりだからである。）所有接尾辞の脱落の補則の後に続く「違いがないので成り立つ、と言うなら、違いは見られる」という補則は、（まず次の）疑いを提起する。「『白い』などの語で表される属性は違いがない、すなわち属性者から逸脱しないので、『白い布』と、属性者とともにこそ表される。だから『白い』などの語の表示力によってこそ属性者が表されることが成り立つので、所有接尾辞の脱落の規定は無意味だ」と。そして、「布の白」と属性を表すことが属性者から逸脱するのが見られるので、属性だけを表す「白い」などの語もある。だからそれを実体にまで及ぼそうとするときに所有接尾辞が付くことになるので、その脱落の規定は意味がある、と（答える）ために作られている。この補則によって、所有接尾辞の脱落を前提しない、実体についての「白い」などの語も、属性に限定されたものを表すことが知られる。だから、語の表示力の決定に通じた古人の用例と矛盾する世間の人々の「他と同じ形だ」という経験を、認識手段とすることはできないからである。それを認識手段とするなら、所有接尾辞の脱落した用法から生じる認識と完全に同じ形だという経験の力によって、それ以外の「青い壺」という認識も属性による限定を対象とすると想定する方が適切だからである。「『青い壺』という二つの用法が同じ形であるだけで、それから生じる二つの認識は同じ形ではない」と想定するなら、「青い性質」「青い壺」という二つの用法が青さの部分で同じ形であるだけで、それから生じる二つの認識は同じ形ではない、と言うこともできるからである。</div><div class="exp"><span class="lbl">解説</span><p>カーティヤーヤナの補則の読解が決め手になります。脱落の補則（<i>guṇavacanebhyo matupo lug iṣṭaḥ</i>）の直後に、「違いがないので成り立つ、と言うなら、違いは見られる」（<i>avyatirekāt siddham iti ced dṛṣṭo vyatirekaḥ</i>）という補則があります。</p>
+  <div class="tbl"><table><thead><tr><th>補則の構造</th><th>内容</th></tr></thead><tbody>
+  <tr><td class="k">疑い</td><td>白はつねに白いものとともにあるので、「白い」は表示力で白い布を表す。脱落の規則は要らない</td></tr>
+  <tr><td class="k">答え</td><td>「布の白」と属性だけを言う用法もある。そちらを実体に及ぼすときに接尾辞が付くので、脱落の規則は必要</td></tr>
+  </tbody></table></div>
+  <p>立論者はここから、脱落を前提しない「白い（布）」も、表示力によって「白色に限定された布」を表す、ということが文法家に認められていると読みます。つまり「青い壺」は、どちらの用法でも「青色に限定された壺」を表す。世間の人の「同じに感じる」という経験は、語に通じた古人の用例に優先しない、と言います。</p></div>
+  <div class="nt">「चेदृष्टो」を「चेद्दृष्टो」、「प्रवृत्तेन-मतुब्लो-पानपेक्षस्यापि」を「प्रवृत्तेन मतुब्लोपानपेक्षस्यापि」、「गुणिविशिष्टभिधायकत्व」を「गुणविशिष्टाभिधायकत्व」と正した（最後のものは推定）。</div>
+</div>
+<div class="mula" id="u19">
+  <span class="ref">238</span>
+  <div class="src deva" lang="sa">तस्मात् अव्यतिरेकवार्तिकानुरोधाय 'घटरूपस्य नीलिमा' इत्यादि व्यवहारप्रसङ्गपरिहाराय च द्रव्येषु नीलादिशब्दानां नीलादिगुणा एव प्रवृत्तिनिमित्ततया स्वीकार्याः, न तु नीलत्वादिजातयः ; इत्यतः त्वदुक्तदोषप्रसक्त्यभावेन नीलादिशब्दानां नीलगुणादिविशिष्टेषु द्रव्येषु शक्तेरवश्याश्रयणीयत्वात् सिद्धं घटादीनां नीलादिशब्दवाच्यत्वसाधकं मदनुमानं नाप्रयोजकम्, तेषां तदवाच्यत्वसाधकं त्वदनुमानमेव अप्रयोजकमिति ॥ इति गुणगुण्यनेकशक्तिवादः ॥४॥</div>
+  <div class="tr">したがって、「違いがない」の補則に従うために、また「壺の色の青み」などの用例が帰結するのを避けるために、実体については、青などの属性こそを「青い」などの語の適用根拠と認めるべきであって、青さなどの類ではない。こうして、あなたの言う欠点が帰結しないので、「青い」などの語は青い属性などに限定された実体に表示力をもつと必ず認めるべきである。それゆえ、壺などが「青い」などの語で表されることを論証する私の推論は決め手を欠くものではなく、それらがそれで表されないことを論証するあなたの推論こそ決め手にならない、と確定した。<br>以上、属性と属性者の複数表示力論。（第4論）</div><div class="exp"><span class="lbl">解説</span><p>結論は次のとおりです。「青い」は、青色については「青さの類」を根拠に、青い壺については「青色」を根拠に、それぞれ表示力で働く。第3論（一つの表示力）と第4論（二つの表示力）は、どちらも「壺は『青い』で本来の意味で表される」という点では一致し、ニヤーヤ学派の転義説を退けています。二つのうちどちらがまさるかは、次の第5論で論じられます。</p></div>
+  <div class="nt">「प्रसक्तत्यभावेन」を「प्रसक्त्यभावेन」と正した。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この論に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>anekaśakti / ekaśakti</dt><dd>複数の表示力／単一の表示力</dd>
+    <dt>bhāva / bhāvapratyaya</dt><dd>状態／状態（抽象名詞）を作る接尾辞（-tva、-tā、-ya、-iman）</dd>
+    <dt>ṣyañ / imanic</dt><dd>パーニニの接尾辞記号。-ya（nailya）、-iman（nīliman）</dd>
+    <dt>matup / matublopa</dt><dd>所有接尾辞 -mat（-vat）／その脱落</dd>
+    <dt>citraturaganyāya</dt><dd>「絵の馬」の原則。仮の仕組みで本物を教えること</dd>
+    <dt>lakṣyatāvacchedaka</dt><dd>転義で示されるものを限定するもの</dd>
+    <dt>vārttika</dt><dd>補則。カーティヤーヤナによるパーニニ文法への補足規則</dd>
+    <dt>avyatireka</dt><dd>違いがないこと（属性が属性者から離れないこと）</dd>
+    <dt>prakāra / prakārin</dt><dd>認識において限定として現れるもの／限定されるもの</dd>
+    <dt>āpta</dt><dd>信頼できる人。正しく知り、正しく語る者</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.233–238 のOCRテキストに拠る。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。文法規則の番号はパーニニ『アシュターディヤーイー』による。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>

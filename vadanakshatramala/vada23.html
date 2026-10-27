@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ayathārthajñānasamarthanavāda 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#map">第23論の地図</a></li>
+    <li><a href="#s1"><b>1</b>序と第1〜3段：人を向…</a></li>
+    <li><a href="#s2"><b>2</b>第4〜6段：「独立に現…</a></li>
+    <li><a href="#s3"><b>3</b>第7〜8段：「独立」の…</a></li>
+    <li><a href="#s4"><b>4</b>第9段と末尾：簡潔さの…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ヴァーダ・ナクシャトラ・マーラー　第23論</div>
+  <h1>Ayathārthajñānasamarthanavāda</h1>
+  <p class="deva-title" lang="sa">अयथार्थज्ञानसमर्थनवादः</p>
+  <p class="sub">誤った認識（錯誤）は存在する——貝殻を銀と見る認識をめぐって</p>
+  <span class="sample">対訳　第23論（pp.362–367、第1〜9段と末尾。途中に欠落あり）</span>
+  <p>第23〜26論は認識論に移ります。プラバーカラ派のミーマーンサー学者は、<strong>すべての認識は正しい</strong>と主張します。貝殻を見て「これは銀だ」と思うのも、「これ」という知覚と「銀」という記憶の二つの正しい認識があり、その<strong>区別がつかない</strong>（<i>bhedāgraha</i>）だけだ、というのです（無顕現説、<i>akhyāti</i>）。</p>
+  <p>著者はこれに対し、「これは銀だ」は一つの誤った認識、つまり「これ」に銀性を様態として結びつける認識だと論じます。論点は、銀を欲する人を銀に向かわせる（<i>pravartaka</i>）のは何か、です。プラバーカラ派は「区別の把握のなさ」だと言い、その条件をどんどん精密にしていきます。著者は、その定義がどれも反例に破れることを示し、「私はこれを銀として知っている」という誰もが経験する意識に合うのは、限定された（誤った）認識だと結論します。この論では奇数段が立論者です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>論題</dt><dd>貝殻を見て「これは銀だ」と思う認識は、「これ」に銀性を結びつけた（誤った）一つの認識か</dd></div>
+    <div><dt>立論者（定説）</dt><dd>そうである<br><small>銀を欲する人を向かわせる認識だから</small></dd></div>
+    <div><dt>反論者（プラバーカラ派）</dt><dd>そうではない<br><small>「これ」と「銀」の二つの認識の区別がつかないことが人を向かわせる</small></dd></div>
+    <div><dt>争点</dt><dd>「区別の把握のなさ」をどう定義しても、反例が出るか<br><small>「独立に現れた」などの条件が次々に加えられる</small></dd></div>
+    <div><dt>テキスト</dt><dd>本体OCRで第9段の途中から末尾近くまでが欠けている</dd></div>
+  </dl>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">第23論の地図</h2><span class="sub">奇数段が立論者、偶数段が反論者</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>段</th><th>話者</th><th>頁</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">序・1–3</td><td>交互</td><td class="num">pp.362–364</td><td class="k"><a href="#s1">人を向かわせるのは何か</a></td></tr>
+<tr><td class="num">4–6</td><td>交互</td><td class="num">pp.364–365</td><td class="k"><a href="#s2">「独立に現れた」という条件</a></td></tr>
+<tr><td class="num">7–8</td><td>交互</td><td class="num">pp.365–366</td><td class="k"><a href="#s3">「独立」の定義の吟味</a></td></tr>
+<tr><td class="num">9・末尾</td><td><span class="pill c">立論者</span></td><td class="num">pp.366–367</td><td class="k"><a href="#s4">簡潔さの論拠。（欠落）「青い水」の例。結論</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>序と第1〜3段：人を向かわせるのは何か</h2><span class="sub"><span class="pg">pp.362–364</span></span></div>
+<div class="mula" id="u1">
+  <span class="ref">362–363</span>
+  <div class="src deva" lang="sa">अयथार्थज्ञानसमर्थनवादः ॥ अथ असाधारणस्य ज्ञानप्रामाण्यस्य सर्वज्ञानसाधारण्यं वदतां मतं निराकर्तुं कथान्तरं प्रस्तूयते तेषामित्थं मतम् - सर्वं ज्ञानं यथार्थम्, शुक्तिरजतादिज्ञानमपि ग्रहणस्मरणाद्यात्मकज्ञानद्वयरूपतया यथार्थमेव इति; तान्प्रति इदमनुमानम् - रजतार्थि प्रवर्तकं शुक्ताविदमिति ज्ञानं रजतत्वप्रकारकम्, रजतार्थिप्रवर्तकज्ञानत्वात् रजते रजतज्ञानवत् - इति प्रथमा कक्ष्या--</div>
+  <div class="tr">誤った認識を論証する論。さて、認識の正しさは特別なものなのに、それがすべての認識に共通だと言う人々の説を退けるために、別の論議を始める。彼らの説はこうである。「すべての認識は正しい。貝殻の上の銀などの認識も、知覚と記憶などからなる二つの認識なので、まさに正しい」と。<br>（第1段）彼らに対してこの推論がある。銀を欲する人を向かわせる、貝殻についての「これ」という認識は、銀性を様態とする。銀を欲する人を向かわせる認識だからである。銀についての銀の認識のように。以上が第1段。</div>
+  <div class="exp"><span class="lbl">解説</span><p>銀を欲しがる人が貝殻を見て「これは銀だ」と思い、拾いに行きます。立論者は、この人を拾いに行かせた認識は、「これ」（貝殻）に「銀性」を様態（<i>prakāra</i>）として結びつけた認識だ、と推論します。本物の銀を見て拾いに行くときと同じ形の認識です。そしてそれは貝殻について銀性を捉えているので、誤った認識です。</p></div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">363</span>
+  <div class="src deva" lang="sa">अथ द्वितीया कक्ष्या-- यदि प्रवर्तकत्वं प्रवृत्तिजनकत्वम्, तदा ज्ञायमानेष्टपुरोवर्तिभेदाग्रहः प्रवर्तक इति मतपक्षे हेत्वसिद्धिः; यदि प्रवृत्तिप्रयोजकत्वम्, तदा त्वन्मते रजतभ्रमजनकधर्मिज्ञाने व्यभिचारः, कार्याभावव्याप्याभावप्रतियोगित्वरूपस्य प्रयोजकत्वस्य कारणतावच्छेदक इव कारणकारणेऽपि सत्त्वात्; अगृहीतेष्टभेदपुरोवर्तिज्ञानं प्रवर्तकमिति मत्पक्षे तु अनुमानमप्रयोजकम्, त्वन्मतेऽपि भ्रमकारणत्वेनावश्यकात् तत एव प्रवृत्त्युपपत्तौ भ्रमरूपविशिष्टज्ञानकल्पने गौरवात्; तस्मात् उक्तज्ञानं रजतत्वप्रकारकं न भवति, शुक्तिमात्रविशेष्यकत्वात् इयं शुक्तिः इति ज्ञानवत् - इति ॥</div>
+  <div class="tr">第2段——もし「向かわせること」が行動を生むことなら、「認識されている欲しい物と目の前の物の区別の把握がないこと」が向かわせるのだ、という説の立場では、論証因は成り立たない。もし行動をもたらす条件であることなら、あなたの説では、銀の錯誤を生む基体（貝殻）の認識で逸脱する。もたらす条件であること、すなわち結果の欠如に遍充される欠如の対立項であることは、原因であることの限定と同じく、原因の原因にもあるからである。<br>一方、「欲しい物との区別が把握されていない目の前の物の認識」が向かわせるのだ、という私の立場では、推論は決め手にならない。あなたの説でも錯誤の原因として必要なそれによって行動が説明できるのに、錯誤としての限定された認識を想定するのは煩雑だからである。<br>だから先に述べた認識は銀性を様態としない。貝殻だけを被限定とするからである。「これは貝殻だ」という認識のように。</div>
+  <div class="exp"><span class="lbl">解説</span><p>プラバーカラ派の反論です。人が銀を拾いに行くのは、「これ」（目の前の物）の知覚と「銀」（欲しい物）の記憶があり、その二つが別だということに気づかないからだ。この「区別の把握のなさ」が人を動かすのだ。立論者も、錯誤が生じる原因として「これ」の知覚と銀の記憶を認めるはずなので、それだけで行動は説明できる。わざわざ「これは銀だ」という一つの誤った認識を想定するのは余計だ、というのです。</p></div>
+  <div class="nt">「रजतभ्रमजनकर्मिज्ञाने」を「…जनकधर्मिज्ञाने」、「गौरवत्」を「गौरवात्」と正した。</div>
+</div>
+<div class="mula" id="u3">
+  <span class="ref">363–364</span>
+  <div class="src deva" lang="sa">अथ तृतीया कक्ष्या-- अन्यथाख्यातिभिया इदमिति न रजतमिति ज्ञानद्वयस्य त्वया स्वीकर्तव्यत्वेन पुरोवर्तिनि इष्टभेदाग्रहसत्त्वात्; तस्मात् ज्ञानमेव प्रवर्तकं वाच्यमिति न हेतोरसिद्धिः, नापि अप्रयोजकत्वम्; इष्टपुरोवर्तिज्ञानरूपे कारणे भेदाग्रहस्य अवच्छेदकतया निवेशेऽपि प्रमास्थले तदसंभवेन प्रवृत्त्यभावापत्त्या नेदं रजतमिति भ्रमस्थले तत्सत्त्वेन प्रवृत्त्यापत्त्या च भेदाग्रहं विहाय इष्टपुरोवर्तिवैशिष्ट्यविषयं ज्ञानं कारणमिति ज्ञानविषयभावेन वैशिष्ट्यस्य कारणतावच्छेदककोटौ निवेशनीयत्वात्; न चैवं सति भ्रमरूपविशिष्टज्ञानकल्पनागौरवं दोषः, प्रामाणिकत्वात्; तस्मात् निरवद्यं मदनुमानम्; त्वदनुमानं तु भ्रमस्थले इदमिति ज्ञानस्य रजतत्वप्रकारकत्वाभावे तत्र रजतार्थिप्रवृत्तिः न स्यात्; प्रवृत्तिमात्रे विशिष्टज्ञानस्य कारणतायाः क्लृप्तत्वात् - इति प्रतिकूलतर्कपराहतमिति ॥</div>
+  <div class="tr">第3段——（「これは銀ではない」の場合でも、）別様の顕現（の説）を恐れて、あなたは「これ」と「銀ではない」という二つの認識を認めなければならないので、目の前の物に欲しい物との区別の把握のなさがある。だから、（区別の把握のなさではなく）認識こそが向かわせると言うべきなので、論証因は成り立たないことはなく、決め手にならないこともない。<br>欲しい物と目の前の物の認識という原因に、区別の把握のなさを限定として組み込んでも、正しい認識の場合にはそれがありえないので行動がないことになり、「これは銀ではない」という錯誤の場合にはそれがあるので行動が生じることになってしまう。だから区別の把握のなさを捨てて、欲しい物と目の前の物の結合を対象とする認識が原因だ、と、認識の対象として結合が原因であることの限定の範疇に組み込まれるべきだからである。そうであれば、錯誤としての限定された認識を想定する煩雑さは欠点ではない。認識手段に裏付けられているからである。<br>だから私の推論は欠点がない。一方あなたの推論は、「錯誤の場合に『これ』という認識が銀性を様態としないなら、そこで銀を欲する人の行動はないことになる。行動一般に対して、限定された認識が原因であることは確定しているからである」という反対の論理によって打ち破られている。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者の反論です。「これは銀ではない」と（誤って）否定する錯誤でも、プラバーカラ派は「これ」と「銀ではない」の二つの認識とその区別の把握のなさを立てるはずです。すると、区別の把握のなさがあるのに、人は銀を拾いに行かない。逆に本物の銀を見る正しい認識では、区別の把握のなさはありえない（区別すべき二つがない）のに、人は拾いに行く。だから人を動かすのは区別の把握のなさではなく、「欲しい物と目の前の物が結びついている」という認識だ、というのです。</p></div>
+  <div class="nt">「स्वीकर्व्यत्वेन」を「स्वीकर्तव्यत्वेन」と正し、誤った記号を除いた。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第4〜6段：「独立に現れた」という条件</h2><span class="sub"><span class="pg">pp.364–365</span></span></div>
+<div class="mula" id="u4">
+  <span class="ref">364</span>
+  <div class="src deva" lang="sa">अथ चतुर्थी-- इष्टपुरोवर्तिभेदाग्रहः इत्यनेन पुरोवर्तिनि स्वतन्त्रोपस्थितेष्टभिन्नत्वप्रकारकज्ञानविषयत्वाभाव उच्यते; तत्रैव अख्यातिवादिनां भेदाग्रहव्यवहारस्य निरूढत्वात्, तथा च प्रमास्थले तत्प्रसिद्धेः न अप्रवृत्तिप्रसङ्गः; नापि नेदं रजतमिति भ्रमस्थले प्रवृत्तिप्रसङ्गः तत्र इष्टस्य स्वतन्त्रोपस्थित्यभावात्; अतो भेदाग्रहस्य प्रवर्तकत्वं ज्ञानगतप्रवर्तकतावच्छेदकत्वं च उपपद्यते इति त्वद्धेतोरसिद्धिः अप्रयोजकत्वं वा नापैति, आवश्यकात्तत एव प्रवृत्त्युपपत्तेः विशिष्टज्ञानं गौरवात् न कल्प्यमिति विशिष्टज्ञानस्य प्रवर्तकत्वक्लृप्त्यभावात् न मदनुमानस्य प्रतिकूलतर्कपराहतिः इति ॥</div>
+  <div class="tr">第4段——「欲しい物と目の前の物の区別の把握のなさ」とは、目の前の物が、独立に現れた欲しい物とは別であることを様態とする認識の対象でないことを言う。まさにそこにおいて、無顕現説の論者たちの「区別の把握のなさ」という言い方は定着しているからである。そうであれば、正しい認識の場合にもそれは成り立つので、行動がないことにはならない。また「これは銀ではない」という錯誤の場合に行動が生じることにもならない。そこでは欲しい物が独立に現れていないからである。<br>だから区別の把握のなさが向かわせること、認識にある、向かわせることの限定であることは成り立つので、あなたの論証因の不成立や決め手のなさは去らない。必要なそれによって行動が説明できるので、限定された認識は煩雑さゆえに想定されない。だから限定された認識が向かわせることは確定していないので、私の推論は反対の論理によって打ち破られていない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は定義を絞ります。「区別の把握のなさ」とは、目の前の物が「独立に現れた欲しい物（銀）とは別だ」と認識されていないことだ。本物の銀の場合も、「これは銀と別だ」とは認識されていないので条件を満たす。「これは銀ではない」の場合は、銀が「〜ではない」の否定の相手としてしか現れず、独立に現れていない。だから行動は起こらない、というのです。</p></div>
+  <div class="nt">「प्रवर्तकत्त्वक्लप्त्यभावात्」を「प्रवर्तकत्वक्लृप्त्यभावात्」と正した。</div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">364–365</span>
+  <div class="src deva" lang="sa">अथ पञ्चमी-- एवं भेदाग्रहविवक्षायामपि नेदं रजतमिति भ्रमस्थले प्रवृत्तिप्रसङ्गदोषः तदवस्थः, पुरोवर्तिगतस्य विशिष्टाभावस्य इष्टभिन्नत्वप्रकारकज्ञानविषयत्वरूपविशेष्याभावमात्रादपि सिध्यतः स्वतन्त्रोपस्थितत्वरूपविशेषणस्यापि अभावे सुतरां सिद्धेः; तत्र स्वतन्त्रोपस्थितत्वं नास्तीत्यभिप्रेत्य खलु इदं विशेषणं दत्तम्; अतः तदभावादपि विशिष्टाभावः कथं न सिध्येत्; नेदं रजतमिति प्रमास्थलेऽपि रजतार्थिप्रवृत्तिः स्यादिति दोषश्च अत्र अधिकः; तत्र विशेषणाभावाद्विशिष्टाभावसिद्धेः; अतः त्वद्विवक्षितविशिष्टाभावस्य प्रवर्तकत्वं ज्ञानगतप्रवर्तकतावच्छेदकत्वं च न संभवतीति विशिष्टज्ञानस्यापि अयं दोष इति मदनुमानस्य न हेत्वसिद्धिः, न वा अप्रयोजकत्वम्; त्वदनुमानस्य प्रतिकूलतर्कपराहतिः इति ॥</div>
+  <div class="tr">第5段——このように区別の把握のなさを意図しても、「これは銀ではない」という錯誤の場合に行動が生じるという欠点はそのまま残る。目の前の物にある（その）限定されたものの欠如は、被限定部分（欲しい物と別であることを様態とする認識の対象であること）の欠如だけからでも成り立つのだから、限定部分（独立に現れたこと）の欠如からはなおさら成り立つからである。あなたは、そこで独立に現れたことがないと考えて、まさにこの限定を付けたのである。だからその欠如からも、限定されたものの欠如がどうして成り立たないことがあろうか。<br>さらに、「これは銀ではない」という正しい認識の場合にも、銀を欲する人の行動が生じることになる、という欠点がここでは加わる。そこでも限定部分の欠如によって限定されたものの欠如が成り立つからである。<br>だから、あなたの意図する限定されたものの欠如が向かわせること、認識にある向かわせることの限定であることはありえない。この欠点は限定された認識（の説）にはない。だから私の推論には論証因の不成立も決め手のなさもなく、あなたの推論は反対の論理によって打ち破られている。</div>
+  <div class="exp"><span class="lbl">解説</span><p>論理の細かい点です。「AをもつBの欠如」は、Aがなくても、Bがなくても成り立ちます。だから「独立に現れた銀と別だと認識されていないこと」は、銀が独立に現れていない「これは銀ではない」の場合にも成り立ってしまう。条件を付けたことで、かえって反例を増やした、というのです。</p></div>
+  <div class="nt">「स्वतन्त्रोपस्थित्वरूप」を「स्वतन्त्रोपस्थितत्वरूप」と正した。「विशिष्टज्ञानस्यापि अयं दोष इति」は文意から「限定された認識の説にはこの欠点がない」の意に解したが、読みに問題がある可能性がある。</div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">365</span>
+  <div class="src deva" lang="sa">अथ षष्ठी कक्ष्या-- भेदाग्रहशब्दोक्तविशिष्टाभावप्रतियोगिकोटौ इष्टविशेषणत्वेन स्वातन्त्र्यं न निवेशितम्, इष्टभिन्नत्वप्रकारकज्ञानदशायाम् इष्टस्य भेदप्रतियोगित्वेन उपस्थितिविषयत्वनियमेन तदभावविशिष्टेष्टविशेषितस्य प्रतियोगिनोऽप्रसिद्ध्या तदभावप्रसिद्ध्यापत्तेः; किं तर्हि ? स्वातन्त्र्यमपि प्रवृत्तौ पृथक्कारणम्; अतः तदभावात् नेदं रजतमिति प्रमाभ्रमस्थलयोः प्रवृत्तिप्रसङ्गाभावात् उक्तभेदाग्रहस्य प्रवर्तकत्वसत्त्वात् त्वदनुमानस्य असिद्धिः अप्रयोजकत्वं वा; मदनुमानस्य न प्रतिकूलतर्कपराहतिरिति ॥</div>
+  <div class="tr">第6段——「区別の把握のなさ」という語で言われる限定されたものの欠如の対立項の範疇に、欲しい物の限定として「独立」が組み込まれているのではない。欲しい物と別であることを様態とする認識のときには、欲しい物は必ず区別の対立項として現れることの対象なので、その（独立の）欠如によって限定された欲しい物で限定された対立項は成り立たず、その欠如も成り立たなくなってしまうからである。<br>ではどうか。「独立」もまた行動の別の原因なのである。だからその欠如によって、「これは銀ではない」という正しい認識と錯誤の場合に行動が生じることはないので、先に述べた区別の把握のなさが向かわせることは成り立つ。だからあなたの推論は成り立たないか決め手にならず、私の推論は反対の論理によって打ち破られていない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は構造を変えます。「独立に現れること」を区別の把握のなさの中に入れるのではなく、行動の別の原因として立てる。銀が独立に現れていなければ、それだけで行動は起こらない、というのです。</p></div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第7〜8段：「独立」の定義の吟味</h2><span class="sub"><span class="pg">pp.365–366</span></span></div>
+<div class="mula" id="u7">
+  <span class="ref">365–366</span>
+  <div class="src deva" lang="sa">अथ सप्तमी कक्ष्या-- यदि भेदप्रतियोगित्वेन अनुपस्थितत्वं तत्, तदा इदं रजतं घटनिष्ठभेदप्रतियोगि - इति ज्ञानादप्रवृत्तिः; यदि पुरोवर्तिनिष्ठभेदप्रतियोगित्वेनानुपस्थितत्वम्, तदा नेदं रजतमिति भ्रमस्थले दोषः तदवस्थः ननु पुरोवर्त्यगृहीतासंसर्गभेदप्रतियोगित्वेनानुपस्थितत्वं स्वातन्त्र्यम् अतः तदभावात् नेदं रजतमिति भ्रमेण न प्रवृत्तिप्रसङ्गः, तत्र पुरोवर्तिनि रजतभेदासंसर्गाग्रहसत्त्वेन तद्विशेषितभेदप्रतियोगित्वोपस्थितेः विद्यमानतया तदभावाभावात्; नापि इदं रजतं घटनिष्ठभेदप्रतियोगि इति ज्ञानेन अप्रवृत्तिप्रसङ्गः, तत्र पुरोवर्तिनि रजतभेदासंसर्गरूपरजताभेदग्रहसत्त्वेन तदभावविशेषितभेदप्रतियोगित्वोपस्थित्यभावसत्त्वात् इति चेत्, न; एवमपि यत्र इदं नेति भेदविशिष्टपुरोवर्तिज्ञानं रजतस्मरणं च इति ज्ञानद्वयरूपः नेदं रजतमिति भ्रमः, तत्र रजतार्थिप्रवृत्तिप्रसङ्गात्; न चेदं भेदज्ञानं न संभवतीति वाच्यम्, इदमिति न रजतमिति ज्ञानद्वयपक्षे अधिकरणविशेषानुल्लेखिन इव इदं नेति प्रतियोगिविशेषानुल्लेखिनोऽपि भेदज्ञानस्य संभवात् तस्मात् स्वातन्त्र्यानिरुक्त्या तत्सहितभेदाग्रहस्य प्रवृत्तौ कारणत्वं तदवच्छेदकत्वं च नोपपद्यत इति न मद्धेतोरसिद्धिः अप्रयोजकत्वं वा, त्वद्धेतोश्च प्रतिकूलतर्कपराहतिरिति ॥</div>
+  <div class="tr">第7段——もしそれ（独立）が「区別の対立項として現れていないこと」なら、「これは銀であり、壺にある区別の対立項である」という認識から、行動が起こらないことになる。もし「目の前の物にある区別の対立項として現れていないこと」なら、「これは銀ではない」という錯誤の場合の欠点がそのまま残る。<br>「独立とは、目の前の物との非関係が把握されていない区別の対立項として現れていないことである。だからその欠如によって、『これは銀ではない』という錯誤で行動が生じることはない。そこでは目の前の物に銀との区別の非関係の把握のなさがあるので、それで限定された区別の対立項として現れることがあり、その欠如がないからである。また『これは銀であり、壺にある区別の対立項である』という認識で行動が起こらないことにもならない。そこでは目の前の物に、銀との区別の非関係、すなわち銀との不異の把握があるので、その欠如で限定された区別の対立項として現れることの欠如があるからである」と言うなら、そうではない。<br>そうであっても、「これは〜でない」という区別に限定された目の前の物の認識と、銀の記憶という二つの認識からなる「これは銀ではない」という錯誤の場合に、銀を欲する人の行動が生じることになってしまうからである。そしてこの区別の認識はありえない、と言うべきでもない。「これ」と「銀ではない」の二つの認識の立場で、特定の基体に言及しない区別の認識があるのと同じく、「これは〜でない」と、特定の対立項に言及しない区別の認識もありうるからである。だから「独立」が定義できないので、それを伴う区別の把握のなさが行動の原因であることも、その限定であることも成り立たない。だから私の論証因は成り立たないことも決め手にならないこともなく、あなたの論証因は反対の論理によって打ち破られている。</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者は「独立」を定義しようとするたびに反例を出します。単に「区別の相手として現れていない」なら、「これは銀で、（ついでに）壺とは別だ」と思っても銀が区別の相手として現れるので、人は拾いに行かないことになってしまう。限定を付け加えても、「これは〜でない」という相手を特定しない否定の認識と銀の記憶の組み合わせでは、また破れる、というのです。</p></div>
+  <div class="nt">「अप्रवत्तिः」を「अप्रवृत्तिः」、「पुरोर्वार्ति」を「पुरोवर्ति」、「प्रतियोगित्वउपस्थित्य」を「…त्वोपस्थित्य」、「स्वातन्त्र्यानिरुक्तत्या」を「…निरुक्त्या」と正した。</div>
+</div>
+<div class="mula" id="u8">
+  <span class="ref">366</span>
+  <div class="src deva" lang="sa">अथ अष्टमी कक्ष्या-- स्वातन्त्र्यमिह पुरोवर्त्यगृहीतासंसर्गभेदप्रतियोगित्वासंसर्गाग्रहाभाववत्त्वं विवक्षितम्, तथा च इदमिति न रजतमिति च ज्ञानद्वयात्मकस्य नेदं रजतमिति भ्रमस्योदये पुरोवर्तिनि रजतभेदस्यासंसर्गाग्रहोऽस्ति इदं रजतमिति भ्रमोदये रजतस्येव; तथा च तत्र पुरोवर्त्यगृहीतासंसर्गभेदप्रतियोगित्वेन रजतस्य ग्रहणात् तत्प्रतियोगित्वासंसर्गाग्रहोऽस्तीति तदभावाभावात् न तत्र रजतार्थिप्रवृत्तिप्रसङ्गः; नापि इदं नेति रजतमिति च ज्ञानद्वयात्मकस्य नेदं रजतमिति भ्रमस्योदये तत्प्रसङ्गः, तत्र पुरोवर्तिनि गृहीतसंसर्गत्वेन अगृहीतासंसर्गो यो भेदः तत्प्रतियोगित्वस्यासंसर्ग इष्टे यद्यपि वर्तते, तथापि तस्य नेदं रजतमिति भ्रमदशायाम् अग्रहस्य सत्त्वेन तदभावाभावात्; इदं रजतं घटनिष्ठभेदप्रतियोगि इति ज्ञानोदये च नाप्रवृत्तिप्रसङ्गः, तत्र रजते भेदप्रतियोगित्वसंसर्गग्रहणेन तदसंसर्गाग्रहरूपविशेष्यसंभवेऽपि पुरोवर्तिनि भेदासंसर्गरूपाभेदग्रहणेन विशेषणाभावात् तद्विशिष्टस्य भेदप्रतियोगित्वासंसर्गाग्रहस्याभावसत्त्वात्; यत्र तु इदं रजतम् इत्येव प्रत्ययः, तत्रापि प्रवृत्तिरुपपद्यते, तत्र भेदप्रतियोगित्वेनेव भेदाप्रतियोगित्वेनापि अगृह्यमाणरजते विशेष्यसत्त्वेऽपि पुरोवर्तिनि भेदासंसर्गरूपस्य रजताभेदस्य ग्रहोऽस्तीति विशेषणाभावेन विशिष्टाभावसत्त्वात्; तस्मात् प्रागुक्तरीत्या त्वद्धेतोरसिद्धिः मद्धेतोश्च न प्रतिकूलतर्कपराहतिरिति ॥</div>
+  <div class="tr">第8段——ここで「独立」とは、「目の前の物との非関係が把握されていない区別の対立項であることの非関係の把握のなさ、の欠如をもつこと」を意図している。そうすると、「これ」と「銀ではない」の二つの認識からなる「これは銀ではない」という錯誤が生じたとき、「これは銀だ」という錯誤が生じたときに銀についてそうであるのと同じく、目の前の物に銀との区別の非関係の把握のなさがある。だからそこでは銀が、目の前の物との非関係が把握されていない区別の対立項として捉えられるので、その対立項であることの非関係の把握のなさがあり、その欠如がないので、そこで銀を欲する人の行動が生じることはない。<br>また「これは〜でない」と「銀」の二つの認識からなる「これは銀ではない」という錯誤が生じたときにも、それ（行動）は生じない。そこでは目の前の物に、関係が把握されているので非関係が把握されていない区別があり、その対立項であることの非関係は欲しい物（銀）にあるけれども、「これは銀ではない」という錯誤のときには、その把握のなさがあるので、その欠如がないからである。<br>また「これは銀であり、壺にある区別の対立項である」という認識が生じたときにも、行動が起こらないことにはならない。そこでは銀に区別の対立項であることの関係が把握されるので、その非関係の把握のなさという被限定部分はありうるが、目の前の物に区別の非関係、すなわち不異が把握されることで限定部分がないので、それに限定された、区別の対立項であることの非関係の把握のなさの欠如があるからである。<br>ただ「これは銀だ」という認識だけがあるところでも、行動は成り立つ。そこでは、区別の対立項としてと同じく、区別の対立項でないものとしても捉えられていない銀に被限定部分はあるが、目の前の物に区別の非関係である銀との不異の把握があるので、限定部分の欠如によって限定されたものの欠如があるからである。だから先に述べた仕方で、あなたの論証因は成り立たず、私の論証因は反対の論理によって打ち破られていない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は、否定を何重にも重ねた精密な定義を出し、立論者の挙げた反例を一つずつ処理してみせます。インド新論理学（ナヴィヤ・ニヤーヤ）風の、関係と欠如を入れ子にした表現です。</p></div>
+  <div class="nt">「ज्ञानद्वयात्मक्सय」を「…त्मकस्य」、「रजतस्येवः」を「रजतस्येव;」、「इदं नेदि」を「इदं नेति」、「घटनिष्टभेद」を「घटनिष्ठभेद」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>第9段と末尾：簡潔さの論拠と結論</h2><span class="sub"><span class="pg">pp.366–367</span><span class="pill c">立論者</span></span></div>
+<div class="mula" id="u9">
+  <span class="ref">366–367</span>
+  <div class="src deva" lang="sa">अथ नवमी कक्ष्या-- नैवमपि स्वातन्त्र्यनिर्वचनं युज्यते, यत्र इदं रजतमिति भ्रमकाले घटो रजतभिन्न इत्यपि स्मरणम्, तत्र अप्रवृत्तिप्रसङ्गात्, तत्र पुरोवर्तिनि रजतभेदस्यासंसर्गग्रहे मिथ्याज्ञानप्रसङ्गेन तदसंसर्गाग्रहस्य विशेषणस्य सत्त्वेन रजते भेदप्रतियोगित्वग्रहकाले तदसंसर्गाग्रहस्य विशेष्यस्य च सत्त्वेन विशिष्टाभावाभावात्; अरजतरजतयोः इमे रजतारजते इति समूहालम्बनभ्रमात् अरजते रजतार्थिप्रवृत्त्यभावप्रसङ्गाच्च; तत्र पुरोवर्तिनि अरजते रजतभेदासंसर्गग्रहे मिथ्याज्ञानप्रसङ्गेन अरजतरूपपुरोवर्त्यगृहीतासंसर्गभेदप्रतियोगित्वेन रजतस्य गृह्यमाणतया उक्तविशिष्टाभावप्रतियोगिनो विशिष्टस्य सत्त्वात्; किं च यत्र पुरोवर्तिनि इष्टभिन्नत्वज्ञानं नास्ति, किं तु तस्मिन् इष्टव्यावर्तकशुक्तित्वादिज्ञानम् इष्टे पुरोवर्तिभिन्नत्वज्ञानम् पुरोवर्तिनिष्ठधर्मसामान्ये इष्टतावच्छेदकभिन्नत्वज्ञानम् इष्टतावच्छेदके पुरोवर्तिनिष्ठधर्मभिन्नत्वज्ञानम् अन्यद्वा एतादृशं प्रवृत्तिविरोधिज्ञानमस्ति तत्रापि प्रवृत्तिप्रसङ्गः; न च यावन्तो भेदकग्रहाः प्रवृत्तिविरोधिनः तदभावकूटसहितम् इष्टपुरोवर्तिज्ञानं प्रवर्तकमस्त्विति वाच्यम्, एतदपेक्षया इष्टपुरोवर्तिज्ञाने तदुभयवैशिष्ट्यस्य एकस्य भावरूपस्य इदं रजतत्वेन जानामि इति सर्वानुभवसिद्धज्ञानवित्तिवेद्यतया शीघ्रोपस्थितिकस्य प्रवृत्तिकारणतावच्छेदकत्वकल्पने लाघवात् । तदनुसारेण भ्रमस्थले प्रवृत्त्यर्थं पश्चात् विशिष्टज्ञानकल्पने च फलमुखगौरवस्यादोषत्वात्; न च यस्य भ्रमस्थले ज्ञानप्रवृत्त्योः कार्यकारणभावग्रहः, तस्य तन्मते वैशिष्ट्यस्य ज्ञानवित्तिवेद्यत्वाभावात् उक्तलाघवं सार्वत्रिकमिति वाच्यम्, तन्मतेऽपि रजतत्ववैशिष्ट्यविषयाया रजतस्मरणविषयवित्तेः सत्त्वात्; तेनापि हि इदं रजतत्वेन जानामीति लोकसिद्धा वित्तिर्नापह्नोतुं शक्या; किंतु इदं रजतमिति ज्ञानादगृहीतभेदज्ञानद्वयरूपतया उपपादनीयत्वात् त्वद्विवक्षितभेदाग्रहसहितम् इष्टपुरोवर्तिज्ञानं मम कारणत्वेन संप्रतिपन्नमिति, तदप्यसिद्धम्, मम मते इष्टपुरोवर्तिभेदाग्रहादिकूटो मिथ्याज्ञानकारणम्, त्वन्मते पुरोवर्त्यगृहीतासंसर्गेत्यादि; 〔…〕</div>
+  <div class="tr">第9段——このようにしても「独立」の定義は正しくない。「これは銀だ」という錯誤のときに、「壺は銀と別だ」という記憶もあるところでは、行動が起こらないことになってしまうからである。そこでは、目の前の物に銀との区別の非関係が把握されれば誤った認識（を認めること）になってしまうので、その非関係の把握のなさという限定部分があり、銀に区別の対立項であることが把握されるときには、その非関係の把握のなさという被限定部分もあるので、限定されたものの欠如がないからである。<br>また、銀でない物と銀について「これらは銀と銀でない物だ」という（取り違えた）一括の錯誤から、銀でない物に銀を欲する人の行動がないことになってしまうからでもある。そこでは、目の前の銀でない物に銀との区別の非関係が把握されれば誤った認識（を認めること）になってしまうので、銀が、銀でない目の前の物との非関係が把握されていない区別の対立項として捉えられ、先に述べた限定されたものの欠如の対立項である限定されたものがあるからである。<br>さらに、目の前の物に欲しい物と別であるという認識はないが、それに欲しい物を除く貝殻性などの認識がある場合、欲しい物に目の前の物と別であるという認識がある場合、目の前の物にある属性一般に欲しいものであることの限定と別であるという認識がある場合、欲しいものであることの限定に目の前の物にある属性と別であるという認識がある場合、その他このような行動を妨げる認識がある場合にも、行動が生じることになってしまう。<br>「行動を妨げる区別の把握がいくつあっても、その欠如の総体を伴う欲しい物と目の前の物の認識が向かわせるのだ」と言うべきでもない。それよりも、欲しい物と目の前の物の認識に、その両者の結合という一つの肯定的なものを、行動の原因であることの限定と想定する方が簡潔だからである。それは「私はこれを銀として知っている」という、誰の経験でも成り立つ認識の自覚によって知られ、すばやく現れるからである。それに従って、錯誤の場合の行動のために後から限定された認識を想定するのは、結果に伴う煩雑さなので欠点ではない。<br>「錯誤の場合に認識と行動の原因・結果の関係を把握する人にとって、その人の説では結合は認識の自覚によって知られないので、述べた簡潔さは普遍的ではない」と言うべきでもない。その人の説でも、銀性の結合を対象とする、銀の記憶を対象とする自覚があるからである。その人も「私はこれを銀として知っている」という世間で成り立つ自覚を否定できない。そうではなく、「これは銀だ」という認識から、区別が把握されていない二つの認識として説明しなければならないからである。<br>「あなたの意図する区別の把握のなさを伴う、欲しい物と目の前の物の認識は、私の説でも原因として一致して認められている」というのも成り立たない。私の説では、欲しい物と目の前の物の区別の把握のなさなどの総体は誤った認識の原因であり、あなたの説では「目の前の物との非関係が把握されていない…」などである。〔以下欠落〕</div>
+  <div class="exp"><span class="lbl">解説</span><p>立論者の決め手は簡潔さです。反論者の定義は、反例が出るたびに「欠如の総体」へと膨らんでいく。それよりも、「欲しい物と目の前の物が結びついている」という一つの認識が人を動かす、と考える方が簡潔です。しかもそれは、「私はこれを銀として知っている」と誰もが自覚している事実に合っています。この自覚はプラバーカラ派も否定できず、無理に「区別のつかない二つの認識」と説明し直すしかない、というのです。</p><p>本体OCRでは、この段の途中（p.367）で本文が切れ、次の部分の末尾だけが続いています。</p></div>
+  <div class="nt">「सत्त्वान् तेनापि」を「सत्त्वात्; तेनापि」、「इष्टपुरोवतिज्ञानं」を「इष्टपुरोवर्तिज्ञानं」と正した。本体OCRでは「…पुरोवर्त्यगृहीतासंसर्गेत्यादि;」の直後に「केवलद्रव्यविषयस्य…」が続くが、文がつながらず、第9段の残りと、おそらく第10段以降が欠落している。欠落箇所を〔…〕で示した。</div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">367</span>
+  <div class="src deva" lang="sa">केवलद्रव्यविषयस्य चाक्षुषज्ञानस्यानुदयात् तदीयशुक्लरूपस्य च तदानीमस्फुरणात्; नापि आरोपितस्मरणम् नदीजलादिषु नीलं जलमिति नियमेन नैल्यविशिष्टतयैव जायमाने ज्ञाने नियतं संभवति; न चायमनुभूयमानागपः अतिधवलासु सिकतासु प्रवहति नदीजले नीलद्रव्यसंनिधानाभावात्; न च अविनाभूतोपष्टम्भककल्पनं युक्तम्; तस्यैव नदीजलस्य विवति विक्षिप्तस्य शौक्ल्यदर्शनात्; तस्मात् मदनुमानस्य नासिद्धिः अप्रयोजकत्वं वा, त्वदनुमानस्य तु प्रतिकूलतर्कपराहतिरिति सिद्धं शुक्तिरजतादिज्ञानमयथार्थमिति ॥ इति अयथार्थज्ञानसमर्थनवादः ॥२३॥</div>
+  <div class="tr">〔……〕単なる実体を対象とする視覚の認識は生じないし、そのとき（水の）白い色は現れないからである。また、重ね合わされたものの記憶でもない。川の水などについて「青い水」と、必ず青さに限定されたものとして生じる認識において、必ずありうるからである。そして〔……〕ひどく白い砂の上を流れる川の水には、青い実体がそばにないからである。また、必ず伴う支えを想定するのも正しくない。まさにその川の水が、（空中に）撒き散らされると白く見えるからである。<br>だから私の推論は成り立たないことも決め手にならないこともなく、あなたの推論は反対の論理によって打ち破られている。こうして、貝殻の上の銀などの認識が誤ったものであることが確定した。<br>以上、誤った認識を論証する論。（第23論）</div>
+  <div class="exp"><span class="lbl">解説</span><p>欠落の後に残る断片は、別の錯誤の例を扱っています。ニヤーヤ派などでは、水の本来の色は白とされます。それなのに川の水は「青い」と見える。この「青い水」の認識も、実体だけを見ているのでも（色なしに見ることはない）、記憶の取り違えでもない（近くに青い物がない）。だから青さを誤って水に結びつける錯誤だ、という論証だったと思われます。</p></div>
+  <div class="nt">「संभवतिः」を「संभवति;」、「शौक्लत्य」を「शौक्ल्य」と正した。「न चायमनुभूयमानागपः」「विवति विक्षिप्तस्य」は崩れていて読みが確定できない。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この論に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>ayathārthajñāna / bhrama</dt><dd>誤った認識／錯誤</dd>
+    <dt>akhyāti</dt><dd>無顕現説。錯誤とは二つの認識の区別がつかないことだとするプラバーカラ派の説</dd>
+    <dt>anyathākhyāti</dt><dd>別様の顕現説。あるものを別のものとして捉えるのが錯誤だとするニヤーヤ派の説</dd>
+    <dt>bhedāgraha</dt><dd>区別の把握のなさ</dd>
+    <dt>pravartaka</dt><dd>向かわせるもの。人を行動に向かわせる認識など</dd>
+    <dt>prakāra / viśeṣya</dt><dd>様態（限定するもの）／被限定（限定されるもの）</dd>
+    <dt>vaiśiṣṭya</dt><dd>結合。限定するものと限定されるものの結びつき</dd>
+    <dt>pratiyogin</dt><dd>対立項。欠如や区別の相手</dd>
+    <dt>asaṃsarga</dt><dd>非関係</dd>
+    <dt>anuvyavasāya / vitti</dt><dd>（認識の）自覚。「私はこれを銀として知っている」</dd>
+    <dt>lāghava / gaurava</dt><dd>簡潔さ／煩雑さ（説の優劣の基準）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.362–367 のOCRテキストに拠る。本体OCRでは p.367 の第9段の途中から本文が欠け、論の末尾の断片だけが残っている（〔…〕で示した）。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>

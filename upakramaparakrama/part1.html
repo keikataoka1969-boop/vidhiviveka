@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Upakramanyāya 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#s1"><b>1</b>序の偈と冒頭優先の原則</a></li>
+    <li><a href="#s2"><b>2</b>ヴェーダの冒頭の主題</a></li>
+    <li><a href="#s3"><b>3</b>馬の受納の祭祀の主題（…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ウパクラマ・パラークラマ　第1部</div>
+  <h1>Upakramanyāya</h1>
+  <p class="deva-title" lang="sa">उपक्रमन्यायः, वेदोपक्रमाधिकरणम्, अश्वप्रतिग्रहेष्ट्यधिकरणम्</p>
+  <p class="sub">冒頭優先の原則と、その典拠となる二つの主題</p>
+  <span class="sample">対訳　第1部（pp.385–389）</span>
+  <p>冒頭の偈で、著者はこの書の目的を述べます。結びが強いとする論者に対して、冒頭が強いとする伝統の論理を示す、と。続いて、ミーマーンサー学者の原則（クマーリラの『タントラ・ヴァールッティカ』）が引かれます。冒頭を読むとき結びはまだ知られていないので、冒頭は本来の意味で理解され、結びの方が転義を受け入れる、というものです。</p>
+  <p>典拠は二つです。一つは「ヴェーダの冒頭」の主題（『ミーマーンサー・スートラ』3.3.1–4）。冒頭で「三つのヴェーダが生まれた」と言い、結びで「リクで高く、ヤジュスで低く…唱える」と言う文で、規定は個々のリクにかかるのか、リグ・ヴェーダで規定される祭祀全体にかかるのか。もう一つは「馬の受納の祭祀」の主題で、冒頭は馬を与えた者の話なのに、結びの規定は馬を受け取る者に祭祀を命じます。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>原則</dt><dd>冒頭（<i>upakrama</i>）と結び（<i>upasaṃhāra</i>）が食い違えば冒頭が強い<br><small>冒頭の時点で食い違うものはまだ知られていないから</small></dd></div>
+    <div><dt>典拠1</dt><dd>ヴェーダの冒頭の主題<br><small>「リクで高く」の「リク」は、冒頭に合わせて「リグ・ヴェーダ」の意味になる</small></dd></div>
+    <div><dt>典拠2</dt><dd>馬の受納の祭祀の主題<br><small>冒頭は与える者、結びは受け取る者。どちらに合わせるか</small></dd></div>
+    <div><dt>この部の範囲</dt><dd>第2の主題の反論（結びに合わせよ）まで<br><small>定説は第2部で示される</small></dd></div>
+  </dl>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>序の偈と冒頭優先の原則</h2><span class="sub"><span class="pg">p.385</span></span></div>
+<div class="mula" id="u1">
+  <span class="ref">385</span>
+  <div class="src deva" lang="sa">कर्तव्यार्थप्रतिज्ञा उपक्रमस्य प्रबलत्वमूचिरे ययोपसंहारविरोधिनो बुधाः । प्रतिष्ठितां तामिह तर्कसंततिं प्रबोधयामः प्रतिकूलजल्पितान् ॥१॥</div>
+  <div class="tr">〔なすべき目的の宣言〕結び（の優先）に反対する賢者たちが、冒頭が強いことを述べた論理の連なり、ここに確立されたそれを、反対のことを言い立てる者たちに目覚めさせよう。（1）</div>
+  <div class="exp"><span class="lbl">解説</span><p>書名の「パラークラマ」は「力、勇猛」の意味です。結びを優先する説に対して、冒頭の力を示す、という宣言です。本文中の〔　〕内の小見出しは、校訂者が付けたものです。</p></div>
+  <div class="nt">「प्रब्रलत्व」を「प्रबलत्व」、「प्रवोधयामः」を「प्रबोधयामः」と正した。</div>
+</div>
+<div class="mula" id="u2">
+  <span class="ref">385</span>
+  <div class="src deva" lang="sa">उपक्रमन्यायव्युत्पादनम् मीमांसकास्तावदुपक्रमोपसंहारयोर्विरोधे सत्युपक्रमस्य प्राबल्ये न्यायमेवमाहुः 'सर्वस्यैव हि शब्दस्य स्वार्थातिलंघने विरोधः कारणम्, स च प्रतियोगिनि दृष्टे विज्ञायते' (तं० वा० पृ० ८०६) । न चोपक्रमदशायाम् उपसंहारो विरोधी ज्ञातः । अत उपक्रमो मुख्यवृत्तिरेव युक्तः, उपसंहारः मुख्यवृत्तिश्चेन्न तेन संबध्यते आकांक्षावशेन हि संबन्धः, न च पूर्वप्रतीतस्य स्वविरुद्धार्थे भवत्याकांक्षा । अत उपसंहारस्तदनुरोधेन बलाल्लक्षणादिकं प्रतिपद्यते । अत एव वेदोपक्रमाधिकरणे, अश्वप्रतिग्रहेष्ट्यधिकरणे चोपक्रमानुसारेणोपसंहारो नीतः ।</div>
+  <div class="tr">〔冒頭の原則の説明〕まずミーマーンサー学者たちは、冒頭と結びが食い違うとき冒頭が強いことの原則を、次のように言う。「どんな語でも、自分の意味を越える原因は矛盾であり、それは対立するものが見られたときに知られる」（『タントラ・ヴァールッティカ』p.806）。<br>そして冒頭の時点では、矛盾する結びはまだ知られていない。だから冒頭は本来の働き（字義どおりの意味）のままでよい。結びは、本来の働きのままなら、それ（冒頭）と結びつかない。結びつきは期待によるのであり、先に理解されたものが、自分と矛盾する意味を期待することはないからである。だから結びは、それ（冒頭）に従って、やむをえず転義などを受け入れる。<br>まさにそれゆえ、「ヴェーダの冒頭」の主題と「馬の受納の祭祀」の主題では、冒頭に従って結びが読まれた。</div>
+  <div class="exp"><span class="lbl">解説</span><p>原則の核心は時間の順序です。文を読む人は、まず冒頭を字義どおりに理解します。結びに来たとき、それが冒頭と矛盾するなら、結びの語を転義で読み換えて冒頭に合わせる。冒頭の時点では矛盾はまだ見えていないので、冒頭を読み換える理由がない、というのです。</p></div>
+  <div class="nt">「स्वविरूद्धार्थे」を「स्वविरुद्धार्थे」、「अश्वप्रतिसहेष्ट्य」を「अश्वप्रतिग्रहेष्ट्य」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>ヴェーダの冒頭の主題</h2><span class="sub"><span class="pg">pp.385–387</span></span></div>
+<div class="mula" id="u3">
+  <span class="ref">385</span>
+  <div class="src deva" lang="sa">तद्यथा । तृतीयाध्याये चिन्तितम्-- 'श्रुतेर्जाताधिकारस्स्यात् (मी० द० ३-३-१) ज्योतिष्टोमे । प्रजापतिर्वा इदमेक एव आसीत् । स तपोऽतप्यत, तस्मात्तपस्तेपानात् त्रयो देवा अजायन्त, अग्निर्वायुरादित्यः, ते तपोऽतप्यन्त, तेभ्यस्तेपानेभ्यस्त्रयो वेदा अजायन्त, अग्नेर्ऋग्वेदः, वायोर्यजुर्वेदः, आदित्यात्सामवेदः । इत्युपक्रम्य श्रूयते 'तस्मादुच्चैर्ऋचा क्रियते, उपांशु यजुषा, उच्चैः साम्ना' इति (ऐ० ब्रा० १०-१) । तत्र संशयः-- किमुच्चैष्ट्वादिविधौ ऋगादिशब्दैस्तदभिधेयानाम् ऋगादीनाम् ग्रहणम्, उत वेदानामिति, उपक्रमे वेदशब्दश्रवणात्, उपसंहारे ऋगादिशब्दश्रवणाच्च।</div>
+  <div class="tr">すなわち、第3章で（次のことが）考察されている。「天啓により、生じた（ヴェーダ）に資格があるであろう」（『ミーマーンサー・スートラ』3.3.1）。ジョーティシュトーマ祭で、「プラジャーパティはまさに独りこの（世界）であった。彼は苦行をした。苦行した彼から三柱の神が生まれた。アグニ、ヴァーユ、アーディティヤである。彼らは苦行をした。苦行した彼らから三つのヴェーダが生まれた。アグニからリグ・ヴェーダ、ヴァーユからヤジュル・ヴェーダ、アーディティヤからサーマ・ヴェーダが」と始めて、「それゆえ、リクによって高く行い、ヤジュスによって低く、サーマンによって高く（行う）」と聞かれる。<br>そこで疑いが生じる。高さなどの規定で、「リク」などの語によって、それが表すリク（讃歌）などが捉えられるのか、それともヴェーダ（全体）が捉えられるのか。冒頭では「ヴェーダ」の語が聞かれ、結びでは「リク」などの語が聞かれるからである。</div>
+  <div class="nt">「तस्मादुश्चैर्ऋचा」を「तस्मादुच्चैर्ऋचा」と正した。</div>
+</div>
+<div class="mula" id="u4">
+  <span class="ref">385–386</span>
+  <div class="src deva" lang="sa">वेदशब्दो हि मन्त्रब्राह्मणसमुदायात्मकस्य काठकादिग्रन्थविशेषस्य वाचकः, 'वेदानधीत्य वेदौ वा वेदं वापि यथाक्रममि' (म० अ० ३ श्लो० २) त्यादिव्यवहारात् । ऋग्यजुस्सामादिशब्दास्तु 'तेषाम् ऋग्यत्रार्थवशेन पादव्यवस्था, शेषे यजुः शब्दः, गीतिषु सामाख्ये' (मी० द० २-१-३५-३६-३७) सूत्रैः पादबद्धापादबद्धमन्त्रगीतिविशेषवाचकत्वेन निर्णीताः । अतः वेदशब्दस्य, ऋगादिशब्दानाञ्च विभिन्नार्थकत्वाद्भवति संशयः । उपक्रमोपसंहारयोर्विप्रतिपत्तेरेकवाक्यत्वाच्च उभयोरेकविषयत्वेऽवश्यंभाविनि किमुपसंहारस्थविध्युद्देशवशादुपक्रमस्थार्थवादगतवेदशब्दो वेदैकदेशऋगादिपरो भवतु, किंवा उपक्रमगतार्थवादवशादुपसंहारस्थविध्युद्देशगतम् ऋगादिपदम् ऋगादिप्रायवेदपरं भवत्विति ।</div>
+  <div class="tr">「ヴェーダ」の語は、マントラとブラーフマナの集まりからなる、カータカ（本）などの特定の書を表す。「ヴェーダを、あるいは二つのヴェーダを、あるいは一つのヴェーダを、順序どおりに学んで」（『マヌ法典』3.2）などの用法があるからである。一方「リク」「ヤジュス」「サーマン」などの語は、「そのうち、意味によって詩脚の区切りがあるのがリク」「残りにはヤジュスの語」「歌にはサーマンという名」（『ミーマーンサー・スートラ』2.1.35–37）というスートラによって、詩脚をもつマントラ、詩脚をもたないマントラ、特定の歌を表すと確定されている。だから「ヴェーダ」の語と「リク」などの語は意味が異なるので、疑いが生じる。<br>冒頭と結びが食い違い、しかも一つの文をなすので、両者が一つの対象をもつことは避けられない。そのとき、結びにある規定の主題の力によって、冒頭にある釈義の「ヴェーダ」の語が、ヴェーダの一部であるリクなどを指すのか。それとも冒頭にある釈義の力によって、結びにある規定の主題の「リク」などの語が、リクなどを主とするヴェーダを指すのか。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「ヴェーダ」は、マントラ（讃歌・祭詞）とブラーフマナ（祭儀の説明）を合わせた一つの学派の聖典全体です。一方「リク」は韻律をもつ讃歌、「ヤジュス」は散文の祭詞、「サーマン」は歌詠です。だから「リグ・ヴェーダ」の中にも散文の部分があり、「リク」の規定と「リグ・ヴェーダ」の規定では対象が違ってきます。</p></div>
+  <div class="nt">「तेषामऋग्यत्र」を分かち書きに、「सपादबद्धापादवद्ध」を「पादबद्धापादबद्ध」、「…गतमृगादिपदमृगादिप्राय」を「…गतम् ऋगादिपदम् ऋगादिप्राय」と正した。</div>
+</div>
+<div class="mula" id="u5">
+  <span class="ref">386</span>
+  <div class="src deva" lang="sa">उपक्रमाधिकरणपूर्वोत्तरपक्षयोः फलकथनम् । पूर्वपक्षे यस्मादृगादयः प्रजापतिसकाशाज्जातेभ्योऽग्न्यादिभ्यो जाताः, तस्मात्प्रशस्तैस्तैरुच्चैष्ट्वादिनियतस्वरयुक्तैरेव कर्म कर्तव्यमिति कर्मांगभूतानामृगादीनां वेदविशेषानादरेण यत्किंचिद्वेदस्थानामुच्चैष्ट्वादिविधानम् । सिद्धान्ते तु यस्मादुक्तरूपेभ्योऽग्न्यादिभ्यो ऋग्वेदादयो जाताः तस्माद्यदृग्वेदादिभिः क्रियते-विधीयते कर्मबृन्दम्, तस्य प्रशस्तस्योच्चैष्ट्वादि कर्तव्यमिति तत्तद्वेदविहितकर्मराशिगुणत्वेनोच्चैष्ट्वादिविधानमिति फलभेदः ।</div>
+  <div class="tr">〔冒頭の主題の反論と定説の結果〕反論では、リクなどは、プラジャーパティから生まれたアグニなどから生まれたのだから、その讃えられたそれら（リクなど）によって、高さなどの決まった音調をもって祭祀を行うべきだ、というので、祭祀の補助であるリクなどについて、特定のヴェーダを顧みず、どのヴェーダにあるものでも高さなどが規定される。定説では、先に述べたようなアグニなどからリグ・ヴェーダなどが生まれたのだから、リグ・ヴェーダなどによって行われる、すなわち規定される祭祀の群れ、その讃えられたものについて高さなどを行うべきだ、というので、それぞれのヴェーダで規定された祭祀の総体の性質として高さなどが規定される。これが結果の違いである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>結果の違いは実際的です。反論では、どのヴェーダにあるリク（韻文）でも高く唱える。定説では、リグ・ヴェーダで規定される祭祀（ホートリ祭官の担当）は、韻文でも散文でも高く唱える。ヤジュル・ヴェーダの中のリク（韻文）は、ヤジュル・ヴェーダの祭祀として低く唱えることになります。</p></div>
+  <div class="nt">「तस्माप्रशस्तैः」を「तस्मात्प्रशस्तैः」、「उच्चैष्ट्रवादि」を「उच्चैष्ट्वादि」、「अग्नयादिभ्यो」を「अग्न्यादिभ्यो」と正した。</div>
+</div>
+<div class="mula" id="u6">
+  <span class="ref">386</span>
+  <div class="src deva" lang="sa">उपक्रमाधिकरणपूर्वपक्षः तत्र विध्युद्देशस्य प्रधानत्वादप्राप्तविषयत्वेन विधित्वात् 'न विधौ परः शब्दार्थः' इति न्यायाच्च न तत्र लक्षणा, किंत्वर्थवादस्य गुणत्वादनुवादत्वेन लक्षणासहिष्णुत्वाच्च तत्रैव लक्षणा युक्तेति, ऋगादिशब्दैस्स्वाभिधेयानाम् ग्रहणमिति पूर्वपक्षः ।</div>
+  <div class="tr">〔冒頭の主題の反論〕そこで、規定の主題は主要なものであり、得られていない対象をもつので規定であり、また「規定では別の語義（転義）はない」という原則があるので、そこに転義はない。そうではなく、釈義は従属的なもので、再述なので転義を受け入れうるので、まさにそこでの転義が正しい。だから「リク」などの語によって、それ自身が表すものが捉えられる——というのが反論である。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は、規定（「リクで高く行え」）と釈義（「ヴェーダが生まれた」）の強弱に訴えます。規定は新しいことを命じる主要部で、転義を許さない。釈義は規定を讃える補助にすぎないので、こちらを読み換えるべきだ、というのです。</p></div>
+</div>
+<div class="mula" id="u7">
+  <span class="ref">386–387</span>
+  <div class="src deva" lang="sa">उपक्रमाधिकरणसिद्धान्तः सिद्धांतस्तु--लब्धात्मनः प्रधानस्य गुणाद्बलीयस्त्वम्, विध्युद्देशस्त्विह ऋगादिविषयत्वेनात्मानं न लभते । उपक्रमगते हि वेदशब्देऽसंजातप्रतिपक्षे यथाश्रुतार्थेऽवगते तदुपसंहारगतमुपजातप्रतिपक्षं ऋगादिपदं यथाश्रुतार्थं सत्तदेकवाक्यतां न प्रतिपद्यते । नहि संभवत्येवं स्तुति-विधानयोरन्वयः यस्मादेवमेते वेदा जाताः, तस्मादृगादीनां उच्चैष्ट्वादि कर्तव्यमिति । तेन ऋगादिशब्दलक्षणया तस्योच्चैः ऋग्वेदेन क्रियत इत्यादिरूपेण तदनुगुणतयैवात्मलाभः । अतः प्रधानत्वेऽपि विध्युद्देशस्यार्थवादानुसारेणैव लब्धात्मकस्य उपक्रमविरोध्यर्थोपस्थापकत्वाभावान्न तदनुसारेणोपक्रमगतस्य वेदशब्दस्य ऋगादिलक्षणा कल्पनीया । नापि वेदस्तुतेरेव लक्षितलक्षणादिना तदवयवभूतऋगादिस्तुतौ पर्यवसानं कल्पनीयम् । अप्राप्तविषयत्वन्त्वसिद्धम् । उपक्रमे वेदानां प्रस्तावेन वेदसंस्पर्शेन किंचिद्विधास्यत इत्यवगते, किन्तद्विधेयमित्येतावदनवगतमपेक्षितञ्च विध्युद्देशाद्गृह्यत इति, विध्युद्देशस्थितानामप्यृगादिशब्दानामवगतविषयत्वात् । तस्मात्तैर्लक्षणया वेदानां ग्रहणमिति ।</div>
+  <div class="tr">〔冒頭の主題の定説〕しかし定説はこうである。自己を得た主要なものは従属的なものより強い。しかしここでは規定の主題は、リクなどを対象とするものとして自己を得ない。冒頭にある「ヴェーダ」の語が、対立するものがまだ生じていないうちに字義どおりの意味で理解されると、その結びにある、対立するものの生じた「リク」などの語は、字義どおりの意味のままでは、それと一つの文をなさない。「ヴェーダがこのようにして生まれたのだから、リクなどの高さなどを行うべきだ」というように、讃美と規定が結びつくことはありえないからである。だから「リク」などの語の転義によって、「リグ・ヴェーダによって行われるもの（祭祀）は高く」などの形で、それに合ったものとしてのみ自己を得る。<br>だから、規定の主題は主要なものであっても、釈義に従ってのみ自己を得るので、冒頭に反する意味を示すことはない。だからそれに従って冒頭の「ヴェーダ」の語がリクなどを転義で指すと想定すべきではない。また、ヴェーダの讃美が、転義の転義などによって、その部分であるリクなどの讃美に行き着くと想定すべきでもない。<br>得られていない対象をもつ、というのも成り立たない。冒頭でヴェーダが持ち出されることで、ヴェーダに関わる何かが規定されるだろうと理解され、何が規定されるかということだけが知られずに求められ、それが規定の主題から捉えられるのだから、規定の主題にある「リク」などの語も、すでに知られた対象をもつからである。だからそれら（の語）によって、転義によってヴェーダが捉えられる。</div>
+  <div class="exp"><span class="lbl">解説</span><p>定説の要点です。主要なものが強いのは、それが自分の意味を確立してからの話です。結びの規定は、冒頭と一つの文をなすためには、冒頭に合わせるしかない。「ヴェーダが生まれた、だから韻文を高く」では讃美と規定がつながりません。だから規定の主題は最初から「リグ・ヴェーダの祭祀を高く」としてのみ成り立ち、冒頭を読み換える力をもたない。また冒頭で「ヴェーダについて何か規定される」と予告されているので、結びの対象はすでに予告されたもので、まったく新しいものでもない、というのです。</p></div>
+  <div class="nt">「वेदशब्ंदेऽ संजात」を「वेदशब्देऽसंजात」、「वेदसंस्पर्शन」を「वेदसंस्पर्शेन」、「विद्धयुद्देशाद्वृह्यत」を「विध्युद्देशाद्गृह्यत」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>馬の受納の祭祀の主題（反論まで）</h2><span class="sub"><span class="pg">pp.387–389</span></span></div>
+<div class="mula" id="u8">
+  <span class="ref">387</span>
+  <div class="src deva" lang="sa">अश्वप्रतिग्रहेष्ट्यधिकरणार्थनिरूपणम् तथा-तृतीये एव चिन्तितम्- 'अचोदितं च कर्मभेदात्' । 'प्रजापतिः वरुणमश्वमनयत्, स स्वां देवतामार्च्छत्, स पर्यदीर्यत, स एतं वारुणं चतुष्कपालमपश्यत्, तं निरवपत, ततो वै स वरुणापाशादमुच्यत, वरुणो वा एतम् गृह्णाति, योऽश्वं प्रतिगृह्णाति, यावतोऽश्वान् प्रतिगृह्णीयात्, तावतो वारुणांश्चतुष्कपालान्निर्वपेत्, वरुणमेव स्वेन भागधेयेनोपधावति, स एवैनं वरुणपाशान्मुञ्चति' (तै.सं.२-३-१२) इति श्रूयते । तत्र किमश्वदातुरिष्टिर्विधीयते, उत तत्प्रतिग्रहीतुरिति संदेहः ।</div>
+  <div class="tr">〔馬の受納の祭祀の主題の意味の説明〕同じく第3章でこう考察されている。「（規定で）命じられていないものも、行為が異なるので」。「プラジャーパティはヴァルナに馬を導いた。彼は自分の神格に至った。彼は（腹が）膨れ裂けた。彼はこのヴァルナへの四つの陶片の菓子を見た。それを捧げた。それによって彼はヴァルナの縄から解放された。馬を受け取る者を、ヴァルナは捕らえる。受け取った馬の数だけ、ヴァルナへの四つの陶片の菓子を捧げるべし。彼は自分の取り分によってヴァルナのもとに駆け寄る。彼（ヴァルナ）こそがこの者をヴァルナの縄から解放する」（『タイッティリーヤ・サンヒター』2.3.12）と聞かれる。そこで、馬を与える者のための祭祀が規定されるのか、それともそれを受け取る者のための（祭祀）か、という疑いがある。</div>
+  <div class="nt">「अश्वप्रतिग्रेष्ट्याधिकरण」を「अश्वप्रतिग्रहेष्ट्यधिकरण」、「वरुणाश्वमनयत्」を「वरुणमश्वमनयत्」と正した。</div>
+</div>
+<div class="mula" id="u9">
+  <span class="ref">387–389</span>
+  <div class="src deva" lang="sa">विषयवाक्यशोधनम् । उपक्रमे हि प्रजापतिर्वरुणाय प्रतिग्रहीत्रे अश्वमनयत्-ददावित्यर्थः । सोऽश्वदाता प्रजापतिः स्वां देवतामश्वदाने संप्रदानत्वेन आत्मीयदेवतारूपं वरुणमार्च्छत्-प्रापत । अश्वं दत्वा वरुणग्रहं जलोदरव्याधिपर्यायं प्राप्तवान्, स प्रजापतिः पर्यदीर्यत-तेन व्याधिनोदरे पारतो विदीर्णोऽभूदिति, प्रजापतेरश्वदानेन दोषं संकीर्त्य तस्य दोषनिर्हरणार्थमिष्टयनुष्ठानकीर्तनादश्वदातुरियमिष्टिविधित्सितेति गम्यते । उपसंहारे च तत्प्रतिग्रहीतुर्विधीयमाना दृश्यते । न च 'स स्वां देवतामार्छदि' त्यत्रादौ तच्छब्दानां वरुणपरत्वकल्पनायामुपक्रमेऽपि प्रतिग्रहीतुरेवेष्टिः विधित्सिता गम्यत इति शक्यं वक्तुमिति वाच्यम्, विभक्त्यैकरूप्येण तेषां प्रजापतिपरत्वौचित्यात्, स्वां देवतामिति च वरुणं प्रत्येव वरुणस्य देवतात्वोक्त्ययोगात् । 'तं निरवपदि 'ति वरुणस्य वरुणोद्देशेन त्यागायोगाच्च । आत्मने संकल्पितस्य द्रव्यस्य स्वत्वनिवृत्त्यसंभवात् । तस्मादस्ति तावदुपक्रमोपसंहारयोर्विरोधस्फूर्तिः । भाव्यं च तयोरविरोधेनैकवाक्यतया । अतः किं विध्युद्देशानुसारेण प्रतिग्रहीतुरियमिष्टिः, अर्थवादस्तु तथाऽश्वो दानप्रतिग्रहसंबन्धे गर्हितः, यदा दातुरपीयमिष्टिः स्यात्, किमुत प्रतिग्रहीतुरिति कैमुत्यतात्पर्येण दूरं नेतव्यः । किं वा उपक्रमानुसारेण दातुरेव, प्रतिगृह्णातिस्तु कथंचिद्दान एव योजनीय इति संभवति संशयः ।</div>
+  <div class="tr">〔対象の文の吟味〕冒頭では、プラジャーパティは受け取る者であるヴァルナに馬を導いた、すなわち与えた、という意味である。その馬を与える者プラジャーパティは、自分の神格、すなわち馬の贈与で受け手として自分の神格であるヴァルナに至った。馬を与えて、ヴァルナの捕縛、すなわち水腫の病にかかった。そのプラジャーパティは膨れ裂けた、すなわちその病で腹が四方に裂けた。このように、プラジャーパティが馬を与えたことによる災いを述べ、その災いを除くための祭祀の実行を述べているので、この祭祀は馬を与える者のために規定しようとされていると理解される。しかし結びでは、それを受け取る者のために規定されているのが見られる。<br>「『彼は自分の神格に至った』などの『彼』の語がヴァルナを指すと想定すれば、冒頭でも受け取る者のための祭祀が規定しようとされていると理解される」と言うことはできない、と言うべきである。格の形が同じなので、それらはプラジャーパティを指すのが適切だからであり、「自分の神格」と、ヴァルナについてヴァルナが神格であると言うのは成り立たないからであり、「それを捧げた」で、ヴァルナがヴァルナを宛てて（供物を）捨てることは成り立たないからである。自分に宛てて決意した物について、所有権を捨てることはありえないからである。<br>だから冒頭と結びの食い違いがたしかに現れる。そして両者は食い違いなく一つの文をなすはずである。だから疑いが生じうる。規定の主題に従って、この祭祀は受け取る者のためのものであり、釈義は「馬は贈与と受納の関係でそれほど非難されるので、与える者にさえこの祭祀があるのなら、まして受け取る者には」という「まして」の趣旨で遠回しに読むべきなのか。それとも冒頭に従って与える者のためだけのもので、「受け取る」は何とかして与えることと解すべきなのか。</div>
+  <div class="exp"><span class="lbl">解説</span><p>第二の典拠です。物語では、馬を与えたプラジャーパティがヴァルナに捕らえられて水腫になり、祭祀で救われます。ところが規定は「馬を受け取る者は〜捧げよ」です。冒頭に合わせれば与える者の祭祀、結びに合わせれば受け取る者の祭祀になります。「彼」をヴァルナと読めば矛盾は消えますが、それは文法的にも祭式の理屈（自分に供物を捧げることはできない）からも無理だ、と確認されています。</p></div>
+  <div class="nt">「विभक्तत्यैकरूप्येण」を「विभक्त्यैकरूप्येण」、「देवतात्वोक्तत्ययोगात्」を「देवतात्वोक्त्ययोगात्」と正した。本体OCRでは p.388 と p.389 の頁番号が続けて現れるが、本文は途切れずにつながっている。</div>
+</div>
+<div class="mula" id="u10">
+  <span class="ref">389</span>
+  <div class="src deva" lang="sa">वेदोपक्रमाधिकरणेनागतार्थत्वम्, अश्वप्रतिग्रहेष्ट्यधिकरणपूर्वपक्षश्च । तत्र पूर्वः पक्षः। वेदोपक्रमाधिकरणे उपक्रमप्राबल्ये स्थितेऽपि नेह ततो निर्णयो युक्तः, तत्र उपक्रमसंकीर्तिता वेदा उपसंहारगतैर्ऋगादिशब्दैरनुवदितुं शक्यते, वेदैकदेशत्वात् ऋगादीनाम् । उपक्रम एव 'अग्नेः ऋग्वेदः' इत्यादिना वेदानामृगादिसंबन्धस्य कीर्तिततयानत्यन्तपरित्यक्तोपक्रमार्थत्वाच्च । 'ऋग्भिः पूर्वाह्णे दिवि देव ईयते यजुर्वेदे तिष्ठति मध्ये अह्नः । सामवेदेनास्तमये महीयते वेदैरशून्यस्त्रिभिरेति सूर्यः' तै. ब्रा.१२.८.९॥ इत्यादिषु केवलानां ऋगादिशब्दानां ऋग्वेदादिषु लक्षणाया वेदे दृष्टत्वाच्च । 'ऋचः सामानि यजूंषि' इत्युपक्रम्य 'सैषा त्रय्येव विद्ये'ति निर्दिष्टस्य त्रयीशब्दस्य त्रयीविद्योऽयं ब्राह्मण इति वेदत्रयाभिज्ञे निर्देशेन वेदत्रयपरतया लोकानां प्रयोगेण ऋगादिशब्दानां वेदेषु लक्षणाया लोकसंमतत्वाच्च । अत एव तस्मिन्नधिकरणे 'वेदो वा प्रायदर्शनादि'ति सिद्धान्तसूत्रेण उपक्रमप्राबल्योक्त्यनन्तरम् 'लिङ्गदर्शनाच्च' 'त्रयीविद्याख्या च तद्विदि'इति सूत्राभ्यां वेदे लोके च प्रयोगेण लक्षणाया निरूढत्वं दर्शितम् । न चेह तथा प्रतिगृह्णातिर्दाने दृष्टप्रयोगः, प्रत्युत तदत्यन्तविरुद्धार्थ एव । तेन तत्रोपक्रान्तमर्थमुपसंहारगतः शब्दोऽनुवदितुमर्हतीति तत्रोपक्रमानुरोधेऽपि, अत्र न तथेति विध्युद्देशस्य प्राधान्याप्राप्तविषयत्वाभ्याम् अवगतं प्राबल्यमव्याहतमिति, तदनुरोधेनैव उपक्रमो नेतव्यः इति ।</div>
+  <div class="tr">〔ヴェーダの冒頭の主題によって決着済みではないこと、および馬の受納の祭祀の主題の反論〕そこで反論はこうである。ヴェーダの冒頭の主題で冒頭が強いことが確立しても、ここでそれによって決着をつけるのは正しくない。そこでは、冒頭で述べられたヴェーダを、結びの「リク」などの語で再述することができる。リクなどはヴェーダの一部だからである。また冒頭そのもので「アグニからリグ・ヴェーダ」などと、ヴェーダとリクなどの関係が述べられているので、冒頭の意味がまったく捨てられるわけではないからである。<br>また「リクによって午前に神は天を行き、ヤジュル・ヴェーダに日中とどまる。サーマ・ヴェーダによって日没に讃えられる。三つのヴェーダを欠くことなく太陽は行く」（『タイッティリーヤ・ブラーフマナ』3.12.9.1）などで、「リク」などの語だけで（「ヴェーダ」の語なしに）リグ・ヴェーダなどを転義で指すことが、ヴェーダで見られるからである。また「リク、サーマン、ヤジュス」と始めて「これがまさに三重の知である」と示される「三重」（<i>trayī</i>）の語が、「この人は三重の知をもつバラモンだ」と、三つのヴェーダを知る人について示されるので、世間でも三つのヴェーダを指すものとして用いられ、「リク」などの語がヴェーダを転義で指すことが世間でも認められているからである。<br>まさにそれゆえ、その主題では、「あるいはヴェーダ（を指す）。（リクなどが）大部分に見られるから」という定説のスートラで冒頭が強いことを述べた後、「徴が見られるから」「三重の知という名も、それを知る人に（用いられる）から」という二つのスートラで、ヴェーダと世間での用法によって、転義が定着していることが示された。<br>しかしここではそのように「受け取る」が与えることに用いられた例は見られず、むしろそれとまったく正反対の意味である。だから、そこ（ヴェーダの冒頭）では結びの語が冒頭で始められた意味を再述しうるので冒頭に従っても、ここではそうではない。規定の主題が主要であり、得られていない対象をもつことから知られる強さは揺るがない。だからそれに従ってこそ、冒頭を読むべきである——と。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は、第一の典拠と第二の典拠を区別します。ヴェーダの冒頭の主題で冒頭が勝ったのは、「リク」が「リグ・ヴェーダ」を指す用法がヴェーダにも世間にもあり、転義が自然だったからです（『ミーマーンサー・スートラ』3.3.2–4）。しかし「受け取る」を「与える」と読む用法はどこにもない。だからここでは規定（結び）が強く、冒頭の物語を「まして」の趣旨で読み換えるべきだ、というのです。著者がこれにどう答えるかは第2部で示されます。</p></div>
+  <div class="nt">「उपक्रम एवाऽग्नेः」を「उपक्रम एव 'अग्नेः」、「प्राबल्योक्यनन्तरम्」を「…प्राबल्योक्त्यनन्तरम्」、「पूर्वाह्न」を「पूर्वाह्णे」と正した。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この部に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>upakrama / upasaṃhāra</dt><dd>冒頭／結び</dd>
+    <dt>vidhyuddeśa</dt><dd>規定の主題。規定の文の部分</dd>
+    <dt>arthavāda</dt><dd>釈義。規定を讃える叙述</dd>
+    <dt>lakṣaṇā</dt><dd>転義。語が本来の意味と関係する別の意味を指すこと</dd>
+    <dt>ekavākyatā</dt><dd>一つの文をなすこと</dd>
+    <dt>aprāptaviṣaya</dt><dd>得られていない対象をもつこと（規定の条件）</dd>
+    <dt>ṛc / yajus / sāman</dt><dd>韻文の讃歌／散文の祭詞／歌詠</dd>
+    <dt>kaimutya</dt><dd>「まして」の論法</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.385–389 のOCRテキストに拠る。〔　〕内は校訂本の小見出し。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>

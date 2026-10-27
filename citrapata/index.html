@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Citrapaṭa 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#list">各部の一覧</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのミーマーンサー</div>
+  <h1>Citrapaṭa</h1>
+  <p class="deva-title" lang="sa">चित्रपटः</p>
+  <p class="sub">Appayya Dīkṣita の「絵の布」——『ミーマーンサー・スートラ』全十二巻の主題を388の詩節に</p>
+  <span class="sample">対訳　全13部（テキスト順）</span>
+  <p>『チトラパタ』は、ジャイミニの『ミーマーンサー・スートラ』の主題（adhikaraṇa）の結論を、巻・章の順に、短いアヌシュトゥブ詩節で並べたものです。一つの詩節に二つ三つの主題が詰め込まれ、主題の名や例文の一語だけで結論を示すことも多いので、学んだ主題を思い出すための一覧表として読むのがよいでしょう。</p>
+  <p>このサイトでは、巻ごと（大きな巻は二つ）に部を分け、詩節を章や主題のまとまりごとに区切って、対訳と、どの主題を指すかの解説を付けます。</p>
+  <p>同じ著者が全十二巻の内容を散文で短くまとめた<a href="../dipika/index.html">『プールヴァミーマーンサー・ヴィシャヤ・サングラハ・ディーピカー』</a>も対訳しています。各巻の流れを先につかむには、そちらから読むのもよいでしょう。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>著者</dt><dd>Appayya Dīkṣita（16世紀）</dd></div>
+    <div><dt>内容</dt><dd>『ミーマーンサー・スートラ』全十二巻の主題の結論<br><small>第3巻の伝承の章などでは、クマーリラのヴァールッティカの区分も並べる</small></dd></div>
+    <div><dt>形式</dt><dd>アヌシュトゥブ詩節388</dd></div>
+    <div><dt>本文</dt><dd>2007年 Hyderabad 刊の校訂本（P. Sri Ramachandrudu 編）pp.451–503 のOCR</dd></div>
+  </dl>
+</section>
+
+<section id="list" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">各部の一覧</h2><span class="sub">リンクのある部は対訳ができているもの</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>部</th><th>内容</th><th>頁</th><th>要旨</th></tr></thead>
+      <tbody>
+<tr><td class="num">1</td><td class="k"><a href="part1.html">第1巻（第1–17偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">प्रथमोऽध्यायः</span></td><td class="num">p.451–453</td><td>ダルマの根拠：規定、釈義とマントラ、伝承と慣行、祭事の名</td></tr>
+<tr><td class="num">2</td><td class="k"><a href="part2.html">第2巻（第18–37偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">द्वितीयोऽध्यायः</span></td><td class="num">p.453–456</td><td>祭事の区別：アプールヴァ、マントラとブラーフマナ、祭事を分ける六つの根拠、常時と願望</td></tr>
+<tr><td class="num">3</td><td class="k"><a href="part3.html">第3巻 第1–4章（第38–66偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">तृतीयोऽध्यायः (१–४)</span></td><td class="num">p.456–460</td><td>従属関係の定義、マントラの用途、六つの根拠の強弱と移し替え、祭祀のためと人のため</td></tr>
+<tr><td class="num">4</td><td class="k"><a href="part4.html">第3巻 第5–8章（第67–102偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">तृतीयोऽध्यायः (५–८)</span></td><td class="num">p.460–465</td><td>残りの処分とソーマを食べること、文脈なしの規定は本来の祭祀へ、共通の規則と祭官の数、祭主と祭官の仕事</td></tr>
+<tr><td class="num">5</td><td class="k"><a href="part5.html">第4巻（第103–129偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">चतुर्थोऽध्यायः</span></td><td class="num">p.465–468</td><td>促すものと付随するもの、処分、祭・献供・贈与の定義、補助と祭事の果報、主要な祭事</td></tr>
+<tr><td class="num">6</td><td class="k"><a href="part6.html">第5巻（第130–155偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">पञ्चमोऽध्यायः</span></td><td class="num">p.468–471</td><td>順序の根拠と移し替え、事柄ごととまとまりごと、加わる要素の位置、根拠の強弱</td></tr>
+<tr><td class="num">7</td><td class="k"><a href="part7.html">第6巻（第156–200偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">षष्ठोऽध्यायः</span></td><td class="num">p.471–477</td><td>資格者、常時と願望、代わりのもの、事故の償い、サットラの資格、全財産の謝礼</td></tr>
+<tr><td class="num">8</td><td class="k"><a href="part8.html">第7–8巻（第201–221偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">सप्तमाष्टमावध्यायौ</span></td><td class="num">p.477–481</td><td>類推適用：言葉による指示、名による類推適用、本来の祭祀と変形祭祀の対応</td></tr>
+<tr><td class="num">9</td><td class="k"><a href="part9.html">第9巻（第222–255偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">नवमोऽध्यायः</span></td><td class="num">p.481–485</td><td>言い換え：促すのはアプールヴァ、マントラ・サーマン・物と神格の言い換え、言い換えない場合</td></tr>
+<tr><td class="num">10</td><td class="k"><a href="part10.html">第10巻 第1–4章（第256–294偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">दशमोऽध्यायः (१–४)</span></td><td class="num">p.485–490</td><td>退け：目的のない補助、退けの諸相と謝礼、新しい補助と謝礼の分け方、退けない付け加え</td></tr>
+<tr><td class="num">11</td><td class="k"><a href="part11.html">第10巻 第5–8章（第295–332偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">दशमोऽध्यायः (५–८)</span></td><td class="num">p.490–495</td><td>最初から取ることとショーダシン杯、讃歌と日のまとまり、アプールヴァの祭事、禁止・限定否定・称え</td></tr>
+<tr><td class="num">12</td><td class="k"><a href="part12.html">第11巻（第333–359偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">एकादशोऽध्यायः</span></td><td class="num">p.495–498</td><td>一度に行うこと：タントラの原則、場所・時・行為者、時が違うときの補助、繰り返しとマントラ</td></tr>
+<tr><td class="num">13</td><td class="k"><a href="part13.html">第12巻（第360–388偈）</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">द्वादशोऽध्यायः</span></td><td class="num">p.498–503</td><td>付随：付随の範囲、矛盾するときは多いものに、合わせるか選ぶか、祭主と祭官</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は <i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）のOCRテキストに拠る。和訳は試訳であり、正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>

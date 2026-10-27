@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Upakramaparākrama 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#list">九部の一覧</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">はじめてのミーマーンサー</div>
+  <h1>Upakramaparākrama</h1>
+  <p class="deva-title" lang="sa">उपक्रमपराक्रमः</p>
+  <p class="sub">Appayya Dīkṣita の「冒頭の力」——文の冒頭と結びが食い違うとき、どちらが強いか</p>
+  <span class="sample">対訳　全9部（テキスト順）</span>
+  <p>ヴェーダの一つの文脈で、冒頭（<i>upakrama</i>）と結び（<i>upasaṃhāra</i>）が食い違うことがあります。たとえば冒頭では「ヴェーダ」の話をしているのに、結びの規定は「リク（讃歌）」について言う。どちらに合わせて読むべきか。ミーマーンサーの伝統的な原則は「冒頭が強い」です。冒頭を読む時点では、食い違う結びはまだ知られていないので、冒頭は本来の意味で理解され、後から来る結びがそれに合わせて読み換えられる、というのです。</p>
+  <p>ところが、アッパイヤ・ディークシタの時代には、ヴェーダーンタの論者たちの間で「結びが強い」とする説が唱えられていました。『ウパクラマ・パラークラマ』（冒頭の力）は、ミーマーンサーとヴェーダーンタの多くの主題を検討して、冒頭優先の原則を擁護する小論です。このサイトでは、本文を内容のまとまりごとに九つに分け、原文と和訳を対照させて解説を付けました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>著者</dt><dd>Appayya Dīkṣita（16世紀）<br><small>『ヴァーダ・ナクシャトラ・マーラー』『ヴィディ・ラサーヤナ』などの著者</small></dd></div>
+    <div><dt>主題</dt><dd>冒頭（<i>upakrama</i>）と結び（<i>upasaṃhāra</i>）が食い違うとき、冒頭が強い<br><small>「結びが強い」とする論者たちへの反論</small></dd></div>
+    <div><dt>典拠</dt><dd>『ミーマーンサー・スートラ』3.3.1–4（ヴェーダの冒頭の主題）、3.4（馬の受納の祭祀の主題）など<br><small>ヴェーダーンタではダハラの主題などが争点になる</small></dd></div>
+    <div><dt>本文</dt><dd>2007年 Hyderabad 刊の校訂本（P. Sri Ramachandrudu 編）pp.385–450 のOCR<br><small>本文中の小見出しは校訂者によるもの</small></dd></div>
+  </dl>
+</section>
+
+<section id="list" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">九部の一覧</h2><span class="sub">リンクのある部は対訳ができているもの</span></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>部</th><th>内容</th><th>頁</th><th>要旨</th></tr></thead>
+      <tbody>
+<tr><td class="num">1</td><td class="k"><a href="part1.html">序と問題の提示</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">उपक्रमन्यायः, वेदोपक्रमाधिकरणम्</span></td><td class="num">p.385–389</td><td>序の偈。ミーマーンサーの「冒頭優先」の原則と、その典拠となる二つの主題</td></tr>
+<tr><td class="num">2</td><td class="k"><a href="part2.html">馬の受納の定説と、結び優先論</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">अश्वप्रतिग्रहेष्ट्यधिकरणसिद्धान्तः, चन्द्रिकाकारादिमतम्</span></td><td class="num">p.389–393</td><td>「受け取る」は与え手も指す（耕すの原則）。続いてチャンドリカー等の論者が結び優先を主張し、塗ったもの・ヴァイシュヴァーナラ・山羊・鷹の主題を挙げる</td></tr>
+<tr><td class="num">3</td><td class="k"><a href="part3.html">前主張の結びと定説の始まり</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">पूर्वपक्षशेषः, सिद्धान्तोपक्रमः</span></td><td class="num">p.396–405</td><td>誕生祭の例とジレンマで前主張が終わる。注釈説・後者優先説を論駁し、ヴェーダの冒頭と馬の受納の二つの典拠を再確認する</td></tr>
+<tr><td class="num">4</td><td class="k"><a href="part4.html">馬の祭祀の結論と「塗ったもの」への答え</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">अश्वप्रतिग्रहेष्टिनिगमनम्, आकाङ्क्षानुरोधेन संकोचः</span></td><td class="num">p.406–413</td><td>馬の祭祀は与え手のもの。冒頭が自ら期待した狭めは、結びによる打ち消しではない（アグニのリク、無量の布施、足跡の供犠）</td></tr>
+<tr><td class="num">5</td><td class="k"><a href="part5.html">真鍮の器の原則と「塗ったもの」の真意</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">कांस्यभोजिन्यायः, अक्ताधिकरणस्य पारमार्थिकाशयः</span></td><td class="num">p.413–419</td><td>決まりのない側が決まりのある側に合わせる。1.4.29 は釈義の決定力を論じるもので、冒頭と結びの強弱とは無関係。むしろ冒頭の強さに依拠する</td></tr>
+<tr><td class="num">6</td><td class="k"><a href="part6.html">結び優先の例の吟味</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">ज्योतिष्टोमाधिकरणादि, छागपशुन्यायः</span></td><td class="num">p.419–427</td><td>ジョーティシュトーマ・十二日祭・スリシュティ煉瓦・山羊の獣・鷹。名の根拠への期待、限定規定の強さ、打ち消しの少なさで説明でき、結びの強さは要らない</td></tr>
+<tr><td class="num">7</td><td class="k"><a href="part7.html">期待のない冒頭と結び</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">उपक्रमस्याकाङ्क्षाभावे उपसंहारस्याननुसरणम्, नहिनिन्दान्यायः</span></td><td class="num">p.427–433</td><td>期待のない冒頭は結びに従わない（アヴァカー、ニーヴァーラ）。鷹の文はむしろ結びが冒頭に従った例。スークタヴァーカ、ジャルティラの粥と「非難の原則」</td></tr>
+<tr><td class="num">8</td><td class="k"><a href="part8.html">文の分裂の回避とヴェーダーンタ</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">वाक्यभेदपरिहारः, उत्तरमीमांसायामुपक्रमप्राबल्यम्</span></td><td class="num">p.433–439</td><td>一方を規定・他方を再述と読む例。「リクで讃えたとき」の主題。ジレンマの反問。シャンカラも冒頭優先に立つ：五火の知、ウドギータ、五つの人々、パーリプラヴァ、ダハラ</td></tr>
+<tr><td class="num">9</td><td class="k"><a href="part9.html">ダハラとアーカーシャ、結論</a><span class="sm" lang="sa" style="font-family:'Noto Serif Devanagari',serif">दहराधिकरणम्, आकाशाधिकरणम्, उपसंहारः</span></td><td class="num">p.439–450</td><td>多数を助ける原則の範囲。「その中にあるもの」とラーマーヌジャ派の解釈。アーカーシャの主題は冒頭「有限」と結び「無限」の一致で決まる。結論と奥書</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は <i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）のOCRテキストに拠る。和訳は試訳であり、正確な読みは校訂本で確認されたい。</p>
+  <p>OCRテキストには p.394–395 の頁が見当たらず、第2部と第3部の間で本文が欠けている可能性がある（反対者の議論の途中）。補いのOCRがあれば差し込める。</p>
+</footer>
+</main>
+
+</body>
+</html>
