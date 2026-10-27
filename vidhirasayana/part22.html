@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Āmnātasaṃstha 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#s1"><b>1</b>第35偈：語は終わり方…</a></li>
+    <li><a href="#s2"><b>2</b>第36偈：基体は祭祀以…</a></li>
+    <li><a href="#s3"><b>3</b>第37偈：除外・制限と…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ヴィディ・ラサーヤナ　第22部</div>
+  <h1>Āmnātasaṃstha</h1>
+  <p class="deva-title" lang="sa">अपूर्वनियमपरिसंख्योदाहरणाक्षेपसमाधानम् — पञ्चत्रिंश-षट्त्रिंश-सप्तत्रिंशश्लोकाः</p>
+  <p class="sub">第35–37偈：語は終わり方が教えられた祭祀にだけ及ぶ、という最後の不及の主張と、その退け</p>
+  <span class="sample">対訳　第22部（pp.155–160）</span>
+  <p>第34偈までで、アグニシュトーマなどの語は本来・変形の両方に及ぶと確定しました。第35偈は、それを認めたうえでの最後の擁護です。語はまず、終わり方（サンスター）が聞き取りに直接教えられた祭祀に至り、そこで期待が静まるので、類推適用でしか終わり方を得ない二夜祭などにまでは行かない。だから二夜祭などではアグニは類推適用によるだけで、願望の補助が届かない。二夜祭などの文はそれを届けるためのもので、そこに不及がある、というものです。</p>
+  <p>第36偈はこれを退けます。補助と果報の規定の基体となるアグニは、祭祀に結びつく前の、文脈なしの言明にある純粋なアグニなので、教示で得られたアグニと類推適用で得られたアグニとに違いはありません。第37偈は、それでも二夜祭などの文に規定としての役割を求めるなら、除外や制限がそれに当たり、一つの文が複数の果報を兼ねてもよい、と答えます。ショーダシン杯の二夜祭などの文がその先例です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>反論者（第35偈）</dt><dd>語は終わり方が教えられた祭祀だけに及ぶ。二夜祭などではアグニは類推適用だけ。だから願望の補助のための規定がいる</dd></div>
+    <div><dt>答え（第36偈）</dt><dd>基体は祭祀以前の純粋なアグニなので、類推適用で得たアグニにも補助・果報が付く</dd></div>
+    <div><dt>答え（第37偈）</dt><dd>文の役割は除外・ほかの補助の除外・制限でよい。果報は兼ねてよい</dd></div>
+    <div><dt>先例</dt><dd>ショーダシン杯の二夜祭などの文（ディーピカー・タントララトナ・スートラで別々の果報）</dd></div>
+  </dl>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>第35偈：語は終わり方の教えられた祭祀にだけ及ぶ</h2><span class="sub"><span class="pg">pp.155–156</span></span></div>
+<div class="mula" id="r222">
+  <span class="ref">155</span>
+  <div class="src deva" lang="sa">अथ पञ्चत्रिंशश्लोकस्यावतारिका किं तदिति चेत्तत्राह— अग्निष्टोमादिशब्दाः प्रकृतिविकृतिसंस्पर्शिनस्सन्तु नाम प्राप्यत्वाम्नातसंस्थान्प्रथममथ न ते यान्त्यनाम्नातसंस्थान् । तत्तत्त्यक्तद्विरात्रप्रभृतिषु विधयश्चोदकप्राप्तमग्नि श्येनाकृत्यादिलब्ध्यै विदधत इति तेष्वक्षताव्याप्ततेति ॥ ३५ ॥</div>
+  <div class="tr">〔第35偈への導入〕「それは何か」と問うなら、言う——<br>アグニシュトーマなどの語は、本来・変形の祭祀に触れるとしよう。それでも、それらは、終わり方が教えられたものにまず至ったあとは、終わり方が教えられていないものへは行かない。それら〔の語〕に捨てられた二夜祭などで、規定は、類推適用で得られたアグニを、鷹の形などを得るために規定する。だから、それらでの不及は損なわれない。（35）</div>
+  <div class="exp"><span class="lbl">解説</span><p>第34偈の「これだけ言えばよい」の「これ」を受けて、反論者の最後の主張を偈の形で出します。</p></div>
+  <div class="nt">導入の「किन्तदिति」を「किं तदिति」と分けた。偈の「प्राप्यत्वाम्नात」は「प्राप्य त्वाम्नात」と読む。偈の「तत्तत्त्यक्तं द्विरात्र」は複合語「तत्तत्त्यक्तद्विरात्र」と読んだ。このブロックの冒頭に p.155 の標識を補った。末尾に p.156 の標識がある。</div>
+</div>
+<div class="mula" id="r223">
+  <span class="ref">156</span>
+  <div class="src deva" lang="sa">पूर्वश्लोकोक्तरीत्या सङ्कोचे कारणाभावादिमेऽग्निष्टोमादिशब्दाः प्रकृतिविकृतिगामिनः सन्तु नाम । अत एव प्रकृतिसामानविध्यात्परिसंख्यात्वमनुपपन्नमिति तन्त्ररत्नवचनमप्यग्निष्टोमादिवाक्यत्रयाभिप्रायेण युज्यते, तथापि विकृतिरूपान् सर्वानग्निष्टोमादीन्न स्पृशन्ति, किं त्वग्निष्टोमादिसंस्थावतः क्रतुविशेषानन्विच्छन्तो येषु क्रतुषु प्रत्यक्षश्रुत्याम्नातास्तत्तत्संस्थाः सन्ति, तेषु शीघ्रबुद्ध्युपारूढेषु प्रथममवतरन्ति, तावता नैराकाङ्क्ष्यात्, शब्दानां विरम्य व्यापाराभावाच्च । तदनन्तरं विलम्बितोपस्थितिकेषु चोदकप्राप्यसंस्थेषु क्रतुषु नाऽवतरन्ति पर्णमयादिवाक्यस्थितजुह्वादिशब्द इव चोदकप्राप्तासु वैकृतजुह्वादिषु "उपांशु पौर्णमास्यां यजेत्" इति वाक्याभावे दर्शपूर्णमासाधिकारवाक्यस्थपूर्णमासपदमिवाऽन्तरालविधिसामर्थ्यलभ्यपौर्णमासीकाले उपांशुयाजे ।</div>
+  <div class="tr">前の偈で述べたやり方で、狭める理由がないので、これらのアグニシュトーマなどの語は本来・変形の祭祀に及ぶとしよう。だからこそ、「本来の祭祀と規定を共にするので除外であることは成り立たない」というタントララトナの言葉も、アグニシュトーマなどの三つの文を念頭に置いたものとして整合する。それでも、それらは変形祭祀であるアグニシュトーマなどのすべてには触れない。そうではなく、アグニシュトーマなどの終わり方をもつ特定の祭祀を求めて、それぞれの終わり方が直接の聞き取りで教えられている祭祀、すばやく思い浮かぶそれらに、まず入る。それだけで期待がなくなるからであり、また語は、いったん止まってから〔再び〕働くことがないからである。<br>そのあとで、遅れて思い浮かぶ、終わり方が類推適用で得られる祭祀には入らない。パルナ材などの文にあるジュフーなどの語が、類推適用で得られる変形祭祀のジュフーなどには〔入らない〕ように。また、「ウパーンシュをパウルナマーシーに祭るべし」という文がない場合、新月満月祭の資格の文にある「満月」の語が、間の規定の力で得られる満月の時のウパーンシュ祭には〔入らない〕ように。</div>
+  <div class="exp"><span class="lbl">解説</span><p>語は、直接に教えられた対象に当てはまった時点で期待が満たされ、そのあと改めて、類推適用で得られる対象にまで働き直すことはありません。パルナ材のジュフーの例（第3巻）と同じ原則です。</p></div>
+  <div class="nt">「शीघ्रबुद्धयुपारूढेषु」を「शीघ्रबुद्ध्युपारूढेषु」、「नैराकाङ्क्षयात्」を「नैराकाङ्क्ष्यात्」、「यजन्नि」を「यजेत्」と正した。</div>
+</div>
+<div class="mula" id="r224">
+  <span class="ref">156</span>
+  <div class="src deva" lang="sa">आहवनीयवाक्यगतजुहोतेरपि "अग्नयश्च स्वकालत्वाद्" (३।७।२०।३९) इत्यधिकरणे सर्वविकृतिहोमविधिसाधारण्यं नाऽङ्गीकृतम्, किन्तु ये विकृतिष्वाम्नातहोमादय उपदिष्टाः, न त्वतिदिष्टाः तत्साधारण्यमेवाऽङ्गीकृतम्, तन्मात्रसाधारण्ये ह्यतिदिष्टसाधारण्य इव न विरम्य व्यापारप्रसक्तिरस्ति । अत एवाऽतिदेशप्राप्येषु होमेष्वाहवनीयस्याऽप्यतिदेशेनैव प्राप्तिस्तदधिकरणवार्तिके दर्शिता । "ततश्चाऽहवनीयेन सहैवाऽस्याऽतिदेशनात् । प्रकृतौ वा द्विरुक्तत्वाद् (३।६।२) इत्ययं निश्चयो भवेत्" इति । एवञ्च प्रकृतानामग्निष्टोमादिशब्दानां प्रत्यक्षाम्नाततत्तत्संस्थावन्मात्रविषयतया तेष्वेवाग्नेरुपदेशतः प्रवृत्तिः, येषु तु द्विरात्रादिषु प्रत्यक्षाम्नातसंस्थाविशेषरहितेषु चोदकाद्द्वादशाहिकमध्यमदशरात्रगततत्तत्संस्थाविशेषलाभः । तेष्वग्निष्टोमादिवाक्यरूपोपदेशपरित्यक्तेष्वतिदेशादेवाग्नेः प्राप्तिरिति, तेषु गुणकामा न प्राप्नुयुः अतस्तेषु सामानविध्येन गुणकामप्राप्त्यर्थमग्निविधिपराणि द्विरात्रादिवाक्यानीति, तेष्वव्याप्तिकथनं युक्तमित्येतावदिह वक्तुं शक्यम् ।</div>
+  <div class="tr">アーハヴァニーヤの文にある「献供する」についても、「またアグニたちも、自らの時をもつので」（3.7.20.39）という主題で、変形祭祀のすべての献供の規定に共通することは認められず、変形祭祀で教えられた、類推適用によらない、教えられた献供などに共通することだけが認められた。それらだけに共通するのであれば、類推適用によるものに共通する場合とは違って、いったん止まってから働くことにはならないからである。だからこそ、類推適用で得られる献供では、アーハヴァニーヤも類推適用だけで得られることが、その主題のヴァールッティカに示されている。「だから、アーハヴァニーヤとともにこそこれが類推適用されるので、『あるいは本来の祭祀で。二度言われるから』（3.6.2）という、この決定が成り立つだろう」と。<br>そうすると、問題のアグニシュトーマなどの語は、それぞれの終わり方が直接に教えられたものだけを対象とするので、それらにだけアグニは教示によって働く。一方、直接に教えられた特定の終わり方をもたず、類推適用によって十二日祭の中の十夜にあるそれぞれの特定の終わり方を得る二夜祭などでは、アグニシュトーマなどの文という教示に捨てられたそれらには、アグニは類推適用だけで得られる。だから、それらには補助と願望が届かないだろう。そこで、それらで、規定を共にすることによって補助と願望を得させるために、二夜祭などの文はアグニの規定を意図する。だから、それらに不及を言うのは正しい——ここで言えるのは、これだけである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>アーハヴァニーヤの文の「献供する」も、教えられた献供にだけ及び、類推適用で得られる献供には及ばない、と認められていました（第34偈の解説とは別の扱い）。同じく、アグニシュトーマなどの語も、終わり方が直接に教えられた祭祀だけに及ぶ。だから二夜祭などではアグニは類推適用によるもので、反論者の主張では、類推適用による基体には願望の補助が付きません。</p></div>
+  <div class="nt">「जुहोतेर "प्यग्न्यश्च स्वकालत्वादि」を「जुहोतेरपि "अग्नयश्च स्वकालत्वाद्"」と読んだ（スートラの形は確かでない）。「विकृतिष्वामनहोमादय」を「विकृतिष्वाम्नातहोमादय」、「प्राप्तिस्तधिकरण」を「प्राप्तिस्तदधिकरण」、「चोदकात् द्वादशाहिक」を「चोदकाद्द्वादशाहिक」と正した。ヴァールッティカの句は偈なので引用符で括った。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第36偈：基体は祭祀以前の純粋なアグニ</h2><span class="sub"><span class="pg">pp.156–158</span></span></div>
+<div class="mula" id="r225">
+  <span class="ref">156–157</span>
+  <div class="src deva" lang="sa">इति पञ्चत्रिंशश्लोकस्य व्याख्या अथ षट्त्रिंशश्लोकस्यावतारिका नन्वेवमेव समाधानमुच्यतां को दोष इति चेत्तत्राऽह— तत्रैतद्दूषणं स्यान्न गुणफलविधिष्वत्र वाऽन्यत्र वाऽग्निः प्राक्किञ्चित्क्रत्वपूर्वान्वयमुपगतवानाश्रयोऽत्रानुवाद्यः । किन्त्वग्निष्टोममुख्यक्रतुसमधिगमात्प्रागनारभ्यवादे शुद्धोऽग्निस्तस्य नैव क्वचिदपि विकृतावाश्रयत्वेऽस्ति भेदः ॥ ३६ ॥</div>
+  <div class="tr">以上、第35偈の解説。<br>〔第36偈への導入〕「では、まさにそのように答えを言えばよい。何の欠点があるか」と言うなら、それに対して言う——<br>そこでの欠点はこうであろう。補助と果報の規定において、ここでもほかでも、アグニが、まずある祭祀のアプールヴァとの結びつきを得てから、ここで基体として言及されるのではない。そうではなく、アグニシュトーマなど主要な祭祀〔との結びつき〕を得るより前に、文脈なしの言明にある純粋なアグニがそれである。だから、どの変形祭祀でも、それが基体であることに違いはない。（36）</div>
+  <div class="exp"><span class="lbl">解説</span><p>第36偈です。願望の補助の基体は、祭祀に結びついたアグニではなく、「このように知ってアグニを積む者は」で生じる純粋なアグニそのものです。だから、教示で祭祀に結びついたアグニでも、類推適用で結びついたアグニでも、基体としての違いはありません。</p></div>
+  <div class="nt">「अपूर्वनियमपरिसंख्याविध्युदाहरणाक्षेपसमाधाने」という柱を本文から除いた。偈の「क्रत्वपूर्वान्वंयम्」を「क्रत्वपूर्वान्वयम्」と正した。根本偈のOCRでは偈の第2句と第3句が入れ替わっている。注釈の順に従った。p.157 の標識はこのブロックの中にある。</div>
+</div>
+<div class="mula" id="r226">
+  <span class="ref">157</span>
+  <div class="src deva" lang="sa">स्यादिदमुत्तरम्—यद्यग्न्याश्रितगुणफलविधिषु अत्रैवाऽग्निप्रकरणेऽन्येषु वा क्रतुप्रकरणेषु किंचित्क्रत्वपूर्वान्वयित्वेन सिद्धोऽग्निराश्रयत्वेनाऽनुवाद्यो न स्यात् । तथा हि—यदि प्रागेवाऽग्न्याश्रितगुणफलविधिप्रवृत्तेः केषु चित् क्रतुप्रकरणेषूपदेशेन च तत्तत्क्रत्वपूर्वान्वयोऽग्नेः सिद्धः स्यात् तद्व्यतिरेकेण चाऽत्र गुणफलविधिष्वाश्रयानुवादार्थं शुद्धाग्निसमर्पकपुरोवादो न स्यात्, तदानीमौपदेशिकजुहून्यायेन प्रथमं बुद्धिमवतरत्यौपदेशिकेऽग्नावाश्रयत्वेनाऽन्विते, चरममातिदेशिकस्याऽग्नेरन्वयो न भवेदिति तस्याऽपि तदाश्रयत्वेनान्वयार्थमुपदेशः सफलः स्यात् । यदि वा तत्रैव प्रकरणे किंचित्क्रत्वपूर्वान्वयित्वेन सिद्ध एवाऽग्निरप्प्रणयनवद्गुणफलविध्यन्वयी स्यात्, तदा गोदोहनवदग्न्याश्रितगुणफलविधिस्तत्रैव क्रतौ व्यवतिष्ठेतेति क्रत्वन्तरगताग्नेरपि तदाश्रयत्वसिद्ध्यर्थं यत्नान्तरं कर्तव्यं स्यात् ।</div>
+  <div class="tr">次の場合なら、これは答えになるだろう。アグニに依る補助と果報の規定において、ここアグニの文脈でもほかの祭祀の文脈でも、ある祭祀のアプールヴァと結びつくものとして確立したアグニが、基体として言及される場合である。すなわち——もし、アグニに依る補助と果報の規定が働くより前に、ある祭祀の文脈で、教示によってアグニとそれぞれの祭祀のアプールヴァとの結びつきが確立していて、それとは別に、ここ補助と果報の規定で基体に言及するために純粋なアグニを与える前置きの言明がないとしたら、そのときは、教示によるジュフーの原則によって、まず思い浮かぶ教示によるアグニが基体として結びつくと、最後に〔思い浮かぶ〕類推適用によるアグニは結びつかないので、それも基体として結びつかせるための教示に果報があることになるだろう。<br>あるいは、まさにその文脈で、ある祭祀のアプールヴァと結びつくものとして確立したアグニが、水の運搬と同じく、補助と果報の規定と結びつくとしたら、そのときは、乳搾りの器と同じく、アグニに依る補助と果報の規定はその祭祀だけに留まるので、ほかの祭祀にあるアグニも基体とするために、別の手立てが必要になるだろう。</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者の主張が成り立つための条件を二つ挙げます。(1) 基体のアグニが祭祀と結びついたものとして言及される場合（そのときは教示のものが先に基体となる）。(2) 乳搾りの器のように、特定の祭祀の文脈で補助と果報の規定が出る場合（そのときはその祭祀に限られる）。アグニの場合はどちらでもありません。</p></div>
+  <div class="nt">「बुद्धिमवतरत्यौपदेशिकेग्नाव」を「बुद्धिमवतरत्यौपदेशिकेऽग्नाव」、「आतिदेशकस्य」を「आतिदेशिकस्य」、「अप्यप्प्रणयन」を「अप्प्रणयन」、「कर्त्तव्यं」を「कर्तव्यं」と正した。</div>
+</div>
+<div class="mula" id="r227">
+  <span class="ref">157–158</span>
+  <div class="src deva" lang="sa">द्विरात्रादिवाक्यानां गुणकामप्राप्त्यर्थं नापेक्षेति निरूपणम् नन्वेवमनारभ्यवादरूपेऽग्निप्रकरणेऽग्निष्टोमादिवाक्यैः क्रत्वन्वयकरणात् प्रागेव "य एवं विद्वानग्निं चिनुते" इत्युत्पन्नः शुद्धोऽग्निः श्येनाकृत्यादिगुणफलविधिष्वाश्रयत्वेनाऽन्वेति, सोमप्रयोगाद्बहिः केवलस्याऽग्नेरनुष्ठातुमशक्यत्वादग्निष्टोमादिवाक्यैः तस्य क्रतुषु संयोजनाच्च । यत्राऽग्निस्तत्रैव तदाश्रिता गुणफलविधय इत्यर्थादेव तेषामपूर्वीयाग्निसंबन्धः सिध्यति, अर्थात्सिध्यच्चापूर्वीयस्याऽऽ श्रयत्वं येष्वग्नेरौपदेशिकमपूर्वीयत्वम्, येषु चाऽतिदेशाधीनं तेषु सर्वेष्वप्यविशेषेण सिध्यति । न ह्यत्रातिदिष्टस्याऽग्नेराश्रयत्वे दार्शपौर्णमासिकाप्प्रणयनाश्रितत्वेनाऽवगतस्य गोदोहनस्येष्ट्यन्तरातिदिष्टप्रणयनाश्रयवैगुण्यवदिह किंचिद्वैगुण्यमस्ति, एतादृग्विषयाभिप्रायेणैवाऽतिदिष्टाश्रयणेनाऽपि गुणकामप्रवृत्तिरङ्गीकृता । अवैगुण्ये तु भवतु कामस्याऽपि प्रवृत्तिरिति । तदभिप्रायेणैव भाष्यकारोऽप्याह "गोदोहने प्रवर्तमाने तदाश्रितः कामोऽपि प्रवर्त्तते आश्रये प्रवर्तमाने तदाश्रितमपि प्रवर्तते" (८।१।१४) इति । तस्मादतिदिष्टाग्न्याश्रयणेनाऽपि गुणकामप्राप्तिसम्भवान्न तदर्थं द्विरात्रादिवाक्यापेक्षेति भावः ॥ ३६ ॥ इति षट्त्रिंशश्लोकव्याख्या</div>
+  <div class="tr">〔二夜祭などの文は、補助と願望を得させるためには必要でない、と論じる〕しかし実際には、このように、文脈なしの言明であるアグニの文脈で、アグニシュトーマなどの文によって祭祀と結びつけられるより前に、「このように知ってアグニを積む者は」で生じた純粋なアグニが、鷹の形などの補助と果報の規定で基体として結びつく。ソーマ祭の実行の外では、アグニだけを行うことはできず、また、アグニシュトーマなどの文がそれを祭祀に結びつけるからである。アグニのあるところにこそ、それに依る補助と果報の規定がある、と、ことの成り行きだけで、それらとアプールヴァに属するアグニとの結びつきが確立する。そして成り行きで確立する、アプールヴァに属する〔アグニ〕が基体であることは、アグニがアプールヴァに属することが教示によるものであれ、類推適用によるものであれ、そのすべてで区別なく確立する。<br>ここでは、類推適用によるアグニが基体であることに、何の欠けもないからである。新月満月祭の〔p.158〕水の運搬に依るものと知られた乳搾りの器が、ほかのイシュティに類推適用された運搬を基体とすると欠けが生じる、というのとは違う。まさにこのような対象を念頭に置いて、類推適用された基体に依っても補助と願望が働くことが認められている。欠けがなければ、願望も働くがよい、と。まさにその趣旨で、バーシュヤの作者も言う。「乳搾りの器が働くとき、それに依る願望も働く。基体が働くとき、それに依るものも働く」（8.1.14）と。だから、類推適用されたアグニに依っても補助と願望が得られうるので、そのために二夜祭などの文は必要でない、という趣旨である。（36）<br>以上、第36偈の解説。</div>
+  <div class="exp"><span class="lbl">解説</span><p>アグニは祭祀に結びつく前の段階で、純粋なものとして基体になります。祭祀とのつながりは「アグニのあるところに補助がある」という成り行きでつくだけなので、教示によるか類推適用によるかは関係ありません。類推適用された基体にも、欠けがなければ願望の補助が付きます。</p></div>
+  <div class="nt">小見出しは校訂本のもの。「चिनुत」を「चिनुते」、「प्रवर्त्तमाने」を「प्रवर्तमाने」と正し、引用の閉じ括弧を補った。p.158 の標識はこのブロックの中にある。</div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第37偈：除外・制限と、果報の兼ね合い</h2><span class="sub"><span class="pg">pp.158–160</span></span></div>
+<div class="mula" id="r228">
+  <span class="ref">158</span>
+  <div class="src deva" lang="sa">अथ सप्तत्रिंशश्लोकस्यावतारिका का तर्हि द्विरात्रादिवाक्यानां गतिः? स्तावकतैवेत्युक्तमिति चेन्न । अग्निष्टोमोक्थ्यातिरात्रवाक्यसरूपतया तद्विधायकतया प्रतीयमानानां व्यर्थप्रायस्तुतिपरत्वकल्पनायोगात् । तस्मात्तद्विधित्वनिर्वाहान्यथानुपपत्त्यैवाऽतिदिष्टाश्रयणेन गुणकामा न प्रवर्तन्त इति कल्पयिष्यामः । तथा सति हि गुणप्राप्त्यर्थता तेषां भवेदित्यनुशयानं प्रत्याह— वाचस्त्वग्नेर्द्विरात्रप्रभृतिषु परिसञ्चक्षतामन्यतोऽग्निम् तेष्वन्याङ्गानि यद्वा नियमनमथ वा तेषु कुर्वन्तु तस्य । येष्वेताः क्लिष्टगत्या गुणफलभवनप्रापणार्था भवेयुः षोडश्यर्थेष्विव स्यात्तदपि विधिफलं तेष्ववश्यं तथाऽपि ॥ ३७ ॥</div>
+  <div class="tr">〔第37偈への導入〕「では、二夜祭などの文の行き先は何か。称えるものにすぎない、と言われた」と言うなら、そうではない。アグニシュトーマ・ウクティヤ・アティラートラの文と同じ形なので、それ〔アグニ〕を規定するものとして見えるそれらを、ほとんど無意味な称えを意図するものと想定するのは、ふさわしくないからである。だから、それらが規定であることを支える、ほかに道がないということによってこそ、『類推適用された基体に依っては補助と願望は働かない』と想定しよう。そうすれば、それらは補助を得させるためのものとなるだろう——こう悔やむ者に向かって、言う——<br>二夜祭などにおけるアグニの文は、ほかからアグニを除外するがよい。あるいは、それらで、ほかの補助を〔除外するがよい〕。あるいは、それらで、それ〔アグニ〕の制限をするがよい。それら〔二夜祭など〕においてこれら〔の文〕が、無理なやり方で、補助と果報が生じるのを得させるためのものであるとしても、ショーダシンについての〔文〕と同じく、それら〔の文〕には、その〔除外・制限〕もまた、規定の果報として必ずあるだろう。（37）</div>
+  <div class="exp"><span class="lbl">解説</span><p>反論者は、称えは無意味に近いので、二夜祭などの文に規定としての役割を与えたいと言います。第37偈は、規定の果報なら、ほかの日のまとまりからのアグニの除外、ほかの補助の除外、アグニの制限、とほかにいくらでもあり、たとえ補助を得させるという果報を認めても、それらの果報を兼ねることは避けられない、と答えます。</p></div>
+  <div class="nt">「व्याख्या अथ सप्तत्रिंशश्लोकव्याख्या」を「व्याख्या । अथ सप्तत्रिंशश्लोकस्यावतारिका」と読んだ。「तद्विविधित्व」を「तद्विधित्व」、「प्रवर्न्तन्त」を「प्रवर्तन्त」、偈の「वाचस्त्वग्नेद्विरात्र」を「वाचस्त्वग्नेर्द्विरात्र」と正した。</div>
+</div>
+<div class="mula" id="r229">
+  <span class="ref">158–159</span>
+  <div class="src deva" lang="sa">द्विरात्रादिवाक्यानां व्यर्थप्रायं स्तावकत्वमिति मन्वानं प्रति परिसंख्येति कथनम् यदि द्विरात्रादिवाक्यानां केन चित्प्रकारेण विधायकत्वं वाच्यमिति निर्बन्धः तदा तान्यहर्गणान्तरेभ्योऽग्नेः परिसंख्यां कुर्वन्तु । यदि प्राप्तपरिसंख्या त्रिदोषा, तदपेक्षया व्यर्थप्राया स्तुतिरेव वरमित्युक्तमिति तत्राऽपरितोषस्तर्हि द्विरात्रादिष्वेव गृहमेधीयाज्यभागविधिन्यायेन चोदकप्राप्ताङ्गान्तरपरिसंख्यां कुर्वन्तु । यदि च द्विरात्रादिष्वतिदेशप्राप्ताङ्गसद्भावेऽपि लिङ्गानि सन्तीति तद्विरोधात्तत्राप्यपरितोषस्तर्हि द्विरात्रादिषूत्तरवेद्याः पक्षप्राप्तावग्नेर्नियमनं कुर्वन्तु, द्विरात्रादिचोदकपर्यालोचनालभ्योत्तरवेदिप्राप्त्यपेक्षाग्निनियमापेक्षयाऽग्निप्रकरणाम्नातदाश्रितगुणकामप्राप्तिर्बुद्धिसंनिहितेति तादर्थ्यमेव द्विरात्रादिवाक्यानां कल्पयितुमुचितमिति प्रथमश्लोकव्याख्याने प्रतिपादितमिति चेदिदमपि तत्र षोडशिद्विरात्रादिवचनमुदाहृत्य प्रतिपादितमेव—सन्निहितफलालाभे प्रकरणान्तरस्थचोदकाधीनप्राप्तिसापेक्षो नियमोऽपि फलं भवितुमर्हतीति । इह चाऽन्यतः सम्भवन्ती गुणकामप्राप्तिः फलं न भवतीत्युक्तमेव।</div>
+  <div class="tr">〔二夜祭などの文が称えるものであるのはほとんど無意味だ、と考える者に、除外を言う〕もし、二夜祭などの文はなんらかのやり方で規定でなければならない、と言い張るなら、そのときは、それらは、ほかの日のまとまりからのアグニの除外をするがよい。もし、得られたものの除外には三つの欠点があり、それよりはほとんど無意味な称えのほうがよい、と言われているので、それに満足しないなら、それなら、家長の供物のアージュヤ・バーガの規定の原則で、二夜祭など自体で、類推適用で得られたほかの補助の除外をするがよい。そしてもし、〔p.159〕二夜祭などで類推適用で得られた補助があることにも手がかりがあるので、それと矛盾するから、それにも満足しないなら、それなら、二夜祭などでウッタラヴェーディが選択的に得られるときの、アグニの制限をするがよい。<br>「二夜祭などの類推適用を考え合わせて得られるウッタラヴェーディの獲得に依るアグニの制限よりも、アグニの文脈で教えられたそれ〔アグニ〕に依る補助と願望の獲得のほうが、思いに近い。だから、二夜祭などの文はそのためのものと想定するのがふさわしい——と第1偈の解説で論じた」と言うなら、これも、そこでショーダシンの二夜祭などの言葉を例に挙げて、論じた。近い果報が得られないときは、ほかの文脈にある類推適用に依る獲得を前提とする制限も、果報となりうる、と。そしてここでは、ほかから成り立ちうる補助と願望の獲得は果報ではない、とすでに言った。</div>
+  <div class="exp"><span class="lbl">解説</span><p>除外の候補を三段に出します。(1) ほかの日のまとまりからのアグニの除外、(2) 二夜祭など自体での、ほかの補助の除外、(3) ウッタラヴェーディとの選択のあるところでのアグニの制限。補助と願望は第36偈によってほかから得られるので、文の果報にはなりません。</p></div>
+  <div class="nt">「प्राप्ताङ्गसद्भावेपि」を「प्राप्ताङ्गसद्भावेऽपि」と正した。p.159 の標識の前にあった柱を本文から除いた。p.159 の標識はこのブロックの中にある。</div>
+</div>
+<div class="mula" id="r230">
+  <span class="ref">159</span>
+  <div class="src deva" lang="sa">यद्यपि क्लिष्टगत्या द्विरात्रादिवाक्यानां गुणकामप्राप्त्यर्थत्वं समर्थ्येत, तथाप्यग्नेर्नियमनमपि फलं सम्भवन्न निवारयितुं शक्यम् । न ह्येकस्य वाक्यस्य प्राप्तिनियमपरिसंख्यास्वेकमेव फलमिति नियमः, अनेकफलसङ्करस्य तत्र-तत्र वाक्ये बहुशः प्रागुदाहृतत्वात् ।</div>
+  <div class="tr">たとえ無理なやり方で、二夜祭などの文が補助と願望を得させるためのものであると支えられたとしても、それでも、アグニの制限も、果報として成り立ちうるので、退けることはできない。一つの文には、獲得・制限・除外のうち、ただ一つの果報だけがある、という決まりはないからである。多くの果報がそれぞれの文で入り混じることは、前に何度も例を挙げたからである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>一つの文が獲得（アプールヴァ規定）・制限・除外を兼ねることは、第11偈以下の例で何度も見てきました。</p></div>
+  <div class="nt">「समर्थ्यत」を「समर्थ्येत」と正した。</div>
+</div>
+<div class="mula" id="r231">
+  <span class="ref">159–160</span>
+  <div class="src deva" lang="sa">अनेकफलसांकर्यस्य सिद्धान्तसम्मतत्वे शास्त्रदीपिका-तन्त्ररत्नसूत्रमूलकत्वेनोदाहरणान्तरप्रदर्शनम् षोडशिग्रहविषयेष्वनेकफलसङ्करः किञ्च द्विरात्रादिवाक्येष्वेव सिद्धान्ताभिमतो दृश्यते । तथा हि—"उत्तरेऽहन्द्विरात्रस्य गृह्यते" इत्यादिवाक्यानि तत्प्राचीनवाक्यसङ्कीर्तितं ब्राह्मणत्वराजन्यत्वरूपनिमित्ताभावेऽपि षोडशिनः प्रापणार्थानीति तावत् शास्त्रदीपिकाकृतोक्तम् । तेनैव "उत्तरेऽहन्नितिवाक्यम्" प्रकृत्यतिरात्रे विकल्पितस्य षोडशिनः तथैव द्विरात्रस्योत्तरेऽहनि प्राप्तौ तन्नियमार्थमिति तन्त्ररत्ने प्रतिपादितम् । सूत्रकृता तु "षोडशी वैकृतत्वं तत्र कृत्स्नविधानात्" (१०।५।९।३४) इत्यधिकरणे उत्तरेऽहन्नित्यादिवाक्यानि परिसंख्यार्थानीति प्रतिपादितम्, तत्र हि षोडशी प्रकृतौ ज्योतिष्टोमे न ग्राह्यः, तस्य "मध्यमेऽहनि" इत्यादिवाक्यैः कार्त्स्न्येन विकृतिसम्बन्धित्वावगमात्तदनुसारेणाऽग्निष्टोमोक्थ्यातिरात्रशब्दानां विकृत्यग्निष्टोमादिपरत्वौचित्यात् । अन्यथा प्रकृत्यग्निष्टोमादिषु सतस्तस्याऽतिदेशाद्विकृतिषु प्राप्तिसम्भवेन मध्यमादिवाक्यवैयर्थ्यप्रसङ्गादिति पूर्वपक्षं प्रापय्य, ज्योतिष्टोमप्रकरणगतानां षोडशिविषयाग्निष्टोमादिवाक्यानां द्वादशोपसत्तादिवाक्यवत्तदनन्वयिपदरहितानां प्रकरणादुत्कर्षायोगात् प्रकृतावपि षोडशी ग्राह्य इति सिद्धान्तिते, किमर्थानि तर्हि मध्यमादिवाक्यानीत्याकांक्षायां "आम्नातं परिसंख्यार्थम्" इति सूत्रेणाऽतिरात्रोक्थ्याग्निष्टोमसंस्थेष्वहर्गणानामहरन्तरेष्वपि ब्राह्मणराजन्ययोः षोडशिनः प्राप्तौ तत्परिसंख्यार्थानीत्युक्तं फलं प्रत्याख्यातव्यम् । तस्मात् षोडशिविषयद्विरात्रादिवाक्येष्विवाऽग्निविषयद्विरात्रादिवाक्येष्वप्यनिवार्यः फलान्तरेण संकरः । अतः फलान्तरेण तेषां विधित्वनिर्वाहादतिदिष्टाश्रयणेन गुणकामा न प्रवर्तन्त इति परिभाषा नाश्रयणीयेति कथमपि द्विरात्रादिवाक्येष्वव्याप्तिरवकाशं न लभत इति भावः । इति सप्तत्रिंशश्लोकव्याख्या</div>
+  <div class="tr">〔多くの果報が入り混じることは定説が認めるものだ、ということについて、シャーストラディーピカー・タントララトナ・スートラに基づくほかの例を示す〕さらに、ショーダシン杯についての多くの果報の入り混じりが、まさに二夜祭などの文に、定説の認めるものとして見られる。すなわち——<br>まず、シャーストラディーピカーの作者は、「二夜祭の後の日に汲まれる」などの文は、その前の文で言われたブラーフマナであること・王族であることという機縁がなくても、ショーダシンを得させるためのものだ、と言った。同じ文「後の日に」は、本来の祭祀のアティラートラで選択的とされたショーダシンが、二夜祭の後の日にも同じように得られるとき、その制限のためだ、とタントララトナで論じられた。<br>一方スートラの作者は、「ショーダシンは変形祭祀のものである。そこで全体が規定されるから」（10.5.9.34）という主題で、「後の日に」などの文は除外のためだ、と論じた。そこでは、まず前主張を立てる。「ショーダシンは本来の祭祀のジョーティシュトーマでは汲まれるべきでない。それは、『中の日に』などの文によって、全体として変形祭祀に関わると知られるので、それに従って、アグニシュトーマ・ウクティヤ・アティラートラの語は、変形祭祀のアグニシュトーマなどを指すのがふさわしいからだ。さもなければ、本来の祭祀のアグニシュトーマなどにあるそれは、類推適用で変形祭祀に得られうるので、『中の日に』などの文が無意味になってしまう」と。〔p.160〕そのうえで、ジョーティシュトーマの文脈にある、ショーダシンについてのアグニシュトーマなどの文は、「十二のウパサド」などの文と違って、そこに結びつかない語をもたないので、文脈から移すことはできないから、本来の祭祀でもショーダシンは汲まれる、と定説を立て、「では、『中の日に』などの文は何のためか」という期待に、「教えられたものは除外のためである」というスートラで、アティラートラ・ウクティヤ・アグニシュトーマの終わり方をもつ日のまとまりのほかの日にも、ブラーフマナと王族にショーダシンが得られるとき、その除外のためだ、と言った。〔これらの〕果報は退けられない。<br>だから、ショーダシンについての二夜祭などの文と同じく、アグニについての二夜祭などの文にも、ほかの果報との入り混じりは避けられない。だから、ほかの果報によってそれらが規定であることが支えられるので、「類推適用された基体に依っては補助と願望は働かない」という取り決めに頼るべきではない。だから、どうしても、二夜祭などの文に不及が入る余地はない、という趣旨である。以上、第37偈の解説。</div>
+  <div class="exp"><span class="lbl">解説</span><p>同じ「二夜祭の後の日に汲まれる」が、ディーピカーでは獲得（機縁なしにショーダシンを得させる）、タントララトナでは制限、スートラ（10.5.9.34）では除外と解されます。一つの文が複数の果報をもちうることの先例です。だから二夜祭などの文に規定としての役割を与えるために、「類推適用された基体には補助が付かない」という取り決めを立てる必要はありません。</p>
+  <table class="tbl min"><thead><tr><th>典拠</th><th>「後の日に汲まれる」の果報</th></tr></thead><tbody>
+    <tr><td>シャーストラディーピカー</td><td>獲得：ブラーフマナ・王族という機縁なしにショーダシンを得させる</td></tr>
+    <tr><td>タントララトナ</td><td>制限：アティラートラで選択的なショーダシンを後の日に限る</td></tr>
+    <tr><td>スートラ 10.5.9.34</td><td>除外：ほかの日からショーダシンを除く</td></tr>
+  </tbody></table></div>
+  <div class="nt">「सङ्कीर्त्तित्ततं」を「सङ्कीर्तितं」、「कृत्स्त्रविधानात्」を「कृत्स्नविधानात्」、「कास्येन」を「कार्त्स्न्येन」、「संम्बन्धि」を「सम्बन्धि」と正した。スートラ番号「(५।९।३४)」は第33偈の解説に合わせて「(१०।५।९।३४)」とした。前主張の「षोडशी प्रकृतौ ज्योतिष्टोमे ग्राह्यः」は文意から「न ग्राह्यः」と補った。「इत्युक्तं फलं प्रत्याख्यातव्यम्」は文意から「言われた。〔その〕果報は退けられない」と読んだ（「न」の脱落か）。p.160 の標識はこのブロックの中にある。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この部に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>āmnātasaṃstha</dt><dd>終わり方が〔聞き取りに直接〕教えられた祭祀</dd>
+    <dt>viramya vyāpāra</dt><dd>いったん止まってから働くこと。語にはそれがない</dd>
+    <dt>śuddha agni</dt><dd>純粋なアグニ。祭祀と結びつく前の、文脈なしの言明で生じたアグニ</dd>
+    <dt>purovāda</dt><dd>前置きの言明。補助の規定で基体に言及するために、基体を先に与える文</dd>
+    <dt>vaiguṇya</dt><dd>欠け。基体が規定どおりでなくなること</dd>
+    <dt>phalasaṅkara</dt><dd>果報の入り混じり。一つの文が獲得・制限・除外を兼ねること</dd>
+    <dt>pakṣaprāpti</dt><dd>選択的な獲得。制限の前提</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.155–160 のOCRテキストに拠る。この部分は別のOCRで補ったもの。〔　〕内は校訂本の小見出し、および訳者の補足。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>
