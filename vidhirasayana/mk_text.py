@@ -19,8 +19,12 @@ for i in range(a - 1, b):
                 drop.add(j)
 out = ''
 glue = False
+hp = re.compile(r'^(?:(\S+) ([०-९]{1,3})|([०-९]{1,3}) (\S+))$')
 for i in range(a - 1, b):
     s = L[i].strip()
+    m = hp.match(s)
+    if m and (m.group(1) or m.group(4)) in heads | {'विधिरसायनम्'}:
+        s = m.group(2) or m.group(3)
     if not s or noise.search(s) or i in drop:
         continue
     if pn.match(s):
