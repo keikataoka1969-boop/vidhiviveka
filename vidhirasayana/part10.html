@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bhāvāprāpti, Ātyantikatva 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#s1"><b>1</b>第11偈：除外規定への…</a></li>
+    <li><a href="#s2"><b>2</b>第12偈：「まったく」…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ヴィディ・ラサーヤナ　第10部</div>
+  <h1>Bhāvāprāpti, Ātyantikatva</h1>
+  <p class="deva-title" lang="sa">अपूर्वविधिलक्षणाक्षेपः — एकादशद्वादशश्लोकौ</p>
+  <p class="sub">第11偈：「得られていないとき」では除外規定を退けられない。第12偈：「まったく」を「すべての対象に及ぶ」と解すると不及が戻る</p>
+  <span class="sample">対訳　第10部（pp.70–75）</span>
+  <p>第11偈は、「得られていない」を条件の位格と解する立場への最後の批判です。除外規定も「ほかのものがやむこと」というまだ得られていないものを得させるので、アプールヴァ規定の定義はそれに過剰に及んでしまう。「得られていない」を「肯定的なものが得られていない」に限ると、「潔斎した者は献供しない」のような禁止の形のアプールヴァ規定に及ばなくなり、それでもなお、「しかし青銅器は熱しない」のような禁止の形の除外規定には過剰に及びます。</p>
+  <p>第12偈からは、定義の「まったく」という限定語の吟味に入ります。「まったく得られていない」を「規定の対象のすべてで得られていない」と解すると、第1偈で解決した不及（変形祭祀でのアグニの再規定など）が戻ってきます。また、対象の一部ではすでに得られていて、残りの部分で目的を果たす規定（「ジョーティシュトーマはすべての願望のため」、アビュダイェーシュティの「米粒を分けるべし」）にも及ばなくなります。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>第11偈</dt><dd>除外規定も、得られていない「やむこと」を得させる<br><small>「肯定的なもの」に限ると、禁止の形のアプールヴァ規定に不及、禁止の形の除外規定に過剰適用</small></dd></div>
+    <div><dt>禁止の形の除外</dt><dd>「プラーヤニーヤーはシャンユで終わる。妻の祭は行わない」<br><small>「しかし青銅器は熱しない」</small></dd></div>
+    <div><dt>第12偈</dt><dd>「まったく」＝すべての対象に及ぶ？</dd></div>
+    <div><dt>不及の例</dt><dd>第1偈の例（アグニの再規定、先頭の規定）、「すべての願望のため」、「米粒を三つに分けるべし」</dd></div>
+  </dl>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>第11偈：除外規定への過剰適用</h2><span class="sub"><span class="pg">pp.70–72</span></span></div>
+<div class="mula" id="r99">
+  <span class="ref">70</span>
+  <div class="src deva" lang="sa">एकादशश्लोकस्यावतारिका अप्राप्त इति सतिसप्तमीपक्षे परिसंख्याव्यावृत्तिर्न भवितुमर्हतीति निरूपणम् । किञ्चाप्राप्त इत्यस्य सतिसप्तमीपक्षे परिसंख्यानिवर्तकत्वं न लभ्यत इति दूषणान्तरमाह— किञ्चाऽप्राप्ते सतीति प्रभवति परिसंख्यानिवृत्तिं न कर्तुं नित्याप्राप्तां निवृत्तिं घटयति खलु साऽप्यत्र को वा विशेषः । भावाप्राप्तिनिषेधात्मकविधिनिकरव्यापकाव्याप्तिदुष्टा सत्यप्येवं निषेधश्रुतिमुखपरिसंख्यासु चाऽतिप्रसक्तिः ॥११॥</div>
+  <div class="tr">〔第11偈への導入〕〔「得られていない」を条件の位格とする立場では、除外規定を退けることはできない、という説明〕さらに、「得られていない」を条件の位格とする立場では、除外規定を退けることが得られない、という別の欠点を言う——<br>さらに、「得られていないときに」という〔限定〕は、除外規定を退けることができない。それ（除外規定）もまた、つねに得られていない、〔ほかのものが〕やむことを、確かに成し遂げるのである。ここに何の違いがあろうか。肯定的なものが得られていないこと〔に限るなら、その限定〕は、禁止の形の規定の群れ全体に及ぶ不及によって損なわれる。またそうであっても、禁止の聞き取りの形をとる除外規定に、過剰適用がある。（11）</div>
+  <div class="exp"><span class="lbl">解説</span><p>第11偈です。前半は「除外規定も、得られていないもの（ほかのものがやむこと）を得させる」という指摘。後半は、「肯定的なものが得られていない」に限るという救済策への二つの批判です。</p></div>
+  <div class="nt">偈の第2・第3句の順がOCRで入れ替わっていたので、本頌に合わせて正した。このブロックの冒頭に p.70 の標識を補った。</div>
+</div>
+<div class="mula" id="r100">
+  <span class="ref">70–71</span>
+  <div class="src deva" lang="sa">अप्राप्ते सतीतिविशेषणं परिसंख्यानिवृत्तिं कर्तुं न प्रभवति । यतः परिसंख्याप्यत्यन्तमप्राप्तामितरनिवृत्तिं प्रापयत्येव । तथा च "इमामगृभ्णन् रशनामृतस्येत्यश्वाभिधानीमादत्त" इति परिसंख्याविधिः प्राप्तविषयोऽपि गर्दभरशनातो निवृत्तौ मन्त्रमप्राप्तायां सत्यां तत्प्राप्तिफलको भवतीति कथं विषयसप्तमीपक्ष इव सतिसप्तमीपक्षे तद्व्यावृत्तिरप्राप्तिविशेषणेन लभ्यते । न ह्यपूर्वविधितः परिसंख्याविधेरप्राप्तप्राप्तिफलकत्वेऽस्ति कश्चिद्विशेषः । नन्वयमस्ति विशेषः, यत्परिसंख्याविधौ निवृत्तिरूपस्याऽभावस्याप्राप्तस्य प्राप्तिः फलम्, अपूर्वविधौ तु भावस्येति भावाप्राप्तिरेव चेहाऽप्राप्तिरित्यनेन विवक्षिता। लोके प्राप्तिशब्दस्य निवृत्तिप्रतिभटवाचित्वेन प्रसिद्धतया भावशब्दाप्रयोगेऽपि तद्विषयत्वलाभादिति चेत्, एवं सति निषेधात्मकेषु "दीक्षितो न जुहोति, न तौ पशौ करोति" "नातिरात्रे षोडशिनं गृह्णाति" इत्यादिसर्वेष्वप्यपूर्वविधिष्वव्याप्तिः स्यात् तेषां दीक्षामध्यपश्वतिरात्राद्यप्राप्तपुरुषार्थहोमाज्यभागषोडशिनिवृत्त्यादिरूपाभावप्राप्तिफलकत्वात् । न च निषेधा विधयो न भवन्तीति वाच्यम् । दार्शपूर्णमासिके "नानृतं वदेदि"ति निषेधे सूत्रकृतैव विधित्वस्य व्यवस्थापितत्वात् । नन्वनुवादप्रतियोगिविधित्वं तत्र तस्य व्यवस्थापितम् । तत्र हि तस्य दर्शपूर्णमासप्रकरणे श्रुतस्य "नानृतं वदेदि"तिनिषेधस्य स्मृतिदृष्टपुरुषार्थनिषेधानुवादकत्वमाशङ्क्य क्रत्वङ्गत्वेनाऽनृतवदनवर्जनविधिरयम्; तेन क्रतुमध्येऽनृतवदने पुरुषार्थनिषेधातिक्रमात् प्रत्यवायवत्, क्रत्वर्थनिषेधातिक्रमात् क्रतुवैगुण्यं च भवतीत्युक्तम् ।</div>
+  <div class="tr">「得られていないときに」という限定は、除外規定を退けることができない。除外規定もまた、まったく得られていない、ほかのものがやむことを得させるからである。<br>そうだとすると、「『これらは天則の手綱を取った』と〔唱えて〕馬の手綱を取る」という除外規定は、得られているものを対象とするものであっても、ロバの手綱から真言がやむことが得られていないときに、それを得させることを果報とするのだから、どうして、対象の位格の立場と同じく、条件の位格の立場でも、「得られていない」という限定によってそれ（除外規定）を除くことが得られようか。得られていないものを得させることを果報とする点では、アプールヴァ規定と除外規定に何の違いもないからである。<br>「違いはある。除外規定では、やむという否定的なものの、得られていない獲得が果報であるが、アプールヴァ規定では肯定的なものの〔獲得が果報である〕。だから、ここで『得られていない』によって意図されているのは、肯定的なものが得られていないことだけである。世間では『獲得』の語は『やむこと』の反対を表すものとして知られているので、『肯定的な』という語を使わなくても、それを対象とすることが得られる」と言うなら、そうすると、「潔斎した者は献供しない」「その二つを獣祭では行わない」「アティラートラではショーダシン〔杯〕を汲まない」などの、禁止の形のすべてのアプールヴァ規定に不及が生じるだろう。それらは、潔斎の間・獣祭・アティラートラなどで、得られていなかった、人のための献供・アージュヤ・バーガ・ショーダシンなどのやむことという、否定的なものを得させることを果報とするからである。<br>禁止は規定ではない、と言ってはならない。新月満月祭の「偽りを語るべからず」という禁止で、スートラの作者自身が、それが規定であることを確立しているからである。「そこで確立されたのは、再述に対する規定であることだ。そこでは、新月満月祭の文脈で聞かれる『偽りを語るべからず』という禁止が、伝承に見られる人のための禁止の再述ではないかと疑って、これは祭祀の補助として偽りを語ることを避けよという規定であり、だから祭祀の最中に偽りを語れば、人のための禁止を破るので罪があり、祭祀のための禁止を破るので祭祀の欠けもある、と言われたのである」</div>
+  <div class="exp"><span class="lbl">解説</span><p>除外規定の果報は「ほかのものがやむこと」で、それもまだ得られていないものの獲得です。「肯定的なものの獲得」に限ると、禁止の形のアプールヴァ規定（「アティラートラではショーダシンを汲まない」など、得られていない「汲まないこと」を得させる）が定義から漏れます。最後の段落は、「偽りを語るべからず」の主題でスートラ作者が禁止を規定と認めた、という点への反論者の応答の始まりです。</p></div>
+  <div class="nt">「फलक [p.71] त्वात्」を「फलक[p.71]त्वात्」、「निषेधाः विधयो」を「निषेधा विधयो」、「आशङ्कय」を「आशङ्क्य」と正した。</div>
+</div>
+<div class="mula" id="r101">
+  <span class="ref">71</span>
+  <div class="src deva" lang="sa">इह तु निषेधप्रतियोगिविधित्वं लक्ष्यरूपम् । अतो न तदव्यापनं दोष इति चेत् । मैवम्। इहाप्यनुवादप्रतियोगिविधेरेव लक्ष्यत्वात् । अपूर्वविध्याद्युदाहरणेषु विधित्वसमर्थनाय प्राप्यप्राप्तिविवेचनवत्, भावाभावविवेचनाऽदर्शनात् । भवतु वा विधिमुखप्रवृत्तापूर्वविधीनामेवाऽत्र लक्ष्यत्वाङ्गीकारेण कथञ्चिदव्याप्तिपरिहारः; तथाप्युक्तविवक्षायां निषेधमुखप्रवृत्तपरिसंख्यातिव्याप्तिरनिवार्या । तत्राऽप्राप्तत्वेन प्रापणीयाया इतरनिवृत्तेर्भावरूपत्वात् । यथा "शंय्वन्ता प्रायणीया सन्तिष्ठते, न पत्नीः संयाजयन्ती"ति । अत्र प्रायणीयायाः शंय्वन्तसमापनविधानात्तत उदीच्यानां सर्वेषामङ्गानामकरणे प्राप्ते, न पत्नीः संयाजयन्तीति वचनं पत्नीसंयाजानेव न कुर्यात्; अङ्गान्तराणि तु कुर्यादिति परिसंख्यारूपेण प्रायणीयायामङ्गान्तरप्राप्त्यर्थम् ।</div>
+  <div class="tr">「しかしここでは、禁止に対する規定であることが定義されるものの形である。だから、それに及ばないことは欠点ではない」と言うなら、そうではない。ここでも、再述に対する規定こそが定義されるものだからである。アプールヴァ規定などの例で、規定であることを裏づけるために、得られているか得られていないかを区別するのは見られるが、肯定的か否定的かを区別するのは見られないからである。<br>あるいは、肯定の形で働くアプールヴァ規定だけをここで定義されるものと認めることで、何とか不及を避けるとしよう。それでも、述べた意図では、禁止の形で働く除外規定への過剰適用は避けられない。そこでは、得られていないものとして得させるべき、ほかのものがやむことが、肯定的なものだからである。<br>たとえば、「プラーヤニーヤーはシャンユで終わる。妻の祭は行わない」。ここでは、プラーヤニーヤーをシャンユで終えることが規定されるので、それより後のすべての補助を行わないことが得られるとき、「妻の祭は行わない」という文は、「妻の祭だけを行うべきでなく、ほかの補助は行うべし」という除外の形で、プラーヤニーヤーにほかの補助を得させるためのものである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>禁止の形の除外規定の例です。「シャンユで終わる」で、それ以後の補助はすべて行わないことになります。そこへ「妻の祭は行わない」と言うのは、裏を返せば「ほかは行え」ということです。得させているのは「ほかの補助を行う」という肯定的なものなので、「肯定的なものの獲得」に限っても、この規定にアプールヴァ規定の定義が及んでしまいます。</p></div>
+  <div class="nt">「संयाजन्तीतिवचनं」を「संयाजयन्तीति वचनं」と正した。</div>
+</div>
+<div class="mula" id="r102">
+  <span class="ref">71–72</span>
+  <div class="src deva" lang="sa">यथा वा शङ्खस्मृतौ तैजसद्रव्यशुद्धिप्रकरणे "सूतिकोच्छिष्टभाण्डस्य सुरामद्यहतस्य च । त्रिः सप्तमार्जनाच्छुद्धिर्न तु कांस्यस्य तापनम् ॥" इत्यत्र मार्जनवत्तापनस्य विधानाभावात्सर्वेषां तैजसानां तापनाकरणे प्राप्ते न तु कांस्यस्येति वचनं कांस्यस्यैव तापनं न कार्यमन्यस्य तु कार्यमिति परिसंख्यारूपेण तैजसान्तराणां तापनप्राप्त्यर्थम् । तथैव व्याख्यातमपरार्केण "तैजसानां सूतिकोच्छिष्टादिके स्वल्पोपघाते यवचूडादिभिरेकविंशतिकृत्वो मार्जनाच्छुद्धिर्न तु कांस्यस्य तापनम्, अर्थात्कांस्यव्यतिरिक्तस्य तापनमपि कार्यमिति गम्यते" इति । यद्यप्यत्राऽऽद्योदाहरणे वस्तुतः परिसंख्या नेष्यते, शंय्वन्तसंस्थायाः परिसंख्यायाश्च विधिद्वयेन वाक्यभेदस्य तुल्यबलविधिद्वयप्राप्तयोः शंय्वन्तसंस्था पत्नीसंयाजवर्जं कृत्स्नसंस्थयोर्विकल्पस्य प्राप्तविषयत्वेन त्रिदोषायाः परिसंख्यायाश्च परिहाराय न पत्नीः संयाजयन्तीति शंय्वन्तसंस्थाविधेरर्थवादः पत्नीसंयाजाननुष्ठानलाघवेन तत्प्रशंसार्थ इति शंय्विडान्तत्वे विकल्पः स्यादिति दाशमिकाधिकरणे निर्णीतत्वात् । तथाऽपि पूर्वपक्षरीत्या तदुदाहरणम् । यत्रैवं विध्यन्तरशेषत्वं न सम्भवति तत्र तदधिकरणपूर्वपक्षरीत्या परिसंख्यैवावतिष्ठत इति तथाभूतमुदाहरणमिहान्वेषणीयम् । प्रसिद्धा चान्यत्रापि "न नीलीवसनं धार्यं न भूपालैरनुत्सवे" इत्यादिषु स्मृतिषु; यज्ञदत्तदेवदत्त-विष्णुमित्रा न भोजनीयाः, उत्सवेष्वपि विष्णुमित्रो न भोजनीय इत्यादिलोकव्यवहारेषु च विशेषनिषेधः शेषाभ्यनुज्ञापर इति निषेधमुखपरिसंख्या । अतस्तत्रातिव्याप्तिः स्यादेवेतिभावः । इत्येकादशश्लोकव्याख्या ।</div>
+  <div class="tr">あるいは、シャンカの伝承の、金属の器の浄めの文脈で、「産婦の残り物で汚れた器、スラー酒や酒で汚れた〔器〕は、三かける七回こすることで清まる。しかし青銅のものは熱しない」というところでは、こすることと同じく熱することは規定されていないので、すべての金属の器を熱しないことが得られるとき、「しかし青銅のものは〔熱し〕ない」という文は、「青銅のものだけは熱するべきでなく、ほかのものは〔熱するべし〕」という除外の形で、ほかの金属の器に熱することを得させるためのものである。アパラールカもそう解説している。「金属の器が、産婦の残り物などの軽い汚れのときは、大麦の穂などで二十一回こすることで清まる。『しかし青銅のものは熱しない』。言外に、青銅以外のものは熱することもすべきだ、と知られる」と。<br>確かにここで、最初の例では、実際には除外は認められない。第10巻の「シャンユ・イダーで終わる場合には選択であろう」という主題で、次のように決定されているからである。シャンユで終えることと除外との二つの規定による文の分裂、等しい力の二つの規定から得られる、シャンユで終えることと妻の祭を除いたすべてで終えることとの選択、得られているものを対象とするので三つの欠点をもつ除外、これらを避けるために、「妻の祭は行わない」は、シャンユで終えるという規定の釈義文であって、妻の祭を行わない手軽さによってそれを称えるためのものである、と。それでも、前主張のやり方では、それは例になる。このように別の規定の補足であることがありえないところでは、その主題の前主張のやり方で除外にとどまる。そのような例をここでは探すべきである。<br>またほかのところでも、伝承では「王たちは、祭り以外のときに藍染めの衣を着るべきではない」などで、世間の言い方では「ヤジュニャダッタ、デーヴァダッタ、ヴィシュヌミトラに食事させてはならない。祭りのときでもヴィシュヌミトラに食事させてはならない」などで、特定のものの禁止が残りのものの許しを意図する、禁止の形の除外はよく知られている。だから、そこには過剰適用がまさにある、という趣旨である。以上、第11偈の解説。</div>
+  <div class="exp"><span class="lbl">解説</span><p>伝承（スムリティ）と日常語からの例です。「祭りのときでもヴィシュヌミトラには食事させるな」は、裏を返せば「祭りのときは、ほかの二人には食事させてよい」という許しになります。ヴェーダの例（妻の祭）は、ミーマーンサーの定説では釈義文と解されるので、念のためにこうした例を挙げています。</p></div>
+  <div class="nt">「प्रकरणे"सूतिको」を「प्रकरणे "सूतिको」、「कृत्स्त्र」を「कृत्स्न」、「शंय्विडान्तत्तवे」を「शंय्विडान्तत्वे」、「निलीवसनं」を「नीलीवसनं」、「स्मृतिषुः」を「स्मृतिषु;」、「एकादशस्लोक」を「एकादशश्लोक」と正した。p.72 の標識はこのブロックの中にある。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第12偈：「まったく」の吟味</h2><span class="sub"><span class="pg">pp.72–75</span></span></div>
+<div class="mula" id="r103">
+  <span class="ref">72</span>
+  <div class="src deva" lang="sa">अपूर्वविधिलक्षणघटकाप्राप्तविशेषणविचारद्वारा दोषानुद्भाव्यात्यन्तविशेषणार्थविचारद्वारेण द्वादशश्लोकस्योपक्रमः । एवमप्राप्तविशेषणविचारमुखेन लक्षणस्य दोषा दर्शिताः । अथाऽत्यन्तविशेषणार्थविचारमुखेनाऽपि तस्य दोषान्दर्शयति । येनाऽतिव्याप्तिभङ्गः किल नियमविधौ किं तदात्यन्तिकत्वं सर्वोद्देश्यानुवृत्तिर्यदि पुनरुदिताव्याप्तयः स्युर्विकल्पे । प्राप्तोद्देश्यैकदेशा अपि खलु कुहचिच्चारितार्थ्यं भजन्तः श्रूयन्ते सार्वकाम्यप्रभृतिषु विधयस्तेषु चाऽव्याप्तयः स्युः ॥१२॥</div>
+  <div class="tr">〔アプールヴァ規定の定義を構成する「得られていない」という限定の吟味を通じて欠点を示したあと、「まったく」という限定の意味の吟味を通じて第12偈を始める〕こうして、「得られていない」という限定の吟味によって、定義の欠点が示された。次に、「まったく」という限定の意味の吟味によっても、その欠点を示す——<br>限定規定への過剰適用がそれによって断たれるという、その「まったく」とは何か。すべての対象に行き渡ることだとすれば、〔前に〕述べた不及が、選択肢〔のそれぞれ〕で再び生じるだろう。また、得られている対象の一部をもちつつ、どこか〔別の部分〕で目的を果たす規定が、「すべての願望のため」などで聞かれる。それらにも不及が生じるだろう。（12）</div>
+  <div class="exp"><span class="lbl">解説</span><p>第12偈です。定義の「まったく得られていない（atyantāprāpta）」の「まったく」が問題になります。この限定は、限定規定（選択的には得られている）を除くために入れられたものでした。</p></div>
+  <div class="nt">「दोषानुद्धाव्यात्यंतविशेषणार्थं विचारद्वारेण」を「दोषानुद्भाव्यात्यन्तविशेषणार्थविचारद्वारेण」、「प्राप्तोद्देश्यैकदेशाः अपि」を「प्राप्तोद्देश्यैकदेशा अपि」と正した。</div>
+</div>
+<div class="mula" id="r104">
+  <span class="ref">72–73</span>
+  <div class="src deva" lang="sa">आत्यन्तिकत्वं द्वेधा विकल्प्य सतिसप्तमी-विषयसप्तमीपक्षयोः सम्भावितानां दोषाणां निर्देशः । येन विशेषणेन नियमविधौ लक्षणस्याऽतिव्याप्तिनिरासोऽभिमतः; तदप्राप्तेरात्यन्तिकत्वं किं नाम ? यद्युच्यते सर्वोद्देश्यानुवृत्तिरप्राप्तेरात्यन्तिकत्वम् । अवघातस्य च न सर्वेषु व्रीहिष्वप्राप्तिः; केषुचिद्दर्शपूर्णमासप्रयोगगतेषु व्रीहिष्ववघातस्य स्वत एव प्राप्तेः अन्येषु विदलनप्राप्तिः, तेष्वेव तदप्राप्तिसत्त्वादिति ।</div>
+  <div class="tr">〔「まったく」を二通りに分けて、条件の位格と対象の位格の立場で考えられる欠点を示す〕限定規定への定義の過剰適用を除くことが、その限定によって意図されているのだが、その非獲得の「まったく」とは何か。もし、非獲得の「まったく」とは、すべての対象に行き渡ることだと言うなら——そして臼でつくことは、すべての籾に得られていないのではない。新月満月祭の実行にある籾のいくつかでは、臼でつくことがおのずと得られ、ほかのもので〔爪で〕裂くことが得られるとき、それらにだけそれの非獲得があるからである〔、だから限定規定には及ばない、というのなら〕——</div>
+  <div class="exp"><span class="lbl">解説</span><p>「すべての対象で得られていない」と解すれば、限定規定は除けます。臼でつくことは、一部の籾ではおのずと選ばれているからです。しかしその解釈には別の問題がある、と次のブロックで論じられます。</p></div>
+  <div class="nt">「व्रीहिष्ववघा- तस्य」を「व्रीहिष्ववघातस्य」と正した。p.73 の標識はこのブロックの冒頭にある。</div>
+</div>
+<div class="mula" id="r105">
+  <span class="ref">73</span>
+  <div class="src deva" lang="sa">एवं तर्हि प्रथमश्लोकोद्भाविताऽव्याप्तयः प्राक् समाहिताः पुनरपि विकल्पमुखेनोन्मज्जेयुः। तथा हि-सर्वोद्देश्यानुवृत्तिरित्यत्रोद्देश्यपदेन प्रापणीयोद्देश्यं विवक्षितम्; प्राकृतविध्युद्देश्यं वा? आद्ये विषयसप्तमीपक्षोद्भावितवैकृताग्नयादिविध्यव्याप्तेः, द्वितीये सतिसप्तमीपक्षोद्भाविताग्रताविध्यव्याप्तेश्च पुनरुन्मज्जनापातः। "श्येनचितं चिन्वीत स्वर्गकाम" इत्यादिवाक्यैः स्वस्वोद्देश्येषु स्वर्गादिषु श्येनाकृत्यादिगुणानां प्राप्तौ सत्यामेव स्वर्गाद्युद्देशेन तेषामनुष्ठानम्। वैकृतप्रयोगमध्ये परं न प्राप्तमिति, विकृतिष्वग्नयादिपुनर्विधीनां तत्प्रापणं फलमित्युपेयते, एवमग्रताविध्युद्देश्येषु द्वादशाहिकगावामयनिकेषु आद्यद्वितीयेष्वहस्सु प्राप्तानामेवाग्रतानां तद्विकृतिषु प्राप्तिर्विधिफलमित्युपेयते। तत्र विकृतिषु प्रापणीयानां श्येनादिगुणानां स्वस्वोद्देश्येषु स्वर्गादिषु अग्रतानां च विध्यन्वितोद्देश्ये द्वादशाहिकगावामयनिकेष्वहःसु क्वाचित्क्यप्यप्राप्तिर्नास्ति कथं सा सार्वत्रिकी समर्थ्येत ।</div>
+  <div class="tr">それなら、第1偈で提起され、前に解決された不及が、選択肢を通じて再び浮かび上がるだろう。すなわち、「すべての対象に行き渡ること」で「対象」の語によって意図されているのは、〔規定されるものを〕得させるべき対象か、それとも本来の祭祀の規定の対象か。前者なら、対象の位格の立場で提起された、変形祭祀でのアグニなどの規定への不及が、後者なら、条件の位格の立場で提起された、先頭の規定への不及が、再び浮かび上がってしまう。<br>「天界を望む者は鷹の形に積んだ〔火壇〕を積むべし」などの文によって、それぞれの対象である天界などに鷹の形などの補助が得られているからこそ、天界などを目指してそれらが行われる。ただ変形祭祀の実行の中には得られていないので、変形祭祀でのアグニなどの再規定は、それを得させることを果報とする、と認められる。同じく、先頭の規定の対象である十二日祭とガヴァーム・アヤナの第一・第二の日に、すでに得られている先頭を、その変形祭祀に得させることが規定の果報である、と認められる。<br>そこでは、変形祭祀で得させるべき鷹の形などの補助については、それぞれの対象である天界などで、また先頭については、規定と結びついた対象である十二日祭とガヴァーム・アヤナの日々で、たまの非獲得さえないのに、どうしてそれがすべてにわたると論証できようか。</div>
+  <div class="exp"><span class="lbl">解説</span><p>第1偈の二つの例が戻ってきます。どちらの規定も、対象（天界、本来の祭祀の日々）では規定されるものがすでに得られていて、変形祭祀へそれを運ぶことを果報としていました。「すべての対象で得られていない」を求めると、こうした規定はアプールヴァ規定の定義に入らなくなります。</p></div>
+  <div class="nt">「एवंमग्रता」を「एवमग्रता」、「समर्थ्यत」を「समर्थ्येत」と正した。</div>
+</div>
+<div class="mula" id="r106">
+  <span class="ref">73</span>
+  <div class="src deva" lang="sa">अपि चोद्देश्यैकदेशे प्राप्तिमन्तोऽपि तदेकदेशान्तरे चरितार्था विधयो दृश्यन्ते यथा "एकस्मै वा अन्ये यज्ञक्रतवः कामायाऽऽह्रियन्ते सर्वेभ्यो ज्योतिष्टोमः, सर्वेभ्यो दर्शपूर्णमासावि"ति । अत्र ज्योतिष्टोम-दर्शपूर्णमासानां स्वर्गार्थत्वं प्रातिस्विकविधिना प्राप्तमिति फलान्तरेष्वेव विधिचारितार्थ्यम् ।</div>
+  <div class="tr">さらに、対象の一部で得られていても、その別の部分で目的を果たす規定が見られる。たとえば「ほかの祭祀は一つの願望のためにもたらされる。ジョーティシュトーマはすべての〔願望〕のため、新月満月祭はすべての〔願望〕のため」。ここでは、ジョーティシュトーマと新月満月祭が天界のためのものであることは、それぞれの規定によって得られているので、規定はほかの果報においてだけ目的を果たす。</div>
+  <div class="exp"><span class="lbl">解説</span><p>偈の「すべての願望のため」の例です。対象（すべての願望）の一部である天界はすでに得られていて、規定は残りの願望について働きます。「すべての対象で得られていない」とは言えないので、不及になります。</p></div>
+  <div class="nt">「यता」を「यथा」、「दर्शपूर्णमासाविति" इति」を「दर्शपूर्णमासावि"ति」と正した。</div>
+</div>
+<div class="mula" id="r107">
+  <span class="ref">73–74</span>
+  <div class="src deva" lang="sa">अभ्युदयेष्टिवाक्यस्य भाष्यटुप्टीकावलम्बनेन पूर्वदेवतापनयः, वक्ष्यमाणदेवतासम्बन्ध इत्यर्थद्वयस्य प्रतिपादनम् । यथा वाभ्युदयेष्ट्यां "तण्डुलान्विभजे"दिति तण्डुलदधिशृतानां पूर्वदेवतापनयः, वक्ष्यमाणदेवताभ्यो विभागो वा मध्यमादिवाक्यैस्तेषां देवतान्तरविधानेनैव प्राप्त इति; उपांशुयाजाज्य एव विधिचारितार्थ्यम् । तथा हि "वि वा एतं प्रजया पशुभिरर्धयति, वर्धयत्यस्य भ्रातृव्यं यस्य हविर्निरुप्तं पुरस्ताच्चन्द्रमा अभ्युदेति स त्रेधा तण्डुलान्विभजेत्, ये मध्यमास्तानग्नये दात्रे पुरोडाशमष्टाकपालं निर्वपेद्ये स्थविष्ठास्तानिन्द्राय प्रदात्रे दध्नश्चरुं येऽणिष्ठास्तान्विष्णवे शिपिविष्टाय शृते चरुमि"ति श्रूयते । अत्र चतुर्दश्याममावास्याभ्रान्त्या दर्शोपक्रमं कृतवतस्तत्प्रायश्चित्तविधाने; त्रेधा तण्डुलानां मध्यमादिभावेन त्रेधा विभागो न विधीयते; ये मध्यमा इत्यादिवाक्यैस्तत्सिद्धेः, किन्तु सर्वेषां दार्शिकहविषां पूर्वदेवताभ्योऽपनयो विधीयते । विभजेदित्युक्ते ह्ययमर्थोऽवगम्यते यानि संयुक्तानि तानि विभजेदिति । तण्डुलादीनि हवींषि च देवताभिः संयुक्तानि । अतस्तण्डुलशब्दो विभागकर्मत्वेनाऽर्थप्राप्तदार्शिकहविर्मात्रोपलक्षक इति तेषां पूर्वदेवतापनयो विधीयत इति युक्तम् । अथवा "मनुः पुत्रेभ्यो दायं व्यभजदि"ति (तै० सं० काः ३.१.१.) प्रयोगदर्शनादिह दार्शिकहविषां वक्ष्यमाणदातृत्वादिगुणकाग्नयादिदेवताभ्यो विभजनं विधीयते, पूर्वदेवतापनयस्त्वर्थसिद्ध इत्येवमस्य वाक्यस्यार्थद्वयं भाष्यटुप्टीकयोर्दर्शितम् ।</div>
+  <div class="tr">〔アビュダイェーシュティの文について、バーシュヤとトゥプティーカーに拠って、「前の神格から外すこと」と「これから言われる神格に結びつけること」の二つの意味を示す〕あるいは、アビュダイェーシュティ（月が早く昇った場合の祭）で、「米粒を分けるべし」というところでは、米粒・凝乳・煮た乳の、前の神格から外すことも、これから言われる神格への分配も、「中ほどのもの」などの文によってそれらに別の神格が規定されることだけで得られるので、規定はウパーンシュ祭のアージュヤにおいてだけ目的を果たす。<br>すなわち、こう聞かれる。「その者の供物が取り分けられてから、月が東に昇るなら、〔月は〕彼から子孫と家畜を奪い、彼の敵を栄えさせる。彼は米粒を三つに分けるべし。中ほどのものは、与える者アグニに八皿の菓子として取り分けるべし。最も粗いものは、授ける者インドラに凝乳の中のチャルとして。最も細かいものは、シピヴィシュタのヴィシュヌに煮た乳の中のチャルとして」。<br>ここでは、十四日を新月と取り違えて新月祭を始めた者の贖罪を規定するときに、米粒を中ほどのものなどとして三つに分けることが規定されるのではない。「中ほどのものは」などの文でそれは成り立つからである。そうではなく、新月祭のすべての供物を前の神格から外すことが規定される。「分けるべし」と言われると、「結びついているものを分けるべし」という意味が知られる。そして米粒などの供物は神格と結びついている。だから、「米粒」の語は、分けることの目的語として事実上得られる新月祭の供物すべてを指し示すので、それらの前の神格から外すことが規定される、と考えるのが正しい。<br>あるいは、「マヌは息子たちに遺産を分けた」（タイッティリーヤ・サンヒター）という用例が見られるので、ここでは、新月祭の供物を、これから言われる「与える者」などの性質をもつアグニなどの神格に分配することが規定され、前の神格から外すことは事実上成り立つ。このように、この文の二つの意味が、バーシュヤとトゥプティーカーで示されている。</div>
+  <div class="exp"><span class="lbl">解説</span><p>アビュダイェーシュティは、新月祭の供物を取り分けたあとで月が見えたとき（新月の日を取り違えたとき）の贖罪です。供物をもとの神格から外して、別の神格（与える者アグニ、授ける者インドラ、シピヴィシュタのヴィシュヌ）に振り替えます。「分ける」の意味には二つの解釈があります。</p>
+  <div class="tbl"><table><thead><tr><th>解釈</th><th>規定されること</th><th>事実上得られること</th></tr></thead>
+  <tbody><tr><td>前の神格から外す</td><td>すべての供物を前の神格から外す</td><td>新しい神格への分配</td></tr>
+  <tr><td>分配する</td><td>新しい神格に分配する</td><td>前の神格から外すこと</td></tr></tbody></table></div></div>
+  <div class="nt">「भाष्य-टुष्टीकालवम्बनेन」を「भाष्यटुप्टीकावलम्बनेन」、「"विवा एतं」を「"वि वा एतं」、「वर्द्धयत्यस्य भातृव्यं」を「वर्धयत्यस्य भ्रातृव्यं」、「तण्डलान्विभजेद्ये, मध्यमा」を「तण्डुलान्विभजेत्, ये मध्यमा」、「दघ्नश्चरुं」を「दध्नश्चरुं」と正した。典拠の「(तै० सं० काः ३.१.१.)」は原文のまま。p.74 の標識はこのブロックの中にある。</div>
+</div>
+<div class="mula" id="r108">
+  <span class="ref">74</span>
+  <div class="src deva" lang="sa">तत्राऽर्थद्वयेऽपि तण्डुल-दधिशृतेषु न विधेश्चारितार्थ्यं देवतान्तरसंयोजनेन पूर्वदेवतापनयस्य; विशेषतो विभजनेन सामान्यविभागस्याप्यर्थप्राप्तत्वात् । किन्तु तण्डुलशब्देन दार्शिकहविर्मात्रोपलक्षकेन लक्ष्यमाण उपांशुयाजाज्ये तस्य चारितार्थ्यम् । उपांशुयाजाज्यस्याऽग्रे देवतान्तरसंयोजनाभावेन पूर्वदेवतापनयस्य सामान्यविभजनस्य चाऽर्थप्राप्त्यभावात् । अत एव पूर्वदेवतापनयपक्षे उपांशुयाजाज्यस्य पूर्वदेवताया अपनयात् देवतान्तरस्य चाऽविधानात् देवतामन्तरेण यष्टुमशक्यत्वादुपांशुयाजस्य लोपः । सामान्यविभजनपक्षे उपांशुयाजाज्यस्याऽपि सामान्येन वक्ष्यमाणदेवताभ्यो निर्दिष्टत्वादग्रे देवतान्तरविशेषस्य चाऽनिर्देशाद्वक्ष्यमाणाभ्यः सर्वाभ्यो देवताभ्यो विभज्य दातव्यमिति भाष्यटुप्टीकयोः "उपांशुयाजे वचनाद्यथाप्रकृति" (६।५।२।१०) इत्येतदधिकरणे बहृचब्राह्मणानुसारेणामावास्यायामुपांशुयाजसत्तामभ्युपेत्य निरूपितम् ।</div>
+  <div class="tr">そこで、二つの意味のどちらでも、米粒・凝乳・煮た乳では、規定は目的を果たさない。別の神格に結びつけることで前の神格から外すことが、また個別に分けることで一般的な分配も、事実上得られるからである。そうではなく、新月祭の供物すべてを指し示す「米粒」の語によって指される、ウパーンシュ祭のアージュヤにおいて、それは目的を果たす。ウパーンシュ祭のアージュヤには、後で別の神格に結びつけることがないので、前の神格から外すことも一般的な分配も、事実上得られることがないからである。<br>だからこそ、前の神格から外すという立場では、ウパーンシュ祭のアージュヤの前の神格が外され、別の神格は規定されないので、神格なしには祭ることができないから、ウパーンシュ祭は脱落する。一般的な分配の立場では、ウパーンシュ祭のアージュヤも一般的にこれから言われる神格に指示され、後で特定の別の神格が指示されないので、これから言われるすべての神格に分けて与えるべきだ——と、バーシュヤとトゥプティーカーは、「しかしウパーンシュ祭では、文によって、本来の祭祀のとおりに」（6.5.2.10）というこの主題で、バフヴリチャ・ブラーフマナに従って新月祭にもウパーンシュ祭があることを認めて、示している。</div>
+  <div class="exp"><span class="lbl">解説</span><p>三つの供物については、「中ほどのものは……」の文だけで振り替えが成り立つので、「分けるべし」の働く余地はありません。規定が意味をもつのは、新しい神格の言われないウパーンシュ祭のアージュヤに対してだけです。つまり、規定の対象（新月祭の供物すべて）の一部ではすでに得られていて、残りの一部で目的を果たす。「すべての対象に行き渡る非獲得」を求めると、この規定にも定義が及びません。</p></div>
+  <div class="nt">「देवान्तरसंयोजनेन」を「देवतान्तरसंयोजनेन」、「वक्ष्माण」を「वक्ष्यमाण」、「भाष्यटुष्टीयो" रुपांशुयाजे」を「भाष्यटुप्टीकयोः "उपांशुयाजे」と正した。</div>
+</div>
+<div class="mula" id="r109">
+  <span class="ref">74–75</span>
+  <div class="src deva" lang="sa">पूर्वदेवतापनयसामान्यविभागयोरार्थिकत्वसिद्धिशङ्का । ननु तण्डुल-शृत-सान्नाय्येष्वपि पूर्वदेवतापनयसामान्यविभागौ नार्थसिद्धौ; त्रेधा तण्डुलानित्यत्र तदन्यतरविध्यभावे दार्शिकहविषां प्रकृतदेवतातिरिक्तदेवताविशेषाकाङ्क्षाविरहेण मध्यमादिवाक्यानि तेषामपूर्वदेवताविशेषसंयोजनपराणीत्यत्र निर्णायकाभावात् । न हि तदा मध्यमादिशब्दानां प्रकृततण्डुलादिपरत्वे नियामकमस्तीति चेत्, न; यच्छब्दोपबन्धबलात् तण्डुलानां प्रकृतानां ग्रहणे तत्समभिव्याहाराद् दधिशृतयोरपि प्रकृतयोर्ग्रहणमित्युपपत्तेः । न चाऽनपनीतपूर्वदेवतानां तेषां देवतान्तराकाङ्क्षाविरहेण तत्संयोजनानुपपत्तिः, पूर्वदेवतापनयाकाङ्क्षाविरहेऽपि तदपनयवद्देवतान्तरसंयोजनस्याकाङ्क्षाविरहेऽपि तत्संयोजनस्य वचनबलादुपपत्तेः । सामान्यतो विभजनपक्षे विनैव पूर्वदेवतापनयं देवतान्तरसंयोजनस्य, तत एव पूर्वदेवतापनयस्याऽर्थसिद्धतायाश्च संप्रतिपत्तेश्च । अतस्त्रेधा तण्डुलानिति विधेरप्युद्देश्यैकदेश एव चारितार्थ्यम्; तस्मात्सर्वोद्देश्यानुवृत्तिप्राप्तिरहितेषूदाहृतविधिष्वव्याप्तिः स्यादित्यर्थः । इति द्वादशश्लोकस्य व्याख्या ।</div>
+  <div class="tr">〔前の神格から外すことと一般的な分配が事実上成り立つ、ということへの疑い〕「米粒・煮た乳・サーンナーイヤでも、前の神格から外すことと一般的な分配は、事実上成り立つのではない。『米粒を三つに』でそのどちらかの規定がなければ、新月祭の供物には、もとの神格以外の特定の神格への期待がないので、『中ほどのものは』などの文がそれらを新しい特定の神格に結びつけることを意図している、と決める決め手がないからである。そのときは、『中ほどの』などの語が、もとの米粒などを指すと決めるものもない」と言うなら、そうではない。「〜もの（ヤッド）」という語のつながりの力で、もとの米粒が取られ、それと並べて言われるので、もとの凝乳と煮た乳も取られる、と説明がつくからである。<br>前の神格から外されていないそれらには別の神格への期待がないので、それに結びつけることは成り立たない、というのでもない。前の神格から外すことへの期待がなくても、外すことが〔文の力で成り立つ〕のと同じく、別の神格に結びつけることへの期待がなくても、結びつけることは文の力で成り立つからである。また、一般的な分配の立場では、前の神格から外さずに別の神格に結びつけることと、まさにそこから前の神格から外すことが事実上成り立つこととは、認められているからである。<br>だから、「米粒を三つに」という規定も、対象の一部においてだけ目的を果たす。だから、すべての対象に行き渡る獲得のない、挙げた規定に不及が生じるだろう、という意味である。以上、第12偈の解説。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「中ほどのもの」などの文だけで、本当に三つの供物が新しい神格に振り替わるのか、という疑いへの答えです。関係詞（ヤッド）の働きで、それらの文はもとの米粒などを指すと決まり、神格の振り替えも文の力で成り立つ。だから、「分けるべし」が働くのはウパーンシュ祭のアージュヤに対してだけで、不及の例として成り立ちます。</p></div>
+  <div class="nt">「देवान्तराकाङ्गा」を「देवतान्तराकाङ्क्षा」、「पूर्वदेतापनयं」を「पूर्वदेवतापनयं」と正した。p.75 の標識はこのブロックの中にある。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この部に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>bhāvāprāpti</dt><dd>肯定的なものが得られていないこと</dd>
+    <dt>niṣedha / niṣedhamukhaparisaṅkhyā</dt><dd>禁止／禁止の形をとる除外規定</dd>
+    <dt>anuvāda</dt><dd>再述。すでに知られていることを言い直すこと</dd>
+    <dt>śeṣābhyanujñā</dt><dd>残りのものの許し。特定のものの禁止が含意するもの</dd>
+    <dt>ātyantikatva</dt><dd>「まったく」であること。定義の atyanta の意味</dd>
+    <dt>sarvoddeśyānuvṛtti</dt><dd>すべての対象に行き渡ること</dd>
+    <dt>abhyudayeṣṭi</dt><dd>アビュダイェーシュティ。新月祭の日を取り違えたときの贖罪の祭</dd>
+    <dt>pūrvadevatāpanaya</dt><dd>前の神格から外すこと</dd>
+    <dt>Ṭupṭīkā</dt><dd>トゥプティーカー。クマーリラの『バーシュヤ』第4–12巻への注</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.70–75 のOCRテキストに拠る。〔　〕内は校訂本の小見出し。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>
