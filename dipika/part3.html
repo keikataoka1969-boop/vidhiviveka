@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ūha, Bādha 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#s1"><b>1</b>第9巻：言い換え</a></li>
+    <li><a href="#s2"><b>2</b>第10巻：退け</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">ディーピカー　第3部</div>
+  <h1>Ūha, Bādha</h1>
+  <p class="deva-title" lang="sa">पूर्वमीमांसाविषयसङ्ग्रहदीपिका — नवमदशमाध्यायौ</p>
+  <p class="sub">第9–10巻の要約：言い換え（働きの引き継ぎ、八種のマントラの言い換え）と退け（その理由の分類）</p>
+  <span class="sample">対訳　第3部（pp.507–510）</span>
+  <p>第9巻の言い換え（ūha）について、アッパイヤはまず、変形祭祀の物が本来の祭祀の物の働きを引き継ぐこと（kāryāpatti）が四つのしかたで知られる、と整理します。直接に、推し量りで、直接の言葉で、そして退けから推し量られる語によって。続いて、浄めの言い換え・サーマンの言い換え・マントラの言い換えを区別し、マントラの言い換えを八種に分けます。</p>
+  <p>第10巻の退け（bādha）については、退けの理由を細かく分類します。本来の祭祀で知られていない、行えない、媒介（助け）がない、矛盾する、目的がない、言い直しで替えられる、禁止される、など。最後に、「皿で煮る」の規定の果報が退けにあることを、『ヴィディ・ラサーヤナ』で詳しく論じた、と自著に言及します。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>この部</dt><dd>第9巻（言い換え）、第10巻（退け）</dd></div>
+    <div><dt>マントラの言い換え</dt><dd>語幹・性・数とその組み合わせ、語の繰り返し、の八種</dd></div>
+    <div><dt>退けの理由</dt><dd>知られていない・行えない・媒介がない・矛盾・目的がない・言い直し・禁止</dd></div>
+    <div><dt>関連</dt><dd><a href="../citrapata/index.html">チトラパタ</a>第9–11部</dd></div>
+  </dl>
+  <table class="tbl min"><thead><tr><th>言い換えるもの</th><th>例</th></tr></thead><tbody>
+    <tr><td>語幹だけ</td><td>「アグナイェー」→「スーリヤーヤ」</td></tr>
+    <tr><td>性だけ</td><td>「ヴァスヴィー・アシ」→「ヴァスル・アシ」</td></tr>
+    <tr><td>数だけ</td><td>「チャーガスヤ」→「チャーガーナーム」</td></tr>
+    <tr><td>語幹と性</td><td>「アグナイェー」→「アディティヤイ」</td></tr>
+    <tr><td>語幹と数</td><td>「アグナイェー」→「ヴィシュヴェーブヨー・デーヴェーブヤハ」</td></tr>
+    <tr><td>性と数</td><td>「プラースマイ」→「プラーブヤハ」</td></tr>
+    <tr><td>三つとも</td><td>「アーポー・デーヴィーヒ」→「グリタ・デーヴァ」</td></tr>
+    <tr><td>語の繰り返し</td><td>「エーカダー」→「エーカダイカダー」</td></tr>
+  </tbody></table>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>第9巻：言い換え</h2><span class="sub"><span class="pg">pp.507–509</span></span></div>
+<div class="mula" id="r1">
+  <span class="ref">507–508</span>
+  <div class="src deva" lang="sa">अतिदिष्टानां मन्त्रसामसंस्काराणां प्राकृतपदार्थकार्यापन्नवैकृतपदार्थान्तरसम्बन्धेनान्यथाभावरूप ऊहो नवमे चिन्तितः । प्राकृतपदार्थकार्यापत्तिः प्रत्यक्षेण अनुमानेन, प्रत्यक्षवचनेन, प्रत्यक्षवचनावगतप्राकृतनिवृत्त्यनुमितशब्देन, प्रत्यक्षवचनावगतलिङ्गोन्नीतनिवृत्त्यनुमितशब्देन वावसीयते । "नैवारश्चरुः" इत्यत्र प्राकृतव्रीहिकार्यहविर्निष्पादकत्वं प्रत्यक्षेणावसीयते, न तु नैवार इति तद्धितेन, "तस्येदम्" इति सम्बन्धसामान्येऽण्प्रत्ययविधानात् । तस्य प्रकृतिविकारभावरूपसम्बन्धविशेषपर्यवसायित्वकल्पनायाः प्रत्यक्षाधीनत्वात् । नैर्ऋतं चरुं प्रकृत्य "कृष्णानां व्रीहीणां नखनिभिन्नम्" इत्यत्र श्रुतस्य नखस्य प्राकृतोलूखलमुसलकार्यापत्तिः न प्रत्यक्षेणावसीयते । उलूखलमुसलाभ्यां व्रीहीणामवहननं निष्पद्यते, नखेन निर्भेदनमिति प्रत्यक्षेण कार्यभेदस्यैव दर्शनात्; किन्तु अवहननेनेव निर्भेदनेनापि तुषविमोकात् तण्डुलनिष्पत्तिदर्शनेन प्राकृतावघातस्योलूखलमुसलकार्यतायां यद्रूपं विवक्षितं तण्डुलनिष्पत्तिद्वारेणापूर्वोपयोगिक्रियात्वं तन्निर्भेदनेऽपि समानमिति तेन रूपेणावहनननिर्भेदनयोरैक्यस्योन्नेयत्वात् कार्यापत्तिरनुमानेनावसीयते ।</div>
+  <div class="tr">類推適用されたマントラ・サーマン・浄めが、本来の祭祀の事柄の働きを引き継いだ変形祭祀の別の事柄と結びつくことで、形を変えること、それが言い換えであり、第9巻で考察された。<br>本来の祭祀の事柄の働きを引き継ぐことは、直接に、推し量りで、直接の言葉で、直接の言葉で知られた本来のものの退けから推し量られる語で、あるいは直接の言葉で知られた目印から推し量られた退けから推し量られる語で、確かめられる。<br>「ニーヴァーラの粥」では、本来の米の働きである供物を作ることが、直接に確かめられる。「ナイヴァーラ」という派生接辞によってではない。「それのこれ」という結びつき一般にアン接辞が規定されているので、それが原料と製品の関係という特定の結びつきに落ち着くと想定するのは、直接〔の知覚〕に依るからである。<br>ナイルリタの粥について、「黒い米の、爪で割ったもの」で聞かれる爪が、本来の臼と杵の働きを引き継ぐことは、直接には確かめられない。臼と杵で米を搗くことが、爪で割ることが成し遂げられる、と直接には働きの違いだけが見えるからである。そうではなく、搗くことと同じく割ることでも、〔p.508〕籾殻が取れて米粒ができるのが見られるので、本来の搗くことが臼と杵の働きであるときに意図されている形——米粒を作ることを通じてアプールヴァに役立つ行為であること——は割ることにも同じである、と、その形で搗くことと割ることが一つであると推し量られるので、働きの引き継ぎは推し量りで確かめられる。</div>
+  <div class="exp"><span class="lbl">解説</span><p>言い換えの前提である「働きの引き継ぎ（kāryāpatti）」が、どう知られるかの分類です。ニーヴァーラ（野生の米）は米と同じく供物を作る（直接）。爪で割ることは搗くことと同じく米粒を作る（推し量り）。</p></div>
+  <div class="nt">このブロックの冒頭に p.507 の標識を補った。「अनुमानेन (न, प्रत्यक्षवचनेन,)」は校訂者の示唆に従って「अनुमानेन, प्रत्यक्षवचनेन,」と読んだ。「पर्यवासायित्व」を「पर्यवसायित्व」、「ब्रीहीणां」を「व्रीहीणां」と正した。p.508 の標識はこのブロックの中にある。</div>
+</div>
+<div class="mula" id="r2">
+  <span class="ref">508</span>
+  <div class="src deva" lang="sa">परिधौ पशुं नियुञ्जीत" इत्यत्र प्राकृतपशुकार्ये पशुनियोजने परिधेर्विनियोगः प्रत्यक्षवचनेनाभिधीयते । "न गिरा गिरेति ब्रूयादैरं कृत्वोद्गेयम्" इत्यत्र गिरापदोक्तिप्रतिषेधावगतया गिरापदनिवृत्त्या तत्कार्यस्य साधनापेक्षत्वावगमात्तत्कार्यवाचिपदमनुमाय "गिरापदकार्यार्थमैरं कृत्वोद्गेयम्" इत्येवंरूपेण श्रुतानुमितैकदेशनिष्पादितेन वाक्येन गिरापदकार्यापत्तिरिरापदस्यावसीयते । "यस्योभयं हविरार्तिमार्च्छेदैन्द्रं पञ्चशरावमोदनं निर्वपेत्" इत्यत्र पञ्चशरावद्रव्यकस्य यागस्य दर्शकार्यापत्तौ दर्शनिवृत्तिर्न प्रत्यक्षवचनादवगम्यते; किन्तु द्रव्यनाशादुन्नीयते । तन्निवृत्तौ तत्कार्यस्य साधनापेक्षतया तद्वाचिपदमनुमाय 'दर्शकार्यार्थमैन्द्रं पञ्चशरावमोदनं निर्वपेत्' इति श्रुतानुमितैकदेशनिष्पाद्येन वाक्येन पञ्चशरावयागस्य दर्शकार्यापत्तिरवसीयते । "स प्रत्यामनेत्स्थानात्" इति षष्ठाध्यायाधिकरणपूर्वपक्षरीत्येदमुदाहरणम् । सिद्धान्ते द्रव्यापचारे द्रव्यान्तरानयनेन दर्शनिष्पत्तेर्न तन्निवृत्त्युन्नयनमस्तीत्युदाहरणान्तरमन्वेषणीयम् ॥</div>
+  <div class="tr">「パリディに家畜をつなぐべし」では、本来の家畜〔の柱〕の働きである家畜をつなぐことにパリディを用いることが、直接の言葉で述べられる。<br>「『ギラー』で『ギラー』と言うべからず。『アイラ』にして歌うべし」では、「ギラー」の語を言うことの禁止で知られる「ギラー」の語の退けによって、その働きが手段を求めることが知られるので、その働きを表す語を推し量って、「『ギラー』の語の働きのために『アイラ』にして歌うべし」という形の、聞かれた部分と推し量られた部分から成る文によって、「ギラー」の語の働きを「イラー」の語が引き継ぐことが確かめられる。<br>「両方の供物に災いがあった者は、インドラへの五皿の粥を取り分けるべし」では、五皿の物をもつ祭が新月祭の働きを引き継ぐとき、新月祭の退けは直接の言葉から知られるのではなく、物がなくなることから推し量られる。その退けがあれば、その働きは手段を求めるので、それを表す語を推し量って、「新月祭の働きのためにインドラへの五皿の粥を取り分けるべし」という、聞かれた部分と推し量られた部分から成る文によって、五皿の祭が新月祭の働きを引き継ぐことが確かめられる。<br>これは、「それを替えて教えるべし、位置から」という第6巻の主題の前主張のやり方での例である。定説では、物が損なわれても別の物を持ってきて新月祭が成り立つので、その退けを推し量ることはない。だから別の例を探すべきである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>直接の言葉による引き継ぎ（パリディ）、禁止から推し量られる語による引き継ぎ（ギラーとイラー）、目印から推し量られた退けによる引き継ぎ（災いの文）。最後の例は、アッパイヤ自身が「定説では成り立たない」と注記しています（『ヴィディ・ラサーヤナ』第41偈の解説で、災いの文を別の祭事とした議論と関わる）。</p></div>
+  <div class="nt">「परिधेविनियोगः」を「परिधेर्विनियोगः」、「कृत्वोग्नेयम्」「कृत्वोनेयम्」を「कृत्वोद्गेयम्」、「हविरार्तिमाच्छेत्」を「हविरार्तिमार्च्छेत्」、「द्रव्यकत्य」を「द्रव्यकस्य」と正した。「अवगम्यते (दुन्नीयते)」は校訂者の示唆に従って「उन्नीयते」と読んだ。</div>
+</div>
+<div class="mula" id="r3">
+  <span class="ref">508–509</span>
+  <div class="src deva" lang="sa">एवं कार्यापत्त्या व्रीहिधर्माणामवघातादीनां नीवारेषु, उलूखलमुसलधर्माणां प्रोक्षणादीनां नखेषु, यूपधर्माणां परिव्याणादीनां परिधौ चोहः संस्कारोहः, दर्शधर्माणां सिद्धान्ते नास्त्यूहः पञ्चशरावयागे । गिरापदगतगीतिक्रियाया इरापदे ऊहः सामोहः । मन्त्रोहस्त्वष्टविधः --- क्वचित् प्रकृतिमात्रमूह्यते, यथा "अग्नये जुष्टम्" इति मन्त्रे सौर्यं चरुं प्राप्ते "सूर्याय जुष्टम्" इति; क्वचिल्लिङ्गमात्रमूह्यते, यथा "वस्व्यसि रुद्रासि" इत्येकहायनीमन्त्रे विकृतिविशेषविहितं सोमक्रयणं वत्सं प्राप्ते "वसुरसि रुद्रोऽसि" इति ; क्वचिद्वचनमात्रमूह्यते, यथा "छागस्य वपाया मेदसः" इति मन्त्रे प्राजापत्यान् पशून् प्राप्ते "छागानाम्" इति; क्वचित् प्रकृतिर्लिङ्गं चोह्यते, यथा तस्मिन्नेव "अग्नये जुष्टं निर्वपामि" इति मन्त्रे आदित्यं चरुं प्राप्ते "अदित्यै जुष्टम्" इति; क्वचित् प्रकृतिः वचनं चोह्यते, यथा तस्मिन्नेव मन्त्रे वैश्वदेवं चरुं प्राप्ते "विश्वेभ्यो देवेभ्यः" इति; क्वचिल्लिङ्गं वचनं चोह्यते, यथा "प्रास्मा अग्निं भरत" इति मन्त्रे "मल्हा आलभेत" इति विहितान् पशून् प्राप्ते "प्राभ्योऽग्निम्" इति; क्वचित् त्रीण्यप्यूह्यन्ते, यथा "आपो देवीः" इति मन्त्रे "आज्यं प्रोक्षणम्" इति सोमारौद्रचरौ विहितं घृतं प्राप्ते "घृत देव" इति; क्वचित् सकलस्य पदस्याभ्यासरूप ऊहः, यथा "एकधास्य त्वचमाच्छ्यतात्" इति मन्त्रे पशुगणं प्राप्ते "एकधैकधा" इति । एवमूहः सापवादो नवमे प्रपञ्चितः ॥</div>
+  <div class="tr">このように働きの引き継ぎによって、米の規則である搗くことなどのニーヴァーラへの、臼と杵の規則である振りかけることなどの爪への、祭柱の規則である巻きつけることなどのパリディへの言い換えが、浄めの言い換えである。新月祭の規則の五皿の祭への言い換えは、定説ではない。「ギラー」の語にある歌の行為の「イラー」の語への言い換えが、サーマンの言い換えである。<br>一方、マントラの言い換えは八種である。あるときは語幹だけを言い換える。たとえば「アグニに好まれるものを」というマントラで、スーリヤへの粥が来たとき「スーリヤに好まれるものを」と。あるときは性だけを言い換える。たとえば「汝はヴァスヴィー、汝はルドラー」という一歳の〔雌牛の〕マントラで、特定の変形祭祀に規定されたソーマを買う子牛〔雄〕が来たとき「汝はヴァス、汝はルドラ」と。あるときは数だけを言い換える。たとえば「山羊の網膜の脂の」というマントラで、プラージャーパティの家畜たちが来たとき「山羊たちの」と。あるときは語幹と性を言い換える。たとえば同じ「アグニに好まれるものを取り分ける」というマントラで、アディティへの粥が来たとき「アディティに好まれるものを」と。あるときは語幹と数を言い換える。たとえば同じマントラで、ヴィシュヴェーデーヴァへの粥が来たとき「すべての神々に」と。あるときは性と数を言い換える。たとえば「彼にアグニを運べ」というマントラで、「〔三頭の〕雌山羊を取り押さえるべし」と規定された家畜たちが来たとき「彼女らにアグニを」と。あるときは三つとも言い換える。〔p.509〕たとえば「水の女神たちよ」というマントラで、「ギーが振りかける水」とソーマ・ルドラへの粥に規定されたギーが来たとき「ギーの神よ」と。あるときは語全体を繰り返す形の言い換え。たとえば「その皮を一つに切れ」というマントラで、家畜の群れが来たとき「一つ一つに」と。このように言い換えが、例外とともに第9巻で詳しく論じられた。</div>
+  <div class="exp"><span class="lbl">解説</span><p>言い換えを、浄めの言い換え・サーマンの言い換え・マントラの言い換えの三つに分け、マントラの言い換えを八種に分けます（上の表）。チトラパタ第9部の内容を、例で整理したものです。</p></div>
+  <div class="nt">「प्रकृतिर्लिङ्ग चोह्यते」を「प्रकृतिर्लिङ्गं चोह्यते」、「प्राभ्योऽनिम्」を「प्राभ्योऽग्निम्」と正した。p.509 の標識はこのブロックの中にある。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第10巻：退け</h2><span class="sub"><span class="pg">pp.509–510</span></span></div>
+<div class="mula" id="r4">
+  <span class="ref">509</span>
+  <div class="src deva" lang="sa">एवमातिदेशिकपदार्थगतरूपान्तरात्मकोहनिरूपणानन्तरं तन्निवृत्त्यात्मको बाधो दशमे निरूपितः । निवृत्तिश्च कस्यचित् क्वचिदतिदेशवाक्यप्रवृत्तिकाले प्रकृतावविज्ञातत्वेन तद्ग्राह्यत्वासंभवात्, यथा दर्शपूर्णमासाङ्गभूताया आरम्भणीयायाः । न ह्यारम्भणीयाविधानसमये दर्शपूर्णमासयोरारम्भणीयाङ्गमिति विज्ञातम्, येन सापि प्रयाजादिवदतिदेशवाक्येन गृह्येत; कस्यचिदतिदेशवाक्यप्रवृत्तिकाले प्रकृतौ विज्ञातस्याप्यसम्भवान्निवृत्तिः, यथा पवमानेष्टावग्निहोत्रहवण्याः । ययाग्निहोत्रं हुतं साग्निहोत्रहवणी प्रकृतौ "अग्निहोत्रहवण्या हवींषि निर्वपति" इति निर्वापकरणत्वेन ग्राह्येति स्थितम् । न च पवमानेष्टिसमयेऽग्निहोत्रं हुतम् ।</div>
+  <div class="tr">このように、類推適用された事柄にある別の形を本質とする言い換えを論じたあとで、その退けを本質とする退けが、第10巻で論じられた。<br>退けは、あるものについては、類推適用の文が働く時に本来の祭祀で知られていないので、それによって取られることがありえないことによる。たとえば新月満月祭の補助であるアーランバニーヤ〔・イシュティ〕の〔退け〕。アーランバニーヤを規定する時に、新月満月祭にアーランバニーヤが補助として知られているわけではない。そうであれば、それもプラヤージャなどと同じく類推適用の文によって取られようが。<br>あるものについては、類推適用の文が働く時に本来の祭祀で知られていても、ありえないことによる退けである。たとえばパヴァマーナ・イシュティでのアグニホートラの杓の〔退け〕。アグニホートラを献じた杓が、本来の祭祀で「アグニホートラの杓で供物を取り分ける」と、取り分けの道具として取られるべきものと確定している。しかし、パヴァマーナ・イシュティの時には、アグニホートラは献じられていない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>退けの理由の最初の二つ。本来の祭祀でまだ補助と知られていないもの（アーランバニーヤ）、知られていても変形祭祀では成り立たないもの（パヴァマーナ・イシュティは祭火の設置の時に行うので、まだアグニホートラを献じた杓がない）。チトラパタ第257偈・第9部第227偈に対応します。</p></div>
+  <div class="nt">「एवामातिदेशिक」を「एवमातिदेशिक」、「तद्वाह्यत्व」を「तद्ग्राह्यत्व」と正した。「आरम्भणीयायाः (याः आम्भणीयायाम्)」の括弧内の校訂者の注記は除いた。</div>
+</div>
+<div class="mula" id="r5">
+  <span class="ref">509</span>
+  <div class="src deva" lang="sa">क्वचित् द्वारलोपान्निवृत्तिः । तत्र द्वारलोपः । क्वचित् द्वारस्याभिमतस्य स्वतः सिद्धतया, यथा कृष्णलेष्ववघातद्वारस्य वैतुष्यस्य स्वतः सिद्धतयावघातस्य निवृत्तिः । क्वचित् पूर्वसिद्धतया, यथा "खलेवाली यूपो भवति" इत्यत्र खलेवाल्याः प्रागेव च्छित्वा तक्षणेन श्लक्ष्णीकृत्य निखातायाः छेदनतक्षणोच्छ्रयणादीनां निवृत्तिः; क्वचित् द्वारसंपादनाशक्त्या । यथा प्राशित्रेडाभक्षणार्थेषु कृष्णलेषु अभिघारणजन्योपकारस्य स्वादिम्नः संपादयितुमशक्यत्वात् अभिघारणस्य; क्वचित् सिद्धशेषिविरोधान्निवृत्तिः, यथा--आग्रयणदक्षिणारूपे वत्सेऽन्वाहार्यधर्मस्य पाकस्य । पाके हि कृते वत्सो नश्येत्; तन्मांसमेव दक्षिणा स्यात् । क्वचित् साध्यशेषिविरोधात् तन्निवृत्तिः, यथा "बार्हस्पत्यो नैवारःसप्तदशशरावः चरुर्भवति" इत्यत्र निर्वाप्येषु "चतुरो मुष्टीन्निर्वपति" इत्यतिदेशप्राप्तस्य चतुर्मुष्टिपरिमाणस्य सप्तदशपरिमाणचरुरूपसाध्यशेषिविरोधित्वात् संख्यामुष्ट्योरन्यतरबाधावश्यंभावे जघन्यत्वान्मुष्टिनिवृत्तिः; क्वचिद्विरोधाभावेऽपि प्रयोजनाभावान्निवृत्तिः, यथा आग्रयणदक्षिणारूपे वाससि पाकस्य । प्रकृतौ हि अन्वाहार्यरूपदक्षिणाद्रव्यनिष्पत्त्यर्थम् "दक्षिणाग्नावपरिमितं महान्तमोदनं पचति" इति पाको विहितः । इह दक्षिणाद्रव्ये वाससि प्रागेव निष्पन्ने स्थिते तन्निष्पत्त्यनुपयोगिना किं पाकेन ॥</div>
+  <div class="tr">あるときは、媒介がなくなることによる退けである。そこで、媒介がなくなるとは——あるときは、意図された媒介がそれ自体で成り立っていることによる。たとえば黄金の粒では、搗くことの媒介である籾がないことがそれ自体で成り立っているので、搗くことが退けられる。あるときは、前もって成り立っていることによる。たとえば「脱穀場の柱が祭柱である」では、脱穀場の柱は前もって切られ、削って滑らかにされ、埋められているので、切ること・削ること・立てることなどが退けられる。あるときは、媒介を成り立たせることができないことによる。たとえばプラーシトラとイダーを食べるための黄金の粒では、〔ギーを〕注ぐことが生む助けである美味しさを成り立たせることができないので、注ぐことが〔退けられる〕。<br>あるときは、成り立っている主と矛盾することによる退けである。たとえばアーグラヤナの謝礼である子牛での、アンヴァーハーリヤの規則である煮ることの〔退け〕。煮れば子牛は死ぬだろう。その肉だけが謝礼となってしまう。あるときは、作られるべき主と矛盾することによる退けである。たとえば「ブリハスパティへの、ニーヴァーラの、十七皿の粥」で、取り分けるべきものについて「四掴みを取り分ける」と類推適用で得られた四掴みの量が、十七皿の量の粥という作られるべき主と矛盾するので、数と掴みのどちらかの退けが避けられないとき、〔掴みのほうが〕後に来るので、掴みが退けられる。<br>あるときは、矛盾がなくても、目的がないことによる退けである。たとえばアーグラヤナの謝礼である衣での、煮ることの〔退け〕。本来の祭祀では、アンヴァーハーリヤという謝礼の物を作るために、「南の火で量りなく大きな飯を煮る」と煮ることが規定された。ここでは謝礼の物である衣が前もってできあがっているのに、それを作ることに役立たない煮ることが何になろう。</div>
+  <div class="exp"><span class="lbl">解説</span><p>退けの理由のうち、媒介（dvāra、補助が助けを生む道）がなくなる場合の三種と、主との矛盾の二種、目的がない場合です。チトラパタ第10部の多くの例がここで理由ごとに整理されます。</p></div>
+  <div class="nt">「द्वारसंपादनाशक्तया」を「द्वारसंपादनाशक्त्या」、「प्रयोजनाभावानिवृत्तिः」を「प्रयोजनाभावान्निवृत्तिः」、「तमिष्पत्यनुपयोगिना」を「तन्निष्पत्त्यनुपयोगिना」と正した。</div>
+</div>
+<div class="mula" id="r6">
+  <span class="ref">510</span>
+  <div class="src deva" lang="sa">द्वारलोपान्निवृत्तिरित्यत्र द्वारशब्देन यद्वारतया फलतया वा प्रयोजनं तत्सर्वं विवक्षितम् । तेन मृते यजमाने क्रियमाणायामिष्टौ "आयुराशास्ते" इत्यादिमन्त्राणां विवक्षितफलानां मृतयजमानस्यायुरादिफललोपान्निवृत्तिरप्युदाहरणमित्यादि द्रष्टव्यम् ॥</div>
+  <div class="tr">〔p.510〕「媒介がなくなることによる退け」で、媒介の語によって、媒介として、あるいは果報として目的であるものすべてが意図されている。だから、祭主が死んだときに行うイシュティで、「寿命を祈る」などのマントラが、意図された果報である死んだ祭主の寿命などの果報がなくなるので退けられるのも例である、などと見るべきである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>「媒介」には果報も含まれます（チトラパタ第269–270偈の骨の祭の例）。</p></div>
+  <div class="nt">p.510 の標識はこのブロックの冒頭にある。</div>
+</div>
+<div class="mula" id="r7">
+  <span class="ref">510</span>
+  <div class="src deva" lang="sa">क्वचित् प्रत्याम्नानात् प्राकृतपदार्थानां निवृत्तिः । साप्यनेकविधा । क्वचिदुपदिष्टपदार्थविरोधान्निवृत्तिः, यथा- "औदुम्बरो यूपो भवति" इति वैकृतपशौ अतिदेशप्राप्तयूपोद्देशेन उदुम्बररूपप्रकृतिद्रव्यविधानात् उदुम्बरप्रकृतिके यूपे प्राकृतस्य बिल्वपलाशादेः विरोधेन प्रकृतित्वासम्भवान्निवृत्तिः; क्वचिदुपदिष्टपदार्थगतश्रुतनैरपेक्ष्यविरोधान्निवृत्तिः, यथा--- "नैवारश्चरुर्भवति" इत्यत्र नीवारप्रकृतिके चरौ व्रैहतण्डुलानामपि मिश्रणेन प्रकृतित्वसम्भवेऽपि नीवारशब्दपरतद्धितोत्पत्त्यवगतनैरपेक्ष्यविरोधात् व्रीहीणां निवृत्तिः । नीवाराणां व्रीहिसापेक्षाणां चरुप्रकृतित्वे हि सापेक्षमसमर्थमिति असमर्थात् तद्धितोत्पत्तिः न स्यात् । क्वचिदविरोधेऽपि नैरपेक्ष्यान्निवृत्तिः, यथा--आग्रयणे "वासो दक्षिणा" "वत्सः प्रथमजो दक्षिणा" इति श्रुताभ्यां वासोवत्साभ्याम् ऋत्विजामानतौ तयोरन्वाहार्यनिरपेक्षकारणत्वात् प्राकृतान्वाहार्यदक्षिणाया निवृत्तिः; क्वचिन्नैरपेक्ष्याभावेऽपि नियमवशात् निवृत्तिः, यथा ऋतपेये "औदुम्बरसोमचमसो दक्षिणा सप्रियाय सगोत्राय ब्रह्मणे देयः" इति श्रुतेन सोमचमसेन केवलं ब्रह्मणे दत्तेन लौकिकोपायान्तरमनपेक्ष्य ऋत्विजामानतेरसम्भवेऽपि श्रुतनियमविधिवशात् प्राकृतद्वादशशतदक्षिणाया निवृत्तिरित्युदाहरणीयम् ॥</div>
+  <div class="tr">あるときは、替えて教えることによって本来の祭祀の事柄が退けられる。それもいくつもの種類がある。<br>あるときは、教えられた事柄との矛盾による退けである。たとえば「ウドゥンバラの祭柱である」で、変形祭祀の家畜祭で、類推適用で得られた祭柱を対象にウドゥンバラという原料の物が規定されるので、ウドゥンバラを原料とする祭柱では、本来の祭祀のビルヴァ・パラーシャなどが、矛盾によって原料であることがありえないので、退けられる。<br>あるときは、教えられた事柄にある、聞かれた〔他に〕依らないことと矛盾することによる退けである。たとえば「ニーヴァーラの粥である」では、ニーヴァーラを原料とする粥に、米の米粒も混ぜれば原料でありうるが、ニーヴァーラの語のあとの派生接辞の生起から知られる〔他に〕依らないことと矛盾するので、米が退けられる。ニーヴァーラが米に依って粥の原料であるなら、「依るものは〔接辞の〕力をもたない」ので、力をもたないものからは派生接辞が生じないことになるからである。<br>あるときは、矛盾がなくても、〔他に〕依らないことによる退けである。たとえばアーグラヤナで、「衣が謝礼」「初子の子牛が謝礼」と聞かれた衣と子牛で祭官を雇うとき、その二つはアンヴァーハーリヤに依らない手段なので、本来の祭祀のアンヴァーハーリヤという謝礼が退けられる。あるときは、〔他に〕依らないことがなくても、制限によって退けられる。たとえばリタペーヤで「ウドゥンバラのソーマのチャマサが謝礼。親しい同族のブラフマンに与えるべし」と聞かれたソーマのチャマサを、ブラフマンだけに与えても、世間のほかの手段を求めずに祭官を雇うことはありえないが、聞かれた制限の規定によって、本来の祭祀の百十二〔の牛〕という謝礼が退けられる、と例を挙げるべきである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>替えて教えること（pratyāmnāna）による退けの四種。矛盾・〔他に〕依らないことの聞き取りとの矛盾・〔他に〕依らないこと・制限。チトラパタ第277–282偈（謝礼の扱い）がここに整理されます。</p></div>
+  <div class="nt">「व्रैहतण्डुला」「तद्धितोत्पत्त्यवगत」「नैरपेक्ष्यान्निवृत्तिः」はOCRの誤りを正したもの。</div>
+</div>
+<div class="mula" id="r8">
+  <span class="ref">510</span>
+  <div class="src deva" lang="sa">क्वचित् प्रतिषेधात् प्राकृतपदार्थनिवृत्तिः । प्रतिषेधशब्देनात्र यः कश्चित् प्राकृतपदार्थनिवृत्तिपरो विधिः स सर्वोऽपि विवक्षितः । तेन महापितृयज्ञे "नार्षेयं वृणीते" इत्यनेन आर्षेयवरणवर्जं प्रकृतिवत् कुर्यात् इति पर्युदासेन या तस्मिन्नार्षेयवरणनिवृत्तिः "न तौ पशौ करोति" इति आज्यभागनिषेधाद्या पशावाज्यभागनिवृत्तिः, "आज्यभागौ यजति" इति अपूर्वतापरविधिना आज्यभागयोः या गृहमेधीये निवृत्तिः सा सर्वाप्यत्रोदाहरणम् । एवं च दर्शपूर्णमासयोः "कपालेषु श्रपयति" इति वाक्यस्य तण्डुलहविष्केषु चित्रादिषु व्रीह्युपादाननिवृत्तेरेव फलत्वात् साप्यत्रोदाहरणम् । यथा च "कपालेषु श्रपयति" इति विधेः तण्डुलहविष्कासु विकृतिषु प्रकृतिद्रव्योपादाननिवृत्तिरेव फलम्, तथा प्रपञ्चेन प्रसाधितमस्माभिः विधिरसायने ॥</div>
+  <div class="tr">あるときは、禁止によって本来の祭祀の事柄が退けられる。ここで禁止の語によって、本来の祭祀の事柄の退けを意図するどんな規定もすべてが意図されている。だから、大祖霊祭で「アールシェーヤを選ばない」によって、「アールシェーヤの選定を除いて本来の祭祀のとおりに行うべし」という限定否定で、そこでアールシェーヤの選定が退けられること、「それら二つを獣祭では行わない」というアージュヤ・バーガの禁止で、獣祭でアージュヤ・バーガが退けられること、「アージュヤ・バーガを祭る」というアプールヴァであることを意図する規定によって、家長の供物でアージュヤ・バーガが退けられること、それらすべてがここでの例である。<br>そうすると、新月満月祭の「皿で煮る」という文は、米粒を供物とするチトラーなど〔の変形祭祀〕で、米を取ることを退けることだけを果報とするので、それもここでの例である。「皿で煮る」という規定は、米粒を供物とする変形祭祀で、本来の祭祀の物を取ることを退けることだけを果報とする、ということは、私たちが『ヴィディ・ラサーヤナ』で詳しく論証したとおりである。</div>
+  <div class="exp"><span class="lbl">解説</span><p>禁止による退け。限定否定、禁止、アプールヴァの規定（家長の供物）の三つの例。最後に、新月満月祭の「皿で煮る」の果報が変形祭祀での退けにある、という論点を、『ヴィディ・ラサーヤナ』（第10偈などの解説）で詳しく論じたと言います——ここで二つの著作がつながります。</p></div>
+  <div class="nt">「आर्षेयवरणवर्णं」を「आर्षेयवरणवर्जं」、「साप्यत्रोदारणम्」を「साप्यत्रोदाहरणम्」と正した。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この部に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>kāryāpatti</dt><dd>働きの引き継ぎ。変形祭祀の物が本来の物の働きを担うこと</dd>
+    <dt>saṃskāroha / sāmoha / mantroha</dt><dd>浄めの言い換え／サーマンの言い換え／マントラの言い換え</dd>
+    <dt>prakṛti / liṅga / vacana</dt><dd>（文法の）語幹／性／数</dd>
+    <dt>dvāralopa</dt><dd>媒介がなくなること</dd>
+    <dt>pratyāmnāna</dt><dd>替えて教えること</dd>
+    <dt>nairapekṣya</dt><dd>〔他に〕依らないこと</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）所収の『ディーピカー』pp.507–510 のOCRテキストに拠る。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>
