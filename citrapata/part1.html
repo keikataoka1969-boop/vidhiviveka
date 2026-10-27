@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pramāṇa 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#s1"><b>1</b>第1章：ダルマと規定</a></li>
+    <li><a href="#s2"><b>2</b>第2章：釈義とマントラ</a></li>
+    <li><a href="#s3"><b>3</b>第3章：伝承と慣行</a></li>
+    <li><a href="#s4"><b>4</b>第4章：祭事の名</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">チトラパタ　第1部</div>
+  <h1>Pramāṇa</h1>
+  <p class="deva-title" lang="sa">चित्रपटः — प्रथमोऽध्यायः</p>
+  <p class="sub">第1巻：ダルマの根拠——規定、釈義とマントラ、伝承と慣行、祭事の名</p>
+  <span class="sample">対訳　第1部（pp.451–453）</span>
+  <p>『チトラパタ』（「絵の布」）は、アッパイヤ・ディークシタが『ミーマーンサー・スートラ』全十二巻の主題（adhikaraṇa）の結論を、388のアヌシュトゥブ詩節に詰めたものです。一つの詩節に二つ三つの主題が入ることも多く、主題の名を思い出すための覚え書きに近い書き方です。</p>
+  <p>第1巻は、ダルマを知る根拠（pramāṇa）を扱います。第1章はヴェーダの規定が唯一の根拠であること、第2章は釈義（arthavāda）とマントラ、第3章は伝承（smṛti）と慣行、第4章は祭事の名（nāmadheya）です。第3章の主題の分け方は、シャバラとクマーリラ（ヴァールッティカ）で異なり、アッパイヤは両方を並べています。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>著者</dt><dd>Appayya Dīkṣita（16世紀）</dd></div>
+    <div><dt>形式</dt><dd>アヌシュトゥブ詩節388。各巻・各章の主題の結論を順に並べる</dd></div>
+    <div><dt>第1巻</dt><dd>第1–17偈。ダルマの根拠</dd></div>
+    <div><dt>読み方</dt><dd>各ブロックの解説で、詩節が指す主題（スートラ番号）を示す。番号はシャバラの区分による目安</dd></div>
+  </dl>
+  <table class="tbl min"><thead><tr><th>章</th><th>主題</th><th>偈</th></tr></thead><tbody>
+    <tr><td>1.1</td><td>ダルマの定義と根拠、語の常住</td><td>1–2</td></tr>
+    <tr><td>1.2</td><td>釈義とマントラ</td><td>3</td></tr>
+    <tr><td>1.3</td><td>伝承・慣行・語の意味</td><td>4–11</td></tr>
+    <tr><td>1.4</td><td>祭事の名と二次的な用法</td><td>12–17</td></tr>
+  </tbody></table>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>第1章：ダルマと規定</h2><span class="sub"><span class="pg">p.451</span></span></div>
+<div class="mula" id="c1">
+  <span class="ref">451</span>
+  <div class="src deva" lang="sa">अथातो धर्मजिज्ञासा धर्मोऽर्थो विधिचोदितः । तत्प्रमाणं परीक्ष्यं स्यान्नाक्षाद्यैस्स प्रमीयते ॥१॥ विधिस्तस्मिन् मानमेव नित्यः शब्दः पदात्मकः । नित्यानि वेदवाक्यानि नानित्यानि समाख्यया ॥२॥</div>
+  <div class="tr">「さてそれゆえ、ダルマの探究を」。ダルマとは、規定によって促される目的である。その根拠を吟味すべきである。それは知覚などによっては知られない。（1）<br>それについては、規定こそが根拠である。語は常住であり、〔文は〕語から成る。ヴェーダの文は常住であって、呼び名によって無常なのではない。（2）</div>
+  <div class="exp"><span class="lbl">解説</span><p>第1巻第1章の主題を順に挙げます。探究の主題（1.1.1）、「ダルマとは促し（codanā）を特徴とする目的」（1.1.2）、根拠の吟味（1.1.3）、知覚は根拠でない（1.1.4）、規定（促し）が根拠である（1.1.5）、語の常住（1.1.6–23）、文の意味は語から成る（1.1.24–26）、ヴェーダは人の作でない（1.1.27–32）。最後の主題では、「カータカ」などの呼び名は作者ではなく伝えた人を示すので、ヴェーダが無常であることにはならない、とされます。</p></div>
+  <div class="nt">「नाक्षाद्यैस्तत् (स्स) प्रमीयते」は校訂者の示唆に従って「नाक्षाद्यैस्स प्रमीयते」と読んだ。「नित्यानि वेदवा वाक्यानि」は韻律から「नित्यानि वेदवाक्यानि」と正した。このブロックの冒頭に p.451 の標識を補った。表題の行（ॐ ・चित्रपटः・श्रीमदप्पय्यदीक्षितविरचितः）は原文欄から除いた。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第2章：釈義とマントラ</h2><span class="sub"><span class="pg">p.451</span></span></div>
+<div class="mula" id="c2">
+  <span class="ref">451</span>
+  <div class="src deva" lang="sa">मन्त्रार्थवादप्रमुखाः प्रमाणमिति वार्तिके । स्युरर्थवादाः स्तुत्यर्था विधिवन्निगदास्तथा ॥३॥ हेतुवन्निगदास्तद्वन्मन्त्राः स्मृत्युपकारिणः ॥</div>
+  <div class="tr">マントラや釈義などが根拠であることは、ヴァールッティカの言うとおりである。釈義は称えのためのものであり、規定に似た唱えも同じである。（3）理由を伴う唱えも同じであり、マントラは〔祭事の内容を〕思い出させることで役立つ。</div>
+  <div class="exp"><span class="lbl">解説</span><p>第2章は、規定以外のヴェーダの部分が根拠でありうるかを問います。釈義は規定を称えることで役立つ（1.2.1–18）、規定に似た唱え（vidhivannigada）、理由を伴う唱え（hetuvannigada）、マントラは祭事の内容を思い出させる（1.2.31–53）。冒頭の「ヴァールッティカの言うとおり」は、クマーリラがこの章全体をヴェーダの各部分の根拠性の論として読むことを指すと思われます。</p></div>
+  <div class="nt">「प्रमाणनीति」は「प्रमाणमिति」と読んだ。「तद्वत् मन्त्राः」を「तद्वन्मन्त्राः」とした。第4偈の前半はこの章の終わりの半偈。</div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第3章：伝承と慣行</h2><span class="sub"><span class="pg">pp.451–452</span></span></div>
+<div class="mula" id="c3">
+  <span class="ref">451–452</span>
+  <div class="src deva" lang="sa">स्यात्स्मृतीनां प्रमाणत्वं मूलवेदानुमानतः ॥४॥ न च श्रुतिविरुद्धानां न च मूलान्तरस्पृशाम् । श्रौतक्रमविरोधेन नाचामस्मृत्यमानता ॥५॥ अर्था यवादिशब्दानां वाक्यशेषानुसारिणः । आर्याविरोधे मानत्वं म्लेच्छव्यवहृतेरपि ॥६॥ न वेदाः कल्पसूत्राणि होळाकाद्यव्यवस्थितम् । मानं व्याकरणं नान्ये शब्दार्था लोकवेदयोः ॥७॥ शब्दार्थ आकृतिर्व्यक्तौ लक्षणाक्षेपसंभवात् । आ विरोधाता च यवात् भिद्यन्ते वार्तिके नयाः ॥८॥</div>
+  <div class="tr">伝承が根拠であるのは、もとになるヴェーダを推し量ることによる。（4）<br>しかし、聞き取りと矛盾するものや、別のもと〔欲など〕に触れるものは〔根拠では〕ない。聞き取りの順序と矛盾しても、口すすぎの伝承が根拠でないことはない。（5）<br>大麦などの語の意味は、文の残りに従う。アーリヤ〔の用法〕と矛盾しないときは、ムレーッチャの用法にも根拠となる力がある。（6）<br>カルパ・スートラはヴェーダではない。ホーラーカなど〔の慣行〕は〔地方に〕限られない。文法は根拠である。世間とヴェーダで、語と意味は別ではない。（7）<br>語の意味は類である。個物には、間接表示と含意によって〔至ることが〕できるからである。矛盾〔の主題〕から大麦〔の主題〕までは、ヴァールッティカでは主題〔の分け方〕が異なる。（8）</div>
+  <div class="exp"><span class="lbl">解説</span><p>シャバラの区分による第3章です。伝承の根拠性（1.3.1–2）、聞き取りとの矛盾・別のもと（1.3.3–4）、口すすぎ（くしゃみなどのあと祭事中でも口をすすぐ伝承は、順序と矛盾しても有効）、大麦（yava）・猪（varāha）などの語は文の残りで決まる、ムレーッチャの語（pika・nemaなど）、カルパ・スートラ（1.3.11–14）、ホーラーカ（1.3.15–23）、文法（1.3.24–29）、語の意味は類（ākṛti、1.3.30–35）。最後の句は、次の第9–11偈が、クマーリラによる別の区分を示すことを告げます。</p></div>
+  <div class="nt">「आ विरोधाता च यवात्」は読みが確かでない。「矛盾〔の主題〕から大麦〔の主題〕まで」と解した。p.452 の標識はこのブロックの中にある。</div>
+</div>
+<div class="mula" id="c4">
+  <span class="ref">452</span>
+  <div class="src deva" lang="sa">श्रुतिस्मृत्योर्विरोधे द्राग्विस्रम्भः श्रुतिबोधिते । बाह्यशास्त्रं चानपेक्ष्यं शिष्टाचारस्य मानता ॥९॥ यद्याचारे विगानं स्यान्नादृत्यो दुष्टहेतुकः । बलिर्न्यायव्यवहृतिर्म्लेच्छानां व्यवहारतः ॥१०॥ स्मृत्याचारविरोधे च नाचारस्य प्रमाणता । त्रिवृदादिपदार्थश्च स्तोत्रीयानवकादिकम् ॥११॥</div>
+  <div class="tr">〔ヴァールッティカの区分では〕聞き取りと伝承が矛盾するときは、聞き取りが教えるものにすぐに信を置く。外の学は顧みなくてよい。立派な人の慣行は根拠である。（9）<br>もし慣行に食い違いがあれば、悪い原因によるものは顧みない。供え物（バリ）や裁きの扱いは、ムレーッチャの慣行からも〔知られる〕。（10）<br>伝承と慣行が矛盾するときは、慣行は根拠ではない。トリヴリットなどの語の意味は、讃歌の詩節の九つ組などである。（11）</div>
+  <div class="exp"><span class="lbl">解説</span><p>クマーリラの『タントラ・ヴァールッティカ』は、第3章のスートラを別の主題に分けます。聞き取り優先、仏教など外の学の排除、立派な人の慣行（śiṣṭācāra）の根拠性、慣行同士の食い違い、伝承と慣行の矛盾、トリヴリット（九詩節の讃歌）などの語の意味は世間ではなくヴェーダから知る、などです。</p></div>
+  <div class="nt">「शिष्ठाचारस्य」を「शिष्टाचारस्य」と正した。「बलिर्त्यायव्यवहृतिम्लेच्छानां」は「बलिर्न्यायव्यवहृतिर्म्लेच्छानां」と読んだが、意味は確かでない。</div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>第4章：祭事の名</h2><span class="sub"><span class="pg">pp.452–453</span></span></div>
+<div class="mula" id="c5">
+  <span class="ref">452–453</span>
+  <div class="src deva" lang="sa">प्रामाण्यमुद्भिदादीनामविशेषेण वार्तिके । कर्मनामोद्भिदादि स्याच्चित्राज्यादिपदं तथा ॥१२॥ तथाघारस्तथा श्येनो वाजपेयपदं तथा । आग्नेयादिर्गुणविधिर्जात्यर्थे बर्हिराज्यके ॥१३॥ यौगिकः प्रोक्षणीशब्दो निर्मन्थ्योऽपि तथाविधः । नाम स्याद्वैश्वदेवोऽष्टाकपालादिवचस्स्तुतिः ॥१४॥</div>
+  <div class="tr">ウドビドなど〔の語〕が根拠であることは、ヴァールッティカでは区別なく〔認められる〕。ウドビドなどは祭事の名である。チトラー・アージュヤなどの語も同じである。（12）<br>アーガーラも、シュイェーナも、ヴァージャペーヤの語も同じ。アーグネーヤなどは補助の規定である。バルヒスとアージュヤ〔の語〕は類を意味する。（13）<br>プロークシャニーの語は〔語源で意味をもつ〕派生語であり、ニルマンティヤも同じ種類である。ヴァイシュヴァデーヴァは名である。「八皿の」などの言葉は称えである。（14）</div>
+  <div class="exp"><span class="lbl">解説</span><p>第4章は、規定の文の中の語が祭事の名か、補助（物・神格）の規定かを決めます。ウドビド、チトラー、アグニホートラやアーガーラ、シュイェーナ、ヴァージャペーヤが名とされ、アーグネーヤは補助（神格）の規定、バルヒス・アージュヤは類、プロークシャニーとニルマンティヤは派生語、ヴァイシュヴァデーヴァは名、「八皿の…」は称えとされます。アージュヤは「アージュヤで讃える」の讃歌の名でもあります。</p></div>
+  <div class="nt">「स्याञ्चित्राज्यादिपदं」を「स्याच्चित्राज्यादिपदं」と正した。p.453 の標識はこのブロックの中にある。</div>
+</div>
+<div class="mula" id="c6">
+  <span class="ref">453</span>
+  <div class="src deva" lang="sa">तत्कार्यकारिता भक्तौ निमित्तत्वं क्वचिद्व्रजेत् । क्वचिदेकप्रभवता कापि तेन सरूपता ॥१५॥ क्वचित्प्रशस्तता तत्र निमित्तत्वं प्रपद्यते । क्वचिद्भूमा क्वचिल्लिङ्गसमवायस्तु केवलः ॥१६॥ सन्दिग्धमञ्जनद्रव्यं निर्णेयं वाक्यशेषतः । अवदाने स्रुवादीनां सामर्थ्येन व्यवस्थितिः ॥१७॥</div>
+  <div class="tr">二次的な用法では、その働きをすることが根拠となることがある。あるときは同じものから生じること、あるときはそれと形が似ていること。（15）<br>あるときは優れていることが、そこで根拠となる。あるときは多数であること、あるときはただ目印と結びつくこと。（16）<br>疑わしい塗る物は、文の残りから決める。切り取りでスルヴァなどを使い分けるのは、力による。（17）</div>
+  <div class="exp"><span class="lbl">解説</span><p>二次的な用法（guṇavāda）の根拠の型を並べます。「祭主は敷き草（プラスタラ）である」（同じ働き）、「アグニはブラーフマナである」（同じ生まれ）、「祭柱は太陽である」（形の類似）、「ほかの〔獣〕は家畜でない」（優れていること）、「スリシュティを置く」（多数）、「プラーナブリトを置く」（目印との結びつき）。続いて、「塗った砂利を置く」の塗る物はギーと、文の残り（「ギーは光輝である」）から決まり、スルヴァ・手などで何を切り取るかは、物の適性で決まります。</p></div>
+  <div class="nt">「क्वचिद्ब्रजेत्」を「क्वचिद्व्रजेत्」、「खुवादीनां सामर्थ्यन」を「स्रुवादीनां सामर्थ्येन」と正した。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この部に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>adhikaraṇa</dt><dd>主題。スートラのまとまりごとの、疑い・前主張・定説からなる論</dd>
+    <dt>codanā / vidhi</dt><dd>促し／規定。ダルマを知る唯一の根拠</dd>
+    <dt>arthavāda</dt><dd>釈義。規定を称える文</dd>
+    <dt>vidhivannigada / hetuvannigada</dt><dd>規定に似た唱え／理由を伴う唱え</dd>
+    <dt>smṛti / ācāra</dt><dd>伝承／慣行。もとになるヴェーダを推し量らせる</dd>
+    <dt>ākṛti</dt><dd>類。語が表すもの</dd>
+    <dt>nāmadheya</dt><dd>祭事の名</dd>
+    <dt>guṇavāda</dt><dd>二次的な用法</dd>
+    <dt>vākyaśeṣa</dt><dd>文の残り。疑わしい語の意味を決める</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）所収の『チトラパタ』pp.451–453 のOCRテキストに拠る。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。解説のスートラ番号は、シャバラの区分による目安である。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>
