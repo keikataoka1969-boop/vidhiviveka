@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Prasaṅga 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#s1"><b>1</b>第1章：付随の範囲</a></li>
+    <li><a href="#s2"><b>2</b>第2章：火、付随、矛盾…</a></li>
+    <li><a href="#s3"><b>3</b>第3章：合わせるか、選…</a></li>
+    <li><a href="#s4"><b>4</b>第4章：合わせるもの、…</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">チトラパタ　第13部</div>
+  <h1>Prasaṅga</h1>
+  <p class="deva-title" lang="sa">चित्रपटः — द्वादशोऽध्यायः</p>
+  <p class="sub">第12巻：付随——ある祭事のための補助が別の祭事も助けること、矛盾するときの従い方、合わせるか選ぶか</p>
+  <span class="sample">対訳　第13部（pp.498–503）</span>
+  <p>最後の第12巻は付随（prasaṅga）の巻です。第11巻のタントラが、複数の主要な祭事のために補助を一度行うことだったのに対し、付随は、ある祭事のために行った補助が、ついでに別の祭事も助けることです（獣祭のために行った補助が、獣祭の菓子も助ける）。第1–2章は付随の範囲と、規則が矛盾するときは多いものに、同数なら主要なものに従う、という原則。第3–4章は、複数の補助を合わせる（samuccaya）か選ぶ（vikalpa）かの区別です。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>第12巻</dt><dd>第360–388偈（と第389偈前半）</dd></div>
+    <div><dt>付随</dt><dd>ある祭事のための補助が、別の祭事も助ける</dd></div>
+    <div><dt>矛盾するとき</dt><dd>多いものに従う。同数なら主要なものに</dd></div>
+    <div><dt>合わせるか選ぶか</dt><dd>働きが違えば合わせ、同じ働きなら選ぶ</dd></div>
+  </dl>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>第1章：付随の範囲</h2><span class="sub"><span class="pg">pp.498–499</span></span></div>
+<div class="mula" id="o1">
+  <span class="ref">498–499</span>
+  <div class="src deva" lang="sa">पश्वर्थानुष्ठितैरङ्गैः पुरोडाशेऽस्त्युपक्रिया । तत्राज्यभागौ कर्तव्यौ स्यातां तौ न पशौ यदि ॥३६०॥ सौमिकेष्टिषु वेदिः स्यात्तत्पात्राणि तु नेष्टिषु । शामित्रोऽग्निः पुरोडाशश्रपणे न प्रसज्यते ॥३६१॥ श्रप्यं प्राजहिते कौण्डपायिनामयनं हविः । सवनीयादिनिर्वापो न हविर्धानयोर्भवेत् ॥३६२॥ प्रायणीयादिषु पृथग्जागरः सौमिकाद्भवेत् । अध्वर्युमन्त्रा भिन्नाः स्युः प्राघासिकविहारयोः ॥३६३॥ इष्टिकर्मसु सोमाङ्गेष्वन्वाधानं न विद्यते । व्रतोपायनमप्येवं सोमार्थेनैव सिद्धितः ॥३६४॥</div>
+  <div class="tr">〔第12巻 第1章〕家畜〔祭〕のために行った補助によって、菓子〔の祭〕にも助けがある。もしその二つ〔アージュヤ・バーガ〕が家畜祭になければ、そこではアージュヤ・バーガを行うべきである。（360）<br>ソーマ祭のイシュティには祭壇〔がそのまま〕あるが、その器はイシュティには〔使わ〕ない。シャミトラの火は、菓子を煮ることには当てはまらない。（361）<br>クンダパーインのアヤナの供物は、プラージャヒタ〔の火〕で煮るべき。サヴァニーヤなどの取り分けは、二つのハヴィルダーナ〔車〕にはない。（362）<br>プラーヤニーヤなどでは、ソーマ祭のものとは別に夜を明かす。プラガーサの二つの祭場では、アドヴァリユのマントラは分かれる。（363）<br>ソーマの補助のイシュティ祭事には、アンヴァーダーナはない。誓いに入ることも同じ。ソーマのためのものによって成り立つからである。（364）</div>
+  <div class="exp"><span class="lbl">解説</span><p>付随の基本例（12.1.1）。獣祭の補助（プラヤージャなど）は、獣祭の菓子も付随的に助ける。ソーマ祭の中のイシュティ（プラーヤニーヤなど）は、ソーマ祭の祭壇を使い、ソーマ祭のための誓いで成り立つので、アンヴァーダーナなどを改めて行いません。</p></div>
+  <div class="nt">このブロックの冒頭に p.498 の標識を補った。「पुरोडाशेऽस्युपक्रिया」を「पुरोडाशेऽस्त्युपक्रिया」、「अध्यवर्युमन्त्राः」を「अध्वर्युमन्त्राः」と正した。p.499 の標識は第361偈の前にある。</div>
+</div>
+<div class="mula" id="o2">
+  <span class="ref">499</span>
+  <div class="src deva" lang="sa">ग्रहणार्थान्वाहितिश्चेत् दीक्षेष्टौ सा परा भवेत् । सोमेष्टिषु न कर्तव्यं पत्नीसन्नहनं तथा ॥३६५॥ आरण्यभुक्तिरप्येवं कर्तव्यं शेषभक्षणम् । अन्वाहार्यं न दातव्यं भक्षणं त्वृत्विजां भवेत् ॥३६६॥ एतासु होतुर्वरणमदृष्टार्थत्वतो भवेत् । प्रोक्षणं सकृदेव स्यादातिथ्येष्ट्यादिबर्हिषाम् ॥३६७॥ तस्यास्तरणमन्त्रः स्यादावर्त्यः पशुकर्मणि । पशौ सन्नाहहरणमन्त्रयोर्नास्त्यनुष्ठितिः ॥३६८॥</div>
+  <div class="tr">取るためのアンヴァーヒティがあるなら、ディークシャのイシュティで、それは最後のものとなる。ソーマのイシュティでは、妻を帯で縛ることも行うべきでない。（365）<br>森の物を食べることも同じ。残りを食べることは行うべきである。アンヴァーハーリヤは与えるべきでないが、祭官が食べることはある。（366）<br>これらでは、ホートリの選定は、見えない目的のものなので〔行う〕。アーティティヤー・イシュティなどのバルヒスを振りかけるのは、一度だけ。（367）<br>それを敷くマントラは、家畜の祭事で繰り返すべきである。家畜祭では、帯と運ぶことの二つのマントラは行わない。（368）</div>
+  <div class="exp"><span class="lbl">解説</span><p>ソーマ祭の中のイシュティで、何が付随によって済み、何を改めて行うかの細部です。</p></div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第2章：火、付随、矛盾するときの従い方</h2><span class="sub"><span class="pg">p.500</span></span></div>
+<div class="mula" id="o3">
+  <span class="ref">500</span>
+  <div class="src deva" lang="sa">अग्नयो गार्हपत्याद्या वैदिकेष्वेव कर्मसु । नियतः स्यात् पुरोडाशः सवनीयपशावपि ॥३६९॥ सवनीयेषु न पृथगाह्वानं स्याद्धविष्कृतः । तथैव सौम्यचर्वादौ पाशुकेनैव सिद्धितः ॥३७०॥ निशीष्टौ दर्शसंयुक्तमङ्गजातं प्रसज्यते । नारम्भणीया विकृतौ प्रकृत्यर्था प्रसज्यते ॥३७१॥ विरुद्धसमवाये स्याद्भूयसामनुरोधनम् । तत्र तत्समतायां तु भवेन्मुख्यानुरोधनम् ॥३७२॥</div>
+  <div class="tr">〔第2章〕ガールハパティヤなどの火は、ヴェーダの祭事にだけ〔用いる〕。サヴァニーヤの家畜にも、菓子は決まっている。（369）<br>サヴァニーヤでは、ハヴィシュクリトを別に呼ぶことはない。ソーマの粥などでも同じ。家畜のものによって成り立つから。（370）<br>夜のイシュティでは、新月祭と結びついた補助の群れが付随する。アーランバニーヤは本来の祭祀のためのもので、変形祭祀には付随しない。（371）<br>矛盾するものが重なるときは、多いものに従う。それが同じときは、主要なものに従う。（372）</div>
+  <div class="exp"><span class="lbl">解説</span><p>ヴェーダの祭火は世俗の調理には使わない。付随の範囲。第372偈は第12巻第2章の有名な原則（bhūyasām anurodha）：規則が矛盾すれば多数のものに従い、同数なら主要な祭事のものに従います。</p></div>
+  <div class="nt">p.500 の標識はこのブロックの直前にある。</div>
+</div>
+<div class="mula" id="o4">
+  <span class="ref">500</span>
+  <div class="src deva" lang="sa">सुत्यायां नियतं पर्व द्विधर्मा परिधिर्भवेत् । तत्र न स्युर्यूपधर्मा ये स्वधर्मविरोधिनः ॥३७३॥ पशुतन्त्रान्तर्गतत्वात् सवनीयाः प्रसङ्गिनः । विकृतिश्चेत् प्रकृत्येकतन्त्रा सा तन्त्रिणी भवेत् ॥३७४॥ बर्हिराग्रयणे कांस्यभोजिन्यायेन पुष्पितम् । द्यावापृथिव्यस्यैव स्यात्तावता नैव तन्त्रिता ॥३७५॥</div>
+  <div class="tr">ソーマ搾りの日には、祭日が決まっている。パリディは二つの規則をもつ。そこでは、自分の規則と矛盾する祭柱の規則はない。（373）<br>サヴァニーヤ〔の家畜〕は、家畜祭の手順の中にあるので、付随するもの。変形祭祀が本来の祭祀と一つの手順なら、それは手順をもつものとなる。（374）<br>アーグラヤナでは、カーンシャボージンの原則によって、バルヒスは花を咲かせたもの。それは天地への〔供物〕だけのものであり、それだけで手順をもつものとはならない。（375）</div>
+  <div class="exp"><span class="lbl">解説</span><p>ソーマ祭の日の新月満月祭の扱い、パリディ（囲みの木）が獣をつなぐときの二重の規則など。カーンシャボージン（真鍮の器で食べる者）の原則：主人が真鍮の器で食べるなら、従者も同じものを使う——従属するものは主に従う。</p></div>
+  <div class="nt">「स्युर्युपधर्माः」を「स्युर्यूपधर्माः」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第3章：合わせるか、選ぶか</h2><span class="sub"><span class="pg">p.501</span></span></div>
+<div class="mula" id="o5">
+  <span class="ref">501</span>
+  <div class="src deva" lang="sa">वत्सत्वग्वाससोर्भिन्नकार्यत्वेन समुच्चयः । अग्नौ दैक्षपशोस्तन्त्रे पश्वङ्गिहविरष्टकम् ॥३७६॥ समुच्चिता ऋजुत्वाद्या व्रीह्याद्यास्तु विकल्पिताः । वैश्वानरी पाथिकृतीत्याद्या अपि विकल्पिताः ॥३७७॥ भिन्नस्कन्नादिहोमानां दर्शादिषु समुच्चयः । मन्त्राध्ययनधर्माणां कर्मकालेषु नादरः ॥३७८॥ कार्यं प्रयोगमन्त्राणां स्वस्वरेणैव कर्मसु । ये पुनर्ब्रह्मणाधीतास्तेषां भवति तत्स्वरः ॥३७९॥</div>
+  <div class="tr">〔第3章〕子牛の皮と衣は、働きが違うので合わせる。アグニ〔チャヤナ〕では、ディークシャの家畜の手順に、家畜の補助の供物の八つ。（376）<br>まっすぐであることなどは合わせ、米などは選択される。ヴァイシュヴァーナリー・パーティクリティーなども選択される。（377）<br>割れた・こぼれたなどの献供は、新月祭などで合わせる。マントラの学習の規則は、祭事の時には顧みない。（378）<br>実行のマントラは、祭事では自分の声調で唱えるべきである。ブラーフマナで学ばれたものは、その声調になる。（379）</div>
+  <div class="exp"><span class="lbl">解説</span><p>同じ働きの補助（米と大麦）は選択、違う働きの補助（子牛の皮と衣）は合わせる。マントラの声調は、祭事ではそれぞれ本来の声調で。</p></div>
+  <div class="nt">p.501 の標識はこのブロックの直前にある。「वाससोभिन्न」を「वाससोर्भिन्न」と正した。</div>
+</div>
+<div class="mula" id="o6">
+  <span class="ref">501</span>
+  <div class="src deva" lang="sa">मन्त्राणामवसानेन कर्मादीन् सन्निपातयेत् । समान एव न्यायोऽयं वसुधाराहुतीष्वपि ॥३८०॥ स्यादाधारेऽप्ययं न्यायो मन्त्रा ग्राह्या विकल्पिताः । चतुर्भिरभ्रिमित्यादौ भवेत्तेषां समुच्चयः ॥३८१॥ उरुप्रथस्वेत्यादीनां न भवेत्तु समुच्चयः । समुच्चयो भवेदेव क्रियमाणानुवादिनाम् ॥३८२॥</div>
+  <div class="tr">マントラの終わりで、行為などを合わせる。この原則は、ヴァスダーラーの献供でも同じである。（380）<br>アーガーラでもこの原則がある。マントラは選択して取るべきである。「四つで鋤を」などでは、それらを合わせる。（381）<br>「ウル・プラタスヴァ」などは合わせない。行っていることを言い直すもの〔のマントラ〕は合わせる。（382）</div>
+  <div class="exp"><span class="lbl">解説</span><p>行為とマントラの対応。同じ行為に複数のマントラがあるとき、意味を思い出させるだけなら選択、行為を言い直すものなら合わせる、など。</p></div>
+  <div class="nt">「चतुभिः」を「चतुर्भिः」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>第4章：合わせるもの、選ぶもの、祭主と祭官</h2><span class="sub"><span class="pg">pp.502–503</span></span></div>
+<div class="mula" id="o7">
+  <span class="ref">502</span>
+  <div class="src deva" lang="sa">जपस्तुत्यादिमन्त्राणां धर्मार्थत्वात् समुच्चयः । याज्यानुवाक्यायुगलमनेकं स्याद्विकल्पितम् ॥३८३॥ समुच्चेयाः क्रयाः सोमे गुदयागे समुच्चयः । अग्न्याधेये दक्षिणाः स्युः संख्याभेदाद्विकल्पिताः ॥३८४॥ जाघनीनां पशुगानां न भवेत्तु समुच्चयः । वार्ध्यादिना स्यात् काम्येन नित्योख्यविनिवर्तनम् ॥३८५॥ काम्यो नाहवनीयः स्यादाधानादेरभावतः । तेषु नाधानसंस्कारो नित्योख्यस्य न धारणम् ॥३८६॥</div>
+  <div class="tr">〔第4章〕ジャパ・称えなどのマントラは、ダルマのためのものなので合わせる。祭詞と招請詞の組が多ければ、選択される。（383）<br>ソーマでは買うこと〔の数〕を合わせる。グダ祭では合わせる。祭火の設置では、謝礼は数の違いによって選択される。（384）<br>家畜に属するジャーガニーは、合わせない。願望のヴァールドゥリーなどによって、常時のウキヤ〔の火〕を退ける。（385）<br>願望のものはアーハヴァニーヤではない。〔祭火の〕設置などがないから。それらには設置の浄めはなく、常時のウキヤを保つこともない。（386）</div>
+  <div class="exp"><span class="lbl">解説</span><p>見えない目的のための唱え（ジャパ・称え）は合わせる。祭詞と招請詞のように同じ働きのものは選ぶ。アグニチャヤナのウキヤ（火の壺）の常時と願望の扱い、など。</p></div>
+  <div class="nt">p.502 の標識はこのブロックの直前にある。「अग्नयाधेये」を「अग्न्याधेये」と正した。「जाघनीनां पशुग न」は韻律から「जाघनीनां पशुगानां न」と読んだ。</div>
+</div>
+<div class="mula" id="o8">
+  <span class="ref">502</span>
+  <div class="src deva" lang="sa">कश्चिदेव पदार्थानि कुर्याद्बहुषु यष्टृषु । तेषु यः कश्चिदेव स्यात् सत्रे गृहपतिर्मतः ॥३८७॥ सर्वेऽपि सत्रे कुर्वीरन् संस्कारानञ्जनादिकान् । याजमानात्विज्ययोर्विप्रतिषेधे परं बली ॥३८८॥ आत्विज्यं ब्राह्मणा एव कुर्युः सर्वेषु कर्मसु ॥ ॥ इति चतुर्थः पादः ॥ इति श्रीमदद्वैतविद्याचार्यश्रीरङ्गराजाध्वरिसूनोः अप्पय्यदीक्षितस्य कृतौ चित्रपटे द्वादशोऽध्यायः ॥ चित्रपटः समाप्तः ॥</div>
+  <div class="tr">祭る者が多いときは、誰か一人が事柄を行う。サットラでは、その中の誰か一人が家長とされる。（387）<br>サットラでは、全員が塗ることなどの浄めを行うべきである。祭主のことと祭官のことが矛盾するときは、後のものが強い。（388）すべての祭事で、祭官の仕事はブラーフマナだけが行う。<br>以上、不二〔一元〕の学の師、シュリー・ランガラージャ・アドヴァリンの息子アッパイヤ・ディークシタの作『チトラパタ』の第12巻。『チトラパタ』終わり。</div>
+  <div class="exp"><span class="lbl">解説</span><p>サットラでは全員が祭主なので、浄め（塗ることなど）は全員が受ける。祭主の仕事と祭官の仕事が一人に重なって矛盾すれば、祭官の仕事を優先する。祭官の仕事はブラーフマナだけ——第3巻第8章（第4部）の祭主と祭官の区別に戻って、全体が閉じます。</p></div>
+  <div class="nt">「यष्टषु」を「यष्टृषु」、「परं बलि」を「परं बली」、「श्रीमद्वैत」を「श्रीमदद्वैत」と正した。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この部に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>prasaṅga</dt><dd>付随。ある祭事のための補助が、ついでに別の祭事も助けること</dd>
+    <dt>bhūyasām anurodhaḥ</dt><dd>多いものに従うこと</dd>
+    <dt>samuccaya / vikalpa</dt><dd>合わせること／選ぶこと</dd>
+    <dt>tantrin</dt><dd>手順をもつもの。補助の手順を自分で行う祭事</dd>
+    <dt>ukhya</dt><dd>ウキヤ。アグニチャヤナで運ぶ壺の火</dd>
+    <dt>gṛhapati</dt><dd>家長。サットラの祭主たちの代表</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）所収の『チトラパタ』pp.498–503 のOCRテキストに拠る。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>
