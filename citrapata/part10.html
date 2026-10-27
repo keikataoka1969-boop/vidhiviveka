@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bādha 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="index.html">一覧</a></li>
+    <li><a href="#intro">まず30秒で</a></li>
+    <li><a href="#s1"><b>1</b>第1章：目的のない補助…</a></li>
+    <li><a href="#s2"><b>2</b>第2章：退けの諸相と謝礼</a></li>
+    <li><a href="#s3"><b>3</b>第3章：新しい補助と謝…</a></li>
+    <li><a href="#s4"><b>4</b>第4章：退けない付け加え</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+<header class="hero wrap">
+  <div class="eyebrow">チトラパタ　第10部</div>
+  <h1>Bādha</h1>
+  <p class="deva-title" lang="sa">चित्रपटः — दशमोऽध्यायः (प्रथमादिचतुर्थपादाः)</p>
+  <p class="sub">第10巻 第1–4章：退け——目的がなくなる補助、言葉による退け、謝礼の扱い、退けられないもの</p>
+  <span class="sample">対訳　第10部（pp.485–490）</span>
+  <p>第10巻は退け（bādha）の巻です。類推適用で来る本来の祭祀の補助が、変形祭祀で行われなくなる場合を扱います。第1章は、補助が働く目的（助け）がないために退けられる場合（黄金の粒は搗かない）。第2章は、目的がなくなる・聞き取りによる・別の物で替えられる、などの退けの諸相と、謝礼の性質。第3章は、変形祭祀の新しい補助が本来のものを退けるか、加わるだけか。第4章は、退けられないもの（付け加え）の例です。</p>
+  <p>『ヴィディ・ラサーヤナ』で「規定を共にする」の議論に何度も引かれた第10巻第8章の主題は、次の第11部で読みます。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>第10巻 第1–4章</dt><dd>第256–294偈</dd></div>
+    <div><dt>原則</dt><dd>類推適用は助け（upakāra）を通じて。助けるものがなければ補助は来ない</dd></div>
+    <div><dt>謝礼</dt><dd>祭官への報酬。見えない目的のための贈与とは違う</dd></div>
+    <div><dt>付け加え</dt><dd>新しい補助が本来のものを退けず、加わるだけの場合も多い</dd></div>
+  </dl>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>第1章：目的のない補助の退け</h2><span class="sub"><span class="pg">pp.485–486</span></span></div>
+<div class="mula" id="l1">
+  <span class="ref">485</span>
+  <div class="src deva" lang="sa">अतिदेशः पदार्थानामुपकारमुखो मतः ॥२५६॥ कृष्णलेनावघातश्च विष्णोरावाहनं न च । आरम्भणीया नाङ्गेषु दीक्षणीयादिकेष्टिषु ॥२५७॥ नानुमत्यादिषु तथा नापि स्वस्यां प्रवर्तते । यूपाहुतिः खलेवाल्यां नास्ति स्थाण्वाहुतिस्तथा ॥२५८॥</div>
+  <div class="tr">〔第10巻 第1章〕事柄の類推適用は、助けを通じたものとされる。（256）<br>黄金の粒には搗くことはなく、ヴィシュヌの呼び出しもない。ディークシャニーヤーなど補助のイシュティでは、アーランバニーヤはない。（257）<br>アヌマティなど〔の供物〕でも同じく、また自分自身にも働かない。カレーヴァーリー〔脱穀場の柱〕には祭柱の献供はなく、切り株の献供も同じ。（258）</div>
+  <div class="exp"><span class="lbl">解説</span><p>類推適用で来るのは、本来の祭祀でその補助が果たしていた助けが変形祭祀にもあるときだけ。黄金の粒（kṛṣṇala）の粥には籾がないので搗くことはない。ヴィシュヌ（祭官の呼び出しの句）がない祭事では、その呼び出しもない、など。</p></div>
+  <div class="nt">「॥ अत दशमोऽद्यायः」を「॥ अथ दशमोऽध्यायः」と正した。このブロックの冒頭に p.485 の標識を補った。</div>
+</div>
+<div class="mula" id="l2">
+  <span class="ref">486</span>
+  <div class="src deva" lang="sa">प्रयाजो यक्ष्यमाणानां भवेत् संस्कृतिरुत्तमः । नाज्यभागौ पशुगतः पुरोडाशस्तु संस्कृतिः ॥२५९॥ चरुरोदनभेदः स्यात् स्थाल्यामेव स पच्यते । तस्मिन् पेषः संयवनं संवापस्तापनं तथा ॥२६०॥ उपधानं संप्रथनं श्लक्ष्णीकरणभावना । अध्यूहनं प्रज्वलनं व्युद्धृत्यासादनं तथा ॥२६१॥ कर्तव्यत्वं न च भजेत् प्रयोजनविलोपतः ॥</div>
+  <div class="tr">最後のプラヤージャは、祭られるもの〔供物〕の浄めである。アージュヤ・バーガは獣祭にはない。〔獣祭の〕菓子は浄めである。（259）<br>粥は飯の一種であり、それは鍋の中だけで煮る。それには、挽くこと・混ぜること・まくこと・温めること、（260）<br>置くこと・広げること・滑らかにすること・寄せ集めること・燃やすこと・取り出して置くことは、（261）目的がなくなるので、行うべきものとはならない。</div>
+  <div class="exp"><span class="lbl">解説</span><p>粥（caru）は菓子（puroḍāśa）の代わりに類推適用を受けるが、菓子を作るための挽く・こねる・皿に置く・広げるなどの行為は、粥には目的がないので退けられます。</p></div>
+  <div class="nt">p.486 の標識はこのブロックの冒頭にある。ここから、別のOCR（頁ごとの画像のOCR）に拠る。</div>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第2章：退けの諸相と謝礼</h2><span class="sub"><span class="pg">pp.486–488</span></span></div>
+<div class="mula" id="l3">
+  <span class="ref">486</span>
+  <div class="src deva" lang="sa">श्रुतत्वात्कृष्णले पाकः नास्त्युपस्तरणादिकम् ॥२६२॥ श्रुतेर्भक्षणमप्यस्ति भक्षोपहतयः सह । ब्रह्मेतरेषां नो भक्षा भक्षस्तस्यापि कालतः ॥२६३॥ चतुर्धाकृतिनिर्देशमपि तत्र न विद्यते । ऋत्विग्दानं भृतिस्तेषां न हविःशेषभक्षणम् ॥२६४॥ तेषां न सत्रे वरणं नापि स्यात्तत्र दक्षिणा । शमनीयो न सत्राङ्गं तत्कुर्युः सत्रिणः पृथक् ॥२६५॥ संहत्यकरणेऽपि स्युस्तदन्ये तत्र ऋत्विजः । गवादिदानं काम्येष्टावदृष्टैकप्रयोजनम् ॥२६६॥</div>
+  <div class="tr">〔第2章〕聞かれるので、黄金の粒は煮る。敷くことなどはない。（262）<br>聞き取りによって、食べることもある。食べることと招きとは一緒に。ブラフマン以外には食べることはない。その〔ブラフマン〕の食べることも時による。（263）<br>四つに分けることの指示もそこにはない。祭官への贈与は報酬であって、供物の残りを食べることは〔報酬では〕ない。（264）<br>サットラでは彼らの選定はなく、謝礼もない。シャマニーヤはサットラの補助ではない。サットラの祭主たちが、それを別々に行うべきである。（265）<br>一緒に行わないときでも、そこではそれ以外の者が祭官である。願望のイシュティでの牛などの贈与は、見えないものだけを目的とする。（266）</div>
+  <div class="exp"><span class="lbl">解説</span><p>黄金の粒の粥は「煮る」と聞かれるので煮る。謝礼（dakṣiṇā）は祭官を雇う報酬で、サットラでは全員が祭主なので謝礼はない。願望のイシュティでの「牛を与える」は、報酬ではなく見えない目的のための贈与です。</p></div>
+</div>
+<div class="mula" id="l4">
+  <span class="ref">487</span>
+  <div class="src deva" lang="sa">द्वेष्याय दानमप्येवमस्थियागस्तु जीवताम् । लुप्यते जपसंस्कारो मृतस्यैष भवेद्यदि ॥२६७॥ कर्तव्यमेव तत्रापि शुक्रान्वारम्भणादिकम् । गुणकामास्तत्र न स्युः सदोमानादिसंश्रयाः ॥२६८॥ नायुराशास्त इत्याद्या न च स्युर्होतृकामनाः । सर्वस्वारः समाप्यः स्यान्मृते कर्मास्थियज्ञवत् ॥२६९॥ आयुराशास्त इत्यादि तत्र स्याद्यावदार्भवम् । ऋतुयाज्यावृतिः सत्रेऽप्यदृष्टार्थत्वतो भवेत् ॥२७०॥</div>
+  <div class="tr">憎む者への贈与も同じ。骨の祭は生きている者たちのもの。もしそれが死んだ者のものなら、ジャパと浄めは省かれる。（267）<br>そこでも、シュクラ〔杯〕に触れることなどは行うべきである。サドの測定などに依る補助の願望は、そこにはない。（268）<br>「寿命を祈る」などはなく、ホートリの願いもない。サルヴァスヴァーラは、〔祭主が〕死んだときは、骨の祭と同じく〔祭事を〕終えるべきである。（269）<br>「寿命を祈る」などは、そこではアールバヴァまで。季節のヤージャの詩節の繰り返しは、見えない目的のものなので、サットラにもある。（270）</div>
+  <div class="exp"><span class="lbl">解説</span><p>サットラの途中で祭主が死んだとき、その骨を祭主として続ける「骨の祭」では、生きている者のためのジャパや浄め、補助の願望は省かれます。サルヴァスヴァーラ（祭主が死ぬための祭）も同じ扱い。</p></div>
+  <div class="nt">p.487 の標識はこのブロックの冒頭にある。</div>
+</div>
+<div class="mula" id="l5">
+  <span class="ref">487</span>
+  <div class="src deva" lang="sa">निर्वापः पवमानेष्टौ गुणलोपान्न लुप्यते । संख्यामुष्टिविरोधे स्यान्निर्वापे मुष्टिलोपनम् ॥२७१॥ गोरसाधारणैर्धेनुत्वाद्यैश्छागो निवर्तते । साधारणैस्तु श्वेतादिगुणैर्नासौ निवर्तते ॥२७२॥ निवृत्तिं खदिरत्वादि खलेवाल्यादिषु व्रजेत् । तस्यां न स्युश्छेदनाद्याः स्युस्तु पर्यूहणादयः ॥२७३॥ प्राकृतक्रमभेदेपि न पदार्थो निवर्तते । न प्राकृतक्रमान्यत्वात् पदार्थोऽप्राकृतो भवेत् ॥२७४॥</div>
+  <div class="tr">パヴァマーナ・イシュティの取り分けは、補助が欠けても省かれない。数と一掴みが矛盾すれば、取り分けで一掴みを省く。（271）<br>乳牛であることなど、牛だけにあるもので、山羊は外される。しかし白さなど共通の性質では、それは外されない。（272）<br>カディラであることなどの退けは、カレーヴァーリーなどに及ぶ。そこでは切ることなどはないが、周りに寄せることなどはある。（273）<br>本来の祭祀の順序が違っても、事柄は退けられない。本来の祭祀の順序と違うからといって、事柄が本来の祭祀のものでなくなるのではない。（274）</div>
+  <div class="exp"><span class="lbl">解説</span><p>補助の一部が欠けても、残りは行う。物の性質の違いがどこまで退けを生むか。カレーヴァーリーにはカディラ材の規則も切る行為も来ないが、寄せることなどは来る。順序が違っても事柄は退けられない、など。</p></div>
+  <div class="nt">「निवृत्ति खदिरत्वादि」を「निवृत्तिं खदिरत्वादि」と正した。</div>
+</div>
+</section>
+
+<!-- ============ §3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第3章：新しい補助と謝礼の分け方</h2><span class="sub"><span class="pg">p.488</span></span></div>
+<div class="mula" id="l6">
+  <span class="ref">488</span>
+  <div class="src deva" lang="sa">एकादशप्रयाजादौ गुणमात्रविधिर्मतः । हिरण्यगर्भमन्त्रः स्यादुत्तराघारसंश्रयः ॥२७५॥ उत्करादेर्गुणस्यैव विधिरासादनादिके । अग्नौ दीक्षार्थमन्त्राणां प्राकृतैः स्यात् समुच्चयः ॥२७६॥ प्राकृत्या न समुच्चेया पुनराधेयदक्षिणा । अन्वाहार्यस्याग्रयणे वासोवत्सं निवर्तकम् ॥२७७॥ तदन्वाहार्यधर्मः स्याद्वत्से पाको निवर्तते । नापि वाससि पाकः स्यान्न तयोरभिघारणम् ॥२७८॥</div>
+  <div class="tr">〔第3章〕十一のプラヤージャなどでは、補助だけの規定とされる。ヒラニヤガルバのマントラは、後のアーガーラに依る。（275）<br>ウトカラなどは、置くことなどにおける補助の規定にすぎない。アグニ〔チャヤナ〕でのディークシャのためのマントラは、本来の祭祀のものと合わせて行う。（276）<br>再設置の謝礼は、本来の祭祀のものと合わせるべきではない。アーグラヤナでは、衣と子牛がアンヴァーハーリヤを退ける。（277）<br>それ〔衣と子牛〕はアンヴァーハーリヤの規則をもつ。子牛では煮ることは退けられる。衣でも煮ることはなく、その二つに〔ギーを〕注ぐこともない。（278）</div>
+  <div class="exp"><span class="lbl">解説</span><p>変形祭祀の新しい補助が、本来のものを退けるか、本来のものに加わるだけか。ヒラニヤガルバのマントラ（『ヴィディ・ラサーヤナ』第43偈の解説で、規定の力で意味を与えられる例として引かれた）は後のアーガーラに。アーグラヤナでは、新月満月祭の謝礼アンヴァーハーリヤ（飯）を、衣と子牛が退けます。</p></div>
+  <div class="nt">p.488 の標識はこのブロックの直前にある。「वासोवत्संनिवर्तकम्」を「वासोवत्सं निवर्तकम्」と分けた。</div>
+</div>
+<div class="mula" id="l7">
+  <span class="ref">488</span>
+  <div class="src deva" lang="sa">द्वादशं शतमित्येषा संख्या गोमात्रसंश्रया । विभज्य दक्षिणा देया विभागः स्यात् समाख्यया ॥२७९॥ सर्वस्या दक्षिणायाः स्याद्भुवि धेनुर्निवर्तिका । एक पञ्च गवामेव कृत्स्नस्यापि त्रिवत्सकम् ॥२८०॥ प्राकाशदानमध्वर्युभागस्यैव निवर्तकम् । श्यावोऽश्वः सकलस्यापि स्यात् सोमचमसस्तथा ॥२८१॥ वाक्यैक्ये तु ब्रह्मभागमात्रस्यैव निवर्तकः । यजुर्युक्तस्तु नाध्वर्युभागस्य विनिवर्तकः ॥२८२॥</div>
+  <div class="tr">「百十二」という数は、牛だけに依る。謝礼は分けて与えるべきであり、分け方は呼び名による。（279）<br>謝礼全体を、土地での乳牛が退ける。…五頭の牛だけ。全体についても三歳の〔子牛〕を。（280）<br>鏡〔の組〕の贈与は、アドヴァリユの分だけを退ける。黒い馬は全体を〔退ける〕。ソーマのチャマサも同じ。（281）<br>文が一つなら、ブラフマンの分だけを退けるもの。ヤジュスと結びついたものは、アドヴァリユの分を退けない。（282）</div>
+  <div class="exp"><span class="lbl">解説</span><p>ジョーティシュトーマの謝礼「百十二〔頭の牛〕」は牛だけの数。変形祭祀で別の謝礼が言われるとき、全体を退けるか、特定の祭官の分だけを退けるか、の割り当てです。</p></div>
+  <div class="nt">「दक्षिणाया स्याद्भुवि」を「दक्षिणायाः स्याद्भुवि」、「कृत्स्त्र」を「कृत्स्न」と正した。第280偈後半は読みが確かでない。</div>
+</div>
+</section>
+
+<!-- ============ §4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>第4章：退けない付け加え</h2><span class="sub"><span class="pg">pp.489–490</span></span></div>
+<div class="mula" id="l8">
+  <span class="ref">489</span>
+  <div class="src deva" lang="sa">नक्षत्रेष्ट्युपहोमाद्या न नारिष्टादिबाधकाः । कुशकार्ये विधानाच्च तेषां स्युर्बाधकाः शराः ॥२८३॥ स्याद्रथस्य तु घोषस्तु बाधको मन्त्रदर्भयोः । बार्हस्पत्यादिभिर्नैव बाध्यन्ते प्राकृता ग्रहाः ॥२८४॥ प्राजापत्यैर्न दैक्षाद्या नानूयाजास्तथा मतैः । पत्नीभिर्नोपगाः गुल्गुल्वाद्यैर्न नवनीतकम् ॥२८५॥ तार्येणानाहतं न श्लोकाद्यैर्गायत्रमुख्यकम् । कौत्सकाण्वजनित्रादिसामभिर्बाध्यते तु तत् ॥२८६॥ तदुद्वापं तानि कुर्युः स्वस्वसंख्यानुसारतः । आवापो राजसामादेः उभयं पवमानगम् ॥२८७॥</div>
+  <div class="tr">〔第4章〕ナクシャトラ・イシュティの付け加えの献供などは、ナーリシュタなど〔の本来の献供〕を退けない。クシャ〔草〕の働きに規定されるので、葦はそれら〔クシャ〕を退ける。（283）<br>車の音は、マントラとダルバ〔の役割〕の二つを退けるもの。ブリハスパティへの〔杯〕などで、本来の祭祀の杯は退けられない。（284）<br>プラージャーパティの〔杯〕で、ディークシャ〔の杯〕などは〔退けられ〕ない。アヌヤージャも同じとされる。妻たちによってウパガは〔退けられ〕ない。グッグルなどによってバターは〔退けられ〕ない。（285）<br>ターリヤ〔の衣〕によってアナーハタ〔の衣〕は〔退けられ〕ない。シュローカなどによって、ガーヤトラなど主なものは〔退けられ〕ない。しかしカウトサ・カーンヴァ・ジャニトラなどのサーマンによって、それは退けられる。（286）<br>それらは、それぞれの数に応じて、それを外すべきである。ラージャサーマンなどの加えは、両方ともパヴァマーナに属する。（287）</div>
+  <div class="exp"><span class="lbl">解説</span><p>第4章は付け加え（samuccaya）の章です。変形祭祀の新しい補助が同じ働きをするなら本来のものを退けるが（葦がクシャを）、別の働きなら加わるだけ（付け加えの献供はナーリシュタの献供を退けない）。サーマンの付け加えと置き換えの細部も扱います。</p></div>
+  <div class="nt">p.489 の標識はこのブロックの直前にある。「मन्त्रदर्भयो :」「मतै :」の空白を除いた。「पवगानगम्」を「पवमानगम्」と正した。</div>
+</div>
+<div class="mula" id="l9">
+  <span class="ref">489</span>
+  <div class="src deva" lang="sa">विधिस्थमग्न्यादिपदं नियतं निगमेष्वपि । विधिस्थपदमेव स्यात् सौर्यादिविकृतिष्वपि ॥२८८॥ अग्निः पावक इत्यादौ सगुणं तेषु तद्भवेत् । गुणे बुधन्वत्यादिः स्यान्नाधानेष्ट्याज्यभागयोः ॥२८९॥ अनूबन्ध्यावनस्पत्यौ स्यातामुत्रा वनस्पती । स्यातामवभृथावग्नीवरुणौ स्विष्टकृद्गुणौ ॥२९०॥ छिद्रापिधान्या सर्वेष्वप्यगुणा स्विष्टकृद्भवेत् । अनूयाजः स्विष्टकृतः तृतीयः संस्कृतिर्मतः ॥२९१॥</div>
+  <div class="tr">規定にあるアグニなどの語は、呼びかけ（ニガマ）でも決まっている。スーリヤへの〔供物〕など変形祭祀でも、規定にある語だけ〔を用いる〕。（288）<br>「アグニ・パーヴァカ」などでは、それらで補助〔の名〕を伴って〔唱える〕。補助〔の神格〕では「ブダンヴァット」など。祭火設置のイシュティとアージュヤ・バーガにはない。（289）<br>アヌーバンディヤーとヴァナスパティ…。アヴァブリタでは、アグニとヴァルナがスヴィシュタクリトの補助〔の神格〕である。（290）<br>穴をふさぐ〔詩節〕で、すべてにおいて補助のないスヴィシュタクリトとなる。第三のアヌヤージャは、スヴィシュタクリトの浄めとされる。（291）</div>
+  <div class="exp"><span class="lbl">解説</span><p>神格の名の唱え方（規定にある名で呼ぶ）、スヴィシュタクリトの神格の補助など。</p></div>
+  <div class="nt">「विधिस्थमग्नयादिपदं」を「विधिस्थमग्न्यादिपदं」と正した。第290偈前半は読みが確かでない。</div>
+</div>
+<div class="mula" id="l10">
+  <span class="ref">490</span>
+  <div class="src deva" lang="sa">याज्यानुवाक्यावचनं न भजेदर्थकर्मताम् । ऊहो मनोतामन्त्रस्य वायव्यादौ न विद्यते ॥२९२॥ स्वयोनावेव गेयं स्यात् सामकण्वरथन्तरम् । गानमुत्तरयोस्तस्य स्वयोन्युत्तरयोर्भवेत् ॥२९३॥ ग्रहान्यत्वेऽपि विकृतिर्नैव स्यात् स्तोत्रशस्त्रयोः । ऊह आज्यपशब्दस्य पृषदाज्ये न विद्यते ॥२९४॥</div>
+  <div class="tr">祭詞と招請詞を唱えることは、目的のための行為とはならない。マノーターのマントラの言い換えは、ヴァーユへの〔獣〕などにはない。（292）<br>カンヴァ・ラタンタラのサーマンは、自分の母胎〔の詩節〕でだけ歌うべきである。その後の二つ〔の詩節〕での歌は、自分の母胎の後の二つでのものである。（293）<br>杯が違っても、讃歌と唱えの変更はない。アージュヤパの語の言い換えは、プリシャダージュヤにはない。（294）</div>
+  <div class="exp"><span class="lbl">解説</span><p>マノーターの詩節（「アグニよ、汝は第一のマノーター」）は、神格がアグニでない獣祭でも言い換えない。讃歌（stotra）と唱え（śastra）は杯の神格が変わっても変えない、など。</p></div>
+  <div class="nt">p.490 の標識はこのブロックの冒頭にある。</div>
+</div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">この部に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>bādha</dt><dd>退け。類推適用で来る補助が行われなくなること</dd>
+    <dt>upakāra</dt><dd>助け。補助がアプールヴァに果たす働き</dd>
+    <dt>dakṣiṇā</dt><dd>謝礼。祭官への報酬</dd>
+    <dt>samuccaya</dt><dd>付け加え。新しい補助が本来のものに加わること</dd>
+    <dt>kṛṣṇala</dt><dd>黄金の粒。粥のように扱う供物</dd>
+    <dt>nigama</dt><dd>呼びかけ。マントラの中の神格の名</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　原文は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）所収の『チトラパタ』pp.485–490 のOCRテキストに拠る。p.486 以降は別のOCRで補ったもの。OCRの明らかな誤りは正し、各ブロックの「注」に元の形を記した。</p>
+  <p>和訳は試訳である。正確な読みは校訂本で確認されたい。</p>
+</footer>
+</main>
+
+</body>
+</html>
