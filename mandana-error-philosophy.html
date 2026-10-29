@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="7世紀インドの哲学者マンダナ・ミシュラの錯誤論『錯誤の弁別』を、知覚の哲学・存在論・認識論の用語で整理し、現代形而上学の虚構説を物差しに評価した比較哲学の論考。">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>誤りはどこにあるのか</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~44em) with wider figure plates; theories are colour-coded throughout so each view can be followed across tables and diagrams. */
+:root{
+  --bg:#f3f5f6; --surface:#ffffff; --band:#e8ecef; --fg:#18202b; --muted:#5a6472; --line:#d5dbe1;
+  --t-inner:#7a4a9c; --t-void:#5f6875; --t-indet:#24797a; --t-omit:#a35d12; --t-other:#1b5ca6;
+  --t-other-soft:#e3edf8; --warn:#9b2c2c; --ok:#2f7a3d;
+  --f-disp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Noto Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11151b; --surface:#192029; --band:#1f2731; --fg:#e5e9ee; --muted:#9ba5b2; --line:#2e3744;
+  --t-inner:#c4a3e0; --t-void:#aeb6c1; --t-indet:#69c3bd; --t-omit:#e7a65e; --t-other:#86b6ef;
+  --t-other-soft:#1c2d42; --warn:#f08c8c; --ok:#7fcf8b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11151b; --surface:#192029; --band:#1f2731; --fg:#e5e9ee; --muted:#9ba5b2; --line:#2e3744;
+  --t-inner:#c4a3e0; --t-void:#aeb6c1; --t-indet:#69c3bd; --t-omit:#e7a65e; --t-other:#86b6ef;
+  --t-other-soft:#1c2d42; --warn:#f08c8c; --ok:#7fcf8b; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.9;margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.col{max-width:46rem;margin-inline:auto}
+.wide{max-width:62rem;margin-inline:auto}
+h1,h2,h3{font-family:var(--f-disp);text-wrap:balance;line-height:1.35;font-weight:700}
+h1{font-size:clamp(2rem,6vw,3.1rem);margin:0 0 .3em;font-weight:800;letter-spacing:.02em}
+h2{font-size:1.65rem;margin:0 0 .6em}
+h3{font-size:1.2rem;margin:2em 0 .5em}
+p{margin:0 0 1em}
+a{color:var(--t-other)}
+small,.sm{font-size:.85rem;color:var(--muted)}
+header.hero{padding-block:56px 28px}
+.eyebrow{font-size:.78rem;letter-spacing:.16em;color:var(--muted);font-weight:700;margin-bottom:10px}
+.lead{font-size:1.08rem}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:8px;margin-bottom:8px}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;overflow-x:auto;max-width:62rem;scrollbar-width:thin}
+nav.toc a{display:block;white-space:nowrap;text-decoration:none;color:var(--fg);font-size:.82rem;border:1px solid var(--line);border-radius:999px;padding:3px 12px;background:var(--surface)}
+nav.toc a:hover,nav.toc a:focus-visible{border-color:var(--t-other);color:var(--t-other);outline:none}
+section{padding-block:40px 8px;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+.secno{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);letter-spacing:.1em}
+.thesis{display:grid;gap:10px;margin:1.4em 0;padding:0;list-style:none;counter-reset:th}
+.thesis li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px 12px 52px;position:relative;counter-increment:th}
+.thesis li::before{content:counter(th);position:absolute;left:16px;top:12px;font-family:var(--f-mono);font-weight:500;color:var(--t-other);font-size:1.05rem}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:1.4em 0}
+.box.key{background:var(--t-other-soft);border-color:transparent}
+.box .lbl,.lbl{display:block;font-size:.74rem;letter-spacing:.14em;font-weight:700;color:var(--muted);margin-bottom:4px}
+.box.key .lbl{color:var(--t-other)}
+.box p:last-child{margin:0}
+.formal{font-family:var(--f-mono);font-size:.88rem;line-height:1.85;background:var(--band);border-radius:8px;padding:12px 16px;overflow-x:auto;white-space:pre;margin:1em 0}
+figure{margin:1.8em 0}
+figure .plate{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:8px;line-height:1.7}
+figcaption b{color:var(--fg)}
+svg{display:block;max-width:100%;height:auto;margin-inline:auto}
+svg text{font-family:var(--f-body);fill:var(--fg)}
+svg .mono{font-family:var(--f-mono)}
+svg .muted{fill:var(--muted)}
+svg .ln{stroke:var(--line)}
+svg .fg-s{stroke:var(--fg)}
+svg .mut-s{stroke:var(--muted)}
+svg .oth-s{stroke:var(--t-other)}
+svg .oth-f{fill:var(--t-other)}
+svg .oth-soft{fill:var(--t-other-soft)}
+svg .surf{fill:var(--surface)}
+svg .band{fill:var(--band)}
+svg .warn-s{stroke:var(--warn)}
+svg .warn-f{fill:var(--warn)}
+svg .ok-f{fill:var(--ok)}
+svg .omit-f{fill:var(--t-omit)}
+svg .omit-s{stroke:var(--t-omit)}
+svg .inner-f{fill:var(--t-inner)}
+svg .void-f{fill:var(--t-void)}
+.tbl{overflow-x:auto;margin:1.4em 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.65}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{background:var(--band);font-weight:700;font-size:.82rem;letter-spacing:.04em;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.c{text-align:center;white-space:nowrap}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px}
+.dot.keep{background:var(--ok)}
+.dot.drop{background:transparent;border:2px solid var(--warn)}
+.dot.mod{background:linear-gradient(90deg,var(--ok) 50%,transparent 50%);border:2px solid var(--ok)}
+.th{font-weight:700;white-space:nowrap}
+.th.inner{color:var(--t-inner)} .th.void{color:var(--t-void)} .th.indet{color:var(--t-indet)} .th.omit{color:var(--t-omit)} .th.other{color:var(--t-other)}
+tr.own td{background:var(--t-other-soft)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:14px;margin:1.4em 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0;border-top:4px solid var(--line)}
+.card.inner{border-top-color:var(--t-inner)} .card.void{border-top-color:var(--t-void)} .card.indet{border-top-color:var(--t-indet)} .card.omit{border-top-color:var(--t-omit)} .card.other{border-top-color:var(--t-other)}
+.card h4{font-family:var(--f-disp);font-size:1.08rem;margin:0 0 .4em}
+.card dl{margin:0;font-size:.9rem;line-height:1.7}
+.card dt{font-size:.72rem;letter-spacing:.12em;color:var(--muted);font-weight:700;margin-top:.7em}
+.card dd{margin:0}
+.ref{font-family:var(--f-mono);font-size:.8em;color:var(--muted);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.84rem;color:var(--muted);margin:.6em 0 0}
+footer{margin-top:48px;border-top:1px solid var(--line);padding-top:20px;font-size:.84rem;color:var(--muted)}
+footer p{margin:0 0 .6em}
+@media (max-width:560px){h2{font-size:1.4rem} .thesis li{padding-left:44px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:56px}
+</style>
+</head>
+<body>
+
+<header class="hero col">
+  <div class="eyebrow">Maṇḍanamiśra『錯誤の弁別』の哲学的分析　錯誤論と虚構説</div>
+  <h1>誤りはどこにあるのか</h1>
+  <p class="lead">貝殻のかけらを銀と見誤るとき、私たちは何を見ているのか。7世紀末のインドの哲学者 Maṇḍanamiśra は、この一つの問いをめぐって五つの理論を比較し、自分の答えを擁護しました。このページは、その議論を西洋哲学の用語で組み直し、知覚の哲学、存在論、認識論のどの問題に彼が取り組んでいたのかを示します。後半（§6）では、現代形而上学の<strong>虚構説</strong>を物差しにして、彼の議論の強みと弱みを評価します。</p>
+  <p class="sm">偈の番号は『錯誤の弁別』の偈番号（全164偈）です。インドの学派の呼び名は、説の内容による呼び名に置き換えました。</p>
+</header>
+
+<nav class="toc" aria-label="目次"><ol>
+  <li><a href="#summary">要約</a></li>
+  <li><a href="#problem">1 錯誤のパラドックス</a></li>
+  <li><a href="#rivals">2 四つの対立理論</a></li>
+  <li><a href="#core">3 Maṇḍana の理論</a></li>
+  <li><a href="#epist">4 認識論</a></li>
+  <li><a href="#structure">5 論証の全体構造</a></li>
+  <li><a href="#fiction">6 虚構説から見る</a></li>
+  <li><a href="#west">7 西洋哲学との対照</a></li>
+  <li><a href="#assess">8 評価と未解決の問題</a></li>
+</ol></nav>
+
+<main>
+<section id="summary" class="col">
+  <div class="secno">SUMMARY</div>
+  <h2>八つのテーゼで見る Maṇḍana</h2>
+  <p>Maṇḍana の立場は、知覚の錯誤についての<strong>実在論的・関係的な理論</strong>です。要点を八つのテーゼにまとめると次のようになります。</p>
+  <ol class="thesis">
+    <li><b>錯誤の要素はすべて実在する。</b>錯誤で現れる「銀」は、心の中の像でも無でもなく、別の場所、別の時に実在する銀である。</li>
+    <li><b>偽は結合にある。</b>誤っているのは要素ではなく、目の前のもの（貝殻）が銀の姿で現れるという<em>結びつき</em>、つまり「AがBとして現れる」の「として」である。</li>
+    <li><b>非存在は相対的である。</b>「ない」とは「別のものである」ことであり、絶対的な無というものはない。</li>
+    <li><b>認識の対象は行為によって決まる。</b>ある認識の対象とは、その認識に導かれた行為が向かう先である。だから錯誤の認識にも対象（貝殻）がある。</li>
+    <li><b>欠陥は積極的な原因である。</b>感官や心の欠陥は、正常な結果を妨げるだけでなく、異常な結果を生み出す。</li>
+    <li><b>認識は自ら妥当性をもつ。</b>認識は生じたとき、それ自体で正当化されている。妥当性を失うのは、具体的な反証（打ち消しの認識）が現れたときだけである。誤りうるという一般的な可能性は、妥当性を損なわない。</li>
+    <li><b>錯誤論は形而上学の試金石である。</b>錯誤の説明を誤ると、観念論、虚無論、あるいは真偽の区別の放棄へと一般化してしまう。</li>
+    <li><b>錯誤は虚構ではない。</b>比喩や虚構は違いを自覚しながら重ねることだが、錯誤には「ふり」がなく、本気の確信がある。だから錯誤は打ち消され、行為を特定の対象へ向ける。この点で Maṇḍana は、現代の虚構説に対して反虚構説の立場に立つ（§6）。</li>
+  </ol>
+</section>
+
+<section id="problem" class="col">
+  <div class="secno">§ 1</div>
+  <h2>錯誤のパラドックス</h2>
+  <p>出発点はありふれた経験です。浜辺で白く光る貝殻のかけらを見て、「銀だ」と思う。近づくと「これは銀ではない」とわかる。この経験について、次の四つの原理はどれももっともらしく見えます。</p>
+
+  <div class="tbl"><table>
+    <thead><tr><th>原理</th><th>内容</th><th>西洋哲学での近い定式</th></tr></thead>
+    <tbody>
+      <tr><td class="th">P1 現れの存在要請</td><td>意識に現れるものは、何らかの意味で存在する。まったくの無は現れない（偈2、37–38）。</td><td>Robinson の「現象原理」。「何かがFとして見えるなら、Fであるような何かを意識している」。プラトン『テアイテトス』の「ないものを思うことは、何も思わないことだ」。</td></tr>
+      <tr><td class="th">P2 訂正可能性</td><td>錯誤の内容は、現れたとおりには存在しない。後の認識「これは銀ではない」がそれを示す。</td><td>錯誤は錯誤である。知覚的信念の可謬性。</td></tr>
+      <tr><td class="th">P3 現象的統一性</td><td>錯誤は「これは銀だ」という一つの知覚として経験され、内側からは正しい知覚と区別できない（偈26、119–120）。</td><td>錯覚と真正な知覚の現象的な区別不能性（論拠としての錯覚論法の前提）。</td></tr>
+      <tr><td class="th">P4 実在論</td><td>知覚は意識の外にある対象にかかわる。</td><td>直接実在論／素朴実在論。</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>問題は、これらを同時に保つのが難しいことです。P1 によれば、現れている「銀」は何かとして存在しなければなりません。しかし P2 によれば、それは目の前には存在しません。では、どこに存在するのか。</p>
+  <ul>
+    <li>心の中に、と答えれば、知覚は外界にかかわるという P4 を手放すことになります。</li>
+    <li>どこにも存在しない、と答えれば、P1 を手放すことになります。</li>
+    <li>そもそも偽の「銀」は現れていない、と答えれば、P2 か P3 を骨抜きにすることになります。</li>
+  </ul>
+  <p>さらに、夢には「目の前のもの」すらありません。理論は、こうした<strong>対象のない錯誤</strong>も説明しなければなりません（偈11）。</p>
+
+  <div class="box key"><span class="lbl">西洋哲学との接点</span>
+  <p>これは西洋哲学の二つの古典的な問題を合わせたものです。一つは、プラトンが『テアイテトス』（187d–200c）と『ソフィスト』（237a–264b）で問うた<strong>偽なる判断はいかにして可能か</strong>という問題です。もう一つは、近代の知覚論の<strong>錯覚論法</strong>（Ayer 1940 など）です。錯覚論法は「錯覚では、見えている性質をもつ何か（感覚与件）を意識している」と推論し、それを知覚一般に広げます。Maṇḍana の論敵の一人（§2.1）は、ほぼこの論法をとっています。</p></div>
+
+  <h3>五つの理論は、どの原理を捨てるか</h3>
+  <p>Maṇḍana が扱う五つの理論は、四つの原理のどれを保ち、どれを捨てるか、あるいは修正するかで整理できます。</p>
+  <figure><div class="tbl" style="margin:0"><table>
+    <thead><tr><th>理論</th><th>現れている「銀」とは</th><th class="c">P1</th><th class="c">P2</th><th class="c">P3</th><th class="c">P4</th><th>代価</th></tr></thead>
+    <tbody>
+      <tr><td class="th inner">内的対象説</td><td>心の中の像（観念）</td><td class="c"><span class="dot keep" title="保持"></span></td><td class="c"><span class="dot mod" title="修正"></span></td><td class="c"><span class="dot keep"></span></td><td class="c"><span class="dot drop" title="放棄"></span></td><td>外界の対象を失う。偽なのは「外にある」という点だけだとする。</td></tr>
+      <tr><td class="th void">無の現れ説</td><td>何もない。無が「何か」として現れる</td><td class="c"><span class="dot drop"></span></td><td class="c"><span class="dot keep"></span></td><td class="c"><span class="dot keep"></span></td><td class="c"><span class="dot mod"></span></td><td>無が現れうることを認めなければならない。</td></tr>
+      <tr><td class="th indet">規定不能説</td><td>有とも無とも言えないもの</td><td class="c"><span class="dot mod"></span></td><td class="c"><span class="dot keep"></span></td><td class="c"><span class="dot keep"></span></td><td class="c"><span class="dot drop"></span></td><td>有でも無でもない第三の存在身分を導入する。</td></tr>
+      <tr><td class="th omit">見落とし説</td><td>別の時に見た銀の記憶（それ自体は真）</td><td class="c"><span class="dot keep"></span></td><td class="c"><span class="dot mod"></span></td><td class="c"><span class="dot drop"></span></td><td class="c"><span class="dot keep"></span></td><td>積極的に偽な認識はないとする。錯誤は区別の欠如にすぎない。</td></tr>
+      <tr class="own"><td class="th other">関係説（Maṇḍana）</td><td>別の場所・別の時に実在する銀</td><td class="c"><span class="dot keep"></span></td><td class="c"><span class="dot keep"></span></td><td class="c"><span class="dot keep"></span></td><td class="c"><span class="dot keep"></span></td><td>偽を「結合」に置く関係的分析、相対的非存在の存在論、行為による対象の規定、欠陥の積極的因果性（§3）。</td></tr>
+    </tbody>
+  </table></div>
+  <div class="legend"><span><span class="dot keep"></span> 保持</span><span><span class="dot mod"></span> 修正して保持</span><span><span class="dot drop"></span> 放棄</span></div>
+  <figcaption><b>表1　錯誤のパラドックスと五つの理論。</b>Maṇḍana の説だけが四原理をすべて保とうとする。その代わりに、§3 で見る四つの理論的な道具立てが必要になる。説の名は本ページでの呼び名。インドの伝統では、内的対象説は「自己の顕現」、無の現れ説は「非存在の顕現」、規定不能説はヴェーダーンタ派の説、見落とし説は「非顕現」（ミーマーンサーのプラバーカラ派）、関係説は「別様の顕現」（ミーマーンサーのバッタ派）と呼ばれる。</figcaption></figure>
+</section>
+
+<section id="rivals" class="wide">
+  <div class="col">
+  <div class="secno">§ 2</div>
+  <h2>四つの対立理論とその批判</h2>
+  <p>本書の前半（偈2–46）は、Maṇḍana 以外の論者にそれぞれの説を語らせる部分です。後半（偈47–163）で Maṇḍana が反論します。テキストはどの説にも学派名を付けていないので、ここでは説の中身で呼びます。</p>
+  </div>
+
+  <div class="cards">
+    <div class="card inner"><h4>2.1 内的対象説</h4><dl>
+      <dt>主張</dt><dd>錯誤の銀は外界にはないが、認識の中の像として存在する（偈2）。</dd>
+      <dt>論証</dt><dd>消去法。無は現れない。外界の銀は打ち消された。ゆえに銀は内的な像である。打ち消しが否定するのは「外にある」ことだけでよく、像まで否定する必要はない（偈3–4。最小の修正の原理）。</dd>
+      <dt>西洋での近縁</dt><dd>感覚与件説（Russell、Moore、Ayer）、表象主義、Berkeley の観念論。</dd>
+      <dt>批判</dt><dd>(a) 内的であることは錯誤の理由にならない。誤っているのは、外にないものが外に見えること、つまり<em>存在しない外在性</em>が現れることである。だからこの説も「ないものの現れ」を認めざるをえない（偈5–8）。(b) 打ち消しの認識は「銀は内にある」とは告げず、「ここ・いまにはない」と告げる（偈155–156）。(c) この説を一般化すると「すべては内にある」という観念論になる（偈164）。</dd>
+    </dl></div>
+
+    <div class="card void"><h4>2.2 無の現れ説</h4><dl>
+      <dt>主張</dt><dd>錯誤とは、対応する対象がまったくないのに、無が「形あるもの」として現れることである（偈14、16、27）。</dd>
+      <dt>論証</dt><dd>(a) 不可避性。他の説も、貝殻と銀の結合という存在しないものが現れることを認めざるをえない（偈15）。(b) 節約。他説は記憶痕跡、その覚醒、「思い出している」という意識の脱落などを余分に想定する（偈16–19）。(c) 時間論。過去のものはもう存在しないので、夢の内容は無と変わらない（偈12）。</dd>
+      <dt>西洋での近縁</dt><dd>対象のない志向性。Russell の偽なる信念の問題（偽の命題に対応する事実は存在しない）。時間論での現在主義。</dd>
+      <dt>批判</dt><dd>(a)「無が現れる」は自己矛盾である。形をもって現れるなら、それはもはや無ではない（偈120–122）。(b)「非存在が存在の姿で現れる」と言うなら、それは「あるものが別のものとして現れる」ことで、関係説そのものである（偈122–123）。勝義と世俗の二段階で逃れることもできない。有と無のあいだに中間はないからである。(c) 対象のない認識はない（偈141）。(d) 節約の原理は証拠に負ける（偈142）。</dd>
+    </dl></div>
+
+    <div class="card indet"><h4>2.3 規定不能説</h4><dl>
+      <dt>主張</dt><dd>錯誤の対象は、有とも無とも規定できない。これは世界全体の現れ方の雛形でもある。一なる精神が、それ自身ではない多様な姿で現れる（偈28–36）。</dd>
+      <dt>論証</dt><dd>有なら偽ではない。無なら現れない。ゆえに有でも無でもない（偈29）。</dd>
+      <dt>西洋での近縁</dt><dd>存在の二値性を拒む第三の身分。Meinong の「存在外」、仮象と実在の区別（Bradley）。</dd>
+      <dt>批判</dt><dd>錯誤は規定できるものであっても錯誤でありうる。それがあるものに別のものの姿を示すからである（偈150）。打ち消しの認識も、対象の規定不能性を告げはしない（偈155）。（この部分の写本は傷みが大きい。）</dd>
+    </dl></div>
+
+    <div class="card omit"><h4>2.4 見落とし説</h4><dl>
+      <dt>主張</dt><dd>積極的に偽な認識はない。「これは銀だ」は、目の前の白く光るものの知覚と、銀の記憶という二つの正しい認識からなる。錯誤は、両者が区別されないこと、つまり記憶を記憶と気づかないことにすぎない（偈37–46）。</dd>
+      <dt>論証</dt><dd>(a) 無は現れない。(b) あるものが現れて別のものが対象だ、というのは不合理である（偈39）。(c) 認識が内容を偽りうるなら、どの認識も信頼できなくなる（偈41–43）。</dd>
+      <dt>西洋での近縁</dt><dd>エピクロス「すべての感覚は真であり、誤りは付け加えられた臆見にある」。スピノザ「虚偽は認識の欠如にある」（『エチカ』第2部定理35）。プラトンの蝋板の比喩（知覚と記憶痕跡の取り違え、『テアイテトス』191c–195a）。</dd>
+      <dt>批判</dt><dd>多方面から論駁される（§2.5の表2）。</dd>
+    </dl></div>
+  </div>
+
+  <div class="col">
+  <h3 id="omit-args">2.5 見落とし説への七つの反論</h3>
+  <p>見落とし説は、Maṇḍana がもっとも多くの紙幅を割いて論駁する相手です（偈48–120、157–162）。反論は論証の型によって分類できます。全体として、「区別の欠如」という消極的な説明では、錯誤が<strong>特定の内容</strong>をもち、<strong>特定の行為</strong>を引き起こし、<strong>特定の訂正</strong>を受けることを説明できない、という一点に集約されます。</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>反論の型</th><th>内容</th><th>偈</th><th>西洋哲学での類似</th></tr></thead>
+    <tbody>
+      <tr><td class="th">過剰適用</td><td>遠くのものや微細なものはぼんやりとしか見えず、どんな認識も対象のすべての面を捉えはしない。錯誤が「不完全な把握」なら、すべての認識が錯誤になる。</td><td class="ref">51–52</td><td>定義の反例による検証（必要十分条件の分析）。</td></tr>
+      <tr><td class="th">過少適用</td><td>誤った再認（「まさにあの人だ」）では、記憶であることが自覚されている。それでも錯誤は起こる。</td><td class="ref">54–56</td><td>同上。</td></tr>
+      <tr><td class="th">行為による論証</td><td>錯誤した人の手は、ほかのどこでもなく目の前の貝殻に伸びる。単なる無区別なら、見てもいない土くれとも銀は区別されていないのに、行為はそちらに向かわない。行為の向きを説明できるのは、目の前のものを銀と<em>積極的に同定する</em>認識だけである。</td><td class="ref">57–67</td><td>信念を行為の傾向性から特定する機能主義、Ramsey の成功意味論。最善の説明への推論。</td></tr>
+      <tr><td class="th">現象学的論証</td><td>経験は「これは銀だ」という一つの述定判断として現れる。二つの認識の並存として現れはしない。</td><td class="ref">26, 119–120</td><td>判断の統一性（命題の統一の問題）。</td></tr>
+      <tr><td class="th">内容の特異性</td><td>黄疸の人は白いものを黄色く見る。特定の欠陥は特定の錯誤を生む。また、白いものを黄色と見るのは、似たものの記憶では説明できない（類似がない）。</td><td class="ref">75–78</td><td>誤表象の因果理論（Dretske 1986、Millikan）。</td></tr>
+      <tr><td class="th">持続性</td><td>二つの月の錯覚は、それが錯覚だと知っていても消えない。区別を知っているのに錯誤が続くのだから、錯誤は区別の欠如ではない。</td><td class="ref">72–74</td><td>ミュラー＝リヤー錯視の持続。知覚の認知的不可侵性（Fodor 1983）。</td></tr>
+      <tr><td class="th">訂正の論理形式</td><td>「これは銀ではない」は、生じていた主張を<em>否定</em>する形をとる。見落としなら否定すべき主張がない。また区別の認識なら「この二つは違う」という形になるはずである。夢には区別すべき二つのものすらない。</td><td class="ref">157–162</td><td>信念改訂の対象としての命題内容。否定判断は先行する肯定的な判断の試みを前提する（Sigwart、Bergson）。</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="core" class="col">
+  <div class="secno">§ 3</div>
+  <h2>Maṇḍana の理論：四つの道具立て</h2>
+
+  <h3>3.1 消去法の論証（偈47）</h3>
+  <p>Maṇḍana は自説を消去法で導入します。この論証の力は、「存在する」を<strong>端的に存在すること</strong>と<strong>現れているとおりに存在すること</strong>の二つに分けたところにあります。</p>
+  <div class="formal">E(x)  : x は（どこか・いつかに）存在する
+A(x)  : x は現れているとおりに（ここ・いまに）存在する
+
+(1) A(x) → ¬錯誤         そのとおりに存在するなら錯誤ではない
+(2) ¬E(x) → ¬現れ(x)     まったく存在しないなら現れない
+(3) 錯誤 ∧ 現れ(x)        錯誤が起き、何かが現れている
+──────────────────────
+(4) E(x) ∧ ¬A(x)          存在するが、現れているとおりではない
+                          ＝「別様に」現れている</div>
+  <figure><div class="plate">
+  <svg viewBox="0 0 640 330" role="img" aria-label="存在の二つの軸による四象限図">
+    <rect x="150" y="40" width="220" height="120" class="surf" stroke-width="1.5" style="stroke:var(--line)"/>
+    <rect x="370" y="40" width="220" height="120" class="band" stroke-width="1.5" style="stroke:var(--line)"/>
+    <rect x="150" y="160" width="220" height="120" class="oth-soft" stroke-width="2.5" style="stroke:var(--t-other)"/>
+    <rect x="370" y="160" width="220" height="120" class="band" stroke-width="1.5" style="stroke:var(--line)"/>
+    <text x="260" y="28" text-anchor="middle" font-size="13" font-weight="700">端的に存在する E</text>
+    <text x="480" y="28" text-anchor="middle" font-size="13" font-weight="700">存在しない ¬E</text>
+    <text x="140" y="96" text-anchor="end" font-size="13" font-weight="700">そのとおりに</text>
+    <text x="140" y="114" text-anchor="end" font-size="13" font-weight="700">存在する A</text>
+    <text x="140" y="216" text-anchor="end" font-size="13" font-weight="700">そのとおりでは</text>
+    <text x="140" y="234" text-anchor="end" font-size="13" font-weight="700">ない ¬A</text>
+    <text x="260" y="96" text-anchor="middle" font-size="15" font-weight="700">正しい知覚</text>
+    <text x="260" y="120" text-anchor="middle" font-size="12" class="muted">錯誤ではない（1）</text>
+    <text x="480" y="96" text-anchor="middle" font-size="15" class="muted">ありえない</text>
+    <text x="480" y="120" text-anchor="middle" font-size="12" class="muted">A は E を含む</text>
+    <text x="260" y="212" text-anchor="middle" font-size="15" font-weight="700" class="oth-f">錯誤</text>
+    <text x="260" y="236" text-anchor="middle" font-size="12">よそに実在する銀が</text>
+    <text x="260" y="254" text-anchor="middle" font-size="12">ここに現れる（4）</text>
+    <text x="480" y="212" text-anchor="middle" font-size="15" class="muted">何も現れない</text>
+    <text x="480" y="236" text-anchor="middle" font-size="12" class="muted">（2）により排除</text>
+    <text x="370" y="310" text-anchor="middle" font-size="12" class="muted">無の現れ説は「¬A」と「¬E」を混同し、内的対象説は E の場所を心の中に移す</text>
+  </svg></div>
+  <figcaption><b>図1　偈47の消去法。</b>二つの「存在」を区別すると、錯誤に残る場所は左下の一つだけになる。対立する説は、この区別をつぶすか（無の現れ説）、別の場所に置き換える（内的対象説）。</figcaption></figure>
+
+  <h3>3.2 関係的分析：偽は「として」にある</h3>
+  <p>錯誤を分解すると、三つの成分が得られます。ここ・いまにある貝殻（実在）、よそ・かつての銀（実在）、そして「貝殻が銀として現れる」という結合（偽）です。Maṇḍana は偽を第三の成分にだけ置きます。</p>
+  <figure><div class="plate">
+  <svg viewBox="0 0 660 300" role="img" aria-label="錯誤の三成分の図">
+    <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--t-other)"/></marker>
+    <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--muted)"/></marker></defs>
+    <rect x="30" y="60" width="200" height="110" rx="12" class="surf" style="stroke:var(--fg)" stroke-width="1.5"/>
+    <text x="130" y="92" text-anchor="middle" font-size="15" font-weight="700">貝殻のかけら</text>
+    <text x="130" y="116" text-anchor="middle" font-size="12" class="muted">ここ・いま</text>
+    <text x="130" y="146" text-anchor="middle" font-size="13" class="ok-f">実在 ✓</text>
+    <rect x="430" y="60" width="200" height="110" rx="12" class="surf" style="stroke:var(--fg)" stroke-width="1.5"/>
+    <text x="530" y="92" text-anchor="middle" font-size="15" font-weight="700">銀</text>
+    <text x="530" y="116" text-anchor="middle" font-size="12" class="muted">よそ・かつて（店、昨日）</text>
+    <text x="530" y="146" text-anchor="middle" font-size="13" class="ok-f">実在 ✓</text>
+    <path d="M232 115 C 300 40, 360 40, 428 115" fill="none" style="stroke:var(--t-other)" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#ar)"/>
+    <rect x="250" y="20" width="160" height="34" rx="17" class="oth-soft"/>
+    <text x="330" y="42" text-anchor="middle" font-size="13" font-weight="700" class="oth-f">「として」現れる ✗ 偽</text>
+    <rect x="30" y="210" width="600" height="70" rx="10" class="band"/>
+    <text x="330" y="238" text-anchor="middle" font-size="13">判断「これは銀だ」＝ 主語（実在） ＋ 述語（実在） ＋ 結合（偽）</text>
+    <text x="330" y="262" text-anchor="middle" font-size="12" class="muted">偽は要素ではなく、要素の組み合わせ方にある（偈130–133）</text>
+  </svg></div>
+  <figcaption><b>図2　錯誤の三成分。</b>主語と述語はどちらも世界に実在する。偽なのは両者を「AはBである」と結びつける点だけである。</figcaption></figure>
+
+  <p>この分析は、西洋哲学では<strong>偽は結合と分離にある</strong>という伝統に重なります。</p>
+  <ul>
+    <li>アリストテレスは、真偽は単独の概念ではなく概念の結合と分離にある、と言いました（『命題論』1、『形而上学』Θ10）。</li>
+    <li>プラトン『ソフィスト』（263a–b）では、「テアイテトスは飛んでいる」という偽なる言明が分析されます。テアイテトスも「飛ぶ」もあるもの（存在者）ですが、テアイテトスについて、彼とは異なることが語られています。</li>
+    <li>Russell（1912）は、偽なる信念の対象を「存在しない事実」とせず、信じる人と、実在する諸項との多項関係として分析しました。これも同じ方向の試みです。</li>
+  </ul>
+  <p>Maṇḍana にはさらに一歩踏み込んだ点があります。彼は「結合」を、どこかに存在しない独立の項として立てることを拒みます。錯誤で現れているのは「二つのものの結合」ではなく、「一つのものが別のものとして」現れていることだ、と言うのです（偈132–133）。そうでなければ、無の現れ説の論者が言うとおり、存在しない「結合」が現れることになってしまうからです（偈15、131）。言い換えれば、偽を担うのは<em>見え方</em>（〜として見ること）であり、関係を新たな対象として実体化しない、ということです。</p>
+
+  <div class="box"><span class="lbl">知覚の哲学の用語で言うと</span>
+  <p>Dretske（1969）の区別を借りると、錯誤した人は貝殻を<strong>見ている</strong>（非認識的な見ること）が、貝殻が銀であると<strong>見ている</strong>（認識的な見ること）わけではない。Anscombe（1965）の用語で言えば、貝殻は知覚の<strong>質料的対象</strong>、銀は<strong>志向的対象</strong>です。Maṇḍana の新しさは、志向的対象の側（銀）も、心の中の存在者や無ではなく、世界のどこかの実在物で埋めた点にあります。</p></div>
+
+  <h3>3.3 非存在の相対性：「ない」とは「別である」こと</h3>
+  <p>関係的分析には、存在論上の支えが必要です。錯誤が偽なのは、目の前に銀が<em>ない</em>からです。では、この「ない」は何か。Maṇḍana は先行者 Kumārila の一句を引いて答えます。「非存在とは別の存在である。それ以外の非存在は何もない。確認されないからである」（偈127–128）。</p>
+  <figure><div class="plate">
+  <svg viewBox="0 0 660 270" role="img" aria-label="相対的非存在と絶対的無の対比図">
+    <text x="165" y="26" text-anchor="middle" font-size="14" font-weight="700">相対的非存在（Maṇḍana が認める）</text>
+    <circle cx="105" cy="120" r="52" class="surf" style="stroke:var(--fg)" stroke-width="1.5"/>
+    <text x="105" y="117" text-anchor="middle" font-size="14" font-weight="700">貝殻</text>
+    <text x="105" y="137" text-anchor="middle" font-size="11" class="muted">ここにある</text>
+    <circle cx="235" cy="120" r="52" class="surf" style="stroke:var(--fg)" stroke-width="1.5"/>
+    <text x="235" y="117" text-anchor="middle" font-size="14" font-weight="700">銀</text>
+    <text x="235" y="137" text-anchor="middle" font-size="11" class="muted">よそにある</text>
+    <text x="170" y="200" text-anchor="middle" font-size="12">銀は「貝殻ではないもの」として</text>
+    <text x="170" y="218" text-anchor="middle" font-size="12">貝殻の非存在である。だが銀それ自体は存在する。</text>
+    <text x="170" y="246" text-anchor="middle" font-size="12" class="oth-f" font-weight="700">ない ＝ 別のものである</text>
+    <line x1="330" y1="20" x2="330" y2="255" style="stroke:var(--line)" stroke-width="1.5"/>
+    <text x="495" y="26" text-anchor="middle" font-size="14" font-weight="700">絶対的な無（Maṇḍana が拒む）</text>
+    <circle cx="495" cy="120" r="56" fill="none" style="stroke:var(--muted)" stroke-width="1.8" stroke-dasharray="6 6"/>
+    <line x1="455" y1="80" x2="535" y2="160" style="stroke:var(--warn)" stroke-width="2.5"/>
+    <line x1="535" y1="80" x2="455" y2="160" style="stroke:var(--warn)" stroke-width="2.5"/>
+    <text x="495" y="200" text-anchor="middle" font-size="12">何でもないもの・規定をまったく欠くもの</text>
+    <text x="495" y="218" text-anchor="middle" font-size="12">は、認識の対象として確認されない</text>
+    <text x="495" y="246" text-anchor="middle" font-size="12" class="warn-f" font-weight="700">「無が現れる」は空虚</text>
+  </svg></div>
+  <figcaption><b>図3　非存在の二つの考え方。</b>Maṇḍana にとって「AはBでない」「Aがここにない」は、ある実在するもの（B、あるいはここにある別のもの）を指している。</figcaption></figure>
+
+  <p>西洋哲学でもっとも近いのは、プラトン『ソフィスト』の<strong>非存在＝異他性</strong>の説です（257b–259b）。「あらぬもの」を語るとき、私たちはあるものの反対を語っているのではなく、「異なるもの」を語っている、とプラトンは言います。20世紀には、否定的事実を認めるかどうかをめぐる論争（Russell と Demos 1917）で、否定を<em>両立不可能な肯定的事実</em>によって分析する立場が出ました。これも同じ発想です。Bergson（『創造的進化』第4章）の「無の観念」批判も、絶対的な無は表象できないという点で Maṇḍana と一致します。</p>
+
+  <p>この存在論によって、「兎の角」や「指先の象の群れ」のような一見純粋な虚構も分析されます（偈135–137）。兎は実在し、角も（牛などに）実在する。偽なのは、兎と角の結びつきです。これはヒュームが『人間知性研究』第2節で「黄金の山」を「黄金」と「山」という二つの観念の結合として説明したのと、ほぼ同じ手続きです。Maṇḍana はこの手続きを夢にも広げます。夢の中の「燃える水」のような、経験したことのない組み合わせも、経験した要素の組み替えとして説明されます（偈140）。</p>
+
+  <h3>3.4 認識の対象は行為が決める</h3>
+  <p>見落とし説は言います。「錯誤では銀が現れ、対象は貝殻だというなら、現れているものと対象とが食い違う。そんな認識は対象をもたない」（偈39–42）。Maṇḍana はここで、<strong>対象</strong>という概念そのものを定義し直します。認識の対象とは、その認識が引き起こす行為がふさわしく向かう先である（偈80）。</p>
+  <figure><div class="plate">
+  <svg viewBox="0 0 660 260" role="img" aria-label="内容と対象の区別の図">
+    <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--t-other)"/></marker>
+    <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--muted)"/></marker></defs>
+    <circle cx="80" cy="140" r="34" class="band" style="stroke:var(--fg)" stroke-width="1.5"/>
+    <text x="80" y="145" text-anchor="middle" font-size="13" font-weight="700">主体</text>
+    <rect x="160" y="30" width="200" height="64" rx="32" class="oth-soft"/>
+    <text x="260" y="58" text-anchor="middle" font-size="13" font-weight="700" class="oth-f">内容：「銀」</text>
+    <text x="260" y="78" text-anchor="middle" font-size="11">どう現れているか（見え方）</text>
+    <path d="M108 120 L 168 84" style="stroke:var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#ar3)"/>
+    <path d="M116 150 L 470 150" style="stroke:var(--t-other)" stroke-width="3" fill="none" marker-end="url(#ar2)"/>
+    <text x="300" y="140" text-anchor="middle" font-size="12">行為（手を伸ばす）</text>
+    <rect x="480" y="112" width="150" height="76" rx="12" class="surf" style="stroke:var(--fg)" stroke-width="1.5"/>
+    <text x="555" y="144" text-anchor="middle" font-size="14" font-weight="700">貝殻</text>
+    <text x="555" y="166" text-anchor="middle" font-size="11" class="muted">対象：何に向かうか</text>
+    <rect x="30" y="206" width="600" height="40" rx="8" class="band"/>
+    <text x="330" y="231" text-anchor="middle" font-size="12">錯誤 ＝ 対象は正しく、見え方が誤っている。対象のない認識ではない（偈79–82）</text>
+  </svg></div>
+  <figcaption><b>図4　内容と対象の分離。</b>対象を「現れているもの」ではなく「行為の向かう先」で定めると、錯誤は「対象のない認識」ではなく「対象を誤った見え方で示す認識」になる。</figcaption></figure>
+  <p>この定義は、志向性の対象を<strong>記述内容</strong>ではなく<strong>実践的・因果的なつながり</strong>によって固定する、という発想です。現代の指示の因果説や、信念内容を行為の成功条件から特定する成功意味論（Ramsey、Whyte）、パースのプラグマティズムの格率と同じ方向を向いています。この発想は Maṇḍana にとって二重の役目を果たします。</p>
+  <ul>
+    <li>見落とし説の「対象のない認識」という非難をかわす。</li>
+    <li>§2.5 の行為による論証（手は貝殻に伸びる）と一体になり、錯誤には<em>対象がある</em>こと、しかもそれが<em>誤った姿で</em>示されていることを、同じ観察で裏づける。</li>
+  </ul>
+
+  <h3>3.5 欠陥は積極的な原因である</h3>
+  <p>錯誤は何によって引き起こされるのか。見落とし説の論者や無の現れ説の論者は、欠陥（眼病、睡眠、強い感情など）を、正常な働きを<em>欠けさせる</em>だけのものと考えます。それなら、欠陥が「余分な」内容を生み出すのは矛盾だ、と彼らは皮肉ります（偈22–24）。Maṇḍana は、欠陥は正常な結果を妨げると<strong>同時に</strong>、異常な結果を生み出すと答えます（偈117–119）。例として挙げるのは、消化の火が異常に強くなる病気（過食症に当たる）と、恋の熱に浮かされた心が記憶を知覚のように見てしまうことです。</p>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>欠如説（相手）</th><th>積極説（Maṇḍana）</th></tr></thead>
+    <tbody>
+      <tr><td class="th">欠陥の働き</td><td>正常な結果を欠けさせる</td><td>正常な結果を妨げ、かつ異常な結果を生む</td></tr>
+      <tr><td class="th">黄疸で白が黄に見える</td><td>説明できない（欠如は一様）</td><td>特定の欠陥が特定の内容を生む（偈75）</td></tr>
+      <tr><td class="th">夢</td><td>弱った心がなぜ覚醒時より多くを生むのか（偈22–23）</td><td>心の乱れが記憶の種を目覚めさせる（偈145）</td></tr>
+      <tr><td class="th">西洋での対応</td><td>欠如としての悪・誤り（アウグスティヌス、デカルト第四省察）</td><td>誤表象を機能不全として説明する目的論的意味論（Millikan 1984、Dretske 1986）</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>3.6 夢と時間</h3>
+  <p>夢は、目の前に基体のない錯誤です。無の現れ説の論者は、夢の内容は過去のもので、過去のものはもうないから無と同じだ、と論じました（偈12）。この論者にとって「存在する」とは「いま・ここに現在する」ことです。Schmithausen（1965: 96, 注4）が指摘するように、存在は現在と等置されています。現代の時間論で言えば<strong>現在主義</strong>です。Maṇḍana はこれに対し、過去のものは<em>それ自身の時においては実在する</em>と答えます（偈138）。夢の錯誤は、その実在する過去の対象に「現在性」という時間的な位置づけを誤って付け加えることにあります（偈139）。</p>
+  <figure><div class="plate">
+  <svg viewBox="0 0 660 200" role="img" aria-label="夢の時間構造の図">
+    <defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--t-other)"/></marker></defs>
+    <line x1="40" y1="120" x2="620" y2="120" style="stroke:var(--fg)" stroke-width="1.5"/>
+    <text x="630" y="124" font-size="12" class="muted">時間</text>
+    <circle cx="160" cy="120" r="8" style="fill:var(--fg)"/>
+    <text x="160" y="150" text-anchor="middle" font-size="13" font-weight="700">t₁：象を見た</text>
+    <text x="160" y="170" text-anchor="middle" font-size="11" class="muted">象は t₁ において実在</text>
+    <circle cx="500" cy="120" r="8" class="oth-f"/>
+    <text x="500" y="150" text-anchor="middle" font-size="13" font-weight="700">t₂：夢で象を見る</text>
+    <text x="500" y="170" text-anchor="middle" font-size="11" class="muted">「いま・ここにいる」と現れる</text>
+    <path d="M170 105 C 260 30, 400 30, 490 105" fill="none" style="stroke:var(--t-other)" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#ar4)"/>
+    <text x="330" y="44" text-anchor="middle" font-size="12" class="oth-f" font-weight="700">現在性の誤った付与（偽）</text>
+  </svg></div>
+  <figcaption><b>図5　夢の時間構造。</b>内容（象）は過去に実在し、偽なのは「いま」という時制の付与だけである。現在主義をとる相手にとっては、過去の象は無にすぎない。</figcaption></figure>
+  <p>この答えは、過去の対象の実在を認める<strong>永久主義</strong>的な直観に近いものです。ただし、Maṇḍana は時間の形而上学そのものを主題にしているわけではありません。彼に必要なのは、錯誤の素材がすべて「どこか・いつか」に実在することだけです。</p>
+
+  <h3>3.7 訂正の最小性：打ち消しは何を否定するのか</h3>
+  <p>各理論の違いは、訂正の判断「これは銀ではない」が何を否定しているとみるかに、はっきり現れます。偽の範囲は、打ち消しが否定する範囲に限られる。この<strong>最小修正の原理</strong>は、内的対象説（偈3–4）も Maṇḍana（偈154）も認めています。争点は、打ち消しの論理形式の読み方です。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>理論</th><th>「これは銀ではない」の分析</th><th>否定されるもの</th><th>Maṇḍana の評価</th></tr></thead>
+    <tbody>
+      <tr><td class="th inner">内的対象説</td><td>銀は外にない（内にある）</td><td>外在性だけ</td><td>打ち消しは「内にある」とは告げない（偈155）</td></tr>
+      <tr><td class="th void">無の現れ説</td><td>銀はまったくない</td><td>銀の存在そのもの</td><td>否定しすぎ。最小修正に反する</td></tr>
+      <tr><td class="th omit">見落とし説</td><td>この二つは区別される</td><td>何も（区別の欠如を埋めるだけ）</td><td>否定の形をとる事実を説明できない（偈157–160）</td></tr>
+      <tr class="own"><td class="th other">関係説</td><td>ここ・いまにあるのは銀ではない</td><td>貝殻と銀の結合、銀のここ・いま性</td><td>銀は別の場所・時に存在しつづける（偈156）</td></tr>
+    </tbody>
+  </table></div>
+  <p>これは、信念改訂の理論（AGM 理論）の<strong>最小変更</strong>や、Quine の「最小の損傷」の原則を、知覚の訂正という場面に適用した議論として読めます。</p>
+</section>
+
+<section id="epist" class="col">
+  <div class="secno">§ 4</div>
+  <h2>認識論：可謬性は懐疑論を正当化しない</h2>
+  <p>錯誤論は認識論上の脅威とも結びついています。見落とし説の論者は、認識が対象を偽って示しうるなら、どの認識も信頼できなくなると警告しました（偈41–43）。仏教側には、夢がそうであるように、すべての認識は対象をもたないという推論もあります（偈99）。Maṇḍana は、ミーマーンサー学派の<strong>自律的妥当性</strong>の説で応じます（偈82–116）。</p>
+
+  <figure><div class="plate">
+  <svg viewBox="0 0 660 300" role="img" aria-label="自律的妥当性の流れ図">
+    <defs><marker id="ar5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--fg)"/></marker></defs>
+    <rect x="20" y="40" width="150" height="60" rx="10" class="band"/>
+    <text x="95" y="66" text-anchor="middle" font-size="13" font-weight="700">認識が生じる</text>
+    <text x="95" y="86" text-anchor="middle" font-size="11" class="muted">「これは銀だ」</text>
+    <path d="M172 70 L 228 70" style="stroke:var(--fg)" stroke-width="1.5" marker-end="url(#ar5)"/>
+    <rect x="232" y="40" width="190" height="60" rx="10" class="oth-soft"/>
+    <text x="327" y="66" text-anchor="middle" font-size="13" font-weight="700" class="oth-f">そのままで正当化</text>
+    <text x="327" y="86" text-anchor="middle" font-size="11">生じたことだけで妥当（偈111）</text>
+    <path d="M424 70 L 478 70" style="stroke:var(--fg)" stroke-width="1.5" marker-end="url(#ar5)"/>
+    <rect x="482" y="30" width="160" height="80" rx="10" class="surf" style="stroke:var(--fg)" stroke-width="1.5"/>
+    <text x="562" y="60" text-anchor="middle" font-size="13" font-weight="700">反証は現れたか</text>
+    <text x="562" y="80" text-anchor="middle" font-size="11" class="muted">「これは銀ではない」</text>
+    <path d="M562 112 L 562 168" style="stroke:var(--fg)" stroke-width="1.5" marker-end="url(#ar5)"/>
+    <text x="572" y="146" font-size="11">はい</text>
+    <rect x="482" y="172" width="160" height="56" rx="10" class="surf" style="stroke:var(--warn)" stroke-width="2"/>
+    <text x="562" y="198" text-anchor="middle" font-size="13" font-weight="700" class="warn-f">妥当性を失う</text>
+    <text x="562" y="216" text-anchor="middle" font-size="11" class="muted">（偈98–99）</text>
+    <path d="M482 90 C 420 160, 360 180, 330 200" fill="none" style="stroke:var(--fg)" stroke-width="1.5" marker-end="url(#ar5)"/>
+    <text x="410" y="166" font-size="11">いいえ</text>
+    <rect x="200" y="200" width="240" height="56" rx="10" class="oth-soft"/>
+    <text x="320" y="226" text-anchor="middle" font-size="13" font-weight="700" class="oth-f">妥当性を保つ</text>
+    <text x="320" y="244" text-anchor="middle" font-size="11">「誤りうる」と知っていても損なわれない（偈100）</text>
+    <text x="20" y="285" font-size="11" class="muted">不要なもの：欠陥がないことの事前確認／過去の的中率（不逸脱）の確認／誤りの可能性の排除</text>
+  </svg></div>
+  <figcaption><b>図6　自律的妥当性。</b>正当化はデフォルトで与えられ、取り消すのは具体的な反証だけである。</figcaption></figure>
+
+  <h3>4.1 「不逸脱」を正当化の根拠とする説への反論</h3>
+  <p>相手は、認識が妥当なのは対象から逸脱しない（信頼できる）からだ、と言います。Maṇḍana は三つの論拠で退けます。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>論拠</th><th>内容</th><th>偈</th><th>西洋での名前</th></tr></thead>
+    <tbody>
+      <tr><td class="th">循環</td><td>認識が対象から逸脱しないと知るには、対象を先に知っていなければならない。しかし対象を知るのは、その認識によってである。</td><td class="ref">85</td><td>判断基準の問題（セクストス、Chisholm 1973）、認識的循環。</td></tr>
+      <tr><td class="th">無限後退</td><td>不逸脱を確かめる認識の不逸脱も、確かめなければならない。</td><td class="ref">86</td><td>正当化の無限後退。</td></tr>
+      <tr><td class="th">冗長性</td><td>不逸脱そのものが認識によって知られるのなら、認識が直接に対象を知らせるとすればよい。不逸脱は余計な中間項である。</td><td class="ref">87–88</td><td>メタ正当化要請（BonJour）への批判。</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>4.2 推論と知覚の非対称性</h3>
+  <p>Maṇḍana の議論の要は、<strong>証拠による推論</strong>と<strong>知覚</strong>の区別にあります。煙から火を推すとき、煙が火から逸脱しないこと（相関）を知っていることが推論の条件になります。だから推論では、逸脱は欠陥です。しかし知覚は「ただ存在するだけで知らせる」もので、感官と同じ働き方をします。感官は、白にも黒にも働く（逸脱する）のに、確定的な知覚を生むかぎり認識手段です（偈89–92、103–108）。</p>
+  <div class="formal">推論 :  正当化(火)  ⇐  知覚(煙) ∧ 知っている(煙→火)       相関の知が必要
+知覚 :  正当化(p)   ⇐  知覚(p) ∧ ¬反証(p)                  相関の知は不要</div>
+  <p>これは現代認識論の<strong>独断主義</strong>（Pryor 2000）や<strong>現象的保守主義</strong>（Huemer 2001）、Swinburne の<strong>軽信の原理</strong>に近い立場です。知覚的に p と見えるなら、反証がないかぎり p と信じることは一応正当化される、というものです。また Pollock（1986）の用語で言えば、Maṇḍana が認める打ち消しの認識は、主に<strong>反駁的な無効化子</strong>（p ではないことの直接の証拠）です。認識の原因に欠陥があることを知るのは、正当化の根拠を断つ<strong>切り崩し型の無効化子</strong>に当たります（偈114–117）。ただし Maṇḍana は、欠陥がないことを毎回確かめる必要はないと考えます。認識は直接に経験されるもので、原因の健全さから推理されるものではないからです（偈116）。</p>
+
+  <h3>4.3 夢の論法への応答</h3>
+  <p>「夢の認識は対象をもたない。覚醒時の認識も認識である。ゆえに対象をもたない」という一般化に対し、Maṇḍana はこう答えます。夢の認識は、目覚めたときに実際に打ち消される。しかし覚醒時の認識には、それを打ち消す認識は現に生じない（偈99–100）。懐疑論者は「誤りうる」という<em>可能性</em>から「妥当でない」という<em>現実</em>へと移ろうとしますが、Maṇḍana の枠組みでは、無効化は現実の反証によってしか起こりません。デカルトの夢の論証に対する、可謬主義的だが反懐疑論的な応答と言えます。</p>
+</section>
+
+<section id="structure" class="wide">
+  <div class="col">
+  <div class="secno">§ 5</div>
+  <h2>論証の全体構造</h2>
+  <p>本書は、対立説の提示（前半）と反論（後半）が鏡像になるように組まれています。後半は偈47の消去法の二つの前提を順に守る形で進みます。前提 (1)「錯誤はある」を守るために見落とし説を論駁し、前提 (2)「無は現れない」を守るために無の現れ説を論駁します。</p>
+  </div>
+  <figure><div class="plate">
+  <svg viewBox="0 0 900 470" role="img" aria-label="論証全体の構造図">
+    <defs><marker id="ar6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--muted)"/></marker></defs>
+    <text x="210" y="24" text-anchor="middle" font-size="14" font-weight="700">前半：対立説の提示（偈2–46）</text>
+    <text x="690" y="24" text-anchor="middle" font-size="14" font-weight="700">後半：Maṇḍana の反論（偈47–163）</text>
+    <rect x="40" y="44" width="340" height="56" rx="10" class="surf" style="stroke:var(--t-inner)" stroke-width="2"/>
+    <text x="210" y="68" text-anchor="middle" font-size="13" font-weight="700">内的対象説</text><text x="210" y="88" text-anchor="middle" font-size="11" class="muted">偈2–4　消去法・最小修正</text>
+    <rect x="40" y="114" width="340" height="76" rx="10" class="surf" style="stroke:var(--t-void)" stroke-width="2"/>
+    <text x="210" y="138" text-anchor="middle" font-size="13" font-weight="700">無の現れ説</text><text x="210" y="158" text-anchor="middle" font-size="11" class="muted">偈5–27　他説への反論・節約・夢・欠陥の皮肉</text><text x="210" y="176" text-anchor="middle" font-size="11" class="muted">意識との不一致</text>
+    <rect x="40" y="204" width="340" height="56" rx="10" class="surf" style="stroke:var(--t-indet)" stroke-width="2"/>
+    <text x="210" y="228" text-anchor="middle" font-size="13" font-weight="700">規定不能説</text><text x="210" y="248" text-anchor="middle" font-size="11" class="muted">偈28–36　無明・世界の仮現</text>
+    <rect x="40" y="274" width="340" height="56" rx="10" class="surf" style="stroke:var(--t-omit)" stroke-width="2"/>
+    <text x="210" y="298" text-anchor="middle" font-size="13" font-weight="700">見落とし説</text><text x="210" y="318" text-anchor="middle" font-size="11" class="muted">偈37–46　無は現れない・不信の拡大</text>
+    <rect x="520" y="44" width="340" height="56" rx="10" class="oth-soft"/>
+    <text x="690" y="68" text-anchor="middle" font-size="13" font-weight="700" class="oth-f">消去法による自説の導入</text><text x="690" y="88" text-anchor="middle" font-size="11">偈47–48</text>
+    <rect x="520" y="114" width="340" height="76" rx="10" class="surf" style="stroke:var(--t-omit)" stroke-width="2"/>
+    <text x="690" y="138" text-anchor="middle" font-size="13" font-weight="700">見落とし説の論駁</text><text x="690" y="158" text-anchor="middle" font-size="11" class="muted">偈49–120　七つの反論（表2）</text><text x="690" y="176" text-anchor="middle" font-size="11" class="muted">対象の再定義・自律的妥当性・欠陥の積極性</text>
+    <rect x="520" y="204" width="340" height="76" rx="10" class="surf" style="stroke:var(--t-void)" stroke-width="2"/>
+    <text x="690" y="228" text-anchor="middle" font-size="13" font-weight="700">無の現れ説の論駁</text><text x="690" y="248" text-anchor="middle" font-size="11" class="muted">偈120–149　非存在の相対性・兎の角</text><text x="690" y="266" text-anchor="middle" font-size="11" class="muted">夢と時間・節約への応答</text>
+    <rect x="520" y="294" width="340" height="40" rx="10" class="surf" style="stroke:var(--t-indet)" stroke-width="2"/>
+    <text x="690" y="319" text-anchor="middle" font-size="13" font-weight="700">規定不能説の論駁　<tspan class="muted" font-weight="400" font-size="11">偈150–153</tspan></text>
+    <rect x="520" y="348" width="340" height="56" rx="10" class="surf" style="stroke:var(--t-inner)" stroke-width="2"/>
+    <text x="690" y="372" text-anchor="middle" font-size="13" font-weight="700">打ち消しの分析（内的対象説ほか）</text><text x="690" y="392" text-anchor="middle" font-size="11" class="muted">偈154–163　最小修正・否定の形式</text>
+    <rect x="200" y="420" width="500" height="40" rx="10" class="band"/>
+    <text x="450" y="445" text-anchor="middle" font-size="13" font-weight="700">結論：錯誤論の誤りは観念論・虚無論・真偽の消失に至る（偈164）</text>
+    <path d="M382 302 C 450 302, 450 152, 518 152" fill="none" style="stroke:var(--muted)" stroke-width="1.5" marker-end="url(#ar6)"/>
+    <path d="M382 152 C 450 152, 450 242, 518 242" fill="none" style="stroke:var(--muted)" stroke-width="1.5" marker-end="url(#ar6)"/>
+    <path d="M382 232 C 450 232, 450 314, 518 314" fill="none" style="stroke:var(--muted)" stroke-width="1.5" marker-end="url(#ar6)"/>
+    <path d="M382 72 C 460 72, 440 376, 518 376" fill="none" style="stroke:var(--muted)" stroke-width="1.5" marker-end="url(#ar6)"/>
+  </svg></div>
+  <figcaption><b>図7　前半と後半の対応。</b>後半は見落とし説から始め、無の現れ説、規定不能説、内的対象説の順に答える。内的対象説への直接の反論の大部分は、写本の欠損で失われたと推定される（偈151–153）。</figcaption></figure>
+
+  <div class="col">
+  <h3>なぜミーマーンサーの思想家が錯誤論を書いたのか</h3>
+  <p>結びの偈（164）は、この理論的な争いの賭け金を示しています。錯誤の分析は、知覚一般の分析へと<strong>類推によって一般化</strong>されます。</p>
+  <ul>
+    <li>錯誤の対象が心の中にあるなら、すべての対象が心の中にありうる（観念論）。</li>
+    <li>錯誤の対象が無なら、すべてが空でありうる（虚無論）。</li>
+    <li>積極的な誤りがないなら、真と偽の区別そのものが立たない。</li>
+  </ul>
+  <p>これは、錯覚論法が「錯覚の場合」から「すべての知覚」へと進む<strong>一般化の段階</strong>と同じ構造です。祭式の行為を命じる聖典の解釈学であるミーマーンサー学派にとって、行為が向かう世界の実在と、正しい認識と誤った認識の区別は、手放せない前提でした。Maṇḍana の錯誤論は、その前提を守るための、知覚の哲学による防衛線と読むことができます。</p>
+  </div>
+</section>
+
+<section id="fiction" class="wide">
+  <div class="col">
+  <div class="secno">§ 6</div>
+  <h2>虚構説から見る Maṇḍana</h2>
+  <p>§1–5 では、Maṇḍana の錯誤論を知覚の哲学と認識論の言葉で整理しました。この節では、その分析をふまえて、現代の形而上学で有力な選択肢の一つである<strong>虚構説</strong>（fictionalism）を物差しにして、彼の議論を評価します。虚構説は、「存在しないものが、それでも思考や行為を導く」という Maṇḍana の問題に、彼とは正反対の方向から答える立場です。したがって、彼の理論の強みと弱みを測るのにもっとも適した対照項になります。</p>
+
+  <h3>6.1 虚構説とは何か</h3>
+  <p>虚構説の基本の構図は単純です。ある種類の言説（数、可能世界、道徳的事実、物語の登場人物などについての言説）は、字義どおりには偽であるか、少なくとも存在への関与をともなわない。それでも、<em>あたかも真であるかのように</em>扱うことに理由がある。話し手はその言説を、本気の主張としてではなく、「ふり」「受け入れ」「準主張」として用いている。</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>構成要素</th><th>内容</th><th>代表的な論者</th></tr></thead>
+    <tbody>
+      <tr><td class="th">F1 字義的偽（無関与）</td><td>言説が語る対象は存在しない。言説は字義どおりには偽、または存在に関与しない。</td><td>Field（数学、1980）、Rosen（様相、1990）</td></tr>
+      <tr><td class="th">F2 有用性</td><td>それでもその言説は、推論、予測、実践に役立つ。</td><td>Vaihinger『かのようにの哲学』（1911）、Joyce（道徳、2001）</td></tr>
+      <tr><td class="th">F3 ふりの態度</td><td>話し手は信じて主張しているのではなく、「ふり」や受け入れの態度をとっている。</td><td>Walton（1990）、Yablo（2001）</td></tr>
+      <tr><td class="th">F4 小道具と生成原理</td><td>虚構の中の真理は、実在する小道具と、それに適用される規則から生み出される。</td><td>Walton のごっこ遊びの理論</td></tr>
+      <tr><td class="th">F5 物語演算子</td><td>「物語によれば p」は真でありうる。p そのものが偽であっても矛盾しない。</td><td>Lewis「虚構における真理」（1978）、Rosen</td></tr>
+    </tbody>
+  </table></div>
+  <div class="col"><p class="sm">表3　虚構説の五つの構成要素。以下では、Maṇḍana の議論がどの要素に当たり、どの要素を崩すのかを見ていく。</p></div>
+
+  <div class="col">
+  <h3>6.2 五つの理論を虚構説の地図に置く</h3>
+  <p>§1 の五つの理論を、虚構説への近さで並べると、次のようになります。錯誤の「銀」を<em>何か実在するもの</em>で埋める理論ほど左に、存在しないまま働かせる理論ほど右に来ます。</p>
+  </div>
+  <figure><div class="plate">
+  <svg viewBox="0 0 900 290" role="img" aria-label="五つの理論を実在論から虚構説までの軸に配置した図">
+    <defs><linearGradient id="spec" x1="0" x2="1"><stop offset="0" style="stop-color:var(--t-other)"/><stop offset="1" style="stop-color:var(--t-void)"/></linearGradient></defs>
+    <rect x="40" y="120" width="820" height="10" rx="5" fill="url(#spec)"/>
+    <text x="40" y="160" font-size="13" font-weight="700">実在論</text>
+    <text x="40" y="178" font-size="11" class="muted">「銀」は実在するもので埋まる</text>
+    <text x="860" y="160" text-anchor="end" font-size="13" font-weight="700">虚構説・消去説</text>
+    <text x="860" y="178" text-anchor="end" font-size="11" class="muted">「銀」は存在しないまま働く</text>
+    <circle cx="110" cy="125" r="13" style="fill:var(--t-other)"/>
+    <text x="110" y="62" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t-other)">関係説（Maṇḍana）</text>
+    <text x="110" y="80" text-anchor="middle" font-size="11">要素はよそに実在</text>
+    <text x="110" y="96" text-anchor="middle" font-size="11">偽は結合だけ</text>
+    <circle cx="290" cy="125" r="13" style="fill:var(--t-omit)"/>
+    <text x="290" y="62" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t-omit)">見落とし説</text>
+    <text x="290" y="80" text-anchor="middle" font-size="11">偽な内容はない</text>
+    <text x="290" y="96" text-anchor="middle" font-size="11">記憶の銀は実在</text>
+    <circle cx="450" cy="125" r="13" style="fill:var(--t-inner)"/>
+    <text x="450" y="62" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t-inner)">内的対象説</text>
+    <text x="450" y="80" text-anchor="middle" font-size="11">心の中に実在</text>
+    <text x="450" y="96" text-anchor="middle" font-size="11">（心的対象の実在論）</text>
+    <circle cx="620" cy="125" r="13" style="fill:var(--t-indet)"/>
+    <text x="620" y="226" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t-indet)">規定不能説</text>
+    <text x="620" y="244" text-anchor="middle" font-size="11">有でも無でもない</text>
+    <text x="620" y="260" text-anchor="middle" font-size="11">（虚構的対象の身分論に近い）</text>
+    <circle cx="790" cy="125" r="13" style="fill:var(--t-void)"/>
+    <text x="790" y="62" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--t-void)">無の現れ説＋二諦</text>
+    <text x="790" y="80" text-anchor="middle" font-size="11">何もないが行為を導く</text>
+    <text x="790" y="96" text-anchor="middle" font-size="11">世俗的には「ある」</text>
+  </svg></div>
+  <figcaption><b>図8　虚構説への近さ。</b>無の現れ説が勝義と世俗の二段階（二諦）を持ち出すとき（偈123）、それは虚構説そのものの構図になる。規定不能説は、物語の登場人物を「作者が作った抽象的対象」とみる人工物説（Thomasson 1999）と比べられる。Maṇḍana はこの軸の反対の端に立つ。</figcaption></figure>
+
+  <div class="col">
+  <div class="tbl"><table>
+    <thead><tr><th>理論</th><th>虚構説の要素との関係</th><th>虚構説から見た性格</th></tr></thead>
+    <tbody>
+      <tr><td class="th void">無の現れ説</td><td>F1（銀はまったくない）、F2（形あるものとして現れて行為を導く、偈14）、F5（世俗的には存在する、偈123）</td><td>錯誤についての虚構説。二諦を全面化すれば、世界全体についての虚構説になる。</td></tr>
+      <tr><td class="th indet">規定不能説</td><td>F1 を弱め、有でも無でもない第三の身分を立てる</td><td>虚構的対象の存在論（Meinong 主義、人工物説）に近い。</td></tr>
+      <tr><td class="th inner">内的対象説</td><td>どの要素ももたない。銀は心的に実在する</td><td>虚構説ではなく、心的対象の実在論。</td></tr>
+      <tr><td class="th omit">見落とし説</td><td>F1 を否定する。偽な内容がそもそもない</td><td>虚構説ではない。誤りを欠如に還元する。</td></tr>
+      <tr class="own"><td class="th other">関係説</td><td>結合については F1（「これは銀だ」は偽）。要素については F1 を否定</td><td>反虚構説。要素の実在論と、結合についての誤謬説の組み合わせ。</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>6.3 決定的な区別：虚構と錯誤</h3>
+  <p>虚構説の観点から Maṇḍana を読むとき、いちばん重要な論点はここにあります。Maṇḍana は、錯誤と<strong>比喩的な認識</strong>をはっきり区別しています（偈25、147）。</p>
+  <ul>
+    <li>ある地方の人を指して「あいつは牛だ」と言うとき、話し手は人と牛の違いを知りながら両者を重ねている。これが比喩的な認識である。</li>
+    <li>錯誤では、人は違いに気づいておらず、「そのとおりだ」と確信している。だから錯誤は、付託ではあっても比喩ではない（偈147）。</li>
+  </ul>
+  <p>前者は、虚構説が想定する<strong>ふりの態度</strong>（F3）そのものです。後者には、その態度がありません。二つの軸で整理すると、虚構と錯誤の位置がはっきりします。</p>
+  </div>
+  <figure><div class="plate">
+  <svg viewBox="0 0 680 360" role="img" aria-label="内容の真偽と自覚の有無による四象限図">
+    <text x="365" y="24" text-anchor="middle" font-size="13" font-weight="700">内容は字義どおりに……</text>
+    <text x="255" y="48" text-anchor="middle" font-size="13" font-weight="700">真</text>
+    <text x="475" y="48" text-anchor="middle" font-size="13" font-weight="700">偽</text>
+    <text x="130" y="128" text-anchor="end" font-size="12" font-weight="700">偽であることを</text>
+    <text x="130" y="146" text-anchor="end" font-size="12" font-weight="700">自覚していない</text>
+    <text x="130" y="258" text-anchor="end" font-size="12" font-weight="700">偽であることを</text>
+    <text x="130" y="276" text-anchor="end" font-size="12" font-weight="700">自覚している</text>
+    <rect x="145" y="60" width="220" height="130" class="surf" style="stroke:var(--line)" stroke-width="1.5"/>
+    <rect x="365" y="60" width="220" height="130" class="oth-soft" style="stroke:var(--t-other)" stroke-width="2.5"/>
+    <rect x="145" y="190" width="220" height="130" class="band" style="stroke:var(--line)" stroke-width="1.5"/>
+    <rect x="365" y="190" width="220" height="130" class="surf" style="stroke:var(--t-void)" stroke-width="2.5"/>
+    <text x="255" y="118" text-anchor="middle" font-size="15" font-weight="700">正しい知覚</text>
+    <text x="255" y="142" text-anchor="middle" font-size="11" class="muted">「これは貝殻だ」</text>
+    <text x="475" y="110" text-anchor="middle" font-size="15" font-weight="700" class="oth-f">錯誤</text>
+    <text x="475" y="134" text-anchor="middle" font-size="11">「これは銀だ」と確信している</text>
+    <text x="475" y="152" text-anchor="middle" font-size="11">ふりの態度はない（偈147）</text>
+    <text x="475" y="172" text-anchor="middle" font-size="11" class="muted">→ 虚構説の F3 が当てはまらない</text>
+    <text x="255" y="250" text-anchor="middle" font-size="13" class="muted">（該当なし）</text>
+    <text x="255" y="272" text-anchor="middle" font-size="11" class="muted">真な内容に「偽の自覚」はない</text>
+    <text x="475" y="240" text-anchor="middle" font-size="15" font-weight="700">虚構・比喩・ごっこ遊び</text>
+    <text x="475" y="264" text-anchor="middle" font-size="11">「あいつは牛だ」（偈25）</text>
+    <text x="475" y="282" text-anchor="middle" font-size="11">違いを知りながら重ねる</text>
+    <text x="475" y="302" text-anchor="middle" font-size="11" class="muted">→ 虚構説の本来の領分</text>
+    <text x="365" y="346" text-anchor="middle" font-size="11" class="muted">境界例：錯覚と知りながら見え続ける二つの月（偈74）は、信念では右下、見え方では右上にある</text>
+  </svg></div>
+  <figcaption><b>図9　虚構と錯誤の区別。</b>どちらも字義どおりには偽な内容をもつ。違うのは、主体がその偽を自覚しているかどうかである。虚構説は右下の理論であり、Maṇḍana が説明しようとしているのは右上の現象である。</figcaption></figure>
+
+  <div class="col">
+  <p>ここから第一の評価が出てきます。<strong>虚構説は自覚的に非字義的な言説の理論であり、錯誤の本質は無自覚性にある。</strong>Maṇḍana の枠組みでは、虚構（比喩）と錯誤はもともと別の現象として扱われています。したがって、錯誤を虚構説の道具立てで説明することはできません。この点は、無の現れ説を虚構説として洗練させたとしても変わりません。</p>
+  <p>図9の下に記した境界例も示唆的です。二つの月の錯覚は、錯覚だと知っていても消えません（偈74）。このとき主体は「月は二つある」とは信じていないので、<em>信念</em>のレベルでは右下（自覚あり）にいます。しかし<em>見え方</em>のレベルでは、依然として右上にとどまっています。Maṇḍana がこの例を錯誤の持続として扱うのは、彼にとって偽が信念の態度ではなく<strong>見え方そのもの</strong>（「〜として現れる」、§3.2）に宿っているからです。虚構説の「ふり」は信念や主張の態度の区別なので、知覚の見え方のレベルには届きません。</p>
+
+  <h3>6.4 虚構説に対する Maṇḍana の強い論点</h3>
+  <h4 style="font-family:var(--f-disp);font-size:1.05rem;margin:1.4em 0 .4em">(1) 小道具の論証：見え方には実在の土台が要る</h4>
+  <p>Walton のごっこ遊びの理論では、虚構の中の真理は勝手に生まれるのではありません。実在する<strong>小道具</strong>に<strong>生成原理</strong>が適用されて生み出されます。森の中の切り株は、「切り株は熊とする」という遊びの規則によって、遊びの中では熊になります。Maṇḍana の錯誤の分析も、驚くほど同じ形をしています。</p>
+  </div>
+  <figure><div class="plate">
+  <svg viewBox="0 0 860 300" role="img" aria-label="ごっこ遊びの小道具と錯誤の基体の対比図">
+    <defs><marker id="arf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--muted)"/></marker></defs>
+    <text x="215" y="26" text-anchor="middle" font-size="14" font-weight="700">ごっこ遊び（Walton）</text>
+    <text x="645" y="26" text-anchor="middle" font-size="14" font-weight="700">錯誤（Maṇḍana）</text>
+    <line x1="430" y1="40" x2="430" y2="285" style="stroke:var(--line)" stroke-width="1.5"/>
+    <rect x="30" y="50" width="160" height="64" rx="10" class="surf" style="stroke:var(--fg)" stroke-width="1.5"/>
+    <text x="110" y="78" text-anchor="middle" font-size="13" font-weight="700">切り株</text>
+    <text x="110" y="98" text-anchor="middle" font-size="11" class="muted">実在する小道具</text>
+    <rect x="240" y="50" width="160" height="64" rx="10" class="band"/>
+    <text x="320" y="78" text-anchor="middle" font-size="13" font-weight="700">生成原理</text>
+    <text x="320" y="98" text-anchor="middle" font-size="11" class="muted">「切り株は熊とする」</text>
+    <path d="M110 116 L 200 180" style="stroke:var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#arf)"/>
+    <path d="M320 116 L 230 180" style="stroke:var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#arf)"/>
+    <rect x="125" y="184" width="180" height="64" rx="10" class="surf" style="stroke:var(--t-void)" stroke-width="2"/>
+    <text x="215" y="212" text-anchor="middle" font-size="13" font-weight="700">遊びの中の「熊」</text>
+    <text x="215" y="232" text-anchor="middle" font-size="11" class="muted">虚構的真理（ふりの態度）</text>
+    <rect x="460" y="50" width="160" height="64" rx="10" class="surf" style="stroke:var(--fg)" stroke-width="1.5"/>
+    <text x="540" y="78" text-anchor="middle" font-size="13" font-weight="700">貝殻のかけら</text>
+    <text x="540" y="98" text-anchor="middle" font-size="11" class="muted">実在する基体</text>
+    <rect x="670" y="50" width="160" height="64" rx="10" class="band"/>
+    <text x="750" y="74" text-anchor="middle" font-size="13" font-weight="700">欠陥＋記憶痕跡</text>
+    <text x="750" y="94" text-anchor="middle" font-size="11" class="muted">よそに実在する銀を</text>
+    <text x="750" y="108" text-anchor="middle" font-size="11" class="muted">呼び起こす</text>
+    <path d="M540 116 L 630 180" style="stroke:var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#arf)"/>
+    <path d="M750 116 L 660 180" style="stroke:var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#arf)"/>
+    <rect x="555" y="184" width="180" height="64" rx="10" class="oth-soft" style="stroke:var(--t-other)" stroke-width="2"/>
+    <text x="645" y="212" text-anchor="middle" font-size="13" font-weight="700" class="oth-f">「銀」として現れる</text>
+    <text x="645" y="232" text-anchor="middle" font-size="11">錯誤（確信の態度）</text>
+    <text x="430" y="278" text-anchor="middle" font-size="12">共通点：見え方・虚構的真理は、実在する土台から生み出される。違い：態度（ふり／確信）と生成の仕組み（規則／因果）。</text>
+  </svg></div>
+  <figcaption><b>図10　小道具と基体。</b>どちらの理論でも、「熊」や「銀」は無から生じず、実在する土台と、それに働く原理から生み出される。</figcaption></figure>
+  <div class="col">
+  <p>この対応から、Maṇḍana の議論の一つが現代的な意味をもちます。世界全体を虚構とみる全面的な虚構説や空論に対して、彼は「空であるなら、付託はどこになされるのか。何が現れうるのか」と問います（偈33。後の主著にも同じ問いがある）。虚構が小道具を必要とするなら、<em>すべて</em>を虚構とする理論は、その小道具をどこに求めるのか、という問いに答えなければなりません。これは、局所的な虚構説（数学だけ、道徳だけ）には当てはまらず、<strong>全面的な虚構説</strong>にだけ刺さる批判です。そして、無の現れ説が二諦を全面化するときに直面するのは、まさにこの問題です。</p>
+
+  <h4 style="font-family:var(--f-disp);font-size:1.05rem;margin:1.4em 0 .4em">(2) 不可欠性の論証：存在への関与は証拠が決める</h4>
+  <p>虚構説の多くは、存在論の節約を動機にしています。Field は、物理学を数学なしで書き直せることを示して、数を不要にしようとしました。これに対する反虚構説の古典的な論法が、Quine と Putnam の<strong>不可欠性論証</strong>です。最良の説明に欠かせないものには存在を認めなければならない、というものです。Maṇḍana と無の現れ説の論者のやりとりは、この対立と同じ形をしています。</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>無の現れ説（虚構説の側）</th><th>Maṇḍana（反虚構説の側）</th><th>現代の対応</th></tr></thead>
+    <tbody>
+      <tr><td class="th">基本原理</td><td>余計なものを想定しない理論がよい（偈16–19）</td><td>証拠があれば、見えないものでも、いくつでも想定する（偈142）</td><td>節約の原理 対 不可欠性論証</td></tr>
+      <tr><td class="th">何が不要か／不可欠か</td><td>記憶痕跡、その覚醒、実在する銀は不要</td><td>手が貝殻に伸びることを説明するには、目の前のものを銀と同定する認識と、実在する銀が要る（偈57–67）</td><td>Field の不要性プログラム 対 Quine・Putnam</td></tr>
+      <tr><td class="th">相手に課す課題</td><td>実在論者は余分な存在者を正当化せよ</td><td>虚構説の側は、行為の向き・内容の特異性・訂正の形式を、実在なしで説明せよ（§2.5）</td><td>「名目化された」説明の構成</td></tr>
+    </tbody>
+  </table></div>
+  <div class="col">
+  <p>Maṇḍana の立場からすると、虚構説の側は Field が数学について行ったのと同じこと、つまり錯誤のデータを実在する銀なしで説明し直すことをやり遂げなければなりません。§2.5 で見た七つの反論は、そのやり直しの困難を並べたものと読めます。</p>
+
+  <h4 style="font-family:var(--f-disp);font-size:1.05rem;margin:1.4em 0 .4em">(3) 訂正の形式：虚構は打ち消されない</h4>
+  <p>物語を読み終えたとき、私たちは「ホームズはいなかった」と<em>反駁</em>されるわけではありません。ごっこ遊びをやめても、何かが論駁されるわけではありません。ふりの態度のもとでは、そもそも主張がなされていないからです。ところが錯誤は、「これは銀ではない」という<strong>否定の判断</strong>によって打ち消されます（偈157–162）。打ち消しは、先に積極的な主張があったことを前提します。錯誤が打ち消されるという事実は、錯誤が虚構ではなく<em>本気の主張</em>（あるいは本気の見え方）であることの証拠になります。</p>
+
+  <h3>6.5 虚構説の側から見た Maṇḍana の弱い論点</h3>
+  <p>一方で、虚構説の側から見ると、Maṇḍana の反論には相手を捉えきれていないものもあります。</p>
+
+  <h4 style="font-family:var(--f-disp);font-size:1.05rem;margin:1.4em 0 .4em">(1)「無が現れるのは矛盾だ」は論点先取りになる</h4>
+  <p>Maṇḍana は、「空である」と「現れる」は矛盾し、形をもって現れるならもはや空ではない、と論じます（偈120–122）。しかし虚構説の側からすれば、<em>存在しないが、存在するものとして表象される</em>ことに矛盾はありません。表象の内容と、表象されるものの存在は別のことだからです。この反論が矛盾を引き出せるのは、§1 の P1（現れるものは何らかの意味で存在する）を前提にしたときだけです。そして P1 こそ、相手が拒んでいる原理です。</p>
+  <div class="formal">Maṇḍana の論証             x が現れる → x は存在する（P1）
+                           x は空である（存在しない）
+                           ∴ 矛盾
+虚構説の応答               P1 を認めない。「x が存在するものとして表象される」と
+                           「x が存在する」は別の命題である。ゆえに矛盾はない。</div>
+
+  <h4 style="font-family:var(--f-disp);font-size:1.05rem;margin:1.4em 0 .4em">(2) 二諦の封じ込めは、演算子の区別に答えていない</h4>
+  <p>Maṇḍana は、存在と空は両立せず、「世俗的にだけ存在する」という中間はない、と言います（偈123）。しかし虚構説には、§6.1 の F5、つまり<strong>演算子による区別</strong>があります。</p>
+  </div>
+  <figure><div class="plate">
+  <svg viewBox="0 0 820 330" role="img" aria-label="二諦をめぐる論争の樹形図">
+    <defs><marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--muted)"/></marker></defs>
+    <rect x="260" y="16" width="300" height="56" rx="10" class="surf" style="stroke:var(--t-void)" stroke-width="2"/>
+    <text x="410" y="40" text-anchor="middle" font-size="13" font-weight="700">相手：銀は勝義には空だが、</text>
+    <text x="410" y="60" text-anchor="middle" font-size="13" font-weight="700">世俗的には存在する（偈123）</text>
+    <path d="M330 74 L 200 112" style="stroke:var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#arg)"/>
+    <path d="M490 74 L 620 112" style="stroke:var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#arg)"/>
+    <rect x="40" y="116" width="320" height="76" rx="10" class="oth-soft"/>
+    <text x="200" y="140" text-anchor="middle" font-size="13" font-weight="700" class="oth-f">Maṇḍana：有と無は両立しない。</text>
+    <text x="200" y="160" text-anchor="middle" font-size="12">「存在」と「空」を同じものに</text>
+    <text x="200" y="178" text-anchor="middle" font-size="12">述語づけるのは矛盾だ</text>
+    <rect x="460" y="116" width="320" height="76" rx="10" class="surf" style="stroke:var(--t-void)" stroke-width="2"/>
+    <text x="620" y="140" text-anchor="middle" font-size="13" font-weight="700">虚構説：演算子が違う</text>
+    <text x="620" y="160" text-anchor="middle" font-size="12" class="mono">「世俗によれば 銀はある」：真</text>
+    <text x="620" y="178" text-anchor="middle" font-size="12" class="mono">「銀はある」：偽　→ 矛盾しない</text>
+    <path d="M620 194 L 620 228" style="stroke:var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#arg)"/>
+    <rect x="300" y="232" width="480" height="84" rx="10" class="band"/>
+    <text x="540" y="256" text-anchor="middle" font-size="13" font-weight="700">Maṇḍana の側から再構成できる応答</text>
+    <text x="540" y="278" text-anchor="middle" font-size="12">(a) 知覚の見え方には演算子が付いていない。銀は端的に「ある」と現れる（図9）</text>
+    <text x="540" y="298" text-anchor="middle" font-size="12">(b) 演算子を全面化すれば、小道具の問題（図10）が生じる</text>
+  </svg></div>
+  <figcaption><b>図11　二諦をめぐる論争。</b>残っている偈からは、Maṇḍana は演算子の区別に直接答えていない。ただし彼の他の論点（無自覚性、小道具）を使えば、応答を再構成できる。</figcaption></figure>
+
+  <div class="col">
+  <p>演算子の区別に対して、Maṇḍana は直接には答えていません（少なくとも残っている偈からは読み取れません）。したがって偈123の議論は、そのままでは洗練された虚構説への決定打になりません。しかし、本論考で見てきた彼の他の論点を組み合わせると、二段階の応答を組み立てることができます。</p>
+  <ol>
+    <li>錯誤の見え方は演算子つきで与えられるのではなく、端的に「ここに銀がある」と与えられる。演算子による区別が意味をもつのは、ふりの態度がある場合だけである（§6.3）。</li>
+    <li>演算子をすべての言説に及ぼして全面的な虚構説にすれば、その虚構を生み出す小道具がどこにあるのかという問題が生じる（§6.4 (1)）。</li>
+  </ol>
+
+  <h4 style="font-family:var(--f-disp);font-size:1.05rem;margin:1.4em 0 .4em">(3) 単称の空名と、存在論のコスト</h4>
+  <p>Maṇḍana の関係的分析は、<em>述定の組み合わせ</em>には強い分析です。兎と角、黄金と山、燃えるものと水がそうです（偈135–140）。しかし、特定の個体を指す<strong>空名</strong>には弱いところがあります。会ったこともない特定の人物が夢に現れる場合、あるいは「ホームズ」や、かつて天文学者が仮定した惑星「ヴァルカン」のような名前です。こうした名前は、実在する性質の組み合わせとしてだけでは分析しにくいものです。虚構説、人工物説、Evans や Kripke の空名論は、まさにここを主戦場にしています。また、§8 で見る「新しい単純要素」や「不可能な対象」の問題も、虚構説なら払わずに済む<strong>存在論のコスト</strong>です。</p>
+
+  <h3>6.6 評価：二つの物差しを重ねる</h3>
+  <p>以上を、錯誤論として説明すべき現象ごとに、Maṇḍana の関係説と、無の現れ説を虚構説として最大限に洗練させた立場とで比べると、次のようになります。</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>評価項目</th><th class="c">関係説（Maṇḍana）</th><th class="c">虚構説的な読み</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td class="th">錯誤の無自覚性</td><td class="c">◎</td><td class="c">×</td><td>虚構説は「ふり」を前提するが、錯誤には「ふり」がない（偈147）</td></tr>
+      <tr><td class="th">行為の向き</td><td class="c">◎</td><td class="c">△</td><td>貝殻への行為は、同定と実在の銀で説明される。虚構説は虚構の行為誘導力を別に説明する必要がある</td></tr>
+      <tr><td class="th">訂正の形式</td><td class="c">◎</td><td class="c">×</td><td>否定は先行する主張を前提する。虚構は打ち消されない</td></tr>
+      <tr><td class="th">錯覚の持続</td><td class="c">○</td><td class="c">○</td><td>見え方のレベルで偽を置けば両者とも説明できる</td></tr>
+      <tr><td class="th">夢</td><td class="c">○</td><td class="c">○</td><td>過去の実在物の組み替え（Maṇḍana）と、内容だけの表象（虚構説）。どちらも一応説明できる</td></tr>
+      <tr><td class="th">単称の空名</td><td class="c">△</td><td class="c">◎</td><td>個体の虚構は、性質の組み合わせに還元しにくい</td></tr>
+      <tr><td class="th">存在論の節約</td><td class="c">△</td><td class="c">◎</td><td>関係説は、現れる要素がすべてどこかに実在することを要求する</td></tr>
+      <tr><td class="th">全面化への耐性</td><td class="c">◎</td><td class="c">△</td><td>全面的な虚構説には小道具の問題が残る</td></tr>
+      <tr><td class="th">相手への応答の完全さ</td><td class="c">△</td><td class="c">—</td><td>演算子の区別には直接答えていない（偈120–123）</td></tr>
+    </tbody>
+  </table></div>
+  <div class="col"><p class="sm">表4　関係説と虚構説的な読みの比較（◎強い　○十分　△弱い　×説明できない）。</p>
+
+  <div class="box key"><span class="lbl">虚構説から見た結論</span>
+  <p>Maṇḍana は虚構説の先駆者ではありません。むしろ、虚構説が成り立つための区別（自覚的な比喩と無自覚な錯誤の区別）をすでに手にしたうえで、それを錯誤に当てはめることを拒んだ<strong>反虚構説の論者</strong>です。錯誤という現象に限れば、彼の判断は正しいと言えます。錯誤には「ふり」がなく、打ち消しという訂正の形式をもち、行為を特定の対象へ向けるからです。他方で、二諦を演算子として洗練させた相手に対しては、彼の残された議論は決定打を欠きます。また、要素の実在論という代価も小さくありません。</p>
+  <p>逆向きに見ると、Maṇḍana の議論は、虚構説を錯誤や知覚の理論として用いるときの二つの条件を示しています。一つは<strong>態度の条件</strong>で、ふりの態度のない領域には虚構説は届かない、というものです。もう一つは<strong>小道具の条件</strong>で、虚構には実在の土台が要り、全面的な虚構説はそれをどこに求めるかを示さなければならない、というものです。</p></div>
+  </div>
+</section>
+
+<section id="west" class="wide">
+  <div class="col">
+  <div class="secno">§ 7</div>
+  <h2>西洋哲学との対照</h2>
+  <p>以下の対照は、議論の構造を理解するための補助線です。歴史的な影響関係を主張するものではありません。また、どの比較にも限界があります。最後の列に、その主な点を記しました。</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Maṇḍana の論点</th><th>西洋の対応</th><th>共通点</th><th>類比の限界</th></tr></thead>
+    <tbody>
+      <tr><td>錯誤はいかにして可能か（偈1、47）</td><td>プラトン『テアイテトス』『ソフィスト』</td><td>「ないものを思う」ことの不可能性から出発し、偽を「異なるもの」の結合として救う</td><td>プラトンは判断・言明を、Maṇḍana は知覚を主題にする</td></tr>
+      <tr><td>非存在＝別の存在（偈127–137）</td><td>『ソフィスト』の異他性、否定の両立不可能性理論（Demos 1917）、Bergson の無の観念批判</td><td>絶対的な無を退け、否定を肯定的な差異へ還元する</td><td>Maṇḍana の主眼は判断の論理よりも、知覚に現れるものの存在論にある</td></tr>
+      <tr><td>偽は結合にある（偈130–133）</td><td>アリストテレス（結合と分離）、Russell の多項関係説</td><td>真偽の担い手を要素ではなく結びつきに置く</td><td>Maṇḍana は「関係」を独立の項として立てることを拒む</td></tr>
+      <tr><td>内的対象説（偈2–8）</td><td>感覚与件説、錯覚論法（Ayer）、Berkeley</td><td>錯覚から内的対象を推論し、知覚一般へ広げうる</td><td>インドの論者は、仏教の形象説という独自の認識論を背景にもつ</td></tr>
+      <tr><td>見落とし説（偈37–46）</td><td>エピクロス「感覚はすべて真」、スピノザ「虚偽は欠如」、プラトンの蝋板</td><td>積極的に偽な表象を認めない。誤りを欠如や取り違えに帰す</td><td>プラトンの蝋板はむしろ積極的な当てはめの誤りを認める</td></tr>
+      <tr><td>無の現れ説（偈5–27）</td><td>対象のない志向性、Meinong の非存在対象、現在主義</td><td>存在しないものへの志向を認める</td><td>この論者は「非存在の対象」を立てず、対象の不在そのものを錯誤とみる</td></tr>
+      <tr><td>兎の角・夢の組み合わせ（偈135–140）</td><td>ヒュームの黄金の山、単純観念と複合観念</td><td>虚構を、実在する要素の組み替えとして説明する</td><td>ヒュームの「欠けた青の色合い」のような反例を Maṇḍana は論じていない</td></tr>
+      <tr><td>対象は行為が決める（偈80）</td><td>指示の因果説、成功意味論、プラグマティズム、Anscombe の質料的対象</td><td>志向の対象を記述内容でなく実践的なつながりで固定する</td><td>夢のように行為が向かいえない場合への適用は明示されていない</td></tr>
+      <tr><td>欠陥の積極性（偈117–119）</td><td>誤表象の目的論的説明（Millikan、Dretske）</td><td>錯誤を、機能不全が生む積極的な出力とみる</td><td>Maṇḍana には生物学的機能の概念はない</td></tr>
+      <tr><td>錯誤の持続（偈74）</td><td>ミュラー＝リヤー錯視、認知的不可侵性（Fodor）</td><td>知っていても錯覚は消えない</td><td>Maṇḍana はモジュール性の理論を立てない</td></tr>
+      <tr><td>自律的妥当性（偈82–116）</td><td>独断主義（Pryor）、現象的保守主義（Huemer）、Swinburne の軽信の原理、Pollock の無効化子</td><td>知覚的正当化は既定値で与えられ、反証によってのみ取り消される</td><td>ミーマーンサーでは、この理論は聖典の自律的権威の擁護とも結びつく</td></tr>
+      <tr><td>循環・後退（偈85–86）</td><td>判断基準の問題（セクストス、Chisholm）</td><td>「信頼性を先に確かめよ」という要求の自滅を示す</td><td>Maṇḍana は個別主義／方法主義という枠組みでは論じない</td></tr>
+      <tr><td>最小修正（偈3–4、154）</td><td>Quine の最小損傷、AGM の最小変更</td><td>訂正は必要な範囲に限る</td><td>Maṇḍana の場面は信念体系ではなく、一つの知覚と一つの打ち消し</td></tr>
+      <tr><td>比喩と錯誤の区別（偈25、147）</td><td>虚構説の「ふり」「準主張」（Walton、Yablo）</td><td>違いを知りながら重ねる態度を、本気の確信から区別する</td><td>Maṇḍana はこの区別を、虚構説を退けるために使う</td></tr>
+      <tr><td>勝義と世俗（偈123）</td><td>虚構説の物語演算子（Lewis、Rosen）、中観の虚構説的解釈</td><td>「慣習によれば p」と「p」を分ける</td><td>Maṇḍana は演算子の区別に直接答えていない</td></tr>
+      <tr><td>基体の要求（偈33）</td><td>ごっこ遊びの小道具（Walton）</td><td>虚構・見え方は実在の土台から生み出される</td><td>Walton の生成原理は規則、Maṇḍana のそれは因果</td></tr>
+      <tr><td>証拠による想定（偈142）</td><td>Quine・Putnam の不可欠性論証、Field の不要性プログラム</td><td>存在への関与を説明上の必要が決める</td><td>Maṇḍana の「証拠」は認識手段であり、科学理論ではない</td></tr>
+      <tr><td>夢の内容は過去に実在（偈138–139）</td><td>永久主義（現在主義への反論）</td><td>存在を現在に限らない</td><td>Maṇḍana は時間の形而上学を体系的には論じない</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="assess" class="col">
+  <div class="secno">§ 8</div>
+  <h2>評価と未解決の問題</h2>
+  <h3>強み</h3>
+  <ul>
+    <li><b>保存力。</b>四つの原理をすべて保つ唯一の理論である（表1）。常識的実在論、錯誤の実在、経験の統一性をいずれも犠牲にしない。</li>
+    <li><b>説明の射程。</b>行為の向き、内容の特異性、錯覚の持続、訂正の論理形式という、性質の異なる四種のデータを、一つの関係的分析で説明する。</li>
+    <li><b>認識論との整合。</b>錯誤の実在を認めながら懐疑論を封じる。可謬性と正当化は両立する。</li>
+    <li><b>虚構説への耐性。</b>比喩と錯誤の区別、小道具（基体）の要求、訂正の形式によって、錯誤を虚構として扱う道を封じる（§6）。</li>
+  </ul>
+  <h3>未解決の問題</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>問題</th><th>内容</th><th>Maṇḍana の手がかり</th></tr></thead>
+    <tbody>
+      <tr><td class="th">新しい単純要素</td><td>経験したことのない色や性質が錯覚・夢に現れたら、その要素はどこに実在するのか（ヒュームの「欠けた青の色合い」に相当）。</td><td>偈140 は経験された要素の組み替えしか論じない。</td></tr>
+      <tr><td class="th">不可能な対象</td><td>「丸い四角」のような矛盾した内容は、実在する要素の結合として説明できるか。</td><td>兎の角の分析（偈135–137）を拡張すれば、要素は実在し結合だけが不可能とも言える。</td></tr>
+      <tr><td class="th">「として」の身分</td><td>関係を実体化しないなら、「AがBとして現れる」の「として」は何なのか。</td><td>偈132–133 は「一つが別のものとして現れる」とだけ言う。見え方の理論は未展開。</td></tr>
+      <tr><td class="th">夢と行為的対象</td><td>対象を行為の向かう先と定義すると、手を伸ばせない夢の対象は何か。</td><td>夢については過去の実在物を素材とする（偈138）が、行為による規定との関係は明示されない。</td></tr>
+      <tr><td class="th">「現在性」の出どころ</td><td>夢で付与される「いま」は、どこから借りられたのか。</td><td>偈139 は「他のところで見られた現在性が付与される」と読めるが、本文が不確か。</td></tr>
+      <tr><td class="th">演算子の区別</td><td>「世俗によれば銀はある」と「銀はある」を分ける虚構説に、どう答えるか。</td><td>偈123 は直接答えていない。無自覚性と小道具の論点から応答を再構成できる（§6.5）。</td></tr>
+      <tr><td class="th">単称の空名</td><td>会ったことのない特定の人物の夢や、「ホームズ」のような名前を、実在する要素の組み合わせで分析できるか。</td><td>関係的分析は述定の組み合わせには強いが、個体の虚構には弱い（§6.5）。</td></tr>
+      <tr><td class="th">既定値の正当化の限界</td><td>体系的な錯覚（例：認知バイアス）が知られている領域でも、既定の正当化は保たれるのか。</td><td>欠陥の知は切り崩し型の無効化子として働きうる（偈114–117）。</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box key"><span class="lbl">まとめ</span>
+  <p>Maṇḍana が論じているのは、<strong>知覚の志向性にとって、非存在がどこまで必要か</strong>という問題です。彼の答えは、絶対的な無はまったく必要ない、というものでした。必要なのは、実在する諸項と、それらが誤って結びつけられて現れるという見え方だけです。この答えを支えるために、彼は、非存在を差異に還元する存在論、対象を行為によって固定する志向性の理論、欠陥を積極的原因とする錯誤の因果論、そして反証によってのみ揺らぐ既定値の正当化という四つの理論を組み合わせました。プラトンが判断の場面で、近代の知覚論が感覚与件をめぐって争ったのと同じ問題を、Maṇḍana は知覚の場面で、実在論を一貫させる方向で解いています。</p>
+  <p>虚構説を物差しにすると、この選択の意味がさらにはっきりします。存在しないものが思考や行為を導くことを、虚構説は「ふり」と演算子によって説明し、存在論の節約を手に入れます。Maṇḍana は、錯誤にはその「ふり」がないこと、見え方には実在の土台が要ること、錯誤は打ち消されることを示して、この道を錯誤の領域では閉ざしました。その代価は要素の実在論であり、残された課題は演算子の区別と単称の空名です。</p></div>
+</section>
+</main>
+
+<footer class="col">
+  <p>テキスト：Maṇḍanamiśra『錯誤の弁別』（7世紀末ごろ）。偈番号は L. Schmithausen, <i>Maṇḍanamiśra's Vibhramavivekaḥ</i>（Wien 1965）による。</p>
+  <p>本ページの哲学的な分析と西洋哲学との対照は、本ページ独自の整理である。Schmithausen の指摘を用いた箇所は本文中に記した。</p>
+  <p>言及した西洋の文献：プラトン『テアイテトス』『ソフィスト』／アリストテレス『命題論』『形而上学』／エピクロス「ヘロドトス宛書簡」／デカルト『省察』／スピノザ『エチカ』／ヒューム『人間知性研究』／Russell, <i>The Problems of Philosophy</i> (1912)／R. Demos, “A Discussion of a Certain Type of Negative Proposition,” <i>Mind</i> (1917)／Bergson, <i>L’évolution créatrice</i> (1907)／Ayer, <i>The Foundations of Empirical Knowledge</i> (1940)／Anscombe, “The Intentionality of Sensation” (1965)／Dretske, <i>Seeing and Knowing</i> (1969), “Misrepresentation” (1986)／Chisholm, <i>The Problem of the Criterion</i> (1973)／Swinburne, <i>The Existence of God</i> (1979)／Fodor, <i>The Modularity of Mind</i> (1983)／Millikan, <i>Language, Thought, and Other Biological Categories</i> (1984)／Pollock, <i>Contemporary Theories of Knowledge</i> (1986)／Robinson, <i>Perception</i> (1994)／Pryor, “The Skeptic and the Dogmatist” (2000)／Huemer, <i>Skepticism and the Veil of Perception</i> (2001)。</p>
+  <p>虚構説について：Vaihinger, <i>Die Philosophie des Als Ob</i> (1911)／Quine, “On What There Is” (1948)／Putnam, <i>Philosophy of Logic</i> (1971)／D. Lewis, “Truth in Fiction” (1978)／Field, <i>Science without Numbers</i> (1980)／Evans, <i>The Varieties of Reference</i> (1982)／Rosen, “Modal Fictionalism,” <i>Mind</i> (1990)／Walton, <i>Mimesis as Make-Believe</i> (1990)／Thomasson, <i>Fiction and Metaphysics</i> (1999)／Joyce, <i>The Myth of Morality</i> (2001)／Yablo, “Go Figure: A Path through Fictionalism” (2001)／The Cowherds, <i>Moonshadows: Conventional Truth in Buddhist Philosophy</i> (2011)／Kripke, <i>Reference and Existence</i> (2013)。</p>
+</footer>
+</body>
+</html>
