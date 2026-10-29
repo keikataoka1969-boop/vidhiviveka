@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="アッパイヤ・ディークシタ『ヴィディ・ラサーヤナ』の三種の規定（アプールヴァ・制限・除外）の議論を、大学1年生向けに図と表で解説するページ。">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>ヴィディ・ラサーヤナ入門</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Tiro+Devanagari+Sanskrit&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図はカード内で横スクロール。三種の規定の色を固定：アプールヴァ＝緑、制限＝金、除外＝赤。 */
+:root{
+  --paper:#F4F5F9; --card:#FFFFFF; --ink:#1C2142; --muted:#596079; --line:#D6D9E6;
+  --gold:#B86A00; --gold-soft:#FCEBCB;
+  --opp:#AE2F55; --opp-soft:#FBE3EA;
+  --ans:#1F7A58; --ans-soft:#DDF2E8;
+  --indigo-soft:#E6E8F4;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+  --f-sa:"Tiro Devanagari Sanskrit","Noto Serif Devanagari",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11131D; --card:#1A1D2B; --ink:#E6E7F0; --muted:#A3A8BF; --line:#2E3249;
+  --gold:#F0A53A; --gold-soft:#3A2B11; --opp:#EE85A3; --opp-soft:#3B1C27;
+  --ans:#5FC79E; --ans-soft:#12322A; --indigo-soft:#22263A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11131D; --card:#1A1D2B; --ink:#E6E7F0; --muted:#A3A8BF; --line:#2E3249;
+  --gold:#F0A53A; --gold-soft:#3A2B11; --opp:#EE85A3; --opp-soft:#3B1C27;
+  --ans:#5FC79E; --ans-soft:#12322A; --indigo-soft:#22263A; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+.wide{max-width:64em;margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.55rem,4.2vw,2.05rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:800;margin-top:2.2em}
+p{margin:0 0 1em}
+a{color:var(--gold)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.sa{font-family:var(--f-sa)}
+em.t{font-style:normal;font-family:var(--f-body);color:var(--muted);font-size:.88em}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--gold);font-weight:700}
+.muted{color:var(--muted)}
+small,.cap{font-size:.84rem;color:var(--muted);line-height:1.7}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);
+  border-bottom:1px solid var(--line);margin-inline:-16px;padding:8px 16px;overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:64em}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.86rem;
+  padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-display);color:var(--gold)}
+
+/* hero */
+header.hero{padding-block:48px 24px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:32px;align-items:center}
+@media (max-width:760px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.hero h1{font-size:clamp(2.6rem,9vw,4.4rem);font-weight:800;letter-spacing:.04em;margin-block:.15em .1em}
+.hero .devtitle{font-family:var(--f-sa);font-size:1.35rem;color:var(--gold)}
+.hero .sub{font-family:var(--f-display);font-size:1.2rem;font-weight:600;margin-bottom:1.2em}
+.flower{width:100%;max-width:420px;margin-inline:auto;display:block}
+.flower .petal{fill:var(--gold-soft);stroke:var(--gold);stroke-width:1.5;transition:fill .2s}
+.flower a:hover .petal,.flower a:focus .petal{stroke-width:3.5;fill:var(--indigo-soft)}
+.flower text{fill:var(--ink);font-family:var(--f-body);font-size:13px;text-anchor:middle}
+.flower .pn{font-family:var(--f-display);font-weight:800;font-size:17px;fill:var(--gold)}
+.flower .core{fill:var(--ink)}
+.flower .coretext{fill:var(--paper);font-family:var(--f-display);font-weight:800;font-size:15px}
+
+section{padding-block:56px 8px;border-top:1px solid var(--line);margin-top:40px}
+section.first{border-top:0;margin-top:0}
+.sec-head{display:flex;gap:16px;align-items:baseline;margin-bottom:1em;flex-wrap:wrap}
+.petal-no{font-family:var(--f-display);font-weight:800;font-size:2.6rem;line-height:1;color:var(--gold)}
+.sec-head .sub{color:var(--muted);font-size:.95rem;width:100%}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.facts dt{font-size:.78rem;letter-spacing:.12em;color:var(--gold);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.08em;color:var(--muted);background:var(--indigo-soft);font-weight:700;white-space:nowrap}
+td.k{font-weight:700;white-space:nowrap}
+td .iast{display:block;font-size:.8rem;color:var(--muted);font-weight:400;font-style:italic}
+.tbl.min table{min-width:620px}
+.ok{color:var(--ans);font-weight:700}
+.ng{color:var(--opp);font-weight:700}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:1px 8px;border-radius:999px;white-space:nowrap;line-height:1.7}
+.pill.opp{background:var(--opp-soft);color:var(--opp)}
+.pill.ans{background:var(--ans-soft);color:var(--ans)}
+.pill.k{background:var(--gold-soft);color:var(--gold)}
+
+/* objection → answer rows */
+.duel{display:grid;gap:10px;margin-block:1.2em}
+.duel .row{display:grid;grid-template-columns:3.2em minmax(0,1fr) 1.6em minmax(0,1fr);gap:10px;align-items:stretch}
+.duel .no{font-family:var(--f-display);font-weight:800;font-size:1.5rem;color:var(--gold);align-self:center;text-align:center}
+.duel .o,.duel .a{border-radius:10px;padding:10px 14px;font-size:.93rem;line-height:1.65}
+.duel .o{background:var(--opp-soft)}
+.duel .a{background:var(--ans-soft)}
+.duel .o b{color:var(--opp)} .duel .a b{color:var(--ans)}
+.duel .arr{align-self:center;text-align:center;color:var(--muted);font-size:1.2rem}
+@media (max-width:620px){.duel .row{grid-template-columns:2.2em minmax(0,1fr)}.duel .arr{display:none}.duel .a{grid-column:2}}
+.groupnote{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16em),1fr));gap:10px;margin-top:6px}
+.groupnote div{border:1px dashed var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.84rem;color:var(--muted);margin-top:10px;line-height:1.7}
+figcaption b{color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-gold{fill:var(--gold)} .s-opp{fill:var(--opp)} .s-ans{fill:var(--ans)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-goldsoft{fill:var(--gold-soft)} .s-oppsoft{fill:var(--opp-soft)} .s-anssoft{fill:var(--ans-soft)} .s-indsoft{fill:var(--indigo-soft)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-gold{stroke:var(--gold)} .st-opp{stroke:var(--opp)} .st-ans{stroke:var(--ans)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.14em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+blockquote{margin:1.2em 0;padding:4px 0 4px 18px;border-left:3px solid var(--gold);font-family:var(--f-display);font-size:1.02rem;line-height:1.85}
+blockquote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;color:var(--muted);margin-top:4px}
+
+/* syllogism */
+.syl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19em),1fr));gap:14px;margin-block:1.2em}
+.sylc{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
+.syl ol{list-style:none;margin:0;padding:0}
+.syl li{display:grid;grid-template-columns:4.6em minmax(0,1fr);gap:8px;padding:8px 12px;border-bottom:1px solid var(--line);font-size:.92rem;line-height:1.6}
+.syl li:last-child{border-bottom:0}
+.syl li span{font-size:.75rem;font-weight:700;color:var(--gold);letter-spacing:.06em;padding-top:2px}
+.syl h4{margin:0;padding:8px 12px;font-size:.85rem;background:var(--indigo-soft)}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* page-specific */
+.flasks{width:100%;max-width:400px;margin-inline:auto;display:block}
+.flasks text{font-family:var(--f-body);font-size:14px;text-anchor:middle;fill:var(--ink);font-weight:700}
+.flasks text.small{font-size:11.5px;font-weight:500}
+.flasks .pn{font-family:var(--f-display);font-weight:800;font-size:20px}
+.flasks .fl{stroke-width:2}
+.flasks a:hover .fl,.flasks a:focus .fl{stroke-width:4}
+svg.w520{min-width:520px;width:100%}
+svg.w560{min-width:560px;width:100%}
+svg.w600{min-width:600px;width:100%}
+.kk{color:var(--gold);font-weight:700}
+.duel .row{grid-template-columns:4em minmax(0,1fr) 1.6em minmax(0,1fr)}
+.duel .row .no{font-size:1.05rem;white-space:nowrap}
+@media (max-width:620px){.duel .row{grid-template-columns:3.4em minmax(0,1fr)}}
+.duel .a.x{background:var(--card);border:1px solid var(--line)}
+.groupnote div{line-height:1.7}
+blockquote .sa{font-size:1.08rem}
+</style>
+<body>
+
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#s0"><b>0</b>規定とは</a></li>
+    <li><a href="#s1"><b>1</b>三種の規定</a></li>
+    <li><a href="#map">設計図</a></li>
+    <li><a href="#s2"><b>2</b>定義の検査</a></li>
+    <li><a href="#s3"><b>3</b>アプールヴァ</a></li>
+    <li><a href="#s4"><b>4</b>制限・除外</a></li>
+    <li><a href="#s5"><b>5</b>例への異議</a></li>
+    <li><a href="#s6"><b>6</b>答え</a></li>
+    <li><a href="#s7"><b>7</b>新しい定義</a></li>
+    <li><a href="#think">考えてみよう</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wide">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">はじめてのミーマーンサー</div>
+      <h1>規定の霊薬</h1>
+      <div class="devtitle">विधिरसायनम्</div>
+      <p class="sub">アッパイヤ・ディークシタ『ヴィディ・ラサーヤナ』を図で読む</p>
+      <p>「〜せよ」という命令には、じつは三つの種類がある。インドの聖典解釈学ミーマーンサーは、ヴェーダ（聖典）の命令文をこう分けてきました。<strong>新しいことを命じる規定</strong>、<strong>やり方を一つに絞る規定</strong>、<strong>ほかのものを除く規定</strong>です。</p>
+      <p>16世紀の学者アッパイヤ・ディークシタは、この分類を支える<strong>定義</strong>に、次々と反例をぶつけました。そして最後に、反例に耐える新しい定義を示します。このページでは、その議論の骨組みを図と表でたどります。サンスクリット語の知識は要りません。</p>
+    </div>
+    <svg class="flasks" viewBox="0 0 400 330" role="img" aria-label="三つの薬瓶で三種の規定を表した図。アプールヴァ規定、制限の規定、除外の規定。">
+      <defs>
+        <path id="flask" d="M-22 -95 h44 v8 h-8 v52 l46 92 q8 22 -14 22 h-96 q-22 0 -14 -22 l46 -92 v-52 h-8 z"/>
+      </defs>
+      <a href="#k-apurva" aria-label="アプールヴァ規定へ"><g transform="translate(75 170)"><use href="#flask" class="fl s-anssoft st-ans"/><path d="M-50 40 h100 l14 28 q8 12 -14 12 h-100 q-22 0 -14 -12 z" class="s-ans" opacity=".55"/><text class="pn s-ans" y="-112">1</text><text y="132">アプールヴァ</text><text y="150">規定</text><text y="30" class="s-ink small">なし→あり</text></g></a>
+      <a href="#k-niyama" aria-label="制限の規定へ"><g transform="translate(200 150)"><use href="#flask" class="fl s-goldsoft st-gold"/><path d="M-50 40 h100 l14 28 q8 12 -14 12 h-100 q-22 0 -14 -12 z" class="s-gold" opacity=".55"/><text class="pn s-gold" y="-112">2</text><text y="132">制限の</text><text y="150">規定</text><text y="30" class="s-ink small">Aだけに</text></g></a>
+      <a href="#k-pari" aria-label="除外の規定へ"><g transform="translate(325 170)"><use href="#flask" class="fl s-oppsoft st-opp"/><path d="M-50 40 h100 l14 28 q8 12 -14 12 h-100 q-22 0 -14 -12 z" class="s-opp" opacity=".55"/><text class="pn s-opp" y="-112">3</text><text y="132">除外の</text><text y="150">規定</text><text y="30" class="s-ink small">Bを除く</text></g></a>
+    </svg>
+  </div>
+</header>
+
+<main>
+<!-- ============ 入口 ============ -->
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2>まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>著者</dt><dd>アッパイヤ・ディークシタ<br><small>16世紀、南インドの学者。ミーマーンサー、ヴェーダーンタ、詩論、シヴァ派神学など百を超える著作があると伝えられる</small></dd></div>
+    <div><dt>学派</dt><dd>ミーマーンサー（祭式の聖典解釈学）<br><small>クマーリラ（7世紀）の系統に立つ</small></dd></div>
+    <div><dt>書名の意味</dt><dd>「規定（ヴィディ）の霊薬（ラサーヤナ）」<br><small>ラサーヤナは若返りの薬。規定論を生き返らせる薬、の意か</small></dd></div>
+    <div><dt>形式</dt><dd>長い韻律（スラグダラー調）の偈44と、著者自身の散文注<br><small>注の名は『スコーパヨージニー』（たやすく役立つもの）</small></dd></div>
+    <div><dt>問い</dt><dd>三種の規定を、例外なく正しく分ける定義はどう書けるか</dd></div>
+    <div><dt>答え</dt><dd>「その規定がなかったら何が起きたか」ではなく、「得させるものが、何を必ず退けるか」で分ける（第44偈）</dd></div>
+  </dl>
+</section>
+
+<!-- ============ 0 ============ -->
+<section id="s0" class="wrap">
+  <div class="sec-head"><span class="petal-no">0</span><h2>前提：ヴェーダの「規定」とは</h2><span class="sub">ミーマーンサーは、命令文を読み解く学問</span></div>
+  <p>古代インドのヴェーダには、祭式のやり方を述べる文がたくさんあります。「天界を望む者は新月満月祭を行うべし」「籾に水を振りかけるべし」「籾を搗くべし」。こうした「〜すべし」という文を<strong>規定</strong>（<i>vidhi</i>）と呼びます。</p>
+  <p>ミーマーンサー学派は、ヴェーダの言葉は一つも無駄がない、と考えます。すると、すぐに疑問が出ます。籾の殻を取るのに搗くのは当たり前なのに、なぜわざわざ「搗け」と言うのか。何かの役目があるはずです。そこで学者たちは、<strong>その文がなかったら、何が起きていたか</strong>を考えて、規定の役目を見分けました。</p>
+
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 210" class="w560" role="img" aria-label="規定の役目の見分け方。規定の文をいったん消して、何が起きるかを考え、その差が規定の役目になる。">
+      <g font-size="14">
+        <rect x="10" y="60" width="150" height="80" rx="10" class="s-indsoft st-line"/>
+        <text x="85" y="94" text-anchor="middle" class="s-ink" font-weight="700">ヴェーダの文</text>
+        <text x="85" y="116" text-anchor="middle" class="s-muted" font-size="12.5">「籾を搗くべし」</text>
+        <path d="M160 100 h44" class="st-muted" stroke-width="2" marker-end="url(#ar)"/>
+        <rect x="210" y="20" width="200" height="70" rx="10" class="s-card st-line"/>
+        <text x="310" y="48" text-anchor="middle" class="s-ink" font-weight="700">文がないと…</text>
+        <text x="310" y="70" text-anchor="middle" class="s-muted" font-size="12.5">搗いても爪で剥いてもよい</text>
+        <rect x="210" y="110" width="200" height="70" rx="10" class="s-card st-line"/>
+        <text x="310" y="138" text-anchor="middle" class="s-ink" font-weight="700">文があると…</text>
+        <text x="310" y="160" text-anchor="middle" class="s-muted" font-size="12.5">搗くことだけ</text>
+        <path d="M410 100 h44" class="st-muted" stroke-width="2" marker-end="url(#ar)"/>
+        <rect x="460" y="60" width="170" height="80" rx="10" class="s-goldsoft st-gold"/>
+        <text x="545" y="94" text-anchor="middle" class="s-gold" font-weight="700">差 ＝ 規定の役目</text>
+        <text x="545" y="116" text-anchor="middle" class="s-ink" font-size="12.5">手段を一つに絞った</text>
+      </g>
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+    </svg>
+    </div>
+    <figcaption><b>図1　規定の役目の見分け方。</b>文をいったん消して、何が「得られる」（自然に起きる）かを考える。この「得られる」（<i>prāpti</i>）という言葉が、本書のすべての議論の鍵になります。</figcaption>
+  </figure>
+
+  <div class="point"><span class="lbl">キーワード</span><p><strong>獲得（プラープティ）</strong>＝その規定がなくても、ほかの文・常識・類推などから、ある行為がすでに行われることになっていること。「得られている」「得られていない」と訳します。</p></div>
+</section>
+
+<!-- ============ 1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="petal-no">1</span><h2>三種の規定</h2><span class="sub">出発点はクマーリラの一つの詩</span></div>
+  <p>7世紀の大学者クマーリラは、三種の規定を一つの詩にまとめました。アッパイヤが本書で吟味するのは、この詩に示された<strong>定義</strong>です。</p>
+  <blockquote><span class="sa">विधिरत्यन्तमप्राप्तौ नियमः पाक्षिके सति ।<br>तत्र चान्यत्र च प्राप्तौ परिसंख्येति गीयते ॥</span><br>まったく得られていないことについては〈規定〉、選択的に得られているときには〈制限〉、そこにも他にも得られているときには〈除外〉と歌われる。<cite>クマーリラ『タントラ・ヴァールッティカ』の偈（本書の注に引用）</cite></blockquote>
+
+  <figure class="wide-fig">
+    <div class="scroll">
+    <svg viewBox="0 0 720 300" class="w600" role="img" aria-label="三種の規定を、規定がない場合とある場合で比べた図。">
+      <g font-size="13.5">
+        <!-- column headings -->
+        <text x="120" y="24" text-anchor="middle" class="s-ans" font-weight="700" font-size="15" id="k-apurva">① アプールヴァ規定</text>
+        <text x="360" y="24" text-anchor="middle" class="s-gold" font-weight="700" font-size="15" id="k-niyama">② 制限の規定</text>
+        <text x="600" y="24" text-anchor="middle" class="s-opp" font-weight="700" font-size="15" id="k-pari">③ 除外の規定</text>
+        <text x="120" y="44" text-anchor="middle" class="s-muted" font-size="12">「籾に水を振りかけよ」</text>
+        <text x="360" y="44" text-anchor="middle" class="s-muted" font-size="12">「籾を搗け」</text>
+        <text x="600" y="44" text-anchor="middle" class="s-muted" font-size="12">「〈手綱を取った〉と唱えて馬の手綱を取れ」</text>
+        <!-- row labels -->
+        <text x="8" y="70" class="s-muted" font-size="11.5">規定がないと</text>
+        <text x="8" y="190" class="s-muted" font-size="11.5">規定があると</text>
+        <!-- apurva -->
+        <rect x="40" y="78" width="160" height="78" rx="10" class="s-card st-line" stroke-dasharray="5 4"/>
+        <text x="120" y="122" text-anchor="middle" class="s-muted">（何も行われない）</text>
+        <rect x="40" y="198" width="160" height="78" rx="10" class="s-anssoft st-ans"/>
+        <rect x="78" y="217" width="84" height="40" rx="20" class="s-ans" opacity=".85"/>
+        <text x="120" y="242" text-anchor="middle" class="s-paper" font-weight="700">振りかけ</text>
+        <!-- niyama -->
+        <rect x="280" y="78" width="160" height="78" rx="10" class="s-card st-line"/>
+        <circle cx="325" cy="117" r="26" class="s-gold" opacity=".85"/><text x="325" y="122" text-anchor="middle" class="s-paper" font-weight="700">搗く</text>
+        <text x="360" y="122" text-anchor="middle" class="s-muted">か</text>
+        <circle cx="395" cy="117" r="26" class="s-gold" opacity=".45"/><text x="395" y="122" text-anchor="middle" class="s-ink" font-weight="700" font-size="12">爪で剥く</text>
+        <rect x="280" y="198" width="160" height="78" rx="10" class="s-goldsoft st-gold"/>
+        <circle cx="325" cy="237" r="26" class="s-gold" opacity=".85"/><text x="325" y="242" text-anchor="middle" class="s-paper" font-weight="700">搗く</text>
+        <circle cx="395" cy="237" r="26" class="nofill st-muted" stroke-dasharray="3 3"/><text x="395" y="270" text-anchor="middle" class="s-muted" font-size="11">爪</text>
+        <path d="M380 222 l30 30 M410 222 l-30 30" class="st-opp" stroke-width="2.5"/>
+        <!-- pari -->
+        <rect x="520" y="78" width="160" height="78" rx="10" class="s-card st-line"/>
+        <circle cx="565" cy="117" r="26" class="s-opp" opacity=".85"/><text x="565" y="122" text-anchor="middle" class="s-paper" font-weight="700">馬</text>
+        <text x="600" y="122" text-anchor="middle" class="s-muted">も</text>
+        <circle cx="635" cy="117" r="26" class="s-opp" opacity=".85"/><text x="635" y="122" text-anchor="middle" class="s-paper" font-weight="700">ロバ</text>
+        <rect x="520" y="198" width="160" height="78" rx="10" class="s-oppsoft st-opp"/>
+        <circle cx="565" cy="237" r="26" class="s-opp" opacity=".85"/><text x="565" y="242" text-anchor="middle" class="s-paper" font-weight="700">馬</text>
+        <circle cx="635" cy="237" r="26" class="nofill st-muted" stroke-dasharray="3 3"/><text x="635" y="270" text-anchor="middle" class="s-muted" font-size="11">ロバ</text>
+        <path d="M620 222 l30 30 M650 222 l-30 30" class="st-opp" stroke-width="2.5"/>
+        <!-- arrows -->
+        <path d="M120 160 v32" class="st-muted" stroke-width="2" marker-end="url(#ar)"/><path d="M360 160 v32" class="st-muted" stroke-width="2" marker-end="url(#ar)"/><path d="M600 160 v32" class="st-muted" stroke-width="2" marker-end="url(#ar)"/>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図2　三種の規定。</b>上段は「その文がなかったら」の世界、下段は文がある世界。①は無から生む、②は選べたものを一つに絞る、③は両方に及んでいたものから片方を外す。丸は「行われること」、×は「退けられたこと」。</figcaption>
+  </figure>
+
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>種類</th><th>原語</th><th>規定がなければ</th><th>獲得のしかた</th><th>規定の果たすこと</th></tr></thead>
+      <tbody>
+        <tr><td class="k"><span class="ok">アプールヴァ規定</span></td><td><i>apūrvavidhi</i><br><small>「前になかった」</small></td><td>籾に水を振りかけることは、どこからも出てこない</td><td>まったく得られていない</td><td>新しい行為を生む</td></tr>
+        <tr><td class="k"><span style="color:var(--gold);font-weight:700">制限の規定</span></td><td><i>niyamavidhi</i><br><small>限定規定とも</small></td><td>殻取りの手段は自由。搗いても爪で剥いてもよい</td><td>選択的に（ときどき）得られている</td><td>手段を一つに決める</td></tr>
+        <tr><td class="k"><span class="ng">除外の規定</span></td><td><i>parisaṅkhyāvidhi</i><br><small>「数え上げ」</small></td><td>手綱の真言は「手綱」を言うだけなので、馬にもロバにも使える</td><td>そこにも他にも得られている</td><td>他（ロバ）を外す</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>身近なたとえ</h3>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>規定</th><th>学校の規則でいえば</th><th>なかったら？</th></tr></thead>
+      <tbody>
+        <tr><td class="k">アプールヴァ</td><td>「入学式の前に健康診断を受けること」</td><td>だれも受けない</td></tr>
+        <tr><td class="k">制限</td><td>「答案は黒のボールペンで書くこと」</td><td>答案はどのみち書く。鉛筆でも青でもよかった</td></tr>
+        <tr><td class="k">除外</td><td>「この割引は学生に限る」</td><td>割引の案内は、学生にも社会人にも当てはまった</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="point"><span class="lbl">ここが微妙</span><p>じつは注の冒頭で、すでに一つの難問が出ます。規定の言葉は、常識や推し量りより<strong>先に</strong>働きます。だから「搗け」が働く時点では、爪で剥く道はまだ開かれていない。厳密には、三つとも「まったく得られていない」ことになってしまう。答えは、違いは<strong>果報</strong>（規定が結果としてもたらすこと）にある、というものです。制限の規定は「搗くことに決まる」こと、除外の規定は「ロバから真言が退けられる」ことを果報とします。この「何が退けられるか」という視点が、最後の第44偈で主役になります。</p></div>
+</section>
+
+<!-- ============ map ============ -->
+<section id="map" class="wrap">
+  <div class="sec-head"><h2>本書の設計図</h2><span class="sub">44の偈は、異議 → 答え → 新しい定義、の三幕</span></div>
+  <figure class="wide-fig">
+    <div class="scroll">
+    <svg viewBox="0 0 720 210" class="w600" role="img" aria-label="44偈の構成を帯グラフで示した図。">
+      <g font-size="12.5">
+        <!-- scale: x = 20 + (v-1)*15.3 ; width per verse 15.3 ; total 44 -> 673 -->
+        <rect x="20" y="60" width="15.3" height="46" class="s-indsoft st-line"/>
+        <rect x="35.3" y="60" width="229.5" height="46" class="s-oppsoft st-opp"/>
+        <rect x="264.8" y="60" width="45.9" height="46" class="s-oppsoft st-opp" opacity=".75"/>
+        <rect x="310.7" y="60" width="61.2" height="46" class="s-oppsoft st-opp" opacity=".75"/>
+        <rect x="371.9" y="60" width="15.3" height="46" class="s-oppsoft st-opp" opacity=".55"/>
+        <rect x="387.2" y="60" width="107.1" height="46" class="s-goldsoft st-gold"/>
+        <rect x="494.3" y="60" width="168.3" height="46" class="s-anssoft st-ans"/>
+        <rect x="662.6" y="60" width="30.6" height="46" class="s-ans" opacity=".8"/>
+        <text x="27.6" y="88" text-anchor="middle" class="s-ink" font-weight="700">1</text>
+        <text x="150" y="88" text-anchor="middle" class="s-opp" font-weight="700">2–16</text>
+        <text x="287.7" y="88" text-anchor="middle" class="s-opp" font-weight="700">17–19</text>
+        <text x="341.3" y="88" text-anchor="middle" class="s-opp" font-weight="700">20–23</text>
+        <text x="379.5" y="88" text-anchor="middle" class="s-opp" font-weight="700" font-size="10">24</text>
+        <text x="440.7" y="88" text-anchor="middle" class="s-gold" font-weight="700">25–31</text>
+        <text x="578.4" y="88" text-anchor="middle" class="s-ans" font-weight="700">32–42</text>
+        <text x="677.9" y="88" text-anchor="middle" class="s-paper" font-weight="700" font-size="11">43–44</text>
+        <!-- labels below -->
+        <text x="150" y="128" text-anchor="middle" class="s-ink">アプールヴァ規定の</text><text x="150" y="145" text-anchor="middle" class="s-ink">定義への異議</text>
+        <text x="300" y="128" text-anchor="middle" class="s-ink">制限・除外の</text><text x="300" y="145" text-anchor="middle" class="s-ink">定義への異議</text>
+        <text x="440.7" y="128" text-anchor="middle" class="s-ink">例への異議</text><text x="440.7" y="145" text-anchor="middle" class="s-muted" font-size="11.5">例が定義に合わない</text>
+        <text x="578.4" y="128" text-anchor="middle" class="s-ink">異議への答え</text><text x="578.4" y="145" text-anchor="middle" class="s-muted" font-size="11.5">緩い異議をほどく</text>
+        <text x="677.9" y="128" text-anchor="middle" class="s-ink">新しい</text><text x="677.9" y="145" text-anchor="middle" class="s-ink">定義</text>
+        <text x="27.6" y="128" text-anchor="middle" class="s-ink">目的</text>
+        <!-- brackets above -->
+        <path d="M35 50 v-8 h457 v8" class="nofill st-opp" stroke-width="1.5"/>
+        <text x="263" y="34" text-anchor="middle" class="s-opp" font-weight="700">第一幕　壊す（第2–31偈）</text>
+        <path d="M496 50 v-8 h164 v8" class="nofill st-ans" stroke-width="1.5"/>
+        <text x="578" y="34" text-anchor="middle" class="s-ans" font-weight="700">第二幕　ほどく</text>
+        <path d="M664 50 v-8 h28 v8" class="nofill st-ans" stroke-width="1.5"/>
+        <text x="678" y="22" text-anchor="middle" class="s-ans" font-weight="700" font-size="11">第三幕</text>
+        <text x="678" y="36" text-anchor="middle" class="s-ans" font-weight="700" font-size="11">建てる</text>
+        <text x="20" y="186" class="s-muted" font-size="11.5">帯の幅は偈の数に比例。注は全184頁（校訂本）のうち、第2–16偈に約75頁を割く。</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図3　44偈の設計図。</b>半分近くの偈が、最初のアプールヴァ規定の定義の吟味に使われます。</figcaption>
+  </figure>
+  <p>なお、本書は「先人の定義を壊すこと」が目的なのではありません。第1偈で著者は、三種の規定はすでに確立していると認めたうえで、「さまざまな例によって、いっそう明らかにする」と言います。注によれば、定義の検討を口実にして、『ミーマーンサー・スートラ』全十二巻に散らばる興味深い例を集めて示すのが狙いです。だから本書は、ミーマーンサーの難所めぐりの案内書としても読めます。</p>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="petal-no">2</span><h2>定義の検査法</h2><span class="sub">「不及」と「過剰適用」の二つの物差し</span></div>
+  <p>インドの学者は、定義を二つの欠点で検査します。定義したいもの（<strong>被定義項</strong>）の全部に当てはまるか。そして、それ以外には当てはまらないか。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 262" class="w520" role="img" aria-label="不及と過剰適用を二つの円の重なりで示した図。">
+      <g font-size="13.5">
+        <circle cx="250" cy="150" r="100" class="s-anssoft st-ans" stroke-width="2" fill-opacity=".8"/>
+        <circle cx="390" cy="150" r="100" class="s-goldsoft st-gold" stroke-width="2" fill-opacity=".7"/>
+        <text x="200" y="18" text-anchor="middle" class="s-ans" font-weight="700">定義したいもの</text>
+        <text x="200" y="34" text-anchor="middle" class="s-muted" font-size="11.5">例：本当のアプールヴァ規定</text>
+        <text x="440" y="18" text-anchor="middle" class="s-gold" font-weight="700">定義に当てはまるもの</text>
+        <text x="440" y="34" text-anchor="middle" class="s-muted" font-size="11.5">定義の文言が拾うもの</text>
+        <text x="200" y="150" text-anchor="middle" class="s-opp" font-weight="700">不及</text>
+        <text x="200" y="170" text-anchor="middle" class="s-ink" font-size="12">拾い漏れ</text>
+        <text x="320" y="155" text-anchor="middle" class="s-ink" font-weight="700">OK</text>
+        <text x="445" y="150" text-anchor="middle" class="s-opp" font-weight="700">過剰適用</text>
+        <text x="445" y="170" text-anchor="middle" class="s-ink" font-size="12">よけいなもの</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図4　定義の二つの欠点。</b>理想は二つの円がぴったり重なること。左だけの部分が<b>不及</b>（<i>avyāpti</i>、定義が行き渡らない）、右だけの部分が<b>過剰適用</b>（<i>ativyāpti</i>、定義が行き過ぎる）。</figcaption>
+  </figure>
+  <p>アッパイヤの攻め方はいつも同じです。定義の文言に反例を出して不及を示す。相手が文言を広げて直せば、こんどは別の反例で過剰適用を示す。第3偈の比喩がそれをよく表しています。</p>
+  <blockquote>この不及の欠点を解消しようとするなら、そこから〔定義を〕取り上げて、定義を滅ぼす過剰適用の口の中に置くことになろう。<cite>第3偈（要約）</cite></blockquote>
+  <p>小さな傷（不及）を治そうとして、定義を虎の口（過剰適用）に投げ込む、というわけです。</p>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="petal-no">3</span><h2>「まったく得られていない」とは何か</h2><span class="sub">第2–16偈：アプールヴァ規定の定義への異議</span></div>
+  <p>クマーリラの定義の前半は「まったく得られていないことについて規定」。この「まったく（<i>atyantam</i>）」と「得られていない（<i>aprāptau</i>）」をどう読むかで、案がいくつも出ます。アッパイヤはそれを一つずつ崩していきます。</p>
+
+  <h3>まず、文法の問題から（第2偈）</h3>
+  <p>「得られていないことに」の「に」（サンスクリットの処格）には、二通りの読み方があります。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>読み方</th><th>意味</th><th>反例</th></tr></thead>
+      <tbody>
+        <tr><td class="k">対象の処格</td><td>「得られていない<strong>もの</strong>を対象とする規定」</td><td class="ng">不及：変形祭祀で、すでに得られている火の祭壇（アグニ）を改めて命じる規定。祭祀そのものは知られていて、果報との結びつきだけを命じる規定も多い</td></tr>
+        <tr><td class="k">条件の処格</td><td>「得られていない<strong>とき</strong>に働く規定」<br><small>次の句「選択的にあるときに」に揃える読み</small></td><td class="ng">不及：十二日祭の「三つの軍」の、最初の日に関する二つの規定</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>修正案と反例のいたちごっこ</h3>
+  <p>ここからは、反論者が文言を直し、アッパイヤが新しい反例を出す、の繰り返しです。主な案を並べます（「狭」は不及、「広」は過剰適用）。</p>
+
+  <figure class="wide-fig">
+    <div class="scroll">
+    <svg viewBox="0 0 720 250" class="w600" role="img" aria-label="修正案ごとに、定義が狭すぎるか広すぎるかを点で示した図。点が上下に揺れ続ける。">
+      <g font-size="12">
+        <rect x="60" y="20" width="640" height="70" class="s-goldsoft" opacity=".6"/>
+        <rect x="60" y="150" width="640" height="70" class="s-oppsoft" opacity=".6"/>
+        <line x1="60" y1="120" x2="700" y2="120" class="st-ans" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="54" y="58" text-anchor="end" class="s-gold" font-weight="700">広すぎ</text>
+        <text x="54" y="124" text-anchor="end" class="s-ans" font-weight="700">ちょうど</text>
+        <text x="54" y="190" text-anchor="end" class="s-opp" font-weight="700">狭すぎ</text>
+        <polyline points="90,185 160,185 230,55 300,185 370,55 440,185 510,55 580,185 650,185" class="nofill st-muted" stroke-width="1.5"/>
+        <g class="dots">
+          <circle cx="90" cy="185" r="8" class="s-opp"/><circle cx="160" cy="185" r="8" class="s-opp"/>
+          <circle cx="230" cy="55" r="8" class="s-gold"/><circle cx="300" cy="185" r="8" class="s-opp"/>
+          <circle cx="370" cy="55" r="8" class="s-gold"/><circle cx="440" cy="185" r="8" class="s-opp"/>
+          <circle cx="510" cy="55" r="8" class="s-gold"/><circle cx="580" cy="185" r="8" class="s-opp"/>
+          <circle cx="650" cy="185" r="8" class="s-opp"/><circle cx="650" cy="55" r="8" class="s-gold"/>
+          <line x1="650" y1="63" x2="650" y2="177" class="st-muted" stroke-dasharray="3 3"/>
+        </g>
+        <g text-anchor="middle" class="s-ink">
+          <text x="90" y="240">A</text><text x="160" y="240">B</text><text x="230" y="240">C</text><text x="300" y="240">D</text><text x="370" y="240">E</text><text x="440" y="240">F</text><text x="510" y="240">G</text><text x="580" y="240">H</text><text x="650" y="240">I</text>
+        </g>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図5　いたちごっこ。</b>A〜I は下の表の案。点は一度も真ん中の線（ちょうど）に乗りません。最後の案 I は、狭すぎと広すぎを同時に抱えます。</figcaption>
+  </figure>
+
+  <div class="duel">
+    <div class="row"><div class="no">A</div><div class="o"><b>案</b>　「得られていない」＝対象がどこにも得られていない（対象の処格）</div><div class="arr">→</div><div class="a x"><b class="ng">狭</b>　変形祭祀のアグニの規定に及ばない（第2偈）</div></div>
+    <div class="row"><div class="no">B</div><div class="o"><b>案</b>　「得られていない」＝得られていないときに働く（条件の処格）</div><div class="arr">→</div><div class="a x"><b class="ng">狭</b>　三つの軍の先頭の規定に及ばない（第2偈）</div></div>
+    <div class="row"><div class="no">C</div><div class="o"><b>案</b>　同じものでも、どの「アプールヴァ（見えない効力）」に仕えるかで別物とみなし、その形では得られていない、とする</div><div class="arr">→</div><div class="a x"><b class="kk">広</b>　「籾を搗け」の籾も、アプールヴァに仕える籾としては得られていない。制限の規定までアプールヴァ規定になる（第3偈）</div></div>
+    <div class="row"><div class="no">D</div><div class="o"><b>案</b>　知られていない形の違いを除いて、本体で得られているかを見る</div><div class="arr">→</div><div class="a x"><b class="ng">狭</b>　「ウパーンシュ祭を満月に」のように、果報との結びつきだけを与える規定に及ばない（第4–5偈）</div></div>
+    <div class="row"><div class="no">E</div><div class="o"><b>案</b>　「どこかで何かが得られていない」だけで十分</div><div class="arr">→</div><div class="a x"><b class="kk">広</b>　「籾を搗け」などのよく知られた制限の規定も入ってしまう（第6偈）</div></div>
+    <div class="row"><div class="no">F</div><div class="o"><b>案</b>　得られていないものを「得させるもの」が規定</div><div class="arr">→</div><div class="a x"><b class="ng">狭</b>　「天界を望む者は」の二つの文、多くの派に同じく伝わるアグニホートラの規定には、得させるものがない（第7–8偈）</div></div>
+    <div class="row"><div class="no">G</div><div class="o"><b>案</b>　「ほかの規定も働かないとき」得られていない、と加える</div><div class="arr">→</div><div class="a x"><b class="kk">広</b>　プリシュタ讃歌の制限などに及ぶ（第9偈）。一つの規定が複数の種類を兼ねてよいとすると、杖やウッタラーの詠唱でおかしな帰結が出る（第10偈）</div></div>
+    <div class="row"><div class="no">H</div><div class="o"><b>案</b>　「まったく」＝すべての対象に行き渡って得られていない、あるいは三つの時（過去・現在・未来）にわたって得られていない</div><div class="arr">→</div><div class="a x"><b class="ng">狭</b>　選択肢それぞれで不及が戻る。六日祭のプリシュタの規定や、「例外の例外」を定める規定に及ばない（第12–13偈）</div></div>
+    <div class="row"><div class="no">I</div><div class="o"><b>案</b>　「まったく」＝選択的でないこと。その「選択的」を区切りや基体で精密化する</div><div class="arr">→</div><div class="a x"><b class="ng">狭</b>＋<b class="kk">広</b>　「選択的」そのものがうまく定義できず、ブラフマン祭官への報酬などに不及、別の真言の制限などに過剰（第14–16偈）</div></div>
+  </div>
+  <p class="cap">このほか第11偈では、除外の規定も「ほかのものがやむこと」というまだ得られていないものを得させる、という指摘があります。「肯定的なもの」に限ると、こんどは「アティラートラではショーダシンを汲まない」のような禁止の形の規定から漏れます。</p>
+
+  <div class="point"><span class="lbl">教訓</span><p>「得られていない」を、<strong>時間・範囲・形</strong>のどれで締めても、どこかで漏れるか、どこかで溢れる。原因は、定義が「規定の文全体」を一つの種類に押し込もうとしている点にある、というのが最後に明らかになります（7「精錬された定義」）。</p></div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="petal-no">4</span><h2>制限と除外の定義も崩れる</h2><span class="sub">第17–24偈</span></div>
+
+  <h3>制限の規定は形が多すぎる（第17–19偈）</h3>
+  <p>「選択的に得られているとき」という一つの条件で、百の制限の規定をまとめられるか。第17偈は、制限の規定の形がこれほど多いと示します。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 720 230" class="w600" role="img" aria-label="制限の規定の型を木の形で示した図。">
+      <g font-size="13">
+        <rect x="260" y="10" width="200" height="40" rx="8" class="s-goldsoft st-gold"/>
+        <text x="360" y="36" text-anchor="middle" class="s-gold" font-weight="700">何が絞られるか</text>
+        <path d="M360 50 v20 M95 70 h530 M95 70 v20 M272 70 v20 M448 70 v20 M625 70 v20" class="nofill st-muted" stroke-width="1.5"/>
+        <rect x="10" y="90" width="170" height="56" rx="8" class="s-card st-line"/><text x="95" y="114" text-anchor="middle" class="s-ink" font-weight="700">手段だけ</text><text x="95" y="134" text-anchor="middle" class="s-muted" font-size="11.5">籾を搗く</text>
+        <rect x="187" y="90" width="170" height="56" rx="8" class="s-card st-line"/><text x="272" y="114" text-anchor="middle" class="s-ink" font-weight="700">用途だけ</text><text x="272" y="134" text-anchor="middle" class="s-muted" font-size="11">サーマンをウッタラーで</text>
+        <rect x="363" y="90" width="170" height="56" rx="8" class="s-card st-line"/><text x="448" y="114" text-anchor="middle" class="s-ink" font-weight="700">両方</text><text x="448" y="134" text-anchor="middle" class="s-muted" font-size="11">車とアドヴァリュ祭官</text>
+        <rect x="540" y="90" width="170" height="56" rx="8" class="s-card st-line"/><text x="625" y="114" text-anchor="middle" class="s-ink" font-weight="700">何も選べない</text><text x="625" y="134" text-anchor="middle" class="s-muted" font-size="11">「イシェー・トヴァー」</text>
+        <text x="360" y="186" text-anchor="middle" class="s-ink">さらに、絞られるものが文に「取り上げられている／いない」、</text>
+        <text x="360" y="206" text-anchor="middle" class="s-ink">選べるのが「それ自身／その対立項」……と型が掛け算で増える</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図6　制限の規定の型。</b>最後の型では、規定がなくても別の選択肢がそもそもない（真言に「切る」の語がなく、ほかに使い道がない）。それでも、見える目的と、制限の見えない力があるので制限の規定とされる。「選択的」という条件はここで完全に外れます。</figcaption>
+  </figure>
+  <p>第18–19偈では、条件を足すと、こんどは「変形祭祀のアグニの規定」や「黒褐色の馬をブラフマン祭官に」などに過剰に及ぶ、と示されます。</p>
+
+  <h3>除外の「そこ」と「ほか」が決まらない（第20–23偈）</h3>
+  <p>除外の定義「<strong>そこにも他にも</strong>得られているとき」。この「そこ」と「他」は何と何でしょうか。すべての除外の規定に共通する二つのまとまりを取り出せるか、と問います。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>「そこ」と「他」の候補</th><th>崩す反例</th></tr></thead>
+      <tbody>
+        <tr><td class="k">文に取り上げられたもの／いないもの</td><td>読みの順で決まる先頭の規定に当てはまらない</td></tr>
+        <tr><td class="k">取るべきもの／除くべきもの</td><td>「まさにここに挿入する」：規定の前には、挿入はほかの讃歌にしか得られていない</td></tr>
+        <tr><td class="k">一つの主に仕える二つの補助</td><td>主のほうを除く型に当てはまらない</td></tr>
+        <tr><td class="k">何であれ結びつき</td><td>多くの六日祭などに過剰に及ぶ</td></tr>
+        <tr><td class="k">「つねに」得られる</td><td>亀や猿などを食べることは、つねに得られているわけではない（「五種の五爪の動物は食べてよい」の例）</td></tr>
+        <tr><td class="k">「やめさせること」を果報に加える</td><td>残りの文言が無駄になり、禁止の形の規定や制限への過剰適用も防げない</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>第24偈は、「前の定義への異議のやり方は、たいてい後の定義にも使える」と言います。同じ攻め方を三回くり返さず、それぞれに新しい攻め方を見せた、と著者は胸を張ります。</p>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="s5" class="wrap">
+  <div class="sec-head"><span class="petal-no">5</span><h2>教科書の例も怪しい</h2><span class="sub">第25–31偈：例への異議</span></div>
+  <p>定義だけではありません。三種の規定の<strong>代表例</strong>そのものが、その種類に合わないと言います。鍵になるのは、<strong>真言の手がかり</strong>です。祭式で唱える真言（マントラ）は、その内容によって、どの行為で唱えるかがわかります。真言が「水を振りかける」ことを言っていれば、規定がなくても、振りかけながらその真言を唱えることになります。</p>
+  <figure class="wide-fig">
+    <div class="scroll">
+    <svg viewBox="0 0 720 250" class="w600" role="img" aria-label="三つの代表例が、ほかの根拠からすでに得られていることを示す図。">
+      <g font-size="12.5">
+        <text x="110" y="22" text-anchor="middle" class="s-muted" font-weight="700">代表例</text>
+        <text x="360" y="22" text-anchor="middle" class="s-muted" font-weight="700">じつは、すでにここから得られている</text>
+        <text x="610" y="22" text-anchor="middle" class="s-muted" font-weight="700">すると…</text>
+        <g>
+          <rect x="10" y="36" width="200" height="56" rx="8" class="s-anssoft st-ans"/><text x="110" y="60" text-anchor="middle" class="s-ink" font-weight="700">籾に水を振りかけよ</text><text x="110" y="79" text-anchor="middle" class="s-ans" font-size="11.5">アプールヴァ規定の例</text>
+          <rect x="250" y="36" width="220" height="56" rx="8" class="s-card st-line"/><text x="360" y="60" text-anchor="middle" class="s-ink">「振りかける」と言う真言の</text><text x="360" y="79" text-anchor="middle" class="s-ink">手がかり</text>
+          <rect x="510" y="36" width="200" height="56" rx="8" class="s-oppsoft st-opp"/><text x="610" y="60" text-anchor="middle" class="s-ink">まったく得られていない</text><text x="610" y="79" text-anchor="middle" class="s-opp" font-weight="700">とは言えない</text>
+          <path d="M210 64 h36" class="st-muted" stroke-width="1.8" marker-end="url(#ar)"/><path d="M470 64 h36" class="st-muted" stroke-width="1.8" marker-end="url(#ar)"/>
+        </g>
+        <g transform="translate(0 74)">
+          <rect x="10" y="36" width="200" height="56" rx="8" class="s-goldsoft st-gold"/><text x="110" y="60" text-anchor="middle" class="s-ink" font-weight="700">籾を臼でつけ</text><text x="110" y="79" text-anchor="middle" class="s-gold" font-size="11.5">制限の規定の例</text>
+          <rect x="250" y="36" width="220" height="56" rx="8" class="s-card st-line"/><text x="360" y="60" text-anchor="middle" class="s-ink">「悪霊を打ち払った」の真言</text><text x="360" y="79" text-anchor="middle" class="s-ink">＋臼と杵を道具とする教え</text>
+          <rect x="510" y="36" width="200" height="56" rx="8" class="s-oppsoft st-opp"/><text x="610" y="60" text-anchor="middle" class="s-ink">手段はもう決まっている</text><text x="610" y="79" text-anchor="middle" class="s-opp" font-weight="700">絞る余地がない</text>
+          <path d="M210 64 h36" class="st-muted" stroke-width="1.8" marker-end="url(#ar)"/><path d="M470 64 h36" class="st-muted" stroke-width="1.8" marker-end="url(#ar)"/>
+        </g>
+        <g transform="translate(0 148)">
+          <rect x="10" y="36" width="200" height="56" rx="8" class="s-oppsoft st-opp"/><text x="110" y="60" text-anchor="middle" class="s-ink" font-weight="700">唱えて馬の手綱を取れ</text><text x="110" y="79" text-anchor="middle" class="s-opp" font-size="11.5">除外の規定の例</text>
+          <rect x="250" y="36" width="220" height="56" rx="8" class="s-card st-line"/><text x="360" y="60" text-anchor="middle" class="s-ink">真言は文脈と手がかりで</text><text x="360" y="79" text-anchor="middle" class="s-ink">すでに手綱に配当されている</text>
+          <rect x="510" y="36" width="200" height="56" rx="8" class="s-oppsoft st-opp"/><text x="610" y="60" text-anchor="middle" class="s-ink">行為者（祭官）を限る</text><text x="610" y="79" text-anchor="middle" class="s-opp" font-weight="700">制限の規定では？</text>
+          <path d="M210 64 h36" class="st-muted" stroke-width="1.8" marker-end="url(#ar)"/><path d="M470 64 h36" class="st-muted" stroke-width="1.8" marker-end="url(#ar)"/>
+        </g>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図7　代表例への異議（第25–28偈）。</b>前の二つは、真言が「籾」と言っていない以上、むしろ大麦を除く<b>除外</b>の規定ではないか、とも言えます（第26偈）。</figcaption>
+  </figure>
+
+  <h3>「三つの欠点」の取り決めも崩す（第30偈）</h3>
+  <p>除外の規定には、昔から「三つの欠点」があると言われます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>欠点</th><th>原語</th><th>意味</th></tr></thead>
+      <tbody>
+        <tr><td class="k">自分の意味を捨てる</td><td><i>svārthatyāga</i></td><td>文が字面どおりのこと（馬の手綱を取ること）を言うのをやめる</td></tr>
+        <tr><td class="k">ほかの意味を取る</td><td><i>parārthagrahaṇa</i></td><td>字面にない「ロバの手綱には唱えない」を読み込む</td></tr>
+        <tr><td class="k">得られたものを退ける</td><td><i>prāptabādha</i></td><td>手がかりで得られていた「ロバの手綱にも唱える」を打ち消す</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>通説では、馬の手綱の例のように直接の文が先に働く場合はこの欠点が出ない、とされました。ロバの手綱は、文がまだ働かないうちに先取りされている、というわけです（「前に馬に奪われたものを、あとでロバがどうして得られようか」）。アッパイヤは、真言が一度使われたあとでも別の行為に改めて使われる例（アーグネーイーの原則）を出して、この区別を崩します。</p>
+  <p>第31偈で著者は、ここまでの異議のうち<strong>いくつかは緩い</strong>と認めます。そして、それを示すことで、異議が学説全体を揺るがすわけではないことを見せる、と第二幕に進みます。</p>
+</section>
+
+<!-- ============ 6 ============ -->
+<section id="s6" class="wrap">
+  <div class="sec-head"><span class="petal-no">6</span><h2>異議をほどく</h2><span class="sub">第32–42偈：本来の祭祀と変形祭祀</span></div>
+  <p>第二幕の中心は、何度も出てきた「<strong>変形祭祀のアグニの規定</strong>」です。まず、ミーマーンサーの基本の仕組みを一つ押さえましょう。</p>
+  <figure class="wide-fig">
+    <div class="scroll">
+    <svg viewBox="0 0 720 240" class="w600" role="img" aria-label="本来の祭祀の手順が類推適用で変形祭祀に移る仕組みの図。">
+      <g font-size="13">
+        <rect x="20" y="40" width="250" height="160" rx="12" class="s-indsoft st-line"/>
+        <text x="145" y="66" text-anchor="middle" class="s-ink" font-weight="700">本来の祭祀（プラクリティ）</text>
+        <text x="145" y="86" text-anchor="middle" class="s-muted" font-size="11.5">例：ジョーティシュトーマ（ソーマ祭）</text>
+        <rect x="45" y="100" width="200" height="26" rx="6" class="s-card st-line"/><text x="145" y="118" text-anchor="middle" class="s-ink" font-size="12">手順1・手順2・手順3…</text>
+        <rect x="45" y="134" width="200" height="26" rx="6" class="s-goldsoft st-gold"/><text x="145" y="152" text-anchor="middle" class="s-ink" font-size="12">アグニ（煉瓦の火の祭壇）？</text>
+        <text x="145" y="186" text-anchor="middle" class="s-muted" font-size="11.5">手順がすべて書いてある</text>
+        <path d="M275 120 h150" class="st-gold" stroke-width="3" marker-end="url(#arg)"/>
+        <text x="350" y="104" text-anchor="middle" class="s-gold" font-weight="700">類推適用</text>
+        <text x="350" y="146" text-anchor="middle" class="s-muted" font-size="11.5">（アティデーシャ）</text>
+        <text x="350" y="164" text-anchor="middle" class="s-muted" font-size="11.5">手順をまるごと移す</text>
+        <rect x="440" y="40" width="260" height="160" rx="12" class="s-card st-line"/>
+        <text x="570" y="66" text-anchor="middle" class="s-ink" font-weight="700">変形祭祀（ヴィクリティ）</text>
+        <text x="570" y="86" text-anchor="middle" class="s-muted" font-size="11.5">例：二夜祭などの多日祭</text>
+        <rect x="465" y="100" width="210" height="26" rx="6" class="s-card st-line" stroke-dasharray="4 3"/><text x="570" y="118" text-anchor="middle" class="s-muted" font-size="12">手順は書いてない（移ってくる）</text>
+        <rect x="465" y="134" width="210" height="26" rx="6" class="s-oppsoft st-opp"/><text x="570" y="152" text-anchor="middle" class="s-ink" font-size="12">なのに「アグニを積め」とある</text>
+        <text x="570" y="186" text-anchor="middle" class="s-opp" font-size="11.5" font-weight="700">これはアプールヴァ規定？</text>
+      </g>
+      <defs><marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-gold"/></marker></defs>
+    </svg>
+    </div>
+    <figcaption><b>図8　本来の祭祀と変形祭祀。</b>変形祭祀は、本来の祭祀の手順を借りて行う。アグニが本来の祭祀にあるなら、変形祭祀にはもう移ってきている。それなのに改めて命じる文は「得られているものの規定」になり、アプールヴァ規定の定義が及ばない——これが第2偈の異議でした。</figcaption>
+  </figure>
+
+  <h3>アッパイヤの答え</h3>
+  <div class="duel">
+    <div class="row"><div class="no">32</div><div class="o"><b>異議</b>　変形祭祀のアグニは、本来の祭祀から類推で得られている</div><div class="arr">→</div><div class="a"><b>答え</b>　そもそもアグニは、本来の祭祀でも変形祭祀でも祭祀の補助ではない。アグニシュトーマなどの文は、果報のための<strong>基体</strong>を与えるだけ。類推で移る話は根から折れている</div></div>
+    <div class="row"><div class="no">33–34</div><div class="o"><b>異議</b>　願望の規定は常時の規定より強いので、アグニは本来の祭祀に入る</div><div class="arr">→</div><div class="a"><b>答え</b>　認めても、アグニシュトーマ・ウクティヤ・アティラートラの三つの文が本来・変形のすべてにアグニを与える。二夜祭などの文に新しく命じるものはなく、<strong>称える文</strong>にすぎない。語を理由なく狭めるのは筋が通らない</div></div>
+    <div class="row"><div class="no">35–37</div><div class="o"><b>異議</b>　アグニシュトーマの語は、終わり方の決まった祭祀にしか及ばない</div><div class="arr">→</div><div class="a"><b>答え</b>　基体となるのは、どの祭祀とも結びつく前の<strong>純粋なアグニ</strong>。どの変形祭祀でも違いはない。二夜祭などの文には、除外か制限という果報が必ずある</div></div>
+    <div class="row"><div class="no">38–39</div><div class="o"><b>異議</b>　ウクティヤを変形とみる別説／十七詩節の例</div><div class="arr">→</div><div class="a"><b>答え</b>　別説でも不及は出ない。十七詩節の再規定は、選択肢を絞る<strong>制限の規定</strong>であって、例として成り立たない</div></div>
+    <div class="row"><div class="no">40</div><div class="o"><b>異議</b>　新月祭のウパーンシュ祭に「米粒を三つに」の規定が及ばない</div><div class="arr">→</div><div class="a"><b>答え</b>　新月祭にウパーンシュ祭はそもそもない（満月の日に規定されている）。「米粒を三つに」は<strong>言い直し</strong>で、不及は起きない</div></div>
+    <div class="row"><div class="no">41–42</div><div class="o"><b>異議</b>　月の出のイシュティの文は神格だけを替える規定</div><div class="arr">→</div><div class="a"><b>答え</b>　一つの文で二つの物それぞれに神格を結べない。災いの文と同じく<strong>別の祭事</strong>を命じる。分配の規定とみる案も無意味</div></div>
+  </div>
+  <div class="point"><span class="lbl">ポイント</span><p>答えの多くは、「その文は本当は何を命じているか」を読み直すことです。称える文（アルタヴァーダ）なのか、言い直し（アヌヴァーダ）なのか、別の祭事の規定なのか。読み直すと、反例だったはずのものが反例でなくなります。</p></div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section id="s7" class="wrap">
+  <div class="sec-head"><span class="petal-no">7</span><h2>精錬された定義</h2><span class="sub">第43–44偈：二つの取り決めと、新しい三つの定義</span></div>
+  <h3>二つの取り決め（第43偈）</h3>
+  <div class="groupnote">
+    <div><span class="pill k">取り決め1</span><br><strong>見える目的をもつ規定は、すべて制限の規定。</strong><br><small>殻を取るのに搗く、のように、目に見える役目がある行為の規定は、手段を絞ることが仕事だから</small></div>
+    <div><span class="pill opp">取り決め2</span><br><strong>何かを退けるものは、すべて除外。</strong><br><small>意味から退ける場合も、語から退ける場合（自分の対象を外れた語・「のみ」・否定辞）も。だから禁止の文はすべて除外</small></div>
+  </div>
+
+  <h3>新しい定義（第44偈）</h3>
+  <blockquote>常にある無関心とは別の何かが外れることと必ず結びついた、そのものの獲得〔が制限されるもの〕。その時に、退けることとして必ず認識が生じるもの〔が除外されるもの〕。その二つと異なるものの獲得を、なんらかのしかたで規定するものが、私たちにとってアプールヴァ規定である。その二つの獲得をなすものが、順に、制限・除外と呼ばれる〔規定〕である。<cite>第44偈</cite></blockquote>
+  <p>難しく見えますが、図にすると単純です。「無関心（<i>audāsīnya</i>）」とは、何もしないことです。何もしないことは、いつでも「得られて」います。</p>
+
+  <figure class="wide-fig">
+    <div class="scroll">
+    <svg viewBox="0 0 720 330" class="w600" role="img" aria-label="新しい定義による三種の規定の判定の流れ図。">
+      <g font-size="13">
+        <rect x="230" y="10" width="260" height="46" rx="10" class="s-indsoft st-line"/>
+        <text x="360" y="30" text-anchor="middle" class="s-ink" font-weight="700">規定が、ある対象について</text>
+        <text x="360" y="48" text-anchor="middle" class="s-ink" font-weight="700">得させるもの X を見る</text>
+        <path d="M360 56 v24" class="st-muted" stroke-width="2" marker-end="url(#ar)"/>
+        <rect x="170" y="84" width="380" height="54" rx="10" class="s-card st-gold" stroke-width="1.6"/>
+        <text x="360" y="106" text-anchor="middle" class="s-ink">X を得ることは、「何もしない」以外の何か</text>
+        <text x="360" y="125" text-anchor="middle" class="s-ink">（別の手段）が外れることと必ず結びつくか？</text>
+        <path d="M550 111 h60 v92" class="nofill st-gold" stroke-width="2" marker-end="url(#arg)"/>
+        <text x="580" y="102" text-anchor="middle" class="s-gold" font-weight="700">はい</text>
+        <rect x="530" y="208" width="170" height="64" rx="10" class="s-goldsoft st-gold"/>
+        <text x="615" y="236" text-anchor="middle" class="s-gold" font-weight="700">制限の規定</text>
+        <text x="615" y="256" text-anchor="middle" class="s-ink" font-size="11.5">搗く → 爪で剥くが外れる</text>
+        <path d="M360 138 v24" class="st-muted" stroke-width="2" marker-end="url(#ar)"/>
+        <text x="378" y="156" class="s-muted" font-weight="700">いいえ</text>
+        <rect x="170" y="166" width="300" height="54" rx="10" class="s-card st-opp" stroke-width="1.6"/>
+        <text x="320" y="188" text-anchor="middle" class="s-ink">そのとき「〜は退ける」という</text>
+        <text x="320" y="207" text-anchor="middle" class="s-ink">認識が必ず生じるか？</text>
+        <path d="M365 220 v34" class="nofill st-opp" stroke-width="2" marker-end="url(#aro)"/>
+        <text x="385" y="244" class="s-opp" font-weight="700">はい</text>
+        <rect x="280" y="258" width="170" height="64" rx="10" class="s-oppsoft st-opp"/>
+        <text x="365" y="284" text-anchor="middle" class="s-opp" font-weight="700">除外の規定</text>
+        <text x="365" y="304" text-anchor="middle" class="s-ink" font-size="11.5">馬の手綱 → ロバは退ける</text>
+        <path d="M170 193 h-80 v66" class="nofill st-ans" stroke-width="2" marker-end="url(#ara)"/>
+        <text x="130" y="184" text-anchor="middle" class="s-ans" font-weight="700">いいえ</text>
+        <rect x="20" y="262" width="170" height="60" rx="10" class="s-anssoft st-ans"/>
+        <text x="105" y="288" text-anchor="middle" class="s-ans" font-weight="700">アプールヴァ規定</text>
+        <text x="105" y="307" text-anchor="middle" class="s-ink" font-size="11.5">それ以外の獲得はすべて</text>
+      </g>
+      <defs>
+        <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-opp"/></marker>
+        <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-ans"/></marker>
+      </defs>
+    </svg>
+    </div>
+    <figcaption><b>図9　新しい定義で判定する。</b>アプールヴァ規定は「残りすべて」として定義される。だから三つの間に隙間ができません。</figcaption>
+  </figure>
+
+  <h3>古い定義と新しい定義のちがい</h3>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th></th><th>クマーリラの偈（出発点）</th><th>アッパイヤの第44偈</th></tr></thead>
+      <tbody>
+        <tr><td class="k">見る場所</td><td>規定の<strong>前</strong>に、対象がどう得られていたか（まったく／選択的に／両方に）</td><td>規定が得させるものが、何を<strong>必ず退ける</strong>か</td></tr>
+        <tr><td class="k">分類の単位</td><td>規定の文全体</td><td>「ある対象について」の得させるもの。一つの文が、対象ごとに別の種類になってよい</td></tr>
+        <tr><td class="k">アプールヴァ規定</td><td>積極的に定義（まったく得られていない）</td><td>残りとして定義（制限・除外されるもの以外の獲得）</td></tr>
+        <tr><td class="k">時間・範囲の条件</td><td>「まったく」「三時にわたり」などで締めようとして漏れが出た</td><td>すべて外す。推し量りによる「ありうる獲得」も含める</td></tr>
+        <tr><td class="k">いたちごっこ</td><td>狭すぎ⇄広すぎ</td><td>三つが全体を隙間なく分ける</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>同じ文でも、対象によって種類が変わる</h3>
+  <p>新しい定義の大事な特徴は、「ある対象について」という一句です。注の最後で、次の例が出ます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>規定</th><th>本来の祭祀では</th><th>変形祭祀では</th></tr></thead>
+      <tbody>
+        <tr><td class="k">ラタンタラ（サーマン旋律の一つ）を歌え</td><td><span class="ok">アプールヴァ規定</span><br><small>ほかに得られていない。何かを必ず退けるわけでもない</small></td><td><span style="color:var(--gold);font-weight:700">制限の規定</span><br><small>類推でブリハットとラタンタラの両方が来ているので、一つに絞る</small></td></tr>
+        <tr><td class="k">搗くべし</td><td><span class="ok">アプールヴァ規定</span>（臼の浄めとしての搗くこと）<br><small>アグニチャヤナの臼について。割ることを退けない</small></td><td><span style="color:var(--gold);font-weight:700">制限の規定</span>（新月満月祭の米について）<br><small>爪で剥くことを退ける</small></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="cap">二行目は、本来・変形の対比ではなく、「対象がちがえば種類がちがう」例です。</p>
+  <div class="point"><span class="lbl">まとめ</span><p>第2–16偈で定義が漏れ続けた原因は、一つの規定が部分ごとに別の種類を兼ねるのに、規定の文全体を一つの箱に入れようとしたことでした。アッパイヤは、分類の単位を「ある対象について得させるもの」まで細かくし、判定の基準を「何を必ず退けるか」に移すことで、この問題を解きました。</p></div>
+</section>
+
+<!-- ============ think ============ -->
+<section id="think" class="wrap">
+  <div class="sec-head"><h2>考えてみよう</h2></div>
+  <p>規定の三分類は、ヴェーダの祭式だけの話ではありません。法律や規則を読むときにも、同じ問いが出てきます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th></th><th>ミーマーンサー</th><th>現代の法解釈</th></tr></thead>
+      <tbody>
+        <tr><td class="k">前提</td><td>ヴェーダの言葉には無駄がない</td><td>立法者は無駄な条文を作らない（と想定して読む）</td></tr>
+        <tr><td class="k">道具</td><td>類推適用（アティデーシャ）</td><td>類推解釈・準用</td></tr>
+        <tr><td class="k">除外</td><td>「〜だけ」「〜しない」から他を退ける</td><td>反対解釈（書かれていないものは含まれない）</td></tr>
+        <tr><td class="k">称える文</td><td>アルタヴァーダ（命令を励ますだけの文）</td><td>前文・目的規定（直接の義務を作らない）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <details>
+    <summary>問1　「答案は黒のボールペンで書くこと」は、なぜアプールヴァ規定ではないのか？</summary>
+    <p>図2の三つの欄のどれに入るかを考えましょう。規則がなかったら、答案は書かれないでしょうか。それとも何か別の道具で書かれるでしょうか。第44偈の言い方では、黒のボールペンで書くことは、何が外れることと必ず結びついているでしょう。</p>
+  </details>
+  <details>
+    <summary>問2　「この店ではクレジットカードは使えません」は、どの規定か？</summary>
+    <p>取り決め2「何かを退けるものは、すべて除外」を当てはめてみましょう。では、そもそもカード払いという道がまったくない場所で、同じ掲示を出したらどうなるでしょう（第11偈の「禁止の形の規定」の議論と比べよう）。</p>
+  </details>
+  <details>
+    <summary>問3　定義を直すたびに反例が出るのは、だれのせいか？</summary>
+    <p>図5のいたちごっこは、定義の文言が悪いのでしょうか、それとも「何を分類するか」（単位）の選び方が悪いのでしょうか。生物の分類、病気の診断基準、「大人」の定義など、身近なところで似た例を探してみましょう。</p>
+  </details>
+  <details>
+    <summary>問4　アプールヴァ規定を「残り」として定義するのは、ずるくないか？</summary>
+    <p>第44偈は、制限と除外を積極的に定義し、アプールヴァ規定を「それ以外」とします。これで隙間はなくなりますが、アプールヴァ規定に固有の特徴は言われていません。数学の「補集合」と比べて、この定義のよい点と弱い点を考えましょう。</p>
+  </details>
+</section>
+
+<!-- ============ terms ============ -->
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2>用語集</h2></div>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>用語</th><th>原語</th><th>意味</th></tr></thead>
+      <tbody>
+        <tr><td class="k">規定</td><td><i>vidhi</i></td><td>「〜すべし」とヴェーダが命じる文</td></tr>
+        <tr><td class="k">獲得</td><td><i>prāpti</i></td><td>その規定がなくても、ほかの根拠からある行為が行われることになっていること</td></tr>
+        <tr><td class="k">アプールヴァ規定</td><td><i>apūrvavidhi</i></td><td>まったく得られていないことを命じる規定</td></tr>
+        <tr><td class="k">制限の規定</td><td><i>niyamavidhi</i></td><td>選択的に得られているものを一つに絞る規定。限定規定とも訳す</td></tr>
+        <tr><td class="k">除外の規定</td><td><i>parisaṅkhyāvidhi</i></td><td>そこにも他にも得られているとき、他を除く規定</td></tr>
+        <tr><td class="k">アプールヴァ（見えない効力）</td><td><i>apūrva</i></td><td>祭式が生み、のちに果報をもたらす目に見えない力。規定の名の「アプールヴァ」（前になかった）とは別の用法</td></tr>
+        <tr><td class="k">不及</td><td><i>avyāpti</i></td><td>定義が、定義したいものの一部に当てはまらない欠点</td></tr>
+        <tr><td class="k">過剰適用</td><td><i>ativyāpti</i></td><td>定義が、定義したいもの以外にも当てはまる欠点</td></tr>
+        <tr><td class="k">本来の祭祀／変形祭祀</td><td><i>prakṛti / vikṛti</i></td><td>手順がすべて書かれた手本の祭祀と、それを借りて行う祭祀</td></tr>
+        <tr><td class="k">類推適用</td><td><i>atideśa</i></td><td>本来の祭祀の手順を変形祭祀に移すこと</td></tr>
+        <tr><td class="k">手がかり</td><td><i>liṅga</i></td><td>真言の言葉の内容。それによって真言をどの行為で唱えるかが決まる</td></tr>
+        <tr><td class="k">称える文</td><td><i>arthavāda</i></td><td>命令せず、規定を称えて励ますだけの文</td></tr>
+        <tr><td class="k">言い直し</td><td><i>anuvāda</i></td><td>すでに知られたことをくり返すだけの文</td></tr>
+        <tr><td class="k">無関心</td><td><i>audāsīnya</i></td><td>何もしないこと。第44偈の定義の鍵</td></tr>
+        <tr><td class="k">アグニ</td><td><i>agni(cayana)</i></td><td>本書では、煉瓦を鷹の形などに積んだ火の祭壇のこと</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  この解説は、<i>Vidhirasāyanādigranthapañcakam</i>（Srimad Appayya Deekshithendra Granthavali Series 8, Hyderabad 2007, ed. P. Sri Ramachandrudu）pp.1–184 の本文と自注を読んでまとめたものです。偈の訳文は試訳の要約です。たとえ・図・表・問いは、理解を助けるための解説者による補いです。
+</footer>
+</body>
+</html>
