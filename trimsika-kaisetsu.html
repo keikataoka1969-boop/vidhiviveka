@@ -1,0 +1,1345 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>唯識三十頌 入門</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+
+/* 科段 */
+.kd-wrap{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-block:1.2em}
+ol.kd,ol.kd ol{list-style:none;margin:0;padding:0}
+ol.kd ol{margin-left:1.1em;padding-left:.9em;border-left:2px solid var(--line)}
+ol.kd li{margin:.25em 0;line-height:1.6}
+svg path[class^="st-"]{fill:none}
+ol.kd .k{display:inline-block;min-width:2.2em;margin-right:.35em;font-family:var(--f-display);font-weight:800;color:var(--accent)}
+ol.kd .ref{font-family:var(--f-ia);font-size:.78rem;color:var(--muted);margin-left:6px;white-space:nowrap}
+ol.kd > li > .h{font-family:var(--f-display);font-weight:800;font-size:1.08rem}
+ol.kd > li{padding:8px 0;border-bottom:1px dashed var(--line)}
+ol.kd > li:last-child{border-bottom:0}
+ol.kd > li > ol > li > .h{font-weight:700}
+ol.kd .who{font-size:.72rem;font-weight:700;border-radius:999px;padding:0 7px;margin-right:4px;white-space:nowrap}
+ol.kd .who.q{background:var(--jati-soft);color:var(--jati)}
+ol.kd .who.a{background:var(--ans-soft);color:var(--ans)}
+ol.kd a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+ol.kd li.here > .h{background:var(--gold-soft);border-radius:4px;padding:0 4px}
+
+/* 西洋哲学との対比 */
+.west{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.4em}
+.west .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--gold);margin-bottom:4px}
+.west p{margin:0 0 .7em;font-size:.95rem}
+.west p:last-child{margin-bottom:0}
+.point{background:var(--accent-soft);border-radius:10px;padding:12px 16px;margin-block:1.2em;font-size:.95rem}
+.point .lbl{display:block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:2px}
+.point p{margin:0 0 .5em}.point p:last-child{margin:0}
+.loc{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--muted);letter-spacing:.04em}
+h3 .kdno{font-family:var(--f-display);color:var(--accent);margin-right:.4em}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#kd">科段</a></li>
+    <li><a href="#west">西洋哲学との地図</a></li>
+    <li><a href="#c0"><b>序</b>なぜ書かれたか</a></li>
+    <li><a href="#c1"><b>1</b>仮説と転変</a></li>
+    <li><a href="#c2"><b>2</b>アーラヤ識</a></li>
+    <li><a href="#c3"><b>3</b>染汚の意</a></li>
+    <li><a href="#c4"><b>4</b>六識と心所</a></li>
+    <li><a href="#c5"><b>5</b>唯識の論証</a></li>
+    <li><a href="#c6"><b>6</b>三性と三無性</a></li>
+    <li><a href="#c7"><b>7</b>悟入と転依</a></li>
+    <li><a href="#review">振り返り</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">はじめての唯識</div>
+  <h1>Triṃśikā</h1>
+  <p class="deva-title" lang="sa">त्रिंशिकाविज्ञप्तिभाष्य</p>
+  <p class="sub">Sthiramati『唯識三十頌釈』を、心の地図として読む</p>
+  <span class="sample">解説　全編（帰敬から第30偈まで）</span>
+  <p>私たちは、自分の心のことを一番よく知っているつもりでいます。けれども、眠っている間、心はどこにあるのでしょうか。昨日覚えたことは、思い出すまでの間、どこにしまわれているのでしょうか。「私」と言う時の「私」は、いったい何を指しているのでしょうか。</p>
+  <p>Vasubandhu（世親）の『唯識三十頌』は、こうした問いに、わずか30の詩節で答えようとした書物です。そこには、<strong>八つの識</strong>からなる心の構造、<strong>51の心のはたらき</strong>の一覧、<strong>外界がなくても世界が成り立つ理由</strong>、<strong>三つのあり方（三性）</strong>から見た存在論、そして<strong>悟りに至る道</strong>までが詰め込まれています。6世紀の学僧 Sthiramati（安慧）は、この簡潔すぎる詩節に、一句一句ていねいな注釈を付けました。このページでは、その注釈に沿って『三十頌』の全体を、図と表で見ていきます。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>偈の著者</dt><dd>Vasubandhu（世親）<br><small>4〜5世紀。『唯識二十論』で外界の実在を論破した同じ人物が、晩年に唯識の体系を30の偈にまとめた</small></dd></div>
+    <div><dt>注釈者</dt><dd>Sthiramati（安慧）<br><small>6世紀、西インドのヴァラビーで活躍。サンスクリット原典が残る唯一の『三十頌』注釈</small></dd></div>
+    <div><dt>中心概念</dt><dd>識の転変（<i>vijñānapariṇāma</i>）<br><small>「私」も「物」も、変化し続ける識の上に仮に立てられた名前にすぎない</small></dd></div>
+    <div><dt>心の構造</dt><dd>八識<br><small>アーラヤ識・染汚の意・六識（眼・耳・鼻・舌・身・意）。日本の法相宗の教学の土台</small></dd></div>
+    <div><dt>伝承</dt><dd>1922年、ネパールで写本発見<br><small>S. Lévi が発見・出版（1925）。H. Buescher が新写本も使って校訂本を出した（2007）</small></dd></div>
+    <div><dt>西洋なら</dt><dd>心の哲学と認識論の交差点<br><small>無意識、自己意識、人格の同一性、観念論、現象学などと比べられる（<a href="#west">対比の地図</a>）</small></dd></div>
+  </dl>
+
+  <h3>『唯識二十論』との関係</h3>
+  <p>同じ Vasubandhu の『唯識二十論』は、外界の実在を信じる論敵との<strong>論争の書</strong>でした。「外に物はない」ことを示すのが目的で、心の内部の構造にはあまり立ち入りません。これに対して『唯識三十頌』は、<strong>体系の書</strong>です。外に物がないなら、私たちの経験はどうやって成り立っているのか。その答えとして、心の内部の仕組みを詳しく描き出します。『二十論』が「否定」の書なら、『三十頌』は「建設」の書だと言えます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th></th><th>『唯識二十論』</th><th>『唯識三十頌』</th></tr></thead>
+      <tbody>
+        <tr><td class="k">性格</td><td>論争の書</td><td>体系の書</td></tr>
+        <tr><td class="k">中心の問い</td><td>外界の対象は実在するか</td><td>外界なしに、経験と輪廻と悟りはどう成り立つか</td></tr>
+        <tr><td class="k">主な道具</td><td>夢・地獄などの喩え、原子論の批判</td><td>八識、心所、種子、三性、転依</td></tr>
+        <tr><td class="k">注釈</td><td>Vasubandhu の自注</td><td>Sthiramati の注釈（玄奘の『成唯識論』は別系統）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>科段</b>本文の構造の見取り図。まず <a href="#kd">科段</a> で全体を見渡し、各章の見出しの番号（例：<span class="ia">2-1</span>）で位置を確かめる</div>
+    <div><b>位置</b>見出しの横の <span class="loc">*7–*12</span> は、Buescher 2007 の校訂本の頁番号。偈の番号は「第3偈」のように示す</div>
+    <div><b>術語</b>できるだけ日本語で示し、初出でサンスクリットを IAST（ローマ字表記）で添えた。巻末に用語集がある</div>
+    <div><b>対話</b>赤は反論者、緑は Sthiramati。本文の要旨を会話に直したもので、翻訳ではない</div>
+    <div><b>西洋哲学</b>金色の枠は、西洋の哲学者との対比。似ている点と違う点の両方を挙げた</div>
+    <div><b>ポイント</b>青い欄は、その章でつかんでおきたい要点</div>
+  </div>
+</section>
+
+<!-- ============ 科段 ============ -->
+<section id="kd" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の科段</h2><span class="sub">序と七つの章。前半は「心の地図」、後半は「論証と修行」</span></div>
+  <p>仏典の注釈では、本文の構造を枝分かれした見出しの体系で示します。これを<strong>科段</strong>（科文）と呼びます。Buescher の校訂本は、Sthiramati の注釈全体に「1.1.2.3.1.4」のような小数点式の詳しい構造番号を付けています。このページでは、それをもとに、大学で初めて読む人向けに序と七つの章に組み直しました。</p>
+  <p>全体は大きく二つに分かれます。第1〜16偈は、識がどのように「転変」して私たちの経験をつくっているかを描く<strong>心の地図</strong>です。第17〜30偈は、その地図を前提に、「一切は唯識である」ことを論証し、そこから悟りに至る道を示す<strong>論証と修行</strong>の部分です。</p>
+
+<figure>
+  <div class="scroll">
+  <svg viewBox="0 0 680 500" style="min-width:600px;width:100%" role="img" aria-label="本書全体の構造図。第1偈の総論から、三つの転変、唯識の論証、三性、修行へ">
+    <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+    <g font-size="12">
+    <rect x="200" y="8" width="280" height="54" rx="10" class="s-band"/>
+    <text x="340" y="31" text-anchor="middle" font-size="14" font-weight="700" class="s-ink">序　なぜ書かれたか</text>
+    <text x="340" y="51" text-anchor="middle" class="s-muted">二つの無我を示し、二つの障りを断つため</text>
+    <path d="M340 62 V80" class="st-muted" stroke-width="1.5" marker-end="url(#ar)"/>
+    <rect x="160" y="84" width="360" height="54" rx="10" class="s-accsoft"/>
+    <text x="340" y="107" text-anchor="middle" font-size="13.5" font-weight="700" class="s-acc">第1章　仮説と転変（第1偈）</text>
+    <text x="340" y="127" text-anchor="middle" class="s-ink">「私」も「物」も、識の転変の上の仮の名前。転変は三種</text>
+    <path d="M220 138 L110 168" class="st-muted" stroke-width="1.5" marker-end="url(#ar)"/>
+    <path d="M340 138 V168" class="st-muted" stroke-width="1.5" marker-end="url(#ar)"/>
+    <path d="M460 138 L570 168" class="st-muted" stroke-width="1.5" marker-end="url(#ar)"/>
+    <rect x="14" y="172" width="196" height="70" rx="10" class="s-accsoft"/>
+    <text x="112" y="196" text-anchor="middle" font-weight="700" class="s-acc">第2章　アーラヤ識</text>
+    <text x="112" y="215" text-anchor="middle" class="s-ink">第一の転変：異熟</text>
+    <text x="112" y="232" text-anchor="middle" class="s-muted" font-size="11">第2〜5偈 a</text>
+    <rect x="242" y="172" width="196" height="70" rx="10" class="s-accsoft"/>
+    <text x="340" y="196" text-anchor="middle" font-weight="700" class="s-acc">第3章　染汚の意</text>
+    <text x="340" y="215" text-anchor="middle" class="s-ink">第二の転変：思量</text>
+    <text x="340" y="232" text-anchor="middle" class="s-muted" font-size="11">第5偈 b〜8偈 a</text>
+    <rect x="470" y="172" width="196" height="70" rx="10" class="s-accsoft"/>
+    <text x="568" y="196" text-anchor="middle" font-weight="700" class="s-acc">第4章　六識と心所</text>
+    <text x="568" y="215" text-anchor="middle" class="s-ink">第三の転変：対象の了別</text>
+    <text x="568" y="232" text-anchor="middle" class="s-muted" font-size="11">第8偈 b〜16偈</text>
+    <path d="M112 242 L300 282" class="st-muted" stroke-width="1.2"/>
+    <path d="M340 242 V282" class="st-muted" stroke-width="1.2"/>
+    <path d="M568 242 L380 282" class="st-muted" stroke-width="1.2"/>
+    <text x="345" y="268" class="s-muted" font-size="10.5">心の地図が完成</text>
+    <path d="M340 282 V296" class="st-muted" stroke-width="1.5" marker-end="url(#ar)"/>
+    <rect x="160" y="300" width="360" height="54" rx="10" class="s-jatisoft"/>
+    <text x="340" y="323" text-anchor="middle" font-size="13.5" font-weight="700" class="s-jati">第5章　唯識の論証（第17〜19偈）</text>
+    <text x="340" y="343" text-anchor="middle" class="s-ink">一切は唯識。外界なしの認識・輪廻。アーラヤ識の証明</text>
+    <path d="M340 354 V372" class="st-muted" stroke-width="1.5" marker-end="url(#ar)"/>
+    <rect x="160" y="376" width="360" height="54" rx="10" class="s-goldsoft"/>
+    <text x="340" y="399" text-anchor="middle" font-size="13.5" font-weight="700" class="s-gold">第6章　三性と三無性（第20〜25偈）</text>
+    <text x="340" y="419" text-anchor="middle" class="s-ink">同じ世界の三つのあり方。真如こそ唯識性</text>
+    <path d="M340 430 V444" class="st-muted" stroke-width="1.5" marker-end="url(#ar)"/>
+    <rect x="160" y="448" width="360" height="48" rx="10" class="s-anssoft"/>
+    <text x="340" y="469" text-anchor="middle" font-size="13.5" font-weight="700" class="s-ans">第7章　悟入と転依（第26〜30偈）</text>
+    <text x="340" y="487" text-anchor="middle" class="s-ink">唯識という観念も捨てた時、心の拠り所が転換する</text>
+    </g>
+  </svg>
+  </div>
+  <figcaption><b>図1　本書全体の構造。</b>第1〜16偈で心の地図を描き、第17偈以下でそれを論証と修行に結びつける。</figcaption>
+</figure>
+
+  <h3>詳細な科段</h3>
+  <p>赤の <span class="pill j">難</span> は反論、緑の <span class="pill a">答</span> は Sthiramati の答えです。見出しをクリックすると、その解説に移ります。右端は Buescher 本の頁です。</p>
+  <div class="kd-wrap">
+  <ol class="kd">
+    <li><span class="k">序</span><span class="h"><a href="#c0">帰敬と造論の目的</a></span><span class="ref">*1</span>
+      <ol>
+        <li><span class="k">1</span>人と法の無我を示すため</li>
+        <li><span class="k">2</span>煩悩障と所知障を断ち、解脱と一切智を得させるため</li>
+        <li><span class="k">3</span>唯識に順に悟入させるため</li>
+        <li><span class="k">4</span>二つの極端説（対象も実在／識も世俗）を退けるため</li>
+      </ol></li>
+    <li><span class="k">第1章</span><span class="h"><a href="#c1">仮説と転変</a></span><span class="ref">*2–*7・第1偈</span>
+      <ol>
+        <li><span class="k">1-1</span><span class="h"><a href="#c1-1">「我と法」は仮説である</a></span><span class="ref">*2</span></li>
+        <li><span class="k">1-2</span><span class="h"><a href="#c1-2">対象は実在せず、識は実在する</a></span><span class="ref">*3–*5</span>
+          <ol>
+            <li><span class="k">1</span>二つの極端説の否定</li>
+            <li><span class="k">2</span>所縁縁の条件：外界の対象はそれを満たせない</li>
+            <li><span class="k">3</span>意識も所縁なしに生じる</li>
+          </ol></li>
+        <li><span class="k">1-3</span><span class="h"><a href="#c1-3"><span class="who q">難</span>本来の意味がなければ比喩もない</a></span><span class="ref">*5–*6</span>
+          <ol>
+            <li><span class="k">1</span><span class="who q">難</span>「この少年は火だ」：比喩には本物の火が要る</li>
+            <li><span class="k">2</span><span class="who a">答</span>類の比喩も、実体の比喩も成り立たない</li>
+            <li><span class="k">3</span><span class="who a">答</span>そもそも「本来の意味」が存在しない</li>
+          </ol></li>
+        <li><span class="k">1-4</span><span class="h"><a href="#c1-4">転変は三種</a></span><span class="ref">*6–*7・第1偈 d・第2偈 ab</span>
+          <ol>
+            <li><span class="k">1</span>原因の転変と結果の転変</li>
+            <li><span class="k">2</span>異熟・思量・対象の了別</li>
+          </ol></li>
+      </ol></li>
+    <li><span class="k">第2章</span><span class="h"><a href="#c2">第一の転変：アーラヤ識</a></span><span class="ref">*7–*12・第2偈 cd〜第5偈 a</span>
+      <ol>
+        <li><span class="k">2-1</span><span class="h"><a href="#c2-1">名前の意味：アーラヤ・異熟・一切種子</a></span><span class="ref">*7</span></li>
+        <li><span class="k">2-2</span><span class="h"><a href="#c2-2">何を対象とするか：知覚されない執受と器世間</a></span><span class="ref">*7–*9</span></li>
+        <li><span class="k">2-3</span><span class="h"><a href="#c2-3">ともなう心所：五つの遍行と捨受</a></span><span class="ref">*9–*12</span></li>
+        <li><span class="k">2-4</span><span class="h"><a href="#c2-4">激流のように流れ、阿羅漢で止む</a></span><span class="ref">*12</span></li>
+      </ol></li>
+    <li><span class="k">第3章</span><span class="h"><a href="#c3">第二の転変：染汚の意</a></span><span class="ref">*13–*17・第5偈 b〜第8偈 a</span>
+      <ol>
+        <li><span class="k">3-1</span><span class="h"><a href="#c3-1">アーラヤ識に依り、アーラヤ識を見る</a></span><span class="ref">*13</span></li>
+        <li><span class="k">3-2</span><span class="h"><a href="#c3-2">四つの煩悩：我見・我痴・我慢・我愛</a></span><span class="ref">*14–*16</span></li>
+        <li><span class="k">3-3</span><span class="h"><a href="#c3-3">止む場面：阿羅漢・滅尽定・出世間道</a></span><span class="ref">*16–*17</span></li>
+      </ol></li>
+    <li><span class="k">第4章</span><span class="h"><a href="#c4">第三の転変：六識と心所</a></span><span class="ref">*17–*35・第8偈 b〜第16偈</span>
+      <ol>
+        <li><span class="k">4-1</span><span class="h"><a href="#c4-1">六識：六種の対象の知覚</a></span><span class="ref">*17</span></li>
+        <li><span class="k">4-2</span><span class="h"><a href="#c4-2">51の心所：六つのグループ</a></span><span class="ref">*17–*32</span>
+          <ol>
+            <li><span class="k">1</span>遍行5・別境5</li>
+            <li><span class="k">2</span>善11</li>
+            <li><span class="k">3</span>根本煩悩6</li>
+            <li><span class="k">4</span>随煩悩24</li>
+          </ol></li>
+        <li><span class="k">4-3</span><span class="h"><a href="#c4-3">水と波：五識は同時に生じうるか</a></span><span class="ref">*33–*34・第15偈</span>
+          <ol>
+            <li><span class="k">1</span><span class="who q">難</span>等無間縁は一つの識しか生まない</li>
+            <li><span class="k">2</span><span class="who a">答</span>等無間縁は識ごとに限定されない</li>
+          </ol></li>
+        <li><span class="k">4-4</span><span class="h"><a href="#c4-4">意識が止む五つの状態</a></span><span class="ref">*34–*35・第16偈</span></li>
+      </ol></li>
+    <li><span class="k">第5章</span><span class="h"><a href="#c5">唯識の論証</a></span><span class="ref">*36–*42・第17〜19偈</span>
+      <ol>
+        <li><span class="k">5-1</span><span class="h"><a href="#c5-1">一切は唯識である</a></span><span class="ref">*36–*37・第17偈</span>
+          <ol>
+            <li><span class="k">1</span>識の転変は分別。分別されるものはない</li>
+            <li><span class="k">2</span>所縁がないことの二つの論証</li>
+            <li><span class="k">3</span>増益と損減を避ける</li>
+          </ol></li>
+        <li><span class="k">5-2</span><span class="h"><a href="#c5-2"><span class="who q">難</span>作り手がないのに、なぜ多様な認識が</a></span><span class="ref">*37–*38・第18偈</span></li>
+        <li><span class="k">5-3</span><span class="h"><a href="#c5-3"><span class="who q">難</span>外界がないのに、なぜ輪廻が</a></span><span class="ref">*38–*39・第19偈</span></li>
+        <li><span class="k">5-4</span><span class="h"><a href="#c5-4">アーラヤ識の存在証明</a></span><span class="ref">*39–*42</span>
+          <ol>
+            <li><span class="k">1</span>経証：『阿毘達磨経』</li>
+            <li><span class="k">2</span>理証①：流転（十二支縁起の「識」）</li>
+            <li><span class="k">3</span>理証②：還滅（煩悩の種子を断つ）</li>
+          </ol></li>
+      </ol></li>
+    <li><span class="k">第6章</span><span class="h"><a href="#c6">三性と三無性</a></span><span class="ref">*43–*48・第20〜25偈</span>
+      <ol>
+        <li><span class="k">6-1</span><span class="h"><a href="#c6-1"><span class="who q">難</span>唯識なら経典の三性説と矛盾する</a></span><span class="ref">*43–*44・第20〜21偈</span></li>
+        <li><span class="k">6-2</span><span class="h"><a href="#c6-2">円成実性と依他起性は非一非異</a></span><span class="ref">*44–*45・第22偈</span></li>
+        <li><span class="k">6-3</span><span class="h"><a href="#c6-3"><span class="who q">難</span>「一切法は無自性」と矛盾する</a></span><span class="ref">*46–*47・第23〜25偈 a</span></li>
+        <li><span class="k">6-4</span><span class="h"><a href="#c6-4">真如こそが唯識性</a></span><span class="ref">*47–*48・第25偈 bcd</span></li>
+      </ol></li>
+    <li><span class="k">第7章</span><span class="h"><a href="#c7">悟入と転依</a></span><span class="ref">*48–*53・第26〜30偈</span>
+      <ol>
+        <li><span class="k">7-1</span><span class="h"><a href="#c7-1">三つの段階：第26〜28偈</a></span><span class="ref">*48–*51</span></li>
+        <li><span class="k">7-2</span><span class="h"><a href="#c7-2">転依：拠り所の転換</a></span><span class="ref">*51–*52・第29偈</span></li>
+        <li><span class="k">7-3</span><span class="h"><a href="#c7-3">果：解脱身と法身</a></span><span class="ref">*52–*53・第30偈</span></li>
+      </ol></li>
+  </ol>
+  </div>
+</section>
+
+<!-- ============ 西洋哲学との地図 ============ -->
+<section id="west" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">西洋哲学との地図</h2><span class="sub">似ている考えを並べると、唯識説の輪郭がはっきりする</span></div>
+  <p>『唯識三十頌』は、西洋哲学でいえば、いくつもの分野にまたがる書物です。心はどんな構造をしているか（心の哲学）、私たちは何を知りうるか（認識論）、何が本当に存在するか（存在論）、そしてどう生きるべきか（倫理・救済論）。それぞれの分野で、比べてみたくなる西洋の議論があります。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>本書の箇所</th><th>西洋の議論</th><th>比べどころ</th></tr></thead>
+      <tbody>
+        <tr><td class="k">1-3：比喩と本来の意味</td><td>ニーチェ「道徳外の意味における真理と虚偽について」</td><td>すべての概念は比喩であり、比喩のもとになる「本来の意味」はない</td></tr>
+        <tr><td class="k">2：アーラヤ識</td><td>ライプニッツの微小表象、フロイトの無意識</td><td>自覚されないまま、はたらき続ける心の層</td></tr>
+        <tr><td class="k">3：染汚の意</td><td>カントの「我思う」、ヒュームの自己の探索</td><td>すべての経験に「私」がつきまとう。その「私」は実在するか</td></tr>
+        <tr><td class="k">4：51の心所</td><td>ブレンターノの心的現象の分類、スピノザの感情論</td><td>心のはたらきを網羅的に分類し、定義する試み</td></tr>
+        <tr><td class="k">4-4：意識の途切れ</td><td>ロックとデカルトの論争（心は常に考えているか）</td><td>熟睡中に心はあるか。あるなら、なぜ自覚されないか</td></tr>
+        <tr><td class="k">5-1：一切は唯識</td><td>デカルトの夢の議論、バークリーの観念論</td><td>知覚の相対性と夢から、対象が心の外にないことを論じる</td></tr>
+        <tr><td class="k">5-3：輪廻</td><td>パーフィットの人格の同一性</td><td>変わらない自己なしに、因果の連続だけで「同じ人」は成り立つか</td></tr>
+        <tr><td class="k">5-4：アーラヤ識の証明</td><td>カントの超越論的論証</td><td>「経験が成り立つためには何が必要か」から、見えないものの存在を導く</td></tr>
+        <tr><td class="k">6：三性</td><td>カントの現象と物自体、フッサールの現象学的還元</td><td>同じ世界を、見方の層の違いとして捉え直す</td></tr>
+        <tr><td class="k">7-1：唯識という観念も捨てる</td><td>ウィトゲンシュタインの「はしご」</td><td>理論は、登り終えたら投げ捨てるべき道具</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="point"><span class="lbl">ポイント</span><p>西洋哲学では、心の構造（心理学）、存在の問題（形而上学）、救いの問題（宗教）は、別々の分野として論じられることが多い。『唯識三十頌』の特徴は、それらを<strong>一つの体系</strong>の中で結びつけている点にあります。心の構造を正しく知ることが、そのまま存在の真相を知ることであり、それがそのまま苦しみからの解放につながる。この一体性が、唯識説のいちばんの個性です。</p></div>
+</section>
+
+<!-- ============ 序 ============ -->
+<section id="c0" class="wrap">
+  <div class="sec-head"><span class="sec-no">序</span><h2>なぜ書かれたか</h2><span class="sub"><span class="pg">*1</span>帰敬と造論の目的</span></div>
+  <p>Sthiramati は、注釈の冒頭で「Vasubandhu はなぜこの書を書いたのか」を問い、四つの答えを挙げます。この四つは、本書全体の目標をまとめたものになっています。</p>
+  <div class="karte-h">造論の四つの目的</div>
+  <dl class="karte">
+    <div><dt>1　二つの無我を示す<i>pudgala- / dharmanairātmya</i></dt><dd>「私」（人）にも、「物」や「心の要素」（法）にも、固定した実体はないことを、それを誤解している人に示す</dd></div>
+    <div><dt>2　二つの障りを断つ<i>kleśāvaraṇa / jñeyāvaraṇa</i></dt><dd>煩悩という障りと、知られるべきものに対する障りを断たせ、解脱と一切智に至らせる</dd></div>
+    <div><dt>3　唯識に順に悟入させる<i>vijñaptimātratā</i></dt><dd>唯識を誤解している人を、段階を追って正しい理解に導く</dd></div>
+    <div><dt>4　二つの極端説を退ける</dt><dd>「対象も識と同じく実在する」という説と、「識も対象と同じく世俗のものにすぎない」という説</dd></div>
+  </dl>
+  <p>目的1と2は、きれいに対応しています。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 200" style="min-width:540px;width:100%" role="img" aria-label="二つの無我、二つの障り、二つの果の対応">
+      <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <text x="105" y="20" text-anchor="middle" class="s-muted" font-size="11">知ること</text>
+        <text x="320" y="20" text-anchor="middle" class="s-muted" font-size="11">断たれる障り</text>
+        <text x="535" y="20" text-anchor="middle" class="s-muted" font-size="11">得られる果</text>
+        <rect x="20" y="32" width="170" height="60" rx="10" class="s-accsoft"/><text x="105" y="58" text-anchor="middle" font-weight="700" class="s-acc">人無我</text><text x="105" y="78" text-anchor="middle" class="s-muted" font-size="11">「私」に実体はない</text>
+        <rect x="235" y="32" width="170" height="60" rx="10" class="s-jatisoft"/><text x="320" y="58" text-anchor="middle" font-weight="700" class="s-jati">煩悩障</text><text x="320" y="78" text-anchor="middle" class="s-muted" font-size="11">貪りなどの煩悩</text>
+        <rect x="450" y="32" width="170" height="60" rx="10" class="s-goldsoft"/><text x="535" y="58" text-anchor="middle" font-weight="700" class="s-gold">解脱</text><text x="535" y="78" text-anchor="middle" class="s-muted" font-size="11">声聞も菩薩も得る</text>
+        <rect x="20" y="118" width="170" height="60" rx="10" class="s-accsoft"/><text x="105" y="144" text-anchor="middle" font-weight="700" class="s-acc">法無我</text><text x="105" y="164" text-anchor="middle" class="s-muted" font-size="11">「物・要素」に実体はない</text>
+        <rect x="235" y="118" width="170" height="60" rx="10" class="s-jatisoft"/><text x="320" y="144" text-anchor="middle" font-weight="700" class="s-jati">所知障</text><text x="320" y="164" text-anchor="middle" class="s-muted" font-size="11">汚れのない無知</text>
+        <rect x="450" y="118" width="170" height="60" rx="10" class="s-goldsoft"/><text x="535" y="144" text-anchor="middle" font-weight="700" class="s-gold">一切智</text><text x="535" y="164" text-anchor="middle" class="s-muted" font-size="11">仏だけが得る</text>
+        <path d="M190 62 H231" class="st-muted" stroke-width="1.5" marker-end="url(#ar3)"/><path d="M405 62 H446" class="st-muted" stroke-width="1.5" marker-end="url(#ar3)"/>
+        <path d="M190 148 H231" class="st-muted" stroke-width="1.5" marker-end="url(#ar3)"/><path d="M405 148 H446" class="st-muted" stroke-width="1.5" marker-end="url(#ar3)"/>
+        <text x="210" y="56" text-anchor="middle" class="s-muted" font-size="10">断つ</text><text x="425" y="56" text-anchor="middle" class="s-muted" font-size="10">得る</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図2　二つの無我・二つの障り・二つの果。</b>小乗の修行者（声聞）は上の段だけを、菩薩は両方の段を完成させる。</figcaption>
+  </figure>
+  <p>おもしろいのは、所知障が「<strong>汚れのない無知</strong>」と定義されていることです。それ自体は煩悩ではなく、輪廻の原因にもなりません。けれども、すべてを知ることを妨げます。輪廻から抜け出すだけなら煩悩障を断てば足りますが、仏の知に至るには所知障も断たねばならない。大乗が小乗を超える点が、<strong>知の範囲の違い</strong>として説明されているのです。</p>
+  <p>目的4の「二つの極端説」は、第1章で詳しく扱われます。一方は外界の実在を認める説一切有部などの立場、もう一方は、識さえも世俗的な存在にすぎないとする立場（中観派の一部の解釈と考えられます）です。唯識説は、その<strong>中間</strong>に立ちます。</p>
+  <div class="point"><span class="lbl">ポイント</span><p>本書の目的は、心の仕組みを知ること自体ではなく、<strong>苦しみからの解放（解脱）と仏の知（一切智）</strong>に至ることです。この後に続く細かな心の分析は、すべてこの目的のための地図だ、と考えて読むとよいでしょう。</p></div>
+</section>
+
+<!-- ============ 第1章 ============ -->
+<section id="c1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>第1章　仮説と転変</h2><span class="sub"><span class="pg">*2–*7・第1偈</span>「私」も「物」も、識の転変の上の仮の名前</span></div>
+  <p>第1偈は、本書全体の総論です。内容をまとめると、次のようになります。</p>
+  <div class="point"><span class="lbl">第1偈の要旨</span><p>「我（私）」や「法（物・要素）」について、さまざまな言い方がなされている。それらはすべて、<strong>識の転変</strong>に対して仮に用いられている言葉である。そしてその転変は<strong>三種</strong>である。</p></div>
+  <p>この一偈に、唯識説の基本的な主張が二つ含まれています。一つは、言葉が指しているのは外界の物ではなく、変化し続ける識の現れだということ（1-1〜1-3）。もう一つは、その識の変化には三つの層があるということ（1-4）です。</p>
+
+  <h3 id="c1-1"><span class="kdno">1-1</span>「我と法」は仮説である <span class="loc">*2</span></h3>
+  <p>私たちは日常的に、「私」「あなた」「生きもの」といった言葉（我の仮説）や、「色」「音」「感覚」といった言葉（法の仮説）を使います。こうした言葉はどこに向けられているのでしょうか。</p>
+  <p>Sthiramati の答えは、<strong>識の転変</strong>（<i>vijñānapariṇāma</i>）です。「転変」とは、前の瞬間とは別のものになること、つまり変化のことです。識は刹那ごとに生まれては滅し、そのたびに少しずつ違ったものになっていきます。その識が、「私」や「色」の姿をとって現れる。言葉は、その現れに対して用いられているのです。</p>
+  <p>「仮説」（<i>upacāra</i>）とは、本来そうでないものに、ある名前を当てはめることです。日本語の「仮説」（仮の説明）とは意味が違うので注意してください。漢訳では「仮説」と書いて「けせつ」と読みます。「比喩的な言い方」と考えるとわかりやすいでしょう。</p>
+
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 230" style="min-width:540px;width:100%" role="img" aria-label="言葉と識の転変の関係。言葉は外界の物ではなく、識の現れに当てはめられている">
+      <defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <rect x="20" y="20" width="180" height="80" rx="10" class="s-band"/>
+        <text x="110" y="46" text-anchor="middle" font-weight="700" class="s-ink">言葉</text>
+        <text x="110" y="68" text-anchor="middle" class="s-ink">「私」「生きもの」</text>
+        <text x="110" y="88" text-anchor="middle" class="s-ink">「色」「音」「感覚」</text>
+        <rect x="440" y="20" width="180" height="80" rx="10" class="s-jatisoft" stroke-dasharray="6 4" stroke-width="1.5" style="stroke:var(--jati)"/>
+        <text x="530" y="52" text-anchor="middle" font-weight="700" class="s-jati">外界の物・魂</text>
+        <text x="530" y="76" text-anchor="middle" class="s-muted" font-size="11">（ない）</text>
+        <path d="M200 50 H436" class="st-muted" stroke-width="1.2" stroke-dasharray="4 4"/>
+        <text x="318" y="42" text-anchor="middle" class="s-muted" font-size="11">常識の考え：言葉は外の物を指す</text>
+        <text x="318" y="64" text-anchor="middle" class="s-jati" font-size="18">×</text>
+        <rect x="200" y="140" width="240" height="76" rx="10" class="s-accsoft"/>
+        <text x="320" y="166" text-anchor="middle" font-weight="700" class="s-acc">識の転変</text>
+        <text x="320" y="186" text-anchor="middle" class="s-ink">「私」や「色」の姿をとって</text>
+        <text x="320" y="204" text-anchor="middle" class="s-ink">現れる識</text>
+        <path d="M110 100 L240 140" class="st-muted" stroke-width="1.5" marker-end="url(#ar4)"/>
+        <text x="20" y="176" class="s-acc" font-size="11">唯識説：言葉は</text>
+        <text x="20" y="192" class="s-acc" font-size="11">識の現れに当てはめられる</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図3　言葉は何を指しているか。</b>「私」や「色」という言葉は、外界の物や魂ではなく、そう現れている識に当てはめられている（仮説）。</figcaption>
+  </figure>
+
+  <h3 id="c1-2"><span class="kdno">1-2</span>対象は実在せず、識は実在する <span class="loc">*3–*5</span></h3>
+  <p>ここで Sthiramati は、序で予告した二つの極端説を退けます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>極端説</th><th>主張</th><th>Sthiramati の批判</th></tr></thead>
+      <tbody>
+        <tr><td class="k">① 実在論</td><td>対象も、識と同じく実在する</td><td>対象は識の現れにすぎない。外に対応する物はない</td></tr>
+        <tr><td class="k">② 一切世俗論</td><td>識も、対象と同じく世俗的な仮のものにすぎない</td><td>仮説には、それが当てはめられる土台が必要。識まで仮のものなら、仮説そのものが成り立たない</td></tr>
+        <tr class="here"><td class="k">唯識説</td><td colspan="2">対象は実在せず、識は（縁から生じたものとして）実在する</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>②への批判は大切な論点です。何かを「比喩的に」言うためには、比喩が当てはめられる何かがなければなりません。「すべてが比喩だ」と言うと、比喩を受け止める土台がなくなってしまいます。唯識説にとって、識は、少なくとも縁から生じたものとしては、実在しなければならないのです。</p>
+  <p>では、外界の対象がないことはどうやって示されるのでしょうか。Sthiramati は、仏教の認識論の基本概念である<strong>所縁縁</strong>（<i>ālambanapratyaya</i>、認識の対象となる条件）を使います。外界の物が識の対象であるためには、二つの条件を満たさなければなりません。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>所縁縁の条件</th><th>原子（極微）</th><th>原子の集まり</th></tr></thead>
+      <tbody>
+        <tr><td class="k">① 識の原因であること</td><td>○（実在するとすれば）</td><td>×（集まりは実在しない）</td></tr>
+        <tr><td class="k">② 識に自分の姿を与えること</td><td>×（一つ一つの原子は見えない）</td><td>○（まとまった姿で見える）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>原子は原因にはなれても、識に原子の姿は現れません。原子の集まりは姿を与えますが、集まりそのものは実在しないので原因になれません。どちらも二つの条件を同時には満たせないので、外界の物は所縁縁ではありえない、という論法です。これは『唯識二十論』の原子論批判を受け継ぎ、Dignāga（陳那）の『観所縁論』の議論とも共通する枠組みです。</p>
+  <p>さらに Sthiramati は、意識（第六識）が過去や未来のこと、存在しないものを対象にできることも指摘します。所縁なしに識が生じる例は、ふだんの経験の中にいくらでもあるのです。</p>
+
+  <h3 id="c1-3"><span class="kdno">1-3</span>難：本来の意味がなければ比喩もない <span class="loc">*5–*6</span></h3>
+  <p>ここで、言語哲学的な反論が出されます。インドの文法学や論理学で議論された「比喩」の理論を使った反論です。</p>
+  <div class="talk">
+    <div class="row j"><div class="who">反論者</div><div class="say">「この少年は火だ」という比喩を考えてみよ。これが成り立つのは、本物の火（本来の意味）があって、少年にその性質（激しさ、赤さ）が似ているからだ。同じように、「私」という言葉を識に比喩的に当てはめるなら、どこかに本物の「私」がなければならないだろう。</div></div>
+    <div class="row u"><div class="who">Sthiramati</div><div class="say">比喩には、類（火という種類）に基づくものと、実体（この火）に基づくものがあると言われる。だが、そのどちらの場合も、きちんと分析すると成り立たない。そもそも、言葉には「本来の意味」として指している実在の対象などない。言葉はすべて、心に現れた像に当てはめられているのだ。</div></div>
+  </div>
+  <p>Sthiramati の答えは大胆です。比喩には本物が必要だ、という前提そのものを否定します。「火」という言葉も、実は外界の本物の火を指しているのではなく、心に現れた火の像に当てはめられているにすぎない。だから、すべての言葉は、ある意味で比喩（仮説）なのです。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　ニーチェの「比喩の機動部隊」</span>
+    <p>19世紀ドイツの哲学者ニーチェは、若いころの論文「道徳外の意味における真理と虚偽について」で、こう書きました。真理とは「比喩・換喩・擬人法の動く大群」であり、使い古されて比喩であることが忘れられたものにすぎない、と。神経の刺激がまず像に移され、像が音声に移される。そのどの段階でも、ものそのものには届いていない、というのです。</p>
+    <p>「本来の意味」を否定する点で、Sthiramati とよく似ています。ただし、ニーチェの目的は、真理という観念を相対化することでした。Sthiramati の目的は、言葉が指しているのは心の現れだと示すことで、外界への執着を断つことです。また Sthiramati は、言葉の土台としての識の実在は否定しません。何もかもが比喩だ、とは言わないのです。</p>
+  </div>
+
+  <h3 id="c1-4"><span class="kdno">1-4</span>転変は三種 <span class="loc">*6–*7・第1偈 d・第2偈 ab</span></h3>
+  <p>第1偈の最後と第2偈の前半は、識の転変を三種に分けます。その前に、Sthiramati は「転変」を<strong>原因の転変</strong>と<strong>結果の転変</strong>の二つの面から説明します。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 660 250" style="min-width:560px;width:100%" role="img" aria-label="原因の転変と結果の転変。アーラヤ識の中の二種の熏習が成熟し、アーラヤ識と転識が生じる">
+      <defs><marker id="ar5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <text x="150" y="22" text-anchor="middle" font-weight="700" class="s-ink">原因の転変</text>
+        <text x="500" y="22" text-anchor="middle" font-weight="700" class="s-ink">結果の転変</text>
+        <rect x="20" y="36" width="260" height="190" rx="12" class="s-band"/>
+        <text x="150" y="58" text-anchor="middle" class="s-muted" font-size="11">アーラヤ識の中で、熏習が育つ</text>
+        <rect x="40" y="72" width="220" height="62" rx="10" class="s-goldsoft"/>
+        <text x="150" y="96" text-anchor="middle" font-weight="700" class="s-gold">異熟の熏習</text>
+        <text x="150" y="118" text-anchor="middle" class="s-muted" font-size="11">善悪の業が残す力</text>
+        <rect x="40" y="148" width="220" height="62" rx="10" class="s-accsoft"/>
+        <text x="150" y="172" text-anchor="middle" font-weight="700" class="s-acc">等流の熏習</text>
+        <text x="150" y="194" text-anchor="middle" class="s-muted" font-size="11">同じ種類のものを生む力</text>
+        <rect x="380" y="72" width="260" height="62" rx="10" class="s-goldsoft"/>
+        <text x="510" y="96" text-anchor="middle" font-weight="700" class="s-gold">次の生のアーラヤ識</text>
+        <text x="510" y="118" text-anchor="middle" class="s-muted" font-size="11">前の業の力が尽きた時に生じる</text>
+        <rect x="380" y="148" width="260" height="62" rx="10" class="s-accsoft"/>
+        <text x="510" y="172" text-anchor="middle" font-weight="700" class="s-acc">転識と染汚の意</text>
+        <text x="510" y="194" text-anchor="middle" class="s-muted" font-size="11">六識・染汚の意がその都度生じる</text>
+        <path d="M262 103 H376" class="st-muted" stroke-width="1.5" marker-end="url(#ar5)"/>
+        <path d="M262 179 H376" class="st-muted" stroke-width="1.5" marker-end="url(#ar5)"/>
+        <text x="320" y="96" text-anchor="middle" class="s-muted" font-size="10.5">成熟して</text>
+        <text x="320" y="172" text-anchor="middle" class="s-muted" font-size="10.5">成熟して</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図4　原因の転変と結果の転変。</b>アーラヤ識の中で二種の熏習（潜在的な力）が育つのが「原因の転変」、それが熟してアーラヤ識や転識が生じるのが「結果の転変」。</figcaption>
+  </figure>
+  <p>「熏習」（<i>vāsanā</i>）は、香りが衣に移るように、行為や経験が心に残す潜在的な影響力のことです。「種子」（<i>bīja</i>）とも呼ばれます。種子が植物を生むように、熏習がやがて新しい識を生む、というわけです。</p>
+  <p>そして転変は、その性質によって三つに分けられます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>転変</th><th>名前</th><th>はたらき</th><th>識</th></tr></thead>
+      <tbody>
+        <tr><td class="k">第一</td><td>異熟（<i>vipāka</i>）</td><td>過去の業の結果として生じ、すべての種子を保つ</td><td>アーラヤ識（<a href="#c2">第2章</a>）</td></tr>
+        <tr><td class="k">第二</td><td>思量（<i>manana</i>）</td><td>アーラヤ識を「私」と思い量る</td><td>染汚の意（<a href="#c3">第3章</a>）</td></tr>
+        <tr><td class="k">第三</td><td>対象の了別（<i>viṣayavijñapti</i>）</td><td>色・声などの対象を知る</td><td>六識（<a href="#c4">第4章</a>）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>これが、のちに「八識」と呼ばれる心の構造です。アーラヤ識（1）、染汚の意（1）、六識（眼・耳・鼻・舌・身・意の6）を合わせて八つになります。日本の法相宗では、それぞれを第八識（阿頼耶識）、第七識（末那識）、前六識と呼びます。</p>
+  <div class="point"><span class="lbl">ポイント</span><p>第1章の要点は二つです。第一に、「私」も「物」も、<strong>変化し続ける識の現れ</strong>に付けられた名前にすぎない。第二に、その識は一枚岩ではなく、<strong>三つの層</strong>からなる。この後の三章は、その三つの層を一つずつ詳しく見ていきます。</p></div>
+</section>
+
+<!-- ============ 第2章 ============ -->
+<section id="c2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>第2章　第一の転変：アーラヤ識</h2><span class="sub"><span class="pg">*7–*12・第2偈 cd〜第5偈 a</span>すべての種子を蔵し、激流のように流れ続ける識</span></div>
+  <p>唯識説のもっとも独創的な概念が、<strong>アーラヤ識</strong>（<i>ālayavijñāna</i>、阿頼耶識）です。私たちがふだん「心」と呼んでいるもの（見る、聞く、考える）の下に、自覚されることのない、もう一つの識が流れ続けている。それがアーラヤ識です。第2偈後半から第5偈前半までの3偈半で、その特徴が一つずつ挙げられます。</p>
+  <div class="karte-h">アーラヤ識のカルテ</div>
+  <dl class="karte">
+    <div><dt>名前<i>ālaya</i></dt><dd>「蔵」「住処」。すべての種子のありか（2-1）</dd></div>
+    <div><dt>性質<i>vipāka / sarvabījaka</i></dt><dd>異熟（過去の業の結果）であり、一切の種子をもつ（2-1）</dd></div>
+    <div><dt>対象<i>upādi / sthāna</i></dt><dd>内には種子と身体（執受）、外には環境世界（器世間）。どちらも自覚されない（2-2）</dd></div>
+    <div><dt>ともなう心所<i>sarvatraga</i></dt><dd>触・作意・受・想・思の五つだけ。受は「捨」（快でも不快でもない）だけ（2-3）</dd></div>
+    <div><dt>道徳的性質<i>anivṛtāvyākṛta</i></dt><dd>無覆無記。煩悩に覆われておらず、善でも悪でもない（2-3）</dd></div>
+    <div><dt>あり方<i>srotasaughavat</i></dt><dd>激流のように、途切れずに流れ続ける（2-4）</dd></div>
+    <div><dt>終わり<i>arhatva</i></dt><dd>阿羅漢の位で止む（2-4）</dd></div>
+  </dl>
+
+  <h3 id="c2-1"><span class="kdno">2-1</span>名前の意味：アーラヤ・異熟・一切種子 <span class="loc">*7</span></h3>
+  <p>「アーラヤ」（<i>ālaya</i>）は「住処」「蔵」を意味する語です。ヒマラヤ（<i>himālaya</i>）は「雪の住処」という意味で、同じ語が入っています。Sthiramati は、この名前に三つの説明を与えます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>解釈</th><th>意味</th><th>法相宗の用語</th></tr></thead>
+      <tbody>
+        <tr><td class="k">① 住処</td><td>汚れたすべての法の種子が住む場所</td><td>能蔵</td></tr>
+        <tr><td class="k">② しまわれる</td><td>すべての法が、結果として、そこに結びつけられる</td><td>所蔵</td></tr>
+        <tr><td class="k">③ しがみつく</td><td>それが、原因として、すべての法に結びつく</td><td>（執蔵に近い）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>法相宗の「能蔵・所蔵・執蔵」の三義は、玄奘系の注釈（『成唯識論』）による整理で、Sthiramati の三つの説明とは完全には一致しません。上の表は、おおよその対応として見てください。</p>
+  <p>「<strong>異熟</strong>」（<i>vipāka</i>）は、「異なって熟したもの」という意味です。善い業や悪い業が原因となって、その結果として生じるけれども、結果そのものは善でも悪でもない。原因と結果で性質が「異なる」ので異熟と呼ばれます。私たちがどんな境遇に、どんな身体で生まれるかは過去の業の結果ですが、生まれたこと自体は善でも悪でもない、というわけです。</p>
+  <p>「<strong>一切種子</strong>」（<i>sarvabījaka</i>）は、あらゆる経験の種子をもっているということです。見たこと、聞いたこと、考えたこと、行ったことのすべてが種子としてアーラヤ識に残り、条件がそろうとそこから新しい経験が芽を出します。</p>
+
+  <h3 id="c2-2"><span class="kdno">2-2</span>何を対象とするか：知覚されない執受と器世間 <span class="loc">*7–*9・第3偈 ab</span></h3>
+  <p>識である以上、アーラヤ識にも対象があります。それは二つです。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 260" style="min-width:540px;width:100%" role="img" aria-label="アーラヤ識の対象。内には種子と身体、外には器世間">
+      <g font-size="12">
+        <circle cx="320" cy="130" r="118" class="s-goldsoft"/>
+        <text x="320" y="30" text-anchor="middle" font-weight="700" class="s-gold">器世間（外）</text>
+        <text x="320" y="48" text-anchor="middle" class="s-muted" font-size="11">山・川・大地などの環境世界</text>
+        <circle cx="320" cy="140" r="78" class="s-accsoft"/>
+        <text x="320" y="104" text-anchor="middle" font-weight="700" class="s-acc">執受（内）</text>
+        <text x="320" y="124" text-anchor="middle" class="s-ink" font-size="11">① 「私」や「物」を</text>
+        <text x="320" y="140" text-anchor="middle" class="s-ink" font-size="11">分別する熏習（種子）</text>
+        <text x="320" y="160" text-anchor="middle" class="s-ink" font-size="11">② 感覚器官と</text>
+        <text x="320" y="176" text-anchor="middle" class="s-ink" font-size="11">その拠り所（身体）</text>
+        <text x="40" y="120" class="s-muted" font-size="11">どちらも</text>
+        <text x="40" y="138" class="s-muted" font-size="11">微細すぎて</text>
+        <text x="40" y="156" class="s-muted" font-size="11">自覚されない</text>
+        <text x="40" y="174" class="s-muted" font-size="11">（不可知）</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図5　アーラヤ識の対象。</b>アーラヤ識は、自分の身体と、自分が生きる環境世界を、いつも、しかし自覚されないまま捉え続けている。</figcaption>
+  </figure>
+  <p>「執受」（<i>upādi</i>）とは、しっかり捉えて維持しているもののことです。アーラヤ識は、種子と身体を、自分のものとして捉え続けています。眠っている間も、私たちの身体が「生きた身体」であり続けるのは、アーラヤ識が身体を維持しているからだ、と考えられました。</p>
+  <p>そして、こうした対象の認識は「<strong>知覚されない</strong>」（<i>asaṃvidita</i>）と言われます。あまりに微細なので、本人にも自覚できない。アーラヤ識は、気づかれることなく常にはたらいている識なのです。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　ライプニッツの微小表象とフロイトの無意識</span>
+    <p>17世紀のライプニッツは、私たちの心には、意識にのぼらない無数の小さな知覚（微小表象 <i>petites perceptions</i>）があると考えました。海辺で聞く波の轟きは、一つ一つの小さな波の音の集まりだが、その一つ一つは意識されない。それでも心はそれらを受け取っている、というのです。アーラヤ識が身体や環境を「自覚されないまま」捉え続けているという考えと、よく似ています。</p>
+    <p>20世紀のフロイトの「無意識」と比べられることもよくあります。ただし違いは大きい。フロイトの無意識は、主に<strong>抑圧された</strong>欲望の場所で、意識と対立しています。アーラヤ識は、抑圧とは関係なく、<strong>すべての</strong>経験の種子を保つ中立的な（無記の）基盤です。また、フロイトの無意識は個人の心理の一部ですが、アーラヤ識は、身体や環境世界そのものを現し出す、世界の基盤でもあります。</p>
+  </div>
+
+  <h3 id="c2-3"><span class="kdno">2-3</span>ともなう心所：五つの遍行と捨受 <span class="loc">*9–*12・第3偈 cd〜第4偈 c</span></h3>
+  <p>仏教では、識（心の主体）は必ず<strong>心所</strong>（<i>caitta</i>、心のはたらき）をともなうと考えます。アーラヤ識がともなうのは、どんな心にも必ずある、もっとも基本的な五つの心所（<strong>遍行</strong>）だけです。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>遍行</th><th>はたらき</th><th>たとえば</th></tr></thead>
+      <tbody>
+        <tr><td class="k">触 <span class="sm">sparśa</span></td><td>感官・対象・識の三つを出会わせる</td><td>目と色と眼識がそろって「見える」状態になる</td></tr>
+        <tr><td class="k">作意 <span class="sm">manaskāra</span></td><td>心を対象に向ける</td><td>注意を向ける</td></tr>
+        <tr><td class="k">受 <span class="sm">vedanā</span></td><td>快・不快・どちらでもないを感じる</td><td>心地よい、つらい</td></tr>
+        <tr><td class="k">想 <span class="sm">saṃjñā</span></td><td>対象の特徴をつかむ</td><td>「これは青で、黄ではない」</td></tr>
+        <tr><td class="k">思 <span class="sm">cetanā</span></td><td>心を動かす（意思）</td><td>磁石が鉄を動かすように</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>受は、快でも不快でもない「<strong>捨</strong>」（<i>upekṣā</i>）だけです。アーラヤ識は業の結果（異熟）であり、微細で一様に流れ続けるので、快・不快のはっきりした感情はともなわない、とされます。また、アーラヤ識は「<strong>無覆無記</strong>」です。煩悩に覆われておらず（無覆）、善とも悪とも決められない（無記）。だからこそ、善い種子も悪い種子も、分け隔てなく保つことができるのです。</p>
+
+  <h3 id="c2-4"><span class="kdno">2-4</span>激流のように流れ、阿羅漢で止む <span class="loc">*12・第4偈 d・第5偈 a</span></h3>
+  <p>アーラヤ識は「<strong>激流のように流れる</strong>」と言われます。川の水は刹那ごとに入れ替わっていますが、川は流れとして続いていきます。アーラヤ識も、刹那ごとに生滅しながら、途切れることなく続いていきます。そして激流が草木や枯れ葉を押し流すように、種子を運び続けます。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 170" style="min-width:540px;width:100%" role="img" aria-label="激流としてのアーラヤ識。刹那ごとに入れ替わりながら流れ続け、種子を運ぶ">
+      <defs><marker id="ar6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <path d="M10 70 C 90 55, 170 85, 250 70 S 410 55, 490 70 S 600 80, 630 70 L630 130 C 560 140, 480 120, 410 130 S 250 145, 170 130 S 60 120, 10 130 Z" class="s-accsoft"/>
+        <g class="s-gold"><circle cx="70" cy="100" r="5"/><circle cx="150" cy="92" r="5"/><circle cx="240" cy="108" r="5"/><circle cx="330" cy="96" r="5"/><circle cx="420" cy="104" r="5"/><circle cx="510" cy="94" r="5"/></g>
+        <text x="320" y="40" text-anchor="middle" class="s-ink">刹那ごとに生じては滅し、別のものになりながら続く</text>
+        <text x="510" y="122" class="s-gold" font-size="11">● 種子</text>
+        <path d="M40 150 H 600" class="st-muted" stroke-width="1.5" marker-end="url(#ar6)"/>
+        <text x="320" y="166" text-anchor="middle" class="s-muted" font-size="11">無始の過去から → 阿羅漢の位まで</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図6　激流としてのアーラヤ識。</b>流れは一瞬も同じではないが、途切れもしない。種子を運び続ける。</figcaption>
+  </figure>
+  <p>この流れは、阿羅漢（煩悩を断ち尽くした聖者）の位で止みます。ここで「止む」とは、心が完全になくなるということではありません。煩悩の種子をすべて失ったアーラヤ識は、もはや「アーラヤ」（汚れた種子の蔵）とは呼ばれなくなる、ということです。この「止む」の本当の意味は、<a href="#c7-2">第7章の転依</a>で明らかになります。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　ヘラクレイトスの川</span>
+    <p>古代ギリシアのヘラクレイトスは「同じ川に二度入ることはできない」と言ったと伝えられます。川の水は絶えず入れ替わっているからです。それでも私たちはそれを「同じ川」と呼びます。アーラヤ識の「激流」の喩えは、同じ発想で、変わらない実体（魂）なしに個人の連続性を説明しようとするものです。ヘラクレイトスにとって、変化の中に保たれるのは宇宙の理法（ロゴス）でした。唯識説で連続性を保証するのは、刹那ごとの因果の連鎖そのものです。</p>
+  </div>
+  <div class="point"><span class="lbl">ポイント</span><p>アーラヤ識は、<strong>自覚されない</strong>まま、<strong>途切れず</strong>流れ続け、<strong>すべての種子</strong>を保ち、<strong>身体と環境世界</strong>を現し出している識です。外界の物の代わりに世界を支えているのは、このアーラヤ識だと言ってもよいでしょう。</p></div>
+</section>
+
+<!-- ============ 第3章 ============ -->
+<section id="c3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>第3章　第二の転変：染汚の意</h2><span class="sub"><span class="pg">*13–*17・第5偈 b〜第8偈 a</span>アーラヤ識を「私」と思い量る識</span></div>
+  <p>アーラヤ識は、刹那ごとに生滅する流れにすぎません。それなのに、私たちはなぜ「変わらない私」がいると感じるのでしょうか。その答えが、第二の転変、<strong>染汚の意</strong>（<i>kliṣṭaṃ manaḥ</i>、末那識）です。</p>
+
+  <h3 id="c3-1"><span class="kdno">3-1</span>アーラヤ識に依り、アーラヤ識を見る <span class="loc">*13・第5偈 bcd</span></h3>
+  <p>染汚の意は、アーラヤ識を<strong>拠り所</strong>としてはたらき、同時にアーラヤ識を<strong>対象</strong>とします。そしてその本質は「<strong>思量</strong>」（<i>manana</i>、思い量ること）です。何を思い量るのか。アーラヤ識を「これが私だ」と思い量るのです。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 620 250" style="min-width:520px;width:100%" role="img" aria-label="染汚の意とアーラヤ識の関係。染汚の意はアーラヤ識に依り、アーラヤ識を私と見る">
+      <defs><marker id="ar7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <rect x="200" y="20" width="220" height="70" rx="12" class="s-jatisoft"/>
+        <text x="310" y="48" text-anchor="middle" font-weight="700" class="s-jati">染汚の意（末那識）</text>
+        <text x="310" y="70" text-anchor="middle" class="s-muted" font-size="11">我見・我痴・我慢・我愛</text>
+        <rect x="140" y="160" width="340" height="70" rx="12" class="s-accsoft"/>
+        <text x="310" y="188" text-anchor="middle" font-weight="700" class="s-acc">アーラヤ識</text>
+        <text x="310" y="210" text-anchor="middle" class="s-muted" font-size="11">刹那ごとに生滅する流れ</text>
+        <path d="M260 90 V156" class="st-muted" stroke-width="1.5" marker-end="url(#ar7)"/>
+        <text x="250" y="128" text-anchor="end" class="s-ink" font-size="11">拠り所として依る</text>
+        <path d="M360 156 V94" class="st-muted" stroke-width="1.5" marker-end="url(#ar7)"/>
+        <text x="372" y="118" class="s-ink" font-size="11">対象として見る</text>
+        <text x="372" y="136" class="s-jati" font-weight="700">「これが私だ」</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図7　染汚の意の構造。</b>染汚の意は、自分の拠り所であるアーラヤ識を見つめ、それを変わらない「私」と取り違える。</figcaption>
+  </figure>
+  <p>「意」（<i>manas</i>）という名前も、「思量する」（<i>man-</i>）という動詞から説明されます。第六識の「意識」とまぎらわしいので注意してください。意識は対象を考える識、染汚の意は「私」を思い続ける識です。法相宗では区別のために、染汚の意をサンスクリットの音を写して「末那識」と呼びます。</p>
+
+  <h3 id="c3-2"><span class="kdno">3-2</span>四つの煩悩：我見・我痴・我慢・我愛 <span class="loc">*14–*16・第6偈〜第7偈 a</span></h3>
+  <p>染汚の意には、常に四つの煩悩がともないます。どれも「私」（<i>ātman</i>）にかかわる煩悩です。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>煩悩</th><th>はたらき</th><th>心の声にすると</th></tr></thead>
+      <tbody>
+        <tr><td class="k">我痴 <span class="sm">ātmamoha</span></td><td>「私」の本当のあり方（無我）を知らない</td><td>（気づかない）</td></tr>
+        <tr><td class="k">我見 <span class="sm">ātmadṛṣṭi</span></td><td>アーラヤ識を「私」と見る</td><td>「これが私だ」</td></tr>
+        <tr><td class="k">我慢 <span class="sm">ātmamāna</span></td><td>「私」を拠り所に心が高ぶる</td><td>「私はいる」「私は私だ」</td></tr>
+        <tr><td class="k">我愛 <span class="sm">ātmasneha</span></td><td>「私」に愛着する</td><td>「私が大事だ」</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>この四つは、私たちが起きている時も眠っている時も、善い行いをしている時でさえ、絶え間なくはたらいています。だから、どんな善行にも、どこかに「私が」という影がつきまといます。染汚の意は、煩悩に覆われていますが、それ自体は善でも悪でもない「<strong>有覆無記</strong>」とされます。ここが、無覆無記のアーラヤ識との違いです。</p>
+  <p>また、染汚の意は、その人が生まれた世界（欲界・色界・無色界の九つの地）に属するものとしてはたらきます。そして四つの煩悩のほかに、触などの遍行の心所もともないます。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　カントの「我思う」とヒュームの探索</span>
+    <p>カントは『純粋理性批判』で、「『我思う』は、私のすべての表象に伴いうるのでなければならない」と書きました。どんな経験も「私の」経験として統一されている、ということです。染汚の意が、すべての経験の背後で絶えず「私」を立てているという考えと、構造が似ています。</p>
+    <p>ただし評価は正反対です。カントにとって、この「私」の統一は、認識が成り立つための<strong>必要条件</strong>でした。唯識説にとって、それは<strong>取り違え</strong>であり、苦しみの根源です。この点では、むしろヒュームに近いかもしれません。ヒュームは『人間本性論』で、自分の心の中を探しても、見つかるのは個々の知覚ばかりで、「自己」そのものは決して見つからない、と書きました。唯識説は、見つからない「自己」がなぜそれでも立てられてしまうのかを、染汚の意という識の構造で説明しようとします。</p>
+  </div>
+
+  <h3 id="c3-3"><span class="kdno">3-3</span>止む場面：阿羅漢・滅尽定・出世間道 <span class="loc">*16–*17・第7偈 bcd</span></h3>
+  <p>染汚の意がはたらかない場面が三つ挙げられます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>場面</th><th>止み方</th></tr></thead>
+      <tbody>
+        <tr><td class="k">阿羅漢</td><td>煩悩の種子が断たれているので、永久に止む</td></tr>
+        <tr><td class="k">滅尽定 <span class="sm">nirodhasamāpatti</span></td><td>聖者が入る、心のはたらきを止める瞑想。その間だけ止む</td></tr>
+        <tr><td class="k">出世間道 <span class="sm">lokottaramārga</span></td><td>無我を直観する智慧がはたらいている間は、「私」への執着とは両立しない</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="point"><span class="lbl">ポイント</span><p>「私」という感覚は、アーラヤ識という流れを、染汚の意が絶えず<strong>取り違え続けている</strong>ことから生じる。この取り違えは意識的な思い込みではなく、意識の下で常に続いている。だから、頭で「無我だ」と理解しただけでは消えない。それが止むのは、修行が完成した時だけです。</p></div>
+</section>
+
+<!-- ============ 第4章 ============ -->
+<section id="c4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>第4章　第三の転変：六識と心所</h2><span class="sub"><span class="pg">*17–*35・第8偈 b〜第16偈</span>対象を知る六つの識と、51の心のはたらき</span></div>
+  <p>第三の転変は、私たちがふだん「心」として自覚している層です。見る、聞く、嗅ぐ、味わう、触れる、考える。本書でもっとも分量が多いのがこの部分で、その大半は、心のはたらき（心所）の一覧と定義にあてられています。</p>
+
+  <h3 id="c4-1"><span class="kdno">4-1</span>六識：六種の対象の知覚 <span class="loc">*17・第8偈 bcd</span></h3>
+  <p>第三の転変は、六種の対象を知る六つの識です。善・不善・無記のどれにもなりうる点で、無記に限られるアーラヤ識・染汚の意と違います。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 660 300" style="min-width:560px;width:100%" role="img" aria-label="八識の全体図。六識、染汚の意、アーラヤ識の三層">
+      <g font-size="12">
+        <text x="20" y="22" class="s-muted" font-size="11">自覚される層</text>
+        <g>
+          <rect x="20" y="32" width="96" height="62" rx="8" class="s-band"/><text x="68" y="58" text-anchor="middle" font-weight="700" class="s-ink">眼識</text><text x="68" y="78" text-anchor="middle" class="s-muted" font-size="11">色</text>
+          <rect x="124" y="32" width="96" height="62" rx="8" class="s-band"/><text x="172" y="58" text-anchor="middle" font-weight="700" class="s-ink">耳識</text><text x="172" y="78" text-anchor="middle" class="s-muted" font-size="11">声</text>
+          <rect x="228" y="32" width="96" height="62" rx="8" class="s-band"/><text x="276" y="58" text-anchor="middle" font-weight="700" class="s-ink">鼻識</text><text x="276" y="78" text-anchor="middle" class="s-muted" font-size="11">香</text>
+          <rect x="332" y="32" width="96" height="62" rx="8" class="s-band"/><text x="380" y="58" text-anchor="middle" font-weight="700" class="s-ink">舌識</text><text x="380" y="78" text-anchor="middle" class="s-muted" font-size="11">味</text>
+          <rect x="436" y="32" width="96" height="62" rx="8" class="s-band"/><text x="484" y="58" text-anchor="middle" font-weight="700" class="s-ink">身識</text><text x="484" y="78" text-anchor="middle" class="s-muted" font-size="11">触</text>
+          <rect x="540" y="32" width="100" height="62" rx="8" class="s-accsoft"/><text x="590" y="58" text-anchor="middle" font-weight="700" class="s-acc">意識</text><text x="590" y="78" text-anchor="middle" class="s-muted" font-size="11">法（あらゆるもの）</text>
+        </g>
+        <text x="270" y="116" text-anchor="middle" class="s-muted" font-size="11">前五識：感覚</text>
+        <text x="590" y="116" text-anchor="middle" class="s-muted" font-size="11">第六識：思考・記憶</text>
+        <text x="20" y="146" class="s-muted" font-size="11">自覚されない層</text>
+        <rect x="20" y="156" width="620" height="54" rx="10" class="s-jatisoft"/>
+        <text x="330" y="180" text-anchor="middle" font-weight="700" class="s-jati">染汚の意（第七識・末那識）</text>
+        <text x="330" y="199" text-anchor="middle" class="s-muted" font-size="11">常に「私」を思い量る</text>
+        <rect x="20" y="222" width="620" height="62" rx="10" class="s-goldsoft"/>
+        <text x="330" y="248" text-anchor="middle" font-weight="700" class="s-gold">アーラヤ識（第八識・阿頼耶識）</text>
+        <text x="330" y="268" text-anchor="middle" class="s-muted" font-size="11">一切の種子を蔵し、身体と環境世界を現し出す</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図8　八識の全体図。</b>上の六つが第三の転変、中段が第二の転変、下段が第一の転変。「第七」「第八」は法相宗での呼び方。</figcaption>
+  </figure>
+
+  <h3 id="c4-2"><span class="kdno">4-2</span>51の心所：六つのグループ <span class="loc">*17–*32・第9〜14偈</span></h3>
+  <p>六識には、さまざまな心のはたらき（心所）がともないます。第9偈がそれを六つのグループに分け、第10〜14偈が一つずつ名前を挙げます。全部で51。心の「元素表」と言ってもよいでしょう。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>グループ</th><th>数</th><th>心所</th><th>どんな時にはたらくか</th></tr></thead>
+      <tbody>
+        <tr><td class="k">遍行 <span class="sm">sarvatraga</span></td><td class="num">5</td><td>触・作意・受・想・思</td><td>どんな心にも必ず</td></tr>
+        <tr><td class="k">別境 <span class="sm">viniyata</span></td><td class="num">5</td><td>欲・勝解・念・定・慧</td><td>特定の対象に向かう時だけ</td></tr>
+        <tr><td class="k">善 <span class="sm">kuśala</span></td><td class="num">11</td><td>信・慚・愧・無貪・無瞋・無痴・精進・軽安・不放逸・捨・不害</td><td>善い心の時</td></tr>
+        <tr><td class="k">煩悩 <span class="sm">kleśa</span></td><td class="num">6</td><td>貪・瞋・痴・慢・見・疑</td><td>心を乱し、汚す根本</td></tr>
+        <tr><td class="k">随煩悩 <span class="sm">upakleśa</span></td><td class="num">24</td><td>忿・恨・覆・悩・嫉・慳・誑・諂・憍・害・無慚・無愧・惛沈・掉挙・不信・懈怠・放逸・失念・散乱・不正知・悪作・睡眠・尋・伺</td><td>根本煩悩から派生する</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 150" style="min-width:540px;width:100%" role="img" aria-label="51の心所の内訳の帯グラフ">
+      <g font-size="12">
+        <rect x="20" y="40" width="59" height="44" class="s-band"/>
+        <rect x="79" y="40" width="59" height="44" class="s-accsoft"/>
+        <rect x="138" y="40" width="129" height="44" class="s-anssoft"/>
+        <rect x="267" y="40" width="71" height="44" class="s-jatisoft"/>
+        <rect x="338" y="40" width="282" height="44" class="s-jatisoft" style="opacity:.6"/>
+        <text x="49" y="67" text-anchor="middle" class="s-ink" font-size="11">遍行5</text>
+        <text x="108" y="67" text-anchor="middle" class="s-ink" font-size="11">別境5</text>
+        <text x="202" y="67" text-anchor="middle" class="s-ans" font-weight="700">善11</text>
+        <text x="302" y="67" text-anchor="middle" class="s-jati" font-size="11" font-weight="700">煩悩6</text>
+        <text x="479" y="67" text-anchor="middle" class="s-jati" font-weight="700">随煩悩24</text>
+        <text x="20" y="28" class="s-muted" font-size="11">中立 10</text>
+        <text x="138" y="28" class="s-ans" font-size="11">善 11</text>
+        <text x="267" y="28" class="s-jati" font-size="11">汚れたもの 30</text>
+        <text x="320" y="116" text-anchor="middle" class="s-muted" font-size="11">51のうち30が煩悩の側。悪作・睡眠・尋・伺の4つは、善にも悪にもなりうる（第14偈 d）</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図9　51の心所の内訳。</b>心のはたらきの一覧の半分以上が、心を乱し汚すものに割かれている。</figcaption>
+  </figure>
+  <p>この一覧から、仏教が心をどのような目で見ていたかがわかります。心所の半分以上が煩悩の側に属していて、しかもそれが細かく分類されています。仏教の心理学は、心を<strong>浄化</strong>するための実践的な地図だったのです。病気を治すために、まず病気を細かく分類する医学に似ています。</p>
+  <p>いくつか興味深い定義を挙げておきます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>心所</th><th>Sthiramati の説明の要点</th></tr></thead>
+      <tbody>
+        <tr><td class="k">信 <span class="sm">śraddhā</span></td><td>業と果、四つの真理、三宝に対する、確信・心の澄み・願い求めること。煩悩の濁りと対立するので、心を澄ませる</td></tr>
+        <tr><td class="k">慚と愧</td><td>慚は自分や法に照らして罪を恥じること、愧は世間に照らして罪を恥じること</td></tr>
+        <tr><td class="k">捨 <span class="sm">upekṣā</span></td><td>心の平等・まっすぐさ・努力のいらない状態。受の「捨」（どちらでもない感覚）とは別</td></tr>
+        <tr><td class="k">慢 <span class="sm">māna</span></td><td>七種に分けられる。劣った者に「自分が上だ」と思うことから、「私がいる」という慢まで</td></tr>
+        <tr><td class="k">見 <span class="sm">dṛṣṭi</span></td><td>五種の誤った見解：有身見（身心を自己とみなす）、辺執見（常住か断滅か）、邪見、見取（自説への執着）、戒禁取</td></tr>
+        <tr><td class="k">随煩悩</td><td>根本煩悩とは別のものではなく、その一部分・特別な状態として立てられる（例：忿は瞋の一部分）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>なお、玄奘訳では、随煩悩の最後の4つ（悪作・睡眠・尋・伺）を独立させて「<strong>不定</strong>」の心所とし、随煩悩を20としています。合計はどちらも51です。日本で一般に知られている「五位百法」の分類は、こちらの系統に従っています。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　ブレンターノとスピノザ</span>
+    <p>19世紀のブレンターノは、心的現象を物的現象から区別するのは「志向性」（何かに向かっていること）だと考え、心的現象を表象・判断・情動の三つに分類しました。唯識説の「触」「作意」が、心が対象に向かう構造を表していること、そして識が必ず心所をともなうと考えることは、心を「はたらきの束」として捉える点で共通しています。</p>
+    <p>17世紀のスピノザは『エチカ』第三部で、喜び・悲しみ・欲望の三つを基本として、48の感情を幾何学のように定義しました。感情を正確に知ることが、感情に支配されない自由への道だと考えた点で、煩悩を細かく分類する仏教の態度とよく似ています。ただし、スピノザの最終目標は「神への知的愛」であり、仏教の目標は、煩悩の種子そのものを断つことです。</p>
+  </div>
+
+  <h3 id="c4-3"><span class="kdno">4-3</span>水と波：五識は同時に生じうるか <span class="loc">*33–*34・第15偈</span></h3>
+  <p>私たちは、音楽を聴きながら景色を眺めることができます。では、眼識と耳識は同時に生じているのでしょうか。</p>
+  <div class="talk">
+    <div class="row j"><div class="who">反論者<i>説一切有部など</i></div><div class="say">識は一度に一つしか生じない。次の心を生むのは直前の心（等無間縁）だが、一つの心は一つの心しか生めないからだ。同時に見て聞いているように思えるのは、高速で切り替わっているにすぎない。</div></div>
+    <div class="row u"><div class="who">Sthiramati</div><div class="say">等無間縁は、所縁縁のように識ごとに決まっているわけではない。直前の心は、次に生じるどの識の等無間縁にもなれる。だから、所縁がそろえば、二つでも五つでも同時に生じてかまわない。</div></div>
+  </div>
+  <p>第15偈は、これを<strong>水と波</strong>の喩えで表します。アーラヤ識という水の上に、条件がそろった数だけ、五識の波が立つ。一つでも、いくつでも、同時でも、順番でも。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 620 200" style="min-width:520px;width:100%" role="img" aria-label="水と波の喩え。アーラヤ識の水の上に、縁に応じて五識の波が立つ">
+      <g font-size="12">
+        <path d="M10 140 C 80 130, 140 150, 210 140 S 350 130, 420 140 S 560 150, 610 140 L610 190 L10 190 Z" class="s-accsoft"/>
+        <text x="310" y="176" text-anchor="middle" font-weight="700" class="s-acc" font-size="13">アーラヤ識（水・激流）</text>
+        <g class="st-acc" stroke-width="2" fill="none">
+          <path d="M60 138 Q 80 100, 100 138"/><path d="M170 140 Q 195 92, 220 140"/><path d="M390 140 Q 412 96, 434 140"/>
+        </g>
+        <g class="st-muted" stroke-width="1.2" fill="none" stroke-dasharray="3 3">
+          <path d="M280 138 Q 300 120, 320 138"/><path d="M500 140 Q 520 122, 540 140"/>
+        </g>
+        <g text-anchor="middle">
+          <text x="80" y="90" class="s-ink">眼識</text><text x="195" y="82" class="s-ink">耳識</text><text x="300" y="110" class="s-muted">鼻識</text><text x="412" y="86" class="s-ink">身識</text><text x="520" y="112" class="s-muted">舌識</text>
+        </g>
+        <text x="310" y="30" text-anchor="middle" class="s-ink">縁がそろった識だけが波として立つ（実線）</text>
+        <text x="310" y="50" text-anchor="middle" class="s-muted" font-size="11">縁がそろわない識は立たない（点線）。波がいくつ立っても、水は尽きない</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図10　水と波の喩え（第15偈）。</b>五識は、アーラヤ識という水の上に、条件に応じて同時にも順番にも立つ波である。『解深密経』の同じ喩えが引かれる。</figcaption>
+  </figure>
+
+  <h3 id="c4-4"><span class="kdno">4-4</span>意識が止む五つの状態 <span class="loc">*34–*35・第16偈</span></h3>
+  <p>五識は条件がそろった時だけはたらきます。これに対して意識（第六識）は、五識とともにも、五識なしでも（考え事や夢の中で）、ほとんど常にはたらいています。例外は五つの状態だけです。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>状態</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td class="k">無想（果）</td><td>無想天という天界に生まれた者。心と心所が止んでいる</td></tr>
+        <tr><td class="k">無想定</td><td>凡夫が、心のない状態を解脱と誤解して入る瞑想</td></tr>
+        <tr><td class="k">滅尽定</td><td>聖者が入る瞑想。意識だけでなく染汚の意も止む</td></tr>
+        <tr><td class="k">心のない睡眠</td><td>夢を見ない深い眠り</td></tr>
+        <tr><td class="k">心のない気絶</td><td>打撃や、体液（風・胆汁・粘液）の不均衡による気絶</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>ここで大事な問いが出されます。意識がいったん完全に途切れたのに、目覚めた時、意識はどこから再び生じるのか。直前の意識はもう存在しません。答えは「<strong>アーラヤ識から</strong>」です。意識が途切れている間も、アーラヤ識が意識の種子を保ち続けていたからです。この議論は、<a href="#c5-4">第5章のアーラヤ識の存在証明</a>の伏線になっています。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　心は常に考えているか</span>
+    <p>デカルトは、心の本質は考えることなので、心は常に考えている、と主張しました。夢を見ない眠りの中でも、心は考えているが、それを覚えていないだけだ、というのです。これに対してロックは『人間知性論』で、眠っている人が考えていると言うのは根拠がない、と反論しました。考えているのに本人が気づいていないなら、その人と、考えている心は、別の人格になってしまうではないか、と。</p>
+    <p>唯識説は、この論争に第三の答えを出していると言えます。<strong>意識</strong>（考える心）は、熟睡中には本当に止んでいる。この点ではロックに近い。しかし、<strong>アーラヤ識</strong>（自覚されない心）は止んでいない。この点ではデカルトに近い。心を層に分けることで、両方の直観を生かしているのです。</p>
+  </div>
+  <div class="point"><span class="lbl">ポイント</span><p>第三の転変で、八識の全体像が完成します。<strong>自覚される六識</strong>は、波のように現れては消え、ときに完全に途切れる。その下で、<strong>自覚されない二つの識</strong>（染汚の意とアーラヤ識）が流れ続けている。私たちの「心」は、この三層の構造をもっている、というのが唯識説の心の地図です。</p></div>
+</section>
+
+<!-- ============ 第5章 ============ -->
+<section id="c5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>第5章　唯識の論証</h2><span class="sub"><span class="pg">*36–*42・第17〜19偈</span>一切は唯識である。外界なしに、認識と輪廻はどう成り立つか</span></div>
+  <p>第1〜16偈で心の地図が完成しました。ここから本書は後半に入ります。第1偈で掲げた「私も物も、識の転変の上の仮の名前にすぎない」という主張を、いよいよ論証するのです。第17偈が結論を述べ、第18・19偈が、予想される二つの反論に答えます。</p>
+
+  <h3 id="c5-1"><span class="kdno">5-1</span>一切は唯識である <span class="loc">*36–*37・第17偈</span></h3>
+  <p>第17偈は『三十頌』全体の結論にあたる偈で、論理の筋は単純です。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 620 230" style="min-width:540px;width:100%" role="img" aria-label="第17偈の論理。識の転変は分別であり、分別されるものは存在しない。ゆえに一切は唯識">
+      <defs><marker id="ar8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <rect x="14" y="40" width="170" height="120" rx="10" class="s-accsoft"/>
+        <text x="99" y="64" text-anchor="middle" font-weight="700" class="s-acc" font-size="13">分別するもの（ある）</text>
+        <text x="99" y="90" text-anchor="middle" class="s-ink">識の三つの転変</text>
+        <text x="99" y="110" text-anchor="middle" class="s-muted" font-size="11">八識と心所</text>
+        <text x="99" y="146" text-anchor="middle" class="s-ink" font-size="11">＝ 分別（vikalpa）</text>
+        <path d="M188 100 H 252" class="st-muted" stroke-width="1.5" marker-end="url(#ar8)"/>
+        <text x="220" y="92" text-anchor="middle" class="s-muted" font-size="11">分別する</text>
+        <rect x="258" y="40" width="170" height="120" rx="10" class="s-jatisoft"/>
+        <text x="343" y="64" text-anchor="middle" font-weight="700" class="s-jati" font-size="13">分別されるもの（ない）</text>
+        <text x="343" y="90" text-anchor="middle" class="s-ink">「私」・器世間</text>
+        <text x="343" y="110" text-anchor="middle" class="s-ink">色・声などの「物」</text>
+        <path d="M432 100 H 470" class="st-muted" stroke-width="1.5" marker-end="url(#ar8)"/>
+        <text x="451" y="92" text-anchor="middle" class="s-muted" font-size="11">ゆえに</text>
+        <rect x="476" y="40" width="130" height="120" rx="10" class="s-goldsoft"/>
+        <text x="541" y="94" text-anchor="middle" font-weight="700" class="s-gold" font-size="14">一切は唯識</text>
+        <text x="221" y="196" text-anchor="middle" class="s-acc" font-size="11">「分別されるものはない」：増益（ないものをあると見る）を退ける</text>
+        <text x="221" y="216" text-anchor="middle" class="s-gold" font-size="11">「唯識」：損減（あるもの＝識までないと見る）を退ける</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図11　第17偈の論理。</b>識（分別するもの）はあるが、識が分別するもの（「私」と「物」）はない。だから一切は「唯識」である。</figcaption>
+  </figure>
+  <p>ここで「分別」（<i>vikalpa</i>）は、「間違った考え」という狭い意味ではありません。三つの転変すべて、つまり心と心所全体を指しています。私たちの心は、対象の形を「外にあるもの」として描き出し（付託し）ながらはたらいています。その描き出された対象がない、という意味で、心そのものが「分別」と呼ばれるのです。</p>
+  <p>分別される対象がないことは、どうしてわかるのか。Sthiramati は二つの論拠を挙げます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>論拠</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td class="k">① 対象なしの認識</td><td>原因がなければ結果は生じない。ところが、幻・蜃気楼・夢・眼病では、対象がなくても認識が生じる。だから、認識の原因は外界の対象ではなく、直前の同類の識である</td></tr>
+        <tr><td class="k">② 同じものへの矛盾した認識</td><td>同じ一つのものが、見る者によって互いに矛盾する仕方で認識される。一つのものが矛盾する性質を同時にもつことはできない。だから、認識の対象は心が描き出したものである</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>そして偈の後半「一切は<b>唯識</b>である」は、反対側の行き過ぎを防ぎます。「分別されるものはない」とだけ言うと、「何もかもない」という虚無論に落ちかねません。「唯<b>識</b>」と言うことで、少なくとも識は存在する、と押さえるのです。ないものをあると見る誤り（<strong>増益</strong>）と、あるものをないと見る誤り（<strong>損減</strong>）の両方を避ける。この「中道」の構造は、本書の後半で何度も現れます。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　デカルトの夢、バークリーの水</span>
+    <p>論拠①は、デカルトの夢の議論を思わせます。夢の中でも、目覚めている時と同じように知覚が生じる。だから、知覚があることは、外界があることの証明にならない、と。ただしデカルトはこれを、確実な知識を探すための「疑い」の道具として使い、最後には神の誠実さによって外界の実在を回復しました。Sthiramati は、外界がないことの積極的な論拠として使います。</p>
+    <p>論拠②は、バークリーが『ハイラスとフィロナスの三つの対話』で使った例に似ています。同じぬるま湯が、冷えた手には温かく、温まった手には冷たく感じられる。熱さや冷たさが水そのものの性質なら、水は同時に熱くて冷たいことになってしまう。だから、それは心の中にある、と。</p>
+  </div>
+
+  <h3 id="c5-2"><span class="kdno">5-2</span>難：作り手がないのに、なぜ多様な認識が <span class="loc">*37–*38・第18偈</span></h3>
+  <div class="talk">
+    <div class="row j"><div class="who">反論者</div><div class="say">一切が表象だけで、外界の対象も、神のような作り手も、道具もないのなら、どうしてこれほど多様な認識が次々に生じるのか。</div></div>
+    <div class="row u"><div class="who">Sthiramati</div><div class="say">アーラヤ識が一切の種子をもっているからだ。そして、アーラヤ識と転識が互いに原因となり合うことで、種子はそのつど違った認識を生む状態へと変化していく。外から統御する者は要らない。</div></div>
+  </div>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 560 200" style="min-width:460px;width:100%" role="img" aria-label="アーラヤ識と転識の相互因果">
+      <defs><marker id="ar9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <rect x="20" y="62" width="170" height="76" rx="10" class="s-goldsoft"/>
+        <text x="105" y="94" text-anchor="middle" font-weight="700" class="s-gold" font-size="13">アーラヤ識</text>
+        <text x="105" y="116" text-anchor="middle" class="s-muted" font-size="11">一切の種子をもつ</text>
+        <rect x="370" y="62" width="170" height="76" rx="10" class="s-band"/>
+        <text x="455" y="94" text-anchor="middle" font-weight="700" class="s-ink" font-size="13">転識（六識など）</text>
+        <text x="455" y="116" text-anchor="middle" class="s-muted" font-size="11">さまざまな認識</text>
+        <path d="M190 80 C 250 30, 310 30, 368 80" class="st-muted" stroke-width="1.5" marker-end="url(#ar9)"/>
+        <text x="280" y="30" text-anchor="middle" class="s-ink">種子が熟して転識を生む</text>
+        <path d="M370 122 C 310 172, 250 172, 192 122" class="st-muted" stroke-width="1.5" marker-end="url(#ar9)"/>
+        <text x="280" y="186" text-anchor="middle" class="s-ink">転識が新しい種子を植え付ける（熏習）</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図12　アーラヤ識と転識の相互因果（第18偈）。</b>外から統御する神や作り手がなくても、この循環によって認識が次々に生じる。</figcaption>
+  </figure>
+  <p>この循環は、のちに法相宗で「種子生現行、現行熏種子」（種子が現実のはたらきを生み、現実のはたらきが種子を植え付ける）と定式化されました。経験が種子を残し、種子が次の経験を生む。私たちの世界は、この自己循環によって成り立っているのです。</p>
+
+  <h3 id="c5-3"><span class="kdno">5-3</span>難：外界がないのに、なぜ輪廻が <span class="loc">*38–*39・第19偈</span></h3>
+  <p>次の問いは、死と再生です。外界がなく識だけがあるなら、死んで生まれ変わる時、何が次の生を作るのでしょうか。答えは、アーラヤ識に蓄えられた<strong>二種類の習気</strong>（潜在的な力）です。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th></th><th>業の習気<br><span class="sm">karmavāsanā</span></th><th>二取の習気<br><span class="sm">grāhadvayavāsanā</span></th></tr></thead>
+      <tbody>
+        <tr><td class="k">何から生じるか</td><td>善い業・悪い業・瞑想の業（福・非福・不動）</td><td>「外に対象がある」（所取）と「それを捉える私がいる」（能取）という、主客二元のとらわれ</td></tr>
+        <tr><td class="k">役割</td><td>どの境遇に、どんな身体で生まれるかを決める</td><td>業の習気が結果を生むのを助ける</td></tr>
+        <tr><td class="k">喩え</td><td>種子：種子が違えば芽が違う</td><td>水：水がなければ種子は芽を出さない</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>今の生を生んだ業の力が尽きると（寿命が尽きると）、別の業の習気が、二取の習気に助けられて、新しいアーラヤ識を生みます。これが生まれ変わりです。Sthiramati は、ここでも二つの極端を避けていると言います。「前の生が尽きる」と言うことで、同じ自己が永遠に続くという<strong>常住論</strong>を退け、「別の生を生む」と言うことで、死ねばすべて終わりだという<strong>断滅論</strong>を退ける。</p>
+  <p>二取の習気が「水」の役割を果たしている点は重要です。主観と客観を分けて見るとらわれが根本から断たれれば、業の種子が残っていても、もう次の生は生まれません。これが、後で見る解脱の理論的な根拠になります。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　パーフィットの人格の同一性</span>
+    <p>20世紀イギリスの哲学者パーフィットは『理由と人格』で、人格の同一性にとって重要なのは、変わらない魂や自己ではなく、記憶や性格の<strong>心理的な連続性</strong>だ、と論じました。そして、この連続性さえあれば、「同じ人かどうか」という問いには必ずしも答えがなくてもよい、と考えました。パーフィット自身、自分の考えが仏教の無我説に近いことに気づいていました。</p>
+    <p>唯識説の輪廻論も、魂なしに、アーラヤ識という因果の連続だけで生から生へのつながりを説明します。ただし、パーフィットの関心が「何が重要か」という倫理的な問いに向かうのに対して、唯識説の関心は、その連続を<strong>断ち切る</strong>こと（解脱）に向かっています。</p>
+  </div>
+
+  <h3 id="c5-4"><span class="kdno">5-4</span>アーラヤ識の存在証明 <span class="loc">*39–*42</span></h3>
+  <p>第19偈の説明の最後に、Sthiramati は長い一節を割いて、アーラヤ識が本当に存在することを証明します。自覚されない識の存在を、どうやって証明するのでしょうか。</p>
+  <p>まず経典の証拠（経証）として、『阿毘達磨経』の偈「無始の時以来の界は、一切の法の拠り所である。それがあるので、すべての趣（輪廻）があり、涅槃の証得もある」が引かれます。そして理論的な証明（理証）は、この偈の後半に合わせて二本立てになっています。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 660 290" style="min-width:560px;width:100%" role="img" aria-label="アーラヤ識の存在証明の構造。流転と還滅の両方がアーラヤ識を必要とする">
+      <defs><marker id="ar10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <rect x="20" y="20" width="290" height="190" rx="12" class="s-band"/>
+        <text x="165" y="44" text-anchor="middle" font-weight="700" class="s-ink" font-size="13">理証①　流転（輪廻が続く）</text>
+        <text x="40" y="72" class="s-ink" font-size="11.5">十二支縁起の「行を縁として識がある」</text>
+        <text x="40" y="94" class="s-muted" font-size="11">候補A　結生の識 → ×</text>
+        <text x="58" y="112" class="s-muted" font-size="11">原因の行（業）はとうに滅している</text>
+        <text x="40" y="136" class="s-muted" font-size="11">候補B　業に薫習された六識 → ×</text>
+        <text x="58" y="154" class="s-muted" font-size="11">六識は途切れる。種子の受け皿になれない</text>
+        <text x="40" y="186" class="s-acc" font-size="11.5" font-weight="700">→ 種子を保つアーラヤ識が必要</text>
+        <rect x="350" y="20" width="290" height="190" rx="12" class="s-band"/>
+        <text x="495" y="44" text-anchor="middle" font-weight="700" class="s-ink" font-size="13">理証②　還滅（輪廻が止む）</text>
+        <text x="370" y="72" class="s-ink" font-size="11.5">輪廻を止めるには煩悩を断つ</text>
+        <text x="370" y="94" class="s-muted" font-size="11">現れている煩悩を断つ → ×</text>
+        <text x="388" y="112" class="s-muted" font-size="11">智慧と煩悩は同時に現れない</text>
+        <text x="370" y="136" class="s-muted" font-size="11">種子の煩悩を断つ → ？</text>
+        <text x="388" y="154" class="s-muted" font-size="11">その瞬間、種子はどこにある？</text>
+        <text x="370" y="186" class="s-acc" font-size="11.5" font-weight="700">→ 智慧と同時にある別の識が必要</text>
+        <path d="M165 210 L300 246" class="st-muted" stroke-width="1.5" marker-end="url(#ar10)"/>
+        <path d="M495 210 L360 246" class="st-muted" stroke-width="1.5" marker-end="url(#ar10)"/>
+        <rect x="190" y="250" width="280" height="36" rx="10" class="s-goldsoft"/>
+        <text x="330" y="273" text-anchor="middle" font-weight="700" class="s-gold">六識とは別にアーラヤ識がある</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図13　アーラヤ識の存在証明。</b>輪廻が続くことも、止むことも、アーラヤ識がなければ説明できない。</figcaption>
+  </figure>
+  <p>二つの論証に共通する鍵は、<strong>連続性</strong>と<strong>同時性</strong>です。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>要請</th><th>理由</th><th>六識で満たせるか</th></tr></thead>
+      <tbody>
+        <tr><td class="k">連続性</td><td>業の力を、前の生から次の生へ、また瞑想や熟睡をまたいで運ぶ必要がある</td><td>×　六識は熟睡や滅尽定で途切れる</td></tr>
+        <tr><td class="k">同時性</td><td>種子を植え付けるもの（今の識）と、植え付けられる受け皿は、同時に存在しなければならない。識は自分自身にも、まだない未来の識にも、もう滅した過去の識にも植え付けられない</td><td>×　六識の各瞬間は、前後のどれとも同時でない</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>修行による解脱の場面でも同じです。煩悩を断つ智慧が生じている瞬間、その心の中に煩悩の種子があるとすると、「煩悩の種子をもつ心が煩悩を断つ」という矛盾になります。智慧とは別の場所に、しかし同時に、煩悩の種子が保たれていて、そこで断たれる。その「別の場所」がアーラヤ識です。そして種子が取り除かれれば、業がまだ残っていても、協力因（二取の習気・煩悩）がないので、もう次の生は生じません（第19偈の「水」の話を思い出してください）。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　カントの超越論的論証</span>
+    <p>アーラヤ識は直接には観察できません。そこで Sthiramati は、「輪廻が続き、また止む、という事実が成り立つためには、何がなければならないか」と問い、そこからアーラヤ識の存在を導きます。</p>
+    <p>この論法は、カントの<strong>超越論的論証</strong>と形がよく似ています。カントは、「経験が成り立つためには何が必要か」と問い、そこから、経験そのものには現れない時間・空間の形式やカテゴリーの必然性を導きました。どちらも、目に見える事実から出発して、その<strong>可能性の条件</strong>として、目に見えないものを要請します。ただし、Sthiramati の出発点は「輪廻と解脱」という仏教の前提であり、カントの出発点は「客観的な経験」です。前提を共有しない人に対して、この論証がどこまで説得力をもつかは、考えてみる価値のある問題です。</p>
+  </div>
+  <div class="point"><span class="lbl">ポイント</span><p>唯識説は、外界の物を否定する代わりに、アーラヤ識という<strong>見えない連続体</strong>を立てます。それによって、多様な認識（第18偈）、輪廻（第19偈）、解脱（存在証明）の三つを、すべて外界なしに説明できる。これが唯識説の論証の全体像です。</p></div>
+</section>
+
+<!-- ============ 第6章 ============ -->
+<section id="c6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>第6章　三性と三無性</h2><span class="sub"><span class="pg">*43–*48・第20〜25偈</span>同じ世界の三つのあり方。真如こそが唯識性</span></div>
+  <p>第20〜25偈は、仏教の聖典との整合性を論じます。経典には「三つの自性（三性）」という教えと、「一切の法は無自性である」という教えがあります。唯識説はそのどちらとも矛盾しない。むしろ、唯識説こそがその両方を正しく説明できる、というのがこの章の主張です。</p>
+
+  <h3 id="c6-1"><span class="kdno">6-1</span>難：唯識なら経典の三性説と矛盾する <span class="loc">*43–*44・第20〜21偈</span></h3>
+  <div class="talk">
+    <div class="row j"><div class="who">反論者</div><div class="say">経典には、遍計所執・依他起・円成実という三つの自性が説かれている。すべてがただ表象だけなら、三つも自性があるのはおかしいではないか。</div></div>
+    <div class="row u"><div class="who">Sthiramati</div><div class="say">矛盾はない。三つの自性は、まさに唯識を前提として立てられているのだ。同じ一つの識を、三つの面から見たものにすぎない。</div></div>
+  </div>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 620 250" style="min-width:540px;width:100%" role="img" aria-label="三性の関係。依他起性の上に遍計所執性が付託され、依他起性がそれを離れていることが円成実性">
+      <g font-size="12">
+        <rect x="40" y="20" width="540" height="58" rx="10" class="s-jatisoft" stroke-dasharray="6 4" stroke-width="1.5" style="stroke:var(--jati)"/>
+        <text x="310" y="44" text-anchor="middle" font-weight="700" class="s-jati" font-size="13">遍計所執性：「外の対象」と「それを見る私」</text>
+        <text x="310" y="64" text-anchor="middle" class="s-muted" font-size="11">存在しないのに、心の上に描き出されている（点線）</text>
+        <rect x="40" y="96" width="540" height="58" rx="10" class="s-accsoft"/>
+        <text x="310" y="120" text-anchor="middle" font-weight="700" class="s-acc" font-size="13">依他起性：縁から生じた心と心所</text>
+        <text x="310" y="140" text-anchor="middle" class="s-muted" font-size="11">識の三つの転変。他に依って生じ、仮に存在する</text>
+        <rect x="40" y="172" width="540" height="58" rx="10" class="s-goldsoft"/>
+        <text x="310" y="196" text-anchor="middle" font-weight="700" class="s-gold" font-size="13">円成実性：依他起性が遍計所執性を常に離れていること</text>
+        <text x="310" y="216" text-anchor="middle" class="s-muted" font-size="11">依他起性の真実のあり方（法性・真如）。変化しない</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図14　三性の関係。</b>実際にはたらいているのは中央の依他起性（心）。その上に、主客二元の構図が描き出される（遍計所執性）。その構図が取り去られたあり方が円成実性。</figcaption>
+  </figure>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>自性</th><th>定義</th><th>あり方</th><th>第5章との対応</th></tr></thead>
+      <tbody>
+        <tr><td class="k">遍計所執性 <span class="sm">parikalpita</span></td><td>分別によって分別されるもの（第20偈）</td><td>存在しない</td><td>第17偈の「分別されるもの」</td></tr>
+        <tr><td class="k">依他起性 <span class="sm">paratantra</span></td><td>縁から生じた分別（第21偈 ab）</td><td>仮に存在する</td><td>第17偈の「分別（識）」</td></tr>
+        <tr><td class="k">円成実性 <span class="sm">pariniṣpanna</span></td><td>依他起性が遍計所執性を常に離れていること（第21偈 cd）</td><td>究極的に存在する</td><td>（第25偈で「唯識性」と呼ばれる）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>大事なのは、円成実性が依他起性とは別の「もの」ではないことです。円成実性は、心が主客二元の構図を「離れている」という<strong>あり方</strong>です。しかも「常に」離れている。悟った時に初めて離れるのではなく、心は本来いつでも二元を離れているのに、凡夫にはそれが見えていないだけなのです。</p>
+  <p>後の伝統では、三性を<strong>蛇・縄・麻</strong>の喩えで説明することがよくあります。暗がりで縄を蛇と見間違える。その「蛇」が遍計所執性。縄そのものは麻から縁によって作られたもので、これが依他起性。縄の本質である麻が円成実性にあたります。Sthiramati 自身はこの喩えを使っていませんが、三つの関係をつかむには便利です。</p>
+
+  <h3 id="c6-2"><span class="kdno">6-2</span>円成実性と依他起性は非一非異 <span class="loc">*44–*45・第22偈</span></h3>
+  <p>では、円成実性と依他起性は同じものなのか、別のものなのか。第22偈の答えは「同じでもなく、別でもない」（非一非異）です。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>仮定</th><th>帰結（不合理）</th></tr></thead>
+      <tbody>
+        <tr><td class="k">別のものだとすると</td><td>依他起性は、遍計所執性について空でない（主客二元を離れていない）ことになる</td></tr>
+        <tr><td class="k">同じものだとすると</td><td>円成実性も依他起性と同じく汚れたものになり、悟りの対象になれない。逆に、依他起性も円成実性と同じく清浄になってしまう</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Sthiramati は、これを「無常性」と「無常なもの」の関係にたとえます。無常であること（無常性）は、無常なもの（諸行）と別のものではありません。別だとすると、諸行そのものは無常でないことになってしまう。かといって同じでもない。同じだとすると、諸行が「壊滅」そのものになってしまう。性質とその担い手の関係です。</p>
+  <p>さらに第22偈 d は、修行の順序にかかわる重要な主張をします。「円成実性を見ないかぎり、依他起性は見えない」。心が縁から生じていることを<b>ありのままに</b>見るためには、まず真如を見なければならない、というのです。悟りの瞬間には、区別のない真如だけが見られます（<strong>無分別智</strong>）。その後で、再び多様な世界が現れますが、もうそれを実在とは見ず、「幻・陽炎・夢・こだま・水に映る月」のように縁から生じたものとして見る（<strong>後得智</strong>）。依他起性が「仮に存在する」というのは、この意味です。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　カントとフッサール</span>
+    <p>同じ世界を二つ以上の層で捉える考え方は、西洋にもあります。カントは、私たちが経験する「現象」と、経験の外にある「物自体」を区別しました。ただし、カントの物自体は私たちには<strong>決して知りえない</strong>ものですが、唯識説の円成実性は、修行によって<strong>直観されうる</strong>ものです。</p>
+    <p>フッサールの現象学は、ふだん私たちが当たり前に前提している「世界は心の外にある」という態度（自然的態度）を、いったん括弧に入れる（現象学的還元）ことから出発しました。遍計所執性を取り去って依他起性をありのままに見る、という唯識説の発想と、方向は似ています。ただしフッサールの目的は学問の基礎づけであり、唯識説の目的は解脱です。</p>
+  </div>
+
+  <h3 id="c6-3"><span class="kdno">6-3</span>難：「一切法は無自性」と矛盾する <span class="loc">*46–*47・第23〜25偈 a</span></h3>
+  <p>般若経などは「一切の法は無自性である」と説きます。依他起性が実在するなら、この教えと矛盾するのではないか。答えは、「無自性」は三性それぞれについて違う意味で言われている（<strong>三無性</strong>）、というものです。これは『解深密経』に由来する解釈で、仏陀は特別な意図（密意）をもって「一切法無自性」と説いた、とされます。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 240" style="min-width:560px;width:100%" role="img" aria-label="三性と三無性の対応">
+      <defs><marker id="ar11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <text x="110" y="22" text-anchor="middle" class="s-muted" font-size="11">三性</text>
+        <text x="460" y="22" text-anchor="middle" class="s-muted" font-size="11">三無性</text>
+        <rect x="20" y="36" width="180" height="54" rx="10" class="s-jatisoft"/><text x="110" y="60" text-anchor="middle" font-weight="700" class="s-jati">遍計所執性</text><text x="110" y="78" text-anchor="middle" class="s-muted" font-size="11">心が描いたもの</text>
+        <rect x="20" y="106" width="180" height="54" rx="10" class="s-accsoft"/><text x="110" y="130" text-anchor="middle" font-weight="700" class="s-acc">依他起性</text><text x="110" y="148" text-anchor="middle" class="s-muted" font-size="11">縁から生じた心</text>
+        <rect x="20" y="176" width="180" height="54" rx="10" class="s-goldsoft"/><text x="110" y="200" text-anchor="middle" font-weight="700" class="s-gold">円成実性</text><text x="110" y="218" text-anchor="middle" class="s-muted" font-size="11">真如</text>
+        <path d="M204 63 H 286" class="st-muted" stroke-width="1.5" marker-end="url(#ar11)"/>
+        <path d="M204 133 H 286" class="st-muted" stroke-width="1.5" marker-end="url(#ar11)"/>
+        <path d="M204 203 H 286" class="st-muted" stroke-width="1.5" marker-end="url(#ar11)"/>
+        <rect x="292" y="36" width="336" height="54" rx="10" class="s-band"/><text x="460" y="58" text-anchor="middle" font-weight="700" class="s-ink">相無自性</text><text x="460" y="78" text-anchor="middle" class="s-muted" font-size="11">特徴そのものがない（空の花のように）</text>
+        <rect x="292" y="106" width="336" height="54" rx="10" class="s-band"/><text x="460" y="128" text-anchor="middle" font-weight="700" class="s-ink">生無自性</text><text x="460" y="148" text-anchor="middle" class="s-muted" font-size="11">自ら生じたのではない（幻のように）</text>
+        <rect x="292" y="176" width="336" height="54" rx="10" class="s-band"/><text x="460" y="198" text-anchor="middle" font-weight="700" class="s-ink">勝義無自性</text><text x="460" y="218" text-anchor="middle" class="s-muted" font-size="11">「無自性であること」そのものが究極の真理</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図15　三性と三無性。</b>「一切は無自性」は、三性それぞれについて違う意味で言われている。</figcaption>
+  </figure>
+  <p>第三の勝義無自性は少し逆説的です。円成実性は「無自性であるもの」というより、「無自性であること」そのもの、つまり依他起性に遍計所執性が<b>ない</b>ことです。その「ないこと」が究極の真理（勝義）だ、というのです。</p>
+
+  <h3 id="c6-4"><span class="kdno">6-4</span>真如こそが唯識性 <span class="loc">*47–*48・第25偈 bcd</span></h3>
+  <p>円成実性は「<strong>真如</strong>」（<i>tathatā</i>）とも呼ばれます。「そのとおりであること」という意味で、迷っている凡夫の時も、修行中の時も、修行を完成した時も、まったく変わらないからです。悟りによって真如が作り出されるのではありません。真如は最初からずっとそこにあって、それが見えるようになるだけなのです。</p>
+  <p>そして第25偈の最後の句が、第二部の結論を述べます。「それこそが<strong>唯識性</strong>である」。唯識性（<i>vijñaptimātratā</i>、ただ表象のみであること）とは、心の本当のあり方、つまり真如にほかならない。第17偈の「一切は唯識である」は、ここで単なる理論的な主張から、修行によって直観されるべき真理へと深められています。</p>
+  <div class="point"><span class="lbl">ポイント</span><p>三性説は、同じ一つの心を三つの面から見る理論です。<strong>描き出された世界</strong>（遍計所執性）はない。<strong>描き出している心</strong>（依他起性）は仮にある。<strong>心の本当のあり方</strong>（円成実性・真如）は常にある。そして「唯識性」とは、最終的にはこの真如のことです。</p></div>
+</section>
+
+<!-- ============ 第7章 ============ -->
+<section id="c7" class="wrap">
+  <div class="sec-head"><span class="sec-no">7</span><h2>第7章　悟入と転依</h2><span class="sub"><span class="pg">*48–*53・第26〜30偈</span>唯識という観念も捨てた時、心の拠り所が転換する</span></div>
+  <p>最後の五偈は、唯識性に悟入していく修行の過程と、その果を述べます。理論の書は、ここで実践の書に変わります。</p>
+
+  <h3 id="c7-1"><span class="kdno">7-1</span>三つの段階：第26〜28偈 <span class="loc">*48–*51</span></h3>
+  <p>第26〜28偈は、「何かを捉えること」（<strong>所得</strong>、<i>upalambha</i>）がどう消えていくかを、三段階で描きます。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 210" style="min-width:560px;width:100%" role="img" aria-label="第26偈から第28偈への所得の変化">
+      <defs><marker id="ar12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <rect x="14" y="30" width="186" height="120" rx="10" class="s-jatisoft"/>
+        <text x="107" y="54" text-anchor="middle" font-weight="700" class="s-jati">第26偈</text>
+        <text x="107" y="78" text-anchor="middle" class="s-ink">「私が眼で色を見る」</text>
+        <text x="107" y="102" text-anchor="middle" class="s-muted" font-size="11">所取：外の対象</text>
+        <text x="107" y="120" text-anchor="middle" class="s-muted" font-size="11">能取：見る私</text>
+        <path d="M204 90 H 222" class="st-muted" stroke-width="1.5" marker-end="url(#ar12)"/>
+        <rect x="227" y="30" width="186" height="120" rx="10" class="s-band"/>
+        <text x="320" y="54" text-anchor="middle" font-weight="700" class="s-ink">第27偈</text>
+        <text x="320" y="78" text-anchor="middle" class="s-ink">「これは唯識だ」</text>
+        <text x="320" y="102" text-anchor="middle" class="s-muted" font-size="11">所取：唯識という観念</text>
+        <text x="320" y="120" text-anchor="middle" class="s-muted" font-size="11">能取：それを観る心</text>
+        <path d="M417 90 H 435" class="st-muted" stroke-width="1.5" marker-end="url(#ar12)"/>
+        <rect x="440" y="30" width="186" height="120" rx="10" class="s-goldsoft"/>
+        <text x="533" y="54" text-anchor="middle" font-weight="700" class="s-gold">第28偈</text>
+        <text x="533" y="78" text-anchor="middle" class="s-ink">何も捉えない</text>
+        <text x="533" y="102" text-anchor="middle" class="s-muted" font-size="11">所取なし → 能取なし</text>
+        <text x="533" y="120" text-anchor="middle" class="s-muted" font-size="11">無分別智</text>
+        <text x="320" y="182" text-anchor="middle" class="s-muted" font-size="11">所得がある限り、唯識性（心の真如）にとどまってはいない</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図16　所得の消滅（第26〜28偈）。</b>捉えられる対象が外界の物から「唯識」という観念に移っても、主客の構図は残る。構図そのものが消えた時、唯識性にとどまる。</figcaption>
+  </figure>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>偈</th><th>内容</th><th>『成唯識論』の五位（参考）</th></tr></thead>
+      <tbody>
+        <tr><td class="k">第26偈</td><td>識が唯識性にとどまらない限り、二取の随眠（主客二元の種子）は止まない</td><td>資糧位</td></tr>
+        <tr><td class="k">第27偈</td><td>「これは唯識だ」と何かを目の前に置いている限り、まだ唯識性にとどまっていない</td><td>加行位</td></tr>
+        <tr><td class="k">第28偈</td><td>智が所縁をまったく捉えない時、唯識性にとどまる。所取がなければ能取もない</td><td>通達位（見道）</td></tr>
+        <tr><td class="k">第29偈</td><td>無分別の出世間智と転依</td><td>修習位（修道）</td></tr>
+        <tr><td class="k">第30偈</td><td>無漏界、解脱身・法身</td><td>究竟位</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>五位への配当は、玄奘訳『成唯識論』の体系です。Sthiramati 自身はこの枠組みを使わず、第29〜30偈を「見道から始まって、さらに進んでいくことによる果の完成」と説明しています。</p>
+  <p>第27偈が教えているのは、唯識の修行の<strong>落とし穴</strong>です。「すべては表象だけだ、外の対象はない」という考えを心に浮かべて観察している時、その「唯識」という観念自体が、心の前に置かれた対象になっています。Sthiramati は、聞きかじっただけで「私は清浄な唯識性にとどまっている」と思い込む「増上慢の者」への戒めでもある、と注釈しています。</p>
+  <p>第28偈の鍵は、所取と能取が一対であるという論理です。捉えられるもの（所取）がなければ、捉えるもの（能取）も成り立たない。外界の対象がないことを本当に見抜けば、それを捉える主体が実在するという思い込みも同時に消えます。こうして、主客の区別のない<strong>無分別智</strong>が生じます。Sthiramati は、これは「生まれつきの盲人のように見えない」のではなく、「ありのままに見ているから、対象を外のものとして捉えない」のだ、と念を押しています。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　ウィトゲンシュタインのはしご</span>
+    <p>ウィトゲンシュタインは『論理哲学論考』の終わり近くで、自分の命題を理解した者は、それを通り抜けて登った後、<strong>はしごを投げ捨てる</strong>ようにそれを捨てなければならない、と書きました。</p>
+    <p>第27偈の「唯識」という観念も、外界の実在という思い込みを取り除くための道具です。役目を終えた道具に執着すれば、それが新しい思い込みになってしまう。仏教では古くから、こうした考え方を「筏の喩え」（川を渡り終えたら筏は捨てる）で語ってきました。</p>
+  </div>
+
+  <h3 id="c7-2"><span class="kdno">7-2</span>転依：拠り所の転換 <span class="loc">*51–*52・第29偈</span></h3>
+  <p>無分別智が生じた直後に、「<strong>転依</strong>」（<i>āśrayaparāvṛtti</i>、拠り所の転換）が起こります。「拠り所」とは、一切の種子をもつアーラヤ識のことです。輪廻の原因を蓄えた汚れた基盤が、根本から転換されて、清浄な智の基盤になるのです。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>止むもの</th><th>現れるもの</th></tr></thead>
+      <tbody>
+        <tr><td>粗重（身心のはたらきにくさ。煩悩障・所知障の種子）</td><td>堪能性（身心がよくはたらくこと）</td></tr>
+        <tr><td>異熟の習気・二取の習気</td><td>法身、不二の智</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>第2章で、アーラヤ識は「阿羅漢の位で止む」とされていました。その「止む」の本当の意味が、ここで明らかになります。心が消滅するのではなく、<strong>転換される</strong>のです。汚れた種子の蔵（アーラヤ）としては止み、清浄な智の拠り所として生まれ変わる。</p>
+  <p>この転換には二つの段階があります。煩悩障だけを断つ声聞などの転依と、煩悩障と所知障の両方を断つ菩薩の転依です。前者は「上のあるもの」、後者は「上のないもの」と呼ばれます。<a href="#c0">序</a>で見た「二つの障り・二つの果」の図が、ここで完成するのです。</p>
+
+  <h3 id="c7-3"><span class="kdno">7-3</span>果：解脱身と法身 <span class="loc">*52–*53・第30偈</span></h3>
+  <p>第30偈は、転依した心のあり方を、いくつもの形容で描きます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>偈の語</th><th>Sthiramati の説明</th></tr></thead>
+      <tbody>
+        <tr><td class="k">無漏 <span class="sm">anāsrava</span></td><td>粗重がなく、すべての汚れ（漏）を離れている</td></tr>
+        <tr><td class="k">界 <span class="sm">dhātu</span></td><td>聖なる法の原因（「界」は原因の意味）</td></tr>
+        <tr><td class="k">不可思議 <span class="sm">acintya</span></td><td>推論の対象でない。自ら内に知るもの。喩えがない</td></tr>
+        <tr><td class="k">善 <span class="sm">kuśala</span></td><td>清浄の所縁。安穏。汚れのない法から成る</td></tr>
+        <tr><td class="k">恒常 <span class="sm">dhruva</span></td><td>尽きることがない</td></tr>
+        <tr><td class="k">安楽 <span class="sm">sukha</span></td><td>常住だから楽。無常なものは苦、これは常住である</td></tr>
+        <tr><td class="k">解脱身 <span class="sm">vimuktikāya</span></td><td>声聞などが、煩悩障を断って得るもの</td></tr>
+        <tr><td class="k">法身 <span class="sm">dharmakāya</span></td><td>仏（大牟尼）が、十地と波羅蜜の修行で二障を断って得るもの。輪廻を捨てずに、しかも輪廻に汚されない</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>「無常なものは苦である」は、初期仏教以来の基本的な教え（諸行無常・一切皆苦）です。Sthiramati はそれを裏返して、常住なものは楽である、と論じます。第1偈から一貫して「無常な識の流れ」を描いてきた書物が、最後に「常住」「安楽」の境地を語って終わる。そしてそれは、輪廻から逃れることではなく、輪廻の中にとどまりながらそれに汚されないこと（法身）として描かれます。輪廻を離れる声聞と、輪廻の中で衆生を救い続ける菩薩という、大乗仏教の基本的な対比が、最後の一句にも表れています。</p>
+  <div class="point"><span class="lbl">ポイント</span><p>『唯識三十頌』は、<strong>識の分析から始まり、識の転換で終わる</strong>円環構造の書物です。心の地図（第1〜16偈）は、心を変えるための地図でした。外界がないことを論証し（第17〜19偈）、心の三つのあり方を見分け（第20〜25偈）、最後には「唯識」という観念さえも手放した時（第26〜28偈）、心の拠り所そのものが転換する（第29〜30偈）。</p></div>
+</section>
+
+<!-- ============ 振り返り ============ -->
+<section id="review" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体を振り返る</h2><span class="sub">問いと答えの一覧</span></div>
+  <p>本書の主な問いと、Sthiramati の答えを一覧にしました。答えの「型」に注目すると、本書の議論の技法が見えてきます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>章</th><th>問い</th><th>答え</th><th>答えの型</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1-2</td><td>識も仮のものではないか</td><td>仮説には土台が要る。識は実在する</td><td><span class="pill c">中道</span></td></tr>
+        <tr><td class="num">1-3</td><td>比喩には本来の意味が要る</td><td>本来の意味そのものがない</td><td><span class="pill j">前提の否定</span></td></tr>
+        <tr><td class="num">2〜3</td><td>「私」という感覚はどこから来るか</td><td>染汚の意がアーラヤ識を取り違える</td><td><span class="pill a">構造の説明</span></td></tr>
+        <tr><td class="num">4-3</td><td>五識は同時に生じうるか</td><td>等無間縁は識ごとに限定されない</td><td><span class="pill c">分析</span></td></tr>
+        <tr><td class="num">4-4</td><td>途切れた意識はどこから戻るか</td><td>アーラヤ識から</td><td><span class="pill a">構造の説明</span></td></tr>
+        <tr><td class="num">5-1</td><td>対象がないとなぜわかるか</td><td>夢など／同じ物への矛盾した認識</td><td><span class="pill c">反例</span></td></tr>
+        <tr><td class="num">5-2</td><td>作り手なしに多様な認識がなぜ</td><td>アーラヤ識と転識の相互因果</td><td><span class="pill a">構造の説明</span></td></tr>
+        <tr><td class="num">5-3</td><td>外界なしに輪廻がなぜ</td><td>業の習気と二取の習気</td><td><span class="pill a">構造の説明</span></td></tr>
+        <tr><td class="num">5-4</td><td>アーラヤ識は本当にあるか</td><td>流転も還滅もそれなしには成り立たない</td><td><span class="pill g">可能性の条件</span></td></tr>
+        <tr><td class="num">6-1</td><td>三性説と矛盾しないか</td><td>三性は唯識を前提に立てられる</td><td><span class="pill a">聖典解釈</span></td></tr>
+        <tr><td class="num">6-3</td><td>一切法無自性と矛盾しないか</td><td>三つの意味の無自性</td><td><span class="pill a">聖典解釈</span></td></tr>
+        <tr><td class="num">7-1</td><td>唯識と理解すれば十分か</td><td>その観念も所得にすぎない</td><td><span class="pill j">自己批判</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="point"><span class="lbl">考えてみよう</span>
+    <p>1　アーラヤ識は「自覚されない」とされます。自覚されないものの存在を、私たちはどのようにして知ることができるでしょうか。第5章の存在証明は、その問いにどこまで答えているでしょうか。</p>
+    <p>2　染汚の意は、熟睡中も「私」を思い続けているとされます。もしそれが本当なら、「私」という感覚をなくすことは、意識的な努力だけで可能でしょうか。</p>
+    <p>3　第27偈は、「唯識」という観念にとらわれることを戒めます。では、この本を読んで唯識を理解することには、どんな意味があるのでしょうか。はしごを登ることと、投げ捨てることの関係を考えてみましょう。</p>
+  </div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>vijñānapariṇāma</dt><dd>識の転変。刹那ごとに別のものになりながら続く識の変化</dd>
+    <dt>upacāra</dt><dd>仮説（けせつ）。本来そうでないものに名前を当てはめること</dd>
+    <dt>ātman / dharma</dt><dd>我（私）／法（物・経験の要素）</dd>
+    <dt>pudgalanairātmya / dharmanairātmya</dt><dd>人無我／法無我</dd>
+    <dt>kleśāvaraṇa / jñeyāvaraṇa</dt><dd>煩悩障／所知障</dd>
+    <dt>mokṣa / sarvajñatva</dt><dd>解脱／一切智</dd>
+    <dt>ālambanapratyaya</dt><dd>所縁縁。認識の対象となる条件</dd>
+    <dt>samanantarapratyaya</dt><dd>等無間縁。直前の心が次の心の条件となること</dd>
+    <dt>vāsanā / bīja</dt><dd>熏習・習気／種子。経験が心に残す潜在的な力</dd>
+    <dt>ālayavijñāna</dt><dd>アーラヤ識（阿頼耶識、第八識）</dd>
+    <dt>vipāka</dt><dd>異熟。業の結果として生じ、それ自体は善でも悪でもないもの</dd>
+    <dt>sarvabījaka</dt><dd>一切種子。あらゆる種子をもつこと</dd>
+    <dt>upādi / bhājana</dt><dd>執受（種子と身体）／器世間（環境世界）</dd>
+    <dt>asaṃvidita</dt><dd>不可知。微細すぎて自覚されないこと</dd>
+    <dt>kliṣṭaṃ manaḥ</dt><dd>染汚の意（末那識、第七識）</dd>
+    <dt>manana</dt><dd>思量。思い量ること</dd>
+    <dt>ātmadṛṣṭi / ātmamoha / ātmamāna / ātmasneha</dt><dd>我見／我痴／我慢／我愛</dd>
+    <dt>caitta</dt><dd>心所。識にともなう心のはたらき</dd>
+    <dt>sarvatraga / viniyata</dt><dd>遍行／別境</dd>
+    <dt>kleśa / upakleśa</dt><dd>煩悩（根本煩悩）／随煩悩</dd>
+    <dt>upekṣā</dt><dd>捨。受としては快でも不快でもない感覚、善の心所としては心の平静</dd>
+    <dt>avyākṛta</dt><dd>無記。善とも悪とも決められないこと（有覆と無覆がある）</dd>
+    <dt>nirodhasamāpatti</dt><dd>滅尽定。聖者が心のはたらきを止める瞑想</dd>
+    <dt>vikalpa</dt><dd>分別。第17偈では心と心所の全体</dd>
+    <dt>vijñaptimātra(tā)</dt><dd>唯識（性）。ただ表象のみ（であること）</dd>
+    <dt>samāropa / apavāda</dt><dd>増益（ないものをあるとする）／損減（あるものをないとする）</dd>
+    <dt>karmavāsanā / grāhadvayavāsanā</dt><dd>業の習気／二取（所取・能取）の習気</dd>
+    <dt>parikalpita / paratantra / pariniṣpanna</dt><dd>遍計所執性／依他起性／円成実性（三性）</dd>
+    <dt>niḥsvabhāvatā</dt><dd>無自性。相・生・勝義の三種（三無性）</dd>
+    <dt>tathatā</dt><dd>真如。あらゆる時に、そのとおりであること</dd>
+    <dt>upalambha</dt><dd>所得。何かを対象として捉えること</dd>
+    <dt>nirvikalpajñāna / pṛṣṭhalabdhajñāna</dt><dd>無分別智／後得智</dd>
+    <dt>āśrayaparāvṛtti</dt><dd>転依。拠り所（アーラヤ識）の転換</dd>
+    <dt>dauṣṭhulya</dt><dd>粗重。身心のはたらきにくさ。二障の種子</dd>
+    <dt>vimuktikāya / dharmakāya</dt><dd>解脱身（声聞など）／法身（仏）</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>このページについて</strong>　Vasubandhu『唯識三十頌』と Sthiramati の注釈『唯識三十頌釈』（<i>Triṃśikāvijñaptibhāṣya</i>）を、大学で初めて仏教哲学に触れる人のために解説したもの。本文の訳文はほとんど載せず、議論の組み立てを科段・図・表で示した。頁番号は H. Buescher, <i>Sthiramati's Triṃśikāvijñaptibhāṣya: Critical Editions of the Sanskrit Text and its Tibetan Translation</i>（Wien, 2007）に従う。</p>
+  <p>科段は、Buescher の構造分析をもとに、議論の流れが見えるように組み直したもので、伝統的な注釈の科文とは一致しない。会話形式の部分は本文の要旨を言いかえたもので、翻訳ではない。法相宗の用語と五位の配当は、玄奘訳『成唯識論』の体系による参考である。西洋哲学との対比は理解の手がかりとして添えたもので、思想の影響関係を主張するものではない。</p>
+</footer>
+</main>
+</body>
+</html>
