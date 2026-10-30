@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Viṃśikā 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&family=Noto+Serif+Tibetan:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+<style>
+.mula .src.tib{font-family:"Noto Serif Tibetan","Jomolhari","Microsoft Himalaya",serif;font-size:1.22rem;line-height:2.1;overflow-wrap:anywhere}
+.mula .src.tib.verse,.mula .src.deva.verse{white-space:pre-line}
+.mula .src + .src{margin-top:8px;padding-top:8px;border-top:1px dotted var(--line)}
+.mula .src .tag{display:inline-block;font-family:var(--f-body);font-size:.7rem;font-weight:700;letter-spacing:.06em;color:var(--muted);background:var(--band);border-radius:4px;padding:0 6px;margin-right:8px;vertical-align:.2em;line-height:1.7}
+.mula.tibb{border-left-color:var(--jati)}
+.mula.tibb.sutra{border-left-color:var(--gold)}
+.mula .ref .pill{margin-left:6px;letter-spacing:0}
+.gap{border:1px dashed var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;color:var(--muted);margin-block:1.2em;background:var(--card)}
+.gap b{color:var(--jati)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s0"><b>0</b>題名と帰敬</a></li>
+    <li><a href="#s1"><b>I</b>三界は表象のみ</a></li>
+    <li><a href="#s2"><b>II</b>四つの反論</a></li>
+    <li><a href="#s3"><b>III</b>夢と餓鬼</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">唯識思想の入口</div>
+  <h1>Viṃśikā</h1>
+  <p class="deva-title" lang="sa">विंशिका</p>
+  <p class="sub">Vasubandhu『唯識二十論』を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　見本（題名から第3偈の注まで）</span>
+  <p>私たちが「外の世界」と呼んでいるものは、本当に心の外にあるのか。Vasubandhu はこの問いに、<strong>三界に属するものはすべて表象（<i>vijñapti</i>）にすぎない</strong>と答えます。外界の対象は存在せず、対象のように見えているのは識そのものだ、というのです。</p>
+  <p><i>Viṃśikā</i> は、この主張に向けられる反論を一つずつ取り上げ、夢・餓鬼・地獄などの喩えで答えていく小品です。後半では極微説を批判して、外界の対象がそもそも成り立たないことを示します。このページでは、原文と和訳を対照させ、各ブロックに解説を付けました。サンスクリット写本は冒頭の1葉を失っているので、そこはチベット語訳を本文として訳しています。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>著者</dt><dd>Vasubandhu（世親）<br><small>4〜5世紀頃の仏教思想家。<i>Abhidharmakośabhāṣya</i>（『倶舎論』）、<i>Triṃśikā</i>（『唯識三十頌』）などの著者</small></dd></div>
+    <div><dt>書名</dt><dd><i>Viṃśikā</i>「二十〔偈〕の書」<br><small>写本の奥書は <i>Viṃśatikā</i> と書くが、加納和雄（Kano 2008）が <i>Viṃśikā</i> が正しいことを示した。漢訳名は玄奘訳『唯識二十論』</small></dd></div>
+    <div><dt>主題</dt><dd>唯識（<i>vijñaptimātra</i>）の論証<br><small>外界の対象を認めなくても、経験の秩序は説明できることを示す</small></dd></div>
+    <div><dt>構成</dt><dd>偈（<i>kārikā</i>）と自注（<i>vṛtti</i>）<br><small>偈の数は、偈だけの写本Aでは22、自注つきの写本Bではおそらく21（Silk 2016 の奥書の注）</small></dd></div>
+    <div><dt>写本</dt><dd>ネパール伝来の貝葉写本2点<br><small>Lévi が1925年に初めて出版。写真版は Mimaki・Tachikawa・Yuyama 1989。自注の写本Bは<strong>最初の1葉を失っている</strong></small></dd></div>
+    <div><dt>翻訳</dt><dd>チベット語訳1点・漢訳3点<br><small>漢訳は瞿曇般若流支訳『唯識論』、真諦訳『大乗唯識論』、玄奘訳『唯識二十論』</small></dd></div>
+    <div><dt>底本</dt><dd>J. A. Silk, <i>Materials Toward the Study of Vasubandhu's Viṃśikā (I)</i><br><small>Harvard Oriental Series 81, 2016。サンスクリット本文（写本A・B）とチベット語訳の校訂本。2018年のオープンアクセス版は CC BY-SA ライセンス。原文の本文はこれに拠り、デーヴァナーガリーとチベット文字は、そのローマ字表記から機械的に転写した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">I A–B</span> は Silk の節番号（ローマ数字）と文番号（A, B…）。節見出しの <span class="pg">pp.30–31</span> は Silk 2016 の頁</div>
+    <div><b>原文</b>サンスクリットはデーヴァナーガリー。写本Bが失われた部分（I〜II K の途中まで）はチベット文字で示し、ブロック左端を赤にした</div>
+    <div><b>偈</b>金色の枠。チベット語本文の部分でも、偈だけの写本Aにサンスクリットが残っていれば、それを並べて示した</div>
+    <div><b>和訳</b>試訳。（　）は訳者の補い。チベット語から訳した部分は、サンスクリット原文がないことに注意</div>
+    <div><b>解説</b>各ブロックの下の灰色の欄。内容の説明と、関連する典拠・漢訳</div>
+    <div><b>Silk の注記</b>解説欄の下段。Silk 2016 の校訂上の判断や、注で指摘されている事実（典拠・異読）を要約して示す。Silk の英訳そのものは引用しない</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">Silk 2016 の節区分（I〜XXII）。見本では I〜III を訳出</span></div>
+  <p>本書は、ほぼ一節に一偈が対応する作りです。前半（II〜X）は「外界の対象がなければ経験の秩序が説明できない」という反論への応答、後半（XI〜XV）は極微説の批判による外界実在論そのものの否定、終盤（XVI〜XXII）は知覚・記憶・他者・殺生・他心智といった個別の疑問への応答です。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>偈</th><th>内容</th></tr></thead>
+      <tbody>
+<tr><td class="num">I</td><td class="num">1</td><td class="k"><a href="#s1">三界は表象のみ。眼病の人が毛髪や月を見るように</a></td></tr>
+<tr><td class="num">II</td><td class="num">2</td><td class="k"><a href="#s2">反論：場所・時間の限定、相続の不限定、効用が説明できない</a></td></tr>
+<tr><td class="num">III</td><td class="num">3</td><td class="k"><a href="#s3">答え（1）：場所・時間は夢のように、相続の不限定は餓鬼のように</a></td></tr>
+<tr><td class="num">IV</td><td class="num">4</td><td>答え（2）：効用は夢精のように。すべては地獄のように</td></tr>
+<tr><td class="num">V</td><td class="num">5</td><td>地獄の獄卒は畜生でも餓鬼でもない</td></tr>
+<tr><td class="num">VI</td><td class="num">6</td><td>業によって元素が変化すると言うなら、なぜ識が変化すると言わないのか</td></tr>
+<tr><td class="num">VII</td><td class="num">7</td><td>業の熏習と、その果の生じる場所</td></tr>
+<tr><td class="num">VIII</td><td class="num">8</td><td>色などの処（<i>āyatana</i>）を説いたのは、教化される人々への意図による</td></tr>
+<tr><td class="num">IX</td><td class="num">9</td><td>識の二つの処：種子と、それが現れる姿</td></tr>
+<tr><td class="num">X</td><td class="num">10</td><td>その教えの意義：人無我と法無我</td></tr>
+<tr><td class="num">XI</td><td class="num">11</td><td>対象は一つでも、多数でも、集合でもない（極微批判の始まり）</td></tr>
+<tr><td class="num">XII</td><td class="num">12</td><td>六方と結合するなら、極微は六つの部分をもつ</td></tr>
+<tr><td class="num">XIII</td><td class="num">13</td><td>極微が結合しないなら、その集合も結合しない</td></tr>
+<tr><td class="num">XIV</td><td class="num">14</td><td>方向の区別をもつものは単一ではない。影と遮蔽</td></tr>
+<tr><td class="num">XV</td><td class="num">15</td><td>単一であれば、順に歩くことなどがありえない</td></tr>
+<tr><td class="num">XVI</td><td class="num">16</td><td>「知覚されるから存在する」への反論。夢の中の知覚</td></tr>
+<tr><td class="num">XVII</td><td class="num">17</td><td>記憶の問題。目覚めない者は夢の対象の非存在を知らない</td></tr>
+<tr><td class="num">XVIII</td><td class="num">18</td><td>表象は相互の影響によって限定される。夢と覚醒の違い</td></tr>
+<tr><td class="num">XIX</td><td class="num">19</td><td>殺生はどう成り立つか：他者の表象の影響による</td></tr>
+<tr><td class="num">XX</td><td class="num">20</td><td>ダンダカの森の荒廃は仙人の怒りによる</td></tr>
+<tr><td class="num">XXI</td><td class="num">21</td><td>他心智は対象をありのままに知るか</td></tr>
+<tr><td class="num">XXII</td><td class="num">22</td><td>結び：唯識性の全体は仏の境地である</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §0 ============ -->
+<section id="s0" class="wrap">
+  <div class="sec-head"><span class="sec-no">0</span><h2>題名と帰敬</h2><span class="sub"><span class="pg">p.30</span>チベット語訳の冒頭。サンスクリット写本Bはこの部分を欠く</span></div>
+<div class="mula tibb">
+  <span class="ref">0<span class="pill j">チベット語訳から</span></span>
+  <div class="src tib" lang="bo">རྒྱ་གར་སྐད་དུ། བིང་ཤི་ཀ་བྲཱི་ཏྟི། །བོད་སྐད་དུ། ཉི་ཤུ་པའི་འགྲེལ་པ། འཇམ་དཔལ་གཞོན་ནུར་གྱུར་པ་ལ་ཕྱག་འཚལ་ལོ། །</div>
+  <div class="tr">インドの言葉で「ビンシカ・ヴリッティ」（<i>Viṃśikāvṛtti</i>）。チベットの言葉で「二十〔論〕の注」。文殊童子に帰命する。</div><div class="exp"><span class="lbl">解説</span><p>チベット語訳の論書は、ふつう原題の音写、チベット語の題名、訳者による帰敬の句で始まります。ここでは自注（<i>vṛtti</i>）の題名が「ビンシカ」と音写されています。</p><p>文殊（<i>Mañjuśrī</i>）への帰敬は、著者 Vasubandhu のものではなく、チベットの翻訳者のものです。吐蕃の翻訳規定では、律には一切智者へ、経には諸仏・諸菩薩へ、論（アビダルマ）には文殊へ帰敬するよう定められていました。本書は論書なので文殊に帰命しています。これに対して、偈だけを伝えるサンスクリット写本Aは <i>namaḥ sarvajñāya</i>「一切智者に帰命する」で始まります。</p><div class="stk"><span class="lbl">Silk の注記</span><p>題名について。近代の研究では長く <i>Viṃśatikā</i> と呼ばれてきましたが、これは自注の写本の誤りで、加納（Kano 2008: 350）が <i>Viṃśikā</i> と正しました。根拠には、Vairocanarakṣita によるパーニニ文法に基づく語の分析、窺基の注釈に見える漢字音写、チベット語の音写があります。ただし Silk は、テンギュルの諸版の音写は母音が一つしかなく、<i>viṃśika</i> ではなく <i>viṃśaka</i> を示すと指摘します。偈の写本Aの奥書が <i>viṃśakā-vijñaptiprakaraṇam</i> と読むのも、偶然ではないかもしれない、としています（Silk, Introduction）。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §I ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">I</span><h2>三界は表象のみ</h2><span class="sub"><span class="pg">pp.30–31</span>唯識の宣言と、その経証・語義・喩え</span></div>
+<p>本書の主張を一節で言い切る部分です。経典の典拠を示し（A–B）、「心」「のみ」の語義を定め（C–E）、眼病の喩えで「対象として現れているのは識そのもの」だと述べます（F–H）。サンスクリット写本Bはこの節をすべて失っており、最後の一句（H）だけが後代の注釈から回収されています。</p>
+<div class="mula tibb" id="i-ab">
+  <span class="ref">I A–B<span class="pill j">チベット語訳から</span></span>
+  <div class="src tib" lang="bo">ཐེག་པ་ཆེན་པོ་ལ་ཁམས་གསུམ་པ་རྣམ་པར་རིག་པ་ཙམ་དུ་རྣམ་པར་གཞག་སྟེ། མདོ་ལས། ཀྱེ་རྒྱལ་བའི་སྲས་དག་འདི་ལྟ་སྟེ། ཁམས་གསུམ་པ་འདི་ནི་སེམས་ཙམ་མོ་ཞེས་འབྱུང་བའི་ཕྱིར་རོ། །</div>
+  <div class="tr">大乗においては、三界に属するものは表象のみ（唯識）であると定められている。経典に「勝者の子らよ、すなわち、この三界に属するものは心のみである」と説かれているからである。</div><div class="exp"><span class="lbl">解説</span><p>「三界」（<i>traidhātuka</i>）は、欲界・色界・無色界、つまり輪廻する者が生きる世界の全体です。それが「表象のみ」（<i>vijñaptimātra</i>、チベット語 <i>rnam par rig pa tsam</i>）だ、というのが本書の命題です。<i>vijñapti</i> は「知らせること・知らしめること」が原義で、識が何かを「何かとして」示している状態を指します。このページでは「表象」と訳します。玄奘はこれを「識」と訳し、ここから「唯識」の語が定着しました。</p><p>引用される経文は『十地経』（<i>Daśabhūmikasūtra</i>）第六地の一節で、サンスクリットでは <i>cittamātram idaṃ yad idaṃ traidhātukam</i>「この三界なるものは心のみである」とあります。仏陀跋陀羅訳『六十華厳』十地品の「三界虚妄、但是心作」として、東アジアでもよく知られた句です。「勝者の子らよ」は、『十地経』の説き手である金剛蔵菩薩が菩薩たちに呼びかける言葉です。</p><p>玄奘訳は「安立大乘三界唯識。以契經說三界唯心」と始まり、チベット語訳と同じ構成です。</p><div class="stk"><span class="lbl">Silk の注記</span><p>サンスクリット原文の第一語は、ほぼ確実に <i>mahāyāne</i>「大乗において」です。Silk はこの語を文頭に保つことを重視しています。引用経文の典拠が『十地経』であることは、La Vallée Poussin（1912: 67 n.3）と Lévi（1932: 43 n.1）がすでに指摘しています。呼びかけの <i>bho jinaputrāḥ</i> を含むかどうか、チベット語の <i>dag</i> に合わせて複数形と取るべきかは、原田（Harada 2000）が詳しく論じていますが、Silk はこの問題にそれほどの重みを認めていません。</p></div></div>
+</div>
+<div class="mula tibb" id="i-ce">
+  <span class="ref">I C–E<span class="pill j">チベット語訳から</span></span>
+  <div class="src tib" lang="bo">སེམས་དང་ཡིད་དང་། རྣམ་པར་ཤེས་པ་དང་། རྣམ་པར་རིག་པ་ཞེས་བྱ་བ་ནི་རྣམ་གྲངས་སུ་གཏོགས་པའོ། །སེམས་དེ་ཡང་འདིར་མཚུངས་པར་ལྡན་པ་དང་བཅས་པར་དགོངས་པའོ། །ཙམ་ཞེས་བྱ་བ་སྨོས་པ་ནི་དོན་དགག་པའི་ཕྱིར་རོ། །</div>
+  <div class="tr">心（<i>citta</i>）・意（<i>manas</i>）・識（<i>vijñāna</i>）・表象（<i>vijñapti</i>）というのは同義語である。そしてここでのその「心」は、（心と）相応するもの（心所）をともなったものとして意図されている。「のみ」と言うのは、（外界の）対象を否定するためである。</div><div class="exp"><span class="lbl">解説</span><p>経典は「心のみ」と言い、自分の命題は「表象のみ」と言う。その食い違いを、四つの語は同義語だとして埋めるのが C です。アビダルマでは心・意・識を同義とするのが通説で、Vasubandhu はそこに「表象」を加えています。</p><p>D は「心」の範囲を広げます。心（心王）だけでなく、感受・想念・意思など心と結びついてはたらく心所（<i>caitta</i>）も含む、ということです。E の「のみ」は、外界の対象（<i>artha</i>、チベット語 <i>don</i>）を否定するための限定です。否定されるのは対象であって、心所ではありません。玄奘訳はこの二点を「心意識了名之差別」「唯遮外境不遣相應」と訳しています。「了」が <i>vijñapti</i> にあたります。</p><div class="stk"><span class="lbl">Silk の注記</span><p>Lévi（1932: 43 n.2）は C の典拠として『倶舎論』II 34ab「心・意・識は同じ意味である」（<i>cittaṃ mano 'tha vijñānam ekārtham</i>）を挙げています。Silk は、この偈には <i>vijñapti</i> が含まれていない点に注意を促しています。</p></div></div>
+</div>
+<div class="mula tibb" id="i-fh">
+  <span class="ref">I F–H<span class="pill j">チベット語訳から</span><span class="pill g">H のみサンスクリット</span></span>
+  <div class="src tib" lang="bo">རྣམ་པར་ཤེས་པ་འདི་ཉིད་དོན་དུ་སྣང་བ་འབྱུང་སྟེ། དཔེར་ན་རབ་རིབ་ཅན་རྣམས་ཀྱིས་སྐྲ་ཟླ་ལ་སོགས་པ་མེད་པར་མཐོང་བ་བཞིན་ཏེ། དོན་གང་ཡང་མེད་དོ། །</div>
+  <div class="src deva" lang="sa"><span class="tag">H</span>नार्थः कश्चिदस्ति ।</div>
+  <div class="tr">この識そのものが、対象として現れて生じるのである。たとえば、眼病の人々が、存在しない毛髪や（二重の）月などを見るように。対象はいかなるものも存在しない。</div><div class="exp"><span class="lbl">解説</span><p>唯識説の核心を一文で述べた箇所です。外に対象があって、それを識がとらえるのではありません。識そのものが対象の姿を帯びて生じているのです。喩えの「眼病」（<i>timira</i>、チベット語 <i>rab rib</i>）は、視界に毛のようなものが浮かんだり、月が二重に見えたりする眼の病気です。見えている毛や二つ目の月は、どこにも存在しません。それでもはっきり見える。これが、対象なしに対象の現れがありうることの典型例として使われます。</p><p>玄奘訳は「内識生時似外境現。如有眩瞖見髮蠅等。此中都無少分實義」です。喩えの中身がチベット語訳（毛髪と月）と異なり、「髪と蠅」になっている点に注意してください。</p></div>
+</div>
+<div class="mula sutra" id="v1">
+  <span class="ref">第1偈（偈の写本A）<span class="pill g">サンスクリット</span></span>
+  <div class="src deva verse" lang="sa">विज्ञप्तिमात्रमेवेदमसदर्थावभासनात् ।
+यद्वत्तैमिरकस्यासत्केशोण्डुकादिदर्शनम् ॥ १ ॥</div>
+  <div class="tr">これはただ表象のみである。存在しない対象として現れるからである。眼病の人が、存在しない毛髪や毛の塊（<i>keśoṇḍuka</i>）などを見るように。</div><div class="exp"><span class="lbl">解説</span><p>自注のチベット語訳と漢訳では、F–G は散文です。ところが、偈だけを伝える写本Aには、同じ内容がはっきり偈の形で残っています。つまり写本Aの系統では、この文が第1偈として数えられていたことになります。本書が「二十」偈と呼ばれながら、写本Aでは22偈、写本Bでは21偈あるという食い違いは、この第1偈の扱いと関係します。</p><p>喩えの中身も伝承によって違います。写本Aは「毛髪と <i>oṇḍuka</i>」、チベット語訳は「毛髪と月」、玄奘訳は「髪と蠅」です。<i>keśoṇḍuka</i> は仏教サンスクリットで、眼病の人に見える毛の網や塊のようなものを指すと解されます。</p><div class="stk"><span class="lbl">Silk の注記</span><p>失われた第1葉は、Lévi（1925: 3）がチベット語訳と漢訳から「復元」し、のちに那須実秋（1953: 114）が修正案を出しました。ほとんどの研究者が Lévi の復元をそのまま採用してきましたが、Silk は、それらは推測にすぎないとして本文には採りません。例外は H の一句で、Vairocanarakṣita の注釈に <i>nārthaḥ kaścid asti</i> とあることが加納（Kano 2008: 353）によって示されたため、これだけはサンスクリット本文として印刷しています。Lévi の復元では第1偈は <i>vijñaptimātram evaitad asadarthāvabhāsanāt | yathā taimirikasyāsatkeśacandrādidarśanam</i> となっていて、写本Aの読み（<i>evedam</i>、<i>yadvat</i>、<i>keśoṇḍuka</i>）とは異なります。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §II ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">II</span><h2>四つの反論</h2><span class="sub"><span class="pg">pp.32–35</span>外界の対象がなければ、経験の秩序が説明できない</span></div>
+<p>実在論者からの反論です。経験には四つの「秩序」がある。外界の対象を認めればそれが説明できるが、表象しかないなら説明できない、というものです。この四点が、次の III・IV の答えの枠組みになります。サンスクリット写本Bは、この節の最後（K）の途中から始まります。</p>
+<div class="mula tibb sutra" id="v2">
+  <span class="ref">II A・第2偈<span class="pill j">チベット語訳から</span><span class="pill g">偈は写本Aにサンスクリットあり</span></span>
+  <div class="src tib verse" lang="bo">འདིར་འདི་སྐད་ཅེས་བརྒལ་ཏེ།
+གལ་ཏེ་རྣམ་རིག་དོན་མིན་ན། །ཡུལ་དང་དུས་ལ་ངེས་མེད་ཅིང་། །
+སེམས་ཀྱང་ངེས་མེད་མ་ཡིན་ལ། །བྱ་བ་བྱེད་པའང་མི་རིགས་འགྱུར། །༢། །</div>
+  <div class="src deva verse" lang="sa"><span class="tag">偈の写本A</span>न देशकालनियमः सन्तानानियमो न [च] ।
+न च कृत्यक्रिया युक्ता विज्ञप्तिर्यदि नार्थतः ॥ २ ॥</div>
+  <div class="tr">これに対して、次のように反論される。<br>もし表象が対象から（生じるの）でないならば、場所と時間の限定も、相続（心）の不限定も、また効用（作用をなすこと）も、理に合わないことになる。</div><div class="exp"><span class="lbl">解説</span><p>反論の四点は次のとおりです。（1）<strong>場所の限定</strong>：あるものは特定の場所でだけ見える。（2）<strong>時間の限定</strong>：同じ場所でも特定の時にだけ見える。（3）<strong>相続の不限定</strong>：その場その時にいる人には誰にでも見え、特定の一人の心だけに現れるのではない。（4）<strong>効用</strong>（<i>kṛtyakriyā</i>）：本物の食べ物は空腹を満たすように、ものは実際の作用をもつ。</p><p>「相続」（<i>santāna</i>）は、刹那ごとに生滅する心の流れ、つまり一人ひとりの個体のことです。外界の対象があるからこそ、場所と時間が決まり、誰にでも同じように見え、実際に役立つ。外界がなければ、表象は好きな時に好きな場所で、一人の心にだけ起こってもよいはずだ、というのが反論の趣旨です。</p><p>玄奘訳では、この偈が本書の第1偈になっています（「若識無實境　即處時決定　相續不決定　作用不應成」）。玄奘訳は I の内容を散文で訳しているため、偈の数え方が一つずれます。</p><div class="stk"><span class="lbl">Silk の注記</span><p>写本Aの偈の第1句末の <i>ca</i> は Silk の補いです。Lévi の復元はこの偈を <i>yadi vijñaptir anarthā niyamo na deśakālayoḥ | santānasyāniyamaś ca yuktā kṛtyakriyā na ca</i> としていました。これは、後に写本Aで確かめられた実際の偈とは語順も表現も大きく異なります。復元がどれほど不確かなものかを示す好例です。また、自注のチベット語訳が「相続」を <i>sems</i>「心」と訳すのに対して、敦煌出土の偈の古訳（Pelliot tibétain 125）は <i>rgyud</i>「相続」と、より字義どおりに訳しています。</p></div></div>
+</div>
+<div class="mula tibb" id="ii-bg">
+  <span class="ref">II B–G<span class="pill j">チベット語訳から</span></span>
+  <div class="src tib" lang="bo">ཇི་སྐད་དུ་བསྟན་པར་འགྱུར་ཞེ་ན། གལ་ཏེ་གཟུགས་ལ་སོགས་པའི་དོན་མེད་པར་གཟུགས་ལ་སོགས་པའི་རྣམ་པར་རིག་པ་འབྱུང་སྟེ་གཟུགས་ལ་སོགས་པའི་དོན་ལས་མ་ཡིན་ན། ཅིའི་ཕྱིར་ཡུལ་ལ་ལར་འབྱུང་ལ་ཐམས་ཅད་ན་མ་ཡིན། ཡུལ་དེ་ཉིད་ན་ཡང་རེས་འགའ་འབྱུང་ལ་ཐམས་ཅད་དུ་མ་ཡིན། ཡུལ་དང་དུས་དེ་ན་འཁོད་པ་ཐམས་ཅད་ཀྱི་སེམས་ལ་ངེས་པ་མེད་པ་འབྱུང་ལ་འགའ་ཙམ་ལ་མ་ཡིན། ཇི་ལྟར་རབ་རིབ་ཅན་ཉིད་ཀྱི་སེམས་ལ་སྐྲ་ལ་སོགས་པ་སྣང་གི། གཞན་དག་ལ་ནི་མ་ཡིན། །</div>
+  <div class="tr">何が言われているのか。もし色などの対象がないのに色などの表象が生じ、（その表象が）色などの対象から（生じるの）でないとすれば、（1）なぜ（それは）ある場所で生じて、あらゆる場所で（生じるの）ではないのか。（2）なぜその同じ場所でも、ある時に生じて、常に（生じるの）ではないのか。（3）なぜその場所・その時にいるすべての者の心に限定なく生じて、一部の者だけに（生じるの）ではないのか。眼病の者の心にだけ毛髪などが現れ、他の人々には（現れ）ないのとは違って。</div><div class="exp"><span class="lbl">解説</span><p>偈の前半三点を散文で敷衍しています。G の眼病の例は、I では唯識の側の喩えでしたが、ここでは反論者に逆用されています。眼病の人の見る毛は、その人の心にだけ現れる。ところが私たちがふだん見る色や形は、その場の誰にでも見える。だから両者は同じではない、という論法です。</p></div>
+</div>
+<div class="mula tibb" id="ii-hk">
+  <span class="ref">II H–K<span class="pill j">チベット語訳から</span><span class="pill g">K の途中からサンスクリット</span></span>
+  <div class="src tib" lang="bo">ཅིའི་ཕྱིར་གང་རབ་རིབ་ཅན་གྱིས་མཐོང་བའི་སྐྲ་དང་། སྦྲང་བུ་ལ་སོགས་པས་སྐྲ་ལ་སོགས་པའི་བྱ་བ་མི་བྱེད་ལ། དེ་མ་ཡིན་པ་གཞན་དག་གིས་ནི་བྱེད། རྨི་ལམ་ན་མཐོང་བའི་བཟའ་བ་དང་བཏུང་བ་དང་བགོ་བ་དང་དུག་དང་མཚོན་ལ་སོགས་པས་ཟས་དང་སྐོམ་ལ་སོགས་པའི་བྱ་བ་མི་བྱེད་ལ། དེ་མ་ཡིན་པ་གཞན་དག་གིས་ནི་བྱེད། དྲི་ཟའི་གྲོང་ཁྱེར་ཡོད་པ་མ་ཡིན་པས་གྲོང་ཁྱེར་གྱི་བྱ་བ་མི་བྱེད་ལ། དེ་མ་ཡིན་པ་གཞན་དག་གིས་ནི་བྱེད། འདི་དག་དོན་མེད་པར་མེད་དུ་འདྲ་ན་ཡུལ་དང་དུས་ངེས་པ་དང་། སེམས་ངེས་པ་མེད་པ་དང་། བྱ་བ་བྱེད་པ་འདི་དག་ཀྱང་མི་རུང་ངོ་ཞེ་ན།</div>
+  <div class="src deva" lang="sa"><span class="tag">K 写本B</span>…नियमः सन्तानानियमः कृत्यक्रिया च न युज्यते ।</div>
+  <div class="tr">（4）なぜ、眼病の者が見る毛髪や蜂などは毛髪などの作用をなさないのに、そうでない他の（毛髪など）はなすのか。夢で見た食べ物・飲み物・衣服・毒・武器などは、食や渇き（を癒すこと）などの作用をなさないのに、そうでない他のものはなす。乾闥婆城は存在しないので都の作用をなさないが、そうでない他の（都）はなす。これらが、対象を欠く点で無と等しいならば、場所と時間の限定も、相続の不限定も、効用も、理に合わない――と言うならば。</div><div class="exp"><span class="lbl">解説</span><p>四点目の「効用」を、三つの例で説明しています。眼病の者が見る毛、夢の中の食べ物、乾闥婆城（<i>gandharvanagara</i>、空中に現れる幻の都、蜃気楼）です。どれも見えはするが、何の役にも立たない。本物の毛や食べ物や都は役に立つ。その違いは外界の対象の有無にある、というのが反論者の考えです。</p><p>サンスクリット写本Bは K の途中、「…の限定、相続の不限定、効用は理に合わない」から始まります。ここから先は、チベット語訳ではなくサンスクリット原文から訳すことができます。</p><div class="stk"><span class="lbl">Silk の注記</span><p>写本Bがここから始まることは、Silk も英訳の注で明記しています。Lévi はこの部分も復元していて、H–J を <i>…keśādikriyāṃ karoti tadanye tu kurvanti | svapne paśyamāno 'nnapānavastraviṣāyudhādiko nānnapānādikriyāṃ karoti tadanye tu kurvanti | abhūtagandharvanagaraṃ na nagarakriyāṃ karoti tadanye tu kurvanti</i> としています。Silk はこれも本文には採っていません。</p></div></div>
+</div>
+</section>
+
+<!-- ============ §III ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">III</span><h2>夢と餓鬼</h2><span class="sub"><span class="pg">pp.36–41</span>場所・時間の限定は夢のように、相続の不限定は餓鬼のように</span></div>
+<p>Vasubandhu の答えの前半です。四つの秩序のうち、場所と時間の限定は夢の例で、相続の不限定は餓鬼の例で、外界の対象がなくても成り立つことを示します。効用は次の IV で扱われます。ここからサンスクリット原文があります。</p>
+<div class="mula sutra" id="v3ab">
+  <span class="ref">III A–E・第3偈 ab</span>
+  <div class="src deva" lang="sa">न खलु न युज्यते । यस्मात्</div>
+  <div class="src deva verse" lang="sa">देशादिनियमः सिद्धस्स्वप्नवत्</div>
+  <div class="src deva" lang="sa">स्वप्न इव स्वप्नवत्कथं तावत्स्वप्ने विनाप्यर्थेन क्वचिदेव देशे किञ्चिद्ग्रामारामस्त्रीपुरुषादिकं दृश्यते न सर्वत्र तत्रैव च देशे कदाचिद्दृश्यते न सर्वकालमिति सिद्धो विनाप्यर्थेन देशकालनियमः ॥</div>
+  <div class="tr">決して理に合わないことはない。なぜなら、<br><b>場所などの限定は、夢のように成り立つ。</b><br>「夢のように」とは、夢におけるように、ということである。どのようにか。まず夢の中では、対象がなくても、村・園林・女・男などの何かが、ある特定の場所でだけ見られ、あらゆる場所でではない。またその同じ場所でも、ある時にだけ見られ、常にではない。それゆえ、対象がなくても、場所と時間の限定は成り立つ。</div><div class="exp"><span class="lbl">解説</span><p>夢の中にも場所と時間の秩序があります。夢で見る村は、夢の中の特定の場所にあり、そこにいつもあるわけではありません。しかし夢の村には、もちろん外界の対象としての村はない。だから、場所と時間の限定は外界の対象の存在を証明しない、ということになります。</p><p>この議論は、夢の経験と覚醒時の経験を同じ構造のものとみなすことに基づいています。両者の違いは、XVI〜XVIII でふたたび問題になります。</p><div class="stk"><span class="lbl">Silk の注記</span><p>D の「村・園林・女・男など」（<i>grāmārāma…</i>）は、写本では <i>bhramarā°</i>（「蜂…」）と書かれており、Silk が訂正したものです。チベット語訳は E で「場所と時間の限定」とは言わず、<i>yul la sogs pa</i>「場所など」と訳しています。偈の表現に合わせたものでしょう。また、D の「対象がなくても」（<i>vināpy arthena</i>）は D と E で二度出てきますが、チベット語訳は一度目を <i>don med par</i>、二度目を <i>don med par yang</i> と訳し分けています。同じ不一致は XVI と XVII にも見られます。</p></div></div>
+</div>
+<div class="mula sutra" id="v3bd">
+  <span class="ref">III F–I・第3偈 bcd</span>
+  <div class="src deva verse" lang="sa">प्रेतवत्पुनः सन्तानानियमः ॥</div>
+  <div class="src deva" lang="sa">सिद्ध इति वर्तते । प्रेतानामिव प्रेतवत् । कथं सिद्धः । समं</div>
+  <div class="src deva verse" lang="sa">सर्वैः पूयनद्यादिदर्शने ॥ ३ ॥</div>
+  <div class="tr"><b>また相続の不限定は、餓鬼のように（成り立つ）。</b><br>「成り立つ」が（前の句から）続いている。「餓鬼のように」とは、餓鬼たちにおけるように、ということである。どのように成り立つのか。一様に、<br><b>すべての者が膿の河などを見ることにおいて。</b></div><div class="exp"><span class="lbl">解説</span><p>相続の不限定、つまり「その場にいる者すべてに同じものが見える」ことも、外界の対象なしに成り立つ、という主張です。例は餓鬼（<i>preta</i>）です。餓鬼の世界の河は、餓鬼には膿の河に見える。しかもそれは、一匹の餓鬼の幻覚ではなく、そこにいる餓鬼すべてに同じように見える。</p><p>玄奘訳は偈の bcd を「身不定如鬼　同見膿河等」と訳します（玄奘訳では第2偈。<i>santāna</i> を「身」と訳しています）。</p><div class="stk"><span class="lbl">Silk の注記</span><p>注釈部分の <i>samam</i>「一様に」に相当する語は、チベット語訳にありません。Silk は、Vinītadeva の注釈（176b6–7）にも見あたらないと述べています。</p></div></div>
+</div>
+<div class="mula" id="iii-jn">
+  <span class="ref">III J–N</span>
+  <div class="src deva" lang="sa">पूयपूर्णा नदी पूयनदी । घृतघटवत् । तुल्यकर्मविपाकावस्था हि प्रेताः सर्वेऽपि समं पूयपूर्णां नदीं पश्यन्ति नैक एव । यथा पूयपूर्णामेवं मूत्रपुरीषादिपूर्णां दण्डासिधरैश्च पुरुषैरधिष्ठितामित्यादिग्रहणेन । एवं सन्तानानियमो विज्ञप्तीनामसत्यप्यर्थे सिद्धः ॥</div>
+  <div class="tr">「膿の河」とは膿に満ちた河のことである。「ギーの壺」（がギーに満ちた壺を言う）のと同じである。なぜなら、等しい業の果報を受ける状態にある餓鬼たちは、みな一様に膿に満ちた河を見るのであって、一匹だけが（見るの）ではないからである。膿に満ちた（河）と同じく、尿や糞などに満ちた（河）、また杖や剣を持った男たちに見張られた（河）も、ということが「など」の語によって（含まれる）。このように、対象が存在しなくても、表象が相続に限定されないことは成り立つ。</div><div class="exp"><span class="lbl">解説</span><p>J–K は複合語の説明です。「膿の河」（<i>pūyanadī</i>）は「膿〔に満ちた〕河」の意味で、真ん中の語が省かれた複合語です。「ギーの壺」（<i>ghṛtaghaṭa</i>）がギーでできた壺ではなく、ギーの入った壺を指すのと同じ型です。</p><p>議論の要は L の「等しい業の果報」（<i>tulyakarmavipāka</i>）です。同じ種類の業を積んで同じ境遇に生まれた者たちは、同じ表象を経験する。だから、複数の者が同じものを見ることは、外界に共通の対象があることの証拠にはならない。共通性の根拠は、外の物ではなく、業の共通性に置かれます。</p><p>同じ河が、見る者の境遇によって別のものに見えるという考え方は、のちの瑜伽行派で、水が天には甘露、人には水、魚には住みか、餓鬼には膿血に見えるという「一水四見」の喩えとして広く用いられるようになります。</p><div class="stk"><span class="lbl">Silk の注記</span><p>M の「尿や糞など」について、チベット語訳は尿・糞のほかに、熱い灰（*<i>kukkula</i>）、唾（*<i>kheṭa</i>）、鼻水（*<i>siṃhāṇaka</i>）を挙げています。唾と鼻水、尿と糞はそれぞれ決まった組み合わせですが、熱い灰がこの文脈で加わる例は、Silk も他に見ていないといいます。Vinītadeva の注釈と、真諦訳・玄奘訳はサンスクリットとほぼ一致します。般若流支訳は、膿・血・小便・大便・流鉄・流水を挙げています（T. 1588, 31: 65b8–9）。</p></div></div>
+</div>
+<div class="tbl">
+  <table>
+    <thead><tr><th>反論の論点</th><th>答えの喩え</th><th>節</th></tr></thead>
+    <tbody>
+      <tr><td class="k">場所の限定</td><td>夢：夢の村は特定の場所にだけ見える</td><td class="num">III</td></tr>
+      <tr><td class="k">時間の限定</td><td>夢：その場所でも特定の時にだけ見える</td><td class="num">III</td></tr>
+      <tr><td class="k">相続の不限定</td><td>餓鬼：同じ業をもつ者すべてに膿の河が見える</td><td class="num">III</td></tr>
+      <tr><td class="k">効用</td><td>夢精：夢の中の交わりが実際の結果を生む</td><td class="num">IV</td></tr>
+      <tr class="here"><td class="k">四つすべて</td><td>地獄：獄卒は実在しないが、地獄の者すべてに見え、責め苦を与える</td><td class="num">IV</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="cap">表　II の四つの反論と、III・IV の答えの対応。IV は見本には含まれていないので、内容だけを示した。</p>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">見本に出てくる主な術語（括弧内はチベット語訳）</span></div>
+  <dl class="gloss">
+    <dt>vijñapti</dt><dd>表象（<i>rnam par rig pa</i>）。識が何かを何かとして示している状態。玄奘訳「識」「了」</dd>
+    <dt>vijñaptimātra(tā)</dt><dd>表象のみ（であること）、唯識（<i>rnam par rig pa tsam</i>）</dd>
+    <dt>citta / manas / vijñāna</dt><dd>心／意／識（<i>sems / yid / rnam par shes pa</i>）。ここでは同義語</dd>
+    <dt>caitta / saṃprayoga</dt><dd>心所／相応。心と結びついてはたらく心作用</dd>
+    <dt>artha</dt><dd>対象、外界の対象（<i>don</i>）</dd>
+    <dt>traidhātuka</dt><dd>三界に属するもの（<i>khams gsum pa</i>）。欲界・色界・無色界</dd>
+    <dt>timira / taimirika</dt><dd>眼病／眼病の人（<i>rab rib / rab rib can</i>）</dd>
+    <dt>niyama / aniyama</dt><dd>限定／不限定（<i>nges pa / nges pa med pa</i>）</dd>
+    <dt>santāna</dt><dd>相続。刹那ごとに続く心の流れ、個体（自注訳 <i>sems</i>、古訳 <i>rgyud</i>）</dd>
+    <dt>kṛtyakriyā</dt><dd>効用。作用をなすこと（<i>bya ba byed pa</i>）</dd>
+    <dt>gandharvanagara</dt><dd>乾闥婆城（<i>dri za'i grong khyer</i>）。幻の都、蜃気楼</dd>
+    <dt>preta</dt><dd>餓鬼（<i>yi dags</i>）</dd>
+    <dt>karmavipāka</dt><dd>業の果報、異熟</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　サンスクリットとチベット語の本文は、J. A. Silk, <i>Materials Toward the Study of Vasubandhu's Viṃśikā (I)</i>（Harvard Oriental Series 81, 2016; Open Access Edition 2018, CC BY-SA）の校訂本に拠った。底本の OCR テキストからローマ字表記を採り、デーヴァナーガリーとチベット文字に機械的に転写した。写本の表記（<i>siddhas svapnavat</i> などの連声、休止符号）は Silk の本文に従っている。OCR の明らかな誤りは訂正したが、印刷版との校合は済んでいない。原文部分は底本のライセンス（CC BY-SA）に従う。</p>
+  <p>和訳と解説は、Silk の英訳に依らず、サンスクリット原文（失われた部分はチベット語訳）から独自に作成した試訳である。「Silk の注記」欄は、Silk 2016 の注で示された事実と校訂上の判断を要約したもので、英訳の文言は引用していない。漢訳は大正蔵（T. 1588–1590）に拠る。</p>
+</footer>
+</main>
+</body>
+</html>
