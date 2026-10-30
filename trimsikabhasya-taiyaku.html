@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>唯識三十頌釈 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+<style>
+.mula .src.deva.verse{white-space:pre-line}
+.hero h1{overflow-wrap:anywhere;font-size:clamp(1.9rem,7vw,3.2rem)}
+.mula .src + .src{margin-top:8px;padding-top:8px;border-top:1px dotted var(--line)}
+.mula .ref .pill{margin-left:6px;letter-spacing:0}
+.mula .src .tag{display:inline-block;font-family:var(--f-ia);font-size:.7rem;font-weight:700;color:var(--muted);background:var(--band);border-radius:4px;padding:0 6px;margin-right:8px;vertical-align:.2em;line-height:1.7}
+.mula .ref .no{font-family:var(--f-ia);color:var(--accent);margin-right:6px}
+.kdtbl td.no{font-family:var(--f-ia);white-space:nowrap;color:var(--accent);font-weight:700}
+.kdtbl td.ind1{padding-left:1.6em}.kdtbl td.ind2{padding-left:2.8em}.kdtbl td.ind3{padding-left:4em}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">科段</a></li>
+    <li><a href="#s0"><b>1.0</b>造論の目的</a></li>
+    <li><a href="#s1"><b>1.1</b>第1偈と仮説</a></li>
+    <li><a href="#s2"><b>二辺</b>二つの極端説</a></li>
+    <li><a href="#s3"><b>所縁</b>外界なき認識</a></li>
+    <li><a href="#s4"><b>仮説</b>本来の意味はない</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">唯識思想を読む</div>
+  <h1>Triṃśikāvijñaptibhāṣya</h1>
+  <p class="deva-title" lang="sa">त्रिंशिकाविज्ञप्तिभाष्य</p>
+  <p class="sub">Sthiramati（安慧）『唯識三十頌釈』を、原文・和訳・解説でテキスト順に読む</p>
+  <span class="sample">対訳　見本（帰敬・造論の目的から第1偈 abc の注まで）</span>
+  <p>Vasubandhu の『唯識三十頌』（<i>Triṃśikā</i>）は、唯識思想の体系を三十の偈にまとめた書物です。ただ、偈はあまりに簡潔で、それだけでは読めません。この偈に、6世紀の学僧 Sthiramati が詳しい注釈を付けたのが本書です。サンスクリット原典が残っている唯一の『三十頌』注釈で、玄奘の『成唯識論』とならぶ、唯識教学の基本文献です。</p>
+  <p>このページでは、デーヴァナーガリーの原文と和訳を対照させ、各ブロックに解説を付けました。ブロックの区切りと番号は、Buescher の校訂本に付された構造分析（科段）に従っています。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>著者</dt><dd>Sthiramati（安慧）<br><small>6世紀頃、西インドのヴァラビーで活動した瑜伽行派の学僧。『倶舎論』『中辺分別論』などにも注釈を書いた</small></dd></div>
+    <div><dt>注釈の対象</dt><dd>Vasubandhu『唯識三十頌』<br><small>識の三つの変化（転変）、心所、三性・三無性、修行の階梯を、30偈で説く</small></dd></div>
+    <div><dt>書名</dt><dd><i>Triṃśikāvijñaptibhāṣya</i><br><small>「三十〔偈〕による表象〔のみであること〕の注釈」。偈を一つずつ語釈しながら、反論に答えていく</small></dd></div>
+    <div><dt>写本</dt><dd>ネパール伝来の貝葉写本<br><small>1922年に Lévi が『唯識二十論』とともに発見し、1925年に出版した。チベット語訳も現存する</small></dd></div>
+    <div><dt>漢訳との関係</dt><dd>玄奘『成唯識論』<br><small>『三十頌』の十人の注釈家の説を玄奘が編集したもので、安慧の説もその中に引かれる。本書そのものの漢訳はない</small></dd></div>
+    <div><dt>底本</dt><dd>H. Buescher, <i>Sthiramati's Triṃśikāvijñaptibhāṣya</i><br><small>Wien 2007。サンスクリット本文とチベット語訳の校訂本。本文はその OCR テキストから採り、デーヴァナーガリーに機械的に転写した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">1.0.2</span> は Buescher の構造番号。その横の <span class="ia">B 1,5–14</span> は Buescher の頁・行（本文の頁は *1, *2… と数える）</div>
+    <div><b>偈</b>金色の枠は『三十頌』の本偈。Sthiramati は偈を句ごとに分けて引き、注を付ける</div>
+    <div><b>原文</b>デーヴァナーガリー。写本の符号・行番号・注番号は省いた</div>
+    <div><b>和訳</b>試訳。（　）は訳者の補い。「〜と言うなら」は反論者の発言</div>
+    <div><b>解説</b>各ブロックの下の灰色の欄。内容の説明と、関連する思想史の背景</div>
+    <div><b>Buescher の注記</b>解説欄の下段。Buescher の校訂注（写本の異読、Lévi 版との違い、チベット語訳との対応）のうち、読みに関わるものを要約した</div>
+  </div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">科段</h2><span class="sub">Buescher の構造分析（Structural Analysis of TrBh）に基づく。見本の範囲</span></div>
+  <p>Buescher は本書全体に、小数点で枝分かれする詳しい構造番号を付けています。大きくは、1.0（序）、1.1（識の三つの転変：第1〜16偈）、2.1〜2.5（唯識の論証から悟りまで：第17〜30偈）に分かれます。見本で扱う範囲は次のとおりです。番号の順と本文の順が一致しない箇所がありますが、本文の順に並べました。</p>
+  <div class="tbl min kdtbl">
+    <table>
+      <thead><tr><th>番号</th><th>内容</th><th>頁</th></tr></thead>
+      <tbody>
+<tr class="grp"><td colspan="3"><a href="#s0">1.0　造論の目的</a></td></tr>
+<tr><td class="no">1.0.1</td><td class="ind1">人と法の無我を示すため</td><td class="num">1,2</td></tr>
+<tr><td class="no">1.0.2</td><td class="ind1">煩悩障・所知障を断つため</td><td class="num">1,5</td></tr>
+<tr><td class="no">1.0.2.1</td><td class="ind2">煩悩障を断って解脱を得る</td><td class="num">1,10</td></tr>
+<tr><td class="no">1.0.2.2</td><td class="ind2">所知障を断って一切智を得る</td><td class="num">1,11</td></tr>
+<tr><td class="no">1.0.3</td><td class="ind1">表象のみであることに順に悟入させるため</td><td class="num">1,15</td></tr>
+<tr><td class="no">1.0.4</td><td class="ind1">二種の極端説を否定するため</td><td class="num">1,18</td></tr>
+<tr class="grp"><td colspan="3"><a href="#s1">1.1　第1偈 abc：我と法の仮説は識の転変において</a></td></tr>
+<tr><td class="no">1.1.1</td><td class="ind1">「我と法の仮説」の語釈</td><td class="num">2,4</td></tr>
+<tr><td class="no">1.1.1.1</td><td class="ind2">仮説は識の転変においてのみ。転変の定義</td><td class="num">2,9</td></tr>
+<tr><td class="no">1.1.1.1.1</td><td class="ind3">アーラヤ識から我や色の現れが生じる</td><td class="num">2,13</td></tr>
+<tr class="grp"><td colspan="3"><a href="#s2">二つの極端説の否定</a></td></tr>
+<tr><td class="no">1.1.1.1.2.1</td><td class="ind1">（1）「対象も識と同じく実在する」の否定</td><td class="num">3,6</td></tr>
+<tr><td class="no">1.1.1.1.2.2</td><td class="ind1">（2）「識も対象と同じく世俗にすぎない」の否定</td><td class="num">3,9</td></tr>
+<tr><td class="no">1.1.1.1.2.1+2</td><td class="ind1">結論：対象は実在せず、識は実在する</td><td class="num">3,14</td></tr>
+<tr class="grp"><td colspan="3"><a href="#s3">外界なしに識が対象の姿をとって生じる</a></td></tr>
+<tr><td class="no">[1.1.1.1.2.2.1]</td><td class="ind1">問い：なぜそう言えるのか</td><td class="num">3,19</td></tr>
+<tr><td class="no">1.1.1.1.2.2.1.1</td><td class="ind2">所縁縁の条件</td><td class="num">3,20</td></tr>
+<tr><td class="no">1.1.1.1.2.2.1.2</td><td class="ind2">五識の所縁は集積したもの。極微は所縁でない</td><td class="num">4,1</td></tr>
+<tr><td class="no">1.1.1.1.2.2.2</td><td class="ind2">意識もまた所縁なしに生じる</td><td class="num">4,22</td></tr>
+<tr class="grp"><td colspan="3"><a href="#s4">反論：本来のものがなければ仮説はない</a></td></tr>
+<tr><td class="no">1.1.1.1.2.1.1</td><td class="ind1">（1）類の仮説も実体の仮説も成り立たない</td><td class="num">5,3</td></tr>
+<tr><td class="no">1.1.1.1.2.1.1.1</td><td class="ind2">（a）類の仮説の否定</td><td class="num">5,9</td></tr>
+<tr><td class="no">1.1.1.1.2.1.1.2</td><td class="ind2">（b）実体の仮説の否定</td><td class="num">5,16</td></tr>
+<tr><td class="no">1.1.1.1.2.1.2</td><td class="ind1">（2）本来の意味そのものが存在しない</td><td class="num">6,1</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 1.0 ============ -->
+<section id="s0" class="wrap">
+  <div class="sec-head"><span class="sec-no">1.0</span><h2>帰敬と造論の目的</h2><span class="sub"><span class="pg">*1</span>Vasubandhu はなぜ『三十頌』を書いたのか。四つの答え</span></div>
+<p>注釈の冒頭で、Sthiramati は Vasubandhu がこの書を著した目的を説明します。目的は一つではなく、「あるいは」（<i>atha vā</i>）でつないで四通りに示されます。後の三つは、最初の目的を別の角度から言い直したものです。</p>
+<div class="mula" id="u101">
+  <span class="ref"><span class="no">1.0.1</span>B 1,1–4</span>
+  <div class="src deva" lang="sa">नमो बुद्धाय ॥ पुद्गलधर्मनैरात्म्ययोरप्रतिपन्नविप्रतिपन्नानामविपरीतपुद्गलधर्मनैरात्म्यप्रतिपादनार्थं त्रिंशिकाविज्ञप्तिप्रकरणारम्भः ।</div>
+  <div class="tr">仏陀に帰命する。人と法の無我を理解していない者や、誤って理解している者たちに、人と法の無我を誤りなく示すために、『三十〔偈〕による表象〔のみであること〕の論』が書き始められる。</div><div class="exp"><span class="lbl">解説</span><p>「人の無我」（人無我、<i>pudgalanairātmya</i>）は、輪廻する主体としての「私」が実在しないこと、「法の無我」（法無我、<i>dharmanairātmya</i>）は、経験を構成する要素（法）もまた実体をもたないことです。前者は仏教全体の基本教説、後者は大乗が強調する教説です。</p><p>相手は二種類に分けられています。まったく理解していない者（<i>apratipanna</i>）と、誤って理解している者（<i>vipratipanna</i>）です。前者は仏教外の人々や初学者、後者は無我を説きながら法の実在を認める仏教内の実在論者（説一切有部など）が想定されているのでしょう。</p><div class="stk"><span class="lbl">Buescher の注記</span><p>帰敬の <i>namo buddhāya</i> は貝葉写本 C とその写本 F にあり、他の写本 G・H と Lévi 版にはありません。写本 E は代わりに <i>śrīgaṇeśāya namaḥ</i>「吉祥なるガネーシャに帰命する」と書いています。ネパールで写本が書写された時の、写字生の習慣を示すものでしょう。</p></div></div>
+</div>
+<div class="mula" id="u102">
+  <span class="ref"><span class="no">1.0.2</span>B 1,5–14</span>
+  <div class="src deva" lang="sa">पुद्गलधर्मनैरात्म्यप्रतिपादनं पुनः क्लेशज्ञेयावरणप्रहाणार्थम् । तथा ह्यात्मदृष्टिप्रभवा रागादयः क्लेशाः । पुद्गलनैरात्म्यावबोधश्च सत्कायदृष्टेः प्रतिपक्षत्वात्तत्प्रहाणाय प्रवर्तमानः सर्वक्लेशान्प्रजहाति । धर्मनैरात्म्यज्ञानादपि ज्ञेयावरणप्रतिपक्षत्वाज्ज्ञेयावरणं प्रहीयते । क्लेशज्ञेयावरणप्रहाणमपि मोक्षसर्वज्ञत्वाधिगमार्थम् ।</div>
+  <div class="src deva" lang="sa"><span class="tag">1.0.2.1</span>क्लेशा हि मोक्षप्राप्तेरावरणमित्यतस्तेषु प्रहीणेषु मोक्षोऽधिगम्यते ।</div>
+  <div class="src deva" lang="sa"><span class="tag">1.0.2.2</span>ज्ञेयावरणमपि सर्वस्मिञ्ज्ञेये ज्ञानप्रवृत्तिप्रतिबन्धभूतमक्लिष्टमज्ञानम् । तस्मिन्प्रहीणे सर्वाकारे ज्ञेयेऽसक्तमप्रतिहतञ्च ज्ञानं प्रवर्तत इत्यतः सर्वज्ञत्वमधिगम्यते ।</div>
+  <div class="tr">また、人と法の無我を示すのは、煩悩という障害と、知られるべきものに対する障害とを断つためである。すなわち、貪りなどの煩悩は、自己があるという見解から生じる。そして人の無我の理解は、身体を自己とみなす見解（有身見）の対治であるので、それを断つためにはたらき、すべての煩悩を断つ。また法の無我の知からも、それが所知障の対治であるので、所知障が断たれる。そして煩悩障と所知障を断つのも、解脱と一切智を得るためである。<br>なぜなら、煩悩は解脱を得ることの障害であるから、それらが断たれると解脱が得られる。<br>また所知障とは、知られるべきものすべてに対して知がはたらくことを妨げる、汚れのない無知である。それが断たれると、あらゆる様相の知られるべきものに対して、とらわれず妨げられない知がはたらく。だから一切智が得られる。</div><div class="exp"><span class="lbl">解説</span><p>唯識の修道論の骨組みが、ここに簡潔に示されています。二つの無我、二つの障害、二つの果が、きれいに対応しています。</p><div class="tbl" style="margin-block:.6em"><table><thead><tr><th>知</th><th>断たれる障害</th><th>得られる果</th></tr></thead><tbody><tr><td class="k">人無我の理解</td><td>煩悩障（<i>kleśāvaraṇa</i>）：有身見から生じる貪りなどの煩悩</td><td>解脱（<i>mokṣa</i>）</td></tr><tr><td class="k">法無我の知</td><td>所知障（<i>jñeyāvaraṇa</i>）：知の全面的なはたらきを妨げる、汚れのない無知</td><td>一切智（<i>sarvajñatva</i>）</td></tr></tbody></table></div><p>重要なのは、所知障が「汚れのない（<i>akliṣṭa</i>）無知」と定義されている点です。それ自体は煩悩ではなく、輪廻の原因にもならない。しかし、すべてを知ることを妨げる。声聞（小乗の修行者）は煩悩障を断って解脱に至りますが、所知障は残ります。菩薩は両方を断って、解脱に加えて一切智、つまり仏の知を得る。大乗が小乗を超える点が、知の範囲の違いとして説明されているのです。</p><div class="stk"><span class="lbl">Buescher の注記</span><p>Lévi は、1.0.2.2 の「それが断たれると」のところで、写本の余白に <i>gate 'smin</i> という語があると注記しました。しかし Buescher によれば、この語をもつのは写本 H だけで、それも括弧に入れて本文中にあります。貝葉写本 C と写本 E・F にはまったくありません。</p></div></div>
+</div>
+<div class="mula" id="u103">
+  <span class="ref"><span class="no">1.0.3</span>B 1,15–17</span>
+  <div class="src deva" lang="sa">अथ वा धर्मपुद्गलाभिनिविष्टाश्चित्तमात्रं यथाभूतं न जानन्तीत्यतो धर्मपुद्गलनैरात्म्यप्रदर्शनेन सफले विज्ञप्तिमात्रेऽनुपूर्वेण प्रवेशार्थं प्रकरणारम्भः ।</div>
+  <div class="tr">あるいは、法と人に執着している者たちは、心のみであることをありのままに知らない。だから、法と人の無我を示すことによって、果をともなう「表象のみであること」に順を追って悟入させるために、この論が書き始められる。</div><div class="exp"><span class="lbl">解説</span><p>二つ目の目的は、唯識の教えそのものに導くことです。「果をともなう」（<i>saphala</i>）とは、唯識の理解が、修行の果である悟り（第29・30偈で説かれる転依）にまでつながっている、という意味でしょう。「順を追って」は、本書が識の転変の説明から始まり、唯識の論証、三性説、修道の階梯へと進む構成を言っていると考えられます。</p></div>
+</div>
+<div class="mula" id="u104">
+  <span class="ref"><span class="no">1.0.4</span>B 1,18–20</span>
+  <div class="src deva" lang="sa">अथ वा विज्ञानवद्विज्ञेयमपि द्रव्यत एवेति केचिन्मन्यन्ते । विज्ञेयवद्विज्ञानमपि संवृतित एव न परमार्थत इत्यस्य द्विप्रकारस्याप्येकान्तवादस्य प्रतिषेधार्थः प्रकरणारम्भः ॥</div>
+  <div class="tr">あるいは、ある人々は「識と同じく、知られるべきもの（対象）もまた実体として（存在する）」と考える。（別の人々は）「知られるべきものと同じく、識もまた世俗としてのみ（存在するの）であって、勝義としては（存在し）ない」と（考える）。この二種類の極端な説を否定するために、この論が書き始められる。</div><div class="exp"><span class="lbl">解説</span><p>三つ目の目的は、二つの極端説を退けることです。この二つの説は、すぐ後の 1.1.1.1.2 で詳しく論じられます。</p><figure style="margin:.8em 0">
+    <div class="scroll">
+    <svg viewBox="0 0 620 200" style="min-width:520px;width:100%" role="img" aria-label="二つの極端説と唯識説の位置">
+      <g font-size="12.5">
+        <rect x="10" y="20" width="180" height="96" rx="10" class="s-jatisoft"/>
+        <text x="100" y="44" text-anchor="middle" font-weight="700" class="s-jati">極端説（1）</text>
+        <text x="100" y="66" text-anchor="middle" class="s-ink">識：実在</text>
+        <text x="100" y="86" text-anchor="middle" class="s-ink">対象：実在</text>
+        <text x="100" y="106" text-anchor="middle" class="s-muted" font-size="11">外界実在論（説一切有部など）</text>
+        <rect x="220" y="20" width="180" height="96" rx="10" class="s-anssoft"/>
+        <text x="310" y="44" text-anchor="middle" font-weight="700" class="s-ans">唯識説</text>
+        <text x="310" y="66" text-anchor="middle" class="s-ink">識：実在</text>
+        <text x="310" y="86" text-anchor="middle" class="s-ink">対象：非実在</text>
+        <text x="310" y="106" text-anchor="middle" class="s-muted" font-size="11">中道</text>
+        <rect x="430" y="20" width="180" height="96" rx="10" class="s-jatisoft"/>
+        <text x="520" y="44" text-anchor="middle" font-weight="700" class="s-jati">極端説（2）</text>
+        <text x="520" y="66" text-anchor="middle" class="s-ink">識：世俗のみ</text>
+        <text x="520" y="86" text-anchor="middle" class="s-ink">対象：世俗のみ</text>
+        <text x="520" y="106" text-anchor="middle" class="s-muted" font-size="11">一切を空とする立場</text>
+        <text x="310" y="150" text-anchor="middle" class="s-ink">識と対象を「どちらも有る」とも「どちらも無い」とも言わず、</text>
+        <text x="310" y="170" text-anchor="middle" class="s-ink">識は有り、対象は無い、と分けるのが唯識説の立場</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図1　二つの極端説と唯識説。</b>伝統的には、（1）は説一切有部などの実在論、（2）は中観派の立場を指すと解されることが多い。ただし本文は「ある人々」と言うだけで、学派の名を挙げていない。</figcaption>
+  </figure><p>（1）は、心も外界の物もどちらも実体として存在すると考える実在論です。（2）は、心も物もどちらも世俗の約束事として存在するだけで、究極的には存在しないと考える立場です。唯識説はその中間に立ち、<strong>対象は存在しないが、識は存在する</strong>と主張します。</p><div class="stk"><span class="lbl">Buescher の注記</span><p>「世俗としてのみ」（<i>saṃvṛtita</i>）の綴りは、写本 C・E・F・G が <i>saṃvṛttita</i>、写本 H と Lévi 版が <i>saṃvṛtita</i> です。チベット語訳には、写本の「ある人々は」に続いて <i>gźan dag</i>「別の人々は」が入っていますが、現存のサンスクリット写本には対応する語がありません。</p></div></div>
+</div>
+</section>
+
+<!-- ============ 1.1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1.1</span><h2>第1偈 abc：我と法の仮説</h2><span class="sub"><span class="pg">*2–*3</span>「私」や「色」という言葉は、識の転変に対して比喩的に用いられている</span></div>
+<p>いよいよ本偈の注釈に入ります。第1偈は『三十頌』全体の命題を示す偈で、Sthiramati の注もここが最も詳しくなっています。まず偈の全体を示します。</p>
+<div class="mula sutra" id="k1">
+  <span class="ref">『三十頌』第1偈</span>
+  <div class="src deva verse" lang="sa">आत्मधर्मोपचारो हि विविधो यः प्रवर्तते ।
+विज्ञानपरिणामेऽसौ परिणामः स च त्रिधा ॥ १ ॥</div>
+  <div class="tr"><b>さまざまな我と法の仮説がはたらいているが、それは識の転変においてである。そしてその転変は三種である。</b></div><div class="exp"><span class="lbl">解説</span><p>「仮説」（<i>upacāra</i>）は、あるものの名前を、別のものに比喩的に当てはめることです。私たちは「私」（我、<i>ātman</i>）とか「色」「感受」（法、<i>dharma</i>）とかいう言葉を使います。しかし、その言葉が本当に指しているのは、実在の「私」や「色」ではなく、識が変化して（転変して）現れている姿だ、というのが第1偈の命題です。後半の「転変は三種である」は、第2偈以下でアーラヤ識・末那識・六識として展開されます。</p></div>
+</div>
+<div class="mula" id="u11">
+  <span class="ref"><span class="no">1.1</span>B 2,1–3</span>
+  <div class="src deva verse" lang="sa">आत्मधर्मोपचारो हि विविधो यः प्रवर्तते ।</div>
+  <div class="src deva" lang="sa">लोकशास्त्रयोरिति वाक्यशेषः ।</div>
+  <div class="src deva verse" lang="sa">विज्ञानपरिणामेऽसौ ।</div>
+  <div class="tr"><b>さまざまな我と法の仮説がはたらいているが、</b><br>「世間と論書において」が、文の補われるべき部分である。<br><b>それは識の転変においてである。</b></div><div class="exp"><span class="lbl">解説</span><p>「文の補われるべき部分」（<i>vākyaśeṣa</i>）は、注釈で、本文に言葉が省かれていると見て補う時の決まった言い方です。仮説が「どこで」はたらくのかを補っています。答えは「世間と論書において」。日常の言葉づかいでも、学問の体系でも、「私」や「法」が語られている、ということです。</p></div>
+</div>
+<div class="mula" id="u111">
+  <span class="ref"><span class="no">1.1.1</span>B 2,4–8</span>
+  <div class="src deva" lang="sa">आत्मधर्मोपचार इति सम्बध्यते । आत्मा धर्माश्चोपचर्यन्त इत्यात्मधर्मोपचारः । स पुनरात्मप्रज्ञप्तिर्धर्मप्रज्ञप्तिश्च । विविध इत्यनेकप्रकारः । आत्मा जीवो जन्तुर्मनुजो मानव इत्येवमादिक आत्मोपचारः । स्कन्धा धातव आयतनानि रूपं वेदना संज्ञा संस्कारा विज्ञानमित्येवमादिको धर्मोपचारः ।</div>
+  <div class="tr">（「それは」は）「我と法の仮説」と結びつく。我と法が仮に説かれるので、「我と法の仮説」である。そしてそれは、我の施設と法の施設である。「さまざまな」とは、多くの種類の、ということである。「我、生命、生きもの、人、人の子」などが我の仮説である。「蘊、界、処、色、受、想、行、識」などが法の仮説である。</div><div class="exp"><span class="lbl">解説</span><p>「仮説」（<i>upacāra</i>）が「施設」（<i>prajñapti</i>、仮に名を立てること）と言い換えられています。我の仮説として挙がっているのは、魂や個人を指す語です。法の仮説として挙がっているのは、仏教のアビダルマで経験を分析する時の分類項目、つまり五蘊・十八界・十二処と、五蘊の個々の名前です。</p><p>ここで注目すべきは、仏教自身の分析用語（蘊・界・処）までが「仮説」の側に入れられていることです。世間の「私」という言葉だけでなく、仏教の学問体系が使う術語もまた、識の転変を比喩的に呼んでいるにすぎない。これが法無我の立場です。</p><div class="stk"><span class="lbl">Buescher の注記</span><p>「我の施設」（<i>ātmaprajñaptir</i>）について、貝葉写本 C と Lévi 版は <i>ātmavijñaptir</i> と読みます。Buescher は、宇井伯寿の提案と、すぐ後の <i>dharmaprajñaptiś</i> に合わせて <i>prajñaptir</i> と読んでいます。また「人の子」は、C と Lévi 版では <i>māṇava</i>（若者）ですが、宇井の提案に従って <i>mānava</i> と読んでいます。</p></div></div>
+</div>
+<div class="mula" id="u1111">
+  <span class="ref"><span class="no">1.1.1.1</span>B 2,9–12</span>
+  <div class="src deva" lang="sa">अयं द्विप्रकारोऽप्युपचारो विज्ञानपरिणाम एव न मुख्ये आत्मनि धर्मेषु चेति । कुत एतत् । धर्माणामात्मनश्च विज्ञानपरिणामाद्बहिरभावात् । कोऽयं परिणामो नाम । अन्यथात्वम् । कारणक्षणनिरोधसमकालः कारणक्षणविलक्षणः कार्यस्यात्मलाभः परिणामः ।</div>
+  <div class="tr">この二種類の仮説は、識の転変においてのみ（はたらくの）であって、本来の（意味での）我や法においてではない。なぜそう言えるのか。法と我は、識の転変の外には存在しないからである。では、この転変とは何か。変異である。原因の刹那が滅するのと同時に、原因の刹那とは異なる特徴をもって、結果がそれ自体を得ること、それが転変である。</div><div class="exp"><span class="lbl">解説</span><p>「本来の」（<i>mukhya</i>）は、比喩的な（<i>gauṇa</i>）意味に対する、言葉の第一の意味です。「私」という言葉には、本来それが指すはずの実在の「私」はない。言葉が実際に当てはめられているのは、識の転変だけだ、ということです。</p><p>続く転変（<i>pariṇāma</i>）の定義は、唯識思想の中で最もよく引かれる定義の一つです。</p>
+  <figure style="margin:.8em 0">
+    <div class="scroll">
+    <svg viewBox="0 0 620 170" style="min-width:520px;width:100%" role="img" aria-label="転変の定義。原因の刹那の消滅と同時に、異なる特徴をもつ結果の刹那が生じる">
+      <defs><marker id="arp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12.5">
+        <path d="M20 130 H600" class="st-muted" stroke-width="1.5" marker-end="url(#arp)"/>
+        <text x="600" y="152" text-anchor="end" class="s-muted" font-size="11">時間</text>
+        <rect x="60" y="40" width="200" height="60" rx="10" class="s-band"/>
+        <text x="160" y="66" text-anchor="middle" font-weight="700" class="s-ink">原因の刹那</text>
+        <text x="160" y="86" text-anchor="middle" class="s-muted" font-size="11.5">滅する</text>
+        <rect x="260" y="40" width="200" height="60" rx="10" class="s-anssoft"/>
+        <text x="360" y="66" text-anchor="middle" font-weight="700" class="s-ans">結果の刹那</text>
+        <text x="360" y="86" text-anchor="middle" class="s-ink" font-size="11.5">異なる特徴をもって生じる</text>
+        <path d="M260 30 V130" class="st-jati" stroke-width="2"/>
+        <text x="260" y="22" text-anchor="middle" class="s-jati" font-size="11.5">同時</text>
+        <text x="310" y="160" text-anchor="middle" class="s-muted" font-size="11">変化の間、持続する基体はない</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図2　転変の定義（1.1.1.1）。</b>原因の刹那の消滅と、結果の刹那の生起が、同時に起こる。両者の間で同じものが持続するわけではない。</figcaption>
+  </figure>
+  <p>この定義のポイントは、<strong>変化の間に持続する基体を認めない</strong>ことです。サーンキヤ学派も「転変」（<i>pariṇāma</i>）の語を使いますが、そこでは根本原質（プラクリティ）という一つの基体が持続し、その現れ方だけが変わります。牛乳がヨーグルトになるように、です。仏教の刹那滅論では、持続する基体はありません。原因の刹那が滅すると同時に、異なる結果の刹那が生じる。この連続が「転変」と呼ばれるのです。</p><div class="stk"><span class="lbl">Buescher の注記</span><p>「原因の刹那とは異なる特徴をもって」（<i>kāraṇakṣaṇavilakṣaṇaḥ</i>）の後に、貝葉写本 C と写本 E・F・H は区切りの記号（daṇḍa）を置きますが、写本 G と Lévi 版は置きません。</p></div></div>
+</div>
+<div class="mula" id="u11111">
+  <span class="ref"><span class="no">1.1.1.1.1</span>B 2,13–3,5</span>
+  <div class="src deva" lang="sa">तत्रात्मादिविकल्पवासनापरिपोषाद्रूपादिविकल्पवासनापरिपोषाच्चालयविज्ञानादात्मादिनिर्भासो विकल्पो रूपादिनिर्भासश्चोत्पद्यते । तमात्मादिनिर्भासं रूपादिनिर्भासञ्च तस्माद्विकल्पाद्बहिर्भूतमिवोपादायात्माद्युपचारो रूपादिधर्मोपचारश्चानादिकालिकः प्रवर्तते विनापि बाह्येनात्मना धर्मैश्च । तद्यथा तैमिरिकस्य केशोण्डुकाद्युपचार इति । यच्च यत्र नास्ति तत्तत्रोपचर्यते । तद्यथा बाहिके गौः ।</div>
+  <div class="tr">そのうち、我などの分別の熏習が育つことによって、また色などの分別の熏習が育つことによって、アーラヤ識から、我などとして現れる分別と、色などとして現れる（分別）とが生じる。その我などの現れと色などの現れを、その分別の外にあるかのように取り上げて、無始の時から、我などの仮説と色などの法の仮説がはたらいている。外界の我や法がなくても、である。ちょうど、眼病の人が（存在しない）毛髪の塊などを仮に語るように。そして、あるものがそこにないのに、それがそこに仮に説かれるのである。ちょうど、バーヒーカ人について「牛だ」と（言う）ように。</div><div class="exp"><span class="lbl">解説</span><p>転変の具体的な仕組みです。過去の分別が残した熏習（<i>vāsanā</i>）がアーラヤ識（<i>ālayavijñāna</i>、すべての種子を蓄える根本の識）の中で育ち、それが熟すと、我や色の「現れ」（<i>nirbhāsa</i>）をもった分別が生じる。私たちは、その現れを心の外にあるかのように取り上げて、「私」「色」と呼んでいる。これが無始以来続いている、というのです。</p>
+  <figure style="margin:.8em 0">
+    <div class="scroll">
+    <svg viewBox="0 0 620 200" style="min-width:520px;width:100%" role="img" aria-label="仮説の成立。熏習からアーラヤ識を経て分別が生じ、その現れを外にあるかのように取って名づける">
+      <defs><marker id="arq" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12.5">
+        <rect x="10" y="40" width="130" height="64" rx="10" class="s-band"/>
+        <text x="75" y="66" text-anchor="middle" font-weight="700" class="s-ink">熏習が育つ</text>
+        <text x="75" y="88" text-anchor="middle" class="s-muted" font-size="11">過去の分別の跡</text>
+        <path d="M140 72 H166" class="st-muted" stroke-width="1.5" marker-end="url(#arq)"/>
+        <rect x="170" y="40" width="130" height="64" rx="10" class="s-accsoft"/>
+        <text x="235" y="66" text-anchor="middle" font-weight="700" class="s-acc">アーラヤ識</text>
+        <text x="235" y="88" text-anchor="middle" class="s-muted" font-size="11">種子の貯蔵所</text>
+        <path d="M300 72 H326" class="st-muted" stroke-width="1.5" marker-end="url(#arq)"/>
+        <rect x="330" y="40" width="130" height="64" rx="10" class="s-anssoft"/>
+        <text x="395" y="66" text-anchor="middle" font-weight="700" class="s-ans">分別が生じる</text>
+        <text x="395" y="88" text-anchor="middle" class="s-ink" font-size="11">我・色の現れをもつ</text>
+        <path d="M460 72 H486" class="st-muted" stroke-width="1.5" marker-end="url(#arq)"/>
+        <rect x="490" y="40" width="120" height="64" rx="10" class="s-goldsoft"/>
+        <text x="550" y="66" text-anchor="middle" font-weight="700" class="s-gold">仮説</text>
+        <text x="550" y="88" text-anchor="middle" class="s-ink" font-size="11">「私」「色」と呼ぶ</text>
+        <path d="M550 104 V140 H75 V108" class="st-muted" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arq)"/>
+        <text x="312" y="160" text-anchor="middle" class="s-muted" font-size="11.5">名づけて分別することが、また新たな熏習を残す（無始以来の循環）</text>
+        <text x="550" y="28" text-anchor="middle" class="s-muted" font-size="11">外にあるかのように</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図3　仮説が成り立つ仕組み（1.1.1.1.1）。</b>実在の「私」や「色」はどこにもないが、識の中の現れが外にあるかのように取られ、名づけられる。その名づけがまた熏習を残し、循環が続く。</figcaption>
+  </figure>
+  <p>例が二つ挙がっています。眼病の人が見る毛髪の塊は、『唯識二十論』の冒頭と同じ喩えで、対象がなくても現れがあることを示します。「バーヒーカ人は牛だ」は、インドの言語論で比喩的用法の典型として使われる例です。バーヒーカ人（北西インドのある部族）は牛ではありませんが、愚鈍さなどの点で牛に似ているので「牛」と呼ばれる。このように、<strong>あるものがない所に、そのものの名が当てはめられる</strong>のが仮説だ、と Sthiramati は言います。この「仮説」の理解が、後の 1.1.1.1.2.1.1 以下の論争の焦点になります。</p><div class="stk"><span class="lbl">Buescher の注記</span><p>「我など」（<i>ātmādi</i>）の <i>di</i> は、貝葉写本 C ではいったん書き落とされ、下の余白に補われています。</p></div></div>
+</div>
+</section>
+
+<!-- ============ 二つの極端説 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">二辺</span><h2>二つの極端説の否定</h2><span class="sub"><span class="pg">*3</span>対象は実在せず、識は実在する</span></div>
+<p>1.0.4 で予告された二つの極端説が、ここで退けられます。第1偈の「我と法の仮説は識の転変において」という言葉に、二つの説を否定する意味がすでに含まれている、という読み方です。</p>
+<div class="mula" id="u21">
+  <span class="ref"><span class="no">1.1.1.1.2.1</span>B 3,6–8</span>
+  <div class="src deva" lang="sa">एवं विज्ञानस्वरूपे बहिश्चात्मधर्माभावात्परिकल्पित एवात्मा धर्माश्च न तु परमार्थतः सन्तीति विज्ञानवद्विज्ञेयमपि द्रव्यत एवेत्ययमेकान्तवादो नाभ्युपेयः ।</div>
+  <div class="tr">このように、識そのものの中にも、外にも、我と法は存在しないので、我と法は想定されたものにすぎず、勝義としては存在しない。だから、「識と同じく、知られるべきもの（対象）もまた実体として（存在する）」という、この極端な説は認められない。</div><div class="exp"><span class="lbl">解説</span><p>極端説（1）の否定です。我や法は、識の中の現れが外にあるかのように取られたものにすぎないので、「想定されたもの」（<i>parikalpita</i>）です。この語は、第20偈で三性説の第一「遍計所執性」（<i>parikalpitasvabhāva</i>）として正式に登場します。</p><div class="stk"><span class="lbl">Buescher の注記</span><p>「実体として」（<i>dravyata</i>）は、校訂上の重要な訂正です。貝葉写本 C と Lévi 版は <i>apy ucyata</i>「…とも言われる」と読みます。しかし Jacobi、La Vallée Poussin、宇井伯寿がそれぞれ <i>api dravyata</i> への訂正を提案しており、チベット語訳も <i>bźin du rdzas</i>「…と同じく実体として」と読んでいます。1.0.4 の表現ともぴったり一致します。</p></div></div>
+</div>
+<div class="mula" id="u22">
+  <span class="ref"><span class="no">1.1.1.1.2.2</span>B 3,9–13</span>
+  <div class="src deva" lang="sa">उपचारस्य च निराधारस्यासंभवादवश्यं विज्ञानपरिणामो वस्तुतोऽस्तीत्युपगन्तव्यो यत्रात्मधर्मोपचारः प्रवर्तते । अतश्चायमभ्युपगमो न युक्तिक्षमो विज्ञानमपि विज्ञेयवत्संवृतित एव न परमार्थत इति । संवृतितोऽप्यभावप्रसङ्गात् । न हि संवृतिर्निरुपादाना युज्यते ।</div>
+  <div class="tr">また、拠り所のない仮説はありえないので、我と法の仮説がそこにおいてはたらく識の転変は、必ず実在として存在する、と認めなければならない。だから、「識もまた、知られるべきものと同じく、世俗としてのみ（存在するの）であって、勝義としては（存在し）ない」というこの主張は、理に耐えない。（そうであれば、識は）世俗としても存在しないことになってしまうからである。なぜなら、拠り所のない世俗は成り立たないからである。</div><div class="exp"><span class="lbl">解説</span><p>極端説（2）の否定です。論理の核心は、<strong>仮説には拠り所が必要だ</strong>ということです。「バーヒーカ人は牛だ」という比喩が成り立つには、少なくともバーヒーカ人が実在していなければならない。同じように、「私」「色」という仮説が成り立つには、それが当てはめられる識の転変が実在していなければならない。もし識まで世俗の仮のものだとすると、仮のものが仮のものの上に立つことになり、最後には何の拠り所もなくなる。そうなると、世俗としての存在すら成り立たなくなる、というのです。</p><p>「世俗」（<i>saṃvṛti</i>）は、日常の言語や慣習のレベルでの存在、「勝義」（<i>paramārtha</i>）は、究極の真実のレベルでの存在です。唯識説は、世俗の言葉づかいには、勝義として実在する何かが拠り所として必要だと考えます。この点が、すべてを空とする中観派との分かれ目になります。</p><div class="stk"><span class="lbl">Buescher の注記</span><p>「存在する、と」（<i>'stīty</i>）の <i>iti</i> は、貝葉写本 C と Lévi 版にはありません。宇井の提案と、チベット語訳 <i>yod par</i> に基づいて補われています。「主張」（<i>abhyupagamo</i>）は、C・E・F では <i>abhyupamo</i>、G と Lévi 版では <i>upagamo</i> です。</p></div></div>
+</div>
+<div class="mula" id="u23">
+  <span class="ref"><span class="no">1.1.1.1.2.1+2</span>B 3,14–18</span>
+  <div class="src deva" lang="sa">तस्मादयमेकान्तवादो द्विप्रकारोऽपि निर्युक्तिकत्वात्त्याज्य इत्याचार्यवचनम् । एवञ्च सर्वं विज्ञेयं परिकल्पितस्वभावत्वाद्वस्तुतो न विद्यते विज्ञानं पुनः प्रतीत्यसमुत्पन्नत्वाद्द्रव्यतोऽस्तीत्यभ्युपेयम् । प्रतीत्यसमुत्पन्नत्वं पुनर्विज्ञानस्य परिणामशब्देन ज्ञापितम् ।</div>
+  <div class="tr">それゆえ、この二種類の極端な説は、どちらも論理を欠くので捨てられるべきである、というのが師（Vasubandhu）の言葉（の意図）である。こうして、すべての知られるべきものは、想定された本性をもつので、実在としては存在しない。一方、識は縁起したものであるので、実体として存在する、と認めるべきである。そして識が縁起したものであることは、「転変」という語によって示されている。</div><div class="exp"><span class="lbl">解説</span><p>結論です。対象は「想定された本性」をもつので実在しない。識は「縁起したもの」（<i>pratītyasamutpanna</i>、原因と条件によって生じたもの）なので実体として存在する。これは、第20・21偈で説かれる三性説の、遍計所執性（想定された本性）と依他起性（他に依存する本性）の区別にそのまま対応しています。</p><p>最後の一文は、第1偈の「転変」という語の選び方にまで意味を読み込んでいます。転変は原因の刹那から結果の刹那が生じることなので、その語自体が識の縁起性、つまり実在性を示している、というのです。</p></div>
+</div>
+</section>
+
+<!-- ============ 外界なき認識 ============ -->
+<section id="s3" class="wrap">
+  <div class="sec-head"><span class="sec-no">所縁</span><h2>外界なしに識が対象の姿をとる</h2><span class="sub"><span class="pg">*3–*5</span>所縁縁の条件を満たす外界の対象はない</span></div>
+<p>「識は実在するが、対象は実在しない」と言われると、当然、「では識が対象の姿をとって現れるのはなぜか」という疑問が起こります。Sthiramati は、外界の対象が認識の「所縁縁」になりえないことを論じて、これに答えます。『唯識二十論』の極微批判を、認識論の言葉で言い直した議論です。</p>
+<div class="mula" id="u31">
+  <span class="ref"><span class="no">1.1.1.1.2.2.1.1</span>B 3,19–22</span>
+  <div class="src deva" lang="sa">कथमेतद्गम्यते विना बाह्येनार्थेन विज्ञानमेवार्थाकारमुत्पद्यत इति । बाह्यो ह्यर्थः स्वाभासविज्ञानजनकत्वेन विज्ञानस्यालम्बनप्रत्यय इष्यते न कारणत्वमात्रेण समनन्तरादिप्रत्ययाद्विशेषाप्रसङ्गात् ।</div>
+  <div class="tr">「外界の対象なしに、識そのものが対象の姿をとって生じる、ということが、どうしてわかるのか。」<br>なぜなら、外界の対象は、自らの姿をもつ識を生じさせることによって、識の所縁縁であると認められているのであって、単に原因であることによってではない。（もしそうなら）等無間縁などの縁と区別がなくなってしまうからである。</div><div class="exp"><span class="lbl">解説</span><p>アビダルマでは、識が生じる条件（縁）を四つに分けます。</p><div class="tbl" style="margin-block:.6em"><table><thead><tr><th>四縁</th><th>はたらき</th></tr></thead><tbody><tr><td class="k">因縁</td><td>直接の原因（種子など）</td></tr><tr><td class="k">等無間縁（<i>samanantarapratyaya</i>）</td><td>直前の刹那の心。次の心が生じる場所を空ける</td></tr><tr class="here"><td class="k">所縁縁（<i>ālambanapratyaya</i>）</td><td>識の対象となる条件</td></tr><tr><td class="k">増上縁</td><td>それ以外の、生起を妨げないすべての条件（感覚器官など）</td></tr></tbody></table></div><p>外界の対象が「所縁縁」であるためには、ただ識の原因であるだけでは足りません。原因であるだけなら、直前の心（等無間縁）も原因です。所縁縁であるためには、<strong>自分の姿をもつ識を生じさせる</strong>こと、つまり識に自分の姿を映させることが必要です。この条件を外界の対象が満たせるかどうかが、次のブロックで検討されます。</p><p>この「原因であること」と「姿を与えること」の二条件は、Dignāga の『観所縁論』（<i>Ālambanaparīkṣā</i>）が所縁の条件として立てたものと同じ枠組みです。</p><div class="stk"><span class="lbl">Buescher の注記</span><p>「等無間縁などの縁と区別がなくなってしまう」の部分は、読みが分かれます。貝葉写本 C と Lévi 版は <i>samanantarādipratyayādiviśeṣāprasaṅgāt</i>、宇井は <i>°pratyayaviśeṣāprasaṅgāt</i> を提案しました。チベット語訳は *<i>samanantarapratyayādyaviśeṣaprasaṅgāt</i>（等無間縁などと区別がないことになるから）を示唆します。和訳はこの意味に従いました。</p></div></div>
+</div>
+<div class="mula" id="u32">
+  <span class="ref"><span class="no">1.1.1.1.2.2.1.2</span>B 4,1–21</span>
+  <div class="src deva" lang="sa">सञ्चितालम्बनाश्च पञ्चविज्ञानकायास्तदाकारत्वात् । न च सञ्चितमवयवसंहतिमात्रादन्यद्विद्यते । तदवयवानपोह्य सञ्चिताकारविज्ञानाभावात् । तस्माद्विनैव बाह्येनार्थेन विज्ञानं सञ्चिताकारमुत्पद्यते ।</div>
+  <div class="src deva" lang="sa">न च परमाणव एव सञ्चितास्तस्यालम्बनं परमाणूनामतदाकारत्वात् । न ह्यसञ्चितावस्थातः सञ्चितावस्थायां परमाणूनां कश्चिदात्मातिशयः । तस्मादसञ्चितवत्सञ्चिता अपि परमाणवो नैवालम्बनम् ।</div>
+  <div class="src deva" lang="sa">अन्यस्तु मन्यते । एकैकः परमाणुरन्यनिरपेक्षोऽतीन्द्रियो बहवस्तु परस्परापेक्षा इन्द्रियग्राह्याः । तेषामपि सापेक्षनिरपेक्षावस्थयोरात्मातिशयाभावादेकान्तेनेन्द्रियग्राह्यत्वमतीन्द्रियत्वं वा ।</div>
+  <div class="src deva" lang="sa">यदि च परमाणव एव परस्परापेक्षा विज्ञानस्य विषयीभवन्ति । एवं सति योऽयं घटकुड्याद्याकारभेदो विज्ञाने स न स्यात्परमाणूनामतदाकारत्वात् । न चान्यनिर्भासस्य विज्ञानस्यान्याकारो विषयो युज्यतेऽतिप्रसङ्गात् । न च परमाणवः स्तम्भादिवत्परमार्थतः सन्त्यर्वाङ्मध्यपरभागसद्भावात् ।</div>
+  <div class="src deva" lang="sa">तदनभ्युपगमे वा पूर्वदक्षिणापरोत्तरादिदिग्भेदो यः स परमाणोर्न स्यात् । ततश्च विज्ञानवत्परमाणोरप्यमूर्तत्वमदेशस्थत्वञ्च प्रसज्यते । एवं बाह्यार्थाभावाद्विज्ञानमेवार्थाकारमुत्पद्यते स्वप्नविज्ञानवदित्यभ्युपेयम् ।</div>
+  <div class="tr">また、五識の群れは、集積したものを所縁とする。それ（集積したもの）の姿をもつからである。しかし集積したものは、部分が集まったことのほかには存在しない。その部分を取り除けば、集積したものの姿をもつ識はないからである。それゆえ、外界の対象がまったくなくても、識は集積したものの姿をとって生じるのである。<br>また、集積した極微そのものが、それ（識）の所縁であるのでもない。極微は、その（集積したものの）姿をもたないからである。なぜなら、集積していない状態から集積した状態になっても、極微には、それ自体として何の優越も生じないからである。それゆえ、集積していない（極微）と同じく、集積した極微も、決して所縁ではない。<br>ある人はこう考える。「一つ一つの極微は、他に依存しない時には感官を超えている（見えない）が、多数の（極微）は、互いに依存し合うと、感官でとらえられる」。しかし、それら（極微）にも、依存する状態と依存しない状態とで、それ自体の優越がないので、（どちらの状態でも）一方的に感官でとらえられるか、感官を超えているか、のどちらかである。<br>また、もし互いに依存し合う極微そのものが識の対象になるのなら、そうだとすると、識の中にある壺や壁などの姿の違いはないことになろう。極微はその姿をもたないからである。そして、ある現れをもつ識に、別の姿をした対象があるというのは、理に合わない。行き過ぎた帰結になるからである。また、極微は、柱などと同じく、勝義として存在するのではない。手前・中間・向こう側の部分があるからである。<br>あるいは、それ（部分）を認めないなら、東・南・西・北などの方向の区別が、極微にはないことになろう。そうなると、識と同じく、極微もまた形をもたず、場所を占めないことになってしまう。このように、外界の対象は存在しないので、夢の中の識と同じく、識そのものが対象の姿をとって生じる、と認めるべきである。</div><div class="exp"><span class="lbl">解説</span><p>眼識などの五識が見ているのは、壺や壁といった「集積したもの」（<i>sañcita</i>）の姿です。所縁縁の二条件（原因であること・姿を与えること）に照らすと、外界の候補はどれも失格になります。</p><div class="tbl" style="margin-block:.6em"><table><thead><tr><th>候補</th><th>姿を与えるか</th><th>実在するか</th><th>判定</th></tr></thead><tbody><tr><td class="k">集積したもの（壺）</td><td>与える</td><td>部分の集まりにすぎず、実在しない</td><td><span class="pill j">失格</span></td></tr><tr><td class="k">個々の極微</td><td>与えない（壺の姿をもたない）</td><td>—</td><td><span class="pill j">失格</span></td></tr><tr><td class="k">集積した極微</td><td>与えない（集まっても極微自体は変わらない）</td><td>—</td><td><span class="pill j">失格</span></td></tr><tr><td class="k">互いに依存し合う極微</td><td>与えない（壺と壁の区別が説明できない）</td><td>部分をもつので勝義には実在しない</td><td><span class="pill j">失格</span></td></tr></tbody></table></div><p>四つ目の「互いに依存し合う極微」は、極微は一つでは見えないが、互いに依存し合うと見えるようになる、という説です（「ある人」とされているのは、伝統的には経量部系の論師と解されます）。Sthiramati は、依存し合っても極微そのものは何も変わらない以上、見えないものは見えないままだ、と退けます。</p><p>最後の議論は、『唯識二十論』第14偈の方分の議論と同じです。極微に手前・中間・向こう側の部分があるなら、極微は分割できるので最小単位ではない。部分がないなら、極微は方向をもたず、場所も占めず、識と同じく形のないものになってしまう。結論は、『唯識二十論』と同じく、<strong>夢の中の識のように、識そのものが対象の姿をとって生じる</strong>、です。</p><div class="stk"><span class="lbl">Buescher の注記</span><p>冒頭の「五識の群れ」（<i>pañcavijñānakāyās</i>）の <i>kāyā</i> は、貝葉写本 C の行末の損傷で読めません。写本 E・F は欠損として空白にしていますが、G・H と Lévi 版は補って書いています。「手前・中間・向こう側の部分」の「部分」（<i>bhāga</i>）は、写本ではすべて <i>bhāva</i> で、Lévi の訂正によります。チベット語訳 <i>cha yod pas</i>「部分があるので」がこれを支持します。また「…ことになってしまう」（<i>prasajyate</i>）は、写本 E・G・H と Lévi 版では <i>prasahyate</i> ですが、貝葉写本 C では <i>jya</i> と <i>hya</i> の字形がよく似ているため、Buescher は Jacobi・Lévi・宇井の提案に従って <i>prasajyate</i> と読んでいます。</p></div></div>
+</div>
+<div class="mula" id="u33">
+  <span class="ref"><span class="no">1.1.1.1.2.2.2</span>B 4,22–5,2</span>
+  <div class="src deva" lang="sa">वेदनादयोऽपि नातीतानागतास्तदाकारविज्ञानजनका निरुद्धाजातत्वात् । न च वर्तमाना वर्तमानजनका उत्पद्यमानावस्थायामसत्त्वात् । उत्पन्नावस्थायां विज्ञानस्यापि तदाकारेणोत्पन्नत्वान्न किञ्चित्कर्तव्यमस्तीति मनोविज्ञानमप्यनालम्बनमेवोत्पद्यते ।</div>
+  <div class="tr">感受なども、過去や未来のものは、その姿をもつ識を生じさせることはない。（過去のものは）すでに滅し、（未来のものは）まだ生じていないからである。また、現在のものが、現在の（識）を生じさせるのでもない。（識が）生じつつある状態では、（現在のものは）まだ存在しないからである。（識が）生じた状態では、識もすでにその姿をもって生じているので、（現在のものが）なすべきことは何もない。だから、意識もまた、所縁なしに生じるのである。</div><div class="exp"><span class="lbl">解説</span><p>五識の次は、意識（<i>manovijñāna</i>）です。意識の対象には、物質だけでなく、感受（<i>vedanā</i>）などの心のはたらきも含まれます。それらが意識の所縁縁になれるかを、時間の観点から検討しています。</p><p>原因は結果より先になければなりません。過去の感受は、もう滅しているので原因になれない。未来の感受は、まだ生じていないので原因になれない。現在の感受は、意識が生じつつある時にはまだ存在せず、意識が生じた後では、意識はすでに姿をもって生じているので、出る幕がない。刹那滅論を前提にすると、同時の原因というものは考えにくいのです。こうして、意識もまた所縁縁なしに生じる、と結論されます。</p></div>
+</div>
+</section>
+
+<!-- ============ 本来の意味 ============ -->
+<section id="s4" class="wrap">
+  <div class="sec-head"><span class="sec-no">仮説</span><h2>本来の意味がなければ仮説はない</h2><span class="sub"><span class="pg">*5–*6</span>「この少年は火だ」をめぐる意味論の論争</span></div>
+<p>ここで別の論者が、言語論の立場から反論します。仮説（比喩的用法）は、本来の意味をもつものがあってはじめて成り立つ。本来の我や法がないなら、それらの仮説もありえないはずだ、と。Sthiramati は、インドの意味論で使われる標準的な例「この少年は火だ」を分析して、この反論を退けます。本書の中でも、とくに言語哲学的な議論です。</p>
+<div class="mula" id="u41">
+  <span class="ref"><span class="no">1.1.1.1.2.1.1</span>B 5,3–8</span>
+  <div class="src deva" lang="sa">अन्यस्त्वाह । असत्यात्मनि मुख्ये धर्मेषु चोपचारो न युज्यते । उपचारो हि त्रिषु सत्सु भवति नान्यतमाभावे मुख्यपदार्थे तत्सदृशेऽन्यस्मिन्विषये तयोश्च सादृश्ये । तद्यथा मुख्येऽग्नौ तत्सदृशे च माणवके तयोश्च साधारणे धर्मे कपिलत्वे तीक्ष्णत्वे वा सत्यग्निर्माणवक इत्युपचारः क्रियते । अत्र ह्यग्निर्माणवक इति जातिर्द्रव्यं वोपचर्यते । उभयथाप्युपचाराभावः ।</div>
+  <div class="tr">ところが別の者はこう言う。「本来の我や法が存在しないなら、（それらの）仮説は成り立たない。なぜなら、仮説は三つのものがある時に成り立つのであって、そのどれか一つが欠けても成り立たないからである。（すなわち）本来の意味の対象と、それに似た別の対象と、その二つの類似性である。たとえば、本来の火と、それに似た少年と、その二つに共通の性質である赤褐色や激しさがある時に、『少年は火だ』という仮説がなされる。」<br>（答える。）この「少年は火だ」という場合、（火という）類か、（火という）実体か、のどちらかが仮に説かれている。しかしどちらにしても、仮説はありえない。</div><div class="exp"><span class="lbl">解説</span><p>反論者の仮説理論は、比喩が成り立つための三条件を立てます。</p>
+  <figure style="margin:.8em 0">
+    <div class="scroll">
+    <svg viewBox="0 0 620 200" style="min-width:520px;width:100%" role="img" aria-label="仮説の三条件。本来の火、それに似た少年、両者に共通の性質">
+      <g font-size="12.5">
+        <rect x="20" y="40" width="160" height="64" rx="10" class="s-goldsoft"/>
+        <text x="100" y="66" text-anchor="middle" font-weight="700" class="s-gold">① 本来のもの</text>
+        <text x="100" y="88" text-anchor="middle" class="s-ink">火</text>
+        <rect x="440" y="40" width="160" height="64" rx="10" class="s-band"/>
+        <text x="520" y="66" text-anchor="middle" font-weight="700" class="s-ink">② 似た別のもの</text>
+        <text x="520" y="88" text-anchor="middle" class="s-ink">少年</text>
+        <rect x="230" y="120" width="160" height="64" rx="10" class="s-accsoft"/>
+        <text x="310" y="146" text-anchor="middle" font-weight="700" class="s-acc">③ 共通の性質</text>
+        <text x="310" y="168" text-anchor="middle" class="s-ink">赤褐色・激しさ</text>
+        <path d="M180 90 L240 130 M440 90 L380 130" class="st-muted" stroke-width="1.4"/>
+        <path d="M180 60 H440" class="st-jati" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <text x="310" y="52" text-anchor="middle" class="s-jati">「少年は火だ」</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図4　反論者の仮説理論。</b>三つがそろってはじめて、「火」の名を少年に当てはめることができる。唯識説では①の「本来の我・法」がないので、仮説は成り立たない、というのが反論の趣旨。</figcaption>
+  </figure>
+  <p>「少年は火だ」（<i>agnir māṇavakaḥ</i>）は、インドの意味論で、比喩的な用法（<i>gauṇī vṛtti</i>）を論じる時の標準例です。赤毛で気性の激しい少年を「火」と呼ぶ。その場合、「火」という語の本来の意味は火であり、少年には比喩的に当てはめられている、と考えるのがふつうの理解です。</p><p>Sthiramati は、この標準例そのものを分析して反論を崩します。「火」の語が少年に当てはめているのは、火の「類」（<i>jāti</i>、火性という普遍）か、火という「実体」（<i>dravya</i>、個々の火）か、のどちらかのはずだ。しかし、どちらの場合も仮説は成り立たない、というのです。比喩の標準例ですら、反論者の理論では説明できない、ということになります。</p><div class="stk"><span class="lbl">Buescher の注記</span><p>「三つのものがある時に」の「ある」（<i>satsu</i>）は、貝葉写本 C と写本 E・F にあり、写本 G・H と Lévi 版にはありません。</p></div></div>
+</div>
+<div class="mula" id="u42">
+  <span class="ref"><span class="no">1.1.1.1.2.1.1.1</span>B 5,9–15</span>
+  <div class="src deva" lang="sa">तत्र तावन्न जातेः साधारणं कपिलत्वं तीक्ष्णत्वं वा । न च साधारणधर्माभावे माणवके जातेरुपचारो युज्यतेऽतिप्रसङ्गात् । अतद्धर्मत्वेऽपि जातेस्तीक्ष्णत्वकपिलत्वयोर्जात्यविनाभावित्वान्माणवके जात्युपचारो भविष्यति । जात्यभावेऽपि तीक्ष्णत्वकपिलत्वयोर्माणवके दर्शनादविनाभावित्वमयुक्तम् । अविनाभावित्वे चोपचाराभावोऽग्नाविव माणवकेऽपि जातिसद्भावात् । तस्मान्न माणवके जात्युपचारः संभवति ।</div>
+  <div class="tr">そのうち、まず（火の）類には、（少年と）共通の赤褐色や激しさはない。そして、共通の性質がないのに、少年に類が仮に説かれるというのは、理に合わない。行き過ぎた帰結になるからである。<br>「（赤褐色や激しさが）類の性質ではないとしても、激しさと赤褐色は類と不可離の関係にあるので、少年に類が仮に説かれるだろう」（と言うなら）、類がなくても、激しさと赤褐色は少年に見られるのだから、不可離の関係にあるというのは理に合わない。また、不可離の関係にあるなら、仮説はないことになる。火と同じく、少年にも（火の）類が（実際に）あることになるからである。それゆえ、少年に類が仮に説かれることはありえない。</div><div class="exp"><span class="lbl">解説</span><p>（a）類の仮説の否定です。「火性」という普遍（類）は、ヴァイシェーシカ学派などでは、実体に内属する独立の存在です。赤褐色や激しさは、個々の火の性質であって、火性という普遍の性質ではありません。だから、普遍としての火性と少年の間には、共通の性質がない。共通の性質がないのに名前を当てはめてよいなら、何にでも何の名前でも当てはめられることになります（「行き過ぎた帰結」）。</p><p>反論者は、赤褐色や激しさは火性と不可離に結びついている（<i>avinābhāva</i>、火性があればそれがある）と言い直すかもしれません。しかし、不可離なら、少年に赤褐色があるところには火性もあることになり、少年は本当に火になってしまう。それはもはや比喩ではありません。逆に、少年には火性がないのに赤褐色がある以上、不可離という主張自体が成り立たない。どちらにしても、類の仮説は成り立たないのです。</p></div>
+</div>
+<div class="mula" id="u43">
+  <span class="ref"><span class="no">1.1.1.1.2.1.1.2</span>B 5,16–22</span>
+  <div class="src deva" lang="sa">नापि द्रव्योपचारः सामान्यधर्माभावात् । न हि योऽग्नेस्तीक्ष्णो गुणः कपिलो वा स एव माणवके । किं तर्हि । ततोऽन्यः । विशेषस्य स्वाश्रयप्रतिबद्धत्वान्न विनाग्निगुणेनाग्नेर्माणवके उपचारो युक्तः । अग्निगुणसादृश्याद्युक्त इति चेत् । एवमप्यग्निगुणस्यैव तीक्ष्णस्य कपिलस्य वा माणवकगुणे तीक्ष्णे कपिले वा सादृश्यादुपचारो युक्तो न तु माणवकेऽग्नेर्गुणसादृश्येनासंबन्धात् । तस्माद्द्रव्योपचारोऽपि नैव युज्यते ।</div>
+  <div class="tr">実体の仮説もない。共通の性質がないからである。なぜなら、火のもつ激しいという性質や赤褐色という性質が、そのまま少年にあるのではない。では何か。それとは別の（性質）である。特殊なもの（個々の性質）は、自らの基体に結びついているので、火の性質がないのに、少年に火が仮に説かれるのは理に合わない。<br>「火の性質との類似があるので、理に合う」と言うなら、そうだとしても、火の激しい性質や赤褐色の性質が、少年の激しい性質や赤褐色の性質と類似しているので、（火の性質の名が少年の性質に）仮に説かれるのが理に合うのであって、少年に火が（仮に説かれるのでは）ない。（火は少年と）性質の類似によって結びつかないからである。それゆえ、実体の仮説もまた、決して成り立たない。</div><div class="exp"><span class="lbl">解説</span><p>（b）実体の仮説の否定です。今度は、個々の火（実体）を少年に当てはめる場合を考えます。ここでの鍵は、性質が<strong>それぞれの基体に固有である</strong>ことです。火の赤さは火の赤さであり、少年の赤さは少年の赤さで、同じ一つの性質ではありません。だから、厳密には火と少年に「共通の」性質はない。</p><p>反論者は「同じではないが、似ている」と言うでしょう。しかし、似ているのは火の赤さと少年の赤さ、つまり性質同士です。そうであれば、類似にもとづいて名前を移せるのは、せいぜい「火の赤さ」の名を「少年の赤さ」に移すことまでで、「火」の名を「少年」に移すことではありません。こうして、反論者の三条件理論は、自分の標準例すら説明できないことが示されました。</p></div>
+</div>
+<div class="mula" id="u44">
+  <span class="ref"><span class="no">1.1.1.1.2.1.2</span>B 6,1–11</span>
+  <div class="src deva" lang="sa">मुख्योऽपि पदार्थो नैवास्ति तत्स्वरूपस्य सर्वज्ञानाभिधानविषयातिक्रान्तत्वात् । प्रधाने हि गुणरूपेणैव ज्ञानाभिधाने प्रवर्तेते तत्स्वरूपासंस्पर्शात् । अन्यथा च गुणवैयर्थ्यप्रसङ्गः । न हि ज्ञानाभिधानव्यतिरिक्तोऽन्यः पदार्थस्वरूपपरिच्छित्त्युपायोऽस्तीत्यतः प्रधानस्वरूपविषयज्ञानाभिधानाभावान्नैव मुख्यः पदार्थोऽस्तीत्यवगन्तव्यम् । एवं यावच्छब्दे सम्बन्धाभावाज्ज्ञानाभिधानाभावः । एवञ्चाभिधानाभिधेयाभावान्नैव मुख्यः पदार्थोऽस्ति । अपि च सर्व एवायं गौण एव न मुख्योऽस्ति । गौणो हि नाम यो यत्राविद्यमानेन रूपेण प्रवर्तते । सर्वश्च शब्दः प्रधानेऽविद्यमानेनैव गुणरूपेण प्रवर्तते । अतो मुख्यो नास्त्येव । तत्र यदुक्तमसत्यात्मनि मुख्ये धर्मेषु चोपचारो न युक्त इति तदयुक्तम् ।</div>
+  <div class="tr">さらに、本来の（意味の）対象というものも、決して存在しない。その（対象）そのものは、あらゆる知と言葉の領域を超えているからである。なぜなら、主たるもの（実体）に対して、知と言葉は、性質の姿によってのみはたらくのであって、その（主たるもの）そのものには触れないからである。そうでなければ、性質が無意味になってしまう。そして、知と言葉のほかに、対象そのものを確定する手段はない。だから、主たるものそのものを対象とする知と言葉がない以上、本来の（意味の）対象は決して存在しない、と理解すべきである。このように、語に至るまで、（対象そのものとの）結びつきがないので、（それを対象とする）知と言葉はない。そしてこのように、言葉とその対象（という関係）がないので、本来の（意味の）対象は決して存在しない。<br>さらに、これ（言葉）はすべて比喩的なものにすぎず、本来のものは存在しない。なぜなら、比喩的なものとは、あるものに、そこに存在しない姿ではたらくもののことである。そして、すべての語は、主たるものに対して、そこに存在しない性質の姿ではたらく。だから、本来のものはまったく存在しない。それゆえ、「本来の我や法が存在しないなら、（それらの）仮説は成り立たない」と言われたことは、理に合わない。</div><div class="exp"><span class="lbl">解説</span><p>（2）反論の前提そのものの否定です。反論者は「本来の意味（<i>mukhya</i>）と比喩的な意味（<i>gauṇa</i>）」の区別を前提にしていました。Sthiramati は、そもそも<strong>本来の意味などというものはない</strong>、と言います。</p><p>理由はこうです。私たちの知も言葉も、ものそのもの（主たるもの、<i>pradhāna</i>）に直接触れることはできず、色や形といった性質（<i>guṇa</i>）を通してしかものをとらえられない。そして、知と言葉のほかに、ものそのものに迫る手段はない。だから、ものそのものを指す「本来の意味」はありえない。すべての語は、ものに対して、そのもの自体ではない性質の姿で当てはめられている。つまり、<strong>すべての言葉は比喩的</strong>なのです。</p>
+  <div class="tbl" style="margin-block:.6em"><table><thead><tr><th></th><th>反論者</th><th>Sthiramati</th></tr></thead><tbody><tr><td class="k">本来の意味</td><td>ある（実在の火を指す）</td><td>ない（ものそのものは言葉を超えている）</td></tr><tr><td class="k">比喩的な意味</td><td>本来の意味から派生する</td><td>すべての言葉が比喩的</td></tr><tr><td class="k">我・法の仮説</td><td>本来の我・法がないので成り立たない</td><td>本来のものがなくても成り立つ。仮説とはもともとそういうもの</td></tr></tbody></table></div>
+  <p>こうして、「本来の我や法がなければ仮説は成り立たない」という反論は、前提から崩れます。仮説は、もともと本来のものなしに成り立っているからです。</p><p>言葉はものそのもの（自相）に触れず、一般的な性質を通してしか対象を表さない、という考え方は、Dignāga 以降の仏教認識論の言語観と通じるところがあります。</p><div class="stk"><span class="lbl">Buescher の注記</span><p>冒頭の「決して存在しない」（<i>naivāsti</i>）は貝葉写本 C と写本 E・F の読みで、写本 G・H と Lévi 版は <i>nāsti</i> です。「対象そのものを確定する手段」の前の <i>'nyaḥ padārtha°</i> について、Lévi は写本が <i>nyapada</i> と読むと注記しましたが、Buescher によれば C は確かに <i>'nyaḥ pada</i> と読みます。最後の「本来の我や法」の「法」（<i>dharmeṣu</i>）は、写本 C・E・F・G・H がいずれも <i>madhyeṣu</i> と書いており、Lévi 版とチベット語訳（<i>chos su</i>）に従って <i>dharmeṣu</i> と読んでいます。</p></div><div class="chk"><span class="lbl">読みの要検討箇所</span><p>「このように、語に至るまで、結びつきがないので…」（<i>evaṃ yāvac chabde sambandhābhāvāj jñānābhidhānābhāvaḥ</i>）の一文は、OCR テキストの読みのままで、意味の取り方に不確かさが残ります。印刷版で確認のうえ、訳を見直す必要があります。</p></div></div>
+</div>
+<p class="cap">（見本はここまで。次は第1偈 d「転変は三種である」の注〔1.1.2〕に続く）</p>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">見本に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>upacāra</dt><dd>仮説。あるものの名を、別のものに比喩的に当てはめること</dd>
+    <dt>prajñapti</dt><dd>施設。仮に名を立てること</dd>
+    <dt>ātman / dharma</dt><dd>我（自己）／法（経験を構成する要素）</dd>
+    <dt>pudgalanairātmya / dharmanairātmya</dt><dd>人無我／法無我</dd>
+    <dt>kleśāvaraṇa / jñeyāvaraṇa</dt><dd>煩悩障／所知障</dd>
+    <dt>mokṣa / sarvajñatva</dt><dd>解脱／一切智</dd>
+    <dt>satkāyadṛṣṭi</dt><dd>有身見。身心を自己とみなす見解</dd>
+    <dt>ekāntavāda</dt><dd>極端な説</dd>
+    <dt>saṃvṛti / paramārtha</dt><dd>世俗／勝義</dd>
+    <dt>dravya</dt><dd>実体。実在するもの</dd>
+    <dt>vijñānapariṇāma</dt><dd>識の転変。原因の刹那の滅と同時に、異なる結果の刹那が生じること</dd>
+    <dt>ālayavijñāna</dt><dd>アーラヤ識。すべての種子を蓄える根本の識</dd>
+    <dt>vāsanā</dt><dd>熏習。分別や行為が残す潜在的な影響力</dd>
+    <dt>nirbhāsa</dt><dd>現れ。識が帯びている姿</dd>
+    <dt>vikalpa</dt><dd>分別</dd>
+    <dt>parikalpita</dt><dd>想定された。遍計所執</dd>
+    <dt>pratītyasamutpanna</dt><dd>縁起したもの。原因と条件によって生じたもの</dd>
+    <dt>ālambanapratyaya</dt><dd>所縁縁。識の対象となる条件</dd>
+    <dt>samanantarapratyaya</dt><dd>等無間縁。直前の刹那の心</dd>
+    <dt>sañcita</dt><dd>集積したもの</dd>
+    <dt>paramāṇu</dt><dd>極微。物質の最小単位</dd>
+    <dt>manovijñāna</dt><dd>意識</dd>
+    <dt>mukhya / gauṇa</dt><dd>本来の（第一の）意味／比喩的な意味</dd>
+    <dt>jāti / dravya / guṇa</dt><dd>類（普遍）／実体／性質</dd>
+    <dt>avinābhāva</dt><dd>不可離の関係</dd>
+    <dt>pradhāna</dt><dd>主たるもの。性質の担い手としての実体</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　サンスクリット本文は、H. Buescher, <i>Sthiramati's Triṃśikāvijñaptibhāṣya: Critical Editions of the Sanskrit Text and its Tibetan Translation</i>（Wien 2007）の OCR テキストから採り、写本の符号・行番号・注番号を除いてデーヴァナーガリーに機械的に転写した。構造番号と頁・行は Buescher に従う。OCR の明らかな誤りは訂正したが、印刷版との校合は済んでいない。</p>
+  <p>和訳と解説は、原文から独自に作成した試訳である。「Buescher の注記」欄は、Buescher の校訂注のうち読みに関わる事実を要約したものである。</p>
+</footer>
+</main>
+</body>
+</html>
