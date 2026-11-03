@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="ja" data-script="deva">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sāṃkhyakārikā 対訳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+
+<style>
+/* 文字切替 */
+.mula .src .iast{display:none;font-family:var(--f-ia);font-size:1.1rem;line-height:1.9;font-weight:700}
+:root[data-script="iast"] .mula .src .deva{display:none}
+:root[data-script="iast"] .mula .src .iast{display:block}
+.mula .src.verse .deva{display:block;font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.18rem;line-height:2.05;font-weight:600}
+.mula .src .pada{display:block}
+.mula .src .pada + .pada{padding-left:1.5em}
+.hero .deva-title .iast{display:none;font-family:var(--f-ia);font-style:italic}
+:root[data-script="iast"] .hero .deva-title .deva{display:none}
+:root[data-script="iast"] .hero .deva-title .iast{display:inline}
+nav.toc{overflow:visible}
+nav.toc .toc-in{display:flex;align-items:center;gap:10px;max-width:var(--measure);margin-inline:auto}
+nav.toc ol{flex:1;min-width:0;overflow-x:auto;margin:0;scrollbar-width:none}
+nav.toc ol::-webkit-scrollbar{display:none}
+.script-sw{flex:none}
+.script-sw{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--card)}
+.script-sw button{font:inherit;font-size:.82rem;font-weight:700;color:var(--muted);background:transparent;border:0;padding:3px 12px;cursor:pointer;line-height:1.6}
+.script-sw button[lang="sa"]{font-family:"Noto Serif Devanagari",serif}
+.script-sw button[aria-pressed="true"]{background:var(--accent);color:var(--card)}
+.script-sw button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.mula .exp .chk .lbl{color:var(--gold)}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+ <div class="toc-in">
+  <ol>
+    <li><a href="#intro">入口</a></li>
+    <li><a href="#map">全体の地図</a></li>
+    <li><a href="#s1"><b>1</b>苦と、知ろうとする欲求</a></li>
+    <li><a href="#s2"><b>2</b>二十五の原理の分類</a></li>
+    <li><a href="#terms">用語集</a></li>
+  </ol>
+  <div class="script-sw" role="group" aria-label="原文の文字"><button type="button" data-set="deva" aria-pressed="true" lang="sa">देव</button><button type="button" data-set="iast" aria-pressed="false">IAST</button></div>
+ </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">インド哲学の古典を読む</div>
+  <h1>Sāṃkhyakārikā</h1>
+  <p class="deva-title" lang="sa"><span class="deva">साङ्ख्यकारिका</span><span class="iast">sāṃkhyakārikā</span></p>
+  <p class="sub">Īśvarakṛṣṇa の『サーンキヤ頌』を、原文・和訳・解説で偈の順に読む</p>
+  <span class="sample">見本　kārikā 1–3</span>
+  <p>人はなぜ苦しむのか、そしてどうすれば苦しみから永久に離れられるのか。サーンキヤ学派はその答えを、世界を<strong>二十五の原理</strong>（<i>tattva</i>）に分けて正しく知ることに求めました。物質的なものの根源である<strong>プラクリティ</strong>（<i>prakṛti</i>）と、純粋な意識である<strong>プルシャ</strong>（<i>puruṣa</i>）。この二つを取り違えていることが苦の原因であり、両者を見分ける知が解脱をもたらす、というのです。</p>
+  <p><i>Sāṃkhyakārikā</i> は、この学説を70あまりの āryā 詩節にまとめた、現存するサーンキヤ最古の綱要書です。このページでは、デーヴァナーガリー（IAST に切り替え可能）の原文と和訳を対照させ、各偈に Gauḍapāda の注釈（<i>Bhāṣya</i>）を踏まえた解説を付け、要所に図と表を添えました。</p>
+</header>
+
+<main>
+<section id="intro" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">まず30秒で</h2></div>
+  <dl class="facts">
+    <div><dt>著者</dt><dd>Īśvarakṛṣṇa<br><small>4–5世紀頃。伝承では Kapila → Āsuri → Pañcaśikha と続く師資相承を受け継いだとされる（kārikā 70–71）</small></dd></div>
+    <div><dt>書名</dt><dd><i>Sāṃkhyakārikā</i>「サーンキヤ頌」<br><small><i>Sāṃkhyasaptati</i>「サーンキヤ七十頌」とも。現行本は72偈</small></dd></div>
+    <div><dt>主題</dt><dd>二十五原理と解脱<br><small>プラクリティとプルシャの区別、三グナ、展開（<i>pariṇāma</i>）の体系</small></dd></div>
+    <div><dt>見どころ</dt><dd>因中有果論と二元論の論証<br><small>kārikā 9 の <i>satkāryavāda</i>、kārikā 15–21 のプラクリティ・プルシャの存在論証</small></dd></div>
+    <div><dt>注釈</dt><dd>Gauḍapāda『バーシャ』<br><small>成立年代は不明（6–8世紀頃とする説が多い）。簡潔で、例と典拠の引用が多い。真諦訳『金七十論』（6世紀）の注と内容がよく一致する。解説はこれに拠っている</small></dd></div>
+    <div><dt>本文</dt><dd>GRETIL 電子テキスト<br><small>Wilson 1887 年版に基づき、偈の配列は Mainkar 1972 年版による。入力 Dhaval Patel。デーヴァナーガリーはそのローマ字表記から機械的に転写した</small></dd></div>
+  </dl>
+
+  <h3>このページの読み方</h3>
+  <div class="howto">
+    <div><b>番号</b>各ブロック左上の <span class="ia">kārikā 1</span> は偈の番号（Mainkar 版の配列）。節見出しの <span class="pg">K 1–2</span> はその節の範囲</div>
+    <div><b>原文</b>デーヴァナーガリーと IAST を、上の目次バーの <span class="ia">देव / IAST</span> で切り替えられる。選んだ文字は次に開いたときも保たれる</div>
+    <div><b>和訳</b>kārikā 本文のみを訳した。（　）は訳者の補い。Gauḍapāda の解釈に沿って訳した箇所がある</div>
+    <div><b>解説</b>各偈の下の灰色の欄。注釈そのものは訳さず、理解に必要な情報だけを取り出した。（GBh K1）は Gauḍapāda が kārikā 1 に付けた注の意</div>
+    <div><b>他の注釈との比較</b>解説欄の下段。Vācaspatimiśra『タットヴァ・カウムディー』など、ほかの注釈と解釈が分かれる箇所を挙げた</div>
+    <div><b>図と表</b>議論の骨組みを整理するために添えたもの。本文の訳ではない</div>
+  </div>
+
+  <div class="point"><span class="lbl">注釈者の序</span><p>Gauḍapāda は注の冒頭に二つの偈を置いています。一つは「無知の海に沈んだ世界を渡すために、慈悲によってサーンキヤという船を造った Kapila に帰命する」という帰敬の偈、もう一つは「認識手段・定説・理由をそなえ、短く明瞭な論書を、弟子のために要約して説こう」という作成の辞です。注釈の性格（短く、例を挙げて分かりやすく）がここに表明されています。</p></div>
+</section>
+
+<section id="map" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">全体の地図</h2><span class="sub">72偈を内容によって18節に分けた。見本では §1–§2 を収める</span></div>
+  <p>本書は、苦からの解放という目的（§1）を掲げ、その手段である二十五原理の知を、分類（§2）、認識手段（§3）、存在論証（§4–§8）、展開の順序（§9–§12）、輪廻の仕組み（§13–§15）と順に説き、最後に解脱のありさま（§16–§17）と学統（§18）で結びます。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>節</th><th>見出し</th><th>偈</th><th>内容</th></tr></thead>
+      <tbody>
+<tr class="here"><td class="num">§1</td><td class="k"><a href="#s1">苦と、知ろうとする欲求</a></td><td class="num">K 1–2</td><td>三種の苦。世俗の手段も祭式も、苦を根絶できない</td></tr>
+<tr class="here"><td class="num">§2</td><td class="k"><a href="#s2">二十五の原理の分類</a></td><td class="num">K 3</td><td>原質・原質かつ変異物・変異物・どちらでもないもの</td></tr>
+<tr><td class="num">§3</td><td class="k">認識手段</td><td class="num">K 4–8</td><td>知覚・推理・信頼できる言葉の三つ。見えないものが見えない八つの理由</td></tr>
+<tr><td class="num">§4</td><td class="k">因中有果論</td><td class="num">K 9</td><td>結果は原因のうちにあらかじめ存在する（<i>satkārya</i>）。五つの理由</td></tr>
+<tr><td class="num">§5</td><td class="k">顕現・未顕現・プルシャ</td><td class="num">K 10–11</td><td>三者の共通点と相違点</td></tr>
+<tr><td class="num">§6</td><td class="k">三つのグナ</td><td class="num">K 12–14</td><td><i>sattva・rajas・tamas</i> の性質と働き。灯火の譬え</td></tr>
+<tr><td class="num">§7</td><td class="k">プラクリティの存在論証</td><td class="num">K 15–16</td><td>未顕現の原因が存在する五つの理由。展開の仕方</td></tr>
+<tr><td class="num">§8</td><td class="k">プルシャの存在と多数性</td><td class="num">K 17–19</td><td>プルシャが存在し、多数であり、観照者であること</td></tr>
+<tr><td class="num">§9</td><td class="k">結合と創造</td><td class="num">K 20–21</td><td>精神をもつかのような身体。盲人と足の不自由な人の譬え</td></tr>
+<tr><td class="num">§10</td><td class="k">展開（1）：ブッディ・アハンカーラ・器官</td><td class="num">K 22–28</td><td>展開の順序。ブッディの八つのあり方。器官の働き</td></tr>
+<tr><td class="num">§11</td><td class="k">展開（2）：器官の働き方</td><td class="num">K 29–37</td><td>十三の器官。内的器官と外的器官。ブッディの優位</td></tr>
+<tr><td class="num">§12</td><td class="k">微細身と粗大要素</td><td class="num">K 38–42</td><td>特殊と非特殊。輪廻する微細身（<i>liṅga</i>）</td></tr>
+<tr><td class="num">§13</td><td class="k">性向（<i>bhāva</i>）</td><td class="num">K 43–45</td><td>法・知・離欲・自在力とその反対。その結果</td></tr>
+<tr><td class="num">§14</td><td class="k">知の創造</td><td class="num">K 46–51</td><td>錯誤・無能力・満足・成就の五十種</td></tr>
+<tr><td class="num">§15</td><td class="k">二種の創造と生類の世界</td><td class="num">K 52–56</td><td>微細身の創造と性向の創造。神・動物・人間。苦の原因</td></tr>
+<tr><td class="num">§16</td><td class="k">プラクリティの働きの目的</td><td class="num">K 57–61</td><td>子牛のための乳、踊り子の譬え。プラクリティの恥じらい</td></tr>
+<tr><td class="num">§17</td><td class="k">解脱</td><td class="num">K 62–68</td><td>縛られ、解き放たれるのはプラクリティ。「私はない」の知。独存</td></tr>
+<tr><td class="num">§18</td><td class="k">学統</td><td class="num">K 69–72</td><td>Kapila から Īśvarakṛṣṇa まで。<i>Ṣaṣṭitantra</i> の要約であること</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §1 ============ -->
+<section id="s1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>苦と、知ろうとする欲求</h2><span class="sub"><span class="pg">K 1–2</span>三種の苦。世俗の手段も祭式も、苦を根絶できない</span></div>
+<p>冒頭の二偈は、この学問を学ぶ<strong>理由</strong>を述べます。人は苦に打たれるから、苦を除く手段を知ろうとする。ところが苦を除く手段なら、薬や祭式など、すでに手近にあるではないか。Īśvarakṛṣṇa は、それらでは苦は<strong>確実にも永続的にも</strong>除かれないと答え、本当の手段は二十五原理の識別知だけだ、と結論します。</p>
+
+<div class="mula sutra" id="k1">
+  <span class="ref">kārikā 1</span>
+  <div class="src verse"><span class="deva" lang="sa-Deva"><span class="pada">दुःखत्रयाभिघाताज्जिज्ञासा तदभिघातके हेतौ ।</span><span class="pada">दृष्टे सापार्था चेन्नैकान्तात्यन्ततोऽभावात् ॥ १ ॥</span></span><span class="iast" lang="sa-Latn"><span class="pada">duḥkhatrayābhighātājjijñāsā tadabhighātake hetau /</span><span class="pada">dṛṣṭe sāpārthā cennaikāntātyantato 'bhāvāt // 1 //</span></span></div>
+  <div class="tr">三種の苦に打たれるので、それを打ち払う手段について、知ろうとする欲求が（起こる）。「（苦を打ち払う手段は）目に見えるものがあるから、その（欲求）は無意味である」と言うなら、そうではない。（目に見える手段では苦の除去が）確実でも永続的でもないからである。</div>
+  <div class="exp"><span class="lbl">解説</span>
+    <p>Gauḍapāda はまず、この学説の由来を語ります。Kapila は Brahmā の七人の息子の一人で、生まれながらに<strong>法・知・離欲・自在力</strong>（<i>dharma, jñāna, vairāgya, aiśvarya</i>）の四つをそなえていました。彼は世界が輪廻の連鎖のなかで闇に沈んでいるのを見て、慈悲から、知ることを求めた Āsuri という婆羅門に<strong>二十五原理の知</strong>を説きました。この知によって苦が尽きる、というのです。注はここで「二十五原理を知る者は、どの生活段階（<i>āśrama</i>）にあっても、結髪でも剃髪でも頂髻を残していても解脱する」という偈を引きます（GBh K1）。解脱は出家の形式ではなく知によって決まる、というサーンキヤの基本姿勢です。</p>
+    <p>「三種の苦」の内訳は次のとおりです（GBh K1）。</p>
+    <p><strong><i>ādhyātmika</i>（内的な苦）</strong>　身体的なものと精神的なものがある。身体的な苦は風・胆汁・粘液（<i>vāta, pitta, śleṣman</i>）の不調から起こる熱病や下痢など。精神的な苦は、愛する人との別離や、好ましくないものとの出会いなど。<br>
+    <strong><i>ādhibhautika</i>（生きものに由来する苦）</strong>　人間・家畜・獣・鳥・蛇・虻・蚊・虱・南京虫・魚・ワニ・植物など、胎生・卵生・湿生・芽生の四種の生きものから受ける苦。<br>
+    <strong><i>ādhidaivika</i>（神々・天に由来する苦）</strong>　寒さ・暑さ・風・雨・落雷など。</p>
+    <p>反論者は、苦を除く<strong>目に見える手段</strong>（<i>dṛṣṭa</i>）がすでにあると言います。内的な苦には医学（<i>āyurveda</i>）の処方や、苦い・辛い・渋い薬草の煎じ薬があり、愛する人と会い嫌な人を避ければよい。生きものに由来する苦には防護（<i>rakṣā</i>）がある。それなら哲学など学ぶ必要はない、というわけです。</p>
+    <p>答えの鍵は <i>ekānta</i> と <i>atyanta</i> の二語です。Gauḍapāda はこれを <i>avaśyam</i>「必ず」と <i>nityam</i>「永久に」と言い換えます（GBh K1）。薬が効くとは限らず、効いても苦はまた起こる。だから、<strong>確実かつ永続的に</strong>苦を打ち払う別の手段を知ろうとすべきだ、というのが結論です。</p>
+    <div class="chk"><span class="lbl">他の注釈との比較</span><p>Vācaspatimiśra の <i>Tattvakaumudī</i> は、<i>ekānta</i> を「苦の除去が必ず起こること」、<i>atyanta</i> を「除かれた苦が二度と生じないこと」と説明します。Gauḍapāda の「必ず」「永久に」とほぼ同じですが、後者を「再発しないこと」と明確に定式化している点で、より分析的です。また Vācaspati は、冒頭の <i>abhighāta</i> を、苦が意識にとって好ましくないものとして関わってくることと説明し、「苦が存在するのに、なぜ人が苦を除こうとするのか」という問いに答えようとしています。</p></div>
+  </div>
+</div>
+
+<div class="mula sutra" id="k2">
+  <span class="ref">kārikā 2</span>
+  <div class="src verse"><span class="deva" lang="sa-Deva"><span class="pada">दृष्टवदानुश्रविकः स ह्यविशुद्धिक्षयातिशययुक्तः ।</span><span class="pada">तद्विपरीतः श्रेयान् व्यक्ताव्यक्तज्ञविज्ञानात् ॥ २ ॥</span></span><span class="iast" lang="sa-Latn"><span class="pada">dṛṣṭavadānuśravikaḥ sa hyaviśuddhikṣayātiśayayuktaḥ /</span><span class="pada">tadviparītaḥ śreyān vyaktāvyaktajñavijñānāt // 2 //</span></span></div>
+  <div class="tr">聖典に説かれる（手段）も、目に見える（手段）と同様である。それは不浄・消滅・優劣をともなうからである。それとは反対の（手段）こそがよりすぐれている。（それは）顕現したもの・未顕現のもの・知る者を識別して知ることから（得られる）。</div>
+  <div class="exp"><span class="lbl">解説</span>
+    <p>反論者は手を替えて、目に見える手段がだめなら、<strong>聖典に説かれる手段</strong>（<i>ānuśravika</i>）があると言います。Gauḍapāda は <i>anuśrava</i> を「（師から弟子へ）聞き継がれるもの」すなわちヴェーダと説明し、<i>ānuśravika</i> を「ヴェーダに説かれる（手段）」と解します。反論者の典拠として注が引くのは二つです（GBh K2）。</p>
+    <p>一つは <i>Ṛgveda</i>（8.48.3）の「私たちはソーマを飲んだ、不死となった、光に至った、神々を知った」という句です。Gauḍapāda はこれを、Indra たち神々が「私たちはなぜ不死になったのか。ソーマを飲んだからだ」と考えた場面として説明します。もう一つは馬祀祭（<i>aśvamedha</i>）についての「馬祀祭を行う者は、あらゆる世界を勝ち取り、死を越え、罪を越え、婆羅門殺しの罪をも越える」という一節です。祭式の果報は確実で永続的ではないか、というのです。</p>
+    <p>Īśvarakṛṣṇa の答えは、祭式も目に見える手段と<strong>同様</strong>（<i>dṛṣṭavat</i>）に、三つの欠陥をもつ、というものです。Gauḍapāda はそれぞれを次のように説明します（GBh K2）。</p>
+    <p><strong><i>aviśuddhi</i>（不浄）</strong>　祭式は動物の殺生をともなう。注は「馬祀祭の中日には、三頭を欠く六百頭の動物がつながれる」という偈を引く。聖典に定められた法であっても、殺生と混じっているので浄くない。<br>
+    <strong><i>kṣaya</i>（消滅）</strong>　天界の果報も尽きる。「神々のもとでは時代ごとに幾千もの Indra が時とともに過ぎ去った。時は越えがたい」。Indra の地位でさえ永続しない。<br>
+    <strong><i>atiśaya</i>（優劣）</strong>　果報に差がある。他人のよりすぐれた果報を見れば、劣った者には苦が生じる。</p>
+    <p>これに対して「反対のもの」、つまり不浄でも消滅もせず優劣もない手段が、<strong>顕現したもの・未顕現のもの・知る者の識別知</strong>（<i>vyakta-avyakta-jña-vijñāna</i>）です。Gauḍapāda によれば、<i>vyakta</i> はブッディからアハンカーラ、五つの微細要素、十一の器官、五つの粗大要素までの二十三、<i>avyakta</i> は根本原質（<i>pradhāna</i>）、<i>jña</i> はプルシャです。合わせて二十五。こうして kārikā 1 の注で引かれた「二十五原理を知る者は解脱する」に話がつながり、次の kārikā 3 でその二十五が分類されます。</p>
+  </div>
+</div>
+
+<div class="tbl">
+  <table>
+    <thead><tr><th>手段</th><th>例（Gauḍapāda）</th><th>欠陥</th></tr></thead>
+    <tbody>
+      <tr><td class="k">目に見える手段<span class="sm"><i>dṛṣṭa</i></span></td><td>医学の処方、煎じ薬、愛する人との交わり、防護</td><td>確実でない・永続しない（K1）</td></tr>
+      <tr><td class="k">聖典の手段<span class="sm"><i>ānuśravika</i></span></td><td>ソーマ祭、馬祀祭</td><td>不浄・消滅・優劣（K2）</td></tr>
+      <tr><td class="k">識別知<span class="sm"><i>vyaktāvyaktajñavijñāna</i></span></td><td>二十五原理を知ること</td><td>上の欠陥がない。だから「よりすぐれている」</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<!-- ============ §2 ============ -->
+<section id="s2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>二十五の原理の分類</h2><span class="sub"><span class="pg">K 3</span>原質・原質かつ変異物・変異物・どちらでもないもの</span></div>
+<p>kārikā 2 で「顕現したもの・未顕現のもの・知る者」と三つに分けた二十五原理を、ここでは別の観点、すなわち<strong>何かを生み出すか</strong>（<i>prakṛti</i>）、<strong>何かから生み出されたか</strong>（<i>vikṛti</i>）の二つの基準で、四つに分けます。</p>
+
+<div class="mula sutra" id="k3">
+  <span class="ref">kārikā 3</span>
+  <div class="src verse"><span class="deva" lang="sa-Deva"><span class="pada">मूलप्रकृतिरविकृतिर्महदाद्याः प्रकृतिविकृतयः सप्त ।</span><span class="pada">षोडशकस्तु विकारो न प्रकृतिर्न विकृतिः पुरुषः ॥ ३ ॥</span></span><span class="iast" lang="sa-Latn"><span class="pada">mūlaprakṛtiravikṛtirmahadādyāḥ prakṛtivikṛtayaḥ sapta /</span><span class="pada">ṣoḍaśakastu vikāro na prakṛtirna vikṛtiḥ puruṣaḥ // 3 //</span></span></div>
+  <div class="tr">根本原質は変異物ではない。マハットをはじめとする七つは、原質でもあり変異物でもある。一方、十六からなる群は変異物（にすぎない）。プルシャは原質でもなく、変異物でもない。</div>
+  <div class="exp"><span class="lbl">解説</span>
+    <p><i>prakṛti</i> は「（何かを）生み出すもの」、<i>vikṛti</i>（<i>vikāra</i>）は「（何かから）変化して生じたもの」です。二つの基準を組み合わせると、四つの区分ができます。</p>
+    <p><strong>根本原質</strong>（<i>mūlaprakṛti</i>）は、ほかのすべての原質の「根本」なのでこう呼ばれます。Gauḍapāda はこれを <i>pradhāna</i> と言い換え、「他のものから生じないので、何ものの変異物でもない」と説明します（GBh K3）。</p>
+    <p><strong>原質かつ変異物</strong>の七つは、ブッディ（＝マハット）、アハンカーラ、五つの微細要素（<i>tanmātra</i>）です。注はそれぞれについて、上から生じるので変異物、下を生むので原質、と一つずつ確かめていきます。たとえばブッディは根本原質から生じるので変異物、アハンカーラを生むので原質です。微細要素については、音の微細要素から虚空、触の微細要素から風、香の微細要素から地、色の微細要素から火、味の微細要素から水が生じる、と一対一の対応で述べます（GBh K3）。</p>
+    <p><strong>変異物のみ</strong>の十六は、五つの知覚器官、五つの行為器官、第十一の器官である意（<i>manas</i>）、そして五つの粗大要素です。これらは生じたものですが、さらに別の原理を生み出すことはありません。</p>
+    <p><strong>プルシャ</strong>は何も生まず、何からも生じません。Gauḍapāda はここでは一言で済ませますが、プルシャが展開の系列の外にあることは、kārikā 11 や 19 で詳しく論じられます。</p>
+    <p class="nt">GRETIL のテキストには <i>mahābhūtād iti buddhiḥ</i> とあり、文意が通らない。伝承の乱れと思われるが、趣旨は「マハットとはブッディのことである」であろう。</p>
+    <div class="chk"><span class="lbl">他の注釈との比較</span><p>粗大要素の生じ方について、Gauḍapāda は「音の微細要素から虚空」のように一対一で対応させます。これに対し Vācaspatimiśra の <i>Tattvakaumudī</i>（kārikā 22 注）は累加的に説明します。音の微細要素から虚空、音と触から風、音・触・色から火、さらに味を加えて水、香を加えて地。こうして地が五つの性質すべてをもち、虚空が音だけをもつことが説明されます。kārikā 3 への Gauḍapāda の注では、微細要素を挙げる順序も音・触・香・色・味となっていて、通常の順序（音・触・色・味・香）と異なります。</p></div>
+  </div>
+</div>
+
+<figure>
+  <div class="scroll">
+  <svg viewBox="0 0 660 470" style="min-width:560px;width:100%" role="img" aria-label="二十五原理の展開図。根本原質からマハット、アハンカーラ、十一の器官と五つの微細要素、五つの粗大要素が生じる。プルシャは系列の外にある">
+    <defs><marker id="m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+    <rect x="20" y="20" width="180" height="70" rx="10" class="s-jatisoft st-jati" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="110" y="45" text-anchor="middle" font-size="14" font-weight="700" class="s-jati">プルシャ</text>
+    <text x="110" y="63" text-anchor="middle" font-size="12" class="ia s-ink" font-style="italic">puruṣa</text>
+    <text x="110" y="80" text-anchor="middle" font-size="10.5" class="s-muted">生まず、生じない</text>
+
+    <rect x="240" y="20" width="180" height="62" rx="10" class="s-accsoft"/>
+    <text x="330" y="45" text-anchor="middle" font-size="14" font-weight="700" class="s-acc">根本原質</text>
+    <text x="330" y="66" text-anchor="middle" font-size="12" class="ia s-ink" font-style="italic">mūlaprakṛti / pradhāna</text>
+    <path d="M330 82 V108" class="st-muted" stroke-width="1.5" marker-end="url(#m1)"/>
+
+    <rect x="240" y="110" width="180" height="62" rx="10" class="s-goldsoft"/>
+    <text x="330" y="135" text-anchor="middle" font-size="14" font-weight="700" class="s-gold">マハット（ブッディ）</text>
+    <text x="330" y="156" text-anchor="middle" font-size="12" class="ia s-ink" font-style="italic">mahat / buddhi</text>
+    <path d="M330 172 V198" class="st-muted" stroke-width="1.5" marker-end="url(#m1)"/>
+
+    <rect x="240" y="200" width="180" height="62" rx="10" class="s-goldsoft"/>
+    <text x="330" y="225" text-anchor="middle" font-size="14" font-weight="700" class="s-gold">アハンカーラ</text>
+    <text x="330" y="246" text-anchor="middle" font-size="12" class="ia s-ink" font-style="italic">ahaṃkāra</text>
+    <path d="M295 262 L180 298" class="st-muted" stroke-width="1.5" marker-end="url(#m1)"/>
+    <path d="M365 262 L480 298" class="st-muted" stroke-width="1.5" marker-end="url(#m1)"/>
+
+    <rect x="40" y="300" width="250" height="70" rx="10" class="s-anssoft"/>
+    <text x="165" y="325" text-anchor="middle" font-size="14" font-weight="700" class="s-ans">十一の器官</text>
+    <text x="165" y="346" text-anchor="middle" font-size="12" class="ia s-ink" font-style="italic">manas, buddhīndriya ×5,</text>
+    <text x="165" y="362" text-anchor="middle" font-size="12" class="ia s-ink" font-style="italic">karmendriya ×5</text>
+
+    <rect x="370" y="300" width="250" height="70" rx="10" class="s-goldsoft"/>
+    <text x="495" y="325" text-anchor="middle" font-size="14" font-weight="700" class="s-gold">五つの微細要素</text>
+    <text x="495" y="346" text-anchor="middle" font-size="12" class="ia s-ink" font-style="italic">tanmātra ×5</text>
+    <text x="495" y="362" text-anchor="middle" font-size="10.5" class="s-muted">音・触・色・味・香</text>
+    <path d="M495 370 V396" class="st-muted" stroke-width="1.5" marker-end="url(#m1)"/>
+
+    <rect x="370" y="398" width="250" height="62" rx="10" class="s-anssoft"/>
+    <text x="495" y="423" text-anchor="middle" font-size="14" font-weight="700" class="s-ans">五つの粗大要素</text>
+    <text x="495" y="444" text-anchor="middle" font-size="12" class="ia s-ink" font-style="italic">mahābhūta ×5</text>
+
+    <g font-size="11.5">
+      <rect x="40" y="400" width="14" height="14" rx="3" class="s-accsoft"/><text x="60" y="412" class="s-ink">原質のみ（1）</text>
+      <rect x="170" y="400" width="14" height="14" rx="3" class="s-goldsoft"/><text x="190" y="412" class="s-ink">原質かつ変異物（7）</text>
+      <rect x="40" y="428" width="14" height="14" rx="3" class="s-anssoft"/><text x="60" y="440" class="s-ink">変異物のみ（16）</text>
+      <rect x="170" y="428" width="14" height="14" rx="3" class="s-jatisoft st-jati" stroke-dasharray="3 2"/><text x="190" y="440" class="s-ink">どちらでもない（1）</text>
+    </g>
+  </svg>
+  </div>
+  <figcaption><b>図1　二十五原理の展開と kārikā 3 の四区分。</b>色は四つの区分を示す。展開の順序そのものは kārikā 22 で説かれ、アハンカーラから器官と微細要素がどう分かれるかは kārikā 24–25 で詳しく述べられる。</figcaption>
+</figure>
+
+<div class="tbl">
+  <table>
+    <thead><tr><th>区分</th><th>該当する原理</th><th class="num">数</th></tr></thead>
+    <tbody>
+      <tr><td class="k">原質のみ<span class="sm"><i>prakṛti, avikṛti</i></span></td><td>根本原質（<i>pradhāna</i>）</td><td class="num">1</td></tr>
+      <tr><td class="k">原質かつ変異物<span class="sm"><i>prakṛti-vikṛti</i></span></td><td>ブッディ、アハンカーラ、五つの微細要素</td><td class="num">7</td></tr>
+      <tr><td class="k">変異物のみ<span class="sm"><i>vikāra</i></span></td><td>五つの知覚器官、五つの行為器官、意、五つの粗大要素</td><td class="num">16</td></tr>
+      <tr><td class="k">どちらでもない<span class="sm"><i>na prakṛtir na vikṛtiḥ</i></span></td><td>プルシャ</td><td class="num">1</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="point"><span class="lbl">ポイント</span><p>kārikā 2 の三分類（顕現・未顕現・知る者）と kārikā 3 の四分類は、同じ二十五を別の角度から切ったものです。前者は<strong>見えるか・見えないか・意識か</strong>、後者は<strong>因果の系列のどこにあるか</strong>による分類です。どちらの分け方でも、プルシャだけが他の二十四とはっきり区別されていることに注意してください。</p></div>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">用語集</h2><span class="sub">本文に出てくる主な術語</span></div>
+  <dl class="gloss">
+    <dt>tattva</dt><dd>原理。サーンキヤでは二十五を数える</dd>
+    <dt>duḥkhatraya</dt><dd>三種の苦</dd>
+    <dt>ādhyātmika / ādhibhautika / ādhidaivika</dt><dd>内的な苦／生きものに由来する苦／神々・天に由来する苦</dd>
+    <dt>jijñāsā</dt><dd>知ろうとする欲求</dd>
+    <dt>dṛṣṭa / ānuśravika</dt><dd>目に見える（手段）／聖典に説かれる（手段）</dd>
+    <dt>ekānta / atyanta</dt><dd>確実に／永続的に</dd>
+    <dt>aviśuddhi / kṣaya / atiśaya</dt><dd>不浄／消滅／優劣</dd>
+    <dt>vyakta / avyakta / jña</dt><dd>顕現したもの／未顕現のもの／知る者（プルシャ）</dd>
+    <dt>prakṛti / pradhāna</dt><dd>原質／根本原質。物質的なものの根源</dd>
+    <dt>vikṛti / vikāra</dt><dd>変異物。原質から変化して生じたもの</dd>
+    <dt>mahat / buddhi</dt><dd>マハット／ブッディ。決定を本質とする知の原理</dd>
+    <dt>ahaṃkāra</dt><dd>アハンカーラ。「私が」という自我意識の原理</dd>
+    <dt>tanmātra</dt><dd>微細要素。音・触・色・味・香の「それだけのもの」</dd>
+    <dt>buddhīndriya / karmendriya</dt><dd>知覚器官／行為器官</dd>
+    <dt>manas</dt><dd>意。第十一の器官</dd>
+    <dt>mahābhūta</dt><dd>粗大要素。虚空・風・火・水・地</dd>
+    <dt>puruṣa</dt><dd>プルシャ。純粋な意識。原質でも変異物でもない</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>テキストについて</strong>　本ページの原文は、GRETIL（Göttingen Register of Electronic Texts in Indian Languages）の電子テキスト <i>sa_IzvarakRSNa-sAMkhyakArikA-comm2</i>（Dhaval Patel 入力、2020-07-31 版）による。底本は <i>The Sankhya Karika</i>, tr. H. T. Colebrooke, with the <i>Bhashya</i> of Gaudapada, tr. H. H. Wilson, Bombay: Tookaram Tatya, 1887。偈の配列は T. G. Mainkar 版（Poona, 1972）に従う。電子テキストは Creative Commons Attribution-NonCommercial-ShareAlike 4.0 で配布されている。</p>
+  <p>デーヴァナーガリーは電子テキストのローマ字表記から機械的に転写した。和訳は試訳であり、正確な読みは校訂本で確認されたい。解説は Gauḍapāda の注を要約・再構成したもので、逐語訳ではない。</p>
+</footer>
+</main>
+<script>
+(function(){
+  var root=document.documentElement, KEY='skk-script';
+  function apply(v){
+    root.setAttribute('data-script',v);
+    document.querySelectorAll('.script-sw button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.set===v));});
+  }
+  var saved=null; try{saved=localStorage.getItem(KEY);}catch(e){}
+  apply(saved==='iast'?'iast':'deva');
+  document.querySelectorAll('.script-sw button').forEach(function(b){
+    b.addEventListener('click',function(){apply(b.dataset.set); try{localStorage.setItem(KEY,b.dataset.set);}catch(e){}});
+  });
+})();
+</script>
+</body>
+</html>
