@@ -1,0 +1,2136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ダルマキールティ『プラマーナ・ヴァールッティカ』第3章（知覚章）を、大学1年生向けに図と表と西洋哲学との対比で解説する入門書。">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>ダルマキールティ知覚章入門</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap">
+<style>
+/* Layout: one reading column (~38em) for a textbook; figures and tables may widen to 52em. Colors encode the book's core contrast: svalakṣaṇa/pratyakṣa = green, sāmānyalakṣaṇa/anumāna = ochre, Western comparison = indigo. */
+:root{
+  --paper:#f7f8f6; --ink:#1c2128; --muted:#5b6470; --rule:#d9ddd8; --panel:#eef1ed;
+  --sva:#1f6f5c; --sva-soft:#dcefe8;
+  --sam:#a2651a; --sam-soft:#f6e8d2;
+  --west:#3a4a8c; --west-soft:#e3e7f6;
+  --warn:#9b2f2f;
+  --f-disp:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+  --f-iast:"Source Serif 4","Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#15181c; --ink:#e3e6e2; --muted:#9aa3ad; --rule:#2e343b; --panel:#1d2227;
+  --sva:#5cc3a6; --sva-soft:#173a31; --sam:#e0a457; --sam-soft:#3b2c18;
+  --west:#9aa9ec; --west-soft:#232a4a; --warn:#e58a8a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#15181c; --ink:#e3e6e2; --muted:#9aa3ad; --rule:#2e343b; --panel:#1d2227;
+  --sva:#5cc3a6; --sva-soft:#173a31; --sam:#e0a457; --sam-soft:#3b2c18;
+  --west:#9aa9ec; --west-soft:#232a4a; --warn:#e58a8a; color-scheme:dark}
+
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.95;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:2.5rem 5rem}
+.book{max-width:52rem;margin:0 auto}
+.col{max-width:38rem;margin-inline:auto}
+i[lang],.ia{font-family:var(--f-iast);font-style:italic;font-size:1.04em;letter-spacing:.005em}
+h1,h2,h3,h4{font-family:var(--f-disp);text-wrap:balance;line-height:1.45;margin:0}
+h1{font-size:clamp(1.9rem,5vw,2.8rem);font-weight:800}
+h2{font-size:1.65rem;font-weight:700}
+h3{font-size:1.25rem;font-weight:700}
+h4{font-size:1.05rem;font-weight:700}
+p{margin:0 0 1.05em}
+.label{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-family:var(--f-body);font-weight:700}
+.vr{font-family:var(--f-iast);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+section{margin-top:3.2rem}
+.secno{display:flex;gap:.8rem;align-items:baseline;flex-wrap:wrap;border-top:1px solid var(--rule);padding-top:1rem;margin-bottom:1rem}
+
+/* cover */
+.cover{display:grid;gap:1rem;padding-bottom:2rem;border-bottom:2px solid var(--ink)}
+.cover .sub{font-family:var(--f-disp);font-size:1.15rem;color:var(--muted)}
+.cover .note{font-size:.88rem;color:var(--muted);max-width:38rem}
+
+/* TOC */
+.toc{display:grid;gap:0;margin-top:1rem;font-size:.95rem}
+.toc .row{display:grid;grid-template-columns:4.2rem 1fr auto;gap:.8rem;padding:.55rem 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.toc .row.here{background:var(--sva-soft);margin-inline:-.6rem;padding-inline:.6rem;border-radius:4px}
+.toc .no{font-family:var(--f-disp);font-weight:700;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+.toc a.no:hover,.toc a.no:focus-visible{color:var(--sva);border-color:var(--sva)}
+.totop{display:inline-block;margin-top:2rem;font-size:.8rem;color:var(--muted)}
+.toc .ttl{min-width:0}
+.toc .ttl small{display:block;color:var(--muted);font-size:.84rem;line-height:1.6}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;padding:.05rem .45rem;border-radius:3px;background:var(--sva);color:var(--paper);margin-left:.4rem;vertical-align:.1em}
+
+/* proportional verse bar */
+.vbar{display:flex;height:2.4rem;border-radius:3px;overflow:hidden;border:1px solid var(--rule);margin-top:.6rem}
+.vbar>div{display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--ink);border-right:1px solid var(--paper);min-width:0;overflow:hidden;white-space:nowrap}
+.vbar .on{background:var(--sva);color:var(--paper)}
+.vbar .off{background:var(--panel)}
+.vbar .b2{background:var(--sam-soft)}
+.vscale{display:flex;justify-content:space-between;font-family:var(--f-iast);font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.vlegend{display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;font-size:.8rem;color:var(--muted);margin-top:.5rem}
+
+/* figures & tables */
+figure{margin:2rem 0;padding:0}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:.6rem;line-height:1.7}
+figcaption b{color:var(--ink);font-family:var(--f-disp)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+svg{display:block;width:100%;height:auto;max-width:100%}
+svg text{font-family:var(--f-body);fill:var(--ink)}
+svg .ia-t{font-family:var(--f-iast);font-style:italic}
+svg .mut{fill:var(--muted)}
+svg .s-sva{fill:var(--sva-soft);stroke:var(--sva)}
+svg .s-sam{fill:var(--sam-soft);stroke:var(--sam)}
+svg .s-west{fill:var(--west-soft);stroke:var(--west)}
+svg .s-panel{fill:var(--panel);stroke:var(--rule)}
+svg .c-sva{fill:var(--sva)} svg .c-sam{fill:var(--sam)} svg .c-west{fill:var(--west)} svg .c-ink{fill:var(--ink)} svg .c-paper{fill:var(--paper)}
+svg .l-sva{stroke:var(--sva);fill:none} svg .l-sam{stroke:var(--sam);fill:none} svg .l-ink{stroke:var(--ink);fill:none} svg .l-mut{stroke:var(--muted);fill:none} svg .l-warn{stroke:var(--warn);fill:none}
+svg .t-sva{fill:var(--sva)} svg .t-sam{fill:var(--sam)} svg .t-west{fill:var(--west)} svg .t-warn{fill:var(--warn)}
+
+table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.65}
+th,td{padding:.55rem .7rem;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);border-bottom:2px solid var(--ink);font-weight:700}
+tbody th{font-weight:700;white-space:nowrap}
+td.sva,th.sva{background:var(--sva-soft)} td.sam,th.sam{background:var(--sam-soft)}
+.tw{min-width:34rem}
+
+/* boxes */
+.west{background:var(--west-soft);border-radius:6px;padding:1.1rem 1.25rem;margin:2rem 0}
+.west .label{color:var(--west)}
+.west h4{margin:.2rem 0 .6rem}
+.west p:last-child{margin-bottom:0}
+.key{border:1px solid var(--rule);border-radius:6px;padding:1rem 1.2rem;margin:1.6rem 0;font-size:.95rem}
+.key p:last-child{margin-bottom:0}
+.voice{display:grid;grid-template-columns:auto 1fr;gap:.4rem .8rem;margin:1.3rem 0;font-size:.95rem}
+.voice .who{font-weight:700;font-size:.8rem;padding:.15rem .5rem;border-radius:3px;height:fit-content;white-space:nowrap}
+.voice .op{background:var(--panel);color:var(--muted)}
+.voice .dk{background:var(--sva);color:var(--paper)}
+.voice p{margin:0}
+dl.gloss{display:grid;grid-template-columns:minmax(7rem,max-content) 1fr;gap:.45rem 1.2rem;font-size:.92rem}
+dl.gloss dt{font-family:var(--f-iast);font-style:italic;font-weight:600}
+dl.gloss dd{margin:0;min-width:0}
+ol.q{padding-left:1.4rem;display:grid;gap:.6rem}
+.endnote{font-size:.82rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:1rem;margin-top:3rem}
+@media (max-width:520px){
+  .toc .row{grid-template-columns:3.2rem 1fr}
+  .toc .row .vr{grid-column:2}
+  dl.gloss{grid-template-columns:1fr} dl.gloss dd{margin-bottom:.4rem}
+  .voice{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="book">
+
+<header class="cover">
+  <div class="label">大学1年生のためのインド哲学入門</div>
+  <h1>ダルマキールティ知覚章入門</h1>
+  <div class="sub"><i lang="sa-Latn">Pramāṇavārttika</i> 第3章を図と表で読む</div>
+  <p class="note">PV III の全539偈を、序章・本論10章・終章で順に読みます。章の分け方と偈番号は、戸崎宏正氏の科段に従います。偈の訳文は引用せず、議論の筋道を説明します。サンスクリットの術語はIASTで示します。</p>
+</header>
+
+<section class="col" id="toc">
+  <div class="label">目次</div>
+  <h2 style="margin:.3rem 0 .4rem">本書の構成</h2>
+  <p>本書は、PV III の構成（戸崎の大区分 I–IX）にそのまま合わせて章を立てます。下の帯グラフは、各区分が全539偈のうちどれだけを占めるかを示しています。最後の区分 IX（自己認識）だけで全体の約4割あることがわかります。</p>
+  <div class="vbar" role="img" aria-label="PV III 全539偈の区分ごとの分量">
+    <div class="on" style="flex:122" title="I 1–122">I</div>
+    <div class="off" style="flex:68" title="II 123–190">II</div>
+    <div class="off" style="flex:3" title="III 191–193"></div>
+    <div class="off" style="flex:37" title="IV 194–230">IV</div>
+    <div class="off" style="flex:8" title="V 231–238"></div>
+    <div class="off" style="flex:49" title="VI 239–287">VI</div>
+    <div class="off" style="flex:13" title="VII 288–300"></div>
+    <div class="off" style="flex:19" title="VIII 301–319">VIII</div>
+    <div class="b2" style="flex:220" title="IX 320–539">IX</div>
+  </div>
+  <div class="vscale"><span>1</span><span>123</span><span>239</span><span>320</span><span>539</span></div>
+  <div class="vlegend"><span>幅は偈の数に比例。細い帯は左から III（3偈）、V（8偈）、VII（13偈）</span></div>
+
+  <div class="toc">
+    <div class="row"><a class="no" href="#ch0">序章</a><span class="ttl">ダルマキールティと「認識手段の論理学」<small>PV という書物、Dignāga の『Pramāṇasamuccaya』との関係、PV III が何を問う章か</small></span><span class="vr"></span></div>
+    <div class="row"><a class="no" href="#ch1">第1章</a><span class="ttl">対象は二つ、だから認識手段も二つ<small>svalakṣaṇa と sāmānyalakṣaṇa／arthakriyā／一般相が実在しない理由／apoha の入口</small></span><span class="vr">I-1　1–63</span></div>
+    <div class="row"><a class="no" href="#ch2">第2章</a><span class="ttl">一つでも三つでもなく、二つ<small>Cārvāka 的な「知覚だけ」説と、Nyāya・Mīmāṃsā の多数説を退ける／否定的推論と無常性</small></span><span class="vr">I-2　64–122</span></div>
+    <div class="row"><a class="no" href="#ch3">第3章</a><span class="ttl">知覚には概念がない<small>kalpanāpoḍha の定義／ことばと対象の関係／普遍・関係・名前は知覚に入りこまない</small></span><span class="vr">II　123–190</span></div>
+    <div class="row"><a class="no" href="#ch4">第4章</a><span class="ttl">なぜ「pratyakṣa」と呼ぶのか、知覚は何をとらえるのか<small>名前の由来／Abhidharma の教えとの調和（原子の集まり）／知覚の対象</small></span><span class="vr">III–V　191–238</span></div>
+    <div class="row"><a class="no" href="#ch5">第5章</a><span class="ttl">四種類の知覚<small>mānasa・svasaṃvedana（快・苦）・yogijñāna・概念の自己認識</small></span><span class="vr">VI　239–287</span></div>
+    <div class="row"><a class="no" href="#ch6">第6章</a><span class="ttl">知覚に似て非なるもの<small>pratyakṣābhāsa の四分類と、Dignāga がそれを挙げた理由</small></span><span class="vr">VII　288–300</span></div>
+    <div class="row"><a class="no" href="#ch7">第7章</a><span class="ttl">認識手段と認識結果は一つ<small>pramāṇaphala／sārūpya（対象と似た姿）という考え方</small></span><span class="vr">VIII　301–319</span></div>
+    <div class="row"><a class="no" href="#ch8">第8章</a><span class="ttl">外界はあるのか：唯識説と外界実在論<small>自己認識が結果であることは両方の立場で成り立つ／認識手段・対象・結果の配置</small></span><span class="vr">IX-1・2　320–366</span></div>
+    <div class="row"><a class="no" href="#ch9">第9章</a><span class="ttl">認識の二つの顔<small>dvairūpya の論証／grāhyākāra と grāhakākāra</small></span><span class="vr">IX-3　367–424</span></div>
+    <div class="row"><a class="no" href="#ch10">第10章</a><span class="ttl">認識は自分自身を知る<small>想起からの論証／無限遡及／長母音の聞こえ方／sahopalambhaniyama</small></span><span class="vr">IX-4　425–539</span></div>
+    <div class="row"><a class="no" href="#ch11">終章</a><span class="ttl">PV III を読み終えて<small>後代の注釈者（Devendrabuddhi・Śākyabuddhi）と、西洋哲学との対話のために</small></span><span class="vr"></span></div>
+  </div>
+</section>
+
+<!-- ============ INTRODUCTION ============ -->
+<section class="col" id="ch0">
+  <div class="label">序章</div>
+  <h2 style="margin:.3rem 0 .8rem">ダルマキールティと「認識手段の論理学」</h2>
+  <p>「正しく知るとはどういうことか」。この問いは、ギリシアでもインドでも、哲学のもっとも古い問いの一つです。インドではこの問いをめぐる学問を <i lang="sa-Latn">pramāṇa</i>（認識手段）の学と呼び、仏教・バラモン教・ジャイナ教の諸学派が、千年以上にわたって論争を続けました。その中心にいた仏教の哲学者が、Dignāga（陳那）と Dharmakīrti（法称）です。本書は、ダルマキールティの主著『Pramāṇavārttika』（PV）の知覚の章（第3章）を、最初から最後まで順に読んでいきます。</p>
+
+  <div class="secno"><h3>0.1　Dignāga から Dharmakīrti へ</h3></div>
+  <p>Dignāga は、それまでの仏教の認識論を大きく作り変え、認識手段を知覚と推論の二つに限りました。その主著が『Pramāṇasamuccaya』（PS、認識手段の集成）です。およそ1世紀後、ダルマキールティは、PS に対する「注解（<i lang="sa-Latn">vārttika</i>）」という形で PV を書きました。注解と言っても、実際には Dignāga の考えを土台に、ダルマキールティ自身の哲学を大きく展開した独立の著作です。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 200" role="img" aria-label="Dignāga から後代の注釈者までのおおよその年表">
+      <line x1="40" y1="100" x2="600" y2="100" class="l-ink" stroke-width="2"/>
+      <g font-size="11" class="mut">
+        <text x="40" y="122" text-anchor="middle">500</text><text x="152" y="122" text-anchor="middle">600</text><text x="264" y="122" text-anchor="middle">700</text><text x="376" y="122" text-anchor="middle">800</text><text x="488" y="122" text-anchor="middle">900</text><text x="600" y="122" text-anchor="middle">1000</text>
+      </g>
+      <g class="l-mut" stroke-width="1"><line x1="40" y1="95" x2="40" y2="105"/><line x1="152" y1="95" x2="152" y2="105"/><line x1="264" y1="95" x2="264" y2="105"/><line x1="376" y1="95" x2="376" y2="105"/><line x1="488" y1="95" x2="488" y2="105"/><line x1="600" y1="95" x2="600" y2="105"/></g>
+      <circle cx="51" cy="100" r="7" class="c-sam"/>
+      <text x="51" y="80" text-anchor="middle" font-size="12" font-weight="700">Dignāga</text><text x="51" y="64" text-anchor="middle" font-size="11" class="mut">6世紀前半ごろ</text>
+      <circle cx="208" cy="100" r="8" class="c-sva"/>
+      <text x="208" y="80" text-anchor="middle" font-size="13" font-weight="700" class="t-sva">Dharmakīrti</text><text x="208" y="64" text-anchor="middle" font-size="11" class="mut">7世紀ごろ</text>
+      <circle cx="250" cy="100" r="6" class="c-ink"/>
+      <text x="250" y="150" text-anchor="middle" font-size="12">Devendrabuddhi</text><text x="250" y="166" text-anchor="middle" font-size="11" class="mut">弟子とされる</text>
+      <circle cx="300" cy="100" r="6" class="c-ink"/>
+      <text x="335" y="186" text-anchor="middle" font-size="12">Śākyabuddhi</text>
+      <line x1="300" y1="106" x2="330" y2="172" class="l-mut" stroke-width="0.8"/>
+      <circle cx="400" cy="100" r="6" class="c-ink"/>
+      <text x="420" y="150" text-anchor="middle" font-size="12">Prajñākaragupta</text>
+      <circle cx="580" cy="100" r="6" class="c-ink"/>
+      <text x="570" y="150" text-anchor="middle" font-size="12">Manorathanandin</text><text x="570" y="166" text-anchor="middle" font-size="11" class="mut">10–11世紀ごろ</text>
+    </svg>
+    <figcaption><b>図0-1　おおよその年表</b>　インドの思想家の年代は確定していないことが多く、ここでの位置は目安です。Devendrabuddhi と Śākyabuddhi の注釈はチベット語訳で伝わり、本書の解説でもたびたび参照します。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>0.2　PV の四つの章</h3></div>
+  <p>PV は四つの章からなり、合わせて約1450の偈（詩の形の文）で書かれています。章の順序には伝承によって違いがあります。日本の研究では、ダルマキールティが最初に書いたと考えられる推論の章を第1章とする順序がよく使われ、本書もそれに従います。この順序で、知覚の章が第3章（PV III）になります。</p>
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>本書の章番号</th><th>章の名前</th><th>内容</th><th>PS との対応</th></tr></thead>
+      <tbody>
+        <tr><th>I</th><td><i lang="sa-Latn">svārthānumāna</i></td><td>自分のための推論。正しい根拠の理論、apoha 論。ダルマキールティ自身の注釈がある</td><td>PS II</td></tr>
+        <tr><th>II</th><td><i lang="sa-Latn">pramāṇasiddhi</i></td><td>認識手段の確立。ブッダが認識手段であること、輪廻と解脱</td><td>PS 冒頭の帰敬偈</td></tr>
+        <tr><th class="sva">III</th><td class="sva"><i lang="sa-Latn">pratyakṣa</i></td><td class="sva">知覚。本書で読む章（541偈、戸崎の数え方で539偈）</td><td class="sva">PS I</td></tr>
+        <tr><th>IV</th><td><i lang="sa-Latn">parārthānumāna</i></td><td>他人のための推論。論証式の理論</td><td>PS III</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表0-1　PV の四つの章</b>　インドの注釈者 Manorathanandin などの伝承では、pramāṇasiddhi・pratyakṣa・svārthānumāna・parārthānumāna の順に並べられ、知覚の章は第2章になります。論文を読むときは、どちらの番号か注意してください。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>0.3　この本の読み方</h3></div>
+  <p>本書の各章は、PV III の構成（戸崎宏正氏の科段の大区分 I–IX）に合わせています。章の冒頭には、その章が扱う偈の範囲を帯グラフで示しました。本文中の「第○偈」は、戸崎の偈番号です。偈の訳文は引用せず、議論の筋道を説明します。</p>
+  <p>図と表では、次の色分けを全体で統一しています。</p>
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>色</th><th>表すもの</th></tr></thead>
+      <tbody>
+        <tr><td class="sva">緑</td><td>個別相（svalakṣaṇa）・知覚・ダルマキールティの立場</td></tr>
+        <tr><td class="sam">黄土色</td><td>一般相（sāmānyalakṣaṇa）・推論・概念・反対説や唯識の究極的な立場</td></tr>
+        <tr><td style="background:var(--west-soft)">藍色の枠</td><td>西洋哲学との対比</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表0-2　本書の色分け</b></figcaption>
+  </figure>
+  <p>「西洋哲学との対比」の枠は、理解を助けるための比較です。インドと西洋の思想の間に影響関係があったと言うものではありません。似ているところと同じくらい、違うところにも注意してください。違いの中にこそ、それぞれの思想の特徴が表れるからです。</p>
+
+  <div class="key">
+    <div class="label">PV III 全体を貫く三つの問い</div>
+    <ol class="q">
+      <li>何が本当に存在するのか（第1–2章）：作用する力をもつ個物だけ。</li>
+      <li>知覚とは何か（第3–6章）：概念を離れ、錯誤のない認識。</li>
+      <li>認識とはどういうものか（第7–10章）：対象の姿をもち、自分自身を知るもの。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 1 ============ -->
+<section class="col" id="ch1">
+  <div class="label">第1章 ・ PV III I-1</div>
+  <h2 style="margin:.3rem 0 .8rem">対象は二つ、だから認識手段も二つ</h2>
+  <p>PV III は、いきなり結論から始まります。「正しい認識の手段（<i lang="sa-Latn">pramāṇa</i>）は二種類しかない。なぜなら、認識される対象が二種類しかないからだ」。この章で読む第1–63偈は、この一文を支える議論です。ここで作られる「二つの世界」の区別が、PV III の残り全体の土台になります。</p>
+
+  <figure>
+    <div class="label">図1-1　この章で読む範囲（第1–63偈）</div>
+    <div class="vbar" role="img" aria-label="第1から63偈の区分">
+      <div class="on" style="flex:10" title="A 1–10">A</div>
+      <div class="b2" style="flex:40" title="B 11–50">B 一般相は実在しない</div>
+      <div class="off" style="flex:2.5" title="C 51–53ab">C</div>
+      <div class="off" style="flex:5.5" title="D 53cd–58">D</div>
+      <div class="on" style="flex:5" title="E 59–63">E</div>
+    </div>
+    <div class="vscale"><span>1</span><span>11</span><span>51</span><span>63</span></div>
+    <figcaption><b>A</b> 対象は二つだけ（1–10）／<b>B</b> 一般相は実在しない（11–50）／<b>C</b> 個別相の特徴と一般相の種類（51–53ab）／<b>D</b> 究極的には個別相だけ（53cd–58）／<b>E</b> だから認識手段は二つ（59–63）。分量の大半は B の「一般相は実在しない」という論証が占めています。</figcaption>
+  </figure>
+
+  <!-- 1.1 -->
+  <div class="secno"><h3>1.1　準備：「認識手段」とは何か</h3></div>
+  <p>インドの哲学者たちは、「正しく知るとはどういうことか」を、四つの要素に分けて考えました。知る人、知るための手段、知られるもの、そして知った結果です。どの学派もこの枠組みを共有し、そのうえで「手段はいくつあるか」「何を知りうるか」をめぐって争いました。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>術語</th><th>意味</th><th>日常の例（「机の上にリンゴがある」と知る）</th></tr></thead>
+      <tbody>
+        <tr><th><i lang="sa-Latn">pramātṛ</i></th><td>知る主体</td><td>リンゴを見ている私</td></tr>
+        <tr><th><i lang="sa-Latn">pramāṇa</i></th><td>正しく知る手段（認識手段）</td><td>見ること（知覚）</td></tr>
+        <tr><th><i lang="sa-Latn">prameya</i></th><td>知られる対象（認識対象）</td><td>机の上のリンゴ</td></tr>
+        <tr><th><i lang="sa-Latn">pramāṇaphala</i>（<i lang="sa-Latn">pramiti</i>）</th><td>認識の結果</td><td>「リンゴがある」とわかったこと</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表1-1　インド認識論の四つの要素</b>　仏教論理学ではこのうち「手段」と「結果」が別物かどうかが大きな論点になります（本書第7章）。</figcaption>
+  </figure>
+
+  <p>では、何をもって「正しい」とするのか。ダルマキールティは PV の第2章（<i lang="sa-Latn">pramāṇasiddhi</i> 章）で、認識手段を「欺かない（<i lang="sa-Latn">avisaṃvādin</i>）認識」と定めています。欺かないとは、その認識に従って行動したとき、目指したものが実際に得られる、という意味です。水が見えたので近づいたら本当に水があり、のどの渇きをいやせた。この「はたらきの実現」を <i lang="sa-Latn">arthakriyā</i> と呼びます。</p>
+
+  <div class="key">
+    <div class="label">キーワード</div>
+    <p><i lang="sa-Latn">arthakriyā</i>：<i lang="sa-Latn">artha</i>（目的・もの）＋<i lang="sa-Latn">kriyā</i>（はたらき）。「目的を果たすはたらき」とも「ものが及ぼす効果」とも訳されます。水なら渇きをいやす、火なら煮炊きをする、そして最小限には「自分についての認識を生む」こと。第1章の議論は、ほとんどすべてこの一語を軸に回っています。</p>
+  </div>
+
+  <!-- 1.2 -->
+  <div class="secno"><h3>1.2　対象は二種類しかない</h3><span class="vr">A　1–10</span></div>
+  <p>第1偈と第2偈は、対象を二種類に分ける基準をいくつも並べます。中心にあるのは「<i lang="sa-Latn">arthakriyā</i> をなす能力があるか、ないか」です。能力のあるものが <i lang="sa-Latn">svalakṣaṇa</i>（個別相：それ自身の特徴をもつもの）、能力のないものが <i lang="sa-Latn">sāmānyalakṣaṇa</i>（一般相：共通の特徴）です。ほかの基準は、この違いを別の角度から言いかえたものと考えると整理しやすくなります。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>基準（第1–3偈）</th><th class="sva">svalakṣaṇa（個別相）</th><th class="sam">sāmānyalakṣaṇa（一般相）</th></tr></thead>
+      <tbody>
+        <tr><th>はたらきの能力</th><td class="sva"><i lang="sa-Latn">arthakriyā</i> をなす能力がある</td><td class="sam">能力がない</td></tr>
+        <tr><th>他との似かた</th><td class="sva">他のどれとも似ていない（唯一のもの）</td><td class="sam">多くのものに似た形で当てはまる</td></tr>
+        <tr><th>ことばとの関係</th><td class="sva">ことばの対象にならない</td><td class="sam">ことばが表すもの</td></tr>
+        <tr><th>認識の生じ方</th><td class="sva">それがなければ、他の条件がそろっても認識は生じない</td><td class="sam">それ自体がなくても、他の条件（ことば・注意など）がそろえば認識が生じる</td></tr>
+        <tr><th>存在の身分</th><td class="sva"><i lang="sa-Latn">paramārthasat</i>（究極的に存在する）</td><td class="sam"><i lang="sa-Latn">saṃvṛtisat</i>（世間の約束事として存在する）</td></tr>
+        <tr><th>とらえる手段</th><td class="sva"><i lang="sa-Latn">pratyakṣa</i>（知覚）</td><td class="sam"><i lang="sa-Latn">anumāna</i>（推論）※ことばによる認識も含む</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表1-2　二種類の対象を分ける基準</b>　最後の行は第1章の結論（第63偈）を先取りしたものです。</figcaption>
+  </figure>
+
+  <p>具体例で考えてみましょう。いま目の前にある一個のリンゴは、手に取ればかじれますし、見れば「赤い丸いもの」という認識を私の中に生みます。これは個別相です。それに対して「リンゴというもの」「赤さ一般」は、どれか一個のリンゴのように何かを生むことはありません。かじれるのはいつもこのリンゴであって、「リンゴ一般」ではないからです。こちらが一般相です。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 330" role="img" aria-label="二つの世界の図。左に個別相と知覚、右に一般相と推論・ことば">
+      <rect x="10" y="20" width="290" height="250" rx="10" class="s-sva" stroke-width="1.5"/>
+      <rect x="340" y="20" width="290" height="250" rx="10" class="s-sam" stroke-width="1.5"/>
+      <text x="155" y="48" text-anchor="middle" font-size="16" font-weight="700" class="t-sva">個別相の世界</text>
+      <text x="155" y="68" text-anchor="middle" font-size="13" class="ia-t mut">svalakṣaṇa ・ paramārthasat</text>
+      <text x="485" y="48" text-anchor="middle" font-size="16" font-weight="700" class="t-sam">一般相の世界</text>
+      <text x="485" y="68" text-anchor="middle" font-size="13" class="ia-t mut">sāmānyalakṣaṇa ・ saṃvṛtisat</text>
+      <!-- unique particulars: different shapes -->
+      <circle cx="60" cy="120" r="14" class="c-sva"/>
+      <rect x="100" y="104" width="26" height="30" class="c-sva" transform="rotate(12 113 119)"/>
+      <polygon points="175,104 192,134 158,134" class="c-sva"/>
+      <circle cx="232" cy="118" r="9" class="c-sva"/>
+      <ellipse cx="262" cy="128" rx="16" ry="9" class="c-sva"/>
+      <text x="155" y="160" text-anchor="middle" font-size="12" class="mut">一つ一つが他と似ていない、刹那的な個物</text>
+      <!-- causal arrow to perception -->
+      <line x1="155" y1="172" x2="155" y2="205" class="l-sva" stroke-width="2"/>
+      <polygon points="149,201 161,201 155,212" class="c-sva"/>
+      <text x="165" y="194" font-size="12" class="t-sva">認識を生む（arthakriyā）</text>
+      <rect x="70" y="214" width="170" height="40" rx="6" class="c-sva"/>
+      <text x="155" y="239" text-anchor="middle" font-size="14" font-weight="700" class="c-paper">知覚 pratyakṣa</text>
+      <!-- concept bubble -->
+      <ellipse cx="485" cy="125" rx="105" ry="42" fill="none" class="l-sam" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <text x="485" y="120" text-anchor="middle" font-size="15" font-weight="700" class="t-sam">「リンゴ」「赤さ」</text>
+      <text x="485" y="142" text-anchor="middle" font-size="12" class="mut">共通の姿（心が作ったもの）</text>
+      <line x1="485" y1="172" x2="485" y2="205" class="l-sam" stroke-width="2"/>
+      <polygon points="479,209 491,209 485,198" class="c-sam"/>
+      <text x="495" y="194" font-size="12" class="t-sam">ことば・概念でとらえる</text>
+      <rect x="400" y="214" width="170" height="40" rx="6" class="c-sam"/>
+      <text x="485" y="239" text-anchor="middle" font-size="14" font-weight="700" class="c-paper">推論 anumāna</text>
+      <!-- middle arrow: construction -->
+      <path d="M 290 120 C 320 100, 350 100, 378 115" class="l-ink" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <polygon points="374,108 384,118 371,121" class="c-ink"/>
+      <text x="320" y="300" text-anchor="middle" font-size="12" class="mut">点線の矢印：個物を見る経験をもとに、心が「共通の姿」を組み立てる（第27–28偈）</text>
+    </svg>
+    <figcaption><b>図1-2　二つの対象、二つの手段</b>　左の世界の個物は実際に作用し、知覚を生みます。右の世界の「共通の姿」は作用せず、概念的思考がそれを当てはめるだけです。</figcaption>
+  </figure>
+
+  <h4>反論1：「どんなものにも能力などない」（第4偈）</h4>
+  <p>ここで、すべてのものは究極的には実体をもたない（空である）と考える立場、のちの注釈者が中観派と見なす論者が反論します。「能力のあるものとないものを分けるが、究極的にはどのものにも能力はない」。ダルマキールティの答えは短いものです。種が芽を出すのは実際に見られる。それを「世間の約束事としての能力にすぎない」と言いたいなら、それでかまわない。ここでの議論は認識論の場面での区別であって、最終的な形而上学を争っているのではない、という態度です。第3偈の「この議論の場では（<i lang="sa-Latn">atra</i>）」という限定が、ここで効いてきます。</p>
+
+  <h4>反論2：「一般相にも能力がある」（第5偈）</h4>
+  <p>次の反論は、「能力が世間の約束事なら、一般相にも同じように能力があると言えるのではないか」というものです。答えの鍵は <i lang="sa-Latn">anvaya-vyatireka</i>（それがあれば生じ、なければ生じない、という関係）です。眼や色形と認識の間には、この関係がはっきり見られます。色形がなければ視覚は生じません。しかし一般相と認識の間には、そういう関係が見られません。</p>
+
+  <h4>概念でできたもの、錯覚が見せるもの（第6–10偈）</h4>
+  <p>第6偈は、壺・投げ上げる運動・普遍・数といった、Vaiśeṣika 学派が実在のカテゴリーとして数えるものについての認識も、一般相を対象としていると言います。その認識は、ことばの取り決めや注意の向け方など、心の内側の条件に従って生じるからです。</p>
+  <p>第7–10偈は、目の病気の人に見える毛髪のような錯覚を扱います。錯覚の毛髪は、外にある対象としては個別相でも一般相でもありません。ただし、毛髪の姿がはっきり見えていること自体は否定できません。それは認識そのものの姿であって、認識が自分自身を知るはたらき（<i lang="sa-Latn">svasaṃvedana</i>）の対象になっている、とダルマキールティは言います。この「自己認識」という考え方は、本書の後半（第5章・第10章）で主役になります。冒頭の第8偈にすでに顔を出していることを覚えておいてください。</p>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>「存在するとは、作用する力をもつことである」</h4>
+    <p>「実在とは因果的な力をもつものだ」という考えは、西洋にも古くからあります。プラトンは『ソピステス』（247d–e）で、登場人物に「何かに作用し、何かから作用を受ける力（<i lang="grc-Latn">dynamis</i>）をもつものはすべて本当に存在する」と言わせています。現代の形而上学でも、因果的な力をもつものだけを存在として認める立場（「エレア派の原理」とも呼ばれます）が議論されています。</p>
+    <p>ただし違いもあります。ダルマキールティにとって、作用の中心は「認識を生むこと」です。つまり実在の基準が、はじめから認識論と結びついています。また、「それに従って行動すれば目的が果たせる認識が正しい」という発想は、19世紀末のアメリカで生まれたプラグマティズム（パース、ジェイムズ）の真理観と比べられることもよくあります。ただしジェイムズが「真理は役に立つこと」に近づけたのに対し、ダルマキールティは「対象が実際にそこにあって、その対象から認識が生じたかどうか」という因果的な裏づけを手放しません。</p>
+  </div>
+
+  <!-- 1.3 -->
+  <div class="secno"><h3>1.3　一般相は実在しない：七つの論証</h3><span class="vr">B　11–50</span></div>
+  <p>この章でいちばん長い部分です。インドでは Nyāya と Vaiśeṣika の学派が、「牛であること（<i lang="sa-Latn">gotva</i>）」のような普遍（<i lang="sa-Latn">jāti</i>, <i lang="sa-Latn">sāmānya</i>）は個々の牛とは別の、常住の実在だと主張していました。普遍は内属（<i lang="sa-Latn">samavāya</i>）という関係で個物に宿っている、と考えます。ダルマキールティはこれを七つの角度から崩していきます。戸崎の科段では a–g の七項目です。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th></th><th>理由</th><th>偈</th><th>議論の要点</th></tr></thead>
+      <tbody>
+        <tr><th>a</th><td>ことばが表すものだから</td><td class="vr">11–24</td><td>ことばが実在そのものを表すなら、ことばを聞いただけで十分で、わざわざ目で見る必要がなくなる。夢でも「対象」が見えることから、認識に現れるだけのものがあるとわかる。</td></tr>
+        <tr><th>b</th><td>個物と同じとも別とも言えないから</td><td class="vr">25–38</td><td>普遍が個物と同じなら、個物ごとに別々になって「共通」でなくなる。別なら、個物と無関係になる。どちらも不都合なので、普遍は独自の本性をもたない。</td></tr>
+        <tr><th>c</th><td>「無」の認識と同じ現れ方だから</td><td class="vr">39–40</td><td>ことばから生じる認識は、対象がもう滅んでいても、いま存在していても、まったく同じに現れる。実在から生じる感覚の認識ではこうはならない。</td></tr>
+        <tr><th>d</th><td>多くのものに共通するから</td><td class="vr">41–44</td><td>互いに別々のものに、区別のない一つの姿があるはずがない。「共通である」ことこそ、実在でないことの目印である。</td></tr>
+        <tr><th>e</th><td>ことばの取り決めを思い出してはじめて認識されるから</td><td class="vr">45–47</td><td>実在の力で生じる認識は、ことばの約束を必要としない。一般相の認識は、約束を思い出してはじめて生じる。</td></tr>
+        <tr><th>f</th><td>固有の姿が現れないから</td><td class="vr">48–49</td><td>個物を見ても、見えるのは個物の姿と名前だけで、「普遍だけ」が見えることはない。</td></tr>
+        <tr><th>g</th><td><i lang="sa-Latn">arthakriyā</i> の能力がないから</td><td class="vr">50</td><td>固有の姿が現れない以上、認識を生むという最小限のはたらきもしない。それが実在しないことの決め手になる。</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表1-3　「一般相は実在しない」七つの理由</b>　最後の g が、第1偈の基準（<i lang="sa-Latn">arthakriyā</i>）に戻ってきて論証を閉じている点に注目してください。</figcaption>
+  </figure>
+
+  <h4>a　ことばが実在を表すなら、目はいらない（第11–24偈）</h4>
+  <p>この部分の議論は、次のような対話として読むとわかりやすくなります。</p>
+  <div class="voice">
+    <span class="who op">反論者</span><p>「牛」ということばは、実在する牛を表している。</p>
+    <span class="who dk">Dharmakīrti</span><p>それなら「牛がいる」と聞いただけで、その牛のすべてがわかるはずだ。色も大きさも、見に行く必要がなくなる。感官をはたらかせることが無意味になってしまう。</p>
+    <span class="who op">反論者</span><p>ことばがとらえるのは普遍だけで、個物は感官がとらえる。だから感官は無意味にならない。</p>
+    <span class="who dk">Dharmakīrti</span><p>あなた方の説でも、普遍だけが単独でとらえられることはない。それに普遍は常住だというのだから、個物がなくてもいつでも認識されてしまうはずだ。</p>
+  </div>
+  <p>第14–16偈では夢が証拠として使われます。夢に見える青には、ほかの人が触ることもできず、同じ場所にいる人にも見えません。それでも青ははっきり現れます。つまり、認識に現れているからといって、外にそれに対応する実在があるとは限りません。ことばから生じる認識も同じで、ことばが「表す」のは、認識の中に現れている姿です。ここでダルマキールティは、説一切有部が立てる「名称（<i lang="sa-Latn">nāman</i>）」という実在（心とも物とも結びつかない <i lang="sa-Latn">viprayuktasaṃskāra</i> の一つ）も、同じ理屈で不要だと退けます。</p>
+
+  <h4>b　同じでも別でもない（第25–38偈）</h4>
+  <p>ここは古典的なジレンマです。図にすると次のようになります。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 260" role="img" aria-label="普遍と個物は同じか別かのジレンマ">
+      <rect x="225" y="14" width="190" height="52" rx="8" class="s-panel" stroke-width="1.2"/>
+      <text x="320" y="38" text-anchor="middle" font-size="14" font-weight="700">普遍 jāti は個物と…</text>
+      <text x="320" y="57" text-anchor="middle" font-size="12" class="mut">（Nyāya・Vaiśeṣika の想定）</text>
+      <line x1="270" y1="66" x2="150" y2="104" class="l-ink" stroke-width="1.5"/>
+      <line x1="370" y1="66" x2="490" y2="104" class="l-ink" stroke-width="1.5"/>
+      <rect x="20" y="104" width="260" height="54" rx="8" class="s-sam" stroke-width="1.2"/>
+      <text x="150" y="128" text-anchor="middle" font-size="14" font-weight="700">同じだとすると</text>
+      <text x="150" y="148" text-anchor="middle" font-size="12">（第25偈前半）</text>
+      <rect x="360" y="104" width="260" height="54" rx="8" class="s-sam" stroke-width="1.2"/>
+      <text x="490" y="128" text-anchor="middle" font-size="14" font-weight="700">別だとすると</text>
+      <text x="490" y="148" text-anchor="middle" font-size="12">（第25偈後半–第27偈）</text>
+      <text x="150" y="184" text-anchor="middle" font-size="13">個物は一つ一つ違うので、</text>
+      <text x="150" y="203" text-anchor="middle" font-size="13">普遍も個物ごとに違ってしまい</text>
+      <text x="150" y="222" text-anchor="middle" font-size="13" font-weight="700" class="t-warn">「共通のもの」でなくなる</text>
+      <text x="490" y="184" text-anchor="middle" font-size="13">結果でさえ生じれば原因から独立する。</text>
+      <text x="490" y="203" text-anchor="middle" font-size="13">個物の結果でもない普遍は</text>
+      <text x="490" y="222" text-anchor="middle" font-size="13" font-weight="700" class="t-warn">個物と無関係になる</text>
+      <text x="320" y="252" text-anchor="middle" font-size="13" font-weight="700" class="t-sam">∴ 普遍は独自の本性をもたない（niḥsvabhāva）。心が個物をよりどころに作り上げたもの</text>
+    </svg>
+    <figcaption><b>図1-3　普遍をめぐるジレンマ（第25–28偈）</b>　どちらの道を選んでも「個物に宿る、実在する普遍」は成り立たない、という形の論証です。</figcaption>
+  </figure>
+
+  <p>では、私たちはなぜ「牛であること」が現にあるかのように感じるのでしょうか。第29偈はそれを、始まりのない昔から同じように見ることを繰り返してきたことで生じた錯誤だと説明します。そして第30偈で、ダルマキールティは一般相の正体を明かします。一般相とは「ほかのものからの区別（<i lang="sa-Latn">anyavyāvṛtti</i>）」を特徴とするものであり、それ自体の姿をもたない、と。これがいわゆる <i lang="sa-Latn">apoha</i>（排除）論の入口です。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 280" role="img" aria-label="apoha の図。牛の集まりと牛でないものの集まり、その境界線が「牛」という概念">
+      <rect x="20" y="20" width="600" height="200" rx="10" class="s-panel" stroke-width="1.2"/>
+      <text x="40" y="44" font-size="13" class="mut">世界のすべての個物（どれも他と似ていない）</text>
+      <!-- non-cows -->
+      <g class="c-sam">
+        <rect x="60" y="70" width="22" height="22"/><polygon points="120,150 134,176 106,176"/><rect x="70" y="160" width="30" height="14"/>
+        <circle cx="560" cy="80" r="11"/><rect x="540" y="150" width="18" height="28"/><polygon points="590,120 602,142 578,142"/>
+        <circle cx="160" cy="95" r="9"/><rect x="500" y="185" width="26" height="12"/>
+      </g>
+      <text x="95" y="205" text-anchor="middle" font-size="12" class="t-sam">牛でないもの</text>
+      <text x="560" y="210" text-anchor="middle" font-size="12" class="t-sam">牛でないもの</text>
+      <!-- boundary -->
+      <ellipse cx="335" cy="125" rx="135" ry="72" fill="none" class="l-sva" stroke-width="2.5" stroke-dasharray="7 5"/>
+      <g class="c-sva">
+        <ellipse cx="275" cy="105" rx="20" ry="11"/><ellipse cx="335" cy="88" rx="16" ry="10"/><ellipse cx="390" cy="110" rx="22" ry="12"/>
+        <ellipse cx="300" cy="150" rx="18" ry="10"/><ellipse cx="370" cy="155" rx="14" ry="9"/>
+      </g>
+      <text x="335" y="132" text-anchor="middle" font-size="12" class="mut">斑の牛・黒牛・子牛…</text>
+      <text x="335" y="248" text-anchor="middle" font-size="14" font-weight="700" class="t-sva">「牛」＝「牛でないものではない」という線引き（anyavyāvṛtti）</text>
+      <text x="335" y="268" text-anchor="middle" font-size="12" class="mut">線の内側に、すべての牛が共有する「牛性」という実体が入っているわけではない</text>
+    </svg>
+    <figcaption><b>図1-4　apoha の考え方</b>　「牛」ということばは、牛たちに共通する何かを指すのではなく、「牛でないもの」を排除する線引きを指します。線は心が引いたものなので、線そのものに実在の力はありません。apoha の詳しい仕組みは第3章（第163–172偈）で扱います。</figcaption>
+  </figure>
+
+  <p>第35–38偈には、ことばの意味についての面白い議論があります。反論者は「過去や未来のものにことばを使えるのは比喩（<i lang="sa-Latn">upacāra</i>）だ」と言います。ダルマキールティは、本来の意味（<i lang="sa-Latn">mukhya</i>）と派生的な意味（<i lang="sa-Latn">gauṇa</i>）の区別は、慣習によってそのことばが当てはめられたかどうかで決まるのであって、実在とは関係がない、と答えます。少年を「獅子」と呼ぶのは比喩ですが、Sāṃkhya の「根本原質（<i lang="sa-Latn">pradhāna</i>）」のように実在しないものを指すことばでも、慣習で決まっていればそれが本来の意味なのです。</p>
+
+  <h4>c–g　残りの五つの理由（第39–50偈）</h4>
+  <p>c から g は短い論証の連続です。なかでも e（第45–47偈）は、反論を先回りして片づけている点で重要です。ことばを知らない人でも、二頭の牛を見て「同じだ」と感じることがあるではないか、という反論が予想されます。ダルマキールティは、それは普遍があるからではなく、二つの個物が似た結果を生む「近さ（<i lang="sa-Latn">pratyāsatti</i>）」をもっているからだ、と言います。例は眼と光と注意です。この三つは種類がまったく違うのに、どれも「視覚を生む」という同じはたらきをもちます。共通の普遍がなくても、はたらきの近さで同じグループにまとめることはできるのです。</p>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>普遍論争：「人間」は実在するか</h4>
+    <p>「普遍は実在するか」は、西洋哲学でも中世に「普遍論争」として激しく争われた問題です。下の図は、インドと西洋の主な立場をおおまかに並べたものです。</p>
+    <div class="scroll">
+    <svg viewBox="0 0 640 230" role="img" aria-label="普遍についての立場の比較図" style="min-width:560px">
+      <line x1="40" y1="70" x2="600" y2="70" class="l-ink" stroke-width="2"/>
+      <polygon points="600,64 612,70 600,76" class="c-ink"/>
+      <polygon points="40,64 28,70 40,76" class="c-ink"/>
+      <text x="40" y="40" font-size="13" font-weight="700">実在論</text>
+      <text x="40" y="57" font-size="11" class="mut">普遍は心の外に実在する</text>
+      <text x="600" y="40" font-size="13" font-weight="700" text-anchor="end">唯名論</text>
+      <text x="600" y="57" font-size="11" class="mut" text-anchor="end">実在するのは個物だけ</text>
+      <!-- west row -->
+      <text x="20" y="112" font-size="12" font-weight="700" class="t-west">西洋</text>
+      <circle cx="90" cy="70" r="6" class="c-west"/>
+      <text x="90" y="112" font-size="12" text-anchor="middle">プラトン</text><text x="90" y="128" font-size="11" text-anchor="middle" class="mut">イデアは個物の外</text>
+      <circle cx="225" cy="70" r="6" class="c-west"/>
+      <text x="225" y="112" font-size="12" text-anchor="middle">アリストテレス</text><text x="225" y="128" font-size="11" text-anchor="middle" class="mut">形相は個物の中</text>
+      <circle cx="400" cy="70" r="6" class="c-west"/>
+      <text x="400" y="112" font-size="12" text-anchor="middle">ロック</text><text x="400" y="128" font-size="11" text-anchor="middle" class="mut">一般観念は心が作る</text>
+      <circle cx="545" cy="70" r="6" class="c-west"/>
+      <text x="545" y="112" font-size="12" text-anchor="middle">オッカム</text><text x="545" y="128" font-size="11" text-anchor="middle" class="mut">普遍は名・記号</text>
+      <!-- india row -->
+      <text x="20" y="180" font-size="12" font-weight="700" class="t-sam">インド</text>
+      <circle cx="140" cy="70" r="6" class="c-sam"/>
+      <line x1="140" y1="76" x2="140" y2="160" class="l-sam" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="140" y="180" font-size="12" text-anchor="middle">Nyāya・Vaiśeṣika</text><text x="140" y="196" font-size="11" text-anchor="middle" class="mut">jāti は常住の実在、内属で宿る</text>
+      <circle cx="575" cy="70" r="7" class="c-sva"/>
+      <line x1="575" y1="77" x2="575" y2="160" class="l-sva" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="575" y="180" font-size="12" text-anchor="middle" font-weight="700" class="t-sva">Dharmakīrti</text><text x="575" y="196" font-size="11" text-anchor="middle" class="mut">apoha：排除の線引き</text>
+      <text x="320" y="222" font-size="11" text-anchor="middle" class="mut">左右の位置は思想の傾向を示すだけで、数値ではありません</text>
+    </svg>
+    </div>
+    <p>ダルマキールティはオッカムよりもさらに徹底した唯名論者だと言えます。オッカムは普遍を「多くのものを表す心の記号」として認めますが、ダルマキールティは、心の中の一般的な姿さえ「線引き」以上のものではないと考えるからです。</p>
+    <p>第45–47偈の「はたらきの近さ」によるグループ分けは、20世紀のウィトゲンシュタインの「家族的類似」と比べてみる価値があります。ゲームと呼ばれるものすべてに共通する一つの性質はないが、互いに重なり合う似かたの網がある、という考え方です。また、イギリスのバークリーは、「三角形一般」のような抽象的な一般観念を思い浮かべることはできないと論じました。第48–49偈の「普遍だけが見えることはない」という論証と、よく似た発想です。</p>
+    <p>第25–27偈の「同じでも別でもない」ジレンマは、プラトン自身が『パルメニデス』（131a–e）で自分のイデア論に向けた反論とも通じます。一つのイデアが多くの個物に「分け持たれる」なら、イデアは分割されてしまうのか、という問いです。</p>
+  </div>
+
+  <!-- 1.4 -->
+  <div class="secno"><h3>1.4　個別相の特徴と、一般相の三つの種類</h3><span class="vr">C　51–53ab</span></div>
+  <p>ここまでで一般相の特徴が出そろったので、第51偈は「その反対が個別相だ」と短くまとめます。つまり個別相は、ことばで表されず、ほかと共通せず、取り決めなしに認識を生み、固有の姿が現れ、<i lang="sa-Latn">arthakriyā</i> をなすものです。続いて、一般相が三種類に分けられます。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>一般相の種類</th><th>何をよりどころにするか</th><th>例</th></tr></thead>
+      <tbody>
+        <tr><th><i lang="sa-Latn">bhāvāśraya</i></th><td>存在するもの</td><td>「壺がある」「この煙は火から生じた」</td></tr>
+        <tr><th><i lang="sa-Latn">abhāvāśraya</i></th><td>存在しないもの</td><td>「ここに壺はない」「ウサギの角」</td></tr>
+        <tr><th><i lang="sa-Latn">ubhayāśraya</i></th><td>その両方</td><td>「知られうるもの」のように、ある・ないを問わず当てはまる概念</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表1-4　一般相の三つの種類（第51偈）</b>　例は説明のために補ったものです。注釈者たちの挙げる例と一致するとは限りません。</figcaption>
+  </figure>
+  <p>第52–53ab 偈は、反論「存在をよりどころとする一般相は、存在があれば認識が生じ、なければ生じないのだから、存在そのものを対象にしているのではないか」に答えます。答えは、過去のものについても同じ認識が生じる、というものです。存在がなくても生じるので、存在そのものを対象にしているとは言えません。</p>
+
+  <!-- 1.5 -->
+  <div class="secno"><h3>1.5　究極的には、対象は個別相ただ一つ</h3><span class="vr">D　53cd–58</span></div>
+  <p>ここで議論は思いがけない方向に進みます。対象は二つだと言ってきたのに、第53偈の後半で「究極的には、認識対象は個別相ただ一つである」と言うのです。矛盾しているように見えますが、そうではありません。人が知ろうとするのは、結局は役に立つかどうか、つまり <i lang="sa-Latn">arthakriyā</i> をなす個別相があるかないかです。その個別相を、それ自身の姿によって知る場合（知覚）と、ほかの姿によって知る場合（推論）がある。「対象が二つ」とは、知り方が二つあるということだったのです（第54偈）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 210" role="img" aria-label="一つの個別相を二つの仕方で知る図">
+      <circle cx="320" cy="70" r="40" class="s-sva" stroke-width="2"/>
+      <text x="320" y="66" text-anchor="middle" font-size="14" font-weight="700" class="t-sva">火</text>
+      <text x="320" y="86" text-anchor="middle" font-size="11" class="ia-t mut">svalakṣaṇa</text>
+      <line x1="285" y1="95" x2="150" y2="150" class="l-sva" stroke-width="2"/>
+      <line x1="355" y1="95" x2="490" y2="150" class="l-sam" stroke-width="2" stroke-dasharray="6 4"/>
+      <rect x="40" y="150" width="220" height="48" rx="6" class="s-sva" stroke-width="1.5"/>
+      <text x="150" y="171" text-anchor="middle" font-size="13" font-weight="700">それ自身の姿で知る</text>
+      <text x="150" y="189" text-anchor="middle" font-size="12">目の前の炎を見る（知覚）</text>
+      <rect x="380" y="150" width="220" height="48" rx="6" class="s-sam" stroke-width="1.5"/>
+      <text x="490" y="171" text-anchor="middle" font-size="13" font-weight="700">ほかの姿で知る</text>
+      <text x="490" y="189" text-anchor="middle" font-size="12">山の煙から「火」一般で知る（推論）</text>
+    </svg>
+    <figcaption><b>図1-5　一つの対象、二つの知り方（第53cd–54偈）</b>　推論は火を「火というもの」という一般的な姿でとらえます。だから推論の対象は、知り方の上では一般相になります。</figcaption>
+  </figure>
+
+  <h4>まちがっているのに正しい：宝石の光のたとえ（第55–58偈）</h4>
+  <p>ここで鋭い反論が来ます。「推論は対象をあるがままでなく、ほかの姿でとらえる。それは錯誤だ。錯誤が正しい認識手段であるはずがない」。ダルマキールティは錯誤であることを認めます。そのうえで、目指すものについて人を欺かないなら認識手段だ、と答えます。それを示すのが有名な宝石の光（<i lang="sa-Latn">maṇiprabhā</i>）のたとえです。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 250" role="img" aria-label="宝石の光と灯火の光のたとえ">
+      <!-- door A -->
+      <rect x="30" y="30" width="270" height="180" rx="10" class="s-sva" stroke-width="1.5"/>
+      <text x="165" y="54" text-anchor="middle" font-size="14" font-weight="700">場面A</text>
+      <rect x="200" y="72" width="70" height="90" class="s-panel" stroke-width="1.2"/>
+      <polygon points="235,105 248,118 235,131 222,118" class="c-sva"/>
+      <text x="235" y="150" text-anchor="middle" font-size="11">部屋の中：宝石</text>
+      <path d="M 200 118 L 150 100 L 150 136 Z" class="c-sva" opacity="0.35"/>
+      <circle cx="80" cy="118" r="10" class="c-ink"/>
+      <line x1="80" y1="128" x2="80" y2="155" class="l-ink" stroke-width="2"/>
+      <text x="80" y="176" text-anchor="middle" font-size="11">光を宝石と思う</text>
+      <text x="165" y="200" text-anchor="middle" font-size="12.5" font-weight="700" class="t-sva">→ 宝石が手に入る</text>
+      <!-- door B -->
+      <rect x="340" y="30" width="270" height="180" rx="10" class="s-sam" stroke-width="1.5"/>
+      <text x="475" y="54" text-anchor="middle" font-size="14" font-weight="700">場面B</text>
+      <rect x="510" y="72" width="70" height="90" class="s-panel" stroke-width="1.2"/>
+      <path d="M 545 104 C 538 116, 540 128, 545 132 C 550 128, 552 116, 545 104 Z" class="c-sam"/>
+      <text x="545" y="150" text-anchor="middle" font-size="11">部屋の中：灯火</text>
+      <path d="M 510 118 L 460 100 L 460 136 Z" class="c-sam" opacity="0.35"/>
+      <circle cx="390" cy="118" r="10" class="c-ink"/>
+      <line x1="390" y1="128" x2="390" y2="155" class="l-ink" stroke-width="2"/>
+      <text x="390" y="176" text-anchor="middle" font-size="11">光を宝石と思う</text>
+      <text x="475" y="200" text-anchor="middle" font-size="12.5" font-weight="700" class="t-warn">→ 何も得られない</text>
+      <text x="320" y="238" text-anchor="middle" font-size="12" class="mut">どちらも「光を宝石だと思う」点では同じ誤り。違うのは、行動の結果（arthakriyā）だけ</text>
+    </svg>
+    <figcaption><b>図1-6　宝石の光のたとえ（第57偈）</b>　戸の隙間から漏れる光を見て宝石だと思い、駆け寄る二人。光は宝石そのものではないので、どちらも厳密には誤認です。しかし A は宝石を手に入れ、B は手に入れません。</figcaption>
+  </figure>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th></th><th>対象をあるがままにとらえているか</th><th>目指すものが得られるか</th><th>認識手段か</th></tr></thead>
+      <tbody>
+        <tr><th>知覚</th><td class="sva">はい（それ自身の姿）</td><td class="sva">はい</td><td class="sva">はい</td></tr>
+        <tr><th>推論（正しい根拠による）</th><td class="sam">いいえ（一般的な姿）</td><td class="sva">はい</td><td class="sva">はい</td></tr>
+        <tr><th>宝石の光を宝石と思う</th><td class="sam">いいえ</td><td class="sva">はい</td><td>（たとえ）</td></tr>
+        <tr><th>推論に似て非なるもの</th><td class="sam">いいえ</td><td class="sam">いいえ</td><td class="sam">いいえ</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表1-5　「正しさ」の決め手はどこにあるか（第55–58偈）</b>　認識手段かどうかを分けているのは右から2列目、つまり <i lang="sa-Latn">arthakriyā</i> について欺かないかどうかです。</figcaption>
+  </figure>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>正しい信念と、たまたま当たった信念</h4>
+    <p>1963年、ゲティアは短い論文で、「正当化された真なる信念」でも知識と呼べない場合がある、と示しました。たまたま当たってしまう信念の例です。宝石の光のたとえは、現代の研究者によってこのゲティア問題と並べて論じられることがあります。</p>
+    <p>ただ、問いの向きは逆です。ゲティアの例は「当たっていても知識でない場合がある」ことを示しました。ダルマキールティは「厳密には誤っていても、認識手段として認めてよい場合がある」と言います。そして場面Aが単なる偶然でないのは、光と宝石の間に因果的なつながりがあるからです。光は宝石から出ています。正しい推論でも、煙と火の間に因果関係があるから、根拠が対象を「知らせる」ことができます。認識と対象の間の因果的なつながりを正しさの条件に入れる考え方は、現代の「信頼性主義」や「因果説」に近いものです。</p>
+  </div>
+
+  <!-- 1.6 -->
+  <div class="secno"><h3>1.6　だから認識手段は二つ</h3><span class="vr">E　59–63</span></div>
+  <p>最後に結論が導かれます。対象には、目の前にあって感官に直接はたらきかけるもの（<i lang="sa-Latn">pratyakṣa</i>）と、感覚を超えたもの（<i lang="sa-Latn">parokṣa</i>）しかありません。前者は、対象そのものの力で認識が生じるので、ほかに頼らずにとらえられます。後者は、自分の姿が見えないので、何か別のもの、つまり根拠（<i lang="sa-Latn">liṅga</i>）に頼るしかありません。</p>
+  <p>ただし、どんな根拠でもよいわけではありません。第60偈によれば、根拠が「知らせるもの（<i lang="sa-Latn">gamaka</i>）」になれるのは、知られるべき性質と、その性質をもつ場所の両方に関係をもつときだけです。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 220" role="img" aria-label="推論の構造：煙から火へ">
+      <rect x="20" y="70" width="150" height="60" rx="8" class="s-sva" stroke-width="1.5"/>
+      <text x="95" y="96" text-anchor="middle" font-size="14" font-weight="700">山に煙が見える</text>
+      <text x="95" y="116" text-anchor="middle" font-size="11" class="mut">知覚でとらえる</text>
+      <rect x="245" y="70" width="150" height="60" rx="8" class="s-panel" stroke-width="1.5"/>
+      <text x="320" y="94" text-anchor="middle" font-size="14" font-weight="700">煙は火から生じる</text>
+      <text x="320" y="114" text-anchor="middle" font-size="11" class="mut">あらかじめ確かめた関係</text>
+      <rect x="470" y="70" width="150" height="60" rx="8" class="s-sam" stroke-width="1.5"/>
+      <text x="545" y="96" text-anchor="middle" font-size="14" font-weight="700">山に火がある</text>
+      <text x="545" y="116" text-anchor="middle" font-size="11" class="mut">一般的な姿で知る</text>
+      <line x1="170" y1="100" x2="238" y2="100" class="l-ink" stroke-width="1.8"/><polygon points="236,94 246,100 236,106" class="c-ink"/>
+      <line x1="395" y1="100" x2="463" y2="100" class="l-ink" stroke-width="1.8"/><polygon points="461,94 471,100 461,106" class="c-ink"/>
+      <text x="95" y="40" text-anchor="middle" font-size="12" font-weight="700" class="t-sva">根拠 liṅga</text>
+      <text x="320" y="40" text-anchor="middle" font-size="12" font-weight="700">関係（性質との結びつき）</text>
+      <text x="545" y="40" text-anchor="middle" font-size="12" font-weight="700" class="t-sam">推論の結果 anumāna</text>
+      <path d="M 95 140 C 95 190, 545 190, 545 140" class="l-mut" stroke-width="1" stroke-dasharray="3 4"/>
+      <text x="320" y="205" text-anchor="middle" font-size="12" class="mut">煙は「山」と「火」の両方に結びつくので、火を知らせるもの（gamaka）になる（第60偈）</text>
+    </svg>
+    <figcaption><b>図1-7　推論のしくみ（第59–62偈）</b>　火は見えていないので（<i lang="sa-Latn">parokṣa</i>）、見えている煙という別のものに頼ります。推論の詳しい理論は PV の別の章（自分のための推論の章）で論じられます。</figcaption>
+  </figure>
+
+  <p>こうして第63偈で、出発点の主張が論証された形になります。認識対象が二つ（目の前のものと、感覚を超えたもの）なので、認識手段も二つ（知覚と推論）なのです。</p>
+
+  <p>この結論は、インド哲学全体の中ではかなり大胆なものでした。ほかの学派は、ことば（聖典の証言）や類比などを独立した認識手段として数えていたからです。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>学派</th><th>数</th><th>認めた認識手段</th></tr></thead>
+      <tbody>
+        <tr><th>Cārvāka（唯物論）</th><td>1</td><td>知覚</td></tr>
+        <tr><th class="sva">仏教（Dignāga・Dharmakīrti）</th><td class="sva">2</td><td class="sva">知覚、推論</td></tr>
+        <tr><th>Vaiśeṣika</th><td>2</td><td>知覚、推論（ことばは推論に含める）</td></tr>
+        <tr><th>Sāṃkhya</th><td>3</td><td>知覚、推論、ことば（<i lang="sa-Latn">śabda</i>）</td></tr>
+        <tr><th>Nyāya</th><td>4</td><td>知覚、推論、類比（<i lang="sa-Latn">upamāna</i>）、ことば</td></tr>
+        <tr><th>Mīmāṃsā（Prabhākara 派）</th><td>5</td><td>上の4つ＋要請（<i lang="sa-Latn">arthāpatti</i>）</td></tr>
+        <tr><th>Mīmāṃsā（Kumārila 派）</th><td>6</td><td>上の5つ＋非存在の認識（<i lang="sa-Latn">abhāva</i>, <i lang="sa-Latn">anupalabdhi</i>）</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表1-6　インド諸学派が認めた認識手段の数</b>　教科書的な整理です。第2章（第64–122偈）では、「知覚だけ」という説と「三つ以上」という説の両方が退けられます。</figcaption>
+  </figure>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>カントの「直観」と「概念」、ラッセルの「面識」と「記述」</h4>
+    <p>知覚と推論の二分法は、カントの『純粋理性批判』の出発点とよく比べられます。カントは、人間の認識には二つの源泉がある、と考えました。対象が与えられる「感性」（直観）と、対象を考える「悟性」（概念）です。「内容なき思考は空虚であり、概念なき直観は盲目である」という有名な一文があります。</p>
+    <div class="scroll"><table style="min-width:30rem;margin:.6rem 0 1rem">
+      <thead><tr><th></th><th class="sva">直接に与えられるもの</th><th class="sam">概念を通して知られるもの</th></tr></thead>
+      <tbody>
+        <tr><th>Dharmakīrti</th><td class="sva">知覚：個別相をそれ自身の姿で</td><td class="sam">推論：一般相を通して</td></tr>
+        <tr><th>カント</th><td class="sva">直観（感性）</td><td class="sam">概念（悟性）</td></tr>
+        <tr><th>ラッセル</th><td class="sva">面識による知識（acquaintance）</td><td class="sam">記述による知識（description）</td></tr>
+      </tbody>
+    </table></div>
+    <p>ただし大きな違いが一つあります。カントにとって、直観と概念は協力して一つの認識を作ります。二つは同じ認識の二つの成分です。ダルマキールティの場合、知覚と推論は二つの別々の認識手段で、知覚の中には概念がまったく入りこみません（これが第3章のテーマです）。また、カントの「概念」は経験を成り立たせる正当な枠組みですが、ダルマキールティの一般相は、役には立つけれど「錯誤」なのです。</p>
+    <p>イギリスのラッセルは、対象を直接知っていること（面識）と、記述を通して知ること（「現在のフランス国王」のように）を区別しました。第54偈の「それ自身の姿で知る／ほかの姿で知る」という区別にかなり近いと言えます。逆に、ヒュームの「観念の関係」と「事実の問題」の区別は、知識の分け方の基準が違います（必然か偶然か）。似た二分法でも、何を基準に分けているかを確かめることが比較の第一歩です。</p>
+  </div>
+
+  <!-- summary -->
+  <div class="secno"><h3>この章のまとめ</h3></div>
+  <figure style="margin-top:.5rem">
+    <svg viewBox="0 0 640 300" role="img" aria-label="第1章の論証の流れ">
+      <g font-size="13">
+        <rect x="170" y="10" width="300" height="40" rx="6" class="s-panel" stroke-width="1.2"/>
+        <text x="320" y="35" text-anchor="middle" font-weight="700">正しい認識＝欺かない（arthakriyā を果たす）</text>
+        <line x1="320" y1="50" x2="320" y2="70" class="l-ink" stroke-width="1.5"/>
+        <rect x="120" y="70" width="400" height="40" rx="6" class="s-panel" stroke-width="1.2"/>
+        <text x="320" y="95" text-anchor="middle" font-weight="700">arthakriyā の能力の有無で、対象は二種類（1–10）</text>
+        <line x1="250" y1="110" x2="160" y2="135" class="l-sva" stroke-width="1.5"/>
+        <line x1="390" y1="110" x2="480" y2="135" class="l-sam" stroke-width="1.5"/>
+        <rect x="30" y="135" width="260" height="40" rx="6" class="s-sva" stroke-width="1.2"/>
+        <text x="160" y="160" text-anchor="middle" font-weight="700">個別相：実在する（51）</text>
+        <rect x="350" y="135" width="260" height="40" rx="6" class="s-sam" stroke-width="1.2"/>
+        <text x="480" y="160" text-anchor="middle" font-weight="700">一般相：実在しない（11–50）</text>
+        <line x1="160" y1="175" x2="320" y2="200" class="l-ink" stroke-width="1.2"/>
+        <line x1="480" y1="175" x2="320" y2="200" class="l-ink" stroke-width="1.2"/>
+        <rect x="90" y="200" width="460" height="40" rx="6" class="s-panel" stroke-width="1.2"/>
+        <text x="320" y="225" text-anchor="middle" font-weight="700">究極の対象は個別相だけ、知り方が二つ（53cd–58）</text>
+        <line x1="320" y1="240" x2="320" y2="258" class="l-ink" stroke-width="1.5"/>
+        <rect x="120" y="258" width="400" height="38" rx="6" class="c-sva"/>
+        <text x="320" y="282" text-anchor="middle" font-weight="700" class="c-paper">∴ 認識手段は知覚と推論の二つ（59–63）</text>
+      </g>
+    </svg>
+    <figcaption><b>図1-8　第1章の論証の流れ</b></figcaption>
+  </figure>
+
+  <div class="key">
+    <div class="label">重要な術語</div>
+    <dl class="gloss">
+      <dt>pramāṇa</dt><dd>認識手段。欺かない認識。</dd>
+      <dt>prameya</dt><dd>認識対象。</dd>
+      <dt>arthakriyā</dt><dd>目的を果たすはたらき。実在かどうか、認識が正しいかどうかの基準。</dd>
+      <dt>svalakṣaṇa</dt><dd>個別相。それ自身の特徴をもち、作用し、ことばで表せない個物。</dd>
+      <dt>sāmānyalakṣaṇa</dt><dd>一般相。多くのものに共通する姿。概念とことばの対象で、実在しない。</dd>
+      <dt>paramārthasat / saṃvṛtisat</dt><dd>究極的に存在するもの／世間の約束事として存在するもの。</dd>
+      <dt>jāti, sāmānya</dt><dd>普遍。Nyāya・Vaiśeṣika では常住の実在。</dd>
+      <dt>anyavyāvṛtti, apoha</dt><dd>ほかのものからの区別・排除。一般相の正体。</dd>
+      <dt>pratyāsatti</dt><dd>近さ。普遍なしに、似た結果を生むものがまとめられる根拠。</dd>
+      <dt>pratyakṣa / parokṣa</dt><dd>目の前にあるもの／感覚を超えたもの。知覚という名前もここから。</dd>
+      <dt>liṅga, gamaka</dt><dd>推論の根拠／知らせるもの。</dd>
+    </dl>
+  </div>
+
+  <div class="key">
+    <div class="label">考えてみよう</div>
+    <ol class="q">
+      <li>「日本」ということばは何を指しているでしょうか。ダルマキールティの立場で説明してみましょう。地図や国旗など、目で見られるものとの関係にも触れてください。</li>
+      <li>錯覚の毛髪（第7–10偈）は、なぜ「個別相でも一般相でもない」とされながら、はっきり見えると言えるのでしょうか。</li>
+      <li>宝石の光のたとえを、現代の例（たとえば天気予報やカーナビ）で作りかえてみましょう。どんな条件があれば「誤っているが欺かない」と言えるでしょうか。</li>
+      <li>カントの直観と概念の関係と、ダルマキールティの知覚と推論の関係は、どこが同じでどこが違うでしょうか。表にしてまとめてみましょう。</li>
+    </ol>
+  </div>
+
+  <p style="margin-top:2rem"><span class="label">次の章へ</span><br>第2章では、「推論など要らない、知覚だけで十分だ」という論者と、「ことばや類比も独立した認識手段だ」という論者の両方を相手に、二つという数が守られていきます。とくに「ないこと」をどうやって知るのか、という問題が中心になります。</p>
+
+</section>
+<!-- ============ CHAPTER 2 ============ -->
+<section class="col" id="ch2">
+  <div class="label">第2章 ・ PV III I-2</div>
+  <h2 style="margin:.3rem 0 .8rem">一つでも三つでもなく、二つ</h2>
+  <p>第1章で、認識手段は知覚と推論の二つだという結論が出ました。第64–122偈では、この「二つ」を両側から守ります。一方には「知覚だけで十分だ」と言う論者がいます。もう一方には「ほかにも認識手段がある」と言う論者がいます。第64偈の冒頭で、ダルマキールティは「対象が二つだと示したことで、一つという説も三つ以上という説も、すでに退けられている」と宣言し、そのあと具体的な議論に入ります。</p>
+
+  <figure>
+    <div class="label">図2-1　この章で読む範囲（第64–122偈）</div>
+    <div class="vbar" role="img" aria-label="第64から122偈の区分">
+      <div class="on" style="flex:12" title="B 64cd–75">B 知覚だけ説</div>
+      <div class="b2" style="flex:3.5" title="C-a 76–79ab">反論</div>
+      <div class="off" style="flex:38.5" title="C-b 79cd–117">応答1　無常性の認識</div>
+      <div class="on" style="flex:5" title="C-c 118–122">応答2</div>
+    </div>
+    <div class="vscale"><span>64</span><span>76</span><span>118</span><span>122</span></div>
+    <figcaption>前半は「知覚だけ」説との議論（64cd–75）、後半は「三つ以上」説との議論（76–122）です。後半の大部分（79cd–117）は「色は無常だ」という認識をどう説明するか、という一つの問題に費やされます。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>2.1　「知覚だけ」説との議論</h3><span class="vr">B　64cd–75</span></div>
+  <p>インドには、知覚だけを認識手段と認め、推論を信用しない唯物論の伝統（Cārvāka、Lokāyata）がありました。目に見えないもの、たとえば死後の世界や業の果報は、推論でしか知られません。推論を認めなければ、それらを否定できます。ダルマキールティはこの立場に、三つの方向から反論します。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>論点</th><th>偈</th><th>ダルマキールティの議論</th></tr></thead>
+      <tbody>
+        <tr><th>「ないこと」を知る</th><td class="vr">64cd–67</td><td>「ここに壺はない」と私たちは確かに知る。しかし知覚は対象の力で生じるので、存在しないものから知覚が生じることはない。「知覚が起こらないこと」から非存在を知るのなら、それはもう推論である。</td></tr>
+        <tr><th>他人の心を知る</th><td class="vr">68</td><td>「知覚だけ」説の論者も、相手に何かを教えようとして話す。相手に心があり、わかっていないと知っているからだ。他人の心は見えないので、それは推論による。論者自身のふるまいが推論を前提にしている。</td></tr>
+        <tr><th>推論が欺かないこと</th><td class="vr">69–72</td><td>推論がときに外れるのは、根拠の選び方がまちがっているからである。対象と本当に結びついた根拠なら外れない。その結びつきは「原因と結果」か「同じ本性」の二つしかない。</td></tr>
+        <tr><th>推論を捨てた場合の不都合</th><td class="vr">73–75</td><td>推論がないなら、知覚されないものはすべて存在しないことになる。感官の能力そのものも見えないので、感官さえ存在しないことになってしまう。</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表2-1　「知覚だけ」説への四つの反論</b></figcaption>
+  </figure>
+
+  <h4>正しい根拠は三種類（第69–72偈）</h4>
+  <p>推論がなぜ欺かないのかについて、ダルマキールティの答えはこの章の理論的な中心です。根拠（<i lang="sa-Latn">liṅga</i>）が結論を確実に導くのは、根拠と結論の間に「本質的な結びつき（<i lang="sa-Latn">svabhāvapratibandha</i>）」があるときだけです。その結びつきは二種類しかありません。一つは因果関係（煙は火から生じる）、もう一つは同一の本性（シンシャパーという木であることは、木であることそのもの）です。これに「知覚されないこと」を加えた三つが、正しい根拠のすべてです。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>根拠の種類</th><th>結びつき</th><th>典型例</th><th>結論</th></tr></thead>
+      <tbody>
+        <tr><th><i lang="sa-Latn">kāryahetu</i>（結果の根拠）</th><td>因果関係（<i lang="sa-Latn">tadutpatti</i>）</td><td>山に煙がある</td><td class="sam">山に火がある</td></tr>
+        <tr><th><i lang="sa-Latn">svabhāvahetu</i>（本性の根拠）</th><td>同一性（<i lang="sa-Latn">tādātmya</i>）</td><td>これはシンシャパーだ</td><td class="sam">これは木だ</td></tr>
+        <tr><th><i lang="sa-Latn">anupalabdhi</i>（非知覚の根拠）</th><td>見えるはずのものが見えない</td><td>この床に壺は見えない</td><td class="sam">ここに壺はない</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表2-2　三種類の正しい根拠（第70–72偈）</b>　三つ目は否定の推論で、2.3節でくわしく扱います。</figcaption>
+  </figure>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>ヒュームの帰納の問題と、ダルマキールティの答え</h4>
+    <p>18世紀のヒュームは、「煙があれば火がある」と私たちが考えるのは、これまで何度も一緒に見てきた習慣のせいにすぎない、と論じました。過去に何度一緒だったとしても、次も一緒だという保証はありません。これが「帰納の問題」です。</p>
+    <p>ダルマキールティも、ただ一緒に見た回数を数えるだけでは推論の正しさは保証されない、と考えます。彼の答えは、根拠と結論の間に因果関係か同一性という「本性上の結びつき」がある場合に限って推論は確実だ、というものです。ここで、その因果関係自体をどう知るのか、という問いが残ります。ダルマキールティはこれを、「これがあるとあれが生じ、これがないとあれが生じない」という知覚と非知覚の組み合わせで確定できると考えました。ヒュームなら、それもまた習慣ではないかと問い返すでしょう。この問題は、インドでも後の論者たちが長く議論を続けました。</p>
+    <p>また、第68偈の「他人の心」の議論は、西洋の「他我問題」と同じ問いです。J. S. ミルは、他人の身体のふるまいが自分の場合と似ていることから他人の心を類推する「類推説」を唱えました。ダルマキールティの議論も、自分の心とふるまいの因果関係を知っていることから他人の心を推論する点で、とても近い形をしています。この問題は第10章（第474–476偈）でもう一度出てきます。</p>
+  </div>
+
+  <div class="secno"><h3>2.2　「三つ以上」説の反論</h3><span class="vr">C-a　76–79ab</span></div>
+  <p>今度は反対側からの反論です。反論者は、Nyāya などの立場から、知覚とも推論とも言えない認識があると主張します。</p>
+  <div class="voice">
+    <span class="who op">反論者</span><p>「色は無常だ」という認識を考えよ。色は個別相でも一般相でもない「無常である色」という第三の対象だ。だから、これを知る第三の認識手段がある。</p>
+    <span class="who op">反論者</span><p>「特定のものを見る推論（<i lang="sa-Latn">viśeṣadṛṣṭa</i>）」もある。前に見たあの牛を、今また見て「あれだ」と知る。これは関係を前もって確かめていないので、推論とは別の認識手段だ。</p>
+    <span class="who op">反論者</span><p>そもそも一つの対象を、知覚でも推論でも知ることができる。認識手段は対象ごとに決まっているわけではない。</p>
+  </div>
+  <p>最後の主張は、インド認識論の大きな対立点を指しています。Nyāya は、同じ対象に複数の認識手段がはたらきうると考えました（<i lang="sa-Latn">pramāṇasaṃplava</i>）。仏教は、知覚は個別相だけ、推論は一般相だけというように、認識手段ごとに対象が決まっていると考えます（<i lang="sa-Latn">pramāṇavyavasthā</i>）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 210" role="img" aria-label="pramāṇavyavasthā と pramāṇasaṃplava の比較">
+      <text x="160" y="24" text-anchor="middle" font-size="14" font-weight="700" class="t-sva">仏教：認識手段ごとに対象が決まる</text>
+      <text x="160" y="42" text-anchor="middle" font-size="11" class="ia-t mut">pramāṇavyavasthā</text>
+      <rect x="30" y="60" width="110" height="40" rx="6" class="s-sva" stroke-width="1.4"/><text x="85" y="85" text-anchor="middle" font-size="13">知覚</text>
+      <rect x="180" y="60" width="110" height="40" rx="6" class="s-sam" stroke-width="1.4"/><text x="235" y="85" text-anchor="middle" font-size="13">推論</text>
+      <line x1="85" y1="100" x2="85" y2="140" class="l-sva" stroke-width="2"/>
+      <line x1="235" y1="100" x2="235" y2="140" class="l-sam" stroke-width="2"/>
+      <rect x="30" y="140" width="110" height="40" rx="6" class="s-panel" stroke-width="1.2"/><text x="85" y="165" text-anchor="middle" font-size="13">個別相</text>
+      <rect x="180" y="140" width="110" height="40" rx="6" class="s-panel" stroke-width="1.2"/><text x="235" y="165" text-anchor="middle" font-size="13">一般相</text>
+      <line x1="320" y1="20" x2="320" y2="190" class="l-mut" stroke-width="1" stroke-dasharray="3 4"/>
+      <text x="480" y="24" text-anchor="middle" font-size="14" font-weight="700">Nyāya：一つの対象に複数の手段</text>
+      <text x="480" y="42" text-anchor="middle" font-size="11" class="ia-t mut">pramāṇasaṃplava</text>
+      <rect x="350" y="60" width="80" height="40" rx="6" class="s-panel" stroke-width="1.2"/><text x="390" y="85" text-anchor="middle" font-size="12">知覚</text>
+      <rect x="440" y="60" width="80" height="40" rx="6" class="s-panel" stroke-width="1.2"/><text x="480" y="85" text-anchor="middle" font-size="12">推論</text>
+      <rect x="530" y="60" width="80" height="40" rx="6" class="s-panel" stroke-width="1.2"/><text x="570" y="85" text-anchor="middle" font-size="12">ことば</text>
+      <line x1="390" y1="100" x2="470" y2="140" class="l-ink" stroke-width="1.6"/>
+      <line x1="480" y1="100" x2="480" y2="140" class="l-ink" stroke-width="1.6"/>
+      <line x1="570" y1="100" x2="490" y2="140" class="l-ink" stroke-width="1.6"/>
+      <rect x="420" y="140" width="120" height="40" rx="6" class="s-panel" stroke-width="1.2"/><text x="480" y="165" text-anchor="middle" font-size="13">山の火</text>
+      <text x="480" y="204" text-anchor="middle" font-size="11" class="mut">遠くから推論し、聞いて知り、近づいて見る</text>
+    </svg>
+    <figcaption><b>図2-2　認識手段と対象の対応関係</b>　仏教でも、同じ個物（山の火）を見ることも推論することもできます。ただし知り方の上での対象は違います。見るときは個別相、推論するときは「火というもの」という一般相です。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>2.3　応答（1）：「色は無常だ」という認識</h3><span class="vr">C-b　79cd–117</span></div>
+  <p>ダルマキールティの答えの骨格は簡単です。「色は無常だ」という認識は、色の一般相に、無常性という一般相を結びつけているだけである（第79cd偈）。つまり一般相をとらえる推論の一種であり、第三の対象も第三の手段もいりません。ところが、この短い答えから、議論は推論論の大きな問題へ広がっていきます。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>小区分</th><th>偈</th><th>テーマ</th></tr></thead>
+      <tbody>
+        <tr><th>(1)</th><td class="vr">79cd</td><td>答えの要点：一般相に一般相を結びつけているだけ</td></tr>
+        <tr><th>(2) イ・ロ</th><td class="vr">80–84</td><td>肯定の推論は、実在に間接的につながっているので欺かない（宝石の光のたとえと同じ構造）</td></tr>
+        <tr><th>(2) ハ</th><td class="vr">85–100</td><td>否定の推論は、すべて「知覚されないこと」に帰着する</td></tr>
+        <tr><th>(3)</th><td class="vr">101cd–109</td><td>無常性がすでに知覚されているなら、なぜ推論が必要なのか</td></tr>
+        <tr><th>(4)</th><td class="vr">110–117</td><td>Nyāya・Vaiśeṣika の無常性の定義を批判する</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表2-3　第79cd–117偈の構成</b></figcaption>
+  </figure>
+
+  <h4>肯定の推論が欺かない理由（第80–84偈）</h4>
+  <p>推論は実在そのものの姿をもちません。それでも欺かないのは、因果の鎖で実在につながっているからです。山の火が煙を生み、煙が私の煙の知覚を生み、その知覚が「火がある」という推論を生む。推論は火の姿を正しく写してはいませんが、火から始まる因果の鎖の端にあります。だから、その推論に従って行動すれば火にたどりつきます（第81–82偈）。それでも、実在の姿をもたないのに、その姿だと思い込む点で、推論は錯誤だと確定されています（第83偈）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 140" role="img" aria-label="推論が実在に間接的につながる因果の鎖">
+      <g font-size="13">
+        <rect x="10" y="40" width="110" height="46" rx="6" class="c-sva"/><text x="65" y="68" text-anchor="middle" font-weight="700" class="c-paper">山の火</text>
+        <rect x="160" y="40" width="110" height="46" rx="6" class="s-sva" stroke-width="1.4"/><text x="215" y="68" text-anchor="middle">煙</text>
+        <rect x="310" y="40" width="130" height="46" rx="6" class="s-sva" stroke-width="1.4"/><text x="375" y="68" text-anchor="middle">煙を見る知覚</text>
+        <rect x="480" y="40" width="150" height="46" rx="6" class="s-sam" stroke-width="1.4"/><text x="555" y="68" text-anchor="middle">「火がある」の推論</text>
+        <g class="c-ink"><polygon points="150,57 160,63 150,69"/><polygon points="300,57 310,63 300,69"/><polygon points="470,57 480,63 470,69"/></g>
+        <g class="l-ink" stroke-width="1.6"><line x1="120" y1="63" x2="152" y2="63"/><line x1="270" y1="63" x2="302" y2="63"/><line x1="440" y1="63" x2="472" y2="63"/></g>
+        <text x="320" y="20" text-anchor="middle" font-size="12" class="mut">→ は「生む」。推論は火の姿をもたないが、火から始まる鎖の端にある</text>
+        <path d="M 555 90 C 540 130, 80 130, 65 90" class="l-sam" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <polygon points="60,98 65,86 72,97" class="c-sam"/>
+        <text x="320" y="134" text-anchor="middle" font-size="12" class="t-sam">推論に従って行動すると、火にたどりつく（欺かない）</text>
+      </g>
+    </svg>
+    <figcaption><b>図2-3　推論と実在の間接的なつながり（第81–82偈）</b></figcaption>
+  </figure>
+
+  <h4>否定はすべて「知覚されないこと」による（第85–100偈）</h4>
+  <p>「ここに壺はない」「ここに雪はない（火があるから）」など、否定の推論にはいろいろな形があります。ダルマキールティは、それらがすべて最終的には「知覚されないこと（<i lang="sa-Latn">anupalabdhi</i>）」に帰着すると論じます。火があるから雪がないと言えるのは、火と雪が一緒にあるのを見たことがない、つまり共存が知覚されないことを前提にしているからです（第87–88偈）。</p>
+  <p>ただし、何でも「見えないからない」と言えるわけではありません。条件は、それが本来知覚されうるもので、知覚のためのほかの条件がそろっていることです（第72偈、第100偈）。暗闇で壺が見えなくても、壺がないとは言えません。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th></th><th>知覚されうるものか</th><th>知覚の条件はそろっているか</th><th>見えないことから言えること</th></tr></thead>
+      <tbody>
+        <tr><th>明るい床の上の壺</th><td class="sva">はい</td><td class="sva">はい</td><td class="sva">ここに壺はない</td></tr>
+        <tr><th>暗い部屋の壺</th><td class="sva">はい</td><td class="sam">いいえ</td><td class="sam">何も言えない</td></tr>
+        <tr><th>全知者・死後の存在</th><td class="sam">いいえ（感覚を超えたもの）</td><td>—</td><td class="sam">あるともないとも言えない</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表2-4　非知覚が非存在を証明する条件（第72・92–94・100偈）</b></figcaption>
+  </figure>
+
+  <p>表の最後の行には、ダルマキールティの思想の誠実さがよく表れています。ミーマーンサー学派などは「ものを話す者は全知者ではありえない」という理屈で、全知者（ブッダ）の存在を否定しました。ダルマキールティは、それは成り立たないと言います。話すことと全知であることが矛盾するとは、だれも確かめていないからです（第92–93偈）。しかし、自分に有利な結論を引き出すこともしません。まったく感覚を超えたものについては、存在するとも存在しないとも確定できない（第94偈）、と言うのです。</p>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>「ないこと」をどう知るか</h4>
+    <p>サルトルは『存在と無』で、カフェで友人ピエールを待つ場面を描いています。ピエールが来ていないとき、私はカフェ全体を「ピエールのいない場所」として見ます。不在は、期待された何かが欠けていることとして経験されます。ダルマキールティの「知覚されうるものが知覚されない」という条件は、この「期待された不在」とよく似ています。</p>
+    <p>「証拠がないことは、ないことの証拠ではない」という現代の格言は、表2-4の二行目と三行目にあたります。また、論理実証主義者は、検証できない形而上学的な命題を「無意味」として退けました。ダルマキールティは、感覚を超えたものについての命題を無意味とは言わず、真偽を「確定できない」とします。この点で、彼の立場は論理実証主義よりも慎重です。</p>
+  </div>
+
+  <h4>無常性はもう見えているのではないか（第101cd–109偈）</h4>
+  <p>仏教によれば、すべてのものは刹那ごとに滅びます。知覚は個物をそのまま、刹那のものとしてとらえます。それなら、無常性はすでに知覚に含まれているはずです。なぜ推論が必要なのでしょうか。</p>
+  <p>答えはこうです。無常性は色の存在そのものと別のものではないので、知覚が色をとらえたとき、無常性も確かにとらえられています（第102–103偈）。しかし、前の刹那とよく似たものが次々に生じるので、ふつうの人は違いに気づかず、「同じものが続いている」と思い込みます。手品の玉が一つに見えるのと同じです（第104偈）。だから「無常だ」という確定が起こりません。推論は、知覚がすでにとらえたものについて、この迷いを取り除くために説かれるのです（第107偈）。逆に灯火の最後の瞬間のように、後に続くものがない場合は、子どもでも根拠なしに「消えた」とわかります（第105偈）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 170" role="img" aria-label="刹那ごとに生じる似たものの連続と、思い込まれた一つのもの">
+      <g class="c-sva">
+        <circle cx="70" cy="60" r="16"/><circle cx="150" cy="60" r="16"/><circle cx="230" cy="60" r="16"/><circle cx="310" cy="60" r="16"/><circle cx="390" cy="60" r="16"/><circle cx="470" cy="60" r="16"/><circle cx="550" cy="60" r="16"/>
+      </g>
+      <g font-size="11" class="mut"><text x="70" y="96" text-anchor="middle">t₁</text><text x="150" y="96" text-anchor="middle">t₂</text><text x="230" y="96" text-anchor="middle">t₃</text><text x="310" y="96" text-anchor="middle">t₄</text><text x="390" y="96" text-anchor="middle">t₅</text><text x="470" y="96" text-anchor="middle">t₆</text><text x="550" y="96" text-anchor="middle">t₇</text></g>
+      <text x="320" y="24" text-anchor="middle" font-size="12" class="t-sva">実際には：刹那ごとに別のものが生じては滅びる（知覚はこれをとらえている）</text>
+      <rect x="54" y="118" width="512" height="26" rx="13" class="s-sam" stroke-width="1.4"/>
+      <text x="310" y="136" text-anchor="middle" font-size="12">思い込み：「同じ一つのものが続いている」（似ているので違いに気づかない）</text>
+      <text x="320" y="164" text-anchor="middle" font-size="11" class="mut">推論の役目は、この思い込みを取り除くこと（第104–107偈）</text>
+    </svg>
+    <figcaption><b>図2-4　刹那滅と、連続の思い込み</b></figcaption>
+  </figure>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>「同じ川に二度入ることはできない」</h4>
+    <p>万物は流転するというヘラクレイトスの言葉は、仏教の刹那滅とよく比べられます。ただしヘラクレイトスにとって、変化を貫くロゴス（理法）は永遠です。仏教の刹那滅は、変化を貫くものを何も認めません。近いのはむしろヒュームの「人格の同一性」の議論です。ヒュームは、自我とは次々に入れ替わる知覚の束にすぎず、私たちは似たものの連続を一つのものと取り違えている、と論じました。これは図2-4の構図そのものです。</p>
+  </div>
+
+  <h4>Nyāya・Vaiśeṣika の無常性の定義を批判する（第110–117偈）</h4>
+  <p>反論者の一人は、無常性を「前の非存在と後の非存在という二つの端で区切られた、存在性（<i lang="sa-Latn">sattā</i>）との結びつき」と定義しました。ダルマキールティは、存在性も内属も常住だと言うあなた方の体系では、そもそも区切ることができないと指摘し、この定義を内側から崩していきます（第111–116偈）。結論は、無常性ということばも、実在に触れずに、ほかのものとの区別を表しているにすぎない、というものです（第117偈）。</p>
+
+  <div class="secno"><h3>2.4　応答（2）：再認と「特定のものを見る推論」</h3><span class="vr">C-c　118–122</span></div>
+  <p>最後に、「特定のものを見る推論」が独立した認識手段だという主張が退けられます。「あの牛だ」と再認するとき、対象は刹那ごとに別のものなので、厳密には同じものではありません。前のものと似ているから同じだと当てはめているので、誤った認識です（第118・121偈）。もし本当に別でないなら、すでに知覚で確立していることを知るだけなので、新しい認識手段とは言えません。結局それは、前に見たものとの結びつけ、つまり想起にすぎない（第122偈）。再認の問題は、第10章（第503–506偈）で、自己認識の議論の中にもう一度現れます。</p>
+
+  <div class="secno"><h3>この章のまとめ</h3></div>
+  <figure style="margin-top:.5rem">
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>相手</th><th>主張</th><th>ダルマキールティの応答の要点</th></tr></thead>
+      <tbody>
+        <tr><th>唯物論者</th><td>認識手段は知覚だけ</td><td>非存在の確定、他人の心の理解、推論を捨てた場合の不都合。どれも推論を必要とする。</td></tr>
+        <tr><th>Nyāya など</th><td>「色は無常だ」は第三の手段による</td><td>一般相に一般相を結びつける推論にすぎない。</td></tr>
+        <tr><th>Nyāya など</th><td>特定のものを見る推論は別の手段</td><td>再認は錯誤か想起であり、認識手段ではない。</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表2-5　第2章の要点</b></figcaption>
+  </figure>
+
+  <div class="key">
+    <div class="label">重要な術語</div>
+    <dl class="gloss">
+      <dt>svabhāvapratibandha</dt><dd>本質的な結びつき。推論を確実にする、根拠と結論の関係。</dd>
+      <dt>kārya / svabhāva / anupalabdhi</dt><dd>結果・本性・非知覚。三種類の正しい根拠。</dd>
+      <dt>pramāṇavyavasthā / pramāṇasaṃplava</dt><dd>認識手段ごとに対象が決まるという立場／一つの対象に複数の手段がはたらくという立場。</dd>
+      <dt>kṣaṇikatva</dt><dd>刹那滅性。すべてのものは一瞬ごとに滅びる。</dd>
+      <dt>pratyabhijñā</dt><dd>再認。「これはあれだ」という認識。</dd>
+      <dt>atīndriya</dt><dd>感覚を超えたもの。あるともないとも確定できない。</dd>
+    </dl>
+  </div>
+  <div class="key">
+    <div class="label">考えてみよう</div>
+    <ol class="q">
+      <li>「冷蔵庫に牛乳がない」とあなたが知るとき、何が起きているでしょうか。表2-4の条件を使って説明してみましょう。</li>
+      <li>ダルマキールティは全知者の存在を論証によって否定することを認めませんでした。これは仏教徒としては不利な主張でしょうか、有利な主張でしょうか。</li>
+      <li>ヒュームの帰納の問題に対して、「因果関係があれば推論は確実だ」というダルマキールティの答えは十分でしょうか。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 3 ============ -->
+<section class="col" id="ch3">
+  <div class="label">第3章 ・ PV III II</div>
+  <h2 style="margin:.3rem 0 .8rem">知覚には概念がない</h2>
+  <p>Dignāga は『Pramāṇasamuccaya』第1章で、知覚を「概念的思考を離れたもの（<i lang="sa-Latn">kalpanāpoḍha</i>）」と定義しました。概念的思考（<i lang="sa-Latn">kalpanā</i>）とは、名前や類（<i lang="sa-Latn">jāti</i>）などを対象に結びつけるはたらきです。第123–190偈は、この短い定義を守る議論です。知覚に概念がないことを、まず知覚（自己認識）で確かめ、次に推論で論証し、最後に反対説を退けます。</p>
+
+  <figure>
+    <div class="label">図3-1　この章で読む範囲（第123–190偈）</div>
+    <div class="vbar" role="img" aria-label="第123から190偈の区分">
+      <div class="on" style="flex:18" title="1 123–140">1 自己認識で</div>
+      <div class="off" style="flex:4" title="2A 141–144">A</div>
+      <div class="b2" style="flex:32" title="2B 145–176">2B 正しい推論</div>
+      <div class="off" style="flex:14" title="2C 177–190">2C 反対説</div>
+    </div>
+    <div class="vscale"><span>123</span><span>141</span><span>177</span><span>190</span></div>
+    <figcaption>1：知覚に概念がないことは自己認識で確かめられる（123–140）／2A：仏教内のある人の推論を退ける（141–144）／2B：正しい推論を示す（145–176）／2C：反対論者との議論（177–190）</figcaption>
+  </figure>
+
+  <div class="secno"><h3>3.1　自分で確かめられる</h3><span class="vr">1　123–140</span></div>
+  <p>第123偈の論法は意外なものです。知覚に概念がないことは、だれでも自分の内で確かめられる、と言うのです。証拠として、第124偈は次のような場面を挙げます。あらゆる思いを引き戻して、心を静かにとどめている人がいます。その人の目にも、色や形は見えています。それが感官から生じる認識です。</p>
+  <p>もしその見ることの中に概念的思考が含まれていたなら、後で心を動かしたとき、「さっき私はこういうことを考えていた」と気づくはずです。しかし、そうはなりません（第125偈）。概念的思考は、内側から体験されるものだからです。</p>
+
+  <h4>なぜ個物には名前が付けられないのか（第126–132偈）</h4>
+  <p>この部分は、知覚に概念が入りこめない理由を、ことばの側から説明しています。ことばを使うには、「これを『牛』と呼ぼう」という取り決め（<i lang="sa-Latn">saṃketa</i>）が必要です。取り決めは、後で別の機会に同じものに出会ったときに使うためのものです。ところが個物は、ある時と場所に見られたら、別の時と場所でもう一度見られることは決してありません（第126偈）。刹那滅だからです。だから個物そのものに取り決めを結ぶことはできず、知覚がとらえる個物にことばは届きません（第127–128偈）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 200" role="img" aria-label="取り決めは繰り返し出会うものにしか結べない図">
+      <text x="320" y="22" text-anchor="middle" font-size="13" font-weight="700">取り決めの時と、ことばを使う時</text>
+      <rect x="30" y="45" width="230" height="110" rx="8" class="s-panel" stroke-width="1.2"/>
+      <text x="145" y="68" text-anchor="middle" font-size="13" font-weight="700">取り決めの時（t₁）</text>
+      <circle cx="90" cy="108" r="16" class="c-sva"/>
+      <text x="90" y="145" text-anchor="middle" font-size="11">個物 a</text>
+      <text x="185" y="112" text-anchor="middle" font-size="13">「これは牛」</text>
+      <rect x="380" y="45" width="230" height="110" rx="8" class="s-panel" stroke-width="1.2"/>
+      <text x="495" y="68" text-anchor="middle" font-size="13" font-weight="700">使う時（t₂）</text>
+      <rect x="425" y="92" width="30" height="30" class="c-sva"/>
+      <text x="440" y="145" text-anchor="middle" font-size="11">個物 b（a はもうない）</text>
+      <text x="545" y="112" text-anchor="middle" font-size="13">「牛だ」</text>
+      <line x1="262" y1="100" x2="375" y2="100" class="l-warn" stroke-width="1.8" stroke-dasharray="5 4"/>
+      <text x="318" y="92" text-anchor="middle" font-size="11" class="t-warn">a は続いていかない</text>
+      <text x="320" y="186" text-anchor="middle" font-size="12" class="t-sam">ことばが結びつけられるのは a でも b でもなく、両者に「続いていく」とされる一般相（第126–128偈）</text>
+    </svg>
+    <figcaption><b>図3-2　個物にはことばの取り決めが結べない</b></figcaption>
+  </figure>
+
+  <p>第129–132偈は、ことばを教わる場面を分析します。だれかが目の前のものを指して「これは〜だ」と教えてくれるとき、ことばと結びつけられるのは、その人が告げる「これ」です。目に鮮明に現れている個物そのものではありません。目を閉じてことばだけ聞いても、対象ははっきりとは知られません。鮮明に見えることと、ことばで知ることは、現れ方がまったく違います。そして第130偈が言うように、認識の現れ方の違いこそが、ものどうしを区別する基準なのです。</p>
+
+  <h4>なぜ私たちは見ることと考えることを混同するのか（第133–140偈）</h4>
+  <p>それでも日常の感覚では、ものを見るとき、私たちは「牛だ」と同時にわかっている気がします。第133偈によれば、これは、概念をもつ心ともたない心が同時にはたらくか、すばやく交互にはたらくために、愚かな人が二つを一つだと思い込んでいるのです。たいまつを速く回すと火の輪が見えるのと同じ錯覚です（第135・140偈）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 190" role="img" aria-label="知覚と概念的思考が交互に起こり、一つに見える図">
+      <text x="20" y="52" font-size="12" font-weight="700" class="t-sva">知覚</text>
+      <text x="20" y="102" font-size="12" font-weight="700" class="t-sam">概念</text>
+      <g class="c-sva"><rect x="70" y="38" width="60" height="22"/><rect x="190" y="38" width="60" height="22"/><rect x="310" y="38" width="60" height="22"/><rect x="430" y="38" width="60" height="22"/><rect x="550" y="38" width="60" height="22"/></g>
+      <g class="c-sam"><rect x="130" y="88" width="60" height="22"/><rect x="250" y="88" width="60" height="22"/><rect x="370" y="88" width="60" height="22"/><rect x="490" y="88" width="60" height="22"/></g>
+      <line x1="70" y1="128" x2="610" y2="128" class="l-mut" stroke-width="1"/>
+      <text x="610" y="144" text-anchor="end" font-size="11" class="mut">時間 →</text>
+      <rect x="70" y="152" width="540" height="24" rx="12" class="s-panel" stroke-width="1"/>
+      <text x="340" y="169" text-anchor="middle" font-size="12">本人の感じ方：「牛が見えている」という一つの経験</text>
+      <text x="340" y="20" text-anchor="middle" font-size="12" class="mut">すばやく交互に（あるいは同時に）起こるので、たいまつの火の輪のように一つに見える</text>
+    </svg>
+    <figcaption><b>図3-3　知覚と概念の混同（第133–140偈）</b>　反論者は「それなら知覚は概念によって途切れ途切れになるはずだ」と言います（第134偈）。ダルマキールティは、あなた方の説でも、名前の一音節を考える一瞬が混じるだけで視覚が途切れて見えるというのは奇妙だ、と返します（第136–137偈）。</figcaption>
+  </figure>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>「概念なき直観は盲目である」か</h4>
+    <p>第1章でカントの「概念なき直観は盲目である」という一文を紹介しました。ダルマキールティなら、概念のない知覚は盲目ではない、ものをもっとも鮮明に見ている、と答えるでしょう。ただし、知覚はそれだけでは「これは牛だ」という判断を下しません。判断（<i lang="sa-Latn">niścaya</i>）は、知覚の直後に生じる概念的思考の仕事です。</p>
+    <p>20世紀のアメリカの哲学者セラーズは、「所与の神話」という批判を展開しました。概念を含まない感覚が、そのまま知識の正当な土台になるという考えは神話だ、という批判です。マクダウェルはこれを受けて、経験はすでに概念的なものだと主張しました。ダルマキールティは、所与（概念のない知覚）を認めながら、所与がそのまま判断の理由になるとは言いません。知覚は因果的に判断を引き起こし、判断の正しさは知覚とのこの因果のつながりに支えられます。この構図は、セラーズの批判とどう向き合えるかという観点から、現代の研究でもよく議論されています。</p>
+    <p>第124偈の「心を静めた人にも色は見える」という場面は、フッサールの現象学が、判断を「かっこに入れる」（エポケー）ことで経験そのものに立ち返ろうとした方法を思わせます。</p>
+  </div>
+
+  <div class="secno"><h3>3.2　「赤ちゃんの認識」による推論は不十分</h3><span class="vr">2A　141–144</span></div>
+  <p>次に、知覚に概念がないことを推論で示す段に入ります。ところが最初に退けられるのは、同じ仏教の側の推論です。ある人々（注釈者は Dignāga の注釈者たちとみています）は、「感官から生じるので、赤ちゃんの認識のように、知覚には概念がない」と論証しました。</p>
+  <p>ダルマキールティはこれに不満です。もし赤ちゃんにはまったく概念がないなら、赤ちゃんはどうやってことばの取り決めを覚えるのでしょう（第142偈）。ことばを覚えるには、ことばを知る前から何らかの思考が必要です。逆に、赤ちゃんにも思考があると認めるなら、赤ちゃんの感官の認識に概念がないことを示すのに使った根拠を、大人の場合にもそのまま使えばよいのです（第144偈）。赤ちゃんという例は、問題を解いているのではなく、移しているだけです。</p>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>赤ちゃんの心は白紙か</h4>
+    <p>ロックは、生まれたばかりの心を白紙（タブラ・ラサ）にたとえました。ウィリアム・ジェイムズは、赤ちゃんにとって世界は「咲き乱れ、ざわめく混乱」だと書きました。どちらも、赤ちゃんの経験を、概念が加わる前の素朴な感覚のモデルにしています。ダルマキールティは、ちょうどこの発想に疑問を投げています。ことばを覚える能力そのものに、何らかの思考のはたらきが前提されているのではないか、という疑問です。</p>
+  </div>
+
+  <div class="secno"><h3>3.3　正しい推論：概念が生じる三つの条件</h3><span class="vr">2B　145–176</span></div>
+  <p>ダルマキールティ自身の論証は、概念的思考がどのように成り立つかを分析することから始まります。たとえば「杖をもつ人（<i lang="sa-Latn">daṇḍin</i>）」と理解するには、次のものをとらえて一つにまとめる必要があります（第145–146偈）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 230" role="img" aria-label="杖をもつ人という概念の成り立ち">
+      <rect x="20" y="30" width="150" height="56" rx="8" class="s-sam" stroke-width="1.4"/>
+      <text x="95" y="54" text-anchor="middle" font-size="13" font-weight="700">限定するもの</text>
+      <text x="95" y="74" text-anchor="middle" font-size="12">杖</text>
+      <rect x="245" y="30" width="150" height="56" rx="8" class="s-sam" stroke-width="1.4"/>
+      <text x="320" y="54" text-anchor="middle" font-size="13" font-weight="700">限定されるもの</text>
+      <text x="320" y="74" text-anchor="middle" font-size="12">人</text>
+      <rect x="470" y="30" width="150" height="56" rx="8" class="s-sam" stroke-width="1.4"/>
+      <text x="545" y="54" text-anchor="middle" font-size="13" font-weight="700">両者の関係</text>
+      <text x="545" y="74" text-anchor="middle" font-size="12">もつ・もたれる</text>
+      <rect x="170" y="110" width="300" height="40" rx="8" class="s-panel" stroke-width="1.2"/>
+      <text x="320" y="135" text-anchor="middle" font-size="13" font-weight="700">世間の決まり（ことばの取り決め）</text>
+      <g class="l-ink" stroke-width="1.4"><line x1="95" y1="86" x2="300" y2="178"/><line x1="320" y1="86" x2="320" y2="110"/><line x1="545" y1="86" x2="340" y2="178"/><line x1="320" y1="150" x2="320" y2="178"/></g>
+      <rect x="170" y="178" width="300" height="40" rx="8" class="c-sam"/>
+      <text x="320" y="203" text-anchor="middle" font-size="14" font-weight="700" class="c-paper">「杖をもつ人だ」という概念的認識</text>
+    </svg>
+    <figcaption><b>図3-4　概念的認識の成り立ち（第145偈）</b>　これらを別々にとらえ、まとめ合わせることが概念的思考です。知覚はこのどれもしていない、というのが論証の筋道です。</figcaption>
+  </figure>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>条件</th><th>偈</th><th>知覚にそれがない理由</th></tr></thead>
+      <tbody>
+        <tr><th>1　類などを個物から切り離してとらえる</th><td class="vr">146–148</td><td>知覚の中で「牛であること」が個物と別に見えることはない。多くの牛に共通すると感じられる認識にも、ことばと個物の姿しか現れていない。</td></tr>
+        <tr><th>2　個物と類の関係をとらえる</th><td class="vr">149–153</td><td>反論者自身、内属（<i lang="sa-Latn">samavāya</i>）は感官ではとらえられないと認めている。「牛に角がある」「糸が布になる」という言い方も、関係そのものを見ているのではない。</td></tr>
+        <tr><th>（脇道）類の存在を推論する議論</th><td class="vr">154–162</td><td>「宮殿の列」「実在」などのことばは、個物と別のものを必要としない。互いに違うものでも、同じ認識を生む原因になれる。</td></tr>
+        <tr><th>3　ことばの取り決めをとらえる</th><td class="vr">163–172</td><td>取り決めの対象は「他の排除」であり、感官の対象ではない。</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表3-1　知覚に概念がないことの論証（第145–173偈）</b>　第173偈で「類なども関係も知覚の対象にはない」とまとめられます。</figcaption>
+  </figure>
+
+  <h4>apoha のしくみ（第163–172偈）</h4>
+  <p>第1章で入口だけ見た apoha 論が、ここで本格的に展開されます。問いは、「ことばは対象のどの部分を表すのか」です（第166–167偈）。答えは三段構えになっています。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 250" role="img" aria-label="apoha の三つの層：外界の個物、心の中の像、ことば">
+      <rect x="20" y="20" width="180" height="200" rx="10" class="s-sva" stroke-width="1.4"/>
+      <text x="110" y="45" text-anchor="middle" font-size="13" font-weight="700" class="t-sva">外界の個物</text>
+      <g class="c-sva"><ellipse cx="80" cy="90" rx="18" ry="10"/><ellipse cx="135" cy="105" rx="15" ry="9"/><ellipse cx="95" cy="140" rx="20" ry="11"/></g>
+      <text x="110" y="180" text-anchor="middle" font-size="11">それぞれ「牛でないもの」</text>
+      <text x="110" y="196" text-anchor="middle" font-size="11">から区別されている</text>
+      <rect x="230" y="20" width="180" height="200" rx="10" class="s-sam" stroke-width="1.4"/>
+      <text x="320" y="45" text-anchor="middle" font-size="13" font-weight="700" class="t-sam">心の中の像</text>
+      <ellipse cx="320" cy="110" rx="50" ry="26" fill="none" class="l-sam" stroke-width="1.4" stroke-dasharray="5 4"/>
+      <text x="320" y="115" text-anchor="middle" font-size="12">牛の像</text>
+      <text x="320" y="170" text-anchor="middle" font-size="11">見ることの繰り返しで</text>
+      <text x="320" y="186" text-anchor="middle" font-size="11">作られた、共通に見える姿</text>
+      <rect x="440" y="20" width="180" height="200" rx="10" class="s-panel" stroke-width="1.2"/>
+      <text x="530" y="45" text-anchor="middle" font-size="13" font-weight="700">ことば</text>
+      <text x="530" y="115" text-anchor="middle" font-size="18" font-weight="700">「牛」</text>
+      <line x1="440" y1="110" x2="372" y2="110" class="l-ink" stroke-width="1.6"/><polygon points="376,104 366,110 376,116" class="c-ink"/>
+      <path d="M 270 110 C 240 110, 230 105, 205 105" class="l-sam" stroke-width="1.6" stroke-dasharray="4 3"/><polygon points="210,99 199,105 210,111" class="c-sam"/>
+      <text x="472" y="98" font-size="10" class="mut">結びつく</text>
+      <text x="320" y="240" text-anchor="middle" font-size="12" class="mut">ことば → 像（直接の対象）→ 像を外界の「他の排除」に当てはめる（間接に個物へ）</text>
+    </svg>
+    <figcaption><b>図3-5　apoha の三つの層（第163–172偈）</b>　ことばが直接結びつくのは心の中の像です（第164偈）。その像は対象そのものではありません（第165偈）。しかし人は像を、外界の個物がもつ「他の排除」に当てはめて理解するので、ことばに従って行動すると牛にたどりつけます（第169–170偈）。</figcaption>
+  </figure>
+
+  <p>ここで大事なのは、外界の個物それぞれが「牛でないものとは違う」という事実です（第161–163偈）。違う個物どうしでも、同じ認識（「牛だ」）を生む原因になるという点で近いのです。共通の本質はありませんが、区別は実在に根拠をもっています。apoha 論は、普遍を認めずに、ことばが世界について何かを語れることを説明しようとする理論です。</p>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>「言語には差異しかない」</h4>
+    <p>20世紀初めの言語学者ソシュールは、ことばの意味は、ほかのことばとの違いによってのみ決まる、と主張しました。「言語には積極的な項のない差異しかない」という有名な言葉があります。「犬」の意味は、「狼」「猫」「狐」ではないことによって決まる、というわけです。</p>
+    <p>apoha 論とソシュールは、意味を「違い」から考える点で驚くほど似ています。ただし違いもあります。ソシュールの差異は、ことばの体系の中の違いです。ダルマキールティの「他の排除」は、最終的には外界の個物がもつ実在的な区別に根拠をもちます。apoha 論は言語の体系だけで完結せず、指示の理論でもあるのです。</p>
+  </div>
+
+  <h4>名前による概念もない（第174–176偈）</h4>
+  <p>類の概念だけでなく、名前を思い浮かべることも知覚にはありません。名前による概念は、取り決めを思い出し、前に知ったことばを対象に結びつけるものです（第174偈）。ほかのことに気を取られている人でも、目には色や形が見えています（第175偈）。そのとき取り決めを思い出していないのは明らかです。また、もし感官の認識が概念的なら、概念的思考のように、思いのままにはたらかせられるはずです。しかし実際には、見たくないものも見えてしまいます（第176偈）。</p>
+
+  <div class="secno"><h3>3.4　反対説を退ける</h3><span class="vr">2C　177–190</span></div>
+  <p>最後に二つの反対説が退けられます。</p>
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>立場</th><th>知覚についての考え</th><th>PV III での扱い</th></tr></thead>
+      <tbody>
+        <tr><th class="sva">Dignāga・Dharmakīrti</th><td class="sva">知覚はすべて概念をもたない（<i lang="sa-Latn">nirvikalpaka</i>）</td><td class="sva">本章全体で論証</td></tr>
+        <tr><th>知覚はすべて概念的だとする説</th><td>色を見るときも「色だ」と概念的に見ている</td><td>a　177–183：それなら、その認識自体はどう体験されるのか。体験は概念をもたない。</td></tr>
+        <tr><th>二段階説（Nyāya、Mīmāṃsā の Kumārila など）</th><td>まず概念のない知覚、次に概念のある知覚（<i lang="sa-Latn">savikalpaka</i>）が生じ、どちらも知覚である</td><td>b　184–190：概念のある認識は取り決めの想起から生じるので、同じ原因から生じる知覚とは言えない。</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表3-2　知覚と概念の関係についての諸説</b>　二段階説の論者名は、注釈などに基づく一般的な理解です。</figcaption>
+  </figure>
+  <p>第177–183偈の答えは、のちの自己認識の議論（第10章）につながる重要なものです。かりに色を「色だ」と概念的に見ているとしても、その見ていることそのものは体験されています。その体験まで概念的だとすると、二つの概念的思考が同時にあることになりますが、それは見られません（第178偈）。認識の体験は、自分自身を対象とし、概念をもちません（第182偈）。概念のない認識が少なくとも一つは必ずあるのです。</p>
+  <p>第185–190偈では、二段階説が因果の面から退けられます。概念的な認識は取り決めの想起から生じ、外界の対象を必要としません。目の認識は、目と色形に依存して生じます（第190偈）。原因がまったく違うので、二つを同じ「知覚」に数えることはできません。</p>
+
+  <div class="secno"><h3>この章のまとめ</h3></div>
+  <div class="key">
+    <div class="label">重要な術語</div>
+    <dl class="gloss">
+      <dt>kalpanāpoḍha</dt><dd>概念的思考を離れていること。Dignāga による知覚の定義。</dd>
+      <dt>kalpanā, vikalpa</dt><dd>概念的思考。名前や類などを対象に結びつけるはたらき。</dd>
+      <dt>nirvikalpaka / savikalpaka</dt><dd>概念のない認識／概念のある認識。</dd>
+      <dt>saṃketa</dt><dd>ことばの取り決め。</dd>
+      <dt>niścaya</dt><dd>確定・判断。知覚の後に生じる概念的思考が行う。</dd>
+      <dt>viśeṣaṇa / viśeṣya</dt><dd>限定するもの／限定されるもの。</dd>
+      <dt>anyāpoha</dt><dd>他の排除。ことばが表すもの。</dd>
+    </dl>
+  </div>
+  <div class="key">
+    <div class="label">考えてみよう</div>
+    <ol class="q">
+      <li>知らない外国の文字を見るときと、母語の文字を見るときでは、見え方は違うでしょうか。ダルマキールティならどう説明するでしょう。</li>
+      <li>「赤ちゃんの認識」の例はなぜ不十分なのか、自分のことばで説明してみましょう。</li>
+      <li>apoha 論とソシュールの差異の考え方の共通点と相違点を、表にまとめてみましょう。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 4 ============ -->
+<section class="col" id="ch4">
+  <div class="label">第4章 ・ PV III III–V</div>
+  <h2 style="margin:.3rem 0 .8rem">なぜ「pratyakṣa」と呼ぶのか、知覚は何をとらえるのか</h2>
+  <p>この章では、三つの短い区分をまとめて読みます。III（第191–193偈）は知覚という名前の由来、IV（第194–230偈）は仏教の伝統的な教え（Abhidharma）と知覚の定義の調和、V（第231–238偈）は知覚の対象を扱います。どれも「知覚は概念をもたず、個物をとらえる」という前章の結論から出てくる問題です。</p>
+
+  <figure>
+    <div class="label">図4-1　この章で読む範囲（第191–238偈）</div>
+    <div class="vbar" role="img" aria-label="第191から238偈の区分">
+      <div class="off" style="flex:3" title="III 191–193">III</div>
+      <div class="on" style="flex:14" title="IV-1,2 194–207">IV 一つの認識が多くを</div>
+      <div class="b2" style="flex:15" title="IV-3 208–222">IV 多くの姿</div>
+      <div class="off" style="flex:8" title="IV-4,5 223–230">IV</div>
+      <div class="on" style="flex:8" title="V 231–238">V 対象</div>
+    </div>
+    <div class="vscale"><span>191</span><span>208</span><span>223</span><span>238</span></div>
+  </figure>
+
+  <div class="secno"><h3>4.1　名前の由来</h3><span class="vr">III　191–193</span></div>
+  <p><i lang="sa-Latn">pratyakṣa</i> は、<i lang="sa-Latn">prati</i>（〜に向かって、〜ごとに）と <i lang="sa-Latn">akṣa</i>（感官）からできたことばです。「感官ごとに生じるもの」という意味になります。でも、知覚は感官と対象の両方に依存して生じます。なぜ対象ではなく感官の名前で呼ぶのでしょうか（第191偈）。</p>
+  <p>答えは、名前は「知らせる力のあるもの」で付けるべきだから、というものです（第192–193偈）。対象の色は、眼の認識にも、それについて考える意の認識にも共通しています。それに対して眼という感官は、眼の認識にしかかかわりません。その認識に固有の原因なので、それを知らせる名前になるのです。Dignāga 自身は、この点を『Pramāṇasamuccaya』の自注で、太鼓の音や麦の芽の例で説明しています（PS I 4cd）。麦の芽を「麦の芽」と呼ぶのは、芽は土や水からも生じるのに、麦の芽をほかの芽から区別するのは種だけだからです。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>原因</th><th>眼の認識にかかわるか</th><th>ほかの認識にもかかわるか</th><th>名前に向くか</th></tr></thead>
+      <tbody>
+        <tr><th>色形（対象）</th><td class="sva">はい</td><td class="sam">はい（意の認識、想起など）</td><td class="sam">向かない</td></tr>
+        <tr><th>眼（感官）</th><td class="sva">はい</td><td class="sva">いいえ</td><td class="sva">向く（固有の原因）</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表4-1　なぜ感官の名前で呼ぶのか（第191–193偈）</b></figcaption>
+  </figure>
+
+  <div class="secno"><h3>4.2　伝統の教えとの調和</h3><span class="vr">IV　194–230</span></div>
+  <p>仏教の Abhidharma には、「眼などの五つの感官の認識は、積み集まったもの（<i lang="sa-Latn">sañcita</i>）を対象とする」という教えがあります。反論者はここを突きます（第194偈）。積み集まったものとは集合体であり、集合体は一般相ではないか。そうなら、知覚は一般相をとらえることになり、「知覚は個物をとらえる」という定義と矛盾する、というのです。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 210" role="img" aria-label="積み集まった原子が一つ一つ特別な能力をもつ図">
+      <text x="160" y="22" text-anchor="middle" font-size="13" font-weight="700" class="t-sam">反論者の理解</text>
+      <rect x="40" y="40" width="240" height="120" rx="10" class="s-sam" stroke-width="1.4"/>
+      <g class="c-sam"><circle cx="100" cy="80" r="6"/><circle cx="120" cy="90" r="6"/><circle cx="110" cy="110" r="6"/><circle cx="135" cy="105" r="6"/><circle cx="150" cy="85" r="6"/><circle cx="165" cy="115" r="6"/><circle cx="125" cy="128" r="6"/></g>
+      <text x="215" y="100" text-anchor="middle" font-size="12">「集合体」</text>
+      <text x="215" y="118" text-anchor="middle" font-size="12">＝一般相</text>
+      <text x="160" y="190" text-anchor="middle" font-size="11" class="mut">集まり全体を一つのものとして見ている</text>
+      <text x="480" y="22" text-anchor="middle" font-size="13" font-weight="700" class="t-sva">ダルマキールティの理解</text>
+      <rect x="360" y="40" width="240" height="120" rx="10" class="s-sva" stroke-width="1.4"/>
+      <g class="c-sva"><circle cx="420" cy="80" r="6"/><circle cx="440" cy="90" r="6"/><circle cx="430" cy="110" r="6"/><circle cx="455" cy="105" r="6"/><circle cx="470" cy="85" r="6"/><circle cx="485" cy="115" r="6"/><circle cx="445" cy="128" r="6"/></g>
+      <g class="l-sva" stroke-width="1"><line x1="420" y1="80" x2="440" y2="90"/><line x1="440" y1="90" x2="470" y2="85"/><line x1="430" y1="110" x2="455" y2="105"/><line x1="455" y1="105" x2="485" y2="115"/><line x1="430" y1="110" x2="445" y2="128"/></g>
+      <text x="540" y="96" text-anchor="middle" font-size="12">一つ一つが</text>
+      <text x="540" y="114" text-anchor="middle" font-size="12">個物</text>
+      <text x="480" y="190" text-anchor="middle" font-size="11" class="mut">互いの結びつきで「見える力」を得た、別々の原子</text>
+    </svg>
+    <figcaption><b>図4-2　「積み集まったもの」の二つの理解（第194–196偈）</b>　ダルマキールティによれば、積み集まったものとは、ほかの原子と結びつくことで、一つの認識を生む特別な能力を得た原子たちのことです。どの原子も個物なので、知覚の対象は個別相のままです。</figcaption>
+  </figure>
+
+  <h4>一つの認識が多くのものをとらえる（第197–207偈）</h4>
+  <p>反論者は続けます。「たとえそうでも、多くのものが一つの認識で同時にとらえられることはない」。ダルマキールティは三つの例で答えます。</p>
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>例</th><th>偈</th><th>議論</th></tr></thead>
+      <tbody>
+        <tr><th>ゴマ粒</th><td class="vr">197cd–199</td><td>ばらばらのゴマ粒を一度に見ると、同時に見える。「すばやく順に見ているだけだ」という説明はすでに退けた（第3章）。</td></tr>
+        <tr><th>まだら模様の蝶</th><td class="vr">200–204</td><td>いろいろな色をもつ蝶は一つの色ではない。それでも一度に多色として見える。対象が多様な姿をもつことは、認識が多様な姿をもつことで確かめられる。</td></tr>
+        <tr><th>絵</th><td class="vr">205–206</td><td>絵の部分の一つ一つは多色ではない。順に見たのなら、多色の絵という認識は生じない。</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表4-2　一つの認識が多くのものをとらえる例</b>　結論（第207偈）：一つの感官の認識は多くの対象をもちうる。このことからも、感官の認識が概念をもたないことがわかる。</figcaption>
+  </figure>
+
+  <h4>考えれば考えるほど崩れていく（第208–222偈）</h4>
+  <p>ここで議論は深みに入ります。反論者は問います。「多色の対象が一つでないなら、多色の姿をもつ認識もまた一つではありえないのではないか」（第208偈）。これに対する第209偈は、PV III の中でもよく知られた一節です。対象について考えれば考えるほど、それはばらばらに崩れていく、と。</p>
+  <p>ダルマキールティはここで、日常の立場から一歩踏み出し、唯識の立場からの究極的な答えを示します。外の対象にも、認識にも、それ自体としての粗大な姿はない（第211偈）。認識の中では、「とらえるもの」が内に、「とらえられるもの」が外にあるように見えますが、それは錯乱です。一方がなければもう一方もありません。二つがないこと、それこそが認識の真実です（第212–213偈）。</p>
+  <p>では、なぜここまで外界の対象を認める議論をしてきたのでしょうか。第219偈はこう答えます。真実を見きわめた人々は、象が目を閉じるように、あえて目をつぶって、世間の考え方に従って外界についての考察を進めるのだ、と。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 200" role="img" aria-label="究極の立場と日常の立場の二層">
+      <rect x="20" y="20" width="600" height="72" rx="10" class="s-sam" stroke-width="1.4"/>
+      <text x="40" y="44" font-size="13" font-weight="700" class="t-sam">究極の立場（唯識）</text>
+      <text x="40" y="66" font-size="12">とらえるもの・とらえられるものの区別は錯乱。外界の対象も、粗大な認識の姿もない（第209–218偈）</text>
+      <rect x="20" y="110" width="600" height="72" rx="10" class="s-sva" stroke-width="1.4"/>
+      <text x="40" y="134" font-size="13" font-weight="700" class="t-sva">日常の立場（外界実在論）</text>
+      <text x="40" y="156" font-size="12">外界の原子が認識を生む。知覚は個物をとらえる。PV III の多くの議論はこの層で行われる</text>
+      <text x="610" y="104" text-anchor="end" font-size="12" class="mut">「象のように目を閉じて」下の層で語る（第219偈）</text>
+    </svg>
+    <figcaption><b>図4-3　二つの層</b>　PV III は日常の立場で議論を進めながら、ところどころで究極の立場を見せます。この二層構造は第7章・第8章でさらに重要になります。</figcaption>
+  </figure>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>書斎の懐疑と、友人とのバックギャモン</h4>
+    <p>ヒュームは『人間本性論』で、哲学的な考察を突きつめると何も確かなものがなくなってしまうと告白した後、こう書きました。友人と食事をし、バックギャモンをして楽しく過ごすと、そんな考察は冷たく、ばかげたものに思えてくる、と。ヒュームにとって日常へ戻ることは、懐疑から逃れることでした。</p>
+    <p>「象のように目を閉じる」ダルマキールティの態度は、これとは少し違います。日常の立場をとるのは、究極の真実を忘れるためではなく、世間の人々にも通じる議論をするための意図的な選択です。むしろカントの「経験的実在論」と「超越論的観念論」の組み合わせに近いでしょう。カントは、経験の中では物は実在していると言ってよいが、超越論的な観点からは、それは私たちの認識の形式に依存した現象である、と考えました。二つの観点を使い分ける点が共通しています。</p>
+  </div>
+
+  <p>第220–222偈は、もう一度日常の立場に戻ります。多色の認識の中の青や黄色は、ほかの色から切り離して単独で見ることはできません。認識は現れるとおりに体験されるので、多色の姿をもつ心も一つの認識です。</p>
+
+  <h4>原子は認識の原因として「とらえられる」（第223–224偈）</h4>
+  <p>第224偈は、PV III の対象論を一行でまとめたような偈です。原因であること以外に、とらえられるものであることは何もない。原因のうち、認識がその姿をもつもの、それがとらえられるものだ、というのです。「見られる」とは、認識を生む原因であって、かつ認識に自分の姿を与えることなのです。これは第7章の sārūpya（似た姿）論の伏線になっています。</p>
+
+  <h4>全体と部分（第225–230偈）</h4>
+  <p>Nyāya・Vaiśeṣika は、部分とは別に「全体（<i lang="sa-Latn">avayavin</i>）」という一つの実体があると考えました。ダルマキールティは、それなら、喉の垂れ肉や角などの部分と一緒に全体を同時に見るとき、一つの認識で多くのものをとらえていることになる、と指摘します（第225偈）。結局、反論者自身も「一つの認識が多くのものをとらえる」ことを認めざるをえないのです。Sāṃkhya に対しても、音声などは多くの要素からなると言うのだから同じことが言える、と付け加えます（第230偈）。</p>
+
+  <div class="secno"><h3>4.3　知覚の対象</h3><span class="vr">V　231–238</span></div>
+  <p>最後に、知覚の対象とは何かがあらためて確認されます。個物は、ほかのすべてのものから区別されています。だから「これは青い」「これは無常だ」のように、さまざまな観点から、ほかのものとの違いを引き出すことができます。しかし、そうして作られる「性質」と「性質をもつもの」の区別は、概念によって作られた違いです（第231–232偈）。知覚がとらえるのは、そうした区別の前の、個物そのものです。</p>
+  <p>第234–235偈は、反論「知覚とことばは同じ対象をもつが、よりどころが違うので鮮明さが違うのだ」に答えます。同じ一つの実在が、ある認識には鮮明に、別の認識には不鮮明に現れるような姿をもつことはありえない。鮮明さの違いは、対象の違いなのです。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th></th><th class="sva">知覚の認識</th><th class="sam">ことば・概念の認識</th></tr></thead>
+      <tbody>
+        <tr><th>現れ方</th><td class="sva">鮮明（<i lang="sa-Latn">spaṣṭa</i>）</td><td class="sam">不鮮明（<i lang="sa-Latn">aspaṣṭa</i>）</td></tr>
+        <tr><th>対象</th><td class="sva">個物そのもの</td><td class="sam">性質・性質をもつもの（概念で作られた区別）</td></tr>
+        <tr><th>原因</th><td class="sva">対象と感官</td><td class="sam">取り決めの想起など</td></tr>
+        <tr><th>ことばで表せるか</th><td class="sva">表せない（第233偈）</td><td class="sam">表せる</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表4-3　知覚の対象と概念の対象（第231–238偈）</b></figcaption>
+  </figure>
+
+  <div class="secno"><h3>この章のまとめ</h3></div>
+  <div class="key">
+    <div class="label">重要な術語</div>
+    <dl class="gloss">
+      <dt>akṣa</dt><dd>感官。pratyakṣa の名前のもと。</dd>
+      <dt>asādhāraṇa kāraṇa</dt><dd>固有の原因。名前はこれによって付けられる。</dd>
+      <dt>sañcita</dt><dd>積み集まったもの。特別な能力を得た原子たち。</dd>
+      <dt>citra</dt><dd>多色・まだら。一つの認識が多くの姿をもつ例。</dd>
+      <dt>grāhya / grāhaka</dt><dd>とらえられるもの／とらえるもの。究極的には錯乱。</dd>
+      <dt>avayavin</dt><dd>部分とは別の、全体という実体（Nyāya・Vaiśeṣika）。</dd>
+    </dl>
+  </div>
+  <div class="key">
+    <div class="label">考えてみよう</div>
+    <ol class="q">
+      <li>テレビやスマートフォンの画面は小さな点の集まりです。「積み集まったもの」の議論を使って、画面の絵が見えるしくみを説明してみましょう。</li>
+      <li>「象のように目を閉じる」態度は、知的に誠実と言えるでしょうか。ヒュームやカントと比べて考えてみましょう。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 5 ============ -->
+<section class="col" id="ch5">
+  <div class="label">第5章 ・ PV III VI</div>
+  <h2 style="margin:.3rem 0 .8rem">四種類の知覚</h2>
+  <p>Dignāga は、感官による知覚のほかに、さらに三種類の知覚を挙げました。意による知覚（<i lang="sa-Latn">mānasa</i>）、快・苦などの自己認識（<i lang="sa-Latn">svasaṃvedana</i>）、yogin（瞑想の修行者）の知覚（<i lang="sa-Latn">yogijñāna</i>）です。どれも「概念がない」という定義に合うことを示すのが、第239–287偈の課題です。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 240" role="img" aria-label="四種類の知覚の分類図">
+      <rect x="230" y="12" width="180" height="40" rx="8" class="c-sva"/>
+      <text x="320" y="37" text-anchor="middle" font-size="14" font-weight="700" class="c-paper">知覚 pratyakṣa</text>
+      <g class="l-ink" stroke-width="1.4"><line x1="320" y1="52" x2="320" y2="70"/><line x1="85" y1="70" x2="555" y2="70"/><line x1="85" y1="70" x2="85" y2="90"/><line x1="240" y1="70" x2="240" y2="90"/><line x1="400" y1="70" x2="400" y2="90"/><line x1="555" y1="70" x2="555" y2="90"/></g>
+      <g font-size="13">
+        <rect x="15" y="90" width="140" height="66" rx="8" class="s-sva" stroke-width="1.3"/>
+        <text x="85" y="114" text-anchor="middle" font-weight="700">感官による知覚</text><text x="85" y="132" text-anchor="middle" font-size="11" class="ia-t">indriyajñāna</text><text x="85" y="148" text-anchor="middle" font-size="11" class="mut">第3–4章で扱った</text>
+        <rect x="170" y="90" width="140" height="66" rx="8" class="s-sva" stroke-width="1.3"/>
+        <text x="240" y="114" text-anchor="middle" font-weight="700">意による知覚</text><text x="240" y="132" text-anchor="middle" font-size="11" class="ia-t">mānasa</text><text x="240" y="148" text-anchor="middle" font-size="11" class="mut">239–248</text>
+        <rect x="330" y="90" width="140" height="66" rx="8" class="s-sva" stroke-width="1.3"/>
+        <text x="400" y="114" text-anchor="middle" font-weight="700">自己認識</text><text x="400" y="132" text-anchor="middle" font-size="11" class="ia-t">svasaṃvedana</text><text x="400" y="148" text-anchor="middle" font-size="11" class="mut">249–280, 287</text>
+        <rect x="485" y="90" width="140" height="66" rx="8" class="s-sva" stroke-width="1.3"/>
+        <text x="555" y="114" text-anchor="middle" font-weight="700">yogin の知覚</text><text x="555" y="132" text-anchor="middle" font-size="11" class="ia-t">yogijñāna</text><text x="555" y="148" text-anchor="middle" font-size="11" class="mut">281–286</text>
+      </g>
+      <text x="320" y="190" text-anchor="middle" font-size="12" class="mut">どれも「概念がない」「鮮明に現れる」という点で知覚の定義に合う</text>
+      <text x="320" y="212" text-anchor="middle" font-size="12" class="mut">対象：感官の知覚・意の知覚・yogin の知覚 → 外の個物（yogin は修習した対象）／自己認識 → 認識そのもの</text>
+    </svg>
+    <figcaption><b>図5-1　四種類の知覚</b>　第287偈は、概念的思考そのものも、自分自身については自己認識という知覚でとらえられる、と付け加えます。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>5.1　意による知覚</h3><span class="vr">1　239–248</span></div>
+  <p>意による知覚（意識の知覚）は、伝統的な教えでは認められていますが、その中身ははっきりしません。ダルマキールティは、まず二つの困った選択肢を示します。</p>
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>もし意の知覚が…</th><th>困ること</th><th>偈</th></tr></thead>
+      <tbody>
+        <tr><th>感官の認識と同じ対象をとらえるなら</th><td>すでにとらえたものをとらえるので、新しい認識手段にならない。しかも対象は一瞬で滅びるので、同じものを後から見ることはできない。</td><td class="vr">239–241</td></tr>
+        <tr><th>感官とは無関係に対象をとらえるなら</th><td>眼の見えない人にも色が見えることになる。</td><td class="vr">239</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表5-1　意による知覚のジレンマ</b></figcaption>
+  </figure>
+  <p>ダルマキールティの解決はこうです。意の知覚は、感官の認識を直前の条件（<i lang="sa-Latn">samanantarapratyaya</i>）として生じ、感官の認識の対象のすぐ次の瞬間の対象をとらえる（第243–244偈）。対象が違うので「すでにとらえたもの」ではありません。感官の認識に依存するので、眼の見えない人には生じません。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 190" role="img" aria-label="意による知覚の時間関係">
+      <text x="20" y="48" font-size="12" font-weight="700" class="t-sva">対象</text>
+      <text x="20" y="108" font-size="12" font-weight="700">認識</text>
+      <rect x="110" y="32" width="120" height="28" rx="4" class="s-sva" stroke-width="1.3"/><text x="170" y="51" text-anchor="middle" font-size="12">対象の瞬間 x₁</text>
+      <rect x="270" y="32" width="120" height="28" rx="4" class="s-sva" stroke-width="1.3"/><text x="330" y="51" text-anchor="middle" font-size="12">対象の瞬間 x₂</text>
+      <rect x="270" y="92" width="120" height="28" rx="4" class="c-sva"/><text x="330" y="111" text-anchor="middle" font-size="12" class="c-paper">眼の認識</text>
+      <rect x="430" y="92" width="140" height="28" rx="4" class="s-sva" stroke-width="1.3"/><text x="500" y="111" text-anchor="middle" font-size="12">意による知覚</text>
+      <line x1="170" y1="60" x2="315" y2="92" class="l-ink" stroke-width="1.4"/><polygon points="308,86 318,93 306,95" class="c-ink"/>
+      <line x1="330" y1="60" x2="480" y2="92" class="l-ink" stroke-width="1.4"/><polygon points="473,86 483,93 471,95" class="c-ink"/>
+      <line x1="390" y1="106" x2="426" y2="106" class="l-ink" stroke-width="1.4"/><polygon points="422,100 432,106 422,112" class="c-ink"/>
+      <text x="410" y="140" text-anchor="middle" font-size="11" class="mut">直前の条件</text>
+      <line x1="100" y1="160" x2="600" y2="160" class="l-mut" stroke-width="1"/>
+      <g font-size="11" class="mut"><text x="170" y="178" text-anchor="middle">t₁</text><text x="330" y="178" text-anchor="middle">t₂</text><text x="500" y="178" text-anchor="middle">t₃</text></g>
+    </svg>
+    <figcaption><b>図5-2　意による知覚の時間関係（第243–248偈）</b>　原因は結果より前にあります。それでも「とらえる」と言えるのは、とらえられるものとは、認識に自分の姿を与える原因のことだからです（第247–248偈。第4章の第224偈を参照）。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>5.2　快・苦の自己認識</h3><span class="vr">2　249–280</span></div>
+  <p>うれしさや痛みは、それぞれの人に固有で、ことばの取り決めを結べません。だから、それらを感じることには概念がありません（第249偈）。ここまではわかりやすいのですが、ここから二つの学派との論争が始まります。争点は、快・苦とは何か、です。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>学派</th><th>快・苦とは</th><th>どう知られるか</th><th>ダルマキールティの批判</th></tr></thead>
+      <tbody>
+        <tr><th>Vaiśeṣika・Nyāya</th><td>アートマン（自己）の性質。認識ではない</td><td>別の認識によって知られる</td><td>快は認識と同じ原因（感官・対象・注意）から生じるので、認識そのものである（251–254）。自分自身で知られる（255–265）。</td></tr>
+        <tr><th>Sāṃkhya</th><td>外界の対象にある性質（三つの <i lang="sa-Latn">guṇa</i>）。精神をもたない</td><td>認識（覚 <i lang="sa-Latn">buddhi</i>）がとらえる</td><td>同じ対象でも人や修習によって快の程度が違う。快は外ではなく内にある（268–274）。</td></tr>
+        <tr><th class="sva">Dharmakīrti</th><td class="sva">認識そのもの</td><td class="sva">自分自身を知る（自己認識）</td><td class="sva">快は、自分に移って現れた対象の姿と、自分自身とを知る（266–267）。</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表5-2　快・苦をめぐる三つの立場</b></figcaption>
+  </figure>
+
+  <h4>快は認識である（第251–254偈）</h4>
+  <p>ダルマキールティの論証は因果に基づいています。ある姿のものは、その姿の原因から生じます。対象と感官と注意がそろうと、認識と同時に快や苦が生じます。それらがないときに快などが生じることはありません。同じ原因から生じるものは同じ種類のものです。だから快も認識なのです。同じ見ることにも、鈍い・鋭いの違いがあるように、快と苦の違いも、原因のあり方の違いによります（第254偈）。</p>
+  <p>第265偈の例も印象的です。同じ一つの光が、夜行性の動物には見ることの妨げになり、ほかの動物には助けになる。同じ対象から快も苦も生じうるのは、それを受け取る認識の側の違いによるのです。</p>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>痛みは火の中にあるか</h4>
+    <p>ロックは『人間知性論』で、火に近づくと暖かさを感じ、さらに近づくと痛みを感じる例を挙げました。痛みが火の中にあるとはだれも思わない。それなら、暖かさも火の中にあるとは言えないのではないか。ロックはこうして、色や暖かさなどの「第二性質」は、物そのものではなく、私たちの側にあると論じました。</p>
+    <p>ダルマキールティの Sāṃkhya 批判は、ちょうど快・苦についてこの議論をしています。同じ対象から人によって違う快が生じるなら、快は対象の中にはない、という論法です。ただしダルマキールティは、さらに進んで、快は「心の中にある何か」でもなく、認識そのものだと言います。</p>
+    <p>19世紀のブレンターノは、すべての心的現象は、対象に向かうと同時に、自分自身をも副次的に意識している、と論じました。感情も、何かについての感情であると同時に、自分自身に気づかれている。ダルマキールティの第266–267偈の「快は対象の姿と自分自身とを知る」という考えに、とてもよく似ています。この論点は第9・10章で本格的に扱います。</p>
+  </div>
+
+  <div class="secno"><h3>5.3　yogin の知覚</h3><span class="vr">3　281–286</span></div>
+  <p>yogin の知覚とは、修習（<i lang="sa-Latn">bhāvanā</i>：くり返しの瞑想）によって、対象がまるで目の前にあるかのように鮮明に現れる認識です（第281偈）。概念的思考の網を払いのけているので、知覚の定義に合います。</p>
+  <p>ダルマキールティはここで、とても現実的な例を挙げます。欲望や悲しみや恐れに心を乱された人には、存在しないものさえ目の前にあるように見える（第282偈）。恋人を思い続ける人には恋人の姿が見え、恐怖にとらわれた人には盗賊が見えます。つまり「くり返し心に思うと鮮明になる」こと自体は、ふつうの心理現象なのです。</p>
+  <p>では、鮮明に見えればすべて正しいのでしょうか。そうではありません。不浄観や地の遍処観のような瞑想でも、実在しないものが修習の力で鮮明に現れます（第284偈）。実在するもの（四つの真理）であれ、実在しないものであれ、修習すれば鮮明になります（第285偈）。そのうち、人を欺かないものだけが認識手段なのです（第286偈）。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>例</th><th>鮮明か</th><th>概念がないか</th><th>欺かないか</th><th>認識手段か</th></tr></thead>
+      <tbody>
+        <tr><th>恋や恐れで見える幻</th><td class="sva">はい</td><td class="sva">はい</td><td class="sam">いいえ</td><td class="sam">いいえ</td></tr>
+        <tr><th>不浄観・地の遍処観</th><td class="sva">はい</td><td class="sva">はい</td><td class="sam">いいえ（対象は実在しない）</td><td class="sam">いいえ</td></tr>
+        <tr><th>四つの真理の修習</th><td class="sva">はい</td><td class="sva">はい</td><td class="sva">はい</td><td class="sva">はい</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表5-3　修習による鮮明な認識の区別（第281–286偈）</b>　鮮明さは知覚であることの目印ですが、認識手段であるかどうかは、第1章と同じく「欺かないか」で決まります。</figcaption>
+  </figure>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>知的直観と神秘体験</h4>
+    <p>カントは、人間には「知的直観」、つまり感覚を通さずに物そのものを直接見る能力はない、と考えました。ダルマキールティの yogin の知覚は、修習によって真理を直接見るという点で、カントが否定した能力に近いものに見えるかもしれません。しかしダルマキールティは、それを特別な超能力としてではなく、ふつうの心の性質（くり返すと鮮明になる）の延長として説明しています。</p>
+    <p>ウィリアム・ジェイムズは『宗教的経験の諸相』で、神秘体験には「何かを知った」という強い感覚（認識的性質）が伴うと述べました。しかしジェイムズは、その体験が当人以外に権威をもつかどうかには慎重でした。ダルマキールティも、鮮明さそのものではなく、欺かないことを基準にしています。この点で両者は似た慎重さをもっています。</p>
+  </div>
+
+  <div class="secno"><h3>5.4　概念的思考そのものの自己認識</h3><span class="vr">4　287</span></div>
+  <p>最後の第287偈は短いですが、重要です。概念的思考は、ことばの対象をとらえる点では概念的です。しかしその思考が自分自身を体験していることは、概念ではありません。だから、どんな概念的思考も、自分自身については知覚なのです。第3章の第177–183偈で見た「体験は概念をもたない」という論点が、ここで知覚の種類として確定します。</p>
+
+  <div class="secno"><h3>この章のまとめ</h3></div>
+  <div class="key">
+    <div class="label">重要な術語</div>
+    <dl class="gloss">
+      <dt>mānasa pratyakṣa</dt><dd>意による知覚。感官の認識を直前の条件として、次の瞬間の対象をとらえる。</dd>
+      <dt>samanantarapratyaya</dt><dd>直前の条件。前の瞬間の認識が次の認識を生む条件。</dd>
+      <dt>svasaṃvedana</dt><dd>自己認識。認識が自分自身を知ること。</dd>
+      <dt>yogijñāna</dt><dd>yogin の知覚。修習によって鮮明になった認識。</dd>
+      <dt>bhāvanā</dt><dd>修習。くり返し心に思うこと。</dd>
+      <dt>guṇa</dt><dd>Sāṃkhya の三つの構成要素（sattva・rajas・tamas）。快・苦・迷いにあたる。</dd>
+    </dl>
+  </div>
+  <div class="key">
+    <div class="label">考えてみよう</div>
+    <ol class="q">
+      <li>同じ音楽を聞いても、楽しく感じる人と、うるさく感じる人がいます。この事実は、快・苦をめぐる三つの立場のうち、どれを支持するでしょうか。</li>
+      <li>yogin の知覚と、恐怖で見える幻とは、どこが同じでどこが違うでしょうか。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 6 ============ -->
+<section class="col" id="ch6">
+  <div class="label">第6章 ・ PV III VII</div>
+  <h2 style="margin:.3rem 0 .8rem">知覚に似て非なるもの</h2>
+  <p>知覚の定義を示したら、次は「知覚のように見えるが知覚ではないもの（<i lang="sa-Latn">pratyakṣābhāsa</i>）」を示す必要があります。Dignāga は、そうしたものとして、錯覚の認識、世間的存在の認識、推論とその結果、想起、欲求などを挙げ、さらに「かすみ目を伴うもの」を付け加えました。ダルマキールティはこれを四種類に整理します（第288偈）。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>種類</th><th>概念があるか</th><th>例</th><th>なぜ知覚に見えるのか</th></tr></thead>
+      <tbody>
+        <tr><th>1　錯覚の認識（<i lang="sa-Latn">bhrāntijñāna</i>）</th><td class="sam">ある</td><td>陽炎を水だと思う</td><td>感官から生じたように見えるので</td></tr>
+        <tr><th>2　世間的存在の認識（<i lang="sa-Latn">saṃvṛtisajjñāna</i>）</th><td class="sam">ある</td><td>「壺だ」と思う</td><td>見たとたんに生じるので</td></tr>
+        <tr><th>3　推論・想起・欲求など</th><td class="sam">ある</td><td>煙から火を知る、思い出す</td><td>知覚でないことがすでに明らかな例として、1・2 を証明するために挙げられた</td></tr>
+        <tr><th>4　かすみ目による認識（<i lang="sa-Latn">taimira</i>）</th><td class="sva">ない</td><td>月が二つに見える、毛髪が見える</td><td>概念がなく、鮮明に現れるので</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表6-1　知覚に似て非なるものの四種類（第288偈）</b>　1–3 は概念的、4 だけが概念をもたない認識です。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>6.1　概念的な三種類</h3><span class="vr">2A　289–292</span></div>
+  <p>なぜ Dignāga は、明らかに概念的な認識をわざわざ「知覚に似たもの」として挙げたのでしょうか。ダルマキールティによれば、錯覚の認識と世間的存在の認識は、感官から生じると誤解されやすいからです（第289偈）。陽炎を見て「水だ」と思うとき、また壺を見て「壺だ」と思うとき、私たちはそれを見ることそのものだと感じます。しかしそれは、取り決めや、ほかの対象の当てはめに依存する概念です（第290偈）。推論や想起と同じく、前に体験したものの想起なしには生じません（第291–292偈）。</p>
+
+  <div class="secno"><h3>6.2　概念のない第四のもの</h3><span class="vr">2B　293–300</span></div>
+  <p>第四のかすみ目による認識は特別です。概念をもたず、鮮明に現れます。つまり、第3章の定義「概念がない」に合ってしまう、定義の例外なのです（第293偈）。だから Dignāga は、わざわざ「感官の損傷から生じるもの」と書き加えた、とダルマキールティは言います。</p>
+  <p>ある人々は、二つの月の認識は感官の認識ではなく、意による概念的な認識だと考えました（第294偈）。そうすれば定義は守れます。しかしダルマキールティはこれを退けます。</p>
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>「二つの月は意による概念だ」とすると…</th><th>偈</th></tr></thead>
+      <tbody>
+        <tr><td>その認識は感官があるかないかに従っている。眼を閉じれば消える。それなら感官による認識である。</td><td class="vr">296</td></tr>
+        <tr><td>Dignāga 自身が「青や二つの月の認識の原因には感官もある」と書いている。感官を間接的な原因と見るのは、感官の認識を論じているこの場面の筋に合わない。</td><td class="vr">294–295</td></tr>
+        <tr><td>縄を蛇と見るような意の錯覚なら、感官のゆがみが続いていても消えたり、ゆがみがなくなっても残ったりするはずだ。二つの月は、感官の乱れと一緒に現れ、一緒に消える。</td><td class="vr">297</td></tr>
+        <tr><td>概念なら、ことばで他人にそのまま伝えられ、想起を必要とするはずだが、そうではない。</td><td class="vr">298</td></tr>
+        <tr><td>眠っていても覚めていても、鮮明な現れをもつ認識は概念をもたない。</td><td class="vr">299</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表6-2　二つの月の認識は概念ではない（第294–299偈）</b></figcaption>
+  </figure>
+  <p>結論は第300偈です。二つの月の認識は、概念をもたなくても、人を欺くので認識手段ではない。この考察から、ダルマキールティは自分の別の著作で、知覚の定義に「錯誤がない（<i lang="sa-Latn">abhrānta</i>）」という条件を付け加えることになります。「知覚とは、概念を離れ、錯誤のない認識である」という有名な定義です。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 230" role="img" aria-label="知覚の定義の二つの条件で認識を分類する図">
+      <rect x="20" y="20" width="600" height="190" rx="10" class="s-panel" stroke-width="1.2"/>
+      <rect x="40" y="50" width="330" height="140" rx="10" class="s-sva" stroke-width="1.4" opacity="0.9"/>
+      <text x="60" y="74" font-size="13" font-weight="700" class="t-sva">概念がない</text>
+      <rect x="230" y="50" width="370" height="140" rx="10" fill="none" class="l-ink" stroke-width="1.4" stroke-dasharray="6 4"/>
+      <text x="580" y="74" text-anchor="end" font-size="13" font-weight="700">錯誤がない</text>
+      <text x="300" y="120" text-anchor="middle" font-size="14" font-weight="700" class="t-sva">知覚</text>
+      <text x="300" y="140" text-anchor="middle" font-size="11">感官・意・自己認識・yogin</text>
+      <text x="130" y="120" text-anchor="middle" font-size="13" font-weight="700" class="t-warn">二つの月</text>
+      <text x="130" y="140" text-anchor="middle" font-size="11">概念はないが錯誤</text>
+      <text x="490" y="120" text-anchor="middle" font-size="13" font-weight="700" class="t-sam">正しい推論</text>
+      <text x="490" y="140" text-anchor="middle" font-size="11">欺かないが概念的</text>
+      <text x="320" y="38" text-anchor="middle" font-size="12" class="mut">すべての認識</text>
+      <text x="44" y="204" font-size="11" class="mut">二つの円の外側：陽炎の水、「壺だ」など</text>
+    </svg>
+    <figcaption><b>図6-1　二つの条件と知覚</b>　推論も第1章で見たように厳密には錯誤（<i lang="sa-Latn">bhrānta</i>）ですが、欺かないので認識手段です。図の「錯誤がない」の円は、ここでは「対象について欺かない」という意味でゆるく描いています。</figcaption>
+  </figure>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>錯覚からの議論</h4>
+    <p>20世紀前半のイギリスでは、エイヤーらが「錯覚からの議論」を論じました。水に差した棒が曲がって見えるとき、私たちが直接見ているのは棒そのものではなく、曲がった「感覚与件」だ、という議論です。そこから、ふだんの知覚でも直接見ているのは感覚与件だ、と結論されます。</p>
+    <p>ダルマキールティの二つの月の議論も、錯覚が概念ではなく感覚のレベルで起きることを認めています。しかし彼は、そこから「すべての知覚は感覚与件を見ている」とは結論しません。錯覚かどうかは、感官の損傷という原因によって区別されます。感官に損傷がなければ、知覚は欺かない、と考えるのです。デカルトが夢の議論から感覚全体を疑ったのとは違い、ダルマキールティは錯覚を「原因のわかる例外」として扱っています。</p>
+  </div>
+
+  <div class="key">
+    <div class="label">考えてみよう</div>
+    <ol class="q">
+      <li>ミュラー・リヤー錯視（矢羽根の向きで同じ長さの線が違って見える図）は、表6-1のどれにあたるでしょうか。違うと知っていても錯覚が消えないことに注目してください。</li>
+      <li>「錯誤がない」という条件を加えると、知覚の定義はどう変わるでしょうか。図6-1を使って説明しましょう。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 7 ============ -->
+<section class="col" id="ch7">
+  <div class="label">第7章 ・ PV III VIII</div>
+  <h2 style="margin:.3rem 0 .8rem">認識手段と認識結果は一つ</h2>
+  <p>第1章の表1-1で、認識の四つの要素を見ました。ふつうに考えれば、手段と結果は別のものです。斧（手段）と切られた木（結果）は別だからです。ところが Dignāga とダルマキールティは、認識の場合、手段と結果は同じ一つの認識だと主張します。第301–319偈はこの主張の論証です。</p>
+
+  <figure>
+    <div class="label">図7-1　この章で読む範囲（第301–319偈）</div>
+    <div class="vbar" role="img" aria-label="第301から319偈の区分">
+      <div class="on" style="flex:6.5" title="1 301–307ab">1 一体である</div>
+      <div class="off" style="flex:2.5" title="2 307cd–309">2</div>
+      <div class="b2" style="flex:8" title="3 310–317">3 反対説</div>
+      <div class="off" style="flex:2" title="4 318–319">4</div>
+    </div>
+    <div class="vscale"><span>301</span><span>310</span><span>319</span></div>
+  </figure>
+
+  <div class="secno"><h3>7.1　何が「青の認識」を「青の認識」にするのか</h3><span class="vr">1　301–307ab</span></div>
+  <p>ダルマキールティの問いの立て方は鋭いものです。インドの文法学では、行為を成り立たせる要素（<i lang="sa-Latn">kāraka</i>）のうち、もっとも直接的にはたらくものを「手段（<i lang="sa-Latn">karaṇa</i>）」と呼びます。では、認識という行為にとって、もっとも直接的な手段は何でしょうか（第301偈）。</p>
+  <p>どの認識も、体験であるという点では同じです（第302偈）。感官や光などの原因に違いはあっても、その違いは認識自身の中にはありません（第303偈）。それなら、認識自身の中にあって、「これは青の認識で、あれは黄の認識だ」という区別を作り出すものは何か（第304偈）。答えは一つしかありません。対象の姿をもつこと（<i lang="sa-Latn">artharūpatā</i>, <i lang="sa-Latn">meyarūpatā</i>）です（第305–306偈）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 230" role="img" aria-label="対象の姿をもつことが認識を区別する図">
+      <rect x="30" y="30" width="110" height="60" rx="8" class="s-panel" stroke-width="1.2"/>
+      <text x="85" y="56" text-anchor="middle" font-size="13" font-weight="700">青い花</text>
+      <text x="85" y="76" text-anchor="middle" font-size="11" class="mut">外の対象</text>
+      <rect x="30" y="140" width="110" height="60" rx="8" class="s-panel" stroke-width="1.2"/>
+      <text x="85" y="166" text-anchor="middle" font-size="13" font-weight="700">黄色い花</text>
+      <text x="85" y="186" text-anchor="middle" font-size="11" class="mut">外の対象</text>
+      <rect x="240" y="20" width="360" height="80" rx="10" class="s-sva" stroke-width="1.4"/>
+      <rect x="260" y="40" width="70" height="40" rx="6" fill="#3d6fb6"/>
+      <text x="350" y="56" font-size="13" font-weight="700">青の姿をもつ認識</text>
+      <text x="350" y="76" font-size="11" class="mut">← この姿が「青の認識」にする</text>
+      <rect x="240" y="130" width="360" height="80" rx="10" class="s-sva" stroke-width="1.4"/>
+      <rect x="260" y="150" width="70" height="40" rx="6" fill="#d9b23a"/>
+      <text x="350" y="166" font-size="13" font-weight="700">黄の姿をもつ認識</text>
+      <text x="350" y="186" font-size="11" class="mut">← この姿が「黄の認識」にする</text>
+      <line x1="140" y1="60" x2="234" y2="60" class="l-ink" stroke-width="1.5"/><polygon points="230,54 240,60 230,66" class="c-ink"/>
+      <line x1="140" y1="170" x2="234" y2="170" class="l-ink" stroke-width="1.5"/><polygon points="230,164 240,170 230,176" class="c-ink"/>
+      <text x="188" y="52" text-anchor="middle" font-size="10" class="mut">姿を与える</text>
+      <text x="420" y="122" text-anchor="middle" font-size="11" class="mut">感官や光は両方に共通なので、区別を作らない</text>
+    </svg>
+    <figcaption><b>図7-2　認識を区別するのは「対象の姿」（第302–306偈）</b>　色の見本は図の説明のためのものです。</figcaption>
+  </figure>
+
+  <p>そして、その対象の姿は、認識自身がもっているものです。だから、認識手段（対象の姿をもつこと）と認識結果（対象を知ったこと）は、同じ一つの認識の二つの見方であって、別のものではありません（第307ab偈）。</p>
+
+  <div class="secno"><h3>7.2　はたらきがないのに「はたらく」と言われる</h3><span class="vr">2　307cd–309</span></div>
+  <p>仏教では、刹那滅のものは何もはたらきかけません。生じたらすぐ滅びるからです。では「認識が対象をとらえる」というはたらきはどこにあるのでしょう。第309偈は世間の言い方を手がかりに答えます。結果は何もはたらかないのに、原因に似た姿で生じるので「原因の姿をとる」と言われます。たとえば子どもは親に似た姿で生まれますが、何かをして親の姿を「とった」わけではありません。認識も同じで、対象に似た姿で生じるので、はたらきがないのに、まるで対象をとらえるはたらきをもつかのように言われるのです（第308偈）。</p>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>「観念は観念にしか似ることができない」</h4>
+    <p>認識の中に対象と似た姿があるという考え方は、西洋では「表象主義」と呼ばれます。アリストテレスは、感覚とは、蝋が指輪の印章の形を受け取るように、対象の素材なしに形だけを受け取ることだと述べました。ロックは、物の大きさや形などの「第一性質」については、私たちの観念は物に似ていると考えました。</p>
+    <p>ところがバークリーは、これを鋭く批判しました。観念は観念にしか似ることができない。心の外の物と心の中の観念が似ているかどうかを、だれが比べられるのか、というのです。私たちは観念しか見ていないので、比べる手段がありません。</p>
+    <p>じつは、ダルマキールティも第8章で見るように、まったく同じ問題に気づいています。対象の姿が認識の中にしか確かめられないなら、外の対象との「類似」はどうやって確かめるのか。この問いが、PV III を外界実在論から唯識説へと押し進めていきます。</p>
+  </div>
+
+  <div class="secno"><h3>7.3　反対説を退ける</h3><span class="vr">3　310–317</span></div>
+  <p>ほかの学派は、認識手段を別のものに求めました。ダルマキールティは、どれも「認識を最後に区別する」もの（<i lang="sa-Latn">sādhakatama</i>）ではないと退けます。</p>
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>認識手段の候補</th><th>だれの説か</th><th>退ける理由</th><th>偈</th></tr></thead>
+      <tbody>
+        <tr><th>感官</th><td>一般的な考え</td><td>すべての認識に共通の原因で、青と黄の区別を作らない</td><td class="vr">311–312</td></tr>
+        <tr><th>感官と対象の結合（<i lang="sa-Latn">sannikarṣa</i>）</th><td>Nyāya・Vaiśeṣika</td><td>対象は全体として感官と結びついているのに、ある性質（色だけ）が知られる。区別を作るのは結合ではない</td><td class="vr">313, 316–317</td></tr>
+        <tr><th>対象の単なる感覚（<i lang="sa-Latn">ālocana</i>）</th><td>Mīmāṃsā・Sāṃkhya など</td><td>同じ理由で退けられる</td><td class="vr">310, 313</td></tr>
+        <tr><th>限定するものの認識</th><td>Nyāya など</td><td>手段（限定するもの、たとえば杖の認識）と結果（限定されるもの、杖をもつ人の認識）が別の対象をもつことになり、手段と行為の関係が成り立たない</td><td class="vr">313–315</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表7-1　認識手段の候補と、それを退ける理由</b>　学派名は注釈に基づく一般的な理解です。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>7.4　究極の立場と日常の立場</h3><span class="vr">4　318–319</span></div>
+  <p>反論者は最後に、一つのものが行為（結果）でもあり道具（手段）でもあるのは矛盾だ、と言います（第318偈）。ダルマキールティの答えは、第4章で見た二層構造に戻ります。行為と行為要素の区別は、どこでも、実在に基づかない、概念による確立にすぎない（第319偈）。斧と木の場合でさえ、「切る」という行為と「斧」という道具の区別は、私たちの考え方が引いた線なのです。だから、同じ一つの認識に、見方によって手段と結果を立てても矛盾はありません。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th></th><th>手段</th><th>結果</th><th>関係</th></tr></thead>
+      <tbody>
+        <tr><th>斧で木を切る</th><td>斧</td><td>切られた木</td><td>別のもの（と、ふつうは考える）</td></tr>
+        <tr><th class="sva">青い花を見る</th><td class="sva">認識が青の姿をもつこと</td><td class="sva">青を知ったこと</td><td class="sva">同じ一つの認識の二つの見方</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表7-2　道具の行為と、認識の行為</b>　次の第8章では、結果の位置に「自己認識」が置かれ、この表がもう一段深くなります。</figcaption>
+  </figure>
+
+  <div class="key">
+    <div class="label">重要な術語</div>
+    <dl class="gloss">
+      <dt>pramāṇaphala</dt><dd>認識結果。</dd>
+      <dt>sārūpya</dt><dd>対象と似た姿をもつこと。artharūpatā, meyarūpatā とも。</dd>
+      <dt>kāraka / karaṇa</dt><dd>行為を成り立たせる要素／その中で手段にあたるもの。</dd>
+      <dt>sādhakatama</dt><dd>もっとも直接に成り立たせるもの。</dd>
+      <dt>sannikarṣa</dt><dd>感官と対象の結合。</dd>
+      <dt>vyavasthā</dt><dd>確立。概念による区別立て。</dd>
+    </dl>
+  </div>
+  <div class="key">
+    <div class="label">考えてみよう</div>
+    <ol class="q">
+      <li>カメラで写真を撮るとき、「手段」と「結果」は何でしょうか。認識の場合と比べてみましょう。</li>
+      <li>バークリーの批判は、ダルマキールティの sārūpya 論にも当てはまるでしょうか。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 8 ============ -->
+<section class="col" id="ch8">
+  <div class="label">第8章 ・ PV III IX-1・2</div>
+  <h2 style="margin:.3rem 0 .8rem">外界はあるのか：唯識説と外界実在論</h2>
+  <p>PV III の最後の区分 IX（第320–539偈）は、全体の約4割を占める長大な部分です。テーマは Dignāga の「自己認識が認識結果である」という主張です。本書では、これを三つの章に分けて読みます。この第8章では、その主張が、外界の対象を認めない唯識説（<i lang="sa-Latn">vijñaptimātratā</i>）でも、外界を認める立場（注釈者たちは経量部 <i lang="sa-Latn">Sautrāntika</i> とみます）でも成り立つことを確かめます（第320–366偈）。</p>
+
+  <figure>
+    <div class="label">図8-1　区分 IX の中でのこの章の位置</div>
+    <div class="vbar" role="img" aria-label="区分IXの小区分">
+      <div class="on" style="flex:21" title="1A 320–340">唯識</div>
+      <div class="on" style="flex:12" title="1B 341–352">外界</div>
+      <div class="on" style="flex:14" title="2 353–366">2</div>
+      <div class="off" style="flex:58" title="3 367–424">3 二つの側面（第9章）</div>
+      <div class="off" style="flex:115" title="4 425–539">4 自己認識（第10章）</div>
+    </div>
+    <div class="vscale"><span>320</span><span>367</span><span>425</span><span>539</span></div>
+    <figcaption>偈番号は戸崎の番号です。戸崎は、従来本の第342偈と第511偈を後から加わったものとみなして数えていないため、電子テキストの番号とは途中から1–2ずれます。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>8.1　「対象の認識」とは何か：唯識の立場から</h3><span class="vr">1A　320–340</span></div>
+  <p>第320偈は、素朴な問いから始まります。「対象の認識」とは何か。私たちが直接知っているのは、青などの姿で決まった認識だけです。その体験が「何についての体験か」こそが、いま問われているのです（第321偈）。</p>
+
+  <h4>sārūpya と因果だけでは「対象の認識」にならない（第322–325偈）</h4>
+  <p>第7章で、認識は対象と似た姿をもつと説明しました。外界実在論者は、認識が「対象と似ていて、対象から生じる」ことが、それを対象の認識にする、と考えます。ダルマキールティは、この二つの条件だけでは足りないと指摘します（第323偈）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 210" role="img" aria-label="直前の認識も似ていて原因であるという反例">
+      <rect x="20" y="70" width="120" height="50" rx="8" class="s-panel" stroke-width="1.2"/>
+      <text x="80" y="100" text-anchor="middle" font-size="13" font-weight="700">青い対象</text>
+      <rect x="230" y="70" width="140" height="50" rx="8" class="s-sva" stroke-width="1.4"/>
+      <text x="300" y="92" text-anchor="middle" font-size="13" font-weight="700">青の認識 ①</text>
+      <text x="300" y="110" text-anchor="middle" font-size="11" class="mut">青の姿</text>
+      <rect x="470" y="70" width="140" height="50" rx="8" class="s-sva" stroke-width="1.4"/>
+      <text x="540" y="92" text-anchor="middle" font-size="13" font-weight="700">青の認識 ②</text>
+      <text x="540" y="110" text-anchor="middle" font-size="11" class="mut">青の姿</text>
+      <line x1="140" y1="95" x2="224" y2="95" class="l-ink" stroke-width="1.5"/><polygon points="220,89 230,95 220,101" class="c-ink"/>
+      <line x1="370" y1="95" x2="464" y2="95" class="l-ink" stroke-width="1.5"/><polygon points="460,89 470,95 460,101" class="c-ink"/>
+      <path d="M 80 70 C 120 36, 500 36, 540 70" class="l-ink" stroke-width="1.2" stroke-dasharray="4 4"/>
+      <text x="320" y="22" text-anchor="middle" font-size="11" class="mut">②は青い対象に似ていて、間接的にそこから生じる</text>
+      <text x="420" y="140" text-anchor="middle" font-size="11" class="t-warn">②は①にも似ていて、①から直接生じる</text>
+      <text x="320" y="180" text-anchor="middle" font-size="12">「似ていて、そこから生じる」が条件なら、②は①を認識していることになってしまう</text>
+      <text x="320" y="200" text-anchor="middle" font-size="12" class="mut">（実際には、②は青い対象の認識だと考えられている）</text>
+    </svg>
+    <figcaption><b>図8-2　類似と因果だけでは足りない（第323偈）</b>　同じ対象を続けて見るとき、後の認識は直前の認識にも似ていて、それから生じています。</figcaption>
+  </figure>
+
+  <p>経量部の反論者は、「これを見た」という後からの確定があるものが、その見ることの対象だと答えます（第324–325偈）。ダルマキールティは、その確定も、見ることと対象との関係が成り立っていることを前提にしている、と返します。</p>
+
+  <h4>認識は自分自身を照らす（第326–329偈）</h4>
+  <p>唯識の立場からの答えはこうです。青などの姿をもつ認識、それ自身が体験であり、ほかの何かの体験ではない（第326偈）。体験されるべき別のものはなく、それを体験する別の認識もない（第327偈）。認識は自分自身の姿を体験しながら、「青を体験している」と言われるのです（第328偈）。第329偈は、これを灯火にたとえます。灯火は照らすことを本性とするので、ほかのものを照らすときに、自分自身も照らしています。</p>
+
+  <h4>とらえるもの・とらえられるものは錯覚だが、仮に認める（第330–337偈）</h4>
+  <p>究極的には、認識の中の「とらえられる姿」と「とらえる姿」の区別も、無知による錯乱です（第330–331偈）。しかし、その区別に従って、認識対象・認識手段・認識結果を仮に立てることは非難されるべきではありません（第332偈）。そして、その結果にあたるのが自己認識です（第332cd–337偈）。</p>
+  <p>では、外界がないのに、なぜ青の認識は好きなときに生じないのでしょうか。第336偈の答えは、潜在印象（<i lang="sa-Latn">vāsanā</i>）です。ある認識が、心の流れの中の特定の潜在印象を呼び覚ますので、いつ・どこで・何が見えるかが決まるのです。</p>
+
+  <div class="secno"><h3>8.2　外界を認める立場から</h3><span class="vr">1B　341–352</span></div>
+  <p>ここでダルマキールティは視点を切り替えます。たとえ外界の対象があるとしても、その対象の本体は、体験（自己認識）に即して確定されるだけだ、と言うのです（第341偈）。</p>
+  <p>根拠として挙げられるのは、同じ対象が人によって好ましくも好ましくなくも体験されることです（第342–345ab偈）。同じ料理を、ある人はおいしいと感じ、別の人はまずいと感じます。対象そのものに好ましさと好ましくなさという二つの本体があるとは言えません。私たちが「この対象はこうだ」と確定するのは、自分の体験のとおりにでしかないのです。だから外界を認める立場でも、認識結果は自己認識だと言うべきです（第345cd偈）。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th></th><th>認識対象</th><th>認識手段</th><th>認識結果</th></tr></thead>
+      <tbody>
+        <tr><th>（参考）素朴な外界実在論</th><td>外界の対象</td><td>感官など</td><td>対象を知ったこと</td></tr>
+        <tr><th>第7章（VIII）</th><td>外界の対象</td><td>対象の姿をもつこと（<i lang="sa-Latn">sārūpya</i>）</td><td>対象の理解（<i lang="sa-Latn">arthādhigati</i>）</td></tr>
+        <tr><th class="sva">外界を認める立場（IX-1B）</th><td class="sva">外界の対象</td><td class="sva">対象が認識に現れていること（<i lang="sa-Latn">viṣayābhāsatā</i>）</td><td class="sva">自己認識（<i lang="sa-Latn">svasaṃvitti</i>）</td></tr>
+        <tr><th class="sam">唯識の立場（IX-1A・2）</th><td class="sam">認識の中の、とらえられる姿</td><td class="sam">とらえる姿（見定めるはたらき、自分自身を知る能力）</td><td class="sam">自己認識（<i lang="sa-Latn">svasaṃvitti</i>）</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表8-1　認識対象・手段・結果の配置の比較</b>　どの立場をとっても、結果は「自己認識」の位置に落ち着きます。これが区分 IX の題「認識結果は自己認識である」の意味です。</figcaption>
+  </figure>
+
+  <p>第346–352偈は、外界を認める立場での配置をくわしく述べます。対象が認識に現れていることが認識手段です（第346偈）。対象の本体は、認識の中に入りこんでいるとおりに確定されるので、「対象を認識する」ことの本質は自己認識です（第347–348偈）。自己認識は究極的なもの、「対象の認識」は日常の言い方です（第350–352偈）。</p>
+
+  <div class="secno"><h3>8.3　三つの区別は実在しないが、立てられる</h3><span class="vr">2　353–366</span></div>
+  <p>唯識の立場に戻って、まとめが行われます。認識そのものは区分をもたないのに、ものの見方が転倒した人々には、とらえられるもの・とらえるもの・認識という区別があるように見える（第353偈）。呪文で惑わされた人に土くれが象に見えるように、砂漠で遠くの小さなものが大きく見えるように（第354–355偈）。</p>
+  <p>それでも、見えているとおりに従って、対象・手段・結果を立てることはできます（第356偈）。唯識説での認識手段は、認識の「見定めるはたらき（<i lang="sa-Latn">pariccheda</i>）」、すなわちとらえる姿です（第363偈）。それは自分自身を知る能力（<i lang="sa-Latn">yogyatā</i>）であり、欲望などの感受が自分を知る場合と同じです（第364–366偈）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 240" role="img" aria-label="一つの認識の中の三つの見方">
+      <ellipse cx="320" cy="120" rx="280" ry="100" class="s-sam" stroke-width="1.5"/>
+      <text x="320" y="40" text-anchor="middle" font-size="13" font-weight="700" class="t-sam">一つの認識（究極的には区分がない）</text>
+      <rect x="70" y="90" width="150" height="60" rx="8" class="c-paper" style="stroke:var(--sam)" stroke-width="1.2"/>
+      <text x="145" y="114" text-anchor="middle" font-size="13" font-weight="700">とらえられる姿</text>
+      <text x="145" y="134" text-anchor="middle" font-size="11">→ 認識対象</text>
+      <rect x="245" y="90" width="150" height="60" rx="8" class="c-paper" style="stroke:var(--sam)" stroke-width="1.2"/>
+      <text x="320" y="114" text-anchor="middle" font-size="13" font-weight="700">とらえる姿</text>
+      <text x="320" y="134" text-anchor="middle" font-size="11">→ 認識手段</text>
+      <rect x="420" y="90" width="150" height="60" rx="8" class="c-paper" style="stroke:var(--sam)" stroke-width="1.2"/>
+      <text x="495" y="114" text-anchor="middle" font-size="13" font-weight="700">自己認識</text>
+      <text x="495" y="134" text-anchor="middle" font-size="11">→ 認識結果</text>
+      <text x="320" y="190" text-anchor="middle" font-size="12" class="mut">見えているとおりに従って、仮に三つを立てる（第356・363–366偈）</text>
+    </svg>
+    <figcaption><b>図8-3　唯識説での三つの区別</b>　Dignāga が『Pramāṇasamuccaya』I 10 で示した配置を、ダルマキールティが説明している部分です。</figcaption>
+  </figure>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>「存在するとは知覚されることである」</h4>
+    <p>唯識説は、しばしばバークリーの観念論と比べられます。バークリーは「存在するとは知覚されることである（<i lang="la">esse est percipi</i>）」と述べ、心の外の物質の存在を否定しました。では、なぜ私たちは好きなものを好きなときに見られないのか。バークリーの答えは、神が私たちの心に観念を規則正しく生じさせているから、というものでした。</p>
+    <p>ダルマキールティは同じ問いに、潜在印象（第336偈）で答えます。規則性の源は神ではなく、心の流れそのものの中にあります。この違いは大きなものです。また、バークリーには精神（心）という実体が残りますが、ダルマキールティの唯識では、とらえる側の区別さえ究極的には錯乱です。</p>
+    <p>第341偈以下の「外界があるとしても、体験に即してしか確定されない」という議論は、カントの考えにも近いものがあります。物自体はあるかもしれないが、私たちが知るのは、私たちの認識の形式を通した現象だけだ、という考えです。ダルマキールティが外界実在論と唯識説のどちらでも成り立つ議論を組み立てていることは、カントが物自体の存在を認めつつ、その認識は否定したことと比べられます。</p>
+  </div>
+
+  <div class="key">
+    <div class="label">重要な術語</div>
+    <dl class="gloss">
+      <dt>vijñaptimātratā</dt><dd>唯識。ただ認識だけがあり、外界の対象はないという説。</dd>
+      <dt>Sautrāntika</dt><dd>経量部。外界の対象を認めるが、それは推論によって知られるとする学派。</dd>
+      <dt>svasaṃvitti</dt><dd>自己認識。区分 IX では認識結果の位置に置かれる。</dd>
+      <dt>vāsanā</dt><dd>潜在印象。認識の決まった現れ方の原因。</dd>
+      <dt>grāhyākāra / grāhakākāra</dt><dd>とらえられる姿／とらえる姿。</dd>
+      <dt>pariccheda</dt><dd>見定めるはたらき。</dd>
+    </dl>
+  </div>
+  <div class="key">
+    <div class="label">考えてみよう</div>
+    <ol class="q">
+      <li>同じ映画を見て、感動する人と退屈する人がいます。この事実から「映画の本当の姿」について何が言えるでしょうか。第341–345偈と比べてみましょう。</li>
+      <li>夢の中の世界も規則正しく見えることがあります。唯識説とバークリーは、夢と現実の違いをどう説明するでしょうか。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 9 ============ -->
+<section class="col" id="ch9">
+  <div class="label">第9章 ・ PV III IX-3</div>
+  <h2 style="margin:.3rem 0 .8rem">認識の二つの顔</h2>
+  <p>第8章で、自己認識が認識結果であることを見ました。その前提には、一つの認識が「対象の姿（<i lang="sa-Latn">viṣayākāra</i>）」と「自分の姿（<i lang="sa-Latn">svākāra</i>）」という二つの側面をもつ、という考えがあります。これを認識の二側面性（<i lang="sa-Latn">dvairūpya</i>）と言います。第367–424偈では、これが八つの論証によって証明されます。ここでの議論の多くは、外界の対象を認める経量部の立場に合わせて組み立てられています。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 220" role="img" aria-label="認識の二つの側面の図">
+      <rect x="160" y="20" width="320" height="160" rx="14" class="s-sva" stroke-width="1.6"/>
+      <text x="320" y="44" text-anchor="middle" font-size="14" font-weight="700" class="t-sva">一つの認識</text>
+      <rect x="185" y="60" width="130" height="100" rx="8" class="c-paper" style="stroke:var(--sam)" stroke-width="1.4"/>
+      <text x="250" y="96" text-anchor="middle" font-size="13" font-weight="700" class="t-sam">対象の姿</text>
+      <text x="250" y="116" text-anchor="middle" font-size="11" class="ia-t">grāhyākāra</text>
+      <text x="250" y="136" text-anchor="middle" font-size="11">青として現れる</text>
+      <rect x="325" y="60" width="130" height="100" rx="8" class="c-paper" style="stroke:var(--sva)" stroke-width="1.4"/>
+      <text x="390" y="96" text-anchor="middle" font-size="13" font-weight="700" class="t-sva">自分の姿</text>
+      <text x="390" y="116" text-anchor="middle" font-size="11" class="ia-t">grāhakākāra</text>
+      <text x="390" y="136" text-anchor="middle" font-size="11">体験として現れる</text>
+      <rect x="20" y="85" width="100" height="50" rx="8" class="s-panel" stroke-width="1.2"/>
+      <text x="70" y="114" text-anchor="middle" font-size="12">外界の対象？</text>
+      <line x1="120" y1="110" x2="180" y2="110" class="l-mut" stroke-width="1.4" stroke-dasharray="4 4"/><polygon points="176,104 186,110 176,116" style="fill:var(--muted)"/>
+      <path d="M 455 110 C 520 110, 540 40, 470 30" class="l-sva" stroke-width="1.4"/>
+      <polygon points="474,24 464,30 476,36" class="c-sva"/>
+      <text x="560" y="80" text-anchor="middle" font-size="11" class="t-sva">自分を知る</text>
+      <text x="320" y="205" text-anchor="middle" font-size="12" class="mut">外界の対象があってもなくても、認識の中には二つの側面がある</text>
+    </svg>
+    <figcaption><b>図9-1　認識の二側面性（dvairūpya）</b></figcaption>
+  </figure>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th></th><th>論証の根拠</th><th>偈</th></tr></thead>
+      <tbody>
+        <tr><th>(前)</th><td>「それなら感官も認識に現れるはずだ」という反論に答える。子どもが食べ物や時期にも依存するのに両親に似るように、認識も対象に似る</td><td class="vr">367–369</td></tr>
+        <tr><th>1</th><td>過去のものの想起には対象がないのに、対象の姿が現れる</td><td class="vr">370–377</td></tr>
+        <tr><th>2</th><td>「対象の認識」と「その認識についての認識」は違う</td><td class="vr">378–386</td></tr>
+        <tr><th>3</th><td>対象と認識は、必ず同時に認識される（<i lang="sa-Latn">sahopalambhaniyama</i>）</td><td class="vr">387–397</td></tr>
+        <tr><th>4</th><td>感官の違いで、同じ対象の現れが鮮明にも不鮮明にもなる</td><td class="vr">398–401</td></tr>
+        <tr><th>5</th><td>かすみ目の人には、実在しない光の輪が見える</td><td class="vr">402–406</td></tr>
+        <tr><th>6</th><td>遠い・近いで、同じ対象の現れが鮮明にも不鮮明にもなる</td><td class="vr">407–415</td></tr>
+        <tr><th>7</th><td>そう考えないと「対象は認識によって現れる」と言えなくなる</td><td class="vr">416–421</td></tr>
+        <tr><th>8</th><td>認識の体験としての本体と、対象による区別</td><td class="vr">422–424</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表9-1　二側面性の八つの論証</b>　見出しは戸崎の科段によります。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>9.1　想起からの論証</h3><span class="vr">B　370–377</span></div>
+  <p>過去のものを思い出すとき、その対象はもう存在しません。それでも想起の中には、青なら青の姿がはっきり現れます（第370–371偈）。普遍や名前が現れているのでもありません。それらは前に否定しました（第372偈）。対象がないのに対象の姿があるのなら、その姿は認識自身がもっている、と考えるしかありません（第373–374偈）。そして、想起でそうなら、目の前のものを見る知覚でも同じです（第373cd偈）。</p>
+
+  <div class="secno"><h3>9.2　「認識の認識」からの論証</h3><span class="vr">C　378–386</span></div>
+  <p>これは Dignāga が『Pramāṇasamuccaya』I 11 で示した論証を、ダルマキールティが展開したものです。図で見るのがいちばんわかりやすいでしょう。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 260" role="img" aria-label="認識の認識の入れ子構造">
+      <rect x="20" y="40" width="120" height="60" rx="8" class="s-panel" stroke-width="1.2"/>
+      <text x="80" y="76" text-anchor="middle" font-size="13" font-weight="700">青い対象</text>
+      <rect x="180" y="30" width="190" height="80" rx="10" class="s-sva" stroke-width="1.4"/>
+      <text x="275" y="52" text-anchor="middle" font-size="12" font-weight="700">第1の認識</text>
+      <rect x="195" y="62" width="75" height="36" rx="5" class="s-sam" stroke-width="1"/><text x="232" y="85" text-anchor="middle" font-size="11">青の姿</text>
+      <rect x="280" y="62" width="75" height="36" rx="5" class="c-paper" style="stroke:var(--sva)" stroke-width="1"/><text x="317" y="85" text-anchor="middle" font-size="11">体験</text>
+      <rect x="180" y="150" width="440" height="90" rx="10" class="s-sva" stroke-width="1.4"/>
+      <text x="400" y="172" text-anchor="middle" font-size="12" font-weight="700">第2の認識（「私は青を見た」と振り返る）</text>
+      <rect x="195" y="184" width="75" height="40" rx="5" class="s-sam" stroke-width="1"/><text x="232" y="208" text-anchor="middle" font-size="11">青の姿</text>
+      <rect x="280" y="184" width="75" height="40" rx="5" class="c-paper" style="stroke:var(--sva)" stroke-width="1"/><text x="317" y="208" text-anchor="middle" font-size="11">体験</text>
+      <rect x="190" y="180" width="170" height="48" rx="7" fill="none" class="l-ink" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="275" y="244" text-anchor="middle" font-size="10" class="mut">第1の認識の姿</text>
+      <rect x="380" y="184" width="100" height="40" rx="5" class="c-paper" style="stroke:var(--sva)" stroke-width="1"/><text x="430" y="208" text-anchor="middle" font-size="11">第2の体験</text>
+      <line x1="140" y1="70" x2="174" y2="70" class="l-ink" stroke-width="1.4"/><polygon points="170,64 180,70 170,76" class="c-ink"/>
+      <line x1="275" y1="110" x2="275" y2="144" class="l-ink" stroke-width="1.4"/><polygon points="269,140 275,150 281,140" class="c-ink"/>
+      <text x="500" y="70" text-anchor="middle" font-size="12" class="mut">第2の認識の中に</text>
+      <text x="500" y="88" text-anchor="middle" font-size="12" class="mut">「青の姿」が現れる</text>
+    </svg>
+    <figcaption><b>図9-2　認識の認識（第378–380偈）</b>　「私は青を見た」と振り返る第2の認識には、青の姿と、それを見た体験の姿が現れます。もし第1の認識が青の姿をもたなかったら、第2の認識にどうして青が現れるでしょうか（第379偈）。第1の認識が二つの側面をもっていたからこそ、第2の認識はそれを受け継げるのです。</figcaption>
+  </figure>
+
+  <p>反論者は、第1の認識を思い出すと対象も思い出されるのは、認識が対象の結果だからだ、と言います（第381偈）。ダルマキールティは、それなら瓶を見ると必ず陶工も一緒に見えることになる、と返します（第382偈）。結果を思い出すたびに原因まで一緒に浮かぶわけではありません。</p>
+
+  <div class="secno"><h3>9.3　「必ず一緒に知られる」からの論証</h3><span class="vr">D　387–397</span></div>
+  <p>これは後に有名になる論証です。対象は、必ず認識と一緒に同時に知られます。認識のない対象も、対象のない認識も、知られたことは一度もない（第389偈）。それなら、対象が認識と別のものだということは、どうやって確かめられるのでしょうか（第387偈）。別だと見えるのは、錯誤した認識をもつ人々にとってだけです（第388偈）。この論証は <i lang="sa-Latn">sahopalambhaniyama</i>（必ず一緒に知られること）と呼ばれ、後の仏教論理学では唯識説の代表的な論証になりました。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th></th><th>認識がある</th><th>認識がない</th></tr></thead>
+      <tbody>
+        <tr><th>対象がある</th><td class="sva">経験される</td><td class="sam">経験されたことがない</td></tr>
+        <tr><th>対象がない</th><td class="sam">経験されたことがない</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表9-2　必ず一緒に知られる（第387–390偈）</b>　対象と認識は、一方だけが知られることがない。この表を根拠に、二つが別であることは確かめられない、と論じます。</figcaption>
+  </figure>
+
+  <h4>外界がなければ因果も推論も成り立たないのでは（第390cd–397偈）</h4>
+  <p>経量部の側から重い反論が出ます。外界がないなら、種から芽が生じる、煙から火を推論する、ということも成り立たなくなるのではないか（第392–394偈）。ダルマキールティは唯識説の答えを示します。煙の現れをもつ認識は、心の流れの中で呼び覚まされた潜在印象から生じる。その流れは、次に火の現れをもつ認識を生むのに適した潜在印象をもっている（第395–396偈）。因果は、外界の物どうしの関係ではなく、認識の流れの中の関係として説明できるのです。</p>
+  <p>ただし第397偈で、ダルマキールティは付け加えます。これは賢者たちの説だが、ここでは経量部の認める外界に依拠して二側面性を論じる、と。第4章で見た「象のように目を閉じる」態度がここでも見られます。</p>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>知覚されていない木を思い浮かべてみよ</h4>
+    <p>バークリーは「マスター・アーギュメント」と呼ばれる議論を残しました。だれも知覚していない木を思い浮かべてみよ、と言うのです。思い浮かべた瞬間、あなたはその木を思い浮かべている。だから、知覚されていない木を考えることはできない。sahopalambhaniyama とよく似た構造の議論です。</p>
+    <p>ショーペンハウアーは『意志と表象としての世界』を「世界は私の表象である」という一文で始め、「主観なくして客観なし」と述べました。対象と主観は必ず一緒にあるという点では、これもよく似ています。</p>
+    <p>ただし、20世紀の哲学者たちはこの種の議論の弱点も指摘しました。対象を知るときには必ず認識がある、ということから、対象が認識と同じものだ、ということまでは出てこないのではないか、という指摘です。じつはインドでも、後の論者たちが sahopalambhaniyama について同じ点を論争しています。</p>
+  </div>
+
+  <div class="secno"><h3>9.4　鮮明さと錯覚からの論証</h3><span class="vr">E–G　398–415</span></div>
+  <p>論証4・5・6は、どれも「同じ対象なのに現れ方が違う」という事実を使います。</p>
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>論証</th><th>現象</th><th>結論</th></tr></thead>
+      <tbody>
+        <tr><th>4（398–401）</th><td>同じ対象が、感官の状態によって、鮮明・不鮮明・濁って見える</td><td>現れの違いは対象ではなく認識の側にある。子どもは父に似るが、業などによって部分的には違うのと同じ（第401偈）</td></tr>
+        <tr><th>5（402–406）</th><td>かすみ目の人には、灯火のまわりに孔雀の羽の目玉模様のような光の輪が見える</td><td>光の輪が外にあるなら、目の澄んだ人にも見えるはず。光の輪は認識の中の姿である</td></tr>
+        <tr><th>6（407–415）</th><td>遠いものは不鮮明に、近いものは鮮明に見える</td><td>対象そのものが鮮明になったり不鮮明になったりはしない。光やさえぎるものによる説明も成り立たない</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表9-3　論証4・5・6</b></figcaption>
+  </figure>
+
+  <div class="secno"><h3>9.5　時間差からの論証</h3><span class="vr">H　416–421</span></div>
+  <p>論証7は、刹那滅と因果の時間関係を使います。原因は結果より前にあります。対象は認識の原因なので、認識が生じたとき、その対象はもう滅んでいます（第416偈）。存在しないものが、どうして認識によって現れるのでしょうか（第417偈）。答えは、認識が対象の姿を自分の中にもっているから、です。認識と同時に生じた別の対象は、認識を助けないので、自分の姿を与えることはできません（第419偈）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 150" role="img" aria-label="対象と認識の時間差">
+      <line x1="40" y1="110" x2="600" y2="110" class="l-mut" stroke-width="1"/>
+      <text x="600" y="130" text-anchor="end" font-size="11" class="mut">時間 →</text>
+      <rect x="80" y="40" width="160" height="40" rx="6" class="s-panel" stroke-width="1.2"/>
+      <text x="160" y="65" text-anchor="middle" font-size="12">対象（t₁）→ 滅</text>
+      <rect x="320" y="40" width="240" height="40" rx="6" class="s-sva" stroke-width="1.4"/>
+      <text x="440" y="65" text-anchor="middle" font-size="12">認識（t₂）：対象の姿をもつ</text>
+      <line x1="240" y1="60" x2="314" y2="60" class="l-ink" stroke-width="1.4"/><polygon points="310,54 320,60 310,66" class="c-ink"/>
+      <text x="280" y="96" text-anchor="middle" font-size="11" class="mut">姿を与える</text>
+      <text x="320" y="20" text-anchor="middle" font-size="12" class="mut">認識が生じるとき、対象はもうない。それでも対象が「現れる」のは、姿が認識の中にあるから</text>
+    </svg>
+    <figcaption><b>図9-3　見ているのは、いつも少し前の世界（第416–421偈）</b></figcaption>
+  </figure>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>見ているのは過去の星</h4>
+    <p>夜空の星の光は、何年も、ときには何千年もかけて地球に届きます。私たちが見ているのは、いまの星ではなく過去の星の姿です。その星はもう存在しないかもしれません。この事実は、20世紀の哲学で、知覚の「時間差からの議論」として、直接実在論への反論に使われました。ダルマキールティの論証7は、刹那滅の理論から同じ構造の議論を組み立てています。</p>
+    <p>認識が対象の姿と自分の姿をもつという二側面性は、フッサールの現象学の「ノエシス（意識のはたらき）」と「ノエマ（意識に現れる対象の意味）」の区別と比べられることがあります。どちらも、外界の存在を問う前に、意識の中で対象がどう現れているかを分析しようとする点で共通しています。</p>
+  </div>
+
+  <div class="key">
+    <div class="label">重要な術語</div>
+    <dl class="gloss">
+      <dt>dvairūpya</dt><dd>認識の二側面性。対象の姿と自分の姿。</dd>
+      <dt>viṣayākāra / svākāra</dt><dd>対象の姿／自分の姿。</dd>
+      <dt>sahopalambhaniyama</dt><dd>対象と認識が必ず一緒に知られること。</dd>
+      <dt>smṛti</dt><dd>想起。二側面性と自己認識の論証の重要な根拠。</dd>
+      <dt>maṇḍala</dt><dd>かすみ目の人に見える光の輪。</dd>
+    </dl>
+  </div>
+  <div class="key">
+    <div class="label">考えてみよう</div>
+    <ol class="q">
+      <li>図9-2を自分のことばで説明してみましょう。「昨日の夕焼けを見た」と思い出すとき、何が現れているでしょうか。</li>
+      <li>sahopalambhaniyama から「対象は認識と同じだ」と言えるでしょうか。言えないとすれば、どこに飛躍があるでしょうか。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 10 ============ -->
+<section class="col" id="ch10">
+  <div class="label">第10章 ・ PV III IX-4</div>
+  <h2 style="margin:.3rem 0 .8rem">認識は自分自身を知る</h2>
+  <p>PV III の最後の115偈（第425–539偈）は、ただ一つの主張に捧げられています。認識は、別の認識によってではなく、自分自身によって知られる（<i lang="sa-Latn">svasaṃvedana</i>）。この主張は、ここまでの議論のあちこちに顔を出していました。錯覚の毛髪（第1章）、概念の体験（第3章）、快・苦（第5章）、認識結果（第8章）です。最終章では、それが正面から論証されます。</p>
+
+  <figure>
+    <div class="label">図10-1　この章で読む範囲（第425–539偈）</div>
+    <div class="vbar" role="img" aria-label="第425から539偈の区分">
+      <div class="on" style="flex:3" title="A–B 425–427">AB</div>
+      <div class="off" style="flex:9.5" title="C 428–437ab">C</div>
+      <div class="on" style="flex:22.5" title="D 437cd–459">D 体験</div>
+      <div class="off" style="flex:17" title="E 460–476">E 推論</div>
+      <div class="on" style="flex:7" title="F–G 477–483">FG</div>
+      <div class="b2" style="flex:27" title="H(1) 484–510">H 長母音</div>
+      <div class="b2" style="flex:27" title="H(2) 511–537">H 別の対象へ</div>
+      <div class="off" style="flex:2" title="c 538–539"></div>
+    </div>
+    <div class="vscale"><span>425</span><span>460</span><span>484</span><span>539</span></div>
+    <figcaption>後半の H（想起に基づく論証）が全体の半分近くを占めます。戸崎の番号です。電子テキストでは H の後半が2つずれます。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>10.1　二つのモデル</h3></div>
+  <p>この章の争点は、次の二つのモデルのどちらが正しいか、です。インドでは、Nyāya・Vaiśeṣika が「別の認識が知る」モデル（<i lang="sa-Latn">paraprakāśa</i>）を、仏教が「自分で知る」モデル（<i lang="sa-Latn">svaprakāśa</i>）をとりました。Mīmāṃsā の Kumārila は、認識そのものは知覚されず、対象に生じた「知られた状態」から推論されると考えました。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 250" role="img" aria-label="他者照明モデルと自己照明モデルの比較">
+      <text x="160" y="22" text-anchor="middle" font-size="13" font-weight="700" class="t-sam">別の認識が知るモデル</text>
+      <text x="160" y="40" text-anchor="middle" font-size="11" class="mut">Nyāya・Vaiśeṣika など</text>
+      <rect x="90" y="56" width="140" height="34" rx="6" class="s-sam" stroke-width="1.2"/><text x="160" y="78" text-anchor="middle" font-size="12">認識 C₁（青を見る）</text>
+      <rect x="90" y="116" width="140" height="34" rx="6" class="s-sam" stroke-width="1.2"/><text x="160" y="138" text-anchor="middle" font-size="12">認識 C₂（C₁ を知る）</text>
+      <rect x="90" y="176" width="140" height="34" rx="6" class="s-sam" stroke-width="1.2"/><text x="160" y="198" text-anchor="middle" font-size="12">認識 C₃（C₂ を知る）</text>
+      <g class="l-sam" stroke-width="1.4"><line x1="160" y1="90" x2="160" y2="110"/><line x1="160" y1="150" x2="160" y2="170"/></g>
+      <polygon points="154,108 160,116 166,108" class="c-sam"/><polygon points="154,168 160,176 166,168" class="c-sam"/>
+      <text x="160" y="232" text-anchor="middle" font-size="14" font-weight="700" class="t-warn">… 無限に続く？</text>
+      <line x1="320" y1="20" x2="320" y2="240" class="l-mut" stroke-width="1" stroke-dasharray="3 4"/>
+      <text x="480" y="22" text-anchor="middle" font-size="13" font-weight="700" class="t-sva">自分で知るモデル</text>
+      <text x="480" y="40" text-anchor="middle" font-size="11" class="mut">Dignāga・Dharmakīrti</text>
+      <rect x="400" y="100" width="160" height="50" rx="8" class="s-sva" stroke-width="1.4"/>
+      <text x="480" y="130" text-anchor="middle" font-size="13">認識（青を見る）</text>
+      <path d="M 560 115 C 610 90, 610 160, 560 140" class="l-sva" stroke-width="1.6"/><polygon points="566,134 556,140 566,146" class="c-sva"/>
+      <text x="480" y="182" text-anchor="middle" font-size="12">灯火のように、自分を照らしながら</text>
+      <text x="480" y="200" text-anchor="middle" font-size="12">対象を照らす</text>
+    </svg>
+    <figcaption><b>図10-2　認識はどのように知られるのか</b></figcaption>
+  </figure>
+
+  <div class="secno"><h3>10.2　別の認識が知るとすると困ること</h3><span class="vr">A–C　425–437ab</span></div>
+  <p>第425偈は、第9章の二側面性の論証によって、自己認識はすでにおおよそ成り立っている、と言います。認識が対象の姿と自分の姿をもち、その姿が体験されるなら、それはもう自分を知ることだからです。</p>
+  <p>第426–427偈は、別の認識が知るモデルの不都合を二つ挙げます。第一に、認識 A は一瞬で滅びるので、後の認識 B が A を体験することはできない。似た姿の B が生じるだけです。第二に、対象の認識は外に向かって現れますが、認識をとらえる認識は内に向かって現れるはずです。しかし私たちはそのような二重の現れを経験していません。</p>
+  <p>第428–437ab偈は、「認識は対象に似ているので対象の認識と言われるのだ」という説を退けます。似ていることだけが条件なら、似ているもの同士がすべて互いを認識することになってしまいます（第429偈）。認識するというはたらきは、似ていることではなく、認識そのものによるのです（第430–433偈）。</p>
+
+  <div class="secno"><h3>10.3　体験は認識と別のものか</h3><span class="vr">D　437cd–459</span></div>
+  <p>もし体験が認識と別のものなら、世界のすべてが現れなくなる、とダルマキールティは言います（第437cd–439偈）。認識が自分では現れず、別の認識によって現れるなら、その別の認識もまた別の認識を必要とし、無限に続きます（第440ab偈）。どこかで止まるなら、そこで止まった認識は自分で現れていることになります。止まらないなら、何一つ現れません。</p>
+  <p>第447–454偈は Mīmāṃsā の説を退け、第455–459偈は、yogin が他人の苦や快を知る場合を扱います。反対論者の説のように、苦を感じるとは苦が別の認識の対象になることだとすれば、他人の苦を知覚する yogin も、その人と同じように苦しむことになってしまいます（第455偈）。ダルマキールティの考えでは、苦を「対象とすること」と「感受すること」は別です。対象とするとは対象に似ることであり、感受するとは、認識自身が鮮明に現れることです（第459偈）。yogin は他人の苦を対象としますが、感受はしません。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>立場</th><th>認識はどう知られるか</th><th>ダルマキールティの批判</th><th>偈</th></tr></thead>
+      <tbody>
+        <tr><th>Nyāya・Vaiśeṣika</th><td>次の瞬間の別の認識によって知覚される</td><td>無限遡及。また滅んだものは体験できない</td><td class="vr">426, 440, 477–482</td></tr>
+        <tr><th>Mīmāṃsā（Kumārila）</th><td>知覚されない。対象の「知られた状態」などから推論される</td><td>推論の根拠になるものが何もない。自分の心が知覚されなければ、他人の心も推論できない</td><td class="vr">447–454, 460–476, 483</td></tr>
+        <tr><th class="sva">Dignāga・Dharmakīrti</th><td class="sva">自分自身によって知られる</td><td class="sva">—</td><td></td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表10-1　認識の知られ方をめぐる三つの立場</b>　学派名は注釈者たちの理解によります。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>10.4　認識は推論されるのでもない</h3><span class="vr">E　460–476</span></div>
+  <p>Kumārila の説では、認識は推論によって知られます。ダルマキールティは、推論の根拠になりうる候補を一つずつ調べ、どれも使えないことを示します。感官・対象・注意（第460–462ab偈）、対象が現れること（第462cd–463偈）、対象の特別な状態（第464–467偈）、対象や認識する者の性質（第468–469偈）、認識の結果（第470–472ab偈）。どれも、認識と一緒に確かめられたことがないので、認識を推論する根拠にはなりません。</p>
+  <p>第475cd–476ab偈は、第2章の「他人の心」の議論とつながっています。他人の心を推論できるのは、自分の心と、そこから生じる身体の動きやことばとの関係を、自分で確かめているからです。自分の認識が知覚されないなら、その関係は確かめられず、他人の心を推論することもできません。</p>
+
+  <div class="secno"><h3>10.5　灯火と瓶</h3><span class="vr">F–G　477–483</span></div>
+  <p>「認識は別の認識によって現し出される」という説に対して、ダルマキールティは灯火と瓶の関係を分析します。灯火が瓶を照らすのは、灯火が自分で光っていて、瓶が自分では光っていないからです。二つの灯火の場合、どちらも自分で光っているので、一方が他方を照らすとは言いません。両方とも光らないなら、照らすことは起こりません（第477–482偈）。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>組み合わせ</th><th>照らす・照らされる関係</th><th>認識に当てはめると</th></tr></thead>
+      <tbody>
+        <tr><th>灯火と瓶</th><td class="sva">ある（灯火が瓶を照らす）</td><td>認識と、対象（対象は認識の中に姿を移すことで現れる）</td></tr>
+        <tr><th>灯火と灯火</th><td class="sam">ない（どちらも自分で光る）</td><td>前の認識と後の認識。どちらも自分で現れているので、後が前を照らすのではない</td></tr>
+        <tr><th>瓶と瓶</th><td class="sam">ない（どちらも光らない）</td><td>自分で現れない認識どうし。互いに照らしようがない</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表10-2　灯火のたとえ（第477–483偈）</b></figcaption>
+  </figure>
+
+  <div class="secno"><h3>10.6　想起からの論証（1）：長母音はなぜ聞こえるのか</h3><span class="vr">H(1)　484–510</span></div>
+  <p>Dignāga の最も重要な論証の一つが、想起からの論証です。私たちは、対象だけでなく、「私はそれを見た」という自分の認識も思い出します。思い出せるものは、前に体験されたものです。だから認識も体験されていたことになります（第484a偈）。</p>
+  <p>反論者は、認識は直後の別の認識によって体験されていたのだ、と答えます。ダルマキールティは、それでは長母音を聞くことができなくなる、という意外な方向から反撃します（第484cd偈以下）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 260" role="img" aria-label="長母音を聞くときの認識の時間構造">
+      <text x="20" y="38" font-size="12" font-weight="700">音</text>
+      <rect x="80" y="22" width="520" height="26" rx="4" class="s-panel" stroke-width="1.2"/>
+      <text x="340" y="40" text-anchor="middle" font-size="12">長母音「ā ―――」（多くの瞬間からなる）</text>
+      <text x="20" y="96" font-size="12" font-weight="700" class="t-sam">別認識</text>
+      <text x="20" y="112" font-size="11" class="mut">モデル</text>
+      <g class="c-sam"><rect x="80" y="80" width="50" height="22"/><rect x="190" y="80" width="50" height="22"/><rect x="300" y="80" width="50" height="22"/><rect x="410" y="80" width="50" height="22"/><rect x="520" y="80" width="50" height="22"/></g>
+      <g style="fill:var(--warn)" opacity="0.75"><rect x="130" y="80" width="60" height="22"/><rect x="240" y="80" width="60" height="22"/><rect x="350" y="80" width="60" height="22"/><rect x="460" y="80" width="60" height="22"/></g>
+      <text x="340" y="126" text-anchor="middle" font-size="11" class="t-warn">音をとらえる認識の間に「認識を知る認識」がはさまり、聞こえが途切れるはず</text>
+      <text x="20" y="176" font-size="12" font-weight="700" class="t-sva">自己認識</text>
+      <text x="20" y="192" font-size="11" class="mut">モデル</text>
+      <g class="c-sva"><rect x="80" y="160" width="100" height="22"/><rect x="184" y="160" width="100" height="22"/><rect x="288" y="160" width="100" height="22"/><rect x="392" y="160" width="100" height="22"/><rect x="496" y="160" width="104" height="22"/></g>
+      <text x="340" y="206" text-anchor="middle" font-size="11" class="t-sva">各認識が自分を知るので、音をとらえる認識が途切れずに続く</text>
+      <text x="340" y="240" text-anchor="middle" font-size="12" class="mut">実際の経験：長母音は途切れずに聞こえる → 自己認識モデルが正しい</text>
+    </svg>
+    <figcaption><b>図10-3　長母音の論証（第484cd–510偈）</b>　最も短い a でも、まばたき一回分の時間がかかり、それは多くの瞬間からなります（第494–495偈）。一瞬ずつの認識が直後の別の認識に体験されるなら、音をとらえる認識は、そのたびに途切れるはずです。</figcaption>
+  </figure>
+
+  <p>反論者はいろいろな逃げ道を探します。認識が長く続くのだ、前の音が最後まで残るのだ、すばやいので途切れないと錯覚するのだ。ダルマキールティは一つずつ退けます。たとえば、すばやさによる錯覚なら、二つの短母音を続けて発音しても長母音に聞こえるはずです（第492偈）。また、感官の認識がそんな錯覚をするなら、色や香りの認識もすべて転倒したものになってしまいます。この部分では「これはまさにそれだ」という再認も論じられ、第2章の再認の議論がここで回収されます。</p>
+
+  <div class="secno"><h3>10.7　想起からの論証（2）：別の対象に移れなくなる</h3><span class="vr">H(2)　511–537</span></div>
+  <p>二つめの不都合は、さらにユニークです。もし認識が直後の別の認識によって体験されるなら、その別の認識も、さらに別の認識によって体験される必要があります。すると、認識の認識の認識……という連鎖が途切れずに続きます。前の認識は、自分をとらえる次の認識を生み続けるからです。その間、心は別の対象に移ることができません（第511–513偈）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 200" role="img" aria-label="認識の連鎖が別の対象への移行を妨げる図">
+      <rect x="20" y="70" width="110" height="40" rx="6" class="s-sam" stroke-width="1.3"/><text x="75" y="95" text-anchor="middle" font-size="12">青の認識</text>
+      <rect x="150" y="70" width="110" height="40" rx="6" class="s-sam" stroke-width="1.3"/><text x="205" y="95" text-anchor="middle" font-size="12">その認識</text>
+      <rect x="280" y="70" width="110" height="40" rx="6" class="s-sam" stroke-width="1.3"/><text x="335" y="95" text-anchor="middle" font-size="12">その認識</text>
+      <text x="420" y="95" font-size="16" class="t-sam">……</text>
+      <g class="l-sam" stroke-width="1.3"><line x1="130" y1="90" x2="146" y2="90"/><line x1="260" y1="90" x2="276" y2="90"/><line x1="390" y1="90" x2="410" y2="90"/></g>
+      <rect x="500" y="70" width="120" height="40" rx="6" class="s-panel" stroke-width="1.2" stroke-dasharray="5 4"/><text x="560" y="95" text-anchor="middle" font-size="12">黄の認識？</text>
+      <line x1="470" y1="90" x2="494" y2="90" class="l-warn" stroke-width="2"/><line x1="476" y1="80" x2="488" y2="100" class="l-warn" stroke-width="2"/><line x1="488" y1="80" x2="476" y2="100" class="l-warn" stroke-width="2"/>
+      <text x="320" y="40" text-anchor="middle" font-size="12" class="mut">前の認識は、自分をとらえる次の認識を次々に生む（第511–513偈）</text>
+      <text x="320" y="150" text-anchor="middle" font-size="12" class="t-warn">連鎖が続くかぎり、心は黄色い花へ移れない</text>
+      <text x="320" y="172" text-anchor="middle" font-size="11" class="mut">「対象が近くに来ると連鎖が止まる」「認識の力が尽きる」などの逃げ道も退けられる（第514–537偈）</text>
+    </svg>
+    <figcaption><b>図10-4　認識の連鎖と、注意の移動（第511–537偈）</b></figcaption>
+  </figure>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>反論者の逃げ道</th><th>ダルマキールティの応答</th><th>偈</th></tr></thead>
+      <tbody>
+        <tr><th>新しい外界の対象が近くに来ると、連鎖が妨げられる</th><td>外界の対象は外的な要素で、内的な認識の連鎖を妨げられない。妨げるなら、対象が近くにあるときは自分の認識を体験できなくなる。過去を思い浮かべる思考には、妨げる対象すらない</td><td class="vr">514–517</td></tr>
+        <tr><th>認識を生む力が順に尽きていく</th><td>前の認識の力が尽きたなら、新しい対象の認識は何から生じるのか。認識は、先立つ認識なしには生じない</td><td class="vr">518–525</td></tr>
+        <tr><th>先立つ認識は、とらえられる対象となる力を失う</th><td>とらえられる対象であるとは、認識を生むことにほかならない。とらえられる対象だったものが、そうでなくなることはない</td><td class="vr">527–534</td></tr>
+        <tr><th>後の認識が、新しい対象と前の認識の両方をとらえる</th><td>そうなら二つの現れが同時に経験されるはずだが、そうではない</td><td class="vr">535–536</td></tr>
+        <tr><th>最後の認識は体験されないまま終わる</th><td>そうなら、それまでの認識も対象も、すべて体験されないことになる</td><td class="vr">537</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表10-3　「別の対象に移れない」をめぐる攻防</b>　偈番号は戸崎の番号です。</figcaption>
+  </figure>
+
+  <p>最後の第538–539偈は、認識を顕現（現れ）と呼ぶ人々に向けた結びです。対象が「顕現」によって現れると認める以上、その顕現そのものが確立されていないというのは筋が通らない。こうして PV III は、自己認識の確立をもって閉じられます。</p>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>前反省的な自己意識</h4>
+    <p>デカルトの「われ思う、ゆえにわれあり」は、思考が自分自身に確実に気づいていることを出発点にしました。しかし、思考が自分に気づくとはどういうことかは、西洋でも大きな問題になりました。</p>
+    <p>もし自己意識が、ある意識を別の意識が対象としてとらえること（反省）だとすると、その別の意識もまた別の意識にとらえられる必要があり、無限遡及に陥ります。20世紀のドイツの哲学者ディーター・ヘンリッヒらは、この「反省モデル」の困難を指摘しました。サルトルは『存在と無』で、意識は反省に先立って、すでに自分に気づいている、と論じました。これが「前反省的コギト」です。サルトルによれば、タバコの数を数えているとき、私は数えることに没頭しているが、「何をしているの」と聞かれれば即座に「数えている」と答えられる。それは、数えることが反省なしに自分に気づいていたからです。</p>
+    <p>この構図は、図10-2の二つのモデルの対立とほとんど同じです。現代の現象学者ダン・ザハヴィなどは、仏教の自己認識論をこの議論と積極的に比較しています。</p>
+    <div class="scroll"><table style="min-width:30rem;margin:.6rem 0 0">
+      <thead><tr><th></th><th>インド</th><th>西洋</th></tr></thead>
+      <tbody>
+        <tr><th>別の認識が知る（反省モデル）</th><td>Nyāya・Vaiśeṣika</td><td>ロックの「内省」、高階思考理論</td></tr>
+        <tr><th>認識は推論される</th><td>Mīmāṃsā（Kumārila）</td><td>（心を行動から推論する立場、行動主義に近い面がある）</td></tr>
+        <tr><th>自分で知る</th><td>Dignāga・Dharmakīrti</td><td>ブレンターノ、フッサール、サルトルの前反省的コギト</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="key">
+    <div class="label">重要な術語</div>
+    <dl class="gloss">
+      <dt>svasaṃvedana</dt><dd>自己認識。認識が自分自身を知ること。</dd>
+      <dt>svaprakāśa / paraprakāśa</dt><dd>自分で照らす／他によって照らされる。</dd>
+      <dt>anavasthā</dt><dd>無限遡及。</dd>
+      <dt>smṛti</dt><dd>想起。自己認識の論証の出発点。</dd>
+      <dt>mātrā</dt><dd>音の長さの単位（モーラ）。長母音の論証に使われる。</dd>
+      <dt>anubhava</dt><dd>体験。認識そのものと別ではない。</dd>
+    </dl>
+  </div>
+  <div class="key">
+    <div class="label">考えてみよう</div>
+    <ol class="q">
+      <li>音楽のメロディが一つのまとまりとして聞こえることを、二つのモデルはそれぞれどう説明するでしょうか。長母音の論証を参考にしてください。</li>
+      <li>サルトルのタバコを数える例と、ダルマキールティの想起からの論証は、どこが同じでどこが違うでしょうか。</li>
+      <li>本書全体を振り返って、自己認識の考えが出てきた箇所を挙げてみましょう。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CONCLUSION ============ -->
+<section class="col" id="ch11">
+  <div class="label">終章</div>
+  <h2 style="margin:.3rem 0 .8rem">PV III を読み終えて</h2>
+  <p>PV III の539偈を、10の章に分けて読んできました。最後に全体を見渡し、この章が何をなしとげたのかを確かめましょう。</p>
+
+  <div class="secno"><h3>11.1　全体の地図</h3></div>
+  <figure>
+    <svg viewBox="0 0 640 400" role="img" aria-label="PV III 全体の議論の流れ">
+      <g font-size="12">
+        <rect x="20" y="16" width="290" height="58" rx="8" class="s-sva" stroke-width="1.3"/>
+        <text x="34" y="38" font-weight="700">I　対象は二つ、手段も二つ</text><text x="34" y="58" class="mut">arthakriyā・個別相と一般相（第1–2章）</text>
+        <rect x="330" y="16" width="290" height="58" rx="8" class="s-sva" stroke-width="1.3"/>
+        <text x="344" y="38" font-weight="700">II　知覚には概念がない</text><text x="344" y="58" class="mut">kalpanāpoḍha・apoha（第3章）</text>
+        <rect x="20" y="96" width="290" height="58" rx="8" class="s-panel" stroke-width="1.2"/>
+        <text x="34" y="118" font-weight="700">III–V　名前・伝統との調和・対象</text><text x="34" y="138" class="mut">原子の集まり・二層構造（第4章）</text>
+        <rect x="330" y="96" width="290" height="58" rx="8" class="s-panel" stroke-width="1.2"/>
+        <text x="344" y="118" font-weight="700">VI–VII　四種の知覚／似て非なるもの</text><text x="344" y="138" class="mut">自己認識の登場・錯誤がない（第5–6章）</text>
+        <rect x="20" y="176" width="600" height="58" rx="8" class="s-sam" stroke-width="1.3"/>
+        <text x="34" y="198" font-weight="700">VIII　認識手段と結果は一つ</text><text x="34" y="218" class="mut">対象の姿をもつこと（sārūpya）が手段、対象の理解が結果（第7章）</text>
+        <rect x="20" y="256" width="600" height="128" rx="8" class="s-sam" stroke-width="1.3"/>
+        <text x="34" y="278" font-weight="700">IX　認識結果は自己認識である</text>
+        <rect x="40" y="292" width="180" height="78" rx="6" class="c-paper" style="stroke:var(--sam)" stroke-width="1"/>
+        <text x="130" y="318" text-anchor="middle" font-weight="700">1・2　唯識と外界実在論</text><text x="130" y="338" text-anchor="middle" class="mut">どちらでも結果は</text><text x="130" y="354" text-anchor="middle" class="mut">自己認識（第8章）</text>
+        <rect x="230" y="292" width="180" height="78" rx="6" class="c-paper" style="stroke:var(--sam)" stroke-width="1"/>
+        <text x="320" y="318" text-anchor="middle" font-weight="700">3　二つの側面</text><text x="320" y="338" text-anchor="middle" class="mut">八つの論証</text><text x="320" y="354" text-anchor="middle" class="mut">（第9章）</text>
+        <rect x="420" y="292" width="180" height="78" rx="6" class="c-paper" style="stroke:var(--sam)" stroke-width="1"/>
+        <text x="510" y="318" text-anchor="middle" font-weight="700">4　自分自身を知る</text><text x="510" y="338" text-anchor="middle" class="mut">想起・長母音・連鎖</text><text x="510" y="354" text-anchor="middle" class="mut">（第10章）</text>
+      </g>
+      <g class="l-ink" stroke-width="1.2"><line x1="310" y1="45" x2="330" y2="45"/><line x1="320" y1="74" x2="320" y2="96"/><line x1="310" y1="125" x2="330" y2="125"/><line x1="320" y1="154" x2="320" y2="176"/><line x1="320" y1="234" x2="320" y2="256"/></g>
+    </svg>
+    <figcaption><b>図11-1　PV III の議論の流れ</b>　前半（I–VII）は「知覚とは何か」、後半（VIII–IX）は「認識とはどういうものか」を論じます。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>11.2　大きな物語：外から内へ</h3></div>
+  <p>PV III を通して読むと、一つの大きな動きが見えてきます。出発点は、外界の個物が作用し、それが知覚を生むという、日常に近い実在論でした（第1章）。しかし議論が進むにつれて、焦点は外の対象から認識そのものへと移っていきます。知覚は対象の姿を自分の中にもつ（第7章）。その姿が外の対象に似ているかどうかは、認識の中でしか確かめられない（第8章）。認識は対象の姿と自分の姿の二つの側面をもつ（第9章）。そして認識は自分自身を知る（第10章）。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 140" role="img" aria-label="外から内へ向かう議論の流れ">
+      <defs><linearGradient id="g-out-in" x1="0" x2="1" y1="0" y2="0"><stop offset="0" style="stop-color:var(--sva-soft)"/><stop offset="1" style="stop-color:var(--sam-soft)"/></linearGradient></defs>
+      <rect x="20" y="40" width="600" height="50" rx="25" fill="url(#g-out-in)" style="stroke:var(--rule)"/>
+      <g font-size="12" font-weight="700"><text x="70" y="70" text-anchor="middle">作用する個物</text><text x="200" y="70" text-anchor="middle">概念のない知覚</text><text x="330" y="70" text-anchor="middle">対象の姿</text><text x="450" y="70" text-anchor="middle">二つの側面</text><text x="565" y="70" text-anchor="middle">自己認識</text></g>
+      <text x="70" y="114" text-anchor="middle" font-size="11" class="mut">第1–2章</text><text x="200" y="114" text-anchor="middle" font-size="11" class="mut">第3–6章</text><text x="330" y="114" text-anchor="middle" font-size="11" class="mut">第7章</text><text x="450" y="114" text-anchor="middle" font-size="11" class="mut">第8–9章</text><text x="565" y="114" text-anchor="middle" font-size="11" class="mut">第10章</text>
+      <text x="20" y="26" font-size="12" class="t-sva">外（日常の実在論）</text><text x="620" y="26" text-anchor="end" font-size="12" class="t-sam">内（唯識の立場）</text>
+    </svg>
+    <figcaption><b>図11-2　外から内へ</b>　ただしダルマキールティは、どの段階でも、日常の立場でも通じる議論をていねいに組み立てています。唯識説を前提にしなくても、多くの議論はそのまま成り立ちます。</figcaption>
+  </figure>
+
+  <div class="secno"><h3>11.3　西洋哲学との対比のまとめ</h3></div>
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>PV III の論点</th><th>比べた西洋の思想</th><th>主な違い</th><th>章</th></tr></thead>
+      <tbody>
+        <tr><th>arthakriyā と実在</th><td>プラトン『ソピステス』、プラグマティズム</td><td>実在の基準が「認識を生むこと」と結びついている</td><td>1</td></tr>
+        <tr><th>普遍の否定、apoha</th><td>普遍論争、オッカム、ソシュール</td><td>心の中の一般観念さえ「線引き」にすぎない</td><td>1, 3</td></tr>
+        <tr><th>知覚と推論の二分</th><td>カント、ラッセル</td><td>直観と概念は協力せず、別々の認識手段</td><td>1</td></tr>
+        <tr><th>推論の確実性</th><td>ヒュームの帰納の問題</td><td>因果・同一性という本質的な結びつきに根拠を求める</td><td>2</td></tr>
+        <tr><th>概念のない知覚</th><td>セラーズ「所与の神話」</td><td>所与を認めるが、判断の理由とはしない</td><td>3</td></tr>
+        <tr><th>快・苦の位置</th><td>ロックの第二性質、ブレンターノ</td><td>快は認識そのもの</td><td>5</td></tr>
+        <tr><th>表象と類似</th><td>ロック、バークリー</td><td>類似の確かめにくさから唯識へ進む</td><td>7, 8</td></tr>
+        <tr><th>唯識</th><td>バークリー、カント</td><td>規則性の源は神ではなく潜在印象</td><td>8</td></tr>
+        <tr><th>自己認識</th><td>サルトル、ヘンリッヒ、現代現象学</td><td>長母音や注意の移動という独自の論証</td><td>10</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表11-1　本書で行った比較の一覧</b></figcaption>
+  </figure>
+
+  <div class="secno"><h3>11.4　さらに学ぶために</h3></div>
+  <p>PV III をさらに深く学びたい人のために、入手しやすいものを中心に挙げます。</p>
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>分類</th><th>文献</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><th>翻訳・研究</th><td>戸崎宏正『仏教認識論の研究』上・下（大東出版社）</td><td>PV III の全訳と詳しい注。本書の科段と偈番号の基準</td></tr>
+        <tr><th>入門</th><td>桂紹隆『インド人の論理学』（中公新書）</td><td>インド論理学の歴史と考え方をやさしく解説</td></tr>
+        <tr><th>英語の研究</th><td>John D. Dunne, <i>Foundations of Dharmakīrti's Philosophy</i>（Wisdom Publications, 2004）</td><td>ダルマキールティ哲学の全体像</td></tr>
+        <tr><th>英語の研究</th><td>Georges B. J. Dreyfus, <i>Recognizing Reality</i>（SUNY Press, 1997）</td><td>ダルマキールティとチベットでの受容</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表11-2　読書案内</b></figcaption>
+  </figure>
+
+  <div class="key">
+    <div class="label">最後に考えてみよう</div>
+    <ol class="q">
+      <li>ダルマキールティの議論の中で、あなたがいちばん説得力があると思ったもの、いちばん疑問に思ったものを一つずつ挙げ、理由を説明してください。</li>
+      <li>スマートフォンの画面越しに友人の顔を見ることは「知覚」でしょうか。本書で学んだ概念（個別相、概念のない知覚、sārūpya、自己認識）を使って論じてください。</li>
+      <li>PV III の議論は、現代の人工知能が「見る」ことを考えるうえで、何か手がかりになるでしょうか。</li>
+    </ol>
+  </div>
+</section>
+
+<div class="col endnote">本書の説明は、PV III の偈の内容と、Devendrabuddhi・Śākyabuddhi の注釈を参考にまとめたもので、訳文の引用ではありません。偈番号と区分名は戸崎宏正『仏教認識論の研究』の科段に基づきます。西洋哲学との対比は理解を助けるための比較であり、影響関係を主張するものではありません。</div>
+</div>
+</body>
+</html>
