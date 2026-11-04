@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Vasubandhu の唯識論</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: 読み物の1カラム（約44em）。図と表は同じ幅の白いパネル。節はテキストの頁順に並べ、各節の頭に原典の頁番号を置く。 */
+:root{
+  --paper:#F2F4F6; --card:#FFFFFF; --ink:#17212B; --muted:#56616E; --line:#D3D9E0;
+  --accent:#0E6673; --accent-soft:#DCEEF0;
+  --jati:#B0432B; --jati-soft:#F8E2DB;
+  --ans:#2C7A4B; --ans-soft:#DDF0E3;
+  --gold:#8F6400; --gold-soft:#F6EBCF;
+  --band:#E5EAF0;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Gentium Book Plus","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+  --measure:44em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10161C; --card:#18212A; --ink:#E3E8EE; --muted:#9DA9B6; --line:#2C3946;
+  --accent:#5CC3CF; --accent-soft:#163A40; --jati:#F08C70; --jati-soft:#3F2018;
+  --ans:#6CCB92; --ans-soft:#173323; --gold:#E3B54F; --gold-soft:#3A2E12; --band:#202B36; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:800;margin-top:2.2em;margin-bottom:.5em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+i,.ia{font-family:var(--f-ia)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.cap{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;max-width:var(--measure)}
+nav.toc a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.84rem;
+  padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.toc a b{font-family:var(--f-ia);color:var(--accent);font-weight:700}
+
+/* hero */
+header.hero{padding-block:44px 8px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;letter-spacing:.01em;margin-block:.2em .15em;font-family:var(--f-ia)}
+.hero .sub{font-family:var(--f-display);font-size:1.18rem;font-weight:600;margin-bottom:1.1em}
+.sample{display:inline-block;font-size:.8rem;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:6px;padding:2px 10px;margin-bottom:1em}
+
+section{padding-block:48px 8px;border-top:1px solid var(--line);margin-top:36px}
+section.first{border-top:0;margin-top:8px}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:baseline;margin-bottom:1em}
+.sec-no{font-family:var(--f-display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--accent)}
+.sec-head .sub{grid-column:1 / -1;color:var(--muted);font-size:.92rem;margin-top:6px}
+.pg{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 7px;margin-right:6px;white-space:nowrap}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:12px;margin:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.facts dt{font-size:.76rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.facts dd{margin:4px 0 0;line-height:1.7}
+.facts small{color:var(--muted);font-size:.84rem}
+
+/* source text */
+.mula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.2em}
+.mula .src{font-family:var(--f-ia);font-size:1.08rem;line-height:1.75}
+.mula .tr{font-size:.95rem;margin-top:6px;color:var(--ink)}
+.mula .ref{font-size:.76rem;letter-spacing:.08em;color:var(--muted);font-weight:700;display:block;margin-bottom:2px}
+.mula.sutra{border-left-color:var(--gold)}
+.mula.sutra .src{font-weight:700}
+
+/* tables */
+.tbl{overflow-x:auto;margin-block:1.2em 1.6em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--band);font-weight:700;white-space:nowrap}
+td.k{font-weight:700}
+td.k i{white-space:nowrap}
+td .sm{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.tbl.min table{min-width:640px}
+tr.grp td{background:var(--band);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+tr.here td{background:var(--gold-soft)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-ia)}
+
+/* pills */
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap;line-height:1.8}
+.pill.j{background:var(--jati-soft);color:var(--jati)}
+.pill.a{background:var(--ans-soft);color:var(--ans)}
+.pill.g{background:var(--gold-soft);color:var(--gold)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+
+/* dialogue */
+.talk{display:grid;gap:10px;margin-block:1.2em}
+.talk .row{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:10px;align-items:start}
+.talk .who{font-size:.8rem;font-weight:700;padding-top:10px;text-align:right;line-height:1.4}
+.talk .who i{display:block;font-weight:400;font-size:.78rem;color:var(--muted)}
+.talk .say{border-radius:10px;padding:10px 14px;font-size:.94rem;line-height:1.7;min-width:0}
+.talk .v .say{background:var(--accent-soft)} .talk .v .who{color:var(--accent)}
+.talk .j .say{background:var(--jati-soft)} .talk .j .who{color:var(--jati)}
+.talk .u .say{background:var(--ans-soft)} .talk .u .who{color:var(--ans)}
+@media (max-width:560px){.talk .row{grid-template-columns:minmax(0,1fr)}.talk .who{text-align:left;padding-top:0}}
+
+/* chart card */
+.karte{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-block:1.2em}
+.karte div{padding:10px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.karte dt{font-size:.74rem;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.karte dt i{color:var(--accent);font-weight:700;margin-left:4px}
+.karte dd{margin:2px 0 0;font-size:.94rem;line-height:1.6}
+.karte-h{background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:.9rem;margin-top:1.4em}
+.karte-h + .karte{border-radius:0 0 10px 10px;margin-top:0}
+
+/* figures */
+figure{margin:1.6em 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+figure .scroll{overflow-x:auto}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.75}
+figcaption b{color:var(--ink)}
+svg text{font-family:"Zen Kaku Gothic New","Hiragino Sans",sans-serif}
+svg text.ia{font-family:var(--f-ia)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-acc{fill:var(--accent)} .s-jati{fill:var(--jati)} .s-ans{fill:var(--ans)} .s-gold{fill:var(--gold)}
+.s-card{fill:var(--card)} .s-paper{fill:var(--paper)} .s-accsoft{fill:var(--accent-soft)} .s-jatisoft{fill:var(--jati-soft)} .s-anssoft{fill:var(--ans-soft)} .s-goldsoft{fill:var(--gold-soft)} .s-band{fill:var(--band)}
+.st-line{stroke:var(--line)} .st-ink{stroke:var(--ink)} .st-muted{stroke:var(--muted)} .st-acc{stroke:var(--accent)} .st-jati{stroke:var(--jati)} .st-ans{stroke:var(--ans)} .st-gold{stroke:var(--gold)}
+.nofill{fill:none}
+
+/* callouts */
+.point{background:var(--gold-soft);border-radius:10px;padding:14px 18px;margin-block:1.4em}
+.point .lbl{font-size:.76rem;letter-spacing:.12em;font-weight:700;color:var(--gold);display:block;margin-bottom:2px}
+.point p:last-child{margin:0}
+
+/* quiz */
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-block:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.6em 0 0;font-size:.94rem}
+
+dl.gloss{display:grid;grid-template-columns:minmax(9em,auto) minmax(0,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden}
+dl.gloss dt,dl.gloss dd{padding:7px 12px;border-bottom:1px solid var(--line);margin:0}
+dl.gloss dt{font-family:var(--f-ia);font-style:italic;font-weight:700;color:var(--accent)}
+dl.gloss dd{font-size:.93rem}
+@media (max-width:520px){dl.gloss{grid-template-columns:minmax(0,1fr)}dl.gloss dt{border-bottom:0;padding-bottom:0}}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+footer p{margin-bottom:.6em}
+</style>
+
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.mula .src.deva{font-family:"Noto Serif Devanagari","Sanskrit Text","Mangal",serif;font-size:1.12rem;line-height:2.05;overflow-wrap:anywhere}
+.mula.sutra .src.deva{font-weight:600}
+.mula .tr{font-size:.98rem;line-height:1.95;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.mula .exp{margin-top:12px;padding:12px 14px;background:var(--band);border-radius:8px;font-size:.92rem;line-height:1.9}
+.mula .exp .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:4px}
+.mula .exp p{margin:0 0 .7em}
+.mula .exp p:last-child{margin-bottom:0}
+.mula .exp .stk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .stk .lbl{color:var(--gold)}
+.mula .exp .chk{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.mula .exp .chk .lbl{color:var(--accent)}
+.mula .nt{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.7}
+.mula .nt::before{content:"注　";font-weight:700;color:var(--gold)}
+.mula .ref{font-family:var(--f-ia)}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+</style>
+<style>
+html,body{margin:0}
+body{overflow-x:clip}
+.hero .deva-title{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,5vw,2rem);color:var(--accent);margin:0}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr));gap:10px;margin-block:1em}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.9rem;line-height:1.7}
+.howto b{display:block;font-size:.76rem;letter-spacing:.1em;color:var(--accent)}
+.tbl td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+
+/* 科段 */
+.kd-wrap{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-block:1.2em}
+ol.kd,ol.kd ol{list-style:none;margin:0;padding:0}
+ol.kd ol{margin-left:1.1em;padding-left:.9em;border-left:2px solid var(--line)}
+ol.kd li{margin:.25em 0;line-height:1.6}
+svg path[class^="st-"]{fill:none}
+ol.kd .k{display:inline-block;min-width:2.2em;margin-right:.35em;font-family:var(--f-display);font-weight:800;color:var(--accent)}
+ol.kd .ref{font-family:var(--f-ia);font-size:.78rem;color:var(--muted);margin-left:6px;white-space:nowrap}
+ol.kd > li > .h{font-family:var(--f-display);font-weight:800;font-size:1.08rem}
+ol.kd > li{padding:8px 0;border-bottom:1px dashed var(--line)}
+ol.kd > li:last-child{border-bottom:0}
+ol.kd > li > ol > li > .h{font-weight:700}
+ol.kd .who{font-size:.72rem;font-weight:700;border-radius:999px;padding:0 7px;margin-right:4px;white-space:nowrap}
+ol.kd .who.q{background:var(--jati-soft);color:var(--jati)}
+ol.kd .who.a{background:var(--ans-soft);color:var(--ans)}
+ol.kd a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+ol.kd li.here > .h{background:var(--gold-soft);border-radius:4px;padding:0 4px}
+
+/* 西洋哲学との対比 */
+.west{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:4px 10px 10px 4px;padding:12px 16px;margin-block:1.4em}
+.west .lbl{display:inline-block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--gold);margin-bottom:4px}
+.west p{margin:0 0 .7em;font-size:.95rem}
+.west p:last-child{margin-bottom:0}
+.point{background:var(--accent-soft);border-radius:10px;padding:12px 16px;margin-block:1.2em;font-size:.95rem}
+.point .lbl{display:block;font-size:.74rem;letter-spacing:.12em;font-weight:700;color:var(--accent);margin-bottom:2px}
+.point p{margin:0 0 .5em}.point p:last-child{margin:0}
+.loc{font-family:var(--f-ia);font-size:.8rem;font-weight:700;color:var(--muted);letter-spacing:.04em}
+h3 .kdno{font-family:var(--f-display);color:var(--accent);margin-right:.4em}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="目次">
+  <ol>
+    <li><a href="#plan">90分の流れ</a></li>
+    <li><a href="#l0"><b>0</b>問い</a></li>
+    <li><a href="#l1"><b>1</b>唯識とは</a></li>
+    <li><a href="#l2"><b>2</b>外界はない</a></li>
+    <li><a href="#l3"><b>3</b>八つの識</a></li>
+    <li><a href="#l4"><b>4</b>種子</a></li>
+    <li><a href="#l5"><b>5</b>三性</a></li>
+    <li><a href="#l6"><b>6</b>転依</a></li>
+    <li><a href="#l7"><b>7</b>まとめ</a></li>
+    <li><a href="#terms">用語</a></li>
+  </ol>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">90分講義　はじめての唯識</div>
+  <h1>Vasubandhu の唯識論</h1>
+  <p class="deva-title" lang="sa">विज्ञप्तिमात्रता</p>
+  <p class="sub">基本の基本を、体系として一回で見渡す</p>
+  <span class="sample">講義ノート　大学一年生向け・90分</span>
+  <p>4〜5世紀のインドの仏教思想家 Vasubandhu（世親）は、「<strong>世界はただ心の表象にすぎない</strong>」と主張しました。この講義では、彼の二つの著作『唯識二十論』と『唯識三十頌』を材料に、その考え方を<strong>六つの問い</strong>に整理して、順番に答えていきます。本の順序ではなく、理解しやすい順序で並べ直しました。</p>
+  <p>細かな用語は最小限にとどめます。目標は、講義の終わりに、次の一文を自分の言葉で説明できるようになることです。</p>
+  <div class="point"><span class="lbl">今日のゴール</span><p>外に物はなく、<strong>八つの識</strong>が<strong>種子</strong>から世界を現し出している。その仕組みを見抜いて「私」と「物」へのとらわれを離れた時、心の拠り所そのものが<strong>転換</strong>する。</p></div>
+</header>
+
+<main>
+<!-- ============ 90分の流れ ============ -->
+<section id="plan" class="first wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">90分の流れ</h2><span class="sub">六つの問いに一つずつ答える</span></div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>時間</th><th>章</th><th>問い</th><th>答えのキーワード</th></tr></thead>
+      <tbody>
+        <tr><td class="num">0–8</td><td class="k"><a href="#l0">0　導入</a></td><td>目の前の机は心の外にあるか</td><td>夢の中の机</td></tr>
+        <tr><td class="num">8–18</td><td class="k"><a href="#l1">1　唯識とは</a></td><td>Vasubandhu は何を主張したのか</td><td>表象（識）のみ、外界の対象なし</td></tr>
+        <tr><td class="num">18–35</td><td class="k"><a href="#l2">2　外界はない</a></td><td>なぜそう言えるのか</td><td>夢・餓鬼・地獄の喩え、原子の矛盾</td></tr>
+        <tr><td class="num">35–50</td><td class="k"><a href="#l3">3　八つの識</a></td><td>では、何があるのか</td><td>アーラヤ識・末那識・六識</td></tr>
+        <tr class="here"><td class="num">50–55</td><td class="k">休憩・ミニワーク</td><td colspan="2">「眠っている間、私の心はどこにあるか」を隣の人と話す</td></tr>
+        <tr><td class="num">55–67</td><td class="k"><a href="#l4">4　種子</a></td><td>外界なしに、世界はどう生まれ続けるのか</td><td>種子と熏習、共通の業</td></tr>
+        <tr><td class="num">67–79</td><td class="k"><a href="#l5">5　三性</a></td><td>結局、何が「ある」のか</td><td>遍計所執・依他起・円成実</td></tr>
+        <tr><td class="num">79–86</td><td class="k"><a href="#l6">6　転依</a></td><td>それを知ってどうなるのか</td><td>唯識という観念も捨てる、拠り所の転換</td></tr>
+        <tr><td class="num">86–90</td><td class="k"><a href="#l7">7　まとめ</a></td><td colspan="2">全体図の確認と小レポート課題</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 680 230" style="min-width:600px;width:100%" role="img" aria-label="講義全体の流れ。否定、構造、存在論、実践の四段階">
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <rect x="10" y="40" width="150" height="110" rx="12" class="s-jatisoft"/>
+        <text x="85" y="66" text-anchor="middle" font-weight="700" class="s-jati" font-size="13">否定する</text>
+        <text x="85" y="90" text-anchor="middle" class="s-ink">1 唯識とは</text>
+        <text x="85" y="110" text-anchor="middle" class="s-ink">2 外界はない</text>
+        <text x="85" y="138" text-anchor="middle" class="s-muted" font-size="11">主に『二十論』</text>
+        <rect x="182" y="40" width="150" height="110" rx="12" class="s-accsoft"/>
+        <text x="257" y="66" text-anchor="middle" font-weight="700" class="s-acc" font-size="13">組み立てる</text>
+        <text x="257" y="90" text-anchor="middle" class="s-ink">3 八つの識</text>
+        <text x="257" y="110" text-anchor="middle" class="s-ink">4 種子</text>
+        <text x="257" y="138" text-anchor="middle" class="s-muted" font-size="11">主に『三十頌』</text>
+        <rect x="354" y="40" width="150" height="110" rx="12" class="s-goldsoft"/>
+        <text x="429" y="66" text-anchor="middle" font-weight="700" class="s-gold" font-size="13">見直す</text>
+        <text x="429" y="90" text-anchor="middle" class="s-ink">5 三性</text>
+        <text x="429" y="138" text-anchor="middle" class="s-muted" font-size="11">『三十頌』</text>
+        <rect x="526" y="40" width="144" height="110" rx="12" class="s-anssoft"/>
+        <text x="598" y="66" text-anchor="middle" font-weight="700" class="s-ans" font-size="13">変わる</text>
+        <text x="598" y="90" text-anchor="middle" class="s-ink">6 転依</text>
+        <text x="598" y="138" text-anchor="middle" class="s-muted" font-size="11">『三十頌』</text>
+        <path d="M160 95 H178" class="st-muted" stroke-width="1.5" marker-end="url(#ar)"/>
+        <path d="M332 95 H350" class="st-muted" stroke-width="1.5" marker-end="url(#ar)"/>
+        <path d="M504 95 H522" class="st-muted" stroke-width="1.5" marker-end="url(#ar)"/>
+        <text x="340" y="190" text-anchor="middle" class="s-ink">外の物を否定し → 心の仕組みを組み立て → 存在を見直し → 心そのものが変わる</text>
+        <text x="340" y="212" text-anchor="middle" class="s-muted" font-size="11">全体が「苦しみからの解放」という一つの目的に向かっている</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図1　講義の全体像。</b>Vasubandhu の唯識論は、否定・構造・存在論・実践の四段で整理できる。</figcaption>
+  </figure>
+  <div class="howto">
+    <div><b>話す</b>本文。そのまま講義の語りとして使える</div>
+    <div><b>板書</b>青い「ポイント」欄。黒板やスライドに書く要点</div>
+    <div><b>問いかけ</b>赤の対話。学生に投げかける問いと、Vasubandhu 側の答え</div>
+    <div><b>西洋哲学</b>金色の枠。時間が足りなければ省略してよい</div>
+  </div>
+</section>
+
+<!-- ============ 0 ============ -->
+<section id="l0" class="wrap">
+  <div class="sec-head"><span class="sec-no">0</span><h2>導入：机は心の外にあるか</h2><span class="sub"><span class="pg">0–8分</span>常識を揺さぶる</span></div>
+  <p>目の前の机を見てください。机はたしかにそこにあります。触れば硬いし、教室の誰にでも同じ机が見えます。では、昨夜見た夢の中の机はどうでしょう。夢を見ている間は、それも同じように硬く、そこにあるように見えたはずです。</p>
+  <div class="talk">
+    <div class="row j"><div class="who">問いかけ</div><div class="say">今この瞬間が夢でないと、どうやって確かめますか。「触れば硬い」は、夢の中でも同じではないですか。</div></div>
+    <div class="row u"><div class="who">Vasubandhu</div><div class="say">夢を見ている人は、目覚めるまで、それが夢だとは気づかない。私たちが「外にある」と思っている世界も、同じかもしれない。</div></div>
+  </div>
+  <p>この問いを、およそ1600年前に徹底して考えたのが Vasubandhu です。北西インドの人で、はじめは小乗仏教（説一切有部）の教理書『倶舎論』を書き、のちに大乗の唯識派に移ったと伝えられます。唯識派の主著として、論争の書『<strong>唯識二十論</strong>』と、体系の書『<strong>唯識三十頌</strong>』を残しました。</p>
+  <dl class="facts">
+    <div><dt>人</dt><dd>Vasubandhu（世親・天親）<br><small>4〜5世紀。兄の Asaṅga（無著）とともに唯識派を確立</small></dd></div>
+    <div><dt>『唯識二十論』</dt><dd>論争の書<br><small>外界の実在を信じる人々の反論に一つずつ答える</small></dd></div>
+    <div><dt>『唯識三十頌』</dt><dd>体系の書<br><small>心の構造から悟りまでを30の詩節にまとめる</small></dd></div>
+    <div><dt>その後</dt><dd>東アジアの法相宗へ<br><small>玄奘が中国に伝え、日本では興福寺・薬師寺の法相宗の教学の土台となった</small></dd></div>
+  </dl>
+</section>
+
+<!-- ============ 1 ============ -->
+<section id="l1" class="wrap">
+  <div class="sec-head"><span class="sec-no">1</span><h2>唯識とは何か</h2><span class="sub"><span class="pg">8–18分</span>命題を一文で</span></div>
+  <p>Vasubandhu の主張は、一文で言えます。</p>
+  <div class="point"><span class="lbl">板書</span><p><strong>三界は唯識である。</strong>（『二十論』冒頭）<br>＝ 私たちが経験する世界はすべて、心の<strong>表象</strong>（<i>vijñapti</i>、識）にすぎない。心の外に、それに対応する<strong>対象</strong>（<i>artha</i>、外境）はない。</p></div>
+  <p>ここで言う「表象」とは、何かが心に「何かとして」現れていることです。青いものが見えている、音が聞こえている、という<b>現れ</b>そのものは、たしかにある。否定されるのは、その現れの向こう側に、心から独立した物が存在する、という想定のほうです。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 660 230" style="min-width:560px;width:100%" role="img" aria-label="常識の見方と唯識の見方の比較">
+      <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <text x="160" y="22" text-anchor="middle" font-weight="700" class="s-jati" font-size="13">常識（外界実在論）</text>
+        <rect x="20" y="40" width="110" height="60" rx="10" class="s-jatisoft"/><text x="75" y="66" text-anchor="middle" font-weight="700" class="s-jati">外の物</text><text x="75" y="86" text-anchor="middle" class="s-muted" font-size="11">机</text>
+        <rect x="190" y="40" width="110" height="60" rx="10" class="s-band"/><text x="245" y="66" text-anchor="middle" font-weight="700" class="s-ink">心の像</text><text x="245" y="86" text-anchor="middle" class="s-muted" font-size="11">机の見え</text>
+        <path d="M130 70 H186" class="st-muted" stroke-width="1.5" marker-end="url(#ar2)"/>
+        <text x="158" y="122" text-anchor="middle" class="s-muted" font-size="11">物が心に像を生む</text>
+        <text x="500" y="22" text-anchor="middle" font-weight="700" class="s-acc" font-size="13">唯識</text>
+        <rect x="360" y="40" width="110" height="60" rx="10" class="s-paper" stroke-dasharray="5 4" stroke-width="1.3" style="stroke:var(--muted)"/><text x="415" y="66" text-anchor="middle" class="s-muted">外の物</text><text x="415" y="86" text-anchor="middle" class="s-muted" font-size="11">（ない）</text>
+        <rect x="530" y="40" width="110" height="60" rx="10" class="s-accsoft"/><text x="585" y="66" text-anchor="middle" font-weight="700" class="s-acc">表象</text><text x="585" y="86" text-anchor="middle" class="s-muted" font-size="11">机として現れる識</text>
+        <rect x="530" y="150" width="110" height="60" rx="10" class="s-goldsoft"/><text x="585" y="176" text-anchor="middle" font-weight="700" class="s-gold">種子</text><text x="585" y="196" text-anchor="middle" class="s-muted" font-size="11">心の中の原因</text>
+        <path d="M585 150 V104" class="st-muted" stroke-width="1.5" marker-end="url(#ar2)"/>
+        <text x="520" y="132" text-anchor="end" class="s-muted" font-size="11">表象は心の中の原因から生じる</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図2　二つの見方。</b>常識では外の物が心に像を生む。唯識では、外の物はなく、表象は心の中の原因（種子）から生じる。</figcaption>
+  </figure>
+  <p>二つ注意しておきます。第一に、唯識説は「何もない」と言うのではありません。<strong>心（識）はある</strong>。ないのは心の外の物です。第二に、「私の心だけがある」（独我論）とも言いません。<strong>他の人の心もある</strong>。それぞれの心の流れが、互いに影響し合っていると考えます。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　バークリー</span>
+    <p>18世紀のバークリーは「存在するとは知覚されることである」と言い、物質の存在を否定しました。Vasubandhu とよく似ています。ただし、バークリーは、皆が同じ世界を見る理由を「<strong>神</strong>が観念を与えるから」と説明しました。Vasubandhu は神を立てず、心の中の原因（種子）だけで説明します。さらに、バークリーが認めた「実体としての自己（魂）」も、仏教は認めません（無我）。<strong>神なし・魂なしの観念論</strong>。これが唯識の個性です。</p>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="l2" class="wrap">
+  <div class="sec-head"><span class="sec-no">2</span><h2>なぜ外界はないと言えるのか</h2><span class="sub"><span class="pg">18–35分</span>主に『唯識二十論』の論証</span></div>
+  <p>当然、反論が出ます。『二十論』は、その反論に一つずつ答えていく論争の書です。ここでは代表的な三つの論点に絞ります。</p>
+
+  <h3><span class="kdno">2-1</span>反論「外界がなければ、経験に秩序がないはずだ」</h3>
+  <p>実在論者は言います。私たちの経験には秩序がある。それこそが外に物がある証拠だ、と。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>経験の秩序</th><th>例</th><th>外界なしの反例</th></tr></thead>
+      <tbody>
+        <tr><td class="k">場所が決まっている</td><td>富士山は特定の場所にしか見えない</td><td><b>夢</b>：夢の村も、夢の中の特定の場所にしか見えない</td></tr>
+        <tr><td class="k">時間が決まっている</td><td>桜はある季節にしか見えない</td><td><b>夢</b>：夢の村も、いつも見えているわけではない</td></tr>
+        <tr><td class="k">皆に同じものが見える</td><td>教室の全員に同じ机が見える</td><td><b>餓鬼</b>：同じ業をもつ餓鬼たちには、皆に同じ「膿の川」が見える</td></tr>
+        <tr><td class="k">実際に効き目がある</td><td>本物の水は渇きを癒す</td><td><b>夢精</b>：夢の相手は実在しないのに、身体に実際の結果が生じる</td></tr>
+        <tr class="here"><td class="k">四つすべて</td><td></td><td><b>地獄</b>：地獄の番人は実在しないのに、特定の時と場所に現れ、皆に見え、実際に苦しめる</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>論法は単純です。「外界がなければ秩序はない」という主張に対して、「<strong>外界がないのに秩序がある</strong>」例を一つ挙げれば、主張は崩れる。論理学でいう反例による反駁です。</p>
+  <p>特に大事なのは「皆に同じものが見える」への答えです。同じ川が、人間には水に、餓鬼には膿に、天人には甘露に見える、と仏教では言われます。見え方を決めているのは外の物ではなく、見る者の<strong>業</strong>（過去の行為が残した力）です。同じ種類の業をもつ者どうしには、同じ世界が見える。私たちに同じ机が見えるのは、私たちが「人間」という同じ種類の業を共有しているからです。</p>
+
+  <h3><span class="kdno">2-2</span>反論「物は原子からできている」</h3>
+  <p>次に Vasubandhu は、外界の物の正体とされる<strong>原子</strong>（極微）を攻撃します。外界の対象が実在するなら、それは「一つのもの」か「多くの原子」か「原子の集まり」のどれかのはずです。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 220" style="min-width:540px;width:100%" role="img" aria-label="原子のジレンマ。部分があれば原子でなく、部分がなければ集まっても大きさが生じない">
+      <g font-size="12">
+        <text x="160" y="22" text-anchor="middle" font-weight="700" class="s-ink">原子に方向の部分がある</text>
+        <circle cx="160" cy="100" r="24" class="s-accsoft"/>
+        <g class="s-band"><circle cx="160" cy="52" r="18"/><circle cx="160" cy="148" r="18"/><circle cx="112" cy="100" r="18"/><circle cx="208" cy="100" r="18"/></g>
+        <text x="160" y="104" text-anchor="middle" class="s-acc" font-size="11">原子</text>
+        <text x="160" y="196" text-anchor="middle" class="s-jati" font-size="11">東西南北に別々の面がある</text>
+        <text x="160" y="212" text-anchor="middle" class="s-jati" font-size="11">→ 分割できる → 最小単位ではない</text>
+        <text x="480" y="22" text-anchor="middle" font-weight="700" class="s-ink">原子に部分がない</text>
+        <circle cx="480" cy="100" r="24" class="s-accsoft"/>
+        <circle cx="480" cy="100" r="24" class="s-band" style="opacity:.6"/>
+        <text x="480" y="104" text-anchor="middle" class="s-acc" font-size="11">全部重なる</text>
+        <text x="480" y="196" text-anchor="middle" class="s-jati" font-size="11">隣どうしが同じ場所を占める</text>
+        <text x="480" y="212" text-anchor="middle" class="s-jati" font-size="11">→ いくつ集まっても大きさが生じない</text>
+        <line x1="320" y1="30" x2="320" y2="200" class="st-line" stroke-width="1"/>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図3　原子のジレンマ。</b>部分があれば原子ではない。部分がなければ、集まっても机の大きさにならない。どちらにしても、原子から物はつくれない。</figcaption>
+  </figure>
+  <p>原子が周りの原子と結合するなら、東の原子と接する面と西の原子と接する面は別のはずです。それなら原子には部分があり、最小単位ではありません。逆に部分がないなら、隣の原子と同じ場所を占めることになり、いくら集めても点のままで、机の大きさにはなりません。どちらの道をとっても、原子から目に見える物は組み立てられない、というジレンマです。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　ゼノンとカント</span>
+    <p>空間を占める「それ以上分けられない単位」が考えられるかという問題は、古代ギリシアのゼノンのパラドックスや、カントの「第二アンチノミー」（世界は単純な部分からなるか）でも論じられました。Vasubandhu の議論は、その仏教版です。</p>
+  </div>
+
+  <h3><span class="kdno">2-3</span>反論「今見ているのだから、物はある」</h3>
+  <p>最後の反論は、「現に見えている（知覚している）のだから、物はある」というものです。Vasubandhu は二つの答えを用意しています。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>答え</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td class="k">時間差</td><td>「これが見えている」と判断する時には、見る作用はもう過ぎ去り、対象（仏教では刹那滅）ももうない。知覚は対象の存在を直接には保証しない</td></tr>
+        <tr><td class="k">夢と目覚め</td><td>夢の中の人も「現に見えている」と思っている。夢が偽りだとわかるのは目覚めた後だけ。私たちもまだ目覚めていない（悟っていない）のかもしれない</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="point"><span class="lbl">板書</span><p>外界がない理由：<br>① 外界なしでも経験の秩序はある（夢・餓鬼・地獄）<br>② 外界の正体とされる原子は矛盾する<br>③ 「見えている」ことは外界の証明にならない（夢と目覚め）</p></div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="l3" class="wrap">
+  <div class="sec-head"><span class="sec-no">3</span><h2>では、何があるのか：八つの識</h2><span class="sub"><span class="pg">35–50分</span>主に『唯識三十頌』の心の地図</span></div>
+  <p>外に物がないなら、世界を現し出しているのは心だけです。では、その心はどんな構造をしているのか。『三十頌』は、心を<strong>三つの層・八つの識</strong>に分けます。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 660 300" style="min-width:560px;width:100%" role="img" aria-label="八識の全体図">
+      <g font-size="12">
+        <text x="20" y="22" class="s-muted" font-size="11">自覚される層（第三の転変）</text>
+        <rect x="20" y="32" width="96" height="58" rx="8" class="s-band"/><text x="68" y="57" text-anchor="middle" font-weight="700" class="s-ink">眼識</text><text x="68" y="76" text-anchor="middle" class="s-muted" font-size="11">見る</text>
+        <rect x="124" y="32" width="96" height="58" rx="8" class="s-band"/><text x="172" y="57" text-anchor="middle" font-weight="700" class="s-ink">耳識</text><text x="172" y="76" text-anchor="middle" class="s-muted" font-size="11">聞く</text>
+        <rect x="228" y="32" width="96" height="58" rx="8" class="s-band"/><text x="276" y="57" text-anchor="middle" font-weight="700" class="s-ink">鼻識</text><text x="276" y="76" text-anchor="middle" class="s-muted" font-size="11">嗅ぐ</text>
+        <rect x="332" y="32" width="96" height="58" rx="8" class="s-band"/><text x="380" y="57" text-anchor="middle" font-weight="700" class="s-ink">舌識</text><text x="380" y="76" text-anchor="middle" class="s-muted" font-size="11">味わう</text>
+        <rect x="436" y="32" width="96" height="58" rx="8" class="s-band"/><text x="484" y="57" text-anchor="middle" font-weight="700" class="s-ink">身識</text><text x="484" y="76" text-anchor="middle" class="s-muted" font-size="11">触れる</text>
+        <rect x="540" y="32" width="100" height="58" rx="8" class="s-accsoft"/><text x="590" y="57" text-anchor="middle" font-weight="700" class="s-acc">意識</text><text x="590" y="76" text-anchor="middle" class="s-muted" font-size="11">考える</text>
+        <text x="20" y="126" class="s-muted" font-size="11">自覚されない層（第二の転変）</text>
+        <rect x="20" y="136" width="620" height="54" rx="10" class="s-jatisoft"/>
+        <text x="330" y="160" text-anchor="middle" font-weight="700" class="s-jati">末那識（染汚の意・第七識）</text>
+        <text x="330" y="179" text-anchor="middle" class="s-muted" font-size="11">アーラヤ識を見つめて、いつも「これが私だ」と思い続ける</text>
+        <text x="20" y="214" class="s-muted" font-size="11">自覚されない層（第一の転変）</text>
+        <rect x="20" y="224" width="620" height="62" rx="10" class="s-goldsoft"/>
+        <text x="330" y="250" text-anchor="middle" font-weight="700" class="s-gold">アーラヤ識（阿頼耶識・第八識）</text>
+        <text x="330" y="270" text-anchor="middle" class="s-muted" font-size="11">すべての経験の種子を蔵し、身体と環境世界を現し出す。激流のように途切れず流れる</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図4　八つの識。</b>上の六つは自覚される。下の二つは自覚されないまま、休みなくはたらいている。</figcaption>
+  </figure>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>識</th><th>はたらき</th><th>ひとことで</th></tr></thead>
+      <tbody>
+        <tr><td class="k">六識</td><td>色・声・香・味・触と、あらゆる事柄を知る。善にも悪にもなる。熟睡や気絶で途切れる</td><td>ふだんの「心」</td></tr>
+        <tr><td class="k">末那識</td><td>アーラヤ識を「私」と取り違え、我見・我痴・我慢・我愛の四つの煩悩がいつもともなう</td><td>「私」をつくる心</td></tr>
+        <tr><td class="k">アーラヤ識</td><td>種子を蔵し、身体と環境世界を自覚されないまま捉え続ける。途切れない</td><td>世界の貯蔵庫</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>なぜ自覚されない識が必要なのでしょうか。理由は単純です。熟睡や気絶で意識は途切れます。それなのに目覚めると、昨日の記憶も性格も戻ってくる。途切れている間、それを保っていた何かがあるはずです。それがアーラヤ識です。また、「私」という感覚が、考えていない時にも消えないのは、末那識が意識の下でいつも「私」を立て続けているからです。</p>
+  <div class="talk">
+    <div class="row j"><div class="who">問いかけ</div><div class="say">夢も見ないほど深く眠っている間、あなたの心はどこにありますか。目覚めた時、「私」はどこから戻ってくるのでしょう。</div></div>
+    <div class="row u"><div class="who">Vasubandhu</div><div class="say">意識は止んでいる。だが、アーラヤ識は流れ続けている。目覚めた時の意識は、そこに保たれていた種子から再び生じる。</div></div>
+  </div>
+  <div class="west"><span class="lbl">西洋哲学との対比　無意識と自己</span>
+    <p>アーラヤ識は、ライプニッツの「微小表象」（意識にのぼらない無数の知覚）やフロイトの「無意識」とよく比べられます。ただしフロイトの無意識は抑圧された欲望の場所ですが、アーラヤ識は、善も悪も区別せずすべての経験を保つ中立的な基盤です。</p>
+    <p>末那識は、カントの「『我思う』は私のすべての表象に伴いうるのでなければならない」を思わせます。ただしカントにとって「私」の統一は認識の条件でしたが、唯識説にとってそれは<strong>取り違え</strong>であり、苦しみの根源です。</p>
+  </div>
+  <div class="point"><span class="lbl">板書</span><p>八識 ＝ 六識（自覚される）＋ 末那識（「私」を立てる）＋ アーラヤ識（種子の蔵）</p></div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="l4" class="wrap">
+  <div class="sec-head"><span class="sec-no">4</span><h2>種子：世界はどう生まれ続けるのか</h2><span class="sub"><span class="pg">55–67分</span>外界なしの因果</span></div>
+  <p>外界がないのに、なぜ次々と違う経験が生じるのか。神も作り手もいないのに。答えの鍵は「<strong>種子</strong>」（<i>bīja</i>）と「<strong>熏習</strong>」（<i>vāsanā</i>）です。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 560 210" style="min-width:460px;width:100%" role="img" aria-label="種子と現行の循環">
+      <defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <rect x="20" y="66" width="170" height="76" rx="10" class="s-goldsoft"/>
+        <text x="105" y="98" text-anchor="middle" font-weight="700" class="s-gold" font-size="13">種子</text>
+        <text x="105" y="120" text-anchor="middle" class="s-muted" font-size="11">アーラヤ識の中</text>
+        <rect x="370" y="66" width="170" height="76" rx="10" class="s-band"/>
+        <text x="455" y="98" text-anchor="middle" font-weight="700" class="s-ink" font-size="13">経験</text>
+        <text x="455" y="120" text-anchor="middle" class="s-muted" font-size="11">見る・聞く・考える・行う</text>
+        <path d="M190 84 C 250 34, 310 34, 368 84" class="st-muted" stroke-width="1.5" marker-end="url(#ar4)"/>
+        <text x="280" y="32" text-anchor="middle" class="s-ink">熟して経験を生む</text>
+        <path d="M370 124 C 310 174, 250 174, 192 124" class="st-muted" stroke-width="1.5" marker-end="url(#ar4)"/>
+        <text x="280" y="192" text-anchor="middle" class="s-ink">経験が新しい種子を残す（熏習）</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図5　種子と経験の循環。</b>経験は種子を残し、種子は次の経験を生む。外から統御する者は要らない。</figcaption>
+  </figure>
+  <p>「熏習」とは、お香の香りが衣に移るように、経験が心に影響を残すことです。何かを見たり、考えたり、行ったりするたびに、その痕跡が種子としてアーラヤ識に蓄えられます。条件がそろうと、種子が熟して、また新しい経験が生じる。経験が種子を、種子が経験を生む。この循環が、外界の代わりに世界を回しています。法相宗ではこれを「種子生現行、現行熏種子」とまとめました。</p>
+  <p>種子のうち、二種類が特に大事です。</p>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>種子</th><th>何が残すか</th><th>何を決めるか</th><th>喩え</th></tr></thead>
+      <tbody>
+        <tr><td class="k">業の種子</td><td>善い行い・悪い行い</td><td>次にどんな境遇・身体に生まれるか</td><td>種：種が違えば芽が違う</td></tr>
+        <tr><td class="k">二取の種子</td><td>「外に物がある」「それを見る私がいる」という主客二元のとらわれ</td><td>業の種子が実を結ぶのを助ける</td><td>水：水がなければ芽は出ない</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>こうして、死と生まれ変わり（輪廻）も、外界なしに説明できます。今の生をつくった業の力が尽きると、別の業の種子が、二取の種子に助けられて、新しいアーラヤ識を生む。変わらない魂が生まれ変わるのではなく、<strong>種子の連鎖</strong>が続いていくのです。</p>
+  <p>また、<a href="#l2">第2章</a>で見たように、皆に同じ世界が見えるのは、似た業の種子を共有しているからです。他人の心も実在し、心どうしが互いに影響し合います。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　パーフィット</span>
+    <p>20世紀のパーフィットは、人格の同一性にとって大事なのは、変わらない魂ではなく、記憶や性格の心理的な<strong>連続性</strong>だと論じ、自分の考えが仏教の無我説に近いと述べました。種子の連鎖による輪廻は、その仏教版の極端な形だと言えます。</p>
+  </div>
+  <div class="point"><span class="lbl">板書</span><p>経験 → 種子（熏習）→ 経験 → … の循環が世界を生み続ける。<br>「同じ世界」は共通の業から、「生まれ変わり」は種子の連鎖から。</p></div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="l5" class="wrap">
+  <div class="sec-head"><span class="sec-no">5</span><h2>三性：結局、何が「ある」のか</h2><span class="sub"><span class="pg">67–79分</span>同じ世界の三つのあり方</span></div>
+  <p>ここまでで、「外の物はない」「心はある」と言ってきました。これを正確に言い直すのが「<strong>三性</strong>」（三つの自性）の理論です。三つの別々のものがあるのではありません。<strong>同じ一つの経験</strong>を、三つの面から見るのです。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 620 250" style="min-width:540px;width:100%" role="img" aria-label="三性の三層図">
+      <g font-size="12">
+        <rect x="40" y="20" width="540" height="58" rx="10" class="s-jatisoft" stroke-dasharray="6 4" stroke-width="1.5" style="stroke:var(--jati)"/>
+        <text x="310" y="44" text-anchor="middle" font-weight="700" class="s-jati" font-size="13">遍計所執性：「外の物」と「それを見る私」</text>
+        <text x="310" y="64" text-anchor="middle" class="s-muted" font-size="11">心が描き出しただけで、存在しない（点線）</text>
+        <rect x="40" y="96" width="540" height="58" rx="10" class="s-accsoft"/>
+        <text x="310" y="120" text-anchor="middle" font-weight="700" class="s-acc" font-size="13">依他起性：縁から生じている心（八識）</text>
+        <text x="310" y="140" text-anchor="middle" class="s-muted" font-size="11">種子などの条件に依って生じる。仮にある</text>
+        <rect x="40" y="172" width="540" height="58" rx="10" class="s-goldsoft"/>
+        <text x="310" y="196" text-anchor="middle" font-weight="700" class="s-gold" font-size="13">円成実性：心が、描き出された二元を常に離れていること</text>
+        <text x="310" y="216" text-anchor="middle" class="s-muted" font-size="11">心の本当のあり方（真如）。変わらない</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図6　三性。</b>実際にはたらいているのは中央の心。その上に「物と私」の構図が描き出され、その構図を取り去ったあり方が真如。</figcaption>
+  </figure>
+  <div class="tbl min">
+    <table>
+      <thead><tr><th>三性</th><th>存在のしかた</th><th>縄と蛇の喩え（後の伝統）</th></tr></thead>
+      <tbody>
+        <tr><td class="k">遍計所執性 <span class="sm">parikalpita</span></td><td>ない</td><td>暗がりで縄を見間違えた「蛇」</td></tr>
+        <tr><td class="k">依他起性 <span class="sm">paratantra</span></td><td>仮にある</td><td>縄（麻から縁によって作られたもの）</td></tr>
+        <tr><td class="k">円成実性 <span class="sm">pariniṣpanna</span></td><td>本当にある</td><td>縄の本質である麻</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>蛇に驚いて逃げ出した人も、明かりをつければ、それが縄だったとわかります。蛇は最初からいなかった。縄は縁によってそこにある。そして縄の本当の姿は麻だった。私たちが「外にある物」「それを見る私」と思っているもの（蛇）は、心（縄）の上に描き出されたものにすぎない。そして心の本当のあり方（麻）は、その描き出しを最初から離れている、というわけです。</p>
+  <p>この見方を使うと、仏教の「一切は空（無自性）である」という教えとも矛盾しません。遍計所執性は「特徴そのものがない」という意味で、依他起性は「自力で生じたのではない」という意味で、円成実性は「無自性であることそのもの」という意味で、それぞれ無自性だからです。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　カントの現象と物自体</span>
+    <p>同じ世界を層に分けて見る発想は、カントの「現象」と「物自体」の区別に似ています。ただし、カントの物自体は人間には決して知りえないものでしたが、円成実性（真如）は、修行によって<strong>直観できる</strong>ものとされます。</p>
+  </div>
+  <div class="point"><span class="lbl">板書</span><p>三性 ＝ 同じ経験の三つの面<br>描かれた「物と私」（ない）／描いている心（仮にある）／心の本当のあり方（真如）</p></div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section id="l6" class="wrap">
+  <div class="sec-head"><span class="sec-no">6</span><h2>転依：それを知ってどうなるのか</h2><span class="sub"><span class="pg">79–86分</span>唯識という観念も捨てる</span></div>
+  <p>唯識の目的は、世界の仕組みを説明することではなく、<strong>苦しみからの解放</strong>です。「私」と「物」へのとらわれこそが苦しみの根なので、それが心の描き出したものだと見抜けば、とらわれは解ける。ただし、そこには落とし穴があります。</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 640 190" style="min-width:540px;width:100%" role="img" aria-label="修行の三段階">
+      <defs><marker id="ar6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <rect x="14" y="20" width="186" height="110" rx="10" class="s-jatisoft"/>
+        <text x="107" y="46" text-anchor="middle" font-weight="700" class="s-jati">① ふつうの状態</text>
+        <text x="107" y="72" text-anchor="middle" class="s-ink">「私が机を見る」</text>
+        <text x="107" y="100" text-anchor="middle" class="s-muted" font-size="11">外の物を捉えている</text>
+        <path d="M204 75 H 222" class="st-muted" stroke-width="1.5" marker-end="url(#ar6)"/>
+        <rect x="227" y="20" width="186" height="110" rx="10" class="s-band"/>
+        <text x="320" y="46" text-anchor="middle" font-weight="700" class="s-ink">② 落とし穴</text>
+        <text x="320" y="72" text-anchor="middle" class="s-ink">「これは唯識だ」</text>
+        <text x="320" y="100" text-anchor="middle" class="s-muted" font-size="11">「唯識」という観念を捉えている</text>
+        <path d="M417 75 H 435" class="st-muted" stroke-width="1.5" marker-end="url(#ar6)"/>
+        <rect x="440" y="20" width="186" height="110" rx="10" class="s-goldsoft"/>
+        <text x="533" y="46" text-anchor="middle" font-weight="700" class="s-gold">③ 唯識性にとどまる</text>
+        <text x="533" y="72" text-anchor="middle" class="s-ink">何も捉えない</text>
+        <text x="533" y="100" text-anchor="middle" class="s-muted" font-size="11">捉えられるものがなく、捉える私もない</text>
+        <text x="320" y="166" text-anchor="middle" class="s-muted" font-size="11">『三十頌』第26〜28偈</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図7　修行の三段階。</b>「すべては唯識だ」と心に思い浮かべているうちは、まだその観念を対象として捉えている。</figcaption>
+  </figure>
+  <p>「すべては心の表象だ」と頭で考えている時、その「唯識」という考え自体が、心の前に置かれた対象になっています。これでは、捉えるもの（私）と捉えられるもの（観念）の構図は残ったままです。本当に唯識性にとどまるのは、<strong>捉えられるものが何もなくなり、したがって捉える私もなくなった</strong>時です。この主客の区別のない智を「無分別智」と呼びます。</p>
+  <p>その時、心の拠り所であるアーラヤ識そのものが根本から転換します。これを「<strong>転依</strong>」（<i>āśrayaparāvṛtti</i>、拠り所の転換）と言います。汚れた種子の蔵だった心が、清浄な智の拠り所に生まれ変わる。煩悩を断って輪廻を離れる「解脱」と、さらに知の障りまで断って得られる仏の「法身」が、その果です。</p>
+  <div class="west"><span class="lbl">西洋哲学との対比　ウィトゲンシュタインのはしご</span>
+    <p>ウィトゲンシュタインは『論理哲学論考』の終わりで、自分の命題は、登り終えたら投げ捨てるべき<strong>はしご</strong>だと書きました。「唯識」という理論も、外界へのとらわれを外すための道具です。道具に執着すれば、それが新しいとらわれになる。仏教では古くから、これを「川を渡ったら筏は捨てよ」という喩えで語ってきました。</p>
+  </div>
+  <div class="point"><span class="lbl">板書</span><p>「唯識」という観念も捨てた時 → 無分別智 → 転依（心の拠り所が転換する）→ 解脱・法身</p></div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section id="l7" class="wrap">
+  <div class="sec-head"><span class="sec-no">7</span><h2>まとめ</h2><span class="sub"><span class="pg">86–90分</span>全体図と課題</span></div>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 680 300" style="min-width:600px;width:100%" role="img" aria-label="唯識論の全体のまとめの図">
+      <defs><marker id="ar7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" class="s-muted"/></marker></defs>
+      <g font-size="12">
+        <rect x="190" y="10" width="300" height="50" rx="10" class="s-jatisoft"/>
+        <text x="340" y="31" text-anchor="middle" font-weight="700" class="s-jati">外の物はない（1・2）</text>
+        <text x="340" y="50" text-anchor="middle" class="s-muted" font-size="11">夢・餓鬼・地獄、原子の矛盾</text>
+        <path d="M340 60 V78" class="st-muted" stroke-width="1.5" marker-end="url(#ar7)"/>
+        <rect x="40" y="82" width="280" height="64" rx="10" class="s-accsoft"/>
+        <text x="180" y="106" text-anchor="middle" font-weight="700" class="s-acc">八つの識（3）</text>
+        <text x="180" y="128" text-anchor="middle" class="s-muted" font-size="11">六識・末那識・アーラヤ識</text>
+        <rect x="360" y="82" width="280" height="64" rx="10" class="s-goldsoft"/>
+        <text x="500" y="106" text-anchor="middle" font-weight="700" class="s-gold">種子の循環（4）</text>
+        <text x="500" y="128" text-anchor="middle" class="s-muted" font-size="11">経験 ⇄ 種子、共通の業、輪廻</text>
+        <path d="M320 114 H356" class="st-muted" stroke-width="1.5" marker-end="url(#ar7)"/>
+        <path d="M356 122 H324" class="st-muted" stroke-width="1.5" marker-end="url(#ar7)"/>
+        <path d="M340 146 V166" class="st-muted" stroke-width="1.5" marker-end="url(#ar7)"/>
+        <rect x="190" y="170" width="300" height="50" rx="10" class="s-band"/>
+        <text x="340" y="191" text-anchor="middle" font-weight="700" class="s-ink">三性（5）</text>
+        <text x="340" y="210" text-anchor="middle" class="s-muted" font-size="11">描かれた物と私／描く心／心の真如</text>
+        <path d="M340 220 V238" class="st-muted" stroke-width="1.5" marker-end="url(#ar7)"/>
+        <rect x="190" y="242" width="300" height="50" rx="10" class="s-anssoft"/>
+        <text x="340" y="263" text-anchor="middle" font-weight="700" class="s-ans">転依（6）</text>
+        <text x="340" y="282" text-anchor="middle" class="s-muted" font-size="11">唯識という観念も捨て、心の拠り所が転換する</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption><b>図8　今日の全体図。</b>外界の否定から始まり、心の構造と因果、存在の三つのあり方を経て、心そのものの転換で終わる。</figcaption>
+  </figure>
+  <div class="point"><span class="lbl">一文でまとめると</span><p>外に物はなく、<strong>八つの識</strong>が<strong>種子</strong>から世界を現し出している。その仕組みを見抜いて「私」と「物」へのとらわれを離れた時、心の拠り所そのものが<strong>転換</strong>する。</p></div>
+  <h3>小レポート課題（いずれか一つ、400字程度）</h3>
+  <div class="tbl min">
+    <table>
+      <tbody>
+        <tr><td class="num">1</td><td>夢の喩えは、外界がないことを示すのにどこまで有効か。夢と目覚めている時の違いを一つ挙げ、それが Vasubandhu の議論を崩すかどうか論じなさい。</td></tr>
+        <tr><td class="num">2</td><td>Vasubandhu は、他人の心の存在は認めるが、物の存在は認めない。この線引きは一貫しているか。</td></tr>
+        <tr><td class="num">3</td><td>「私」という感覚は、意識の下で末那識がつくり続けているとされる。もしそうなら、「私」へのとらわれは、頭で理解するだけでなくせるだろうか。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>次に読むもの</h3>
+  <p>このサイトには、二つの著作をそれぞれ詳しく解説したページがあります。今日の内容を本の順序で確かめたい人は、次へ進んでください。</p>
+  <ul>
+    <li><a href="vimsika-kaisetsu.html">『唯識二十論』入門</a>：論争の組み立てを、科段・図・表で（今日の第1・2章）</li>
+    <li><a href="trimsika-kaisetsu.html">『唯識三十頌』入門</a>：八識・心所・三性・転依を、Sthiramati の注釈に沿って（今日の第3〜6章）</li>
+  </ul>
+</section>
+
+<section id="terms" class="wrap">
+  <div class="sec-head"><h2 style="grid-column:1/-1">今日の用語</h2><span class="sub">これだけは覚えておきたい15語</span></div>
+  <dl class="gloss">
+    <dt>vijñapti / vijñāna</dt><dd>表象／識。心に何かが現れていること</dd>
+    <dt>vijñaptimātra</dt><dd>唯識。ただ表象のみ</dd>
+    <dt>artha</dt><dd>外境。心の外にあるとされる対象</dd>
+    <dt>karman</dt><dd>業。行為と、それが残す力</dd>
+    <dt>paramāṇu</dt><dd>極微。物質の最小単位とされる原子</dd>
+    <dt>ālayavijñāna</dt><dd>阿頼耶識（アーラヤ識、第八識）。種子の蔵</dd>
+    <dt>kliṣṭaṃ manaḥ</dt><dd>末那識（染汚の意、第七識）。「私」を立てる心</dd>
+    <dt>bīja</dt><dd>種子。経験を生む潜在的な原因</dd>
+    <dt>vāsanā</dt><dd>熏習（習気）。経験が心に種子を残すこと</dd>
+    <dt>parikalpita</dt><dd>遍計所執性。描き出されただけの「物と私」</dd>
+    <dt>paratantra</dt><dd>依他起性。縁から生じる心</dd>
+    <dt>pariniṣpanna</dt><dd>円成実性。心の本当のあり方（真如）</dd>
+    <dt>tathatā</dt><dd>真如。いつもそのとおりであること</dd>
+    <dt>nirvikalpajñāna</dt><dd>無分別智。主客の区別のない智</dd>
+    <dt>āśrayaparāvṛtti</dt><dd>転依。心の拠り所の転換</dd>
+  </dl>
+</section>
+
+<footer class="wrap">
+  <p><strong>このページについて</strong>　Vasubandhu（世親）の唯識論を、大学一年生向けの90分講義のために、著作の順序によらず体系として整理したもの。外界の否定は主に『唯識二十論』、心の構造・種子・三性・転依は主に『唯識三十頌』とその注釈による。</p>
+  <p>八識の呼び名（第七識・第八識）、「種子生現行、現行熏種子」の定式、縄と蛇と麻の喩えは、後の伝統（法相宗など）による説明で、Vasubandhu 自身の言葉ではない。西洋哲学との対比は理解の手がかりとして添えたもので、思想の影響関係を主張するものではない。</p>
+</footer>
+</main>
+</body>
+</html>
