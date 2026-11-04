@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="大学1年生向け90分講義：ダルマキールティの知覚論の基本を、図と表と西洋哲学との対比で解説。">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>90分でわかるダルマキールティの知覚論</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap">
+<style>
+/* Layout: one reading column (~38em) for a textbook; figures and tables may widen to 52em. Colors encode the book's core contrast: svalakṣaṇa/pratyakṣa = green, sāmānyalakṣaṇa/anumāna = ochre, Western comparison = indigo. */
+:root{
+  --paper:#f7f8f6; --ink:#1c2128; --muted:#5b6470; --rule:#d9ddd8; --panel:#eef1ed;
+  --sva:#1f6f5c; --sva-soft:#dcefe8;
+  --sam:#a2651a; --sam-soft:#f6e8d2;
+  --west:#3a4a8c; --west-soft:#e3e7f6;
+  --warn:#9b2f2f;
+  --f-disp:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+  --f-iast:"Source Serif 4","Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#15181c; --ink:#e3e6e2; --muted:#9aa3ad; --rule:#2e343b; --panel:#1d2227;
+  --sva:#5cc3a6; --sva-soft:#173a31; --sam:#e0a457; --sam-soft:#3b2c18;
+  --west:#9aa9ec; --west-soft:#232a4a; --warn:#e58a8a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#15181c; --ink:#e3e6e2; --muted:#9aa3ad; --rule:#2e343b; --panel:#1d2227;
+  --sva:#5cc3a6; --sva-soft:#173a31; --sam:#e0a457; --sam-soft:#3b2c18;
+  --west:#9aa9ec; --west-soft:#232a4a; --warn:#e58a8a; color-scheme:dark}
+
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.95;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:2.5rem 5rem}
+.book{max-width:52rem;margin:0 auto}
+.col{max-width:38rem;margin-inline:auto}
+i[lang],.ia{font-family:var(--f-iast);font-style:italic;font-size:1.04em;letter-spacing:.005em}
+h1,h2,h3,h4{font-family:var(--f-disp);text-wrap:balance;line-height:1.45;margin:0}
+h1{font-size:clamp(1.9rem,5vw,2.8rem);font-weight:800}
+h2{font-size:1.65rem;font-weight:700}
+h3{font-size:1.25rem;font-weight:700}
+h4{font-size:1.05rem;font-weight:700}
+p{margin:0 0 1.05em}
+.label{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-family:var(--f-body);font-weight:700}
+.vr{font-family:var(--f-iast);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+section{margin-top:3.2rem}
+.secno{display:flex;gap:.8rem;align-items:baseline;flex-wrap:wrap;border-top:1px solid var(--rule);padding-top:1rem;margin-bottom:1rem}
+
+/* cover */
+.cover{display:grid;gap:1rem;padding-bottom:2rem;border-bottom:2px solid var(--ink)}
+.cover .sub{font-family:var(--f-disp);font-size:1.15rem;color:var(--muted)}
+.cover .note{font-size:.88rem;color:var(--muted);max-width:38rem}
+
+/* TOC */
+.toc{display:grid;gap:0;margin-top:1rem;font-size:.95rem}
+.toc .row{display:grid;grid-template-columns:4.2rem 1fr auto;gap:.8rem;padding:.55rem 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.toc .row.here{background:var(--sva-soft);margin-inline:-.6rem;padding-inline:.6rem;border-radius:4px}
+.toc .no{font-family:var(--f-disp);font-weight:700;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+.toc a.no:hover,.toc a.no:focus-visible{color:var(--sva);border-color:var(--sva)}
+.totop{display:inline-block;margin-top:2rem;font-size:.8rem;color:var(--muted)}
+.toc .ttl{min-width:0}
+.toc .ttl small{display:block;color:var(--muted);font-size:.84rem;line-height:1.6}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;padding:.05rem .45rem;border-radius:3px;background:var(--sva);color:var(--paper);margin-left:.4rem;vertical-align:.1em}
+
+/* proportional verse bar */
+.vbar{display:flex;height:2.4rem;border-radius:3px;overflow:hidden;border:1px solid var(--rule);margin-top:.6rem}
+.vbar>div{display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--ink);border-right:1px solid var(--paper);min-width:0;overflow:hidden;white-space:nowrap}
+.vbar .on{background:var(--sva);color:var(--paper)}
+.vbar .off{background:var(--panel)}
+.vbar .b2{background:var(--sam-soft)}
+.vscale{display:flex;justify-content:space-between;font-family:var(--f-iast);font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.vlegend{display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;font-size:.8rem;color:var(--muted);margin-top:.5rem}
+
+/* figures & tables */
+figure{margin:2rem 0;padding:0}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:.6rem;line-height:1.7}
+figcaption b{color:var(--ink);font-family:var(--f-disp)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+svg{display:block;width:100%;height:auto;max-width:100%}
+svg text{font-family:var(--f-body);fill:var(--ink)}
+svg .ia-t{font-family:var(--f-iast);font-style:italic}
+svg .mut{fill:var(--muted)}
+svg .s-sva{fill:var(--sva-soft);stroke:var(--sva)}
+svg .s-sam{fill:var(--sam-soft);stroke:var(--sam)}
+svg .s-west{fill:var(--west-soft);stroke:var(--west)}
+svg .s-panel{fill:var(--panel);stroke:var(--rule)}
+svg .c-sva{fill:var(--sva)} svg .c-sam{fill:var(--sam)} svg .c-west{fill:var(--west)} svg .c-ink{fill:var(--ink)} svg .c-paper{fill:var(--paper)}
+svg .l-sva{stroke:var(--sva);fill:none} svg .l-sam{stroke:var(--sam);fill:none} svg .l-ink{stroke:var(--ink);fill:none} svg .l-mut{stroke:var(--muted);fill:none} svg .l-warn{stroke:var(--warn);fill:none}
+svg .t-sva{fill:var(--sva)} svg .t-sam{fill:var(--sam)} svg .t-west{fill:var(--west)} svg .t-warn{fill:var(--warn)}
+
+table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.65}
+th,td{padding:.55rem .7rem;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+thead th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);border-bottom:2px solid var(--ink);font-weight:700}
+tbody th{font-weight:700;white-space:nowrap}
+td.sva,th.sva{background:var(--sva-soft)} td.sam,th.sam{background:var(--sam-soft)}
+.tw{min-width:34rem}
+
+/* boxes */
+.west{background:var(--west-soft);border-radius:6px;padding:1.1rem 1.25rem;margin:2rem 0}
+.west .label{color:var(--west)}
+.west h4{margin:.2rem 0 .6rem}
+.west p:last-child{margin-bottom:0}
+.key{border:1px solid var(--rule);border-radius:6px;padding:1rem 1.2rem;margin:1.6rem 0;font-size:.95rem}
+.key p:last-child{margin-bottom:0}
+.voice{display:grid;grid-template-columns:auto 1fr;gap:.4rem .8rem;margin:1.3rem 0;font-size:.95rem}
+.voice .who{font-weight:700;font-size:.8rem;padding:.15rem .5rem;border-radius:3px;height:fit-content;white-space:nowrap}
+.voice .op{background:var(--panel);color:var(--muted)}
+.voice .dk{background:var(--sva);color:var(--paper)}
+.voice p{margin:0}
+dl.gloss{display:grid;grid-template-columns:minmax(7rem,max-content) 1fr;gap:.45rem 1.2rem;font-size:.92rem}
+dl.gloss dt{font-family:var(--f-iast);font-style:italic;font-weight:600}
+dl.gloss dd{margin:0;min-width:0}
+ol.q{padding-left:1.4rem;display:grid;gap:.6rem}
+.endnote{font-size:.82rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:1rem;margin-top:3rem}
+@media (max-width:520px){
+  .toc .row{grid-template-columns:3.2rem 1fr}
+  .toc .row .vr{grid-column:2}
+  dl.gloss{grid-template-columns:1fr} dl.gloss dd{margin-bottom:.4rem}
+  .voice{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="book">
+
+<header class="cover">
+  <div class="label">大学1年生のためのインド哲学 ・ 90分の講義</div>
+  <h1>90分でわかるダルマキールティの知覚論</h1>
+  <div class="sub">「見る」と「考える」はどう違うのか</div>
+  <p class="note">7世紀インドの仏教哲学者ダルマキールティ（Dharmakīrti）が『Pramāṇavārttika』第3章で論じた知覚の理論から、基本の基本だけを取り出しました。90分の授業1回分を、15分ずつ6つのパートに分けています。サンスクリットの術語は IAST で示します。</p>
+</header>
+
+<section class="col">
+  <div class="label">今日の流れ</div>
+  <div class="vbar" role="img" aria-label="90分の時間配分" style="margin-top:.8rem">
+    <div class="on" style="flex:1">1 問い</div>
+    <div class="b2" style="flex:1">2 二つの世界</div>
+    <div class="on" style="flex:1">3 定義</div>
+    <div class="b2" style="flex:1">4 ことば</div>
+    <div class="on" style="flex:1">5 自己認識</div>
+    <div class="b2" style="flex:1">6 まとめ</div>
+  </div>
+  <div class="vscale"><span>0分</span><span>30分</span><span>60分</span><span>90分</span></div>
+
+  <div class="key" style="margin-top:1.6rem">
+    <div class="label">今日のゴール：授業の終わりに、この三つに答えられるようになる</div>
+    <ol class="q">
+      <li>ダルマキールティにとって、本当に存在するものとは何か。</li>
+      <li>知覚とは何か。推論やことばによる理解とどう違うのか。</li>
+      <li>私たちが「見ている」とき、心の中では何が起きているのか。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- PART 1 -->
+<section class="col" id="p1">
+  <div class="secno"><h3>1　問い：リンゴを「見る」とはどういうことか</h3><span class="vr">0–15分</span></div>
+  <p>机の上にリンゴがあります。あなたはそれを見て、すぐに「リンゴだ」と思います。ふだん、この二つは一つの経験のように感じられます。でもダルマキールティは、ここに二つのまったく違うはたらきがあると考えました。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 200" role="img" aria-label="見ることと考えることの二段階">
+      <rect x="20" y="60" width="130" height="70" rx="10" class="s-panel" stroke-width="1.2"/>
+      <circle cx="85" cy="92" r="20" style="fill:#c0392b"/>
+      <text x="85" y="150" text-anchor="middle" font-size="12" class="mut">机の上のこのリンゴ</text>
+      <rect x="230" y="60" width="160" height="70" rx="10" class="s-sva" stroke-width="1.5"/>
+      <text x="310" y="90" text-anchor="middle" font-size="15" font-weight="700" class="t-sva">見る</text>
+      <text x="310" y="112" text-anchor="middle" font-size="12">赤い・丸い・つやがある…</text>
+      <rect x="470" y="60" width="150" height="70" rx="10" class="s-sam" stroke-width="1.5"/>
+      <text x="545" y="90" text-anchor="middle" font-size="15" font-weight="700" class="t-sam">考える</text>
+      <text x="545" y="112" text-anchor="middle" font-size="12">「これはリンゴだ」</text>
+      <line x1="150" y1="95" x2="224" y2="95" class="l-ink" stroke-width="1.6"/><polygon points="220,89 230,95 220,101" class="c-ink"/>
+      <line x1="390" y1="95" x2="464" y2="95" class="l-ink" stroke-width="1.6"/><polygon points="460,89 470,95 460,101" class="c-ink"/>
+      <text x="310" y="40" text-anchor="middle" font-size="12" class="t-sva">知覚 pratyakṣa：ことばがない</text>
+      <text x="545" y="40" text-anchor="middle" font-size="12" class="t-sam">概念 vikalpa：ことばがある</text>
+      <text x="320" y="182" text-anchor="middle" font-size="12" class="mut">すばやく続けて起こるので、ふだんは一つの経験に感じられる</text>
+    </svg>
+    <figcaption><b>図1　見ることと考えること</b>　見ることにはことばが入っておらず、「リンゴだ」とわかるのは、その直後の考えるはたらきです。</figcaption>
+  </figure>
+
+  <p>ちょっとした実験をしてみましょう。読めない外国の文字（たとえばアラビア文字）を見るとき、形はちゃんと見えています。でも、それが何という文字なのかはわかりません。逆に、目を閉じて「リンゴ」ということばを聞くと、意味はわかりますが、目の前にあの赤さは見えません。<strong>見えることと、わかることは別のこと</strong>なのです。これがダルマキールティの知覚論の出発点です。</p>
+
+  <p>インドの哲学者たちは、正しく知るための手段を <i lang="sa-Latn">pramāṇa</i>（認識手段）と呼び、それがいくつあるかを論じました。ダルマキールティの答えは「二つだけ」。知覚（<i lang="sa-Latn">pratyakṣa</i>）と推論（<i lang="sa-Latn">anumāna</i>）です。ことばによる理解は推論の側に入ります。</p>
+</section>
+
+<!-- PART 2 -->
+<section class="col" id="p2">
+  <div class="secno"><h3>2　世界には二種類のものがある</h3><span class="vr">15–30分</span></div>
+  <p>なぜ認識手段は二つなのか。ダルマキールティの答えは、知られる対象が二種類しかないから、です。</p>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th></th><th class="sva">svalakṣaṇa（個別相）</th><th class="sam">sāmānyalakṣaṇa（一般相）</th></tr></thead>
+      <tbody>
+        <tr><th>例</th><td class="sva">このリンゴ、いま燃えているこの火</td><td class="sam">「リンゴというもの」「赤さ」「火一般」</td></tr>
+        <tr><th>はたらき</th><td class="sva">かじれる、温める、認識を生む</td><td class="sam">何も生まない</td></tr>
+        <tr><th>ほかとの関係</th><td class="sva">ほかのどれとも違う、唯一のもの</td><td class="sam">多くのものに共通する</td></tr>
+        <tr><th>存在のしかた</th><td class="sva">本当に存在する（<i lang="sa-Latn">paramārthasat</i>）</td><td class="sam">約束事として存在する（<i lang="sa-Latn">saṃvṛtisat</i>）</td></tr>
+        <tr><th>知る手段</th><td class="sva">知覚</td><td class="sam">推論・ことば</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表1　二種類の対象</b>　この表が今日の授業の土台です。</figcaption>
+  </figure>
+
+  <p>分ける基準は <i lang="sa-Latn">arthakriyā</i>、つまり「はたらき（効果）を生む力があるか」です。のどが渇いたとき、渇きをいやしてくれるのは、目の前のこのコップの水です。「水というもの」を飲むことはできません。ダルマキールティは、はたらく力をもつものだけが本当に存在する、と考えました。</p>
+
+  <div class="key">
+    <div class="label">ポイント</div>
+    <p>「リンゴ一般」や「赤さ」は、私たちの心が多くの個物をまとめるために作った道具です。役に立つ道具ですが、それ自体は世界の中で何もしません。</p>
+  </div>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>普遍論争</h4>
+    <p>「人間」「赤さ」のような普遍が実在するかどうかは、西洋でも中世に大論争になりました（普遍論争）。普遍は実在するという実在論に対して、オッカムは、実在するのは個物だけで、普遍は名前や記号にすぎないと主張しました（唯名論）。ダルマキールティは徹底した唯名論の立場です。インドで実在論の側に立ったのは、普遍（<i lang="sa-Latn">jāti</i>）を永遠の実在とした Nyāya・Vaiśeṣika 学派でした。</p>
+  </div>
+</section>
+
+<!-- PART 3 -->
+<section class="col" id="p3">
+  <div class="secno"><h3>3　知覚の定義</h3><span class="vr">30–45分</span></div>
+  <p>ダルマキールティの先生筋にあたる Dignāga は、知覚を「概念的思考を離れたもの（<i lang="sa-Latn">kalpanāpoḍha</i>）」と定義しました。ダルマキールティはこれに「錯誤がない（<i lang="sa-Latn">abhrānta</i>）」という条件を加えます。</p>
+
+  <div class="key" style="text-align:center;font-family:var(--f-disp);font-size:1.15rem;line-height:1.8">
+    知覚とは、<span style="color:var(--sva)">概念を離れ</span>、<span style="color:var(--sva)">錯誤のない</span>認識である。
+  </div>
+
+  <h4>条件1：概念を離れている</h4>
+  <p>概念的思考（<i lang="sa-Latn">kalpanā</i>）とは、見たものに名前や種類を結びつけるはたらきです。知覚にはそれがありません。ダルマキールティは、自分で確かめてみよと言います。何も考えず、心を静めていても、目には色や形が見えています。そのときの見ることには、ことばは入っていません。</p>
+
+  <h4>条件2：錯誤がない</h4>
+  <p>目の病気の人には、月が二つに見えることがあります。この見え方にも概念はありません。でも、それに従っても二つの月にはたどりつけません。人を欺く認識です。だから、概念がないだけでは知覚とは言えず、錯誤がないことも必要なのです。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 230" role="img" aria-label="二つの条件による認識の分類">
+      <rect x="20" y="20" width="600" height="190" rx="10" class="s-panel" stroke-width="1.2"/>
+      <text x="320" y="40" text-anchor="middle" font-size="12" class="mut">すべての認識</text>
+      <rect x="40" y="55" width="330" height="135" rx="10" class="s-sva" stroke-width="1.4"/>
+      <text x="58" y="78" font-size="13" font-weight="700" class="t-sva">概念がない</text>
+      <rect x="230" y="55" width="370" height="135" rx="10" fill="none" class="l-ink" stroke-width="1.4" stroke-dasharray="6 4"/>
+      <text x="584" y="78" text-anchor="end" font-size="13" font-weight="700">錯誤がない</text>
+      <text x="300" y="122" text-anchor="middle" font-size="15" font-weight="700" class="t-sva">知覚</text>
+      <text x="130" y="122" text-anchor="middle" font-size="13" font-weight="700" class="t-warn">二つの月</text>
+      <text x="130" y="142" text-anchor="middle" font-size="11">概念はないが欺く</text>
+      <text x="490" y="122" text-anchor="middle" font-size="13" font-weight="700" class="t-sam">正しい推論</text>
+      <text x="490" y="142" text-anchor="middle" font-size="11">欺かないが概念的</text>
+      <text x="44" y="204" font-size="11" class="mut">外側：陽炎を水と思う、ただの思い込み など</text>
+    </svg>
+    <figcaption><b>図2　知覚は二つの条件が重なるところ</b>　推論は厳密には対象をあるがままにとらえていませんが、人を欺かないので、別の種類の認識手段として認められます。</figcaption>
+  </figure>
+
+  <h4>知覚の四つの種類</h4>
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>種類</th><th>何をとらえるか</th><th>例</th></tr></thead>
+      <tbody>
+        <tr><th>感官による知覚</th><td>外の個物</td><td>目でリンゴを見る</td></tr>
+        <tr><th>意による知覚</th><td>感官の認識の直後の瞬間の対象</td><td>見たものに続いて心に生じる鮮明な認識</td></tr>
+        <tr><th>自己認識（<i lang="sa-Latn">svasaṃvedana</i>）</th><td>自分の心そのもの</td><td>うれしさや痛みを感じる</td></tr>
+        <tr><th>yogin の知覚</th><td>瞑想で修習した真理</td><td>くり返し瞑想した真理が、目の前にあるように鮮明に現れる</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表2　知覚の四つの種類</b>　どれも「概念がない」「鮮明に現れる」という点で共通しています。</figcaption>
+  </figure>
+</section>
+
+<!-- PART 4 -->
+<section class="col" id="p4">
+  <div class="secno"><h3>4　なぜことばは「このリンゴ」に届かないのか</h3><span class="vr">45–60分</span></div>
+  <p>ことばを使うには、「これを『リンゴ』と呼ぼう」という取り決めが必要です。取り決めは、次に同じものに出会ったときに使うためのものです。ところが仏教では、すべてのものは一瞬ごとに生じては滅びる（刹那滅）と考えます。今日見たこのリンゴの瞬間に、もう一度出会うことは決してありません。だから、ことばは個物そのものには届かないのです。</p>
+
+  <p>では「リンゴ」ということばは何を指しているのでしょう。ダルマキールティの答えが <i lang="sa-Latn">apoha</i>（排除）論です。「リンゴ」は、すべてのリンゴに共通する本質を指すのではなく、「リンゴでないものではない」という線引きを指します。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 250" role="img" aria-label="apohaの図">
+      <rect x="20" y="20" width="600" height="180" rx="10" class="s-panel" stroke-width="1.2"/>
+      <g class="c-sam"><rect x="60" y="60" width="22" height="22"/><polygon points="110,150 124,176 96,176"/><circle cx="560" cy="70" r="11"/><rect x="545" y="140" width="18" height="28"/><circle cx="150" cy="90" r="9"/></g>
+      <text x="95" y="194" text-anchor="middle" font-size="12" class="t-sam">リンゴでないもの</text>
+      <text x="555" y="194" text-anchor="middle" font-size="12" class="t-sam">リンゴでないもの</text>
+      <ellipse cx="335" cy="112" rx="130" ry="62" fill="none" class="l-sva" stroke-width="2.5" stroke-dasharray="7 5"/>
+      <g style="fill:#c0392b"><circle cx="280" cy="95" r="13"/><circle cx="330" cy="82" r="11"/><circle cx="385" cy="100" r="14"/><circle cx="305" cy="138" r="12"/><circle cx="365" cy="140" r="10"/></g>
+      <text x="320" y="228" text-anchor="middle" font-size="14" font-weight="700" class="t-sva">「リンゴ」＝「リンゴでないもの」を外す線引き</text>
+      <text x="320" y="246" text-anchor="middle" font-size="12" class="mut">線の内側に「リンゴ性」という実体が入っているわけではない</text>
+    </svg>
+    <figcaption><b>図3　apoha（排除）の考え方</b>　一つ一つのリンゴは互いに違います。共通の本質はありませんが、どれも「同じように食べられる」という似たはたらきをもつので、一つにまとめて呼べるのです。</figcaption>
+  </figure>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>「言語には差異しかない」</h4>
+    <p>20世紀の言語学者ソシュールは、ことばの意味は、ほかのことばとの違いによってだけ決まると主張しました。「犬」は「狼」「猫」「狐」ではないことによって意味をもつ、というわけです。apoha 論とよく似ています。ただしダルマキールティの線引きは、ことばの体系の中だけでなく、外の個物どうしの実際の違いにも根拠をもっています。</p>
+  </div>
+
+  <div class="key">
+    <div class="label">ここまでの整理</div>
+    <p>知覚は、ことばの届かない個物を、そのままの姿でとらえる。ことばと推論は、心が引いた線（一般相）を通して、間接的に個物にたどりつく。</p>
+  </div>
+</section>
+
+<!-- PART 5 -->
+<section class="col" id="p5">
+  <div class="secno"><h3>5　見ているとき、心の中では何が起きているか</h3><span class="vr">60–75分</span></div>
+  <p>最後に、知覚のしくみを心の側から見てみましょう。ダルマキールティの考えは、二つのキーワードでまとめられます。</p>
+
+  <h4>キーワード1：対象の姿を写す（<i lang="sa-Latn">sārūpya</i>）</h4>
+  <p>リンゴを見ているとき、心の中にはリンゴの赤い姿が現れています。この「対象の姿をもつこと」が、その認識を「リンゴの認識」にしています。目や光は、リンゴを見るときもバナナを見るときも同じなので、認識を区別する役には立ちません。区別を作るのは、認識が写しとった対象の姿なのです。</p>
+
+  <h4>キーワード2：自分自身を知る（<i lang="sa-Latn">svasaṃvedana</i>）</h4>
+  <p>私たちは、リンゴを見ているだけでなく、「見ている」ことにも気づいています。後で「さっきリンゴを見た」と思い出せるのは、そのためです。ダルマキールティは、この気づきは別の心が見張っているのではなく、認識そのものが灯火のように自分を照らしているのだ、と考えました。</p>
+
+  <figure>
+    <svg viewBox="0 0 640 230" role="img" aria-label="認識の二つの側面">
+      <rect x="160" y="20" width="320" height="160" rx="14" class="s-sva" stroke-width="1.6"/>
+      <text x="320" y="44" text-anchor="middle" font-size="14" font-weight="700" class="t-sva">「リンゴを見る」という一つの認識</text>
+      <rect x="185" y="60" width="130" height="100" rx="8" class="c-paper" style="stroke:var(--sam)" stroke-width="1.4"/>
+      <circle cx="250" cy="96" r="16" style="fill:#c0392b"/>
+      <text x="250" y="132" text-anchor="middle" font-size="12" font-weight="700" class="t-sam">対象の姿</text>
+      <text x="250" y="149" text-anchor="middle" font-size="11">赤く丸い姿が現れる</text>
+      <rect x="325" y="60" width="130" height="100" rx="8" class="c-paper" style="stroke:var(--sva)" stroke-width="1.4"/>
+      <text x="390" y="104" text-anchor="middle" font-size="12" font-weight="700" class="t-sva">自分の姿</text>
+      <text x="390" y="124" text-anchor="middle" font-size="11">「見ている」ことの</text>
+      <text x="390" y="140" text-anchor="middle" font-size="11">体験</text>
+      <rect x="20" y="85" width="100" height="50" rx="8" class="s-panel" stroke-width="1.2"/>
+      <text x="70" y="114" text-anchor="middle" font-size="12">リンゴ</text>
+      <line x1="120" y1="110" x2="180" y2="110" class="l-ink" stroke-width="1.4"/><polygon points="176,104 186,110 176,116" class="c-ink"/>
+      <text x="150" y="100" text-anchor="middle" font-size="10" class="mut">姿を与える</text>
+      <path d="M 455 110 C 520 110, 540 40, 470 30" class="l-sva" stroke-width="1.4"/>
+      <polygon points="474,24 464,30 476,36" class="c-sva"/>
+      <text x="560" y="80" text-anchor="middle" font-size="11" class="t-sva">自分を照らす</text>
+      <text x="320" y="210" text-anchor="middle" font-size="12" class="mut">一つの認識が、対象の姿と自分の姿の二つの側面をもつ</text>
+    </svg>
+    <figcaption><b>図4　認識の二つの側面</b>　ダルマキールティは、認識の結果とはこの自己認識だと考えました。</figcaption>
+  </figure>
+
+  <figure>
+    <div class="scroll"><table class="tw">
+      <thead><tr><th>考え方</th><th>「見ていること」はどう知られるか</th><th>問題点</th></tr></thead>
+      <tbody>
+        <tr><th>別の心が見張る</th><td>次の瞬間の別の認識が、前の認識を知る</td><td>その別の認識はだれが知るのか。無限に続いてしまう</td></tr>
+        <tr class="sva"><th class="sva">自分で知る（ダルマキールティ）</th><td class="sva">認識が自分自身を照らす</td><td class="sva">無限に続かない。思い出せることも説明できる</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption><b>表3　自己認識はなぜ必要か</b></figcaption>
+  </figure>
+
+  <p>ここから、さらに大胆な考えが出てきます。私たちがリンゴについて知っていることは、すべて心に現れたリンゴの姿を通してです。それなら、心の外のリンゴが本当にその姿どおりなのかは、どうやって確かめられるのでしょうか。ダルマキールティは、この問いを突きつめて、最終的には心の外の対象を認めない唯識（<i lang="sa-Latn">vijñaptimātratā</i>）の立場まで進みます。ただし、ふだんの議論は「外の世界はある」という常識の立場で進めます。</p>
+
+  <div class="west">
+    <div class="label">西洋哲学との対比</div>
+    <h4>前反省的な自己意識</h4>
+    <p>サルトルは、意識は振り返る前から、すでに自分に気づいていると考えました。タバコの本数を数えているとき、私は数えることに夢中ですが、「何してるの」と聞かれれば即座に「数えている」と答えられます。これを「前反省的コギト」と言います。ダルマキールティの自己認識とよく似た考えです。また、心の外の物が本当に心の中の姿どおりかを確かめられない、という問題は、バークリーが「観念は観念にしか似ることができない」と指摘した問題と同じです。</p>
+  </div>
+</section>
+
+<!-- PART 6 -->
+<section class="col" id="p6">
+  <div class="secno"><h3>6　まとめと確認</h3><span class="vr">75–90分</span></div>
+
+  <figure>
+    <svg viewBox="0 0 640 260" role="img" aria-label="今日の内容のまとめ図">
+      <g font-size="13">
+        <rect x="20" y="20" width="290" height="60" rx="8" class="s-sva" stroke-width="1.3"/>
+        <text x="36" y="44" font-weight="700">本当に存在するもの</text><text x="36" y="66" font-size="12">はたらきをもつ個物（svalakṣaṇa）</text>
+        <rect x="330" y="20" width="290" height="60" rx="8" class="s-sam" stroke-width="1.3"/>
+        <text x="346" y="44" font-weight="700">心が作ったもの</text><text x="346" y="66" font-size="12">共通の姿・概念（sāmānyalakṣaṇa）</text>
+        <rect x="20" y="100" width="290" height="60" rx="8" class="s-sva" stroke-width="1.3"/>
+        <text x="36" y="124" font-weight="700">知覚がとらえる</text><text x="36" y="146" font-size="12">概念を離れ、錯誤なく、鮮明に</text>
+        <rect x="330" y="100" width="290" height="60" rx="8" class="s-sam" stroke-width="1.3"/>
+        <text x="346" y="124" font-weight="700">推論・ことばがとらえる</text><text x="346" y="146" font-size="12">apoha（排除）の線引きを通して</text>
+        <rect x="20" y="180" width="600" height="60" rx="8" class="s-panel" stroke-width="1.2"/>
+        <text x="36" y="204" font-weight="700">認識のしくみ</text><text x="36" y="226" font-size="12">対象の姿を写し（sārūpya）、自分自身を知る（svasaṃvedana）</text>
+      </g>
+      <g class="l-ink" stroke-width="1.2"><line x1="165" y1="80" x2="165" y2="100"/><line x1="475" y1="80" x2="475" y2="100"/><line x1="165" y1="160" x2="165" y2="180"/><line x1="475" y1="160" x2="475" y2="180"/></g>
+    </svg>
+    <figcaption><b>図5　今日の内容の全体図</b></figcaption>
+  </figure>
+
+  <div class="key">
+    <div class="label">覚えておきたい術語（7つ）</div>
+    <dl class="gloss">
+      <dt>pramāṇa</dt><dd>正しく知る手段。知覚と推論の二つだけ。</dd>
+      <dt>arthakriyā</dt><dd>はたらき（効果）を生む力。本当に存在するかどうかの基準。</dd>
+      <dt>svalakṣaṇa</dt><dd>個別相。はたらきをもつ、唯一の個物。知覚の対象。</dd>
+      <dt>sāmānyalakṣaṇa</dt><dd>一般相。心が作った共通の姿。推論とことばの対象。</dd>
+      <dt>kalpanāpoḍha</dt><dd>概念を離れていること。知覚の定義の中心。</dd>
+      <dt>apoha</dt><dd>排除。ことばが指しているのは「〜でないものではない」という線引き。</dd>
+      <dt>svasaṃvedana</dt><dd>自己認識。認識が自分自身を知ること。</dd>
+    </dl>
+  </div>
+
+  <div class="key">
+    <div class="label">確認テスト（5分）</div>
+    <ol class="q">
+      <li>次のうち、ダルマキールティが「本当に存在する」と考えるものはどれか。<br>（a）「水」という概念　（b）このコップに入った水　（c）「冷たさ」一般</li>
+      <li>月が二つに見える認識は、知覚の定義の二つの条件のうち、どちらを満たし、どちらを満たさないか。</li>
+      <li>「リンゴ」ということばは何を指しているのか、apoha の考え方で一文で説明せよ。</li>
+      <li>「さっきリンゴを見た」と思い出せることは、なぜ自己認識の証拠になるのか。</li>
+    </ol>
+    <p style="margin-top:.8rem;font-size:.88rem;color:var(--muted)">答えの目安：1 は（b）。2 は「概念がない」を満たし、「錯誤がない」を満たさない。3 は「リンゴでないものを外す線引き」。4 は、思い出せるのは前に体験されたものだけなので、見ていたこと自体も体験されていたはずだから。</p>
+  </div>
+
+  <div class="key">
+    <div class="label">次回までに考えてみよう</div>
+    <p>スマートフォンの画面越しに友人の顔を見ることは「知覚」でしょうか。今日の術語を少なくとも三つ使って、200字で論じてください。</p>
+  </div>
+
+  <p style="margin-top:2rem"><span class="label">もっと詳しく知りたい人へ</span><br><a href="pv3-nyumon.html" style="color:var(--sva)">ダルマキールティ知覚章入門</a>では、『Pramāṇavārttika』第3章の全539偈を、序章・10章・終章に分けて詳しく解説しています。</p>
+</section>
+
+<div class="col endnote">本講義の内容は、ダルマキールティ『Pramāṇavārttika』第3章の議論を、初学者向けに大幅に単純化してまとめたものです。西洋哲学との対比は理解を助けるための比較であり、影響関係を主張するものではありません。</div>
+</div>
+</body>
+</html>
