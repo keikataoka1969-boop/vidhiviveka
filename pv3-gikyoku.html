@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自らを照らす灯</title>
+<meta name="description" content="ダルマキールティの庵を現代分析哲学者が一人ずつ訪れて対話する戯曲。『認識論評釈』知覚章の重要論点（個別相と一般相・概念のない知覚・ヨーガ行者の知覚・錯覚・認識結果・同時認識の必然性・自己認識）に一幕ずつを割り当てる。">
+<meta property="og:title" content="戯曲『自らを照らす灯』">
+<meta property="og:description" content="ダルマキールティと分析哲学者たちの対話——『認識論評釈』知覚章による戯曲（序幕・全七幕・終幕）">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Old+Mincho:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --paper:#f6f1e7; --ink:#2a241e; --muted:#6e6255; --rule:#d8cdbb; --panel:#efe7d8;
+  --accent:#8a4b22; --guest:#3d5577; --lamp:#c98a2c;
+  --f-disp:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-iast:"Source Serif 4","Noto Serif","Times New Roman",serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#1b1814; --ink:#e7dfd2; --muted:#a69a8a; --rule:#3a332b; --panel:#24201b;
+  --accent:#e09a68; --guest:#93b0d8; --lamp:#e2aa52; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#1b1814; --ink:#e7dfd2; --muted:#a69a8a; --rule:#3a332b; --panel:#24201b;
+  --accent:#e09a68; --guest:#93b0d8; --lamp:#e2aa52; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:2;
+  padding:0 16px 5rem;overflow-wrap:anywhere;-webkit-font-smoothing:antialiased}
+main{max-width:40em;margin:0 auto}
+a{color:var(--accent)}
+.back{max-width:40em;margin:0 auto;padding-top:1.2rem;font-size:.85rem}
+.back a{text-decoration:none}
+.title{text-align:center;padding:3.5rem 0 2.5rem;border-bottom:1px solid var(--rule);margin-bottom:2rem}
+.title .lamp{display:block;width:14px;height:22px;margin:0 auto 1.4rem;border-radius:50% 50% 45% 45%/60% 60% 40% 40%;
+  background:radial-gradient(circle at 50% 70%,#fff3c4 0,var(--lamp) 55%,transparent 72%);box-shadow:0 0 28px 6px color-mix(in srgb,var(--lamp) 45%,transparent)}
+.title h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(1.9rem,6vw,2.6rem);letter-spacing:.12em;margin:0;line-height:1.4}
+.title p{margin:.8rem 0 0;color:var(--muted);font-size:.95rem;line-height:1.7}
+h3{font-family:var(--f-disp);font-size:1.05rem;letter-spacing:.2em;color:var(--muted);margin:2.2rem 0 .6rem;font-weight:700}
+.front p,.notes p{margin:.6rem 0}
+.table-wrap{overflow-x:auto;margin:1rem 0 1.4rem;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.86rem;line-height:1.6;min-width:34em}
+th,td{border-bottom:1px solid var(--rule);padding:.45rem .5rem;text-align:left;vertical-align:top}
+th{font-family:var(--f-disp);color:var(--muted);font-weight:700;white-space:nowrap}
+td:first-child{white-space:nowrap;color:var(--accent)}
+ul{padding-left:1.2rem} li{margin:.3rem 0}
+.toc{background:var(--panel);border-radius:6px;padding:.4rem 1.2rem 1rem;margin:2.4rem 0 1rem}
+.toc ol{list-style:none;padding:0;margin:0}
+.toc li{border-bottom:1px dashed var(--rule);margin:0}
+.toc li:last-child{border-bottom:0}
+.toc a{display:grid;grid-template-columns:4.2em 1fr;column-gap:.6em;padding:.45rem 0;text-decoration:none;color:var(--ink);line-height:1.55}
+.toc-act{color:var(--accent);font-family:var(--f-disp);font-weight:700}
+.toc-guest{grid-column:2;color:var(--guest);font-size:.85rem}
+.scene{padding-top:3rem;margin-top:3rem;border-top:1px solid var(--rule)}
+.scene-head{text-align:center;margin-bottom:2rem}
+.scene-head .act{margin:0;font-family:var(--f-disp);color:var(--accent);letter-spacing:.3em;font-weight:700}
+.scene-head h2{font-family:var(--f-disp);font-size:clamp(1.35rem,4.5vw,1.7rem);margin:.3rem 0;font-weight:700;letter-spacing:.06em;line-height:1.5}
+.scene-head .guest{margin:0;color:var(--guest);font-size:.95rem}
+.line{display:grid;grid-template-columns:7.5em 1fr;column-gap:1em;margin:0 0 1rem}
+.who{font-family:var(--f-disp);font-weight:700;color:var(--accent);text-align:right;font-size:.92rem;line-height:2.15}
+.say{margin:0;text-align:start;line-break:strict}
+.sd{color:var(--muted);font-size:.93rem;margin:1.3rem 0 1.3rem 8.5em;line-height:1.85}
+.sd em{font-style:normal}
+.say em{font-style:normal;color:var(--muted);font-size:.92em}
+h2 + .synopsis,.scene-head + .synopsis{margin-top:0}
+.synopsis{background:var(--panel);margin:0 0 .8rem;padding:.9rem 1.1rem;border-radius:4px;font-size:.95rem;line-height:1.9}
+.scene-head .tag{display:inline-block;font-size:.75rem;color:var(--muted);border:1px solid var(--rule);border-radius:3px;padding:0 .5em;margin-left:.4em;vertical-align:middle;letter-spacing:.1em}
+.curtain{text-align:center;font-family:var(--f-disp);letter-spacing:.4em;color:var(--accent);margin:3rem 0 1rem;font-size:1.1rem}
+blockquote{margin:1rem 0;padding:.6rem 1rem;border-left:3px solid var(--rule);background:var(--panel)}
+.notes{margin-top:4rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.88rem;color:var(--muted);line-height:1.85}
+.notes em{font-style:italic}
+.la{font-family:var(--f-iast);font-size:.97em;font-optical-sizing:auto;letter-spacing:.01em;font-variant-numeric:lining-nums}
+.who .la,.act .la{font-weight:600}
+em .la,.notes em .la{font-style:italic}
+@media (max-width:600px){
+  body{font-size:16px}
+  .line{display:block;margin-bottom:1.1rem}
+  .who{display:block;text-align:left;line-height:1.6;font-size:.88rem}
+  .sd{margin-left:0;padding-left:.8rem;border-left:2px solid var(--rule)}
+}
+@media print{.back,.toc{display:none} body{background:#fff}}
+</style>
+</head>
+<body>
+<p class="back"><a href="index.html">← Vidhiviveka 対訳コレクション</a></p>
+<main>
+<header class="title"><span class="lamp" aria-hidden="true"></span><h1>『自らを照らす灯』</h1><p>ダルマキールティと分析哲学者たちの対話 ——『認識論評釈』知覚章による</p></header>
+<section class="front"><h3>構想</h3>
+<p>舞台は、前作『庵の客人たち』と同じ七世紀インドの小さな庵。季節は移って雨期の明け。ダルマキールティは『認識論評釈』の知覚章（<span class="la">Pratyakṣa</span>）を書いている。この章には自分で注を付けないと決めている。夜ごと、灯明の芯がはぜるたびに、未来から一人の哲学者が訪れる。客人は、知覚章の重要な論点ごとに、その論点にもっとも通じた二十世紀の分析哲学者である。</p>
+<p>各幕は、ダルマキールティと客人の二人だけの対話。知覚とは何か、知覚は何を与えるのか、そして認識はどうやって自分自身を知るのか。知覚論と心の哲学の論客たちが、一人ずつ庵の戸口に立つ。</p>
+<div class="table-wrap"><table><thead><tr><th>幕</th><th>客人</th><th>知覚章の論点</th><th>本頌</th></tr></thead><tbody><tr><td>序幕</td><td>―</td><td>二つの認識対象、二つの認識手段</td><td>第1–4偈</td></tr><tr><td>第一幕</td><td>バートランド・ラッセル</td><td>個別相と一般相：見知りによる知と記述による知</td><td>第1–63偈</td></tr><tr><td>第二幕</td><td>ウィルフリッド・セラーズ</td><td>知覚には概念的思考がない：「所与の神話」</td><td>第123–190偈</td></tr><tr><td>第三幕</td><td>ウィリアム・オールストン</td><td>ヨーガ行者の知覚：修習が生む鮮明な認識</td><td>第281–286偈</td></tr><tr><td>第四幕</td><td><span class="la">J. L.</span> オースティン</td><td>知覚に似て非なるもの：かすみ目の毛髪と二つの月</td><td>第288–300偈</td></tr><tr><td>第五幕</td><td>フレッド・ドレツキ</td><td>認識結果は認識手段と別ではない：対象の姿と表象</td><td>第301–319偈</td></tr><tr><td>第六幕</td><td><span class="la">G. E.</span> ムーア</td><td>対象と認識は必ず同時に認識される：観念論論駁</td><td>第388–398偈</td></tr><tr><td>第七幕</td><td>ギルバート・ライル</td><td>認識が自分自身を知ること：想起による論証</td><td>第426–541偈</td></tr><tr><td>終幕</td><td>デーヴェーンドラブッディ</td><td>注釈を託すこと</td><td>―</td></tr></tbody></table></div>
+<p>序幕から終幕まで、全九場を書き下ろしてある。</p>
+</section>
+<section class="front"><h3>登場人物</h3>
+<ul><li><strong>ダルマキールティ</strong> ― 仏教論理学者。知覚章を執筆中。</li><li><strong>客人たち</strong> ― 各幕に一人ずつ。時代も言葉も違うが、庵では不思議と話が通じる。</li><li><strong>デーヴェーンドラブッディ</strong> ― ダルマキールティの弟子。のちに『認識論評釈』第2–4章の注釈を書く。終幕のみ。</li></ul>
+</section>
+<nav class="toc" aria-label="目次"><h3>目次</h3><ol><li><a href="#s1"><span class="toc-act">序幕</span><span class="toc-name">二つの灯</span></a></li><li><a href="#s2"><span class="toc-act">第一幕</span><span class="toc-name">見知りと記述</span><span class="toc-guest">バートランド・ラッセル</span></a></li><li><a href="#s3"><span class="toc-act">第二幕</span><span class="toc-name">所与の神話</span><span class="toc-guest">ウィルフリッド・セラーズ</span></a></li><li><a href="#s4"><span class="toc-act">第三幕</span><span class="toc-name">神を知覚する</span><span class="toc-guest">ウィリアム・オールストン</span></a></li><li><a href="#s5"><span class="toc-act">第四幕</span><span class="toc-name">水の中の棒</span><span class="toc-guest"><span class="la">J. L.</span> オースティン</span></a></li><li><a href="#s6"><span class="toc-act">第五幕</span><span class="toc-name">情報としての似姿</span><span class="toc-guest">フレッド・ドレツキ</span></a></li><li><a href="#s7"><span class="toc-act">第六幕</span><span class="toc-name">青と青の意識</span><span class="toc-guest"><span class="la">G. E.</span> ムーア</span></a></li><li><a href="#s8"><span class="toc-act">第七幕</span><span class="toc-name">機械の中の幽霊</span><span class="toc-guest">ギルバート・ライル</span></a></li><li><a href="#s9"><span class="toc-act">終幕</span><span class="toc-name">注釈を託す</span><span class="toc-guest">ダルマキールティとデーヴェーンドラブッディ</span></a></li></ol></nav>
+<section class="scene" id="s1"><header class="scene-head"><p class="act">序幕</p><h2>二つの灯</h2></header>
+<p class="sd">夜。庵の中に灯明が一つ。その横の壁に、灯明の影がもう一つの炎のように揺れている。ダルマキールティは貝葉を前に、書き上げたばかりの偈を声に出して読む。</p>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">「認識手段は二種類である。認識対象が二種類だからである。目的にかなうはたらき（<span class="la">arthakriyā</span>）をなす能力のあるものと、ないものとがあるからである」。</p></div>
+<p class="sd">筆を置き、灯明と壁の影を見比べる。</p>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">この炎は、芯を焼き、油を減らし、部屋を照らす。はたらきがある。壁の影の炎は、何も焼かない。何も照らさない。だが、影も炎の姿をしている。……かすみ目の人が見る毛髪は、どちらでもない。人はそれを手に取ろうとはしないからだ。</p></div>
+<div class="line cont"><span class="who"></span><p class="say">はたらきをなしうるもの、それがこの議論の場で究極的に存在するもの（<span class="la">paramārthasat</span>）だ。それ以外のものは、世間の約束事として存在するもの（<span class="la">saṃvṛtisat</span>）にすぎない。前者が個別相（<span class="la">svalakṣaṇa</span>）、後者が一般相（<span class="la">sāmānyalakṣaṇa</span>）。個別相を知るのは知覚であり、一般相を扱うのは推論である。</p></div>
+<div class="line cont"><span class="who"></span><p class="say">……第一章には自分で注を付けた。だが、この章には付けまい。知覚は、言葉で説明するほど遠ざかる。</p></div>
+<p class="sd">灯明の芯がぱちりとはぜる。戸口に、白髪の小柄な老人がパイプを手に立っている。</p>
+</section>
+<section class="scene" id="s2"><header class="scene-head"><p class="act">第一幕</p><h2>見知りと記述</h2><p class="guest">客人：バートランド・ラッセル</p></header>
+<div class="line"><span class="who">ラッセル</span><p class="say">お邪魔しますよ。ずいぶん面白いことをおっしゃっていた。知るということには二種類ある、と。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたも、そう考えるのか。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">考えるどころか、そのために一冊の本の半分を費やしました。私はそれを、「見知りによる知」と「記述による知」と呼んでいます。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">聞かせてくれ。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">（<em>灯明を指して</em>）今、私はこの炎の色を見ている。黄色く、揺れていて、少し赤みがかっている。この色について、私は誰かに推論を教えてもらう必要はない。直接、目の前にある。これが見知りです。一方、私はビスマルクという人物について、多くのことを知っています。ドイツを統一した宰相だった、と。しかし私はビスマルクを見知ってはいない。「ドイツを統一した宰相である人物」という記述を通して知っているだけです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">第五十四偈に、私はこう書いた。「それを、それ自身の姿によって知る場合と、ほかの姿によって知る場合とがあるので、認識対象は二つだと認められたのである」。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">（<em>パイプを口から離して</em>）それ自身の姿によって知るのと、ほかの姿によって知るのと。……ほとんど同じ区別だ。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">ほとんど、か。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">ええ、ほとんど。私は一つの原則を立てました。私たちが理解できる命題はどれも、私たちが見知っている要素だけからできていなければならない。「ビスマルクは抜け目のない外交官だった」という命題を私が理解できるのは、その命題が、私の見知っている要素——「宰相」「統一」「抜け目のない」といった一般的なもの——から組み立てられているからです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、その「抜け目のない」とか「宰相」とかいうものも、あなたは見知っているのか。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">見知っています。私は普遍とも見知りの関係にある。白い紙をいくつも見て、その「白さ」そのものを見知ることができる。関係についても同じです。「〜より前」とか「〜に似ている」とか。</p></div>
+<p class="sd">ダルマキールティは首を振る。</p>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そこで道が分かれる。私は、一般相は実在しないと言う。第五十偈を聞け。一般相は、認識を生むという最小限の目的を果たすことにさえ適していない。何かに適していないものは、姿をもたない。それこそが実在しないものの特徴だ。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">認識を生むことすらできない？</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたが白い紙を見るとき、あなたの目に何が起こる。この紙の、この白い姿が、目に届く。別の紙の、別の白い姿が、別の刹那に届く。「白さ」そのものが目に届いたことは、一度もない。第百二十六偈に言う。ある時ある場所で見られた個物は、ほかの時ほかの場所で見られることは決してない。そして、個物とは別に、ほかの一般相は存在しない。認識に違いがないからだ。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">しかし、二枚の紙が「同じ白さ」をもつということは、どう説明するのです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">同じ白さをもつのではない。どちらも、白くないものから区別されている。その区別を、概念が一つの姿としてまとめあげる。まとめあげたのはこちらの心だ。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">私の友人の唯名論者たちと同じことを言う。私は彼らに、こう言い返しました。では、「似ている」という関係はどうか。二枚の紙が似ているというとき、その「似ている」は、やはり一つの普遍ではないのか。唯名論者は、どこかで少なくとも一つは普遍を認めなければならない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">第二偈で、私は個別相の特徴の一つとして、「ほかのものと似ていない」ことを挙げた。似ているものと、似ていないものとがある。似ているのは一般相の側だ。個別相は、何とも似ていない。一つ一つが、それぞれ自分だけの姿をもつ。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">それは、ずいぶん厳しい。何とも似ていないものを、どうやって語るのです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">語れない。個別相は言葉が表すものではない（第2偈）。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">（<em>面白そうに</em>）そこは、実は私も近いところまで行ったのです。私は、本当の意味での名前、つまり論理的に固有の名前は、「これ」だけだと言った。今、私が直接見知っている感覚与件を指して「これ」と言う。そのとき「これ」は、何も記述せずに、ただそれを指す。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、あなたの「これ」は、次の刹那には何を指す。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">……次の感覚与件を。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、「これ」は二度と同じものを指さない。あなたの本当の名前は、一度使えば役目を終える。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">そう言われると、たしかに私の「これ」は、ずいぶん寿命の短い名前でした。私の弟子の一人が——ウィトゲンシュタインという男ですが——それを厳しく批判しましたよ。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">その男なら、別の夜に来た。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">（<em>驚いて</em>）彼はここにも来たのですか。あいかわらず人の家に押しかける男だ。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">話を戻そう。あなたは見知りの対象として、感覚与件と普遍を挙げた。私は個別相だけを挙げる。だが、もう一つ聞きたい。あなたの感覚与件は、どこにある。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">私の心の中に、と言いたいところですが、私は慎重に言いました。感覚与件は物理的な対象ではないが、心の働きでもない。見ることの対象であって、見ることそのものではない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、見ることと見られるものを、あなたは分ける。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">分けます。知る行為と、知られる対象とは別です。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そのことは、この章の終わりのほうで、別の客と長く話すことになるだろう。私は、最後には、見られる姿は見る認識の一つの側面にすぎない、と言うつもりだ。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">それは観念論だ。私は若いころ観念論者でした。ムーアという友人と二人で、そこから脱け出した。窓から出て、外の空気を吸ったような気分でしたよ。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">その友人にも、いずれ会うことになるだろう。……一つだけ、あなたと私が完全に一致する点がある。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">何です。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">記述によって知るものは、見知るものより常に一歩遠い。人はビスマルクについて多くを知っているが、ビスマルクを見たことはない。人は牛について多くを語るが、牛性というものを見たことはない。私の言葉で言えば、推論は対象そのものではなく、対象の「ほかの姿」をとらえる。だが、それでも推論は人を欺かない。第五十四偈で言ったとおり、人は個別相が目的にかなうはたらきを実現するからこそ、それがあるかないかを確かめようとする。推論もまた、最後には個別相にたどりつくための道だ。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">記述は見知りへの道である。……それは私も言ってよかった。いや、言ったかもしれない。</p></div>
+<p class="sd">ラッセル、立ち上がり、灯明の炎を見つめる。</p>
+<div class="line"><span class="who">ラッセル</span><p class="say">この炎を、私は今見知っている。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたが「この炎」と言い終えたとき、その炎はもうない。あなたの言葉が指しているのは、すでに記述だ。</p></div>
+<div class="line"><span class="who">ラッセル</span><p class="say">（<em>笑って</em>）厳しい人だ。では、私はこの夜を記述によって覚えておくことにしましょう。</p></div>
+<p class="sd">ラッセル、退場。</p>
+</section>
+<section class="scene" id="s3"><header class="scene-head"><p class="act">第二幕</p><h2>所与の神話</h2><p class="guest">客人：ウィルフリッド・セラーズ</p></header>
+<p class="sd">戸口に、背の高い、思慮深い顔つきの男。上着の胸ポケットに、色とりどりのネクタイが何本か覗いている。</p>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">その布の束は何だ。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">ネクタイです。ある話をするための小道具でして。まず、あなたの書いたものを聞かせてください。知覚には概念が入っていない、と書いたそうですね。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">第百二十三偈と第百二十四偈だ。「知覚に概念的思考がないことは、まさに知覚によって確かめられる。名前に基づく概念的思考は、誰にとっても、各自が自分の内で知るものだからである。あらゆるものから思いを引き戻し、心を静かにとどめている人でも、眼で色形を見る。それが、感官から生じる認識である」。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">なるほど。心を静めて、何も考えないようにしていても、色は見えている。だから見ることは考えることではない、と。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そうだ。そして、そのあとで思い返しても、「私にはこのような概念的思考があった」とは知られない（第125偈）。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">では、ネクタイの話をしましょう。（<em>ネクタイを一本取り出す</em>）ジョンという男が、ネクタイ屋で働いています。店には新しく電灯がつきました。ジョンはこのネクタイを見て「緑だ」と言う。ところが、外の日の光の下に持って出ると、青い。電灯の光の下では、青いネクタイが緑に見えるのです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">かすみ目の人に毛髪が見えるのと似ている。感官の側か、光の側か、どこかに乱れがある。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">そうです。そして、ここからが私の言いたいことです。ジョンはやがて学ぶ。「このネクタイは緑だ」と言うのをやめて、「このネクタイは緑に見える」と言うようになる。さて、この「緑に見える」は、「緑だ」よりも素朴で、より基本的な報告でしょうか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたはそうでないと言いたいのだろう。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">そのとおり。「緑に見える」と言えるためには、ジョンはすでに「緑だ」という概念をもっていなければならない。そのうえ、電灯の光が色を変えることも、ふつうの光の下でなら見え方と実際が一致することも、知っていなければならない。「見える」という言葉は、概念の網の目の中で初めて意味をもつ。概念以前の、ただ与えられた、何の解釈も含まない見え——そんなものを知識の土台にしようとするのは神話です。私はそれを「所与の神話」と呼びました。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたの言う「緑に見える」は、「緑だ」と同じく概念的な認識だ。それには同意する。私の言葉で言えば、「これは緑だ」も「これは緑に見える」も、限定するもの、限定されるもの、その関係、そして世間の決まりをとらえ、それらをまとめ合わせて理解する認識だ（第145偈）。どちらも概念的思考（<span class="la">kalpanā</span>）だ。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">では、あなたの「概念のない知覚」は、どこにあるのです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">ジョンが「緑だ」とも「緑に見える」とも言う前に、彼の目に起こっていることの中にある。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">それなら、私も認めます。目には何かが起こっている。私はそれを感覚印象と呼びます。しかし、感覚印象は知識ではない。それは原因の連鎖の中の一つの出来事であって、何かを正当化することはできない。正当化するのは、理由です。理由は、理由の空間の中にしかない。そして理由の空間は、概念の空間です。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたは、知覚は認識手段（<span class="la">pramāṇa</span>）ではない、と言いたいのか。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">感覚印象は、どんな認識手段でもない。認識手段であるのは、ジョンが「これは緑に見える」と、自分の言葉で、責任を負って言うことです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、聞こう。認識手段とは何だ。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">……正しい信念を与えるもの、でしょうか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">私は、人を欺かないもの（<span class="la">avisaṃvādin</span>）を認識手段と呼ぶ。人を欺かないとは、それに従って行動したとき、目的にかなうはたらきに行き着くことだ。火を見て、近づけば、手が温まる。水を見て、手を伸ばせば、渇きが癒える。知覚が認識手段であるのは、理由の空間の中で何かを正当化するからではない。人をその対象そのものに行き着かせるからだ。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">しかし、人を対象に行き着かせるのは、「これは水だ」という判断でしょう。感覚印象だけでは、人は手を伸ばさない。手を伸ばすのは、それを水として捉えたときだけです。</p></div>
+<p class="sd">ダルマキールティ、しばらく黙る。</p>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そこは鋭い。たしかに、知覚が見たものを、人はそのままでは使えない。知覚は、目の前の個物を、その全体のままにとらえる。だが、その中のどこが「水」なのかを確定するのは、知覚のあとに生じる確定の知だ。確定は、習気（<span class="la">vāsanā</span>）に従う。確定されたものだけが、日常では「知覚されたもの」と呼ばれる。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">では、あなたも認めている。知覚が行動に結びつくには、概念が要る。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">行動に結びつくには、要る。だが、知覚が人を欺かないかどうかは、概念が決めるのではない。確定の知は、知覚がとらえたものに支えられているときにだけ、正しい。電灯の下のジョンの「緑だ」が誤りなのは、その確定が誤ったからではない。電灯の光で、目に起こったこと自体が乱れていたからだ。乱れのない知覚に支えられた確定は、正しい。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">つまり、あなたは二階建ての家を建てる。一階が概念のない知覚、二階が概念による確定。二階の正しさは一階に支えられる。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そうだ。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">私はその家の一階に、人が住めるとは思わない。一階の住人は、口をきかない。口をきかない住人は、二階の住人の主張を支えることはできない。せいぜい、二階の住人がなぜそう主張するに至ったかを、原因として説明するだけです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">口をきかない住人が、家を支えている。柱は、何も言わずに屋根を支える。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">（<em>微笑んで</em>）柱が屋根を支えるのは、力学の話です。正当化の話ではない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたは、力学と正当化を別の世界に分けた。私は、正当化は最後には力学に戻ると思う。人が火を見て近づき、手が温まる——それが、私にとってのあらゆる正当化の終点だ。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">ひとつ伺いたい。あなたは第百二十三偈で、知覚に概念がないことは「知覚によって」確かめられる、と言った。各自が自分の内で知る、と。それは、内面を覗き込めば、心の状態がありのままに見える、ということでしょう。それこそが、私が一番疑っている考えです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">なぜ疑う。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">私は一つの物語を作りました。昔、人々は外に見えるふるまいについてしか語る言葉をもたなかった。そこにジョーンズという天才が現れて、人の内側には「内なる発話」のようなもの——思考——があると、理論として提案した。人々はその理論を学び、やがて自分自身にもそれを当てはめて、「今、私はこう考えている」と言えるようになった。内面を直接覗く力は、生まれつきあったのではない。理論を学ぶことによって、あとから身についたのです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">面白い物語だ。だが、ジョーンズの理論を学ぶ前の人々も、心を静めて色を見ることはできた。色を見ているときに、何も考えていないことを、言葉にはできなくても、彼らは生きていた。私が言う自己認識（<span class="la">svasaṃvedana</span>）は、内面を観察する理論ではない。認識が、自分自身をただ照らしていることだ。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">「照らす」という比喩は、哲学ではいちばん危険な比喩ですよ。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">それについては、この章の終わりに、別の客と話すことになるだろう。</p></div>
+<p class="sd">セラーズ、ネクタイをポケットにしまい、立ち上がる。</p>
+<div class="line"><span class="who">セラーズ</span><p class="say">最後に一つ。私は、所与を神話だと言いましたが、知覚に何の役割もないと言ったわけではありません。知識は、土台の上に建つ家ではなく、自分自身を修正していく営みです。どの主張も、いつでも問い直せる。ただし、一度に全部を問い直すことはできない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、あなたの営みも、どこかで足を地面につけているはずだ。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">地面ではなく、別の主張の上に。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、あなたの家は、宙に浮いた舟だ。</p></div>
+<div class="line"><span class="who">セラーズ</span><p class="say">舟は、浮いているから進めるのです。</p></div>
+<p class="sd">セラーズ、軽く会釈して退場。</p>
+</section>
+<section class="scene" id="s4"><header class="scene-head"><p class="act">第三幕</p><h2>神を知覚する</h2><p class="guest">客人：ウィリアム・オールストン</p></header>
+<p class="sd">戸口に、穏やかな顔つきの年配の紳士。手に小さな聖書を持っている。部屋に入ると、灯明の前で一瞬、祈るように目を閉じる。</p>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたは祈る人か。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">祈る人であり、哲学をする人です。若いころは祈りから離れていましたが、中年になって戻りました。そして、祈りの中で人が神に出会うと言うとき、それが何を意味するのかを、哲学者として考えることにしたのです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">何を意味する。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">私は、それを知覚と呼んでよいと考えています。ある修道女は、祈りの中で、神が自分のすぐ近くにいるのを感じた、と書いています。何かを考えたのでも、推論したのでもない。ただ、神が自分に現れた、と。私は、それが目で木を見るのと同じ型の経験だと論じました。何かが、その人の意識に直接現れる。だから、神を知覚する、と言ってよい。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">私も、感官によらない知覚を認める。修習を積んだヨーガ行者の知覚だ。第二百八十一偈。「前に述べたヨーガ行者たちの認識は、彼らの修習から生じたもので、概念的思考の網を払いのけ、まさに鮮明に現れる」。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">（<em>身を乗り出して</em>）あなたの伝統にも、それがある。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">ある。だが、喜ぶのは早い。次の偈を聞け。「欲望・悲しみ・恐れ・狂気・盗賊への恐怖・夢などによって心を乱された人々は、存在しないものさえ、目の前にあるかのように見る」（第282偈）。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">恋する者が、夜ごと恋人の顔を見るように。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そうだ。恋人を失った男は、闇の中に恋人の顔を、手で触れられるほど鮮明に見る。盗賊を恐れる者は、柱の影に盗賊を見る。どれも鮮明だ。どれも、考えて作り出したのではなく、目の前に現れる。それでも、そこに恋人はいない。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">では、鮮明であることは、知覚の印にはならないと。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">鮮明であることは、概念的思考がないことの印にはなる。概念と結びついた認識が、対象を鮮明に現すことはない（第283偈）。だが、鮮明であることは、正しいことの印にはならない。不浄観や地の遍処観を修める者は、実在しないものを、修習の力で鮮明に見る（第284偈）。だから第二百八十五偈で言った。実在するものであれ、実在しないものであれ、何であれ修習されるものは、修習が完成したとき、鮮明で概念的思考のない認識を生む。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">それは、私の論敵たちの議論とまったく同じです。神秘体験は鮮明で、本人にとって疑いようがない。だが、狂人の幻覚も鮮明で、本人にとって疑いようがない。だから神秘体験には何の重みもない、と。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">私は、何の重みもないとは言わない。区別せよ、と言うのだ。第二百八十六偈。「そのうち、人を欺かないもの、つまり前に確定された実在のように欺かないものが、認識手段である。それが、修習から生じた知覚と認められる。そのほかは錯乱である」。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">「前に確定された実在」とは。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">四つの真理だ。苦があり、苦には原因があり、苦は滅することができ、そのための道がある。ヨーガ行者は、まずそれを聞き、推論によって吟味し、確かめる。確かめたものを、長いあいだ修習する。すると、それは概念を離れ、目の前のものを見るように、鮮明に現れる。そのとき、それは知覚だ。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">つまり、ヨーガ行者の知覚が正しいことは、その前の推論が保証している。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そうだ。鮮明さは、修習が保証する。正しさは、対象が保証する。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">では、私の考えをお話ししましょう。私は、どんな知覚の実践も、その外側から正しさを証明することはできない、と考えています。ふつうの感覚知覚を例にとりましょう。目で見たものが正しいことを、あなたはどうやって証明しますか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">見たものに手を伸ばし、目的にかなうはたらきに行き着くかどうかで。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">手を伸ばして、水に触れた。渇きが癒えた。それを、あなたは何によって知るのです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">触覚によって。そして、渇きが癒えたことを、自分で体験することによって。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">つまり、別の感覚によってです。知覚の正しさを確かめるのに、結局は知覚を使っている。私はこれを「認識的な循環」と呼びました。どんな基本的な認識の実践も、自分の信頼性を、自分を使わずに示すことはできない。だから、私たちにできるのは、社会の中で長く確立されてきた実践——感覚知覚、記憶、推論——を、反対する強い理由がないかぎり、一応は合理的なものとして受け入れることだけです。そして私は、キリスト教の神秘的な実践も、そのような確立された実践の一つだと論じました。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたの循環の議論は鋭い。私も、知覚が正しいことは、最後には知覚の外からは確かめられないと思う。火を見て、近づき、手が温まる。その全体を、さらに外から見る目はない。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">では、私たちは一致している。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そこまでは。だが、あなたの「社会の中で確立された」という条件が、私には気になる。確立された実践なら、ヴェーダの祭式も、何千年も確立されている。沐浴で罪が洗われるという実践も、確立されている。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">（<em>少し苦笑して</em>）私の批判者たちも、同じことを言いました。仏教の瞑想も、ヒンドゥー教の神秘主義も、それぞれ確立された実践だ。それらは互いに食い違う。どれを信頼すればよいのか、と。私はそれを「宗教的多様性の問題」と呼んで、私の議論にとっての最も深刻な難問だと認めました。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">答えは出たか。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">完全には。私が言えたのは、自分の実践の内側にとどまることも、合理的でありうる、ということだけです。食い違う実践がある中で、自分の実践を捨てる強い理由がないかぎりは。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">それでは、恋人の顔を見る男も、その経験を捨てる強い理由がないかぎり、恋人を知覚していると言ってよいことになる。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">いいえ、そこには強い理由があります。その男の恋人は死んでいる。ほかの人には見えない。彼の経験は、ほかの確かな知識と食い違う。私は、どの実践にも「覆すもの」の仕組みがあると言いました。ほかの経験や知識と照らし合わせて、個々の経験の誤りを見つける仕組みです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">その仕組みこそ、私の言う「前に確定された実在」だ。あなたは、個々の神秘体験を、あなたの伝統の教えと照らし合わせる。私は、ヨーガ行者の知覚を、推論によって確かめられた四つの真理と照らし合わせる。違うのは、照らし合わせる基準が、その伝統の教えであるか、推論によって確かめられたものであるか、だ。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">しかし、あなたの四つの真理も、仏教の伝統の教えではありませんか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">教えとして聞くところから始まる。だが、私はそれを推論で確かめよと言う。経典がそう言うから信じるのではない。苦があることは、誰もが自分で知覚する。苦に原因があることは、推論で確かめられる。だから私は、この書物の第二章を、仏陀がなぜ認識手段であるかの論証に費やしている。教えの権威を、教えそのものに頼らずに示すためだ。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">（<em>しばらく黙って</em>）あなたの神は……いや、あなたには神がいないのでしたね。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">永遠で、ひとつで、世界を作る者はいない。永遠で変わらないものは、何も生まない。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">では、仮に私が祈りの中で、永遠の神が自分に現れるのを、鮮明に、概念なしに感じたとしましょう。あなたはそれを何と呼びますか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">修習の力が生んだ、鮮明な認識と呼ぶ。そして、その対象が推論によって確かめられないかぎり、知覚とは呼ばない。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">錯乱だと。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたの誠実さを疑っているのではない。あなたの体験の鮮明さも疑っていない。疑っているのは、その体験の対象だけだ。そして、それはあなたの言う「覆すもの」の仕組みが働いているだけだ。私の伝統では、永遠の作者という考えそのものが、推論によって覆されている。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">では、私の伝統では、あなたの無常の世界という考えが覆されている、と言えばよいのでしょうか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">言ってみよ。どの推論で覆す。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">（<em>微笑んで、聖書を閉じる</em>）今夜は、祈りのほうに戻ることにしましょう。祈りは、論証ではありませんから。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">祈りは論証ではない。だが、修習は、論証のあとに来る。論証のない修習は、恋人の顔を夜ごと見るのと変わらない。</p></div>
+<div class="line"><span class="who">オールストン</span><p class="say">それでも、その男は恋人を愛していたのです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">愛していた。だから苦しんでいた。</p></div>
+<p class="sd">オールストン、静かに頷き、灯明に一礼して退場。</p>
+</section>
+<section class="scene" id="s5"><header class="scene-head"><p class="act">第四幕</p><h2>水の中の棒</h2><p class="guest">客人：<span class="la">J. L.</span> オースティン</p></header>
+<p class="sd">戸口に、痩せて鋭い目つきの英国紳士。片手に細い木の棒、もう片手に水を張った小さな鉢を持っている。</p>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">それは何のための道具だ。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">哲学者たちのお気に入りの見世物ですよ。（<em>鉢を床に置き、棒を斜めに差し入れる</em>）ご覧なさい。棒が曲がって見える。私の時代の哲学者たちは、ここから大げさな結論を引き出しました。棒はまっすぐだ。それなのに曲がって見える。ならば、私が直接見ているのは棒そのものではなく、曲がった何か——「感覚与件」——なのだ、と。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたはそう考えないのか。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">考えません。私が見ているのは、水の中に差してある、まっすぐな棒です。水に差した棒は、こういうふうに見えるものなのです。誰も騙されてはいない。子どもでも、水から出せばまっすぐだと知っている。ここに、棒とは別の「曲がった何か」を立てる理由はどこにもない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、私の例を出そう。かすみ目の人は、虚空に毛髪のようなものが垂れ下がっているのを見る。目の澄んだ人には見えない。そこには、棒にあたるものが何もない。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">なるほど、それは棒の場合とは違います。私はそれを「錯覚」と「妄覚」の区別で扱います。棒の場合は錯覚で、まっすぐな棒という実物がある。かすみ目の毛髪の場合は、実物がない。だが、だからといって、その人が「毛髪の感覚与件」という特別な対象を見ていることにはならない。その人は、何も見ていないのです。見ているように思っているだけだ。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">見ているように思っているだけ。それを、私の論敵たちも言った。かすみ目の人の認識は、目による知覚ではなく、意による概念的な認識だ、と（第294偈）。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">概念的な認識？　私の言葉で言えば、それは判断の誤りだ、ということでしょうか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そうだ。彼らは、知覚そのものは誤らない、誤るのは概念だ、と言いたい。私はそれを退けた。もしかすみ目の毛髪や二つの月が、意による概念的な認識なら、縄を蛇と見る錯覚のように、目の病が続いていても消えることがあり、目の病が治っても消えないことがあるはずだ（第297偈）。だが、そうはならない。目の病がある間は必ず見え、治れば必ず消える。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">（<em>興味を引かれて</em>）続けてください。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">また、概念的な認識なら、言葉でそのまま他人に伝えられるはずだ。見たものの想起も必要になるはずだ。そして、鮮明に現れることもないはずだ（第298偈）。だが、かすみ目の人の毛髪は、言葉をいくら尽くしても、目の澄んだ人には見えない。思い出すのではなく、今、目の前に、鮮明にある。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">つまり、それは見えている。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">見えている。概念的思考はない。それでも、人を欺く。だから認識手段ではない（第300偈）。陳那はそれを、知覚に似て非なるもののうち、感官の乱れから生じる、概念的思考のないものとして挙げた（第288偈）。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">興味深い。あなたは、誤りは判断にしかない、という哲学者の常套句を拒んでいる。それは、私も賛成です。私の国の哲学者たちは、「見る」と「判断する」をきれいに分けすぎた。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、聞こう。かすみ目の人に見えている毛髪の姿は、どこにある。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">どこにも、と答えたくなります。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">どこにもないものが、鮮明に見えるのか。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">（<em>棒を水から出して、手の中で回しながら</em>）私が一番嫌うのは、まさにその問いの立て方です。「どこにある」と聞かれると、何かが「ある」ことが前提されてしまう。私は、哲学者が言葉を、日常の使い方から引き剥がして、勝手な問いを立てることに反対してきました。かすみ目の人が「毛髪が見える」と言うとき、私たちは日常、「それは本物の毛髪ではない」と言う。それで話は終わりです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">「本物の」とは何だ。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">良い質問です。私はその言葉について長く考えました。「本物の」は、それだけでは何も言わない言葉です。「本物のアヒル」と言うとき、それはおもちゃのアヒルでも、アヒルの絵でも、アヒルに見える別の鳥でもない、という意味です。何でないかによって意味が決まる。つまり、否定の使い方のほうが主導権を握っている。私はこれを、「本物の」はズボンをはいている言葉ではない、ズボンをはいているのは否定のほうだ、と言いました。</p></div>
+<p class="sd">ダルマキールティ、思わず声を上げて笑う。</p>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたは今、私のアポーハ論を、ずいぶん粋な言い方で説明した。言葉は、何かを指すのではない。それでないものを退けることで意味をもつ。「本物の毛髪」とは、かすみ目の毛髪でも、絵の毛髪でもないものだ。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">（<em>驚いて</em>）あなたの国でも、その考えが？</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">私の師ディグナーガから始まる。だが、私とあなたで違うことがある。あなたは、言葉の使い方を調べれば、哲学の問題は消えると言う。私は、言葉の使い方を調べるのは、言葉の外にあるものに戻るためだと言う。「本物の毛髪ではない」と言って話が終わるのは、言葉の世界の中だけだ。かすみ目の人の目の前には、今も何かが鮮明に現れている。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">では、あなたはその「何か」を、どう呼ぶのです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">認識の姿（<span class="la">ākāra</span>）と呼ぶ。この章の後のほうで、もっと分かりやすい例を挙げるつもりだ。目のかすんだ人は、灯火のまわりに、孔雀の羽の目玉模様のような、青や赤に輝く光の輪を見る（第403偈）。もしその光の輪が外界の姿なら、目の澄んだ人にも見えるはずだ。見えない。だから、それは外にはない。だが、見えている。だから、それは認識の側にある（第404偈）。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">私の論敵のエイヤーという男も、似たことを言いましたよ。だから、見えているものはすべて感覚与件だ、と。正常な場合も、錯覚の場合も、見ているのは同じ種類のもの、つまり感覚与件だ、と。私はそれを徹底的に批判した。夢と目覚めているときとでは、経験の質が違う。夢には夢らしい質がある。正常な知覚と錯覚とを、同じ種類の対象を見ていると言ってひとまとめにするのは、乱暴だ、と。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">夢らしい質、か。第二百九十九偈を聞け。「眠っている人の認識であれ、目覚めている人の認識であれ、鮮明な現れをもつ認識は、どちらの場合も概念的思考のないものである。そうでないものは、どちらの場合も概念的な認識である」。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">夢の中にも、鮮明なものがある、と。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">ある。夢の中で見る虎は、目覚めているときに見る虎と同じくらい鮮明なことがある。違うのは、鮮明さではない。目覚めてから、その虎が目的にかなうはたらきをしたかどうかだ。夢の虎は、人を食わない。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">つまり、あなたは、見えているものの種類で区別しない。それが人を欺くかどうかで区別する。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そうだ。かすみ目の毛髪も、夢の虎も、水の中の棒の「曲がり」も、見えている姿としては、正常な知覚と同じく概念を離れている。違うのは、それに従ったときに、人が欺かれるかどうかだ。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">水の中の棒の場合、誰も欺かれていないと私は言いましたが。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">それは、あなたが水の中の棒を何度も見て、確定の知が育っているからだ。初めて水を見た子どもは、手を伸ばして、棒の先をつかみそこねるだろう。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">（<em>棒を鉢に戻して</em>）……それは、私が見落としていたことかもしれません。私は、大人の、よく訓練された言葉の使い方ばかり調べていました。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたは、言葉の使い方の細やかさで、哲学者の大雑把な理論を退けた。それは見事だ。だが、言葉が細やかになるのは、言葉より前にある、鮮明な現れのおかげだ。現れがなければ、「見える」も「思われる」も「本物の」も、何も区別しない。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">私は、自分の仕事を「言語現象学」と呼んだことがあります。言葉を調べることで、言葉が語っている現象をより鋭く見るのだ、と。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、あなたは、自分で思っていたより私に近い。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">それは、私が一番言われたくない種類のほめ言葉です。私は、どんな体系にも近いと言われたくない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、こう言い直そう。あなたは、どんな体系からも、ちょうど一歩だけ離れて立っている。</p></div>
+<div class="line"><span class="who">オースティン</span><p class="say">（<em>満足そうに</em>）それなら、ありがたく受け取りましょう。</p></div>
+<p class="sd">オースティン、鉢と棒を拾い上げる。鉢の水面に、灯明の炎が二つ映って揺れている。</p>
+<div class="line"><span class="who">オースティン</span><p class="say">ほら、炎が二つ見える。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">一つは灯で、一つは水だ。あなたの目は澄んでいる。</p></div>
+<p class="sd">オースティン、退場。</p>
+</section>
+<section class="scene" id="s6"><header class="scene-head"><p class="act">第五幕</p><h2>情報としての似姿</h2><p class="guest">客人：フレッド・ドレツキ</p></header>
+<p class="sd">戸口に、がっしりとした、気さくな雰囲気の男。腕に古い自動車の燃料計を抱えている。</p>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">その丸い器具は何だ。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">車の燃料計です。私の考えを説明するのに、いつもこれを使うのです。（<em>針を指で動かして</em>）この針が「半分」を指しているとき、針は、タンクに燃料が半分あることを表している。なぜか。針の位置が、燃料の量に、法則的に依存しているからです。燃料が半分でなければ、針はここを指さない。だから、針の位置は、燃料についての情報を運んでいる。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">煙が火の情報を運ぶように、か。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">まさにそうです。そして、私は知覚もこれと同じだと考えます。目の中の状態が、外の世界の情報を運んでいる。さらに、その状態が、情報を運ぶことを自分の機能としているとき、それは表象になる。燃料計は、燃料の量を示すために作られた。目の中の状態は、進化と学習を通じて、外界の色や形を示すための機能を獲得した。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、私も一つの問いから始めよう。第三百二偈。「色などの対象についての認識は、体験であるという点だけではすべて同じ本性をもつ。だから、それによって認識が対象ごとに区別されるような、ある本性がなければならない」。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">何がある認識を、青の認識にし、別の認識を黄色の認識にするのか、という問いですね。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そうだ。あなたの答えは。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">情報です。青の認識は、青についての情報を運んでいる状態です。それが青の認識である理由は、青に法則的に依存して生じたことにある。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">依存して生じた。では、原因によって区別するのだな。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">そう言ってよいでしょう。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、眼はどうだ。青の認識も、黄色の認識も、眼から生じる。眼に依存している。眼は、すべての視覚的な認識に共通する原因だ。たとえ眼の状態に違いがあっても、その違いで、「これは青の認識だ」とは言えない（第312偈）。原因に違いがあっても、その違いは、認識そのものに内在するものではない（第303偈）。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">だから、私はどんな原因でもよいとは言っていません。ある状態が運ぶ情報は、その状態が依存しているもののうち、特定のものについての情報です。燃料計の針は、ガソリンスタンドの店員がタンクに燃料を入れたことにも依存しているし、地球の重力にも依存している。それでも針は、燃料の量についての情報を運ぶ。なぜなら、針の位置の変化を、燃料の量の変化が、法則的に決めているからです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">なるほど。あなたは、原因の中から、違いを生み出すものを選び出す。私も同じことをする。第三百十一偈。すべての行為要素が行為の役に立つとしても、その行為を最後に他の行為から区別するもの、それが最もはたらきの強い手段だ。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">では、私たちはほとんど同じことを言っている。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">ほとんど。だが、私はその「区別するもの」を、認識の外ではなく、認識自身の中に置く。第三百四偈から第三百六偈。認識自身に内在するどの区別によって、「これはこれの認識だ」という限定が確立されるのか——その区別こそが、認識を成り立たせる。対象の姿をもつこと（<span class="la">artharūpatā</span>）を除いて、ほかのものは、認識を対象と結びつけることはない。だから、認識対象を知ることの手段は、認識対象の姿をもつこと（<span class="la">meyarūpatā</span>）だ。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">対象の姿をもつこと——つまり、認識が対象に似ていること、ですか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">似姿（<span class="la">sārūpya</span>）だ。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">（<em>燃料計を床に置いて</em>）そこが、私があなたと違うところです。表象は、対象に似ている必要はない。燃料計の針は、ガソリンに少しも似ていない。温度計の水銀柱は、温度に似ていない。似ていることは、表象にとって必要でもないし、十分でもない。双子は互いに似ているが、互いを表象してはいない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">その反論は、私自身も立てた。第四百三十偈。もし認識が類似だけで対象を認識するなら、似ているものはすべて、互いに認識しあうことになってしまう。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">（<em>驚いて</em>）ご自分で？</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そうだ。だから私は、似姿を認識の原因とは言わない。第四百三十一偈。認識の体験というはたらきは、みずから生じるのであって、類似を原因とするのではない。類似は、外界の対象を認める世間において、はたらきとその対象を確定する根拠となるだけだ。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">では、あなたの似姿は何のためにあるのです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">認識を、その認識にする。双子は互いに似ているが、どちらも体験ではない。認識は体験だ。体験である認識が、青の姿をもって生じるとき、それは青の認識になる。あなたの燃料計は、燃料の情報を運ぶが、何も体験していない。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">そこが、まさに私が自然化したかったところです。体験とは何か。私は、体験の質——青の青さ、痛みの痛さ——も、表象された性質だと考えました。あなたが青を体験しているとき、あなたの体験に「青い」性質があるのではない。あなたの体験が、外の対象を青いものとして表象しているのです。だから、体験を内省しても、見つかるのは外の対象の性質だけです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">（<em>身を乗り出して</em>）次に来る客——ムーアという男——が、同じことを言うだろう。意識は透き通っていて、内省しても見えるのは青だけだ、と。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">ええ、私はムーアのその観察を、自分の議論の支えにしました。体験は透き通っている。だから、体験の質は、外の対象の表象された性質にほかならない、と。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">面白い。同じ観察から、あなたは外へ出て、私は内へ入る。あなたは、見えているのは外の青だけだから、体験には独自の質はない、と言う。私は、見えているのは青だけで、その青と別に体験が見つからないのだから、青は体験の姿だ、と言う。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">どちらも、同じ透明さを、反対方向から使っている。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、どちらが正しいかを決めるために、一つ聞こう。かすみ目の人が見る毛髪。それはどんな情報を運んでいる。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">何の情報も。それは誤表象です。私の理論の一番の難所でした。表象が、情報を運ぶ機能をもちながら、その機能を果たしそこねている状態。燃料計が壊れて、空のタンクで「満タン」を指している状態です。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">その壊れた燃料計の「満タン」は、どこにある。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">針の位置として、燃料計の中に。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、かすみ目の毛髪の姿も、認識の中にある。外の何についての情報も運ばずに、それでも鮮明に。あなたも私と同じく、表象の姿を、表象する側に置いている。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">しかし私にとって、その姿は、情報を運ぶはずだった機能によって意味をもちます。機能がなければ、針の位置は単なる位置にすぎない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">私にとって、その姿は、体験であることによって意味をもつ。体験がなければ、あなたの針は、誰にとっても何も意味しない。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">（<em>考え込んで</em>）……あなたの体系では、認識結果と認識手段は同じだと聞きました。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">同じだ。対象の姿をもつことは、認識自身のものだ。だから、結果は手段と別のものではない（第307偈）。認識は、何かを行う者ではないのに、対象に対してはたらきをもつかのように現れる（第308偈）。ちょうど、子が親に似た姿で生まれるとき、子は何もしていないのに、「親の姿をとる」と言われるように（第309偈）。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">手段と結果が同じ、というのは、私の言葉で言えば、情報を運ぶことと、その情報が届くことが同じだ、ということになりますか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたの言葉では、そうなるかもしれない。私の言葉では、手段と結果、行為と行為要素の区別は、すべて概念が当てはめたものだ（第318–319偈）。斧と切ることさえ、区別は当てはめによって成り立つ。実在は、ただ、対象の姿をもって生じた一つの認識だけだ。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">私は、知覚には二種類あると言ったことがあります。「対象を見る」ことと、「〜であると見る」ことです。犬を見ることと、それが犬であると見ること。前者は、概念がなくてもできる。猫だって犬を見ることはできる。私はそれを「非認識的な見ること」と呼びました。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">（<em>微笑んで</em>）それは、セラーズという客に聞かせたかった。彼は、概念のない見ることは知識の役に立たないと言った。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">私は、役に立たないとは言いません。知識は「〜であると見る」ことにある。だが、それは「対象を見る」ことの上に立っている。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、あなたは私の二階建ての家に、住んでくれる人だ。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">ただし、私の家の一階には、機能と情報という配管が通っています。あなたの家の一階には、体験という灯がともっている。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">配管は、誰かが水を飲むときにだけ役に立つ。灯は、誰も見ていなくても燃えている。</p></div>
+<div class="line"><span class="who">ドレツキ</span><p class="say">誰も見ていない灯が燃えているかどうか、それは誰が知るのです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">灯自身が。……その話は、次と、その次の客とすることになっている。</p></div>
+<p class="sd">ドレツキ、燃料計を抱え直す。針がかすかに揺れる。</p>
+<div class="line"><span class="who">ドレツキ</span><p class="say">この針は、今、私が帰る時間だという情報を運んでいます。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">その針の姿を、あなたの認識がもったのだ。</p></div>
+<p class="sd">ドレツキ、笑って退場。</p>
+</section>
+<section class="scene" id="s7"><header class="scene-head"><p class="act">第六幕</p><h2>青と青の意識</h2><p class="guest">客人：<span class="la">G. E.</span> ムーア</p></header>
+<p class="sd">戸口に、丸い眼鏡をかけた温和な紳士。部屋に入ると、まず自分の両手をじっと見る。</p>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">何をしている。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">確かめているのです。ここに一つの手がある。ここにもう一つの手がある。だから、少なくとも二つの外的な事物が存在する。私はこれを証明として、人前で示したことがあります。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">それで論敵は納得したか。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">あまり。ですが、私は自分の手のほうを、どんな哲学の論証よりも確かだと思っています。……ラッセルから聞きました。あなたは、見られる姿は見る認識の一つの側面にすぎない、と言うつもりだと。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">言う。そのための偈を、ちょうど書き終えたところだ。第三百八十八偈。「必ず認識とともに同時に認識される対象が、それと別のものであることは、どのような姿によって成り立つだろうか」。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">（<em>椅子がないので、床に正座のような姿勢で座り、膝に手を置く</em>）ゆっくり考えさせてください。つまり、青い色を見るとき、青はいつも青の意識と一緒に現れる。一緒でないことは一度もない。だから、青と青の意識は別のものではない、と。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そうだ。第三百九十偈に言う。認識のない対象も、対象のない認識も、認識されているものとして経験されたことはない。だから、その二つが別々であることはない。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">私は若いころ、まさにその議論を相手に、一篇の論文を書きました。「観念論論駁」という題です。私の時代の観念論者たちは、「存在するとは知覚されることだ」と言っていた。その根にあるのが、あなたと同じ議論でした。青はいつも青の感覚として現れる。だから青は感覚にほかならない、と。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、あなたはどう論駁した。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">区別したのです。青の感覚と緑の感覚とを比べてみる。両方に共通している要素がある。それが「意識」です。違っている要素がある。それが「青」と「緑」です。共通しているものと違っているものは、同じものではありえない。だから、意識と青は二つの別の要素です。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">巧みだ。だが、その「共通している意識」は、どこに見える。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">……そこが、私の論文のいちばん奇妙なところです。正直に申し上げましょう。青の感覚を内省して、その「意識」の要素に注意を向けようとすると、それは消えてしまうように思えるのです。見えるのは青だけで、もう一つの要素は、まるで透明であるかのようです。私は「ダイアファナス」——透き通っている——と書きました。それでも、注意深く探せば見つかる、とも書きましたが。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたは、見えない第二の要素を、論証の必要から立てた。私は、見えるものだけを数える。青は見える。青とは別の「意識」は見えない。見えない以上、それを青と別のものとして立てる根拠はない。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">しかし、私の論証は「見えるかどうか」ではなく、「違いと共通点」に基づいていました。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、その違いと共通点の議論に答えよう。第三百二偈に、私はこう書いた。どの認識も、体験であるという点だけでは、すべて同じ本性をもつ。だから、認識を対象ごとに区別する何かがなければならない。あなたの言う「共通する意識」とは、この「体験であるという点」だ。あなたの言う「違う要素」とは、認識がもつ対象の姿だ。私もそれを区別する。だが、二つの別のものとしてではない。一つの認識の、二つの側面として。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">二つの側面。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">認識は、対象の姿と、自分自身の姿という二つの姿をもつ（<span class="la">dvirūpatā</span>）。私はこれを、この章の第九部で八つの仕方で論証している。一つの月を、かすみ目の人は二つ見る（第389偈）。その二つ目の月は、外のどこにもない。だが、見えている。見えているその姿は、認識の側にしかない。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">錯覚の場合は、そうかもしれません。しかし、正常な知覚の場合にまで、それを広げる必要はないでしょう。私の手は、私の認識の一側面ではない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたの手が、あなたの認識なしに見えたことはあるか。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">見えたことは……ありません。見えるとは、認識されることですから。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、あなたの手が、あなたの認識と別のものであることは、どのような姿によって成り立つ。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">（<em>しばらく黙って、自分の手を見つめる</em>）……ここで、私は論文で言ったことを、もう一度言わなければなりません。二つのものが、いつも一緒に現れるからといって、それらが同じものだということにはならない。いつも一緒に現れることと、同一であることとは、別のことです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">その反論は、私の論敵たちも出した。だから、私は「必ず」（<span class="la">niyama</span>）と言ったのだ。ただ一緒に現れるのではない。必ず一緒に現れる。青と黄色は、たまたま一緒に見えることがある。だが、必ず一緒に認識されるということはない（第389偈）。別々のものは、別々に認識されうる。認識と対象は、決して別々に認識されえない。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">しかし、「必ず一緒に認識される」というのは、認識についての事実でしょう。私が問題にしているのは、存在についての事実です。私の手が認識されていないときも、私の手は存在する。それは、認識されていないのだから、一緒に認識されることもない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">認識されていないときの手について、あなたは何を知っている。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">何も知らないかもしれません。しかし、存在すると信じることのほうが、存在しないと信じることよりも、ずっと確かです。私は、私に手があることを、どんな哲学の前提よりも確かに知っている。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたの確かさは、私も尊重する。そして実は、私はこの章で、外界の対象を認める立場からの議論もしている（第341–353偈）。外界の実在を認める人々にとっても、認識が直接体験するのは、認識自身がもつ対象の姿だけだ。外の対象は、その姿の原因として推論されるにすぎない（第391偈）。あなたの手が外にあるかどうかを、私はここで争わなくてもよい。私が言いたいのは、あなたが見ている手の姿が、あなたの見ることの外にはない、ということだけだ。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">それならば、私は半分だけ同意できます。私が「見ている手の姿」と言うとき、それは私が感覚与件と呼んできたものです。感覚与件が、私の手そのものなのか、それとも手の表面の一部の現れなのか——私は生涯その問いに答えを出せませんでした。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">答えを出せないまま、手が二つあることは確かだと言ったのか。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">そうです。哲学者の問いに答えられないことは、常識を捨てる理由にはなりません。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">（<em>初めて少し笑って</em>）あなたは、私がこれまで会った中で、もっとも正直な実在論者だ。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">あなたは、私が会った中で、もっとも慎重な観念論者です。私の論敵たちは、あなたほど「必ず」という言葉に注意を払わなかった。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、最後に一つ。あなたが「透き通っている」と言った意識の要素。あれは、あなたの論証では邪魔者だった。私の論証では、主役だ。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">どういうことです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">意識が透き通っていて、見えるのが青だけだということこそ、青と青の意識とが別でないことの印だ。もし別のものなら、青の横に、もう一つの何かが見えたはずだ。</p></div>
+<div class="line"><span class="who">ムーア</span><p class="say">（<em>長い沈黙のあと</em>）……それは、私が論文に書くべきだった反論です。</p></div>
+<p class="sd">ムーア、立ち上がり、両手を軽く打ち合わせる。</p>
+<div class="line"><span class="who">ムーア</span><p class="say">それでも、ここに一つの手がある。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">ここに、一つの手の姿がある。</p></div>
+<p class="sd">ムーア、穏やかに会釈して退場。</p>
+</section>
+<section class="scene" id="s8"><header class="scene-head"><p class="act">第七幕</p><h2>機械の中の幽霊</h2><p class="guest">客人：ギルバート・ライル</p></header>
+<p class="sd">戸口に、背が高く、軍人のように背筋の伸びた男。ツイードの上着。部屋を一瞥し、迷わず灯明の前に腰を下ろす。</p>
+<div class="line"><span class="who">ライル</span><p class="say">ずいぶん小さな灯ですね。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">小さいが、自分自身を照らすには十分だ。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">（<em>眉を上げて</em>）さっそくその比喩ですか。セラーズが警告していったはずですが。灯が他のものを照らすとき、灯そのものも照らされている。だから、心も対象を照らすとき、自分自身を照らしている——と。私は、その比喩を退治するために、一冊の本を書きました。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">どんな本だ。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">『心の概念』。私の時代の哲学者たちは、デカルトという男以来、人間を二つに分けていました。外から見える体という機械と、その中に住む、目に見えない心という幽霊。そして、その幽霊は自分自身のことをすべて、透き通るように知っている、と。私はそれを「機械の中の幽霊」と呼んで、笑いものにしました。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">私も、体の中に住む「自己」という幽霊を退ける。その点では、あなたは私の味方だ。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">それは嬉しい。では、もう一歩進みましょう。心の状態が、それ自身によって照らされている、という考えも捨ててください。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">なぜ。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">無限後退があるからです。もし私が何かを知るとき、その知ることも同時に知られていなければならないとしたら、その「知ることを知ること」もまた知られていなければならない。さらにその……と、果てしなく続く。だから私は言った。心の状態は、自分自身を照らしなどしない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">（<em>身を乗り出して</em>）あなたは今、私の師ディグナーガの論証を、逆さまに使った。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">逆さまに？</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">ディグナーガはこう論じた。もし認識が、別の認識によって知られるのだとしたら、その別の認識もまた別の認識によって知られねばならず、無限に後退する。だから、認識は別の認識によって知られるのではない。自分自身によって知られるのだ、と。後退を止めるために、自己認識を立てたのだ。あなたは同じ後退を見て、自己認識を捨てた。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">なるほど。私は、後退を止めるために、そもそも「知ることを知る」必要はないと言ったのです。私が何かを見ているとき、私はただ見ている。見ていることを、もう一つの内なる目で見ているのではない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、見ていることを、あなたはどうやって知る。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">知る必要がありますか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたは今、私の灯を「小さい」と言った。それは、あなたがこの灯を見たからだ。その「見た」ということを、あなたは知っている。だから「小さい」と言えた。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">私が知っているのは、灯が小さいということです。私が灯を見たということではない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、明日の朝、誰かがあなたに、「昨夜、庵の灯を見たか」と尋ねたら、あなたは何と答える。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">「見た」と答えるでしょう。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">なぜ答えられる。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">思い出すからです。私はそれを「回顧」と呼びました。私の時代の哲学者たちが「内観」と呼んだものの大部分は、実は少し前の自分を振り返る回顧にすぎない。同時に自分を覗き込む内なる目など要らない。少しあとから、記憶によって振り返ればよいのです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">（<em>静かに</em>）それこそが、私の最後の論証だ。第四百八十五偈。「想起からも、認識の自己認識は確立される」。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">……どういう意味です。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">あなたは、昨夜の灯を見たことを思い出す。想起とは、以前に体験したものを、ふたたび捉えることだ。体験しなかったものは、思い出せない。あなたは灯だけでなく、「灯を見た」ということを思い出す。ならば、灯を見たそのときに、「見ること」もまた体験されていなければならない。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">しかし、見たそのときに、見ることが別の内なる目で見られていた必要はない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そのとおり。別の目で見られていたのではない。もし別の認識によって知られたのなら、その認識も思い出されるために別の認識によって知られねばならず、あなたの言う後退が始まる。そして、第四百二十七偈で言ったとおり、最初の認識はすでに滅しているので、あとの認識がそれを体験することはできない。だから、見ることは、見るそのときに、自分自身によって体験されていたのだ。自分自身によって、とは、もう一つの目によってではない、ということだ。灯が自らを照らすというのは、灯がもう一つの灯を必要としない、という意味にすぎない。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">（<em>しばらく考えて</em>）あなたの「自己認識」は、内なる目ではない。それはむしろ、認識が、思い出されうる仕方で起こっている、ということ……。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">そうだ。あなたは幽霊を退治しようとした。私は、幽霊を立てていない。自己認識とは、認識の外に立つ見張り番ではない。認識が、自分の姿をもって起こっているということだ。第四百二十八偈に言う。対象の姿をもった認識は外に向かって現れる。しかし、認識をとらえる認識は、常に自分自身において内に向かって現れる。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">しかし、それはやはり、私の嫌う言い方です。「内に向かって」。私の本の主張の一つは、心の言葉の多くは、内なる出来事の報告ではなく、ふるまいの傾向を言うのだ、ということでした。「彼は賢い」とは、彼の頭の中で何かが起こっているということではなく、彼がある状況である仕方でふるまう傾向をもつ、ということです。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">「彼は賢い」については、それでよい。それは概念的な認識、一般相の話だ。だが、今、この瞬間に、あなたの目に灯が見えていること——それは傾向ではない。傾向はあとから語られる。見えていることは、今起こっている。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">見ることは、出来事ではない、と私は書きました。「見る」は、競走で「勝つ」のと同じく、何かの過程ではなく、達成を表す言葉だ、と。走っている最中に「勝ちつつある」とは言わない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">面白い。私も、認識は何かを行う者ではない、と書いた（第308偈）。認識は、対象に対してはたらきをもつかのように現れるが、実は何もしていない。ただ、対象の姿をもって生じるだけだ。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">では、またしても私たちは近い。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">近い。だが、あなたが「何もしていない」ところから、「だから何もない」へ進むなら、私はついていけない。何もしないが、照らされている。それが認識だ。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">私にはやはり、照らされているという言葉が、幽霊の衣のように見えます。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">では、あなた自身のことを聞こう。あなたは本の中で、「私」という言葉はいつも捕まらない、と書いたそうだな。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">（<em>驚いて</em>）よくご存じで。自分を捕まえようとすると、捕まえようとしている自分は、いつもその一歩後ろにいる。私はそれを「私」の体系的なとらえがたさ、と呼びました。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">私はそれを、とらえがたさとは呼ばない。捕まえる者と捕まえられる者が別でない、ということだと思う。認識は自分自身を、対象としてとらえるのではない。だから、対象として捕まえようとすると、いつも一歩後ろにいる。その一歩後ろの場所に、別の誰かがいるのではない。ただ、灯がある。</p></div>
+<div class="line"><span class="who">ライル</span><p class="say">そして、その灯には、主人がいない。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">いない。そこが、私とあなたが最後に一致するところだ。照らされている認識はあるが、照らしている「私」はいない。</p></div>
+<p class="sd">ライル、長いあいだ灯明を見つめる。それから立ち上がる。</p>
+<div class="line"><span class="who">ライル</span><p class="say">機械の中の幽霊を退治しに来たら、機械もなく幽霊もいない灯が一つ、燃えていた。……これは本にどう書けばよいのか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">書かずに、思い出せばよい。思い出せるなら、今夜あなたは確かにこれを体験している。</p></div>
+<p class="sd">ライル、笑って退場。</p>
+</section>
+<section class="scene" id="s9"><header class="scene-head"><p class="act">終幕</p><h2>注釈を託す</h2><p class="guest">ダルマキールティとデーヴェーンドラブッディ</p></header>
+<p class="sd">明け方。灯明は消えかけている。弟子のデーヴェーンドラブッディが、貝葉の束を抱えて入ってくる。</p>
+<div class="line"><span class="who">デーヴェーンドラブッディ</span><p class="say">先生、知覚の章の注釈の草稿を持ってまいりました。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">置いておけ。……夜通し、客と話していた。</p></div>
+<div class="line"><span class="who">デーヴェーンドラブッディ</span><p class="say">どんな客でしたか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">知ることに二種類あると言う者。知覚にも概念が入っていると言う者。青と青の意識は別だと言う者。認識は自分を照らさないと言う者。みな、私と違うことを言った。だが、誰一人として、見ることを軽んじなかった。</p></div>
+<div class="line"><span class="who">デーヴェーンドラブッディ</span><p class="say">先生は、第一章には自分で注をお付けになりました。どうしてこの章には、ご自分で注を付けられないのですか。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">知覚は、言葉で説明するほど遠ざかる。……いや、それは言い訳だ。おまえに託したいのだ。</p></div>
+<p class="sd">デーヴェーンドラブッディの草稿をめくる。しばらく読み、そっと置く。</p>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">言葉の意味は、よく伝えている。だが、意図はまだ伝わっていない。</p></div>
+<div class="line"><span class="who">デーヴェーンドラブッディ</span><p class="say">書き直します。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">書き直せ。だが、覚えておけ。注釈は、知覚の代わりにはならない。おまえがどれほど上手に書いても、読む者がそれを読んで、灯を見たことにはならない。注釈とは、記述による知だ。読む者を、自分で見る場所まで連れていくだけだ。</p></div>
+<div class="line"><span class="who">デーヴェーンドラブッディ</span><p class="say">では、私の注釈は、いつまでたっても先生の偈の一歩後ろにいるのですね。</p></div>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">（<em>微笑んで</em>）昨夜の最後の客も、同じことを言っていた。捕まえようとすると、いつも一歩後ろにいる、と。</p></div>
+<p class="sd">灯明の炎が細くなり、消える。部屋には、窓から差しこむ明け方の光だけが残る。</p>
+<div class="line"><span class="who">ダルマキールティ</span><p class="say">灯が消えても、見ることは消えない。</p></div>
+<p class="curtain">― 幕 ―</p>
+</section>
+<section class="notes"><h3>付記</h3>
+<ul><li>本文中の偈の内容は、<span class="la">Dharmakīrti</span>『<span class="la">Pramāṇavārttika</span>』第3章（知覚章）の原典に基づく。偈番号は従来の通し番号（全541偈）に従う。戸崎宏正『仏教認識論の研究』の偈番号とは、第343偈以降で1つ、第512偈以降で2つずれる（例：第388偈＝戸崎 第387偈）。訳文は筆者による。</li><li>第七幕でダルマキールティが紹介する、認識が別の認識によって知られるとすると無限に後退するという論証は、陳那『<span class="la">Pramāṇasamuccaya</span>』第1章の自己認識論を踏まえたものである。</li><li>客人たちの発言は、それぞれの公刊された立場（ラッセル『哲学の諸問題』「見知りによる知と記述による知」、セラーズ「経験論と心の哲学」、オールストン『神を知覚する』、オースティン『センスとセンシビリア』「弁解の弁」、ドレツキ『見ることと知ること』『知識と情報の流れ』『心を自然化する』、ムーア「観念論論駁」「外界の証明」、ライル『心の概念』）を戯曲用に言い換えたもので、直接の引用ではない。</li><li>終幕の、ダルマキールティが弟子の注釈の草稿を読んで書き直させたという場面は、チベットの仏教史書に伝わる逸話を踏まえた脚色である。</li></ul>
+</section>
+</main>
+</body>
+</html>
