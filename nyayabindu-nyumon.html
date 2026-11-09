@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ダルマキールティ『ニヤーヤビンドゥ（論理の一滴）』全三章の内容を、ダルモーッタラの注にしたがって、初学者向けに図と表で解説する入門。">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>ニヤーヤビンドゥ入門</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=IBM+Plex+Sans+JP:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: 教科書の一章のような1カラム（約40em）。各節は「問い → 図 → 表 → 注釈者のポイント」の順。図は SVG、色は藍（論理の線）と鬱金（いま注目する要素）の二色。 */
+:root{
+  --bg:#F5F6F8; --surface:#FFFFFF; --ink:#1B2230; --muted:#5A6375; --line:#D5DAE3;
+  --indigo:#2F4A8A; --indigo-soft:#E4EAF6;
+  --saffron:#B8740A; --saffron-soft:#FBEFD9;
+  --red:#B03A2E; --red-soft:#F7E1DE;
+  --green:#2B7A4B; --green-soft:#DDF1E4;
+  --f-display:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"IBM Plex Sans JP","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+  --f-ia:"Gentium Book Plus","Times New Roman",serif;
+  --measure:40em;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12151C; --surface:#1A1F29; --ink:#E6E9F0; --muted:#A0A8B8; --line:#2E3543;
+  --indigo:#9DB4EE; --indigo-soft:#222D45; --saffron:#EBB25A; --saffron-soft:#3A2C14;
+  --red:#F09085; --red-soft:#3D1F1C; --green:#7FD3A0; --green-soft:#183324; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12151C; --surface:#1A1F29; --ink:#E6E9F0; --muted:#A0A8B8; --line:#2E3543;
+  --indigo:#9DB4EE; --indigo-soft:#222D45; --saffron:#EBB25A; --saffron-soft:#3A2C14;
+  --red:#F09085; --red-soft:#3D1F1C; --green:#7FD3A0; --green-soft:#183324; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.85;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:var(--measure);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.4}
+h1{font-size:clamp(2rem,7vw,2.9rem);font-weight:900;margin:.2em 0 .2em}
+h2{font-size:clamp(1.4rem,4.6vw,1.8rem);margin:2.6em 0 .5em;display:flex;gap:.5em;align-items:baseline}
+h2 .no{font-family:var(--f-ia);color:var(--saffron);font-size:.85em}
+h3{font-size:1.15rem;margin:2em 0 .4em;padding-left:.6em;border-left:4px solid var(--indigo)}
+p{margin:.6em 0}
+i,.ia{font-family:var(--f-ia);font-style:italic}
+.hero{padding-block:48px 8px}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--indigo);font-weight:700}
+.lead{font-size:1.06rem;color:var(--muted)}
+.sample{display:inline-block;margin-top:.8em;font-size:.8rem;font-weight:700;letter-spacing:.06em;color:var(--saffron);background:var(--saffron-soft);padding:2px 10px;border-radius:999px}
+figure{margin:1.4em 0;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+figure svg{display:block;width:100%;max-width:100%;height:auto;color:var(--ink);font-family:var(--f-body)}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.7}
+.tbl{overflow-x:auto;margin:1.2em 0;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.65}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:none}
+th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);font-weight:700;background:var(--bg);white-space:nowrap}
+td b{font-weight:700}
+td .ia{font-size:.92em;color:var(--muted)}
+.tag{display:inline-block;font-size:.74rem;font-weight:700;padding:0 8px;border-radius:999px;white-space:nowrap}
+.t-ok{background:var(--green-soft);color:var(--green)}
+.t-ng{background:var(--red-soft);color:var(--red)}
+.t-mid{background:var(--saffron-soft);color:var(--saffron)}
+.t-blue{background:var(--indigo-soft);color:var(--indigo)}
+.point{margin:1.4em 0;padding:14px 16px;border-radius:12px;background:var(--indigo-soft)}
+.point .lbl{font-size:.76rem;font-weight:700;letter-spacing:.1em;color:var(--indigo);display:block;margin-bottom:2px}
+.point p{margin:.3em 0}
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:1em 0}
+.keys div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}
+.keys b{display:block;font-family:var(--f-display);font-size:1.05rem}
+.keys span{font-size:.82rem;color:var(--muted)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:1.2em 0 0;padding:0;list-style:none}
+.toc a{display:block;font-size:.86rem;text-decoration:none;color:var(--indigo);border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 12px}
+.toc a:focus-visible,a:focus-visible{outline:2px solid var(--saffron);outline-offset:2px}
+.next{margin-top:3em;padding:18px;border:1px dashed var(--line);border-radius:12px}
+.next h2{margin-top:0}
+footer{margin-top:3em;font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+.part{margin:4em 0 0;padding:18px 18px 16px;border-radius:14px;background:var(--indigo);color:var(--surface)}
+.part .pno{font-family:var(--f-ia);font-size:.85rem;letter-spacing:.14em;opacity:.85}
+.part h2{margin:.1em 0 .2em;color:var(--surface);font-size:clamp(1.5rem,5vw,1.9rem)}
+.part p{margin:0;font-size:.92rem;opacity:.92}
+.toc-group{margin-top:1em}
+.toc-group .gl{font-size:.74rem;font-weight:700;letter-spacing:.1em;color:var(--muted)}
+.toc-group .toc{margin-top:.3em}
+/* SVG の色 */
+.s-line{stroke:currentColor;fill:none}
+.s-ind{stroke:var(--indigo);fill:none}
+.s-sf{stroke:var(--saffron);fill:none}
+.f-surface{fill:var(--surface)}
+.f-ind{fill:var(--indigo-soft)}
+.f-sf{fill:var(--saffron-soft)}
+.f-ok{fill:var(--green-soft)}
+.f-ng{fill:var(--red-soft)}
+.f-bg{fill:var(--bg)}
+.t-ink{fill:currentColor}
+.t-muted{fill:var(--muted)}
+.t-ind{fill:var(--indigo)}
+.t-sf{fill:var(--saffron)}
+.t-ngc{fill:var(--red)}
+.t-okc{fill:var(--green)}
+.dot-sf{fill:var(--saffron)}
+.k-green{stroke:var(--green)}
+.k-red{stroke:var(--red)}
+.k-line{stroke:var(--line)}
+</style>
+
+</head>
+<body>
+<header class="hero wrap">
+  <div class="eyebrow">仏教論理学のいちばん短い教科書</div>
+  <h1>ニヤーヤビンドゥ入門</h1>
+  <p class="lead">7世紀インドの学僧ダルマキールティが書いた『ニヤーヤビンドゥ（論理の一滴）』の中身を、図と表で読み解きます。解釈は8世紀の注釈者ダルモーッタラにしたがいます。</p>
+  <nav aria-label="目次">
+  <div class="toc-group"><div class="gl">はじめに</div><ul class="toc"><li><a href="#map">全体像</a></li></ul></div>
+  <div class="toc-group"><div class="gl">第一章　知覚</div><ul class="toc">
+    <li><a href="#valid">正しい知</a></li><li><a href="#perc">知覚の定義</a></li><li><a href="#four">知覚の四種</a></li><li><a href="#object">自相と共相</a></li><li><a href="#result">知覚の結果</a></li></ul></div>
+  <div class="toc-group"><div class="gl">第二章　自己のための推理</div><ul class="toc">
+    <li><a href="#infer">推理とは</a></li><li><a href="#three">三つの条件</a></li><li><a href="#kinds">三種類の手がかり</a></li><li><a href="#bond">束縛</a></li><li><a href="#absence">「ない」を知る</a></li></ul></div>
+  <div class="toc-group"><div class="gl">第三章　他者のための推理</div><ul class="toc">
+    <li><a href="#words">言葉で推理させる</a></li><li><a href="#forms">二つの論証式</a></li><li><a href="#thesis">主張の条件</a></li><li><a href="#fallacy">誤った手がかり</a></li><li><a href="#antinomy">相違決定</a></li><li><a href="#example">喩例</a></li><li><a href="#badex">誤った喩え</a></li><li><a href="#refute">反論のしかた</a></li></ul></div>
+  </nav>
+</header>
+<main class="wrap">
+<section id="map">
+<h2><span class="no">0</span>この本は何を扱うのか</h2>
+<p>この本の問いは一つです。<b>人が目的を果たすために頼りにできる「正しい知」とは何か。</b>ダルマキールティの答えは、正しい知には二種類しかない、というものです。目の前のものをじかにとらえる<b>知覚</b>と、手がかりから見えないものを知る<b>推理</b>です。</p>
+<p>ここで「正しい」とは、知が示したものを実際に手に入れさせる、という意味です。水が見えたので行ってみたら本当に水があった。そういう知が正しい知です。</p>
+
+<figure>
+<svg viewBox="0 0 480 270" role="img" aria-label="正しい知は知覚と推理に分かれ、推理はさらに自己のためと他者のために分かれる。三つの枝がそれぞれ第一章から第三章にあたる。">
+  <defs><marker id="ar0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+  <rect x="170" y="10" width="140" height="44" rx="10" class="f-ind s-ind" stroke-width="1.5"/>
+  <text x="240" y="38" text-anchor="middle" class="t-ind" font-size="17" font-weight="700">正しい知</text>
+  <path d="M240 54V78H100V100M240 78H330V100" class="s-line" stroke-width="1.4" marker-end="url(#ar0)"/>
+  <path d="M100 78V100" class="s-line" stroke-width="1.4" marker-end="url(#ar0)"/>
+  <rect x="40" y="102" width="120" height="44" rx="10" class="f-surface s-line" stroke-width="1.3"/>
+  <text x="100" y="130" text-anchor="middle" class="t-ink" font-size="17" font-weight="700">知覚</text>
+  <rect x="270" y="102" width="120" height="44" rx="10" class="f-surface s-line" stroke-width="1.3"/>
+  <text x="330" y="130" text-anchor="middle" class="t-ink" font-size="17" font-weight="700">推理</text>
+  <path d="M330 146V170H260V190M330 170H400V190" class="s-line" stroke-width="1.4" marker-end="url(#ar0)"/>
+  <rect x="200" y="192" width="122" height="44" rx="10" class="f-sf s-sf" stroke-width="1.5"/>
+  <text x="261" y="214" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">自己のため</text>
+  <text x="261" y="230" text-anchor="middle" class="t-muted" font-size="13">頭の中で知る</text>
+  <rect x="340" y="192" width="122" height="44" rx="10" class="f-surface s-line" stroke-width="1.3"/>
+  <text x="401" y="214" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">他者のため</text>
+  <text x="401" y="230" text-anchor="middle" class="t-muted" font-size="13">言葉で人に示す</text>
+  <text x="100" y="170" text-anchor="middle" class="t-ind" font-size="15" font-weight="700">第一章</text>
+  <text x="261" y="258" text-anchor="middle" class="t-sf" font-size="15" font-weight="700">第二章</text>
+  <text x="401" y="258" text-anchor="middle" class="t-ind" font-size="15" font-weight="700">第三章</text>
+</svg>
+<figcaption>本の三つの章は、正しい知の分類にそのまま対応しています。推理が二つに分かれるのは、自分で知る場合と、それを言葉にして相手に納得させる場合とで、論じるべきことが違うからです。</figcaption>
+</figure>
+
+<div class="tbl"><table>
+<thead><tr><th>章</th><th>テーマ</th><th>経の数</th><th>おもな論点</th></tr></thead>
+<tbody>
+<tr><td><b>第一章</b></td><td>知覚</td><td>21</td><td>知覚の定義（言葉を含まず、錯覚でない）、知覚の四種、知覚がとらえる対象、知覚の結果</td></tr>
+<tr><td><b>第二章</b></td><td>自己のための推理</td><td>48</td><td>推理が成り立つ三つの条件、三種類の手がかり、それらが信頼できる理由、「ない」を知る方法</td></tr>
+<tr><td><b>第三章</b></td><td>他者のための推理</td><td>140</td><td>論証の言い方（論証式）、主張とは何か、誤った論証の分類、誤った喩え、反論のしかた</td></tr>
+</tbody></table></div>
+</section>
+
+<div class="part" id="ch1"><div class="pno">CHAPTER I</div><h2>第一章　知覚</h2><p>正しい知とは何かを確かめ、その一つである知覚を、定義・種類・対象・結果の順に説明します。</p></div>
+<section id="valid">
+<h2><span class="no">1</span>「正しい知」とは何か</h2>
+<p>この本は、人が目的を果たすには正しい知が欠かせない、という確認から始まります。では、何をもって知が「正しい」と言えるのでしょうか。</p>
+<p>答えは、<b>その知が示したものを、実際に手に入れさせること</b>です。知そのものが人を動かすわけではありません。知が対象を示し、人がそれをめざして行動し、目的を果たします。その過程で裏切られない知が、正しい知です。</p>
+
+<figure>
+<svg viewBox="0 0 480 230" role="img" aria-label="水が見えて行ってみると水がある場合、知は正しい。蜃気楼の場合、行っても水はなく、知は正しくない。">
+  <defs><marker id="a1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+  <text x="10" y="24" class="t-okc" font-size="15" font-weight="700">正しい知</text>
+  <rect x="10" y="36" width="120" height="50" rx="10" class="f-surface s-line" stroke-width="1.3"/>
+  <text x="70" y="66" text-anchor="middle" class="t-ink" font-size="15">水が見える</text>
+  <rect x="180" y="36" width="120" height="50" rx="10" class="f-surface s-line" stroke-width="1.3"/>
+  <text x="240" y="66" text-anchor="middle" class="t-ink" font-size="15">そこへ行く</text>
+  <rect x="350" y="36" width="120" height="50" rx="10" class="f-ok k-green" stroke-width="1.5"/>
+  <text x="410" y="66" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">水を飲める</text>
+  <line x1="130" y1="61" x2="177" y2="61" class="s-line" stroke-width="1.4" marker-end="url(#a1a)"/>
+  <line x1="300" y1="61" x2="347" y2="61" class="s-line" stroke-width="1.4" marker-end="url(#a1a)"/>
+  <text x="10" y="134" class="t-ngc" font-size="15" font-weight="700">正しくない知</text>
+  <rect x="10" y="146" width="120" height="50" rx="10" class="f-surface s-line" stroke-width="1.3"/>
+  <text x="70" y="176" text-anchor="middle" class="t-ink" font-size="15">蜃気楼が見える</text>
+  <rect x="180" y="146" width="120" height="50" rx="10" class="f-surface s-line" stroke-width="1.3"/>
+  <text x="240" y="176" text-anchor="middle" class="t-ink" font-size="15">そこへ行く</text>
+  <rect x="350" y="146" width="120" height="50" rx="10" class="f-ng k-red" stroke-width="1.5"/>
+  <text x="410" y="176" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">水はない</text>
+  <line x1="130" y1="171" x2="177" y2="171" class="s-line" stroke-width="1.4" marker-end="url(#a1a)"/>
+  <line x1="300" y1="171" x2="347" y2="171" class="s-line" stroke-width="1.4" marker-end="url(#a1a)"/>
+  <text x="240" y="222" text-anchor="middle" class="t-muted" font-size="13">違いは最後の一歩：示されたものが手に入るかどうか</text>
+</svg>
+<figcaption>知の正しさは、行動の結果で測られます。示したものを得させる知が正しい知です。</figcaption>
+</figure>
+
+<h3>正しい知はいくつあるか</h3>
+<p>当時のインドでは、学派ごとに正しい知の数が違いました。ダルマキールティは知覚と推理の二つだけを認めます。ほかの学派が加える「信頼できる人の言葉」や「類比」などは、推理に含まれるか、正しい知ではないとされます。</p>
+<div class="tbl"><table>
+<thead><tr><th>学派</th><th>数</th><th>認める正しい知</th></tr></thead>
+<tbody>
+<tr><td><b>ローカーヤタ</b>（唯物論）</td><td>1</td><td>知覚だけ。推理は不確かだとして退ける</td></tr>
+<tr><td><b>仏教論理学</b></td><td>2</td><td>知覚・推理</td></tr>
+<tr><td><b>サーンキヤ</b></td><td>3</td><td>知覚・推理・言葉</td></tr>
+<tr><td><b>ニヤーヤ</b></td><td>4</td><td>知覚・推理・言葉・類比</td></tr>
+<tr><td><b>ミーマーンサー</b></td><td>6</td><td>上の四つ＋要請（状況からの推定）・非存在</td></tr>
+</tbody></table></div>
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>ダルモーッタラは、「知覚と推理」の「と」にも意味を読み取ります。推理も、手がかりが対象と切り離せないことに基づいて対象を得させるので、知覚と同じ資格をもつ正しい知だ、というのです。これは推理を認めないローカーヤタへの反論になっています。</p></div>
+</section>
+
+<section id="perc">
+<h2><span class="no">2</span>知覚の定義：言葉を含まず、錯覚でない</h2>
+<p>知覚とは、<b>構想（言葉や概念）を離れ</b>、しかも<b>錯覚でない</b>知です。二つの条件の組み合わせで、知覚とそれ以外の知を分けることができます。</p>
+
+<figure>
+<svg viewBox="0 0 480 270" role="img" aria-label="構想の有無と錯覚の有無で四つの区画ができる。構想がなく錯覚もない区画だけが知覚である。">
+  <text x="300" y="22" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">言葉・概念を</text>
+  <text x="210" y="46" text-anchor="middle" class="t-muted" font-size="13">含まない</text>
+  <text x="390" y="46" text-anchor="middle" class="t-muted" font-size="13">含む</text>
+  <text x="30" y="114" text-anchor="middle" class="t-muted" font-size="13" transform="rotate(-90 30 114)">錯覚でない</text>
+  <text x="30" y="214" text-anchor="middle" class="t-muted" font-size="13" transform="rotate(-90 30 214)">錯覚</text>
+  <rect x="120" y="60" width="176" height="96" rx="10" class="f-sf s-sf" stroke-width="2"/>
+  <text x="208" y="96" text-anchor="middle" class="t-ink" font-size="17" font-weight="700">知覚</text>
+  <text x="208" y="120" text-anchor="middle" class="t-muted" font-size="13">青をありありと見る</text>
+  <rect x="304" y="60" width="170" height="96" rx="10" class="f-surface s-line" stroke-width="1.2"/>
+  <text x="389" y="96" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">推理など</text>
+  <text x="389" y="120" text-anchor="middle" class="t-muted" font-size="13">「山に火がある」</text>
+  <rect x="120" y="164" width="176" height="96" rx="10" class="f-ng k-red" stroke-width="1.2"/>
+  <text x="208" y="200" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">感覚の錯覚</text>
+  <text x="208" y="224" text-anchor="middle" class="t-muted" font-size="13">眼病で月が二つ見える</text>
+  <rect x="304" y="164" width="170" height="96" rx="10" class="f-ng k-red" stroke-width="1.2"/>
+  <text x="389" y="200" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">思い違い</text>
+  <text x="389" y="224" text-anchor="middle" class="t-muted" font-size="13">縄を蛇だと思う</text>
+</svg>
+<figcaption>二つの条件のうち一つだけでは知覚を特定できません。言葉を含まない知にも錯覚はあり、錯覚でない知にも言葉を含むもの（推理）があるからです。</figcaption>
+</figure>
+
+<h3>「構想」とは</h3>
+<p>構想とは、言葉と<b>結びつきうる</b>形で対象をとらえる知です。「これは壺だ」という判断がその典型です。「結びつきうる」と言うのには理由があります。言葉を覚える前の赤ん坊も、まだ言葉と結びついてはいないものの、言葉と結びつきうる形でものをとらえています。だから赤ん坊の判断も構想です。</p>
+
+<h3>錯覚の原因はどこにあるか</h3>
+<p>本書は錯覚の原因を四つ例示します。ダルモーッタラは、それらを原因のある場所で整理します。</p>
+<div class="tbl"><table>
+<thead><tr><th>原因の場所</th><th>例</th><th>見え方</th></tr></thead>
+<tbody>
+<tr><td><b>感官</b></td><td>眼病</td><td>髪の毛のようなものが見える、月が二つ見える</td></tr>
+<tr><td><b>対象</b></td><td>松明をすばやく回す</td><td>火の輪が見える</td></tr>
+<tr><td><b>身体の外の拠りどころ</b></td><td>舟に乗っている</td><td>岸の木が動いて見える</td></tr>
+<tr><td><b>身体の内側</b></td><td>体液の乱れ（熱病など）</td><td>柱が燃えて見える</td></tr>
+</tbody></table></div>
+
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>ディグナーガの定義は「構想を離れた」だけでした。ダルマキールティが加えた「錯覚でない」を、「欺かない」と同じ意味に取る解釈がありました。ダルモーッタラはこれを退けます。知覚はそもそも正しい知の一種なので、「欺かない」をもう一度書けば同じことの繰り返しになるからです。「錯覚でない」は、目の前の事物の姿を取り違えていない、という独自の意味をもちます。</p></div>
+</section>
+
+<section id="four">
+<h2><span class="no">3</span>知覚の四つの種類</h2>
+<p>知覚というと目や耳で感じることを思い浮かべますが、本書は四種類を数えます。四つに共通するのは、言葉を含まず、錯覚でないことです。</p>
+<div class="tbl"><table>
+<thead><tr><th>種類</th><th>何をとらえるか</th><th>どうやって生じるか</th></tr></thead>
+<tbody>
+<tr><td><b>感官知</b></td><td>色・音・香り・味・触感</td><td>目・耳などの五つの感官による</td></tr>
+<tr><td><b>意の知覚</b></td><td>感官知の対象の、次の瞬間の姿</td><td>直前の感官知をきっかけに、心が生む</td></tr>
+<tr><td><b>自己認識</b></td><td>知そのもの、楽しさや苦しさ</td><td>すべての心のはたらきが、自分自身を感じとる</td></tr>
+<tr><td><b>ヨーガ行者の知</b></td><td>四聖諦などの真理</td><td>瞑想を重ね、真理がありありと見えるに至る</td></tr>
+</tbody></table></div>
+
+<h3>意の知覚：次の瞬間をとらえる</h3>
+<p>仏教では、ものは一瞬ごとに生まれては消えると考えます。意の知覚は、感官知がとらえた瞬間の<b>次の瞬間</b>の対象をとらえます。</p>
+<figure>
+<svg viewBox="0 0 480 210" role="img" aria-label="対象の第一の瞬間を感官知がとらえ、その感官知をきっかけにして、意の知覚が対象の第二の瞬間をとらえる。">
+  <defs><marker id="a3a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+  <text x="20" y="44" class="t-muted" font-size="13">対象</text>
+  <text x="20" y="164" class="t-muted" font-size="13">知</text>
+  <line x1="70" y1="100" x2="470" y2="100" class="k-line" stroke-width="1"/>
+  <text x="470" y="94" text-anchor="end" class="t-muted" font-size="12">時間 →</text>
+  <rect x="120" y="22" width="110" height="40" rx="8" class="f-surface s-line" stroke-width="1.2"/>
+  <text x="175" y="47" text-anchor="middle" class="t-ink" font-size="14">青 第1瞬間</text>
+  <rect x="280" y="22" width="110" height="40" rx="8" class="f-surface s-line" stroke-width="1.2"/>
+  <text x="335" y="47" text-anchor="middle" class="t-ink" font-size="14">青 第2瞬間</text>
+  <rect x="120" y="140" width="110" height="44" rx="8" class="f-ind s-ind" stroke-width="1.4"/>
+  <text x="175" y="167" text-anchor="middle" class="t-ind" font-size="14" font-weight="700">感官知</text>
+  <rect x="280" y="140" width="110" height="44" rx="8" class="f-sf s-sf" stroke-width="1.6"/>
+  <text x="335" y="167" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">意の知覚</text>
+  <line x1="175" y1="62" x2="175" y2="137" class="s-line" stroke-width="1.3" marker-end="url(#a3a)"/>
+  <line x1="335" y1="62" x2="335" y2="137" class="s-line" stroke-width="1.3" marker-end="url(#a3a)"/>
+  <line x1="230" y1="162" x2="277" y2="162" class="s-line" stroke-width="1.3" marker-end="url(#a3a)"/>
+  <text x="254" y="200" text-anchor="middle" class="t-muted" font-size="12">直前の知が次の知を生む</text>
+</svg>
+<figcaption>この仕組みで二つの疑問に答えます。意の知覚は感官知と違う瞬間を見るので、同じものを二度とらえる無駄はありません。また感官知をきっかけに生じるので、目の見えない人に色の意の知覚が生じることもありません。</figcaption>
+</figure>
+
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>ダルモーッタラは、意の知覚は教説として伝えられているものであって、それがあることを証明する手段はない、と率直に認めています。ヨーガ行者の知については、真理への瞑想が深まって、手のひらの果実を見るようにありありと見えるに至ったとき、言葉を離れた知覚になる、と説明します。</p></div>
+</section>
+
+<section id="object">
+<h2><span class="no">4</span>知覚がとらえるもの：自相と共相</h2>
+<p>知覚がとらえるのは<b>自相</b>、つまりその場その瞬間の個別の事物です。これに対して、多くのものに共通する一般的な姿を<b>共相</b>といい、推理がとらえるのはこちらです。</p>
+<div class="tbl"><table>
+<thead><tr><th></th><th>自相</th><th>共相</th></tr></thead>
+<tbody>
+<tr><td><b>中身</b></td><td>個々の具体的な事物</td><td>概念の像（「火」一般など）</td></tr>
+<tr><td><b>近い／遠いで見え方が</b></td><td><span class="tag t-ok">変わる</span>近ければありありと、遠ければぼんやり</td><td><span class="tag t-ng">変わらない</span>思い浮かべる火はいつも同じ</td></tr>
+<tr><td><b>目的を果たす力</b></td><td><span class="tag t-ok">ある</span>本物の火は煮炊きができる</td><td><span class="tag t-ng">ない</span>思い浮かべた火では煮炊きできない</td></tr>
+<tr><td><b>実在か</b></td><td>実在（勝義有）</td><td>実在ではない</td></tr>
+<tr><td><b>とらえる知</b></td><td>知覚</td><td>推理</td></tr>
+</tbody></table></div>
+
+<h3>「とらえる対象」と「確定する対象」</h3>
+<p>ダルモーッタラは、知の対象に二つの意味を区別します。この区別によって、推理が実在でない共相をとらえながら、なぜ正しい知でありうるのかが説明できます。</p>
+<figure>
+<svg viewBox="0 0 480 250" role="img" aria-label="知覚は一瞬の自相をとらえ、事物の連続を確定する。推理は共相をとらえ、自相を確定する。どちらも最終的には実在の事物に行き着く。">
+  <defs><marker id="a4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+  <text x="200" y="22" text-anchor="middle" class="t-muted" font-size="13" font-weight="700">とらえる対象</text>
+  <text x="390" y="22" text-anchor="middle" class="t-muted" font-size="13" font-weight="700">確定する対象</text>
+  <rect x="10" y="40" width="90" height="70" rx="10" class="f-ind s-ind" stroke-width="1.4"/>
+  <text x="55" y="80" text-anchor="middle" class="t-ind" font-size="16" font-weight="700">知覚</text>
+  <rect x="140" y="40" width="120" height="70" rx="10" class="f-surface s-line" stroke-width="1.2"/>
+  <text x="200" y="70" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">自相</text>
+  <text x="200" y="92" text-anchor="middle" class="t-muted" font-size="12">一瞬の火</text>
+  <rect x="320" y="40" width="140" height="70" rx="10" class="f-sf s-sf" stroke-width="1.6"/>
+  <text x="390" y="70" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">事物の連続</text>
+  <text x="390" y="92" text-anchor="middle" class="t-muted" font-size="12">燃えつづける火</text>
+  <line x1="100" y1="75" x2="137" y2="75" class="s-line" stroke-width="1.3" marker-end="url(#a4a)"/>
+  <line x1="260" y1="75" x2="317" y2="75" class="s-line" stroke-width="1.3" marker-end="url(#a4a)"/>
+  <text x="289" y="68" text-anchor="middle" class="t-muted" font-size="12">判断</text>
+  <rect x="10" y="140" width="90" height="70" rx="10" class="f-ind s-ind" stroke-width="1.4"/>
+  <text x="55" y="180" text-anchor="middle" class="t-ind" font-size="16" font-weight="700">推理</text>
+  <rect x="140" y="140" width="120" height="70" rx="10" class="f-surface s-line" stroke-width="1.2"/>
+  <text x="200" y="170" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">共相</text>
+  <text x="200" y="192" text-anchor="middle" class="t-muted" font-size="12">「火」という像</text>
+  <rect x="320" y="140" width="140" height="70" rx="10" class="f-sf s-sf" stroke-width="1.6"/>
+  <text x="390" y="170" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">自相</text>
+  <text x="390" y="192" text-anchor="middle" class="t-muted" font-size="12">山にある実際の火</text>
+  <line x1="100" y1="175" x2="137" y2="175" class="s-line" stroke-width="1.3" marker-end="url(#a4a)"/>
+  <line x1="260" y1="175" x2="317" y2="175" class="s-line" stroke-width="1.3" marker-end="url(#a4a)"/>
+  <text x="240" y="240" text-anchor="middle" class="t-muted" font-size="13">右端はどちらも実在の事物。だから行動すれば手に入る</text>
+</svg>
+<figcaption>推理は、像としての火を、実際の火だと取り違えてとらえます。その点では錯誤です。しかし、それによって実際の火にたどり着けるので、正しい知と認められます。</figcaption>
+</figure>
+</section>
+
+<section id="result">
+<h2><span class="no">5</span>知覚の結果：手段と結果は一つの知</h2>
+<p>知覚によって得られる「結果」とは何でしょうか。ニヤーヤ学派は、感官と対象の接触が手段で、そこから生じる知が結果だと考えました。手段と結果は別のものです。仏教は、<b>一つの知を二つの面から見て</b>、手段とも結果とも呼びます。</p>
+<figure>
+<svg viewBox="0 0 480 250" role="img" aria-label="ニヤーヤでは感官と対象の接触が手段、知が結果で別のもの。仏教では一つの知のうち、対象に似た形が手段、対象の理解が結果である。">
+  <defs><marker id="a5a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+  <text x="10" y="24" class="t-muted" font-size="14" font-weight="700">ニヤーヤ学派</text>
+  <rect x="10" y="38" width="170" height="56" rx="10" class="f-surface s-line" stroke-width="1.2"/>
+  <text x="95" y="62" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">感官と対象の接触</text>
+  <text x="95" y="82" text-anchor="middle" class="t-muted" font-size="12">手段</text>
+  <rect x="290" y="38" width="170" height="56" rx="10" class="f-surface s-line" stroke-width="1.2"/>
+  <text x="375" y="62" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">知</text>
+  <text x="375" y="82" text-anchor="middle" class="t-muted" font-size="12">結果</text>
+  <line x1="180" y1="66" x2="287" y2="66" class="s-line" stroke-width="1.4" marker-end="url(#a5a)"/>
+  <text x="234" y="58" text-anchor="middle" class="t-muted" font-size="12">生む</text>
+  <text x="10" y="136" class="t-sf" font-size="14" font-weight="700">仏教（ダルマキールティ）</text>
+  <rect x="10" y="150" width="450" height="84" rx="12" class="f-sf s-sf" stroke-width="1.6"/>
+  <text x="235" y="172" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">一つの知（青の知）</text>
+  <rect x="26" y="182" width="200" height="42" rx="8" class="f-surface s-line" stroke-width="1.1"/>
+  <text x="126" y="200" text-anchor="middle" class="t-ink" font-size="13" font-weight="700">青に似た形をもつ</text>
+  <text x="126" y="217" text-anchor="middle" class="t-muted" font-size="12">手段</text>
+  <rect x="244" y="182" width="200" height="42" rx="8" class="f-surface s-line" stroke-width="1.1"/>
+  <text x="344" y="200" text-anchor="middle" class="t-ink" font-size="13" font-weight="700">青を理解している</text>
+  <text x="344" y="217" text-anchor="middle" class="t-muted" font-size="12">結果</text>
+</svg>
+<figcaption>仏教では、知が対象に似た形をもつこと（形の類似）が手段で、対象を理解していること自体が結果です。両者は同じ知の二つの面です。</figcaption>
+</figure>
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>手段と結果が同じ知なら、何が何を生むのか。ダルモーッタラは、ここでの関係は「生み出す・生み出される」ではなく、「確立する・確立される」だと説明します。この知が「青の知」だと決まるのは、それが青に似た形をもつからです。形の類似がこの知を青の知として確立する、という意味で手段なのです。</p></div>
+</section>
+<div class="part" id="ch2"><div class="pno">CHAPTER II</div><h2>第二章　自己のための推理</h2><p>手がかりから見えないものを知る推理について、成り立つ条件、手がかりの種類、それが信頼できる理由を説明します。</p></div>
+<section id="infer">
+<h2><span class="no">6</span>推理とは何をすることか</h2>
+<p>インド論理学の定番の例は、山の煙です。遠くの山から煙が上がっている。火そのものは見えない。それでも私たちは「あの山には火がある」と知ることができます。これが推理です。</p>
+
+<figure>
+<svg viewBox="0 0 480 200" role="img" aria-label="煙を見る、煙と火の関係を思い出す、山に火があると知る、という三段階で推理が生じる。">
+  <defs><marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+  <rect x="10" y="40" width="130" height="80" rx="12" class="f-surface s-line" stroke-width="1.3"/>
+  <text x="75" y="72" text-anchor="middle" class="t-ink" font-size="16" font-weight="700">煙を見る</text>
+  <text x="75" y="96" text-anchor="middle" class="t-muted" font-size="13">手がかりの把握</text>
+  <rect x="175" y="40" width="130" height="80" rx="12" class="f-surface s-line" stroke-width="1.3"/>
+  <text x="240" y="66" text-anchor="middle" class="t-ink" font-size="16" font-weight="700">関係を</text>
+  <text x="240" y="86" text-anchor="middle" class="t-ink" font-size="16" font-weight="700">思い出す</text>
+  <text x="240" y="108" text-anchor="middle" class="t-muted" font-size="13">煙あれば火あり</text>
+  <rect x="340" y="40" width="130" height="80" rx="12" class="f-sf s-sf" stroke-width="1.6"/>
+  <text x="405" y="72" text-anchor="middle" class="t-ink" font-size="16" font-weight="700">火があると</text>
+  <text x="405" y="92" text-anchor="middle" class="t-ink" font-size="16" font-weight="700">知る</text>
+  <text x="405" y="112" text-anchor="middle" class="t-sf" font-size="13" font-weight="700">これが推理の知</text>
+  <line x1="140" y1="80" x2="172" y2="80" class="s-line" stroke-width="1.4" marker-end="url(#ar1)"/>
+  <line x1="305" y1="80" x2="337" y2="80" class="s-line" stroke-width="1.4" marker-end="url(#ar1)"/>
+  <text x="75" y="150" text-anchor="middle" class="t-ind" font-size="15" font-weight="700">証因</text>
+  <text x="75" y="168" text-anchor="middle" class="t-muted" font-size="13">煙</text>
+  <text x="240" y="150" text-anchor="middle" class="t-ind" font-size="15" font-weight="700">遍充</text>
+  <text x="240" y="168" text-anchor="middle" class="t-muted" font-size="13">煙は火に伴われる</text>
+  <text x="405" y="150" text-anchor="middle" class="t-ind" font-size="15" font-weight="700">所証</text>
+  <text x="405" y="168" text-anchor="middle" class="t-muted" font-size="13">火（山にあること）</text>
+</svg>
+<figcaption>推理は三段階で生じます。下の藍色の語は、この本で使う専門用語です。手がかりを「証因」、知りたい性質を「所証」、両者の必然的なつながりを「遍充」と呼びます。</figcaption>
+</figure>
+
+<div class="keys" aria-label="用語">
+  <div><b>証因</b><span>手がかり。例では煙</span></div>
+  <div><b>所証</b><span>証明したい性質。例では火</span></div>
+  <div><b>主題</b><span>性質を知りたい場所。例では山</span></div>
+  <div><b>同類 / 異類</b><span>火があると分かっている所 / 火がないと分かっている所</span></div>
+</div>
+
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>ダルモーッタラは、手がかりはただ存在するだけでは役に立たない、と注意します。煙が見えて、しかも煙と火の関係を思い出せたとき、はじめて推理の知が生じます。</p></div>
+</section>
+
+<section id="three">
+<h2><span class="no">7</span>正しい手がかりの三つの条件</h2>
+<p>どんなものでも手がかりになるわけではありません。正しい証因は、次の三つの条件（<b>三相</b>）をすべて満たし、しかもそれが確かめられていなければなりません。</p>
+
+<figure>
+<svg viewBox="0 0 480 260" role="img" aria-label="主題の山に煙がある。同類の台所には煙がある場合がある。異類の湖には煙がまったくない。">
+  <rect x="10" y="30" width="140" height="150" rx="14" class="f-sf s-sf" stroke-width="1.6"/>
+  <text x="80" y="22" text-anchor="middle" class="t-sf" font-size="15" font-weight="700">主題</text>
+  <text x="80" y="60" text-anchor="middle" class="t-ink" font-size="17" font-weight="700">山</text>
+  <text x="80" y="80" text-anchor="middle" class="t-muted" font-size="13">火があるか知りたい</text>
+  <rect x="170" y="30" width="140" height="150" rx="14" class="k-green f-ok" stroke-width="1.4"/>
+  <text x="240" y="22" text-anchor="middle" class="t-okc" font-size="15" font-weight="700">同類（火あり）</text>
+  <text x="240" y="60" text-anchor="middle" class="t-ink" font-size="17" font-weight="700">台所など</text>
+  <rect x="330" y="30" width="140" height="150" rx="14" class="k-red f-ng" stroke-width="1.4"/>
+  <text x="400" y="22" text-anchor="middle" class="t-ngc" font-size="15" font-weight="700">異類（火なし）</text>
+  <text x="400" y="60" text-anchor="middle" class="t-ink" font-size="17" font-weight="700">湖など</text>
+  <circle cx="80" cy="125" r="22" class="dot-sf"/>
+  <text class="f-surface" x="80" y="130" text-anchor="middle" font-size="15" font-weight="700">煙</text>
+  <circle cx="215" cy="125" r="22" class="dot-sf"/>
+  <text class="f-surface" x="215" y="130" text-anchor="middle" font-size="15" font-weight="700">煙</text>
+  <circle class="k-green" cx="268" cy="125" r="22" fill="none" stroke-dasharray="4 3" stroke-width="1.4"/>
+  <text x="268" y="130" text-anchor="middle" class="t-okc" font-size="12">熾火</text>
+  <line class="k-red" x1="378" y1="103" x2="422" y2="147" stroke-width="2.4"/>
+  <line class="k-red" x1="422" y1="103" x2="378" y2="147" stroke-width="2.4"/>
+  <text x="80" y="212" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">① 主題にある</text>
+  <text x="240" y="212" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">② 同類にだけある</text>
+  <text x="400" y="212" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">③ 異類にまったくない</text>
+  <text x="240" y="232" text-anchor="middle" class="t-muted" font-size="12">煙のない熾火があってもよい</text>
+</svg>
+<figcaption>三相を煙の例で描いたもの。②は「火のある所すべてに煙がある」ことまでは求めません。煙が出るのは火のある所に限られる、というだけで十分です。</figcaption>
+</figure>
+
+<div class="tbl"><table>
+<thead><tr><th>条件</th><th>内容</th><th>煙の例</th><th>欠けると</th></tr></thead>
+<tbody>
+<tr><td><b>①</b></td><td>手がかりが主題にある</td><td>山に煙が確かにある</td><td><span class="tag t-ng">不成立</span><br>湯気かもしれないものを煙として使う</td></tr>
+<tr><td><b>②</b></td><td>手がかりが同類にだけある</td><td>煙は火のある所にしか出ない</td><td><span class="tag t-ng">矛盾</span><br>逆の結論が出てしまう</td></tr>
+<tr><td><b>③</b></td><td>手がかりが異類にまったくない</td><td>火のない所に煙は出ない</td><td><span class="tag t-mid">不定</span><br>どちらとも決められない</td></tr>
+</tbody></table></div>
+<p>誤った論証のこの三分類は、第三章で詳しく扱われます。</p>
+
+<h3>「だけ」の位置が意味を変える</h3>
+<p>ダルモーッタラがとくに詳しく論じるのは、条件②の「だけ」がどこにかかるかです。サンスクリット原文では、「だけ」を表す小辞 <span class="ia">eva</span> の位置で意味が変わります。</p>
+
+<div class="tbl"><table>
+<thead><tr><th>読み方</th><th>意味</th><th>「努力から生じたもの」を手がかりにすると</th></tr></thead>
+<tbody>
+<tr><td><b>同類に<u>だけ</u>ある</b><br><span class="tag t-ok">本文の読み</span></td><td>手がかりがあるのは同類の範囲内に限られる。同類の一部にしかなくてもよい</td><td><span class="tag t-ok">正しい手がかり</span><br>努力で生じたものは必ず無常。無常なものの一部（壺など）にしかないが問題ない</td></tr>
+<tr><td><b>同類に<u>必ず</u>ある</b><br><span class="tag t-ng">退けられる読み</span></td><td>同類のすべてに手がかりがなければならない</td><td><span class="tag t-ng">手がかりにならない</span><br>稲妻のように、努力なしに生じる無常なものがあるから</td></tr>
+</tbody></table></div>
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>条件②があれば、③は意味の上で分かるはずです。それでも両方を書くのはなぜか。ダルモーッタラの答えは、肯定の形で言うときも否定の形で言うときも、「必ずそうなる」という限定をつけて言わなければならないことを示すため、です。</p></div>
+</section>
+
+<section id="kinds">
+<h2><span class="no">8</span>手がかりは三種類しかない</h2>
+<p>三つの条件を満たす手がかりは、次の三種類に限られます。前の二つは「ある」ことを、最後の一つは「ない」ことを証明します。</p>
+
+<div class="tbl"><table>
+<thead><tr><th>種類</th><th>何を証明する</th><th>例</th><th>手がかりと結論の関係</th></tr></thead>
+<tbody>
+<tr><td><b>自性因</b><br><span class="ia">svabhāva</span></td><td><span class="tag t-blue">ある</span></td><td>これはシンシャパーだから、樹である</td><td>同じものの別の面。シンシャパーであれば、ほかの条件なしに樹である</td></tr>
+<tr><td><b>結果因</b><br><span class="ia">kārya</span></td><td><span class="tag t-blue">ある</span></td><td>煙があるから、火がある</td><td>結果から原因へ。煙は火から生じる</td></tr>
+<tr><td><b>非認識</b><br><span class="ia">anupalabdhi</span></td><td><span class="tag t-mid">ない</span></td><td>見えるはずの壺が見えないから、ここに壺はない</td><td>見えるはずのものが見えないこと（10節）</td></tr>
+</tbody></table></div>
+
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>シンシャパーの例は、木の名前を知らない人のためのものではありません。ダルモーッタラが想定するのは、シンシャパーという木は知っているのに、うっかりそれが「樹」だと結びつけていない人です。自性因は、同じ事物の別の呼び方に気づかせる推理なのです。</p></div>
+</section>
+
+<section id="bond">
+<h2><span class="no">9</span>なぜその三種類だけなのか：束縛</h2>
+<p>手がかりが結論を確実に示すのは、手がかりが結論に<b>束縛されている</b>（<span class="ia">pratibandha</span>）とき、つまり手がかりの存在が結論に依存しているときだけです。何度いっしょに見かけたかは関係ありません。そして束縛には二つの型しかありません。</p>
+
+<figure>
+<svg viewBox="0 0 480 300" role="img" aria-label="束縛は同一性と因果性の二種だけ。シンシャパーは樹の中に含まれ、煙は火から生じる。単にいっしょに見られるだけの関係は束縛ではない。">
+  <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+  <text x="120" y="22" text-anchor="middle" class="t-ind" font-size="15" font-weight="700">同一性</text>
+  <text x="120" y="40" text-anchor="middle" class="t-muted" font-size="13">→ 自性因</text>
+  <ellipse cx="120" cy="110" rx="100" ry="58" class="f-ind s-ind" stroke-width="1.5"/>
+  <text x="120" y="76" text-anchor="middle" class="t-ind" font-size="15" font-weight="700">樹</text>
+  <ellipse cx="120" cy="122" rx="52" ry="28" class="f-sf s-sf" stroke-width="1.5"/>
+  <text x="120" y="127" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">シンシャパー</text>
+  <text x="360" y="22" text-anchor="middle" class="t-ind" font-size="15" font-weight="700">因果性</text>
+  <text x="360" y="40" text-anchor="middle" class="t-muted" font-size="13">→ 結果因</text>
+  <rect x="268" y="88" width="64" height="44" rx="10" class="f-surface s-line" stroke-width="1.3"/>
+  <text x="300" y="115" text-anchor="middle" class="t-ink" font-size="16" font-weight="700">火</text>
+  <rect x="388" y="88" width="64" height="44" rx="10" class="f-sf s-sf" stroke-width="1.5"/>
+  <text x="420" y="115" text-anchor="middle" class="t-ink" font-size="16" font-weight="700">煙</text>
+  <line x1="332" y1="110" x2="385" y2="110" class="s-line" stroke-width="1.4" marker-end="url(#ar2)"/>
+  <text x="358" y="102" text-anchor="middle" class="t-muted" font-size="12">生む</text>
+  <line class="k-line" x1="20" y1="196" x2="460" y2="196" stroke-width="1"/>
+  <text x="240" y="222" text-anchor="middle" class="t-ngc" font-size="15" font-weight="700">束縛ではないもの：たまたまの同時出現</text>
+  <rect x="96" y="240" width="110" height="40" rx="10" class="k-red f-ng" stroke-width="1.2"/>
+  <text x="151" y="265" text-anchor="middle" class="t-ink" font-size="15">あの人の子</text>
+  <rect x="274" y="240" width="110" height="40" rx="10" class="k-red f-ng" stroke-width="1.2"/>
+  <text x="329" y="265" text-anchor="middle" class="t-ink" font-size="15">肌が黒い</text>
+  <line class="k-red" x1="206" y1="260" x2="274" y2="260" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="240" y="252" text-anchor="middle" class="t-ngc" font-size="12">？</text>
+</svg>
+<figcaption>上の二つが束縛の型です。シンシャパーであることは樹であることの一部なので、離れることができません。煙は火から生じるので、火なしにはありえません。下は、これまで見た兄弟がみな肌が黒かったというだけの関係です。束縛がないので、次の子も黒いとは言えません。</figcaption>
+</figure>
+
+<div class="tbl"><table>
+<thead><tr><th>束縛の型</th><th>手がかり → 結論</th><th>対応する手がかり</th></tr></thead>
+<tbody>
+<tr><td><b>同一性</b></td><td>同じ事物を別の面から言う</td><td>自性因</td></tr>
+<tr><td><b>因果性</b></td><td>結果から原因を知る</td><td>結果因</td></tr>
+<tr><td><span class="tag t-ng">なし</span></td><td>いっしょに見かけただけ</td><td>手がかりにならない</td></tr>
+</tbody></table></div>
+
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>シンシャパーと樹が実際には同じものなら、なぜ二つの名前があるのか。ダルモーッタラは、名前の違いは「何から区別しているか」の違いにすぎない、と答えます。シンシャパーは他の種類の木から、樹は木でないものから区別した呼び方で、指している事物は一つです。</p></div>
+</section>
+
+<section id="absence">
+<h2><span class="no">10</span>「ない」はどうやって知るのか</h2>
+<p>「この部屋に壺はない」と知るのは、どういう知でしょうか。ダルマキールティによれば、それは<b>見えるはずのものが見えない</b>ことからの推理です。ただし、見えなくて当然のもの（遠すぎる物、過去や未来の物、幽霊のようにもともと見えない物）が見えなくても、ないとは言えません。</p>
+
+<figure>
+<svg viewBox="0 0 480 220" role="img" aria-label="見えるための条件がそろい、対象が見える性質をもつとき、見えなければ『ない』と言える。どちらかが欠ければ疑いが残るだけである。">
+  <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+  <rect x="10" y="20" width="180" height="56" rx="10" class="f-surface s-line" stroke-width="1.3"/>
+  <text x="100" y="44" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">見る条件がそろっている</text>
+  <text x="100" y="62" text-anchor="middle" class="t-muted" font-size="12">明るさ・目・注意など</text>
+  <rect x="10" y="100" width="180" height="56" rx="10" class="f-surface s-line" stroke-width="1.3"/>
+  <text x="100" y="124" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">対象が見える性質をもつ</text>
+  <text x="100" y="142" text-anchor="middle" class="t-muted" font-size="12">壺は見える。幽霊は見えない</text>
+  <path d="M190 48H222V88M190 128H222V88" class="s-line" stroke-width="1.3"/>
+  <text x="232" y="80" class="t-muted" font-size="12">両方</text>
+  <line x1="222" y1="88" x2="262" y2="88" class="s-line" stroke-width="1.4" marker-end="url(#ar3)"/>
+  <rect x="266" y="60" width="96" height="56" rx="10" class="f-ind s-ind" stroke-width="1.5"/>
+  <text x="314" y="84" text-anchor="middle" class="t-ind" font-size="15" font-weight="700">知覚可能</text>
+  <text x="314" y="102" text-anchor="middle" class="t-muted" font-size="12">なのに見えない</text>
+  <line x1="362" y1="88" x2="384" y2="88" class="s-line" stroke-width="1.4" marker-end="url(#ar3)"/>
+  <rect x="388" y="60" width="82" height="56" rx="10" class="f-sf s-sf" stroke-width="1.6"/>
+  <text x="429" y="94" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">「ない」</text>
+  <rect x="10" y="176" width="460" height="34" rx="10" class="k-red f-ng" stroke-width="1.1"/>
+  <text x="240" y="198" text-anchor="middle" class="t-ink" font-size="13">どちらかが欠ければ、見えなくても「ない」とは言えない</text>
+</svg>
+<figcaption>「知覚可能」であるための二つの条件。両方がそろっているのに見えないときだけ、「ない」と確定できます。</figcaption>
+</figure>
+
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>ダルモーッタラによれば、ここでいう「見えない」は、何も見ていないことではありません。壺のない床をはっきり見ていることです。その知覚にもとづいて、この推理が確定させるのは、「ない」として扱ってよいということ、つまり壺を探しに行かない、という実際のふるまいです。</p></div>
+
+<h3>同じ「ない」を、十一通りに言える</h3>
+<p>直接見ることができないときにも、関係のある別のものを使えば「ない」と言えます。本書はその言い方（論証式）を十一通り挙げますが、どれも根本では「見えるはずのものが見えない」ことに帰着します。</p>
+
+<div class="tbl"><table>
+<thead><tr><th>グループ</th><th>言い方</th><th>例（ここに〜はない）</th><th>こんなときに使う</th></tr></thead>
+<tbody>
+<tr><td rowspan="1"><span class="tag t-blue">そのもの</span></td><td>そのものが見えない</td><td>煙が見えない → 煙はない</td><td>対象を直接見られるとき</td></tr>
+<tr><td rowspan="3"><span class="tag t-blue">関係するものが見えない</span></td><td>結果が見えない</td><td>煙がない → 煙を生む力のある原因はない</td><td>原因そのものは確かめにくいが、煙の有無は分かるとき</td></tr>
+<tr><td>上位の類が見えない</td><td>樹がない → シンシャパーはない</td><td>遠くて木の種類は見分けられないが、木の有無は分かるとき</td></tr>
+<tr><td>原因が見えない</td><td>火がない → 煙はない</td><td>火の有無は分かるが、煙は見えないとき</td></tr>
+<tr><td rowspan="7"><span class="tag t-mid">反対のものが見える</span></td><td>反対のものが見える</td><td>火がある → 冷たさはない</td><td>遠くて冷たさは触れないが、火は見えるとき</td></tr>
+<tr><td>反対のものの結果が見える</td><td>煙がある → 冷たさはない</td><td>火も見えないが、煙は見えるとき</td></tr>
+<tr><td>反対のものに伴うものが見える</td><td>ほかの原因を要する → 必ず起こるとは言えない</td><td>相手の主張の不合理を突くとき</td></tr>
+<tr><td>結果と反対のものが見える</td><td>火がある → 冷たさを生む力のある原因はない</td><td>原因の有無を問題にするとき</td></tr>
+<tr><td>上位の類と反対のものが見える</td><td>火がある → 霜の冷たさはない</td><td>冷たさ一般と反対のものを示すとき</td></tr>
+<tr><td>原因と反対のものが見える</td><td>強い火のそばにいる → 鳥肌などは立っていない</td><td>鳥肌そのものは見えないとき</td></tr>
+<tr><td>原因と反対のものの結果が見える</td><td>煙がある → 鳥肌の立った人はいない</td><td>火も人も見えないとき</td></tr>
+</tbody></table></div>
+<p>「反対のものに伴うものが見える」の例は、ものの消滅にはほかの原因（槌など）が要る、と考える論敵に向けたものです。ほかの原因を要するものは必ず起こるとは限らないので、そうであれば消滅も必然でなくなってしまう、という不合理を示しています。</p>
+</section>
+
+<div class="part" id="ch3"><div class="pno">CHAPTER III</div><h2>第三章　他者のための推理</h2><p>推理を言葉にして相手に示すときの決まりと、誤った論証・誤った喩え・反論のしかたを説明します。</p></div>
+<section id="words">
+<h2><span class="no">11</span>言葉で推理させる</h2>
+<p>第三章は、自分で知ったことを言葉で相手に示す場面を扱います。相手を納得させる言葉は、三つの条件をそなえた手がかりを述べるものでなければなりません。これを<b>他者のための推理</b>と呼びます。</p>
+<p>ただし言葉は知ではないので、厳密には推理ではありません。それでも推理と呼ぶのは、言葉が聞き手に推理を生む<b>原因</b>だからです。原因を結果の名で呼ぶ、言葉の上での転用です。</p>
+<figure>
+<svg viewBox="0 0 480 170" role="img" aria-label="話し手の言葉が聞き手に三つの条件を思い出させ、聞き手の中に推理の知が生じる。言葉は推理の原因なので推理と呼ばれる。">
+  <defs><marker id="b1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+  <rect x="10" y="30" width="130" height="70" rx="12" class="f-ind s-ind" stroke-width="1.4"/>
+  <text x="75" y="60" text-anchor="middle" class="t-ind" font-size="15" font-weight="700">話し手の言葉</text>
+  <text x="75" y="82" text-anchor="middle" class="t-muted" font-size="12">他者のための推理</text>
+  <rect x="175" y="30" width="130" height="70" rx="12" class="f-surface s-line" stroke-width="1.2"/>
+  <text x="240" y="60" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">聞き手が三相を</text>
+  <text x="240" y="80" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">思い起こす</text>
+  <rect x="340" y="30" width="130" height="70" rx="12" class="f-sf s-sf" stroke-width="1.6"/>
+  <text x="405" y="60" text-anchor="middle" class="t-ink" font-size="15" font-weight="700">聞き手の推理</text>
+  <text x="405" y="82" text-anchor="middle" class="t-muted" font-size="12">自己のための推理</text>
+  <line x1="140" y1="65" x2="172" y2="65" class="s-line" stroke-width="1.4" marker-end="url(#b1a)"/>
+  <line x1="305" y1="65" x2="337" y2="65" class="s-line" stroke-width="1.4" marker-end="url(#b1a)"/>
+  <path d="M405 104V132H75V104" class="s-sf" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#b1a)"/>
+  <text x="240" y="152" text-anchor="middle" class="t-sf" font-size="13" font-weight="700">結果の名を原因に貸す</text>
+</svg>
+<figcaption>本来の推理は聞き手の中に生じる知です。そこへ導く言葉にも、その名を借りて「推理」と呼びます。</figcaption>
+</figure>
+</section>
+
+<section id="forms">
+<h2><span class="no">12</span>二つの論証式と、要らない「主張」</h2>
+<p>手がかりの述べ方（論証式）には二つの型があります。<b>同類式</b>は「〜があれば必ず〜がある」と肯定の形で、<b>異類式</b>は「〜がなければ決して〜はない」と否定の形で、手がかりと結論のつながりを言います。どちらも最後に、手がかりが主題にあることを述べます。</p>
+<div class="tbl"><table>
+<thead><tr><th></th><th>同類式</th><th>異類式</th></tr></thead>
+<tbody>
+<tr><td><b>つながり</b></td><td>煙のある所には火がある。台所のように</td><td>火のない所には煙は決してない</td></tr>
+<tr><td><b>主題について</b></td><td>そしてここに煙がある</td><td>しかしここに煙がある</td></tr>
+<tr><td><b>伝わる内容</b></td><td colspan="2">同じ。三つの条件がすべて伝わる</td></tr>
+</tbody></table></div>
+<p>二つの型は言い方が違うだけで、伝える内容は同じです。肯定の形で言えば否定の形も分かり、否定の形で言えば肯定の形も分かります。</p>
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>なぜ一方だけで両方が分かるのか。「火がなければ煙は<b>決して</b>ない」と言い切れるのは、煙が火に束縛されている（火から生じる）ことを示しているからです。そして束縛を示すことは、そのまま「煙があれば火がある」と言うことでもあります。ダルモーッタラは「論証式」の語を、言葉による言い表し方の意味に取っています。</p></div>
+
+<h3>「主張」は述べなくてよい</h3>
+<p>インドの論証では、結論にあたる「主張」を最初に述べるのが普通でした。ダルマキールティは、つながりと、手がかりが主題にあることさえ述べれば、結論は聞き手に自然に分かるので、主張を述べる必要はないとします。</p>
+<div class="tbl"><table>
+<thead><tr><th>立場</th><th>論証式の構成</th></tr></thead>
+<tbody>
+<tr><td><b>ニヤーヤ学派</b></td><td>主張・理由・喩え・当てはめ・結論の五つ</td></tr>
+<tr><td><b>ディグナーガ</b></td><td>主張・理由・喩えの三つ</td></tr>
+<tr><td><b>ダルマキールティ</b></td><td>つながり（喩えを含む）・主題にあること。主張は不要</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="thesis">
+<h2><span class="no">13</span>「主張」の条件</h2>
+<p>主張を述べなくてよいとしても、何がいま証明されるべきことなのかははっきりさせる必要があります。本書はディグナーガの定義を受け継ぎ、その一語一語の意味を説明します。</p>
+<div class="tbl"><table>
+<thead><tr><th>定義の語</th><th>意味</th><th>これで除かれるもの</th></tr></thead>
+<tbody>
+<tr><td><b>それ自体として</b></td><td>証明されるべきものとして立てられている</td><td>すでに成立していること</td></tr>
+<tr><td><b>…だけ</b></td><td>証明されるべきものとして<b>だけ</b>立てられている</td><td>理由として持ち出したもの（まだ成立していなくても主張ではない）</td></tr>
+<tr><td><b>自ら</b></td><td>その場で論じている本人が立てている</td><td>学派の祖が認めているだけの、いま論じていない性質</td></tr>
+<tr><td><b>望まれた</b></td><td>口に出さなくても、本当に争っている点なら含む</td><td>言葉の上で述べられただけのこと</td></tr>
+<tr><td><b>否定されていない</b></td><td>ほかの正しい知に否定されていない</td><td>下の四つの誤った主張</td></tr>
+</tbody></table></div>
+<p>「望まれた」の例はサーンキヤ学派です。サーンキヤが「目などは他のもののためにある」と論じるとき、本当に言いたいのは「目などは（物質でない）自己のためにある」ということです。口に出していなくても、その点が主張です。</p>
+
+<h3>否定される四つの主張</h3>
+<div class="tbl"><table>
+<thead><tr><th>否定するもの</th><th>誤った主張の例</th><th>なぜだめか</th></tr></thead>
+<tbody>
+<tr><td><b>知覚</b></td><td>音は耳で聞こえない</td><td>現に聞こえている</td></tr>
+<tr><td><b>推理</b></td><td>音は永遠に続く</td><td>作られたものは無常だと推理できる</td></tr>
+<tr><td><b>世間の理解</b></td><td>兎を宿すもの（月）は月ではない</td><td>それを「月」と呼ぶのは言葉の約束で決まっている</td></tr>
+<tr><td><b>自分の言葉</b></td><td>推理は正しい知ではない</td><td>そう主張すること自体が推理に頼っている</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="fallacy">
+<h2><span class="no">14</span>誤った手がかり：三つに分類する</h2>
+<p>第二章で見た三つの条件のどれが欠けるかによって、誤った手がかり（擬似論証因）は三つに分類されます。条件が「成り立たない」場合だけでなく、「疑わしい」場合も誤りです。また、論じる本人と相手のどちらか一方にとってでも成り立たなければ、誤りになります。</p>
+<figure>
+<svg viewBox="0 0 480 290" role="img" aria-label="条件①が欠ければ不成立、条件②と③が逆になれば矛盾、条件③が欠けるか疑わしければ不定。">
+  <rect x="160" y="10" width="160" height="44" rx="10" class="f-ind s-ind" stroke-width="1.4"/>
+  <text x="240" y="38" text-anchor="middle" class="t-ind" font-size="15" font-weight="700">誤った手がかり</text>
+  <path d="M240 54V74H80V96M240 74V96M240 74H400V96" class="s-line" stroke-width="1.3"/>
+  <rect x="10" y="98" width="140" height="58" rx="10" class="f-ng k-red" stroke-width="1.4"/>
+  <text x="80" y="124" text-anchor="middle" class="t-ink" font-size="16" font-weight="700">不成立</text>
+  <text x="80" y="144" text-anchor="middle" class="t-muted" font-size="12">① が欠ける・疑わしい</text>
+  <rect x="170" y="98" width="140" height="58" rx="10" class="f-ng k-red" stroke-width="1.4"/>
+  <text x="240" y="124" text-anchor="middle" class="t-ink" font-size="16" font-weight="700">矛盾</text>
+  <text x="240" y="144" text-anchor="middle" class="t-muted" font-size="12">② ③ が逆になる</text>
+  <rect x="330" y="98" width="140" height="58" rx="10" class="f-sf s-sf" stroke-width="1.4"/>
+  <text x="400" y="124" text-anchor="middle" class="t-ink" font-size="16" font-weight="700">不定</text>
+  <text x="400" y="144" text-anchor="middle" class="t-muted" font-size="12">③ が欠ける・疑わしい</text>
+  <text x="80" y="186" text-anchor="middle" class="t-muted" font-size="13">山に煙が</text>
+  <text x="80" y="204" text-anchor="middle" class="t-muted" font-size="13">あるか不確か</text>
+  <text x="240" y="186" text-anchor="middle" class="t-muted" font-size="13">逆の結論を</text>
+  <text x="240" y="204" text-anchor="middle" class="t-muted" font-size="13">証明してしまう</text>
+  <text x="400" y="186" text-anchor="middle" class="t-muted" font-size="13">どちらの結論か</text>
+  <text x="400" y="204" text-anchor="middle" class="t-muted" font-size="13">決められない</text>
+  <line x1="20" y1="230" x2="460" y2="230" class="k-line" stroke-width="1"/>
+  <text x="240" y="256" text-anchor="middle" class="t-ink" font-size="13">誰にとって欠けるか：双方／相手だけ／論じる本人だけ</text>
+  <text x="240" y="278" text-anchor="middle" class="t-muted" font-size="12">どれか一方にとってでも欠ければ誤り</text>
+</svg>
+<figcaption>三つの条件と三つの誤りの対応。この見取り図に沿って、以下の表で具体例を見ます。</figcaption>
+</figure>
+
+<h3>不成立：手がかりが主題にない</h3>
+<div class="tbl"><table>
+<thead><tr><th>型</th><th>例</th><th>なぜ誤りか</th></tr></thead>
+<tbody>
+<tr><td><b>双方にとって</b></td><td>音は無常だ、目で見えるから</td><td>音は目で見えない</td></tr>
+<tr><td><b>相手にとって</b></td><td>木には心がある、皮を剥ぐと死ぬから</td><td>仏教徒にとって死とは意識・感官・寿命が止むことで、木にはありえない</td></tr>
+<tr><td><b>本人にとって</b></td><td>サーンキヤ学派が「楽などには心がない、生じるものだから」と言う</td><td>サーンキヤにとって「生じる」とは隠れていたものが現れることにすぎない</td></tr>
+<tr><td><b>手がかりが疑わしい</b></td><td>湯気かもしれないものを煙として火を証明する</td><td>手がかりそのものが確かでない</td></tr>
+<tr><td><b>場所が疑わしい</b></td><td>この茂みに孔雀がいる、鳴き声がするから</td><td>声が反響して、どの茂みからか分からない</td></tr>
+<tr><td><b>主題がない</b></td><td>自己は遍在する、その性質がどこでも認められるから</td><td>仏教徒にとって、自己そのものが成立していない</td></tr>
+</tbody></table></div>
+
+<h3>不定：結論が決まらない</h3>
+<div class="tbl"><table>
+<thead><tr><th>型</th><th>例</th><th>なぜ決まらないか</th></tr></thead>
+<tbody>
+<tr><td><b>どこにでもある</b></td><td>音は無常だ、知られうるものだから</td><td>「知られうる」は常住なものにも無常なものにもある</td></tr>
+<tr><td><b>反対側にないか疑わしい</b></td><td>あの人は一切知者ではない、話をするから</td><td>話をする一切知者がいないとは確かめられない</td></tr>
+<tr><td><b>一方になく、他方にあるか疑わしい</b></td><td>あの人は貪りを離れている、話をするから</td><td>話は貪りのある人にも見られ、貪りを離れた人にあるかは確かめられない</td></tr>
+<tr><td><b>主題にしかない</b></td><td>生きた身体には自己がある、呼吸をしているから</td><td>呼吸は生きた身体にしか見られず、どちらの側にも確かめようがない</td></tr>
+</tbody></table></div>
+
+<h3>「話すこと」と「一切知」はなぜ両立しうるのか</h3>
+<p>二番目の例は、仏陀が一切知者であることを否定する論証です。本書は、話すことと一切知者であることの間に<b>矛盾がない</b>ことを示して、この論証を退けます。矛盾には二種類しかなく、どちらにも当てはまらないからです。</p>
+<div class="tbl"><table>
+<thead><tr><th>矛盾の型</th><th>しくみ</th><th>例</th><th>話すこと／一切知</th></tr></thead>
+<tbody>
+<tr><td><b>共存できない</b></td><td>一方が現れると、他方が続かなくなる</td><td>熱と冷たさ</td><td><span class="tag t-ng">当てはまらない</span></td></tr>
+<tr><td><b>互いに排除しあう</b></td><td>一方を否定することが他方である</td><td>あることとないこと</td><td><span class="tag t-ng">当てはまらない</span></td></tr>
+</tbody></table></div>
+<p>また、貪りなどが話すことの原因だという因果関係も成り立っていません。だから貪りがなくなっても、話すことがなくなるとは言えないのです。</p>
+
+<h3>矛盾：逆の結論を証明してしまう</h3>
+<p>「音は常住だ、作られたものだから」という論証では、「作られたもの」は常住なものには見られず、無常なものにだけ見られます。この手がかりは、かえって音の無常を証明してしまいます。</p>
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>ディグナーガは、論者が本当に言いたいことの逆を証明してしまう手がかりを、第三の型として別に立てていました。上のサーンキヤの論証のような場合です。ダルマキールティはこれを別立てしません。口に出したことも口に出さずに望んでいることも、証明されるべきことである点に違いはないからです。</p></div>
+</section>
+
+<section id="antinomy">
+<h2><span class="no">15</span>相違決定：正しそうな二つの論証がぶつかるとき</h2>
+<p>ディグナーガは、それぞれ三つの条件をそなえているように見える二つの手がかりが、逆の結論を導く場合を挙げ、これも疑いの原因だとしました（相違決定）。ダルマキールティは、<b>事物に基づく推理ではこれは起こりえない</b>と答えます。事物の側に矛盾はないからです。起こるのは、学派の聖典を前提にした推理の場合だけです。</p>
+<figure>
+<svg viewBox="0 0 480 260" role="img" aria-label="聖典が普遍に二つの性質を説いたため、自性因からは普遍は遍在するという結論、非認識からは遍在しないという結論が出て、ぶつかる。">
+  <defs><marker id="b5a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+  <rect x="120" y="10" width="240" height="56" rx="12" class="f-ind s-ind" stroke-width="1.4"/>
+  <text x="240" y="34" text-anchor="middle" class="t-ind" font-size="14" font-weight="700">聖典が説く「普遍」</text>
+  <text x="240" y="54" text-anchor="middle" class="t-muted" font-size="12">ヴァイシェーシカ学派</text>
+  <rect x="10" y="96" width="200" height="56" rx="10" class="f-surface s-line" stroke-width="1.2"/>
+  <text x="110" y="118" text-anchor="middle" class="t-ink" font-size="13" font-weight="700">すべての個物と</text>
+  <text x="110" y="138" text-anchor="middle" class="t-ink" font-size="13" font-weight="700">同時に結びつく</text>
+  <rect x="270" y="96" width="200" height="56" rx="10" class="f-surface s-line" stroke-width="1.2"/>
+  <text x="370" y="118" text-anchor="middle" class="t-ink" font-size="13" font-weight="700">目で見ることができる</text>
+  <text x="370" y="138" text-anchor="middle" class="t-muted" font-size="12">なのに個物の間に見えない</text>
+  <path d="M180 66L110 93M300 66L370 93" class="s-line" stroke-width="1.2" marker-end="url(#b5a)"/>
+  <rect x="10" y="184" width="200" height="56" rx="10" class="f-ok k-green" stroke-width="1.4"/>
+  <text x="110" y="208" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">遍在する</text>
+  <text x="110" y="228" text-anchor="middle" class="t-muted" font-size="12">自性因による</text>
+  <rect x="270" y="184" width="200" height="56" rx="10" class="f-ng k-red" stroke-width="1.4"/>
+  <text x="370" y="208" text-anchor="middle" class="t-ink" font-size="14" font-weight="700">遍在しない</text>
+  <text x="370" y="228" text-anchor="middle" class="t-muted" font-size="12">非認識による</text>
+  <line x1="110" y1="152" x2="110" y2="181" class="s-line" stroke-width="1.3" marker-end="url(#b5a)"/>
+  <line x1="370" y1="152" x2="370" y2="181" class="s-line" stroke-width="1.3" marker-end="url(#b5a)"/>
+  <text x="240" y="216" text-anchor="middle" class="t-sf" font-size="18" font-weight="700">⇄</text>
+</svg>
+<figcaption>ぶつかりの原因は、聖典の作者が両立しない二つの性質を一つのものに与えたことにあります。誤りは事物の側ではなく、聖典の側にあります。</figcaption>
+</figure>
+</section>
+
+<section id="example">
+<h2><span class="no">16</span>喩え（喩例）の役割</h2>
+<p>インドの論証では「台所のように」といった喩えを添えます。ダルマキールティは、喩えは論証の独立した部分ではないとします。三つの条件をそなえた手がかりを述べれば、喩えの役目はその中に含まれているからです。</p>
+<div class="tbl"><table>
+<thead><tr><th></th><th>同類の喩例</th><th>異類の喩例</th></tr></thead>
+<tbody>
+<tr><td><b>役目</b></td><td>手がかりと結論のつながりが確かめられた場所を示す</td><td>結論がない所には手がかりもないことを示す</td></tr>
+<tr><td><b>結果因の例</b></td><td>台所（煙と火の因果を確かめた所）</td><td>台所以外の、火のない所</td></tr>
+<tr><td><b>自性因の例</b></td><td>壺（作られたものが無常であることを確かめた所）</td><td>虚空（常住で、作られたものでない）</td></tr>
+<tr><td><b>実在のものか</b></td><td>実在のものでなければならない</td><td>実在しないもの（兎の角など）でもよい</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="badex">
+<h2><span class="no">17</span>誤った喩え：十八の型</h2>
+<p>喩えの誤りは、同類の喩例で九つ、異類の喩例で九つ、あわせて十八の型に整理されます。前半の六つは喩えそのものの誤り、後半の三つは言い方の誤りです。</p>
+<div class="tbl"><table>
+<thead><tr><th>型</th><th>同類の喩例の誤り</th><th>異類の喩例の誤り</th></tr></thead>
+<tbody>
+<tr><td colspan="3"><span class="tag t-blue">喩えそのものの誤り</span>　論証：「音は常住だ、形がないから」など</td></tr>
+<tr><td><b>結論を欠く／結論がなくならない</b></td><td>運動のように（運動は無常）</td><td>原子のように（原子は常住）</td></tr>
+<tr><td><b>手がかりを欠く／手がかりがなくならない</b></td><td>原子のように（原子は形をもつ）</td><td>運動のように（運動は形がない）</td></tr>
+<tr><td><b>両方とも</b></td><td>壺のように</td><td>虚空のように</td></tr>
+<tr><td><b>結論が疑わしい</b></td><td>あの人は貪りがある、話すから、道行く人のように</td><td>カピラは一切知者でない…リシャバのように</td></tr>
+<tr><td><b>手がかりが疑わしい</b></td><td>あの人は死ぬ、貪りがあるから、道行く人のように</td><td>…貪りがあるから…ガウタマのように</td></tr>
+<tr><td><b>両方が疑わしい</b></td><td>あの人は一切知者でない、貪りがあるから、道行く人のように</td><td>カピラは貪りを離れていない…リシャバのように</td></tr>
+<tr><td colspan="3"><span class="tag t-mid">言い方の誤り（話し手の過失）</span>　論証：「音は無常だ、作られたものだから」など</td></tr>
+<tr><td><b>つながりがない</b></td><td>話す者は貪りがある、あの人のように（たまたま両方あるだけ）</td><td>貪りのない所では話さない、石のかけらのように（石にはたまたま両方ないだけ）</td></tr>
+<tr><td><b>つながりを示していない</b></td><td>「壺のように」とだけ言う</td><td>「虚空のように」とだけ言う</td></tr>
+<tr><td><b>つながりが逆向き</b></td><td>無常なものは作られたものだ</td><td>作られたものでないものは常住だ</td></tr>
+</tbody></table></div>
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>後半の三つは、事物の上では正しい喩えでも、話し手がつながりを正しく言葉にしなければ誤りになる、という考えに基づきます。ダルモーッタラは、他者のための推理では話し手の過失も問われると強調します。音と壺は「作られたもの」という点で似ていますが、似ているだけで結論が出るなら、どんなことでも証明できてしまうからです。</p></div>
+</section>
+
+<section id="refute">
+<h2><span class="no">18</span>反論のしかた：論難と誤った論難</h2>
+<p>最後に、相手の論証にどう反論するかが簡潔に述べられます。</p>
+<div class="tbl"><table>
+<thead><tr><th></th><th>論難（正しい反論）</th><th>ジャーティ（誤った反論）</th></tr></thead>
+<tbody>
+<tr><td><b>何をする</b></td><td>相手の論証にある本当の欠陥を指摘する</td><td>ありもしない欠陥を指摘する</td></tr>
+<tr><td><b>指摘するもの</b></td><td>条件の不足、不成立・矛盾・不定など</td><td>見かけだけの難点</td></tr>
+<tr><td><b>効果</b></td><td>相手の結論が確定しなくなる</td><td>反論のように見えるだけ</td></tr>
+</tbody></table></div>
+<div class="point"><span class="lbl">注釈者のポイント</span>
+<p>正しい反論は、相手の結論の逆を証明しなくてもかまいません。相手の結論が確定しないようにすれば十分です。ダルモーッタラは、「ジャーティ」の語を「似たもの」の意味に取ります。答えの位置に置かれて、答えに似ているだけのもの、ということです。</p></div>
+</section>
+<footer>
+<p>解釈はダルモーッタラ『ニヤーヤビンドゥ注』（<i>Nyāyabinduṭīkā</i>）にもとづきます。</p>
+<p>本文中の例は、本書と注に出てくるものを、意味を変えずにやさしく言い換えたものです。</p>
+</footer>
+</main>
+
+</body>
+</html>
