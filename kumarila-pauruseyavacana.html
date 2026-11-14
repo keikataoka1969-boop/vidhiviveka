@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>図解：クマーリラの「人の言葉」論 ― 片岡啓「Kumārila's Notion of Pauruṣeyavacana」を読む</title>
+<style>
+  :root{
+    --ink:#1f2328; --sub:#5b6370; --line:#d9dde3; --bg:#fbfaf7; --card:#ffffff;
+    --veda:#b7791f; --veda-bg:#fdf3e1;
+    --pratyaksa:#2b6cb0; --pratyaksa-bg:#e6f0fb;
+    --human:#2f855a; --human-bg:#e6f4ec;
+    --bad:#c53030; --bad-bg:#fdeaea;
+    --budd:#6b46c1; --budd-bg:#efe9fb;
+    --gray-bg:#f1f2f4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",system-ui,sans-serif;
+    line-height:1.85;font-size:16px}
+  .wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+  header.hero{background:linear-gradient(135deg,#2d3748,#4a5568);color:#fff;border-radius:16px;padding:28px 24px;margin-bottom:28px}
+  .hero .kicker{font-size:13px;letter-spacing:.08em;opacity:.8}
+  .hero h1{font-size:26px;line-height:1.4;margin:6px 0 10px}
+  .hero p{margin:0;opacity:.92;font-size:14.5px}
+  h2{font-size:21px;margin:48px 0 14px;padding-bottom:6px;border-bottom:3px solid var(--ink)}
+  h2 .num{display:inline-block;background:var(--ink);color:#fff;border-radius:6px;padding:0 9px;margin-right:8px;font-size:16px}
+  h3{font-size:17px;margin:28px 0 10px}
+  p{margin:10px 0}
+  .skt{font-style:italic;color:#4a3b1f}
+  .note{font-size:13.5px;color:var(--sub)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
+  .key{background:#fffbea;border:2px solid #ecc94b;border-radius:12px;padding:16px 18px;margin:18px 0}
+  .key .lbl{font-weight:700;color:#975a16;font-size:14px}
+  .toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+  .toc ol{margin:6px 0;padding-left:22px}
+  .toc a{color:var(--ink)}
+  table{border-collapse:collapse;width:100%;margin:12px 0;background:var(--card);font-size:14.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+  th{background:var(--gray-bg);font-weight:700}
+  .tscroll{overflow-x:auto}
+  .tag{display:inline-block;border-radius:999px;padding:0 9px;font-size:12.5px;font-weight:700;margin:0 2px}
+  .t-veda{background:var(--veda-bg);color:var(--veda)}
+  .t-pr{background:var(--pratyaksa-bg);color:var(--pratyaksa)}
+  .t-hu{background:var(--human-bg);color:var(--human)}
+  .t-bad{background:var(--bad-bg);color:var(--bad)}
+  .t-bu{background:var(--budd-bg);color:var(--budd)}
+  td.veda{background:var(--veda-bg)} td.pr{background:var(--pratyaksa-bg)} td.hu{background:var(--human-bg)} td.bad{background:var(--bad-bg)}
+
+  /* flow chains */
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;margin:12px 0 6px}
+  .node{flex:1 1 0;min-width:96px;background:var(--card);border:2px solid var(--line);border-radius:10px;padding:8px 6px;text-align:center;font-size:13.5px;line-height:1.45;position:relative}
+  .node b{display:block;font-size:14.5px}
+  .node .s{display:block;font-size:11.5px;color:var(--sub);font-style:italic}
+  .arrow{flex:0 0 26px;display:flex;align-items:center;justify-content:center;color:#8a93a0;font-size:20px;font-weight:700}
+  .node.pr{border-color:var(--pratyaksa);background:var(--pratyaksa-bg)}
+  .node.veda{border-color:var(--veda);background:var(--veda-bg)}
+  .node.hu{border-color:var(--human);background:var(--human-bg)}
+  .node.bad{border-color:var(--bad);background:var(--bad-bg)}
+  .node.empty{border-style:dashed;color:#9aa3ad;background:#fafafa}
+  .node.hear{border-color:#718096;background:#edf2f7}
+  .flowcap{font-size:13px;color:var(--sub);margin:0 0 14px}
+  .fail{display:flex;flex-wrap:wrap;gap:0;margin-top:-2px}
+  .fail .slot{flex:1 1 0;min-width:96px}
+  .fail .gap{flex:0 0 26px;position:relative}
+  .fail .x{display:block;margin:6px auto 0;width:92%;background:var(--bad-bg);border:1.5px solid var(--bad);color:var(--bad);border-radius:8px;font-size:12.5px;text-align:center;padding:4px 2px;line-height:1.4}
+  @media (max-width:640px){
+    .flow{flex-direction:column}
+    .arrow{transform:rotate(90deg);height:24px;flex-basis:24px}
+    .node{min-width:0}
+    .hero h1{font-size:21px}
+    .fail-desktop{display:none}
+  }
+  @media (min-width:641px){ .fail-mobile{display:none} }
+
+  /* grid boxes */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:640px){.grid2{grid-template-columns:1fr}}
+  .box{border-radius:12px;padding:14px 16px;border:2px solid var(--line);background:var(--card)}
+  .box h4{margin:0 0 6px;font-size:15.5px}
+  .box.veda{border-color:var(--veda);background:var(--veda-bg)}
+  .box.hu{border-color:var(--human);background:var(--human-bg)}
+  .box.bad{border-color:var(--bad);background:var(--bad-bg)}
+  .box.bu{border-color:var(--budd);background:var(--budd-bg)}
+
+  /* tree */
+  .tree{font-size:14.5px}
+  .tree ul{list-style:none;margin:0;padding-left:22px;border-left:2px solid var(--line)}
+  .tree > ul{border-left:none;padding-left:0}
+  .tree li{position:relative;margin:8px 0;padding-left:14px}
+  .tree ul ul li::before{content:"";position:absolute;left:-22px;top:15px;width:30px;border-top:2px solid var(--line)}
+  .tree .lab{display:inline-block;border-radius:8px;padding:3px 10px;border:2px solid var(--line);background:var(--card)}
+
+  /* timeline */
+  .tl{position:relative;margin:16px 0;padding-left:26px}
+  .tl::before{content:"";position:absolute;left:9px;top:4px;bottom:4px;width:3px;background:var(--line)}
+  .tl .ev{position:relative;margin:0 0 16px}
+  .tl .ev::before{content:"";position:absolute;left:-23px;top:8px;width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid #718096}
+  .tl .ev.mi::before{border-color:var(--veda)}
+  .tl .ev.bu::before{border-color:var(--budd)}
+  .tl .yr{font-size:12.5px;color:var(--sub);font-weight:700}
+  .bar{position:relative;height:30px;background:#f3f4f6;border-radius:6px;margin:4px 0}
+  .bar span{position:absolute;top:3px;height:24px;border-radius:5px;color:#fff;font-size:12px;line-height:24px;padding-left:6px;white-space:nowrap;overflow:hidden}
+
+  details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:10px 0}
+  summary{cursor:pointer;font-weight:700}
+  details[open] summary{margin-bottom:6px}
+  .verse{background:#fbf7ef;border-left:4px solid var(--veda);padding:8px 12px;margin:10px 0;border-radius:0 8px 8px 0;font-size:14.5px}
+  .verse .src{display:block;font-size:12px;color:var(--sub);margin-top:4px}
+  footer{margin-top:56px;font-size:13px;color:var(--sub);border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">インド哲学入門 ― 論文を図で読む</div>
+  <h1>「人の言葉」は信じられるか？<br>クマーリラのパウルシェーヤ・ヴァチャナ論</h1>
+  <p>対象論文：Kei Kataoka, "Kumārila's Notion of Pauruṣeyavacana," <i>Rivista di Studi Sudasiatici</i> II (2007): 39–55.</p>
+</header>
+
+<div class="key">
+  <div class="lbl">★ この論文を一言でいうと</div>
+  <p style="margin:6px 0 0">ミーマーンサー学派では、<b>人が作った言葉（人為の言葉）は、話し手の「頭の中（認識）」までしか伝えられず、「外の世界の事物そのもの」を直接には伝えられない</b>と考えられていた。クマーリラはこの考えをシャバラから受け継いで整理し、<b>人の言葉を「正しい認識手段」の一種として認めつつ、その守備範囲を「話し手の認識」に限定した</b>。後に仏教のダルマキールティが言う「言葉は話し手の意図を示すだけ」という説は、ディグナーガよりもむしろ、このミーマーンサーの議論に先取りされていた――というのが著者の主張である。</p>
+</div>
+
+<nav class="toc">
+  <b>目次</b>
+  <ol>
+    <li><a href="#s1">まずは基本用語</a></li>
+    <li><a href="#s2">伝統的な見取り図：一次的な情報源と二次的な情報源</a></li>
+    <li><a href="#s3">シャバラの二つの見解</a></li>
+    <li><a href="#s4">クマーリラ（その1）：人の言葉は話し手の認識しか伝えない</a></li>
+    <li><a href="#s5">クマーリラ（その2）：人の言葉もプラマーナである</a></li>
+    <li><a href="#s6">矛盾の解決：「守備範囲」を分ける</a></li>
+    <li><a href="#s7">思想史の中で：ダルマキールティとのつながり</a></li>
+    <li><a href="#s8">理解度チェック</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 1 ============ -->
+<h2 id="s1"><span class="num">1</span>まずは基本用語</h2>
+<p>この論文を読むために必要な言葉を先に整理しておきます。色分けは、このページの図でもずっと同じ意味で使います。</p>
+<div class="tscroll">
+<table>
+  <tr><th style="width:28%">用語（サンスクリット）</th><th>意味・ポイント</th></tr>
+  <tr><td><b>プラマーナ</b><br><span class="skt">pramāṇa</span></td><td>正しい認識を生む手段・根拠。知覚・推論・言葉（証言）などが候補になる。「何を信じてよいか」の根拠のこと。</td></tr>
+  <tr><td><b>ミーマーンサー学派</b></td><td>ヴェーダ（聖典）の祭式の文を正しく解釈する学派。シャバラ（註釈者）、クマーリラ、プラバーカラなどがいる。</td></tr>
+  <tr><td><b>ダルマ</b><br><span class="skt">dharma</span></td><td>なすべき宗教的義務（祭式など）。目に見えないので知覚では知れない、とされる。</td></tr>
+  <tr><td class="veda"><span class="tag t-veda">ヴェーダ</span><br>ヴェーダの命令文<br><span class="skt">codanā / vidhi</span></td><td>ダルマを知る唯一の究極的な情報源。ミーマーンサーでは<b>作者がいない（人が作ったのではない）</b>とされる。</td></tr>
+  <tr><td class="pr"><span class="tag t-pr">知覚</span><br><span class="skt">pratyakṣa</span></td><td>感覚器官で直接知ること。見える・聞こえる世界についての一次的な情報源。</td></tr>
+  <tr><td class="hu"><span class="tag t-hu">人の言葉</span><br><span class="skt">pauruṣeya-vacana / laukika-vacana</span></td><td>人が作った・世間一般の言葉。「牛を連れてこい」のような日常の発言から、マヌ法典のような聖者の教えまで含む。<b>この論文の主役</b>。</td></tr>
+  <tr><td><b>スムリティ</b><br><span class="skt">smṛti</span></td><td>①「想起（記憶）」、②マヌ法典などの「伝承文献」。どちらも「先行する何かに基づく」という点で二次的。</td></tr>
+  <tr><td><b>信頼できる人</b><br><span class="skt">āpta / pratyayita</span></td><td>対象を正しく知っていて、正直に、正確に話す人。</td></tr>
+</table>
+</div>
+
+<!-- ============ 2 ============ -->
+<h2 id="s2"><span class="num">2</span>伝統的な見取り図：一次的な情報源と二次的な情報源</h2>
+<p>ミーマーンサーでは、人の言葉は<b>最終的には「一次的な情報源」に数えられません</b>。世俗の事柄でも宗教の事柄でも、人の言葉は何かに<b>依存した二次的な存在</b>です。</p>
+
+<h3>表A　どの領域でも、人の言葉は「2番手」</h3>
+<div class="tscroll">
+<table>
+  <tr><th></th><th>世俗の事柄（見える世界）</th><th>宗教の事柄（ダルマ）</th></tr>
+  <tr><th>① 一次的な情報源</th><td class="pr">知覚 など</td><td class="veda">ヴェーダの命令文</td></tr>
+  <tr><th></th><td style="text-align:center">↓ これに基づいて</td><td style="text-align:center">↓ これに基づいて</td></tr>
+  <tr><th>② 二次的な情報源</th><td class="hu">人の言葉</td><td class="hu">人の言葉（マヌ法典なども）</td></tr>
+</table>
+</div>
+<p>つまり、人の言葉が正しいのは、<b>知覚など（あるいはヴェーダ）に基づいていて、しかも正直な話し手が正しく伝えた場合だけ</b>です。</p>
+
+<h3>表B　「直接」と「間接」という大きな二分法</h3>
+<p>ミーマーンサーは物事を「直接（<span class="skt">sākṣāt</span>）」と「間接（<span class="skt">dvāreṇa</span>、何かを経由して）」に分けて考える癖があります。知覚と推論の関係が、ヴェーダとスムリティ、そして「元の情報源」と人の言葉の関係にそのまま重なります。</p>
+<div class="tscroll">
+<table>
+  <tr><th></th><th>見える世界</th><th>ダルマ</th><th>情報一般</th></tr>
+  <tr><th>直接</th><td class="pr">知覚</td><td class="veda">ヴェーダの命令文</td><td>元の情報源（<span class="skt">mūla</span>）</td></tr>
+  <tr><th>間接</th><td>推論</td><td>スムリティ（伝承文献）</td><td class="hu">人の言葉</td></tr>
+</table>
+</div>
+
+<div class="card">
+  <b>たとえで考えよう：「記憶」と同じ構造</b>
+  <p>昨日の夕食を<b>思い出す</b>とき、その記憶が正しいのは、実際に食べた<b>経験</b>があるからです。記憶だけでは独立した根拠になりません。<br>
+  人の言葉も同じで、話し手が実際に<b>見た（知覚した）</b>ことに基づいているときだけ正しい。クマーリラも反論者の主張を紹介するかたちで、言葉は他の手段で知られたことを伝えるだけで、記憶と同じく<b>それ自体では</b>正しさの根拠にならない、と述べています（『シュローカヴァールッティカ』チョーダナー章 22偈）。</p>
+</div>
+
+<!-- ============ 3 ============ -->
+<h2 id="s3"><span class="num">3</span>シャバラの二つの見解</h2>
+<p>シャバラ（ca. 500–550年）は『シャーバラ・バーシュヤ』1.1.2 で人の言葉について論じますが、実は<b>二つの違う見解</b>を続けて述べています。</p>
+
+<h3>見解①　「元」がしっかりしていれば正しい</h3>
+<p>信頼できる人が言ったか、知覚できる対象についての言葉なら正しい。そうでなければ、人間の頭から出ただけのものなので正しくない、という見解です。</p>
+
+<div class="flow">
+  <div class="node pr"><b>対象</b><span class="s">viṣaya</span></div><div class="arrow">→</div>
+  <div class="node pr"><b>感覚器官</b><span class="s">indriya</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>確かに知った話し手</b><span class="s">pratyayita</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>発言</b><span class="s">vacana</span></div><div class="arrow">→</div>
+  <div class="node hear"><b>聞き手の認識</b><span class="s">jñāna</span></div>
+</div>
+<p class="flowcap">図1　正しい場合：話し手が自分で知覚したことを伝える。</p>
+
+<div class="flow">
+  <div class="node empty"><b>（対象なし）</b><span class="s">φ</span></div><div class="arrow">→</div>
+  <div class="node empty"><b>（感覚なし）</b><span class="s">φ</span></div><div class="arrow">→</div>
+  <div class="node bad"><b>迷妄の人</b><span class="s">puruṣa ＋ vyāmoha</span></div><div class="arrow">→</div>
+  <div class="node bad"><b>教え</b><span class="s">upadeśa</span></div><div class="arrow">→</div>
+  <div class="node hear"><b>聞き手の認識</b><span class="s">jñāna</span></div>
+</div>
+<p class="flowcap">図2　ダルマのような「見えないもの」を人が勝手に教える場合：元がないので、ただの空想になる。シャバラによれば、ダルマはヴェーダなしには人間には知りえない。</p>
+
+<div class="flow">
+  <div class="node veda"><b>ダルマ</b><span class="s">dharma</span></div><div class="arrow">→</div>
+  <div class="node veda"><b>ヴェーダ</b><span class="s">Veda</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>マヌ</b><span class="s">Manu</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>教え</b><span class="s">upadeśa</span></div><div class="arrow">→</div>
+  <div class="node hear"><b>聞き手の認識</b><span class="s">jñāna</span></div>
+</div>
+<p class="flowcap">図3　うまくいく例外：マヌのように、ヴェーダに基づいて語る場合にだけ、人がダルマを伝えられる。</p>
+
+<h3>見解②　そもそも人の言葉は「話し手の頭の中」しか伝えない</h3>
+<p>シャバラは「さらに（<span class="skt">api ca</span>）」と続けて、もっと踏み込んだ見解を出します。人の発言から生じるのは<b>「この人はこう理解している」</b>という認識であって、<b>「この対象はこうだ」</b>という認識ではない。だから人の言葉による認識は、ときに外れる、というのです。</p>
+
+<div class="grid2">
+  <div class="box hu"><h4>人の言葉から分かること ○</h4>「この人は〈机の上にペンがある〉と<b>思っている</b>」<br><span class="note">＝話し手の認識</span></div>
+  <div class="box bad"><h4>人の言葉だけでは分からないこと ×</h4>「机の上にペンが<b>ある</b>」<br><span class="note">＝外の世界の事実そのもの</span></div>
+</div>
+
+<div class="flow" style="margin-top:16px">
+  <div class="node empty"><b>（対象）</b><span class="s">φ</span></div><div class="arrow">→</div>
+  <div class="node empty"><b>（感覚）</b><span class="s">φ</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>話し手とその認識</b><span class="s">puruṣa ＋ pratyaya</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>教え</b><span class="s">upadeśa</span></div><div class="arrow">→</div>
+  <div class="node hear"><b>聞き手の認識</b><span class="s">jñāna</span></div>
+</div>
+<p class="flowcap">図4　見解②：言葉が届くのは話し手の認識まで。その先の対象には、言葉だけでは届かない。</p>
+
+<div class="card">
+  <b>なぜ二つあるの？</b>
+  <p>二つの見解は「さらに」でつながれているので、著者は、<b>見解①は先行する伝統から受け継いだもので、見解②はシャバラ自身か誰かが新しく付け加えたもの</b>だろうと推測しています。見解②の目的はヴェーダとの違いをはっきりさせることなので、強調しすぎるべきではありません。それでも、その註釈者クマーリラがこの考えを発展させたことは歴史的な事実です。</p>
+  <p class="note">「ミーマーンサーは言葉や世界について楽観的だ」とよく言われるので、この懐疑的な見解は意外に感じられるかもしれません。</p>
+</div>
+
+<!-- ============ 4 ============ -->
+<h2 id="s4"><span class="num">4</span>クマーリラ（その1）：人の言葉は話し手の認識しか伝えない</h2>
+<p>クマーリラ（ca. 600–650年）は『シュローカヴァールッティカ』チョーダナー章（特に160–168偈）で、シャバラの見解②をさらに詳しく展開します。</p>
+
+<h3>話すまでの3つの段階と、3種類の失敗</h3>
+<p>クマーリラは、話し手が発言するまでの過程を細かく分けて、どこで失敗が起こりうるかを示しました。</p>
+
+<div class="flow">
+  <div class="node pr"><b>対象</b><span class="s">artha</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>認識</b><span class="s">dhī</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>言おうという意図</b><span class="s">vivakṣā</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>文（発言）</b><span class="s">vākya</span></div>
+</div>
+<p class="flowcap">図5　発言が生まれるまでの流れ。矢印のそれぞれで失敗が起こりうる（下の表）。</p>
+
+<div class="tscroll">
+<table>
+  <tr><th>どこで失敗？</th><th>失敗する話し手</th><th>具体例</th></tr>
+  <tr><td>対象 → 認識</td><td class="bad">見ていない人<br><span class="skt">adraṣṭṛ</span></td><td>現場を見ていないのに「事故は青信号だった」と言う（誤った情報）</td></tr>
+  <tr><td>認識 → 意図</td><td class="bad">嘘つき<br><span class="skt">asatyavādin / anṛtavādin</span></td><td>本当は見ていても、わざと違うことを言おうとする</td></tr>
+  <tr><td>意図 → 文</td><td class="bad">混乱した人<br><span class="skt">bhrānta</span></td><td>正直に言うつもりでも、言い間違えてうまく表現できない</td></tr>
+  <tr><td>どこにも失敗なし</td><td class="hu">信頼できる人<br><span class="skt">āpta</span></td><td>3つの問題がどれもない</td></tr>
+</table>
+</div>
+
+<h3>ポイント：信頼できる人の言葉でも、届くのは「話し手の認識」まで</h3>
+<p>シャバラは正しい発言と誤った発言を区別するだけで、嘘つきや混乱した話し手のことはあまり考えていませんでした。クマーリラは嘘つきや混乱した人を<b>例外としてあらかじめ外し</b>、「信頼できる話し手」という一般的なケースに話を絞ります。そのうえで言います。</p>
+
+<div class="verse">信頼できる人の文からは、話し手の認識が知られる。それ以外の場合には、外れることがある。
+<span class="src">『シュローカヴァールッティカ』チョーダナー章 162ab（著者の英訳をもとに意訳）</span></div>
+
+<p>聞き手は確かに発言から対象を理解します。それでも、その理解が正しいと言えるのは<b>話し手の認識について</b>だけです。対象そのものについて確かめるには、<b>話し手の認識の背後にちゃんとした原因（知覚やヴェーダなど）があること</b>が必要になります。</p>
+
+<div class="flow">
+  <div class="node pr"><b>対象</b><span class="s">artha</span></div><div class="arrow">→</div>
+  <div class="node pr"><b>原因</b><span class="s">hetu（知覚など）</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>話し手の認識</b><span class="s">vaktṛjñāna</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>言葉</b><span class="s">śabda</span></div><div class="arrow">→</div>
+  <div class="node hear"><b>聞き手の認識</b><span class="s">śrotṛpratyaya</span></div>
+</div>
+<p class="flowcap">図6　言葉の力が直接届くのは「話し手の認識」まで（緑）。その先（青）は、別の確認が必要。</p>
+
+<h3>人の言葉とヴェーダの決定的な違い</h3>
+<div class="grid2">
+  <div class="box hu">
+    <h4>人の言葉</h4>
+    <ul style="margin:4px 0;padding-left:20px">
+      <li>話し手の認識が間に挟まる</li>
+      <li>正しさが<b>人に依存</b>する（<span class="skt">puṃnimitta</span>）</li>
+      <li>だから<b>偽でありうる</b></li>
+    </ul>
+    <div class="flow" style="margin-top:10px"><div class="node hu" style="min-width:60px"><b>言葉</b></div><div class="arrow">→</div><div class="node hu" style="min-width:60px"><b>話し手</b></div><div class="arrow">→</div><div class="node pr" style="min-width:60px"><b>対象</b></div></div>
+  </div>
+  <div class="box veda">
+    <h4>ヴェーダ</h4>
+    <ul style="margin:4px 0;padding-left:20px">
+      <li><b>話し手（作者）がいない</b></li>
+      <li>間に挟まる認識がなく、語の意味から直接に文の意味が分かる</li>
+      <li>だから<b>決して偽にならない</b></li>
+    </ul>
+    <div class="flow" style="margin-top:10px"><div class="node veda" style="min-width:60px"><b>言葉</b></div><div class="arrow">→</div><div class="node veda" style="min-width:60px"><b>対象</b></div></div>
+  </div>
+</div>
+
+<p>さらにクマーリラは別の箇所（176cd偈）で、シャバラが「文が外の対象に働きかける」と言っているのは<b>仮に認めたうえでの（<span class="skt">abhyupetya</span>）話にすぎない</b>と解釈しています。つまりクマーリラ自身の最終的な考えも、「人の言葉が働きかけるのは話し手の認識に対してである」という否定的な見方だ、と著者は判断しています。</p>
+
+<!-- ============ 5 ============ -->
+<h2 id="s5"><span class="num">5</span>クマーリラ（その2）：人の言葉もプラマーナである</h2>
+<p>ところが、同じ『シュローカヴァールッティカ』の<b>シャブダ（言葉）章</b>では、クマーリラは逆の方向に進んでいるように見えます。</p>
+
+<div class="tscroll">
+<table>
+  <tr><th>人物</th><th>人の言葉はプラマーナか？</th><th>根拠</th></tr>
+  <tr><td>ヴリッティカーラ（古い註釈者）</td><td class="bad">× 独立した手段とは数えない</td><td>推論の次に挙げるのは<b>「聖典（<span class="skt">śāstra</span>）」＝ヴェーダの教えだけ</b>。言葉一般の定義はない。</td></tr>
+  <tr><td>シャバラ</td><td class="bad">× 独立した手段ではない</td><td>人の言葉は二次的で、見解②では話し手の認識に限定。</td></tr>
+  <tr><td>プラバーカラ</td><td class="bad">× 古い立場を保持</td><td>著者によれば、旧来の（時代に合わなくなった）見方を保っている。</td></tr>
+  <tr><td><b>クマーリラ</b></td><td class="hu">○ 信頼できる人の言葉なら有効</td><td>言葉一般（「牛を連れてこい」のような文）の定義は、ここ（ヴェーダ解釈）では役に立たないので書かれていないだけ。個別を定義すれば一般もおのずと分かる（シャブダ章10–11偈）。</td></tr>
+</table>
+</div>
+
+<h3>図7　クマーリラによる言葉の分類</h3>
+<div class="card tree">
+<ul>
+  <li><span class="lab"><b>言葉</b>（<span class="skt">śabda</span>）</span>
+    <ul>
+      <li><span class="lab" style="border-color:var(--veda);background:var(--veda-bg)">ヴェーダの言葉（<span class="skt">vaidika-vacana</span>）</span></li>
+      <li><span class="lab" style="border-color:var(--human);background:var(--human-bg)">世間の言葉（<span class="skt">laukika-vacana</span>）</span>
+        <ul>
+          <li><span class="lab" style="border-color:var(--human);background:var(--human-bg)">信頼できる人が語ったもの（<span class="skt">āpta-praṇīta</span>）→ 有効</span></li>
+          <li><span class="lab" style="border-color:var(--bad);background:var(--bad-bg)">信頼できない人が語ったもの（<span class="skt">anāpta-praṇīta</span>）</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<div class="card">
+  <b>なぜクマーリラは立場を変えたのか？ ― 時代の変化</b>
+  <p>著者は、クマーリラの時代には<b>パラダイムの変化</b>があったと見ています。たとえばニヤーヤ学派のパクシラスヴァーミン（『ニヤーヤ・バーシュヤ』1.1.7）は、言葉の定義は<b>聖仙にも、アーリヤにも、蛮族（ムレーッチャ）にも共通</b>だと述べています。蛮族でも「信頼できる人」になりうるし、その言葉は有効でありうる、というわけです。これは保守的なミーマーンサーの見方への批判と読めます。<br>
+  こうした世俗的な常識の中で、クマーリラはもはや古い見方を守り切れず、<b>妥協</b>した、と著者は考えます。</p>
+</div>
+
+<!-- ============ 6 ============ -->
+<h2 id="s6"><span class="num">6</span>矛盾の解決：「守備範囲」を分ける</h2>
+<p>クマーリラは板挟みでした。</p>
+<div class="grid2">
+  <div class="box hu"><h4>時代の要請</h4>人の言葉が有効であることを認めないといけない。</div>
+  <div class="box veda"><h4>学派の伝統</h4>人の言葉に無制限の力を与えると、ヴェーダと同じ地位にまで上ってしまう。それは困る。</div>
+</div>
+
+<p style="margin-top:14px">そこで、シャバラの見解②がヒントになりました。クマーリラの解決は、<b>「人の言葉はプラマーナである。ただし、その守備範囲は話し手の認識に限られる」</b>というものです。プラマーナごとに<b>担当する領域がはっきり分かれている</b>、という考え方です。</p>
+
+<div class="key">
+  <div class="lbl">★ この論文のいちばん大事なポイント</div>
+  <p style="margin:6px 0 0">クマーリラにとって人の言葉は<b>「プラマーナの一種」として認められる</b>。しかしそれは<b>自分の領域（＝話し手の認識）について有効</b>なのであって、外の対象について直接に有効なのではない。シャバラから受け継いだ「話し手の認識しか伝えない」という考えを、<b>「プラマーナではあるが範囲が限定されている」</b>というかたちで生かしたのである。</p>
+</div>
+
+<h3>表C　それぞれの言葉は「何について」正しいか</h3>
+<div class="tscroll">
+<table>
+  <tr><th>言葉の種類</th><th>自分の領域（話し手の認識）について</th><th>外の対象について</th></tr>
+  <tr><td class="hu">信頼できる人の言葉</td><td>○ 正しい</td><td>△ 話し手の認識の原因（知覚など）が確かめられれば成り立つ</td></tr>
+  <tr><td class="bu"><span class="tag t-bu">仏教</span> ブッダの言葉</td><td>○ 正しい（ブッダがそう認識していたことは伝わる）</td><td>× 宗教的な事柄の外的対象については働かない（172偈）</td></tr>
+  <tr><td class="hu">マヌの教え</td><td>○ 正しい</td><td>○ ヴェーダに基づくことが証明できるので成り立つ</td></tr>
+  <tr><td class="veda">ヴェーダ</td><td>（話し手がいない）</td><td>○ 自分の働きの範囲内なら正しい。<br>ただし<b>ヴェーダでさえ、自分の働きの範囲を超えた対象については偽</b>になる（173ab偈）</td></tr>
+</table>
+</div>
+
+<h3>図8　クマーリラの最終的な見取り図</h3>
+<div class="flow">
+  <div class="node pr"><b>対象</b><span class="s">artha</span></div><div class="arrow">→</div>
+  <div class="node pr"><b>根拠・原因</b><span class="s">mūla / hetu</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>確かに知った人</b><span class="s">pratyayita ＋ pratyaya</span></div><div class="arrow">→</div>
+  <div class="node hu"><b>発言</b><span class="s">vacana</span></div><div class="arrow">→</div>
+  <div class="node hear"><b>聞き手の認識</b><span class="s">jñāna</span></div>
+</div>
+<div class="flow">
+  <div class="node empty"><b>（対象なし）</b><span class="s">φ</span></div><div class="arrow">→</div>
+  <div class="node empty"><b>（根拠なし）</b><span class="s">φ</span></div><div class="arrow">→</div>
+  <div class="node bad"><b>信頼できない人</b><span class="s">apratyayita ＋ vyāmoha</span></div><div class="arrow">→</div>
+  <div class="node bad"><b>発言</b><span class="s">vacana</span></div><div class="arrow">→</div>
+  <div class="node hear"><b>聞き手の認識</b><span class="s">jñāna</span></div>
+</div>
+<p class="flowcap">上：根拠のある正しい発言。下：根拠のない迷妄からの発言。どちらの場合も、発言そのものが伝えるのは話し手の認識（正しいにせよ誤っているにせよ）である。</p>
+
+<div class="card">
+  <b>マヌの教えはどうやって「対象について」正しくなるの？</b>
+  <p>マヌの言葉も、まずはマヌの認識について有効なだけです。しかし、マヌの教えの根拠は何か、と考えると候補は5つあります。クマーリラは<b>要請（<span class="skt">arthāpatti</span>）</b>という推理で、いちばん無理のない説明を選びます（『タントラヴァールッティカ』1.3.2）。</p>
+  <div class="tscroll">
+  <table>
+    <tr><th>マヌの教えの根拠の候補</th><th>判定</th></tr>
+    <tr><td>マヌの誤り</td><td class="bad">×</td></tr>
+    <tr><td>マヌ自身の経験</td><td class="bad">×</td></tr>
+    <tr><td>他人の発言</td><td class="bad">×</td></tr>
+    <tr><td>マヌの欺き</td><td class="bad">×</td></tr>
+    <tr><td><b>ヴェーダの命令文</b></td><td class="veda">○ 明らかな事実と合致し、いちばん簡潔な説明</td></tr>
+  </table>
+  </div>
+</div>
+
+<!-- ============ 7 ============ -->
+<h2 id="s7"><span class="num">7</span>思想史の中で：ダルマキールティとのつながり</h2>
+<p>仏教の論理学者<b>ダルマキールティ</b>は、「言葉は事物と必然的な結びつきを持たないので、言葉からは外界の対象は確定しない。言葉は<b>話し手の意図を示すだけ</b>（<span class="skt">vaktrabhiprāya-sūcaka</span>）だ」と主張したことで有名です（『プラマーナ・ヴァールッティカ自註』）。ふつうは、これは同じ仏教のディグナーガの<b>アポーハ論</b>を発展させたものだと考えられています。著者はこれに疑問を投げかけます。</p>
+
+<h3>図9　年代の比較</h3>
+<div class="card">
+  <div class="note" style="display:flex;justify-content:space-between"><span>450年</span><span>550年</span><span>650年</span></div>
+  <div class="bar"><span style="left:12.5%;width:25%;background:var(--budd)">ディグナーガ 480–540</span></div>
+  <div class="bar"><span style="left:25%;width:25%;background:var(--veda)">シャバラ 500–550</span></div>
+  <div class="bar"><span style="left:75%;width:25%;background:var(--veda)">クマーリラ 600–650</span></div>
+  <div class="bar"><span style="left:75%;width:25%;background:var(--budd)">ダルマキールティ 600–660</span></div>
+  <p class="note" style="margin-bottom:0">年代はいずれも論文に示された概数（ca.）。<span class="tag t-veda">ミーマーンサー</span><span class="tag t-bu">仏教</span></p>
+</div>
+
+<h3>表D　「言葉は何を伝えるか」の比較</h3>
+<div class="tscroll">
+<table>
+  <tr><th style="width:7.5em">人物</th><th>主な関心</th><th style="width:30%">「言葉は話し手の意図・認識を示すだけ」という考えは？</th></tr>
+  <tr><td class="bu">ディグナーガ</td><td><b>語（単語）の意味</b>のレベル。「牛」という語の意味を、実在する「牛性」ではなく「牛でないものの排除」に置き換えた（アポーハ論）。それ以外はヴァイシェーシカの枠組みにおおむね満足していた。概念化は個人のものではなく、皆が共有する社会的過程。</td><td class="bad">見られない</td></tr>
+  <tr><td class="veda">シャバラ</td><td><b>文</b>のレベル。話し手の認識が間に挟まることを強調。</td><td class="hu">本質的な部分がすでにある（見解②）</td></tr>
+  <tr><td class="veda">クマーリラ</td><td>シャバラの考えを、認識→意図→語の配列→文の意味の理解、という中間段階まで細かく分析。</td><td class="hu">詳しく展開</td></tr>
+  <tr><td class="bu">ダルマキールティ</td><td>言葉と事物の間には必然的な結びつきがない。</td><td class="hu">明確に主張</td></tr>
+</table>
+</div>
+
+<h3>図10　ディグナーガとシャバラの構造の違い</h3>
+<div class="grid2">
+  <div class="box bu">
+    <h4>ディグナーガ（語の意味の話）</h4>
+    <div class="flow"><div class="node" style="min-width:60px"><b>「牛」</b><span class="s">語</span></div><div class="arrow">→</div><div class="node" style="min-width:60px"><b>個々の牛</b><span class="s">govyakti</span></div></div>
+    <p class="note" style="margin:4px 0 0">媒介するのが「牛性」（ヴァイシェーシカ）か「牛でないものの排除」（ディグナーガ）か、という違い。<b>話し手は登場しない</b>。</p>
+  </div>
+  <div class="box veda">
+    <h4>シャバラ（文の話）</h4>
+    <div class="flow"><div class="node" style="min-width:60px"><b>文</b><span class="s">vākya</span></div><div class="arrow">→</div><div class="node hu" style="min-width:60px"><b>話し手の認識</b><span class="s">vaktṛ jñāna</span></div><div class="arrow">→</div><div class="node" style="min-width:60px"><b>対象</b><span class="s">artha</span></div></div>
+    <p class="note" style="margin:4px 0 0"><b>話し手の認識</b>が文と対象の間に挟まる。ダルマキールティの説に近いのはこちら。</p>
+  </div>
+</div>
+
+<div class="key">
+  <div class="lbl">★ 著者の結論</div>
+  <p style="margin:6px 0 0">ダルマキールティの「言葉は話し手の意図を示すだけ」という考えの本質的な部分は、ディグナーガの著作にではなく、<b>すでにシャバラの註釈の中に見られる</b>。ダルマキールティがクマーリラ（あるいは同様のミーマーンサーの見解）を前提にしているとすれば、<b>この考えはクマーリラらミーマーンサー学者によって先取りされていた</b>と言うほうが適切であり、仏教の伝統だけから影響を受けたと見るのは歴史に合わない。</p>
+  <p class="note" style="margin:8px 0 0">裏づけ：ダルマキールティの最初期の著作は主にミーマーンサーへの反論として書かれており、非知覚（<span class="skt">anupalabdhi</span>）論などもその出発点でクマーリラらの強い影響を受けている。また、この結論は「ミーマーンサーは素朴な言語観をもつ」という通念の見直しも迫る。</p>
+</div>
+
+<!-- ============ 8 ============ -->
+<h2 id="s8"><span class="num">8</span>理解度チェック</h2>
+<p>クリック（タップ）すると答えが開きます。</p>
+
+<details><summary>Q1. ミーマーンサーで、ダルマを知るための唯一の究極的な情報源は何？</summary>
+ヴェーダの命令文（<span class="skt">codanā</span>）。人の言葉（マヌの教えを含む）は、せいぜい「ヴェーダに基づく」二次的な情報源にとどまる。</details>
+
+<details><summary>Q2. シャバラの見解②によると、人の発言から生じる認識はどういうもの？</summary>
+「この対象はこうだ」ではなく、「この人はこう理解している」という認識。つまり話し手の認識が伝わるだけ。</details>
+
+<details><summary>Q3. クマーリラが挙げる、発言の過程で失敗する3種類の話し手は？</summary>
+①対象を見ていない人（対象→認識の失敗）、②嘘つき（認識→意図の失敗）、③混乱した人（意図→文の失敗）。</details>
+
+<details><summary>Q4. ヴェーダが決して偽にならないのはなぜ？</summary>
+作者（話し手）がいないので、話し手の認識が間に挟まらず、欠陥が入り込む余地がないから。正しさが人に依存（<span class="skt">puṃnimitta</span>）しない。</details>
+
+<details><summary>Q5. クマーリラは「人の言葉はプラマーナか」という問いにどう答えた？</summary>
+プラマーナの一種として認める。ただしそれが有効なのは自分の領域、つまり話し手の認識についてであって、外の対象については、話し手の認識の背後にある根拠（知覚やヴェーダ）が確かめられて初めて正しさが成り立つ。</details>
+
+<details><summary>Q6. 著者は、ダルマキールティの「言葉は話し手の意図を示すだけ」説の源流をどこに見ている？</summary>
+ディグナーガのアポーハ論ではなく、シャバラの註釈とそれを発展させたクマーリラ（あるいは同様の見解をもつミーマーンサー学者）。</details>
+
+<details><summary>考えてみよう（発展）：ニュースやSNSの発言にこの理論を当てはめるとどうなる？</summary>
+クマーリラ流に言えば、投稿から確実に分かるのは「この人はそう思っている（あるいはそう言いたい）」ということまで。内容が事実かどうかは、投稿者が実際に見たのか（根拠）、正直か、正確に表現できているか、を別に確かめる必要がある。「ファクトチェック」の発想に近い、と考えることもできる。<span class="note">（これは理解のためのたとえで、論文の主張そのものではありません。）</span></details>
+
+<footer>
+  このページは、上記の論文の内容を大学1年生向けに整理した学習用の解説です。サンスクリット原文の訳は論文中の英訳をもとにした意訳です。正確な議論や典拠（『シャーバラ・バーシュヤ』1.1.2、『シュローカヴァールッティカ』チョーダナー章160–176偈・シャブダ章10–12偈など）は、必ず論文本体で確認してください。
+</footer>
+
+</div>
+</body>
+</html>
