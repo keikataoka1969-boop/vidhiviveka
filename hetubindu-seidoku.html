@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ヘートゥビンドゥ精読</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: 単一カラムの読み物。節ごとに番号付き見出し、図表は本文幅いっぱいの枠で挟む */
+:root{
+  --paper:#F3F5F4; --card:#FFFFFF; --ink:#18221F; --muted:#56635E; --line:#D2DAD6;
+  --accent:#1F6B5C; --accent-soft:#DDEEE9;
+  --warm:#9A4E1F; --warm-soft:#F6E6DA;
+  --cool:#2E5A8C; --cool-soft:#DFE8F3;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+  --f-ia:"Gentium Book Plus","Noto Serif","Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#111816; --card:#18221F; --ink:#E2EAE6; --muted:#9BABA4; --line:#2C3A35;
+  --accent:#62C2AC; --accent-soft:#1C332D; --warm:#E59A66; --warm-soft:#3A2619;
+  --cool:#8DB4E2; --cool-soft:#1C2A3B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#111816; --card:#18221F; --ink:#E2EAE6; --muted:#9BABA4; --line:#2C3A35;
+  --accent:#62C2AC; --accent-soft:#1C332D; --warm:#E59A66; --warm-soft:#3A2619;
+  --cool:#8DB4E2; --cool-soft:#1C2A3B; color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.9;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:46em;margin:0 auto}
+i,.ia{font-family:var(--f-ia);font-style:italic}
+header{padding-block:48px 28px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.kicker{font-size:.8rem;letter-spacing:.12em;color:var(--accent);font-weight:700}
+h1{font-family:var(--f-display);font-size:clamp(2rem,6vw,2.8rem);line-height:1.3;margin:.3em 0 .4em;text-wrap:balance}
+.lead{color:var(--muted);margin:0}
+.sample{display:inline-block;margin-top:14px;font-size:.82rem;padding:2px 10px;border:1px solid var(--warm);color:var(--warm);border-radius:999px}
+h2{font-family:var(--f-display);font-size:1.6rem;line-height:1.4;margin:56px 0 8px;text-wrap:balance;display:flex;gap:.6em;align-items:baseline}
+h2 .no{font-family:var(--f-ia);font-style:normal;color:var(--accent);font-size:1.1rem;white-space:nowrap}
+h3{font-family:var(--f-display);font-size:1.2rem;margin:32px 0 6px;display:flex;gap:.6em;align-items:baseline}
+h3 .no{font-family:var(--f-ia);color:var(--accent);font-size:.95rem;white-space:nowrap}
+.range{font-family:var(--f-ia);color:var(--muted);font-size:.85rem;margin:0 0 10px}
+p{margin:.7em 0}
+figure{margin:24px 0;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:6px}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:10px;line-height:1.6}
+figcaption b{color:var(--ink)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.6}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{font-weight:700;color:var(--muted);font-size:.82rem;letter-spacing:.04em;background:var(--paper)}
+td.k{white-space:nowrap;font-weight:700}
+.point{border-left:3px solid var(--accent);padding:6px 0 6px 14px;margin:18px 0;color:var(--ink)}
+.point b{color:var(--accent)}
+.toc{font-size:.92rem;columns:2 16em;column-gap:28px;padding:0;margin:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;border-bottom:1px dotted var(--line)}
+.toc a{color:var(--ink);text-decoration:none}.toc a:hover{color:var(--accent)}
+.toc .n{font-family:var(--f-ia);color:var(--accent);margin-right:.5em}
+.later{color:var(--muted)}
+svg text{font-family:var(--f-body);fill:var(--ink)}
+svg .ia{font-family:var(--f-ia);font-style:italic}
+svg .m{fill:var(--muted)}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tag{display:inline-block;font-size:.75rem;padding:0 7px;border-radius:3px;background:var(--accent-soft);color:var(--accent);margin-right:4px}
+.tag.w{background:var(--warm-soft);color:var(--warm)}
+.tag.c{background:var(--cool-soft);color:var(--cool)}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+<header>
+  <div class="kicker">DHARMAKĪRTI · HETUBINDU</div>
+  <h1>ヘートゥビンドゥ精読</h1>
+  <p class="lead">『論証因の一滴』を、Steinkellner の Analytic Survey の科段に沿って順に読み解く。頁・行は Steinkellner 校訂本（2016）による。本文の対訳は<a href="hetubindu-taiyaku.html">ヘートゥビンドゥ対訳</a>を参照。</p>
+  
+</header>
+
+<nav aria-label="目次">
+<ol class="toc">
+  <li><a href="#p0"><span class="n">序</span>本書の位置と全体の構成</a></li>
+  <li><a href="#p1"><span class="n">0.</span>綱要の偈を読む</a></li>
+  <li><a href="#p2"><span class="n">1.</span>「主題」は有法を指す</a></li>
+  <li><a href="#p3"><span class="n">2.–3.</span>「その部分」と遍充</a></li>
+  <li><a href="#p4"><span class="n">3.2・a.</span>確定は認識手段か</a></li>
+  <li><a href="#p5"><span class="n">3.3–3.4</span>随伴の確定を三種別に</a></li>
+  <li><a href="#p6"><span class="n">4.1</span>自性因：定義と論証式</a></li>
+  <li><a href="#p7"><span class="n">b.</span>刹那滅論証</a></li>
+  <li><a href="#p8"><span class="n">4.2</span>結果因</a></li>
+  <li><a href="#p9"><span class="n">4.3・c.</span>非認識因と非認識論</a></li>
+  <li><a href="#p10"><span class="n">d.</span>六相説批判</a></li>
+</ol>
+</nav>
+
+<!-- ============ 序 ============ -->
+<section id="p0">
+<h2><span class="no">序</span>本書の位置と全体の構成</h2>
+<p><i>Hetubindu</i>（以下 HB）は、Dharmakīrti が推理論、とくに論証因（<i>hetu</i>）の理論だけを独立に論じた小品です。冒頭の綱要の偈は <i>Pramāṇavārttika</i> 第1章（<i>svārthānumāna</i> 章）の冒頭偈と同文で、HB はその章の主題を、後の <i>Pramāṇaviniścaya</i> 第2・3章の成果を踏まえて組み直したものと見られます。</p>
+<p>本文の形式は一貫しています。綱要の偈の語を一つずつ取り上げて注釈する、という体裁をとり、その途中に大きな余論が挟まります。Steinkellner の科段では、偈の注釈が数字の節（1.〜4.）、余論・補遺が文字の節（a.〜d.）で示されます。</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 210" width="680" style="max-width:100%;height:auto" role="img" aria-label="本文41頁の配分">
+  <!-- scale: 41 pages -> 600px, x0=60 ; 1 page = 14.634px -->
+  <text x="0" y="22" font-size="13" font-weight="700">頁</text>
+  <g font-size="11" class="m">
+    <text x="60" y="22" class="m">1</text><text x="200" y="22" class="m">10</text><text x="346" y="22" class="m">20</text><text x="493" y="22" class="m">30</text><text x="640" y="22" class="m">40</text>
+  </g>
+  <!-- row1: 偈の注釈の大区分 -->
+  <text x="0" y="56" font-size="12">注釈</text>
+  <rect x="60" y="40" width="73" height="26" fill="var(--cool-soft)" stroke="var(--cool)"/>
+  <rect x="133" y="40" width="257" height="26" fill="var(--accent-soft)" stroke="var(--accent)"/>
+  <rect x="390" y="40" width="37" height="26" fill="var(--accent-soft)" stroke="var(--accent)"/>
+  <rect x="427" y="40" width="132" height="26" fill="var(--accent-soft)" stroke="var(--accent)"/>
+  <rect x="559" y="40" width="102" height="26" fill="var(--warm-soft)" stroke="var(--warm)"/>
+  <g font-size="11.5">
+    <text x="66" y="57">0.–3.</text><text x="139" y="57">4.1 自性因</text><text x="393" y="57">4.2</text><text x="433" y="57">4.3 非認識因</text><text x="565" y="57">d. 六相説批判</text>
+  </g>
+  <!-- row2: 余論 -->
+  <text x="0" y="104" font-size="12">余論</text>
+  <rect x="82" y="88" width="29" height="26" fill="var(--paper)" stroke="var(--muted)" stroke-dasharray="3 2"/>
+  <rect x="177" y="88" width="210" height="26" fill="var(--paper)" stroke="var(--muted)" stroke-dasharray="3 2"/>
+  <rect x="427" y="88" width="117" height="26" fill="var(--paper)" stroke="var(--muted)" stroke-dasharray="3 2"/>
+  <g font-size="11.5"><text x="86" y="105">a.</text><text x="183" y="105">b. 刹那滅論証</text><text x="433" y="105">c. 非認識とは何か</text></g>
+  <!-- annotations -->
+  <g font-size="11.5" class="m">
+    <text x="60" y="150" class="m">a.：確定は認識手段か（2,15–4,8）</text>
+    <text x="60" y="170" class="m">b.：自性因の遍充を確かめるための長い脇道（9,1–23,10）、本文の約35%</text>
+    <text x="60" y="190" class="m">c.：非認識因の土台となる「非認識」の存在論（26,3–33,11）</text>
+  </g>
+</svg>
+</div>
+<figcaption><b>図1　本文41頁の配分。</b>上段は綱要の偈の注釈（0.–4.）と補遺 d.、下段はそこに挟まる余論。頁は校訂本による。全体の半分近くが二つの余論（b. と c.）に費やされている。</figcaption>
+</figure>
+
+<p>図1が示すように、HB の重心は「三種の論証因」を論じる4.にあり、とくに自性因（4.1）の中の刹那滅論証（b.）と、非認識因（4.3）の中の非認識論（c.）が本文の半分近くを占めます。どちらも、ある論証因の<strong>遍充をどう確かめるか</strong>という問いから生じた脇道です。HB を読むときは、この二つが「定義の説明」から派生した部分であることを意識しておくと、議論の位置を見失いません。</p>
+
+<div class="scroll"><table>
+<thead><tr><th>科段</th><th>主題</th><th>校訂本</th><th>論敵（Arcaṭa による）</th></tr></thead>
+<tbody>
+<tr><td class="k ia">0.</td><td>序・綱要の偈</td><td class="ia">1,1–5</td><td>—</td></tr>
+<tr><td class="k ia">1.–3.</td><td>主題・「その部分」・遍充とその確定</td><td class="ia">1,6–5,14</td><td>Īśvarasena、Kumārila</td></tr>
+<tr><td class="k ia">4.1</td><td>自性因（<i>svabhāvahetu</i>）と論証式</td><td class="ia">6,3–23,10</td><td>ニヤーヤ、Vindhyavāsin</td></tr>
+<tr><td class="k ia">b.</td><td>刹那滅論証（外的な消滅原因の否定、協働論）</td><td class="ia">9,1–23,10</td><td>ニヤーヤ・ヴァイシェーシカ、ジャイナ</td></tr>
+<tr><td class="k ia">4.2</td><td>結果因（<i>kāryahetu</i>）</td><td class="ia">23,11–25,15</td><td>—</td></tr>
+<tr><td class="k ia">4.3・c.</td><td>非認識因（<i>anupalabdhihetu</i>）と非認識論</td><td class="ia">26,1–34,6</td><td>Kumārila、Īśvarasena</td></tr>
+<tr><td class="k ia">d.</td><td>六相説（<i>ṣaḍlakṣaṇo hetuḥ</i>）批判</td><td class="ia">34,7–41,1</td><td>Īśvarasena</td></tr>
+</tbody></table></div>
+</section>
+
+<!-- ============ 0. ============ -->
+<section id="p1">
+<h2><span class="no">0.</span>綱要の偈を読む</h2>
+<p class="range">科段 0.1–0.2　校訂本 1,1–5</p>
+<p>帰敬文（文殊への帰命）のあと、Dharmakīrti はまず執筆の動機を一文で示します。知覚の及ばない対象（<i>parokṣārtha</i>）の認識は推理に依拠する、だから推理の理解（<i>vyutpādana</i>）のために要約を書く、というものです。認識手段を知覚と推理の二つに限る立場からすれば、これで本書の存在理由は尽きています。</p>
+<p>続く綱要の偈は、論証因について四つのことを一度に述べます。この偈の語の一つひとつが、以下の本文の見出しになります。</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 300" width="680" style="max-width:100%;height:auto" role="img" aria-label="綱要の偈の構造">
+  <g font-size="13">
+    <rect x="10" y="14" width="660" height="44" rx="4" fill="var(--paper)" stroke="var(--line)"/>
+    <text x="24" y="42" class="ia">pakṣadharmas</text><text x="132" y="42" class="ia">tadaṃśena vyāpto</text><text x="270" y="42" class="ia">hetus tridhaiva saḥ |</text>
+    <text x="414" y="42" class="ia">avinābhāvaniyamād</text><text x="560" y="42" class="ia">hetvābhāsās tato 'pare</text>
+  </g>
+  <g stroke="var(--muted)" fill="none">
+    <path d="M70 58 V96"/><path d="M190 58 V96"/><path d="M320 58 V156"/><path d="M480 58 V216"/><path d="M610 58 V256"/>
+  </g>
+  <g font-size="12.5">
+    <rect x="10" y="96" width="140" height="44" fill="var(--cool-soft)" stroke="var(--cool)"/>
+    <text x="20" y="114">第一相</text><text x="20" y="132" class="ia" font-size="11.5">pakṣadharmatva</text>
+    <rect x="160" y="96" width="160" height="44" fill="var(--cool-soft)" stroke="var(--cool)"/>
+    <text x="170" y="114">第二・第三相</text><text x="170" y="132" class="ia" font-size="11.5">anvaya / vyatireka</text>
+    <rect x="240" y="156" width="210" height="44" fill="var(--accent-soft)" stroke="var(--accent)"/>
+    <text x="250" y="174">三種のみ（4.）</text><text x="250" y="192" class="ia" font-size="11.5">svabhāva · kārya · anupalabdhi</text>
+    <rect x="360" y="216" width="200" height="44" fill="var(--accent-soft)" stroke="var(--accent)"/>
+    <text x="370" y="234">三種に限る根拠</text><text x="370" y="252" class="ia" font-size="11.5">avinābhāva の限定</text>
+    <rect x="490" y="256" width="180" height="40" fill="var(--warm-soft)" stroke="var(--warm)"/>
+    <text x="500" y="281">それ以外は似因</text>
+  </g>
+</svg>
+</div>
+<figcaption><b>図2　綱要の偈の構造。</b>前半句で論証因の三相を定義し、後半句で三種への限定とその根拠、似因（<i>hetvābhāsa</i>）を述べる。三相は「主題の属性」と「その部分に遍充されている」の二語に圧縮されている。</figcaption>
+</figure>
+
+<div class="point"><b>要点</b>　三相（<i>trairūpya</i>）は偈では二語で表されます。「その部分によって遍充されている」（<i>tadaṃśena vyāptaḥ</i>）一語が、肯定的随伴（<i>anvaya</i>）と否定的随伴（<i>vyatireka</i>）の両方を担うからです（3.1 で明示されます）。</div>
+</section>
+
+<!-- ============ 1. ============ -->
+<section id="p2">
+<h2><span class="no">1.</span>「主題」は有法を指す</h2>
+<p class="range">科段 1.1–1.2　校訂本 1,6–2,4</p>
+<p>偈の第一語「主題の属性」（<i>pakṣadharma</i>）の「主題」（<i>pakṣa</i>）は、厳密には「音は無常である」のような、有法（<i>dharmin</i>）と所証属性（<i>sādhyadharma</i>）の結合体（<i>samudāya</i>）です。論証因が属するのはその一部である有法（音）なので、偈は全体の名で部分を指す<strong>提喩</strong>（<i>avayave samudāyopacāraḥ</i>）を用いていることになります。</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 190" width="680" style="max-width:100%;height:auto" role="img" aria-label="主題と有法">
+  <rect x="20" y="20" width="300" height="110" rx="6" fill="var(--paper)" stroke="var(--muted)"/>
+  <text x="34" y="44" font-size="13" font-weight="700">主題 <tspan class="ia" font-weight="400">pakṣa</tspan>（結合体 <tspan class="ia" font-weight="400">samudāya</tspan>）</text>
+  <rect x="34" y="60" width="130" height="54" fill="var(--cool-soft)" stroke="var(--cool)"/>
+  <text x="46" y="82" font-size="12.5">有法 <tspan class="ia">dharmin</tspan></text><text x="46" y="102" font-size="12" class="m">音</text>
+  <rect x="176" y="60" width="130" height="54" fill="var(--accent-soft)" stroke="var(--accent)"/>
+  <text x="188" y="82" font-size="12.5">所証属性</text><text x="188" y="102" font-size="12" class="m">無常</text>
+  <path d="M99 130 V160 H420" stroke="var(--cool)" fill="none" marker-end="url(#ar)"/>
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="var(--cool)"/></marker></defs>
+  <rect x="424" y="138" width="236" height="44" fill="var(--cool-soft)" stroke="var(--cool)"/>
+  <text x="436" y="158" font-size="12.5">論証因はここに属する</text><text x="436" y="175" font-size="11.5" class="m">作られたものであること（<tspan class="ia">kṛtakatva</tspan>）</text>
+  <text x="350" y="60" font-size="12" class="m">「主題の属性」＝全体の名で部分を指す</text>
+  <text x="350" y="80" font-size="12" class="ia">avayave samudāyopacāraḥ</text>
+</svg>
+</div>
+<figcaption><b>図3　主題と有法。</b>論証因は結合体としての主題ではなく、その一部である有法に属する。</figcaption>
+</figure>
+
+<h3><span class="no">1.1</span>なぜ「有法の属性」と言わないのか</h3>
+<p>反論者（Arcaṭa は Īśvarasena とする）は、提喩には目的がないので、素直に「有法の属性」と言えばよいと迫ります。Dharmakīrti の答えは二段です。</p>
+<div class="scroll"><table>
+<thead><tr><th>「有法の属性」と言った場合の問題</th><th>「主題の属性」と言えば</th></tr></thead>
+<tbody>
+<tr><td>あらゆる有法の属性が含まれてしまい、たとえば「眼で見られること」（<i>cākṣuṣatva</i>）のような、音に属さない属性まで排除できない</td><td>所証と結びついた有法に限られる</td></tr>
+<tr><td>「近さ」によって所証の有法に限られる、と言っても、喩例の有法（壺）もまた近い</td><td>喩例の有法は「その部分による遍充」ですでに扱われているので、紛れない</td></tr>
+<tr><td>喩例の有法を指すと読むと、すでに成立していることの繰り返しになり、「そこにのみある」という限定の意図だと誤解される</td><td>理解の煩わしさ（<i>pratipattigaurava</i>）も避けられる</td></tr>
+</tbody></table></div>
+
+<h3><span class="no">1.2</span>不共因になるという反論</h3>
+<p>もう一つの反論は、論証因を「主題の属性」と規定すると、主題という特定のものにしかない属性、つまり不共因（<i>asādhāraṇa</i>）になってしまう、というものです。Dharmakīrti は限定（<i>viśeṣaṇa</i>）の二つの型を区別して答えます。</p>
+<div class="scroll"><table>
+<thead><tr><th>限定の型</th><th>例</th><th>意味</th><th>HB での適用</th></tr></thead>
+<tbody>
+<tr><td class="k">非結合の排除<br><i>ayogavyavaccheda</i></td><td>チャイトラは弓取りである</td><td>主語が述語と結びつかない可能性を排除する</td><td><span class="tag">採用</span>論証因は主題に<strong>必ずある</strong></td></tr>
+<tr><td class="k">他結合の排除<br><i>anyayogavyavaccheda</i></td><td>パールタ（だけ）が弓取りである</td><td>述語が他のものと結びつく可能性を排除する</td><td><span class="tag w">不採用</span>主題に<strong>しかない</strong>なら不共因</td></tr>
+</tbody></table></div>
+<div class="point"><b>要点</b>　「主題の属性」は「主題にしかない」ではなく「主題に必ずある」の意味です。この二つの限定の区別は、後の論理学で <i>eva</i> の位置による三種の限定（<i>ayoga-, anyayoga-, atyantāyogavyavaccheda</i>）として整理されるものの先駆けです。</div>
+</section>
+
+<!-- ============ 2.–3. ============ -->
+<section id="p3">
+<h2><span class="no">2.–3.</span>「その部分」と遍充</h2>
+<p class="range">科段 2.–3.1　校訂本 2,5–10</p>
+<p>「その部分」（<i>tadaṃśa</i>）は、主題の部分のうち所証属性のことです（2.）。偈の「その部分によって遍充されている」は、論証因が所証属性に遍充されている、という意味になります。そこで Dharmakīrti は遍充（<i>vyāpti</i>）を定義します（3.）。</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 230" width="680" style="max-width:100%;height:auto" role="img" aria-label="遍充の二つの視点">
+  <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="var(--muted)"/></marker></defs>
+  <!-- left: vyāpaka view -->
+  <text x="20" y="24" font-size="13" font-weight="700">遍充者の側から</text>
+  <text x="20" y="44" font-size="12" class="ia">vyāpakasya tatra bhāva eva</text>
+  <circle cx="160" cy="135" r="78" fill="var(--accent-soft)" stroke="var(--accent)"/>
+  <circle cx="145" cy="150" r="40" fill="var(--cool-soft)" stroke="var(--cool)"/>
+  <text x="200" y="88" font-size="12">所証属性（火）</text>
+  <text x="118" y="155" font-size="12">論証因</text><text x="122" y="171" font-size="11" class="m">（煙）</text>
+  <text x="20" y="222" font-size="11.5" class="m">煙のあるところには必ず火が<tspan font-weight="700">ある</tspan></text>
+  <!-- right: vyāpya view -->
+  <text x="360" y="24" font-size="13" font-weight="700">被遍充者の側から</text>
+  <text x="360" y="44" font-size="12" class="ia">vyāpyasya vā tatraiva bhāvaḥ</text>
+  <circle cx="500" cy="135" r="78" fill="var(--accent-soft)" stroke="var(--accent)"/>
+  <circle cx="485" cy="150" r="40" fill="var(--cool-soft)" stroke="var(--cool)"/>
+  <text x="540" y="88" font-size="12">所証属性（火）</text>
+  <text x="458" y="155" font-size="12">論証因</text><text x="462" y="171" font-size="11" class="m">（煙）</text>
+  <path d="M600 200 L560 190" stroke="var(--muted)" marker-end="url(#ar2)"/>
+  <text x="360" y="222" font-size="11.5" class="m">煙は火のあるところに<tspan font-weight="700">のみ</tspan>ある（外にはない）</text>
+</svg>
+</div>
+<figcaption><b>図4　遍充の二つの言い方。</b>同じ包含関係を、遍充者（<i>vyāpaka</i>）が「そこに必ずある」と言うか、被遍充者（<i>vyāpya</i>）が「そこにのみある」と言うか。<i>eva</i> の位置で区別される。</figcaption>
+</figure>
+
+<h3><span class="no">3.1</span>二つの随伴は「確定された」ものでなければならない</h3>
+<p>Dharmakīrti は、偈の語がそのまま三相を含意すると述べ、そこに「それぞれにふさわしい認識手段によって確定された」（<i>yathāsvaṃ pramāṇena niścita</i>）という条件を読み込みます。理由は、遍充の成立が二つの随伴の確定に依存するからです。所証がないところに論証因があれば遍充は成り立たず、遍充者が退いても論証因が退かないなら否定的随伴がない。だから<strong>確定された</strong>肯定的・否定的随伴によってのみ、遍充が確定されます。</p>
+<div class="scroll"><table>
+<thead><tr><th>相</th><th>内容</th><th>偈の語</th><th>確定の要件</th></tr></thead>
+<tbody>
+<tr><td class="k">第一相</td><td>論証因が主題（有法）にある</td><td><i>pakṣadharma</i></td><td>知覚か推理で確定（3.2）</td></tr>
+<tr><td class="k">第二相</td><td>所証があるところにのみある（<i>anvaya</i>）</td><td rowspan="2"><i>tadaṃśena vyāpta</i></td><td rowspan="2">論証因の種類ごとに異なる（3.3–3.4）</td></tr>
+<tr><td class="k">第三相</td><td>所証がないところには決してない（<i>vyatireka</i>）</td></tr>
+</tbody></table></div>
+</section>
+
+<!-- ============ 3.2 / a. ============ -->
+<section id="p4">
+<h2><span class="no">3.2・a.</span>確定は認識手段か</h2>
+<p class="range">科段 3.2、余論 a.1–(a.2)　校訂本 2,11–4,8</p>
+<p>第一相の確定（<i>niścaya</i>）は、有法に論証因があることを知覚または推理によって成立させることです（煙のある場所なら知覚、音が作られたものであることなら推理）。ところが Dharmakīrti はここで、場所を見たあとに生じる「これは煙だ」という知は<strong>想起の知</strong>（<i>smārta</i>）だと言い切ります。そこから、確定はそもそも認識手段（<i>pramāṇa</i>）なのか、という余論 a. が始まります。</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 250" width="680" style="max-width:100%;height:auto" role="img" aria-label="知覚とその後の分別">
+  <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="var(--ink)"/></marker></defs>
+  <rect x="10" y="30" width="150" height="70" fill="var(--accent-soft)" stroke="var(--accent)"/>
+  <text x="22" y="54" font-size="13" font-weight="700">最初の見ること</text><text x="22" y="74" font-size="11.5" class="ia">ādyaṃ darśanam</text><text x="22" y="92" font-size="11" class="m">独自相を捉える</text>
+  <path d="M160 65 H220" stroke="var(--ink)" marker-end="url(#ar3)"/>
+  <rect x="224" y="30" width="200" height="70" fill="var(--paper)" stroke="var(--muted)"/>
+  <text x="236" y="54" font-size="13" font-weight="700">否定の分別</text><text x="236" y="74" font-size="11.5">「煙でないものではない」</text><text x="236" y="92" font-size="11" class="m">知覚の姿をなぞる＝想起</text>
+  <rect x="224" y="120" width="200" height="70" fill="var(--paper)" stroke="var(--muted)"/>
+  <text x="236" y="144" font-size="13" font-weight="700">肯定の分別</text><text x="236" y="164" font-size="11.5">「これは煙だ」</text><text x="236" y="182" font-size="11" class="m">普遍を捉える＝目的達成なし</text>
+  <path d="M160 85 C190 85 190 155 220 155" stroke="var(--ink)" fill="none" marker-end="url(#ar3)"/>
+  <rect x="470" y="30" width="200" height="160" fill="var(--warm-soft)" stroke="var(--warm)"/>
+  <text x="482" y="54" font-size="13" font-weight="700">どちらも認識手段でない</text>
+  <text x="482" y="80" font-size="11.5">・新しい対象を得ない</text>
+  <text x="482" y="100" font-size="11.5">・目的達成の手段（実在）は</text>
+  <text x="494" y="118" font-size="11.5">すでに知覚が捉えた</text>
+  <text x="482" y="140" font-size="11.5">・普遍は目的達成をもたらさない</text>
+  <text x="482" y="166" font-size="11" class="m">対比：推理は未知の火を</text>
+  <text x="482" y="182" font-size="11" class="m">一般的な姿で知らせる</text>
+  <path d="M424 65 H466" stroke="var(--ink)" marker-end="url(#ar3)"/><path d="M424 155 H466" stroke="var(--ink)" marker-end="url(#ar3)"/>
+  <text x="10" y="232" font-size="11.5" class="m">Arcaṭa の整理による（HBṬ pp.25–28）。推理は反対例（<tspan class="ia">vaidharmyadṛṣṭānta</tspan>）として挙げられる。</text>
+</svg>
+</div>
+<figcaption><b>図5　知覚とその後の分別。</b>知覚に続く分別は、否定の形でも肯定の形でも、新しい実在を捉えない。認識手段であるのは最初の見ることだけである（a.1–a.2）。</figcaption>
+</figure>
+
+<h3><span class="no">a.2</span>認識手段の定義をどう補うか</h3>
+<p>この議論の要は、Dharmakīrti が認識手段の二つの規定を、実在（<i>vastu</i>）の定義に結びつけて読み直す点にあります。実在とは目的達成能力（<i>arthakriyāsāmarthya</i>）をもつものであり、目的達成を求める人の行動はそれに向かいます。だから認識手段であるかどうかは、実在に基づいて決まる（<i>vastvadhiṣṭhānatvāt pramāṇavyavasthāyāḥ</i>）のです。</p>
+<div class="scroll"><table>
+<thead><tr><th>規定</th><th>典拠</th><th>HB での読み直し</th></tr></thead>
+<tbody>
+<tr><td class="k">欺かない知<br><i>avisaṃvādi jñānam</i></td><td><i>PV</i> II 1a</td><td>分別も行動に関しては知覚と運命（<i>yogakṣema</i>）を共にするので、実在に向かわせる点では欺かない。しかしそれだけでは認識手段にならない</td></tr>
+<tr><td class="k">未知の対象の知<br><i>anadhigatārthaviṣaya</i></td><td><i>PV</i> II 5c</td><td>「未知の<strong>自相</strong>について」（<i>anadhigate svalakṣaṇe</i>）と限定すべきだ。さもないと、知覚の後に初めて捉えられる普遍まで「未知の対象」に含まれてしまう</td></tr>
+</tbody></table></div>
+
+<h3><span class="no">a.21</span>持続する知覚の各刹那は認識手段か</h3>
+<p>反論：同じ対象を見続けるとき、後の刹那の知覚は最初の刹那と役立ちが変わらないのだから、認識手段でないことになるのではないか。答え：特定の刹那で達成される目的を求める場合には、刹那ごとに運命が異なる。ただし火一般で足りる目的については、次々の煙から推理される近くの火のように、能力に違いはない。</p>
+<div class="point"><b>要点</b>　Dharmakīrti は「持続する知覚」（<i>dhārāvāhikajñāna</i>）の問題を、目的との相関で解きます。認識手段であるかどうかは、知の内容ではなく、求められている目的に対して新しい働きをもつかどうかで決まる、という立場です。最後に (a.2) は、属性・有法・証因などを捉える推理過程の分別も、同じ理由で認識手段ではないとまとめます。</div>
+</section>
+
+<!-- ============ 3.3–3.4 ============ -->
+<section id="p5">
+<h2><span class="no">3.3–3.4</span>随伴の確定を三種別に</h2>
+<p class="range">科段 3.3–3.42　校訂本 4,9–5,14</p>
+<p>3.1 で求めた「確定された随伴」が、論証因の種類ごとにどう得られるかを示す節です。HB の以後の構成を予告する要の部分で、自性因の項目がのちの刹那滅論証（b.）に、非認識因の項目が非認識論（c.）に、それぞれ展開されます。</p>
+
+<div class="scroll"><table>
+<thead><tr><th></th><th>肯定的随伴の確定（3.3）</th><th>否定的随伴の確定（3.4）</th><th>展開</th></tr></thead>
+<tbody>
+<tr><td class="k">自性因<br><i>svabhāva</i></td><td>所証属性が実在としては論証因そのものであることの成立。手段は、所証の逆に論証因があるとすれば働く<strong>否定する認識手段</strong>（<i>bādhakapramāṇa</i>）<br><span class="m" style="color:var(--muted)">例：非刹那的なら目的達成が矛盾する</span></td><td rowspan="2">因果・遍充関係が成立していれば、原因の非認識・遍充者の非認識によって「所証がなければ論証因もない」が成立する</td><td><span class="tag c">b. 刹那滅論証</span></td></tr>
+<tr><td class="k">結果因<br><i>kārya</i></td><td>因果関係（<i>kāryakāraṇabhāva</i>）の成立。手段は<strong>知覚と非知覚</strong>（<i>pratyakṣānupalambha</i>）</td><td><span class="tag c">4.2</span></td></tr>
+<tr><td class="k">非認識因<br><i>anupalabdhi</i></td><td>「無い」という言語活動が、知覚の条件を満たすものの非認識だけによって成り立つこと。他の原因がないことを示して確定</td><td>知覚の条件を満たす存在するものは知覚されること</td><td><span class="tag c">c. 非認識論</span></td></tr>
+</tbody></table></div>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 200" width="680" style="max-width:100%;height:auto" role="img" aria-label="知覚と非知覚による因果関係の確定">
+  <text x="10" y="22" font-size="13" font-weight="700">結果因：知覚と非知覚による因果関係の確定（3.32）</text>
+  <g font-size="12">
+    <text x="10" y="58">火</text><text x="10" y="98">煙</text>
+    <g stroke="var(--line)"><line x1="60" y1="40" x2="660" y2="40"/><line x1="60" y1="120" x2="660" y2="120"/></g>
+    <rect x="60" y="46" width="180" height="20" fill="var(--paper)" stroke="var(--muted)" stroke-dasharray="3 2"/><text x="70" y="61" font-size="11" class="m">非知覚</text>
+    <rect x="240" y="46" width="250" height="20" fill="var(--warm-soft)" stroke="var(--warm)"/><text x="250" y="61" font-size="11">知覚</text>
+    <rect x="490" y="46" width="170" height="20" fill="var(--paper)" stroke="var(--muted)" stroke-dasharray="3 2"/><text x="500" y="61" font-size="11" class="m">非知覚</text>
+    <rect x="60" y="86" width="210" height="20" fill="var(--paper)" stroke="var(--muted)" stroke-dasharray="3 2"/><text x="70" y="101" font-size="11" class="m">非知覚（見えるはずなのに）</text>
+    <rect x="270" y="86" width="240" height="20" fill="var(--cool-soft)" stroke="var(--cool)"/><text x="280" y="101" font-size="11">知覚</text>
+    <rect x="510" y="86" width="150" height="20" fill="var(--paper)" stroke="var(--muted)" stroke-dasharray="3 2"/><text x="520" y="101" font-size="11" class="m">非知覚</text>
+  </g>
+  <g font-size="11.5" class="m">
+    <text x="10" y="150" class="m">① 以前は知覚されず、知覚の条件を満たす煙が、火が知覚されると知覚される（あれば有る）</text>
+    <text x="10" y="170" class="m">② 他の原因が揃っていても、火がなければ煙はない（なければ無い）</text>
+    <text x="10" y="190" class="m">この二つの観察で「煙は火の結果」が確定し、「煙のあるところには必ず火がある」が導かれる</text>
+  </g>
+</svg>
+</div>
+<figcaption><b>図6　知覚と非知覚による因果関係の確定。</b>横軸は時間。結果因の遍充は、帰納的な枚挙ではなく、この型の観察で確定される因果関係に基づく。</figcaption>
+</figure>
+
+<div class="point"><b>要点</b>　三種の論証因は、遍充を支える関係の違い（同一性、因果、非認識の場合はその両方を前提とする否定）によって区別されます。HB 全体を貫く問いは、それぞれの関係が<strong>何によって確定されるか</strong>です。4.以下は、この表の各行を詳しく論じていく構成になっています。</div>
+</section>
+
+<!-- ============ 4.1 ============ -->
+<section id="p6">
+<h2><span class="no">4.1</span>自性因：定義と論証式</h2>
+<p class="range">科段 4.–4.151　校訂本 5,15–8,15</p>
+<p>偈の後半句「三種のみ、不可離の関係が限定されているから」の注釈に入ります（4.）。論証因は自性（<i>svabhāva</i>）・結果（<i>kārya</i>）・非認識（<i>anupalabdhi</i>）の三種だけで、不可離の関係（<i>avinābhāva</i>）、すなわち 3. で述べた遍充は、この三種以外にはありえない、というのが骨子です。</p>
+<div class="scroll"><table>
+<thead><tr><th>種類</th><th>例（論証因 → 所証）</th><th>所証の領域</th><th>遍充を支える関係</th></tr></thead>
+<tbody>
+<tr><td class="k">自性因</td><td>存在性 → 無常（刹那滅）</td><td>能証属性の存在だけに随伴する属性</td><td>同一性（<i>tādātmya</i>）</td></tr>
+<tr><td class="k">結果因</td><td>煙 → 火</td><td>論証因とは別の実在</td><td>因果（<i>tadutpatti</i>）</td></tr>
+<tr><td class="k">非認識因</td><td>知覚の条件を満たすものの非認識 → 無</td><td>無、あるいは「無い」という言語活動</td><td>（自性因の一種として）同一性</td></tr>
+</tbody></table></div>
+
+<h3><span class="no">4.10–4.111</span>概念の違いと実在の同一性</h3>
+<p>自性因の領域は、「能証属性の存在だけに随伴する所証属性」です。「存在するもの」と「刹那的なもの」は概念としては二つですが、それぞれ「存在しないもの」「刹那的でないもの」からの排除（<i>vyāvṛtti</i>）によって区別されているにすぎず、実在としては同じ一つのものです。だから論証因は、実際には所証（証因をもつもの）の自体にほかなりません。</p>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 210" width="680" style="max-width:100%;height:auto" role="img" aria-label="一つの実在と二つの排除">
+  <defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="var(--muted)"/></marker></defs>
+  <rect x="250" y="70" width="180" height="70" rx="35" fill="var(--accent-soft)" stroke="var(--accent)"/>
+  <text x="285" y="100" font-size="13" font-weight="700">一つの実在</text><text x="285" y="120" font-size="11.5" class="m">たとえば壺の刹那</text>
+  <rect x="10" y="20" width="200" height="60" fill="var(--cool-soft)" stroke="var(--cool)"/>
+  <text x="22" y="44" font-size="12.5">概念「存在するもの」</text><text x="22" y="64" font-size="11.5" class="m">存在しないものからの排除</text>
+  <rect x="470" y="20" width="200" height="60" fill="var(--cool-soft)" stroke="var(--cool)"/>
+  <text x="482" y="44" font-size="12.5">概念「刹那的なもの」</text><text x="482" y="64" font-size="11.5" class="m">刹那的でないものからの排除</text>
+  <path d="M210 60 L250 90" stroke="var(--muted)" marker-end="url(#ar4)"/><path d="M470 60 L430 90" stroke="var(--muted)" marker-end="url(#ar4)"/>
+  <text x="10" y="170" font-size="12">能証属性（論証因）</text><text x="470" y="170" font-size="12">所証属性</text>
+  <text x="10" y="196" font-size="11.5" class="m">概念上の違い（<tspan class="ia">dharmabheda</tspan>）はあっても、実在上は同一（<tspan class="ia">vastutaḥ</tspan>）。だから逸脱はありえない。</text>
+</svg>
+</div>
+<figcaption><b>図7　自性因の構造。</b>二つの概念は同じ実在に対する異なる排除であり、実在の側に違いはない（4.111）。Steinkellner はここに、自性因の領域が言語の領域であることを見る。</figcaption>
+</figure>
+
+<h3><span class="no">4.112</span>「だけに」という限定の目的</h3>
+<p>同一性があれば逸脱は起こりえないので、定義の「能証属性の存在<strong>だけに</strong>随伴する」は本来は不要な限定です。それをわざわざ付けるのは他説への配慮です。ニヤーヤなどは、消滅のように<strong>他の原因を必要とする</strong>属性まで、作られたものの自性と認めています。限定は、そのような属性が能証属性を自体としないこと、そしてそれを所証とすれば論証因が逸脱することを示します。</p>
+<div class="point"><b>要点</b>　「作られたものであること」（<i>kṛtakatva</i>）から「原因をもつ消滅」を論証しようとすると逸脱する。消滅が他の原因に依存するなら、作られたものがあっても消滅はまだないことがありうるからです。この例が、のちの刹那滅論証（b.）の伏線になっています。</div>
+
+<h3><span class="no">4.12–4.13</span>二種の論証式と、要らない支分</h3>
+<p>自性因の論証式には、同類による（<i>sādharmyeṇa</i>）ものと異類による（<i>vaidharmyeṇa</i>）ものがあります。どちらも、すべてを包括する（<i>sarvopasaṃhāreṇa</i>）遍充の提示と、主題への適用の二文からなります。</p>
+<div class="scroll"><table>
+<thead><tr><th>型</th><th>遍充の提示</th><th>喩例</th><th>主題への適用</th></tr></thead>
+<tbody>
+<tr><td class="k">同類による</td><td>存在するものはすべて刹那的である</td><td>壺などのように</td><td rowspan="2">そして音は存在する</td></tr>
+<tr><td class="k">異類による</td><td>刹那性がなければ存在性もない</td><td>石女の息子のように（チベット訳にはない）</td></tr>
+</tbody></table></div>
+<p>これで論証は完結し、それ以外の支分は要りません（4.13）。主張（<i>pratijñā</i>）は、遍充と主題所属性が示されれば意味から（<i>sāmarthyāt</i>）理解されるので不要です（4.131）。自分で推理するときに主張を立てないのと同じで、他者のための推理でだけ主張を求めるのは、祭日のバラモンが代価を要求するようなものだ、と Dharmakīrti は皮肉ります。適合（<i>upanaya</i>）・結論（<i>nigamana</i>）も、同じ理由で退けられます（4.132）。</p>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 220" width="680" style="max-width:100%;height:auto" role="img" aria-label="論証式の支分の比較">
+  <text x="10" y="20" font-size="13" font-weight="700">ニヤーヤの五支作法</text>
+  <text x="380" y="20" font-size="13" font-weight="700">Dharmakīrti の論証式</text>
+  <g font-size="12">
+    <rect x="10" y="32" width="300" height="30" fill="var(--warm-soft)" stroke="var(--warm)"/><text x="20" y="52">主張 <tspan class="ia">pratijñā</tspan>：音は無常である</text>
+    <rect x="10" y="66" width="300" height="30" fill="var(--paper)" stroke="var(--muted)"/><text x="20" y="86">理由 <tspan class="ia">hetu</tspan>：作られたものだから</text>
+    <rect x="10" y="100" width="300" height="30" fill="var(--paper)" stroke="var(--muted)"/><text x="20" y="120">喩例 <tspan class="ia">udāharaṇa</tspan>：壺のように</text>
+    <rect x="10" y="134" width="300" height="30" fill="var(--warm-soft)" stroke="var(--warm)"/><text x="20" y="154">適合 <tspan class="ia">upanaya</tspan>：音もそうである</text>
+    <rect x="10" y="168" width="300" height="30" fill="var(--warm-soft)" stroke="var(--warm)"/><text x="20" y="188">結論 <tspan class="ia">nigamana</tspan>：ゆえに音は無常</text>
+    <rect x="380" y="66" width="290" height="64" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="390" y="88">① 遍充：作られたものはすべて無常</text><text x="390" y="110" class="m" font-size="11.5">（喩例：壺などのように）</text>
+    <rect x="380" y="134" width="290" height="30" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="390" y="154">② 主題所属性：そして音は作られたもの</text>
+    <path d="M310 84 H380 M310 116 H380 M310 150 H380" stroke="var(--muted)" stroke-dasharray="3 3"/>
+  </g>
+  <text x="10" y="214" font-size="11.5" class="m">色付きの支分（主張・適合・結論）は不要とされる。Vindhyavāsin の十支作法なども同じ理由で退けられる。</text>
+</svg>
+</div>
+<figcaption><b>図8　論証式の支分。</b>Dharmakīrti の論証式は遍充と主題所属性の二文だけで成り立つ。主張は「意味から」理解される。</figcaption>
+</figure>
+
+<h3><span class="no">4.14–4.151</span>順序と、一方の随伴で足りること</h3>
+<p>主題所属性と遍充を述べる順序に決まりはありません（4.14）。また、同類式と異類式は言い方が違うだけで、伝える内容は同じです（4.15）。自性因では、それを自体とする関係（<i>tatsvabhāvatā</i>）によって肯定的随伴が成り立てば否定的随伴も成り立ち、逆も同じだからです。したがって一つの論証文で両方を述べる必要はありません。</p>
+<p>4.151 では、「異類を排除する限定のために否定的随伴も述べるべきだ」という要求（Steinkellner 2022 は Īśvarasena のものとする）を退けます。異類（<i>vipakṣa</i>）には所証と単に別のものも、所証と矛盾するものも含まれるので、否定的随伴を別に述べても「矛盾するものにだけはない」という限定にはならない、という論理です。</p>
+</section>
+
+<!-- ============ b. ============ -->
+<section id="p7">
+<h2><span class="no">b.</span>刹那滅論証</h2>
+<p class="range">余論 b.1–b.2　校訂本 9,1–23,10</p>
+<p>自性因の代表例「存在するものは刹那的である」の遍充は、どうやって確かめられるのか。この問いに答えるのが、本文の約三分の一を占める余論 b. です。論証は二本の柱からなります。一つは<strong>外的な消滅原因がありえない</strong>こと（b.1、消滅性の推理 <i>vināśitvānumāna</i> の型）、もう一つは、<strong>非刹那的なものには作用がありえない</strong>こと（b.2、存在性の推理 <i>sattvānumāna</i> の型）です。</p>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 300" width="680" style="max-width:100%;height:auto" role="img" aria-label="刹那滅論証の構成">
+  <defs><marker id="ar5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="var(--ink)"/></marker></defs>
+  <rect x="190" y="10" width="300" height="44" fill="var(--accent-soft)" stroke="var(--accent)"/>
+  <text x="206" y="30" font-size="13" font-weight="700">存在するものは刹那的である</text><text x="206" y="47" font-size="11.5" class="ia">yat sat tat kṣaṇikam eva</text>
+  <path d="M260 54 L150 86" stroke="var(--ink)" marker-end="url(#ar5)"/><path d="M420 54 L530 86" stroke="var(--ink)" marker-end="url(#ar5)"/>
+  <rect x="10" y="90" width="300" height="200" fill="var(--card)" stroke="var(--cool)"/>
+  <text x="22" y="112" font-size="13" font-weight="700">b.1 外的な消滅原因はない</text>
+  <g font-size="11.8">
+    <text x="22" y="138">b.11 無能力（<tspan class="ia">asāmarthya</tspan>）</text>
+    <text x="36" y="158" class="m">本性を作る？ 別のものを作る？ 無を作る？</text>
+    <text x="36" y="176" class="m">→ どれも成り立たない</text>
+    <text x="22" y="204">b.12 無意味（<tspan class="ia">vaiyarthya</tspan>）</text>
+    <text x="36" y="224" class="m">本性として滅するなら原因は不要</text>
+    <text x="36" y="244" class="m">b.122 種子の反論 → 協働論</text>
+    <text x="36" y="262" class="m">（b.1221–b.122153、本文の大半）</text>
+    <text x="22" y="282">b.123 本性は変えられない</text>
+  </g>
+  <rect x="370" y="90" width="300" height="140" fill="var(--card)" stroke="var(--cool)"/>
+  <text x="382" y="112" font-size="13" font-weight="700">b.2 非刹那的なものに作用はない</text>
+  <g font-size="11.8">
+    <text x="382" y="138">能力（<tspan class="ia">śakti</tspan>）こそ存在の特質</text>
+    <text x="382" y="160">非刹那的なものは、順次にも同時にも</text>
+    <text x="382" y="178">作用できない（<tspan class="ia">kramayaugapadya</tspan>）</text>
+    <text x="382" y="204" class="m">→ 非刹那的なものは存在でない</text>
+  </g>
+</svg>
+</div>
+<figcaption><b>図9　刹那滅論証の二本の柱。</b>左は PV I 269 以下を要約した古い型の論証、右は後に中心となる存在性の推理の型。HB では左が大部分を占め、右は b.2 の短い補足として現れる。</figcaption>
+</figure>
+
+<h3><span class="no">b.11</span>外的な消滅原因には能力がない</h3>
+<p>ニヤーヤ・ヴァイシェーシカは、作られたものは外からの原因（火、槌など）によって滅すると考えます。Dharmakīrti は、消滅原因が何をするのかを三つに分けて検討します。</p>
+<div class="scroll"><table>
+<thead><tr><th>消滅原因が作るもの</th><th>反駁</th><th>科段</th></tr></thead>
+<tbody>
+<tr><td>存在の本性そのもの</td><td>本性はすでに自分の原因から成就している（<i>abhinirvṛtteḥ</i>）</td><td class="ia">b.111</td></tr>
+<tr><td>別の存在（灰・炭など）</td><td>もとの存在はそのまま残るので、以前と同じく知覚されるはず。別の存在が覆い隠すのでもない</td><td class="ia">b.112</td></tr>
+<tr><td>存在の無</td><td>無が作られる結果なら、存在と別か別でないかの二者択一を免れない。存在の否定なら「何も作らない」と同じで、作らないものは原因ではない</td><td class="ia">b.113</td></tr>
+</tbody></table></div>
+
+<h3><span class="no">b.12–b.121</span>外的な原因は無意味である</h3>
+<p>存在が<strong>本性として</strong>滅するもの（<i>svabhāvato naśvara</i>）なら、消滅原因は何の役にも立ちません。光や熱がその本性をもつものとして生じれば、改めて別の原因を要しないのと同じです。Arcaṭa は、物は針の先に載せた芥子粒のように、生じたときからとどまっていられないものとして生まれる、とたとえます。</p>
+
+<h3><span class="no">b.122</span>種子の反論と、最後の刹那</h3>
+<p>反論：種子は芽を生じる本性をもっていても、水などの別の原因がなければ芽を生じない。存在も同じく、消滅の本性をもちながら外的原因を必要とするのではないか（不定 <i>anekānta</i>）。答え：芽を生じる本性をもつのは<strong>最後の特定の状態</strong>の種子だけで、それ以前の状態は「原因の原因」にすぎない。刹那的なものには時間を通じた単一性がないので、反例にはならない。</p>
+<p>ここから議論は大きく膨らみ、「では複数の原因が一つの結果を生むとはどういうことか」という協働（<i>sahakāritva</i>）の理論になります（b.1221 以下）。</p>
+
+<h3><span class="no">b.1221</span>複数の原因と一つの結果</h3>
+<p>反論者（Arcaṭa はジャイナとミーマーンサーとする）の問いは、原因が複数なら結果も複数になるのではないか、というものです。Dharmakīrti は、異なる原因はそれぞれ<strong>一つの結果の異なる面</strong>に役立つと答えます。</p>
+<div class="scroll"><table>
+<thead><tr><th>例</th><th>原因</th><th>結果に与えるもの</th></tr></thead>
+<tbody>
+<tr><td rowspan="3" class="k">壺<br><span class="ia">b.12214</span></td><td>粘土塊（<i>mṛtpiṇḍa</i>）</td><td>木などとは異なる、粘土を本性とすること</td></tr>
+<tr><td>陶工（<i>kulāla</i>）</td><td>粘土でありながら特定の形状をもつこと</td></tr>
+<tr><td>紐</td><td>轆轤などから切り離されていること</td></tr>
+<tr><td rowspan="3" class="k">視覚認識<br><span class="ia">(b.12214)</span></td><td>直前の認識（<i>samanantarapratyaya</i>）</td><td>認識であること（<i>upalambhātmatā</i>）</td></tr>
+<tr><td>眼（<i>cakṣurindriya</i>）</td><td>色形の把握に限られること</td></tr>
+<tr><td>対象（<i>viṣaya</i>）</td><td>対象と同じ姿をもつこと（<i>tattulyarūpatā</i>）</td></tr>
+</tbody></table></div>
+<p>結果は実在としては一つでも、原因の異なる本性から別々の面が生じます。ヴァイシェーシカの「形状は粘土という実体とは別の性質だから結果は別だ」という説（b.122141）は、粘土と形状が別の本質なら壺がそれぞれの姿で現れなくなる、として退けられます。</p>
+
+<h3><span class="no">b.12215</span>協働の二つの型</h3>
+<p>協働の定義が、HB 全体でもっとも独創的な部分です。協働とは、必ずしも互いに優越（<i>atiśaya</i>）を生み出し合うことではなく、<strong>多くのものが一つの結果をなすこと</strong>（<i>ekārthakriyā</i>）でもある、と Dharmakīrti は言います。</p>
+<div class="scroll"><table>
+<thead><tr><th></th><th>一つの結果をなす協働</th><th>連続を助ける協働</th></tr></thead>
+<tbody>
+<tr><td class="k">原語</td><td><i>ekārthakriyā</i></td><td><i>santānopakāra</i>／<i>viśeṣotpādana</i></td></tr>
+<tr><td class="k">典型</td><td>最後の原因の総体。すぐ働く感官など（<i>akṣepakārin</i>）</td><td>米と火・水、種子と水・土など</td></tr>
+<tr><td class="k">仕組み</td><td>それぞれが自分の原因から能力あるものとして同時に生じ、そろって一つの結果を生む</td><td>補助因が原因の連続に刹那ごとに特別な刹那を生じさせ、次第に優越をもつ最後の総体に至る</td></tr>
+<tr><td class="k">拠り所</td><td>実在（刹那）</td><td>連続（比喩的に「実体」と見たもの）</td></tr>
+<tr><td class="k">位置づけ</td><td>本来の意味の協働</td><td>前後の刹那を一つと見たうえでの言い方。実際には各刹那で一つの結果をなす協働がある</td></tr>
+</tbody></table></div>
+<p>この区別を使って、非刹那的な原因には<strong>どちらの協働もありえない</strong>ことが示されます（b.122152、(b.122)）。常住のものが補助因と共にあるときだけ作るとすれば、その「作る本性」は前からあったのか、最後に生じたのか。前からあったなら単独でも作るはずで、最後に生じたなら新しいものの生起になる。「作る本性だが作らない」というのは「母であって石女」と言うのと同じだ、というのが Dharmakīrti の論法です。</p>
+
+<h3><span class="no">b.123–b.1231</span>本性は変えられない</h3>
+<p>本性として存続しない存在には消滅原因は無用であり、存続する存在の本性は何によっても変えられません。別様になるなら、それはもう別の本性、別の存在です（本性の違いこそが存在の違いの特質）。火によって固い銅が液状になるのも、前の刹那が自ら滅し、火と質料因から別の液状の本性が生じたのであって、同じものが変わったのではありません。消滅を「別の本性ではなく存在の喪失だ」と言い換える案（b.1231）も、常住か無常かの二者択一を免れません。</p>
+
+<h3><span class="no">(b.)・b.2</span>遍充のまとめと存在性の推理</h3>
+<p>消滅は他に依存しないので、存在はその存在だけで滅することに限定されている。こうして「存在するものは滅するもの」の肯定的・否定的随伴が成り立ちます（(b.)）。最後に b.2 は、「刹那滅の本性をもたない存在もあるのではないか」という反論に、存在性の推理の型で答えます。</p>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 190" width="680" style="max-width:100%;height:auto" role="img" aria-label="存在性の推理">
+  <defs><marker id="ar6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="var(--ink)"/></marker></defs>
+  <g font-size="12.5">
+    <rect x="10" y="20" width="200" height="56" fill="var(--warm-soft)" stroke="var(--warm)"/><text x="22" y="44">非刹那的なもの</text><text x="22" y="64" font-size="11.5" class="ia">akṣaṇika</text>
+    <path d="M210 48 H250" stroke="var(--ink)" marker-end="url(#ar6)"/>
+    <rect x="254" y="20" width="200" height="56" fill="var(--paper)" stroke="var(--muted)"/><text x="266" y="44">順次にも同時にも</text><text x="266" y="64">作用できない</text>
+    <path d="M454 48 H494" stroke="var(--ink)" marker-end="url(#ar6)"/>
+    <rect x="498" y="20" width="172" height="56" fill="var(--paper)" stroke="var(--muted)"/><text x="510" y="44">能力がない</text><text x="510" y="64" font-size="11.5" class="ia">sarvaśaktiviraha</text>
+    <path d="M584 76 V110 H360" stroke="var(--ink)" fill="none" marker-end="url(#ar6)"/>
+    <rect x="160" y="96" width="196" height="56" fill="var(--warm-soft)" stroke="var(--warm)"/><text x="172" y="120">無の特質</text><text x="172" y="140" font-size="11.5" class="m">＝存在ではない</text>
+  </g>
+  <text x="10" y="180" font-size="11.5" class="m">能力（<tspan class="ia">śakti</tspan>）が存在の特質、能力の全き欠如が無の特質。ゆえに存在するものはすべて刹那的である（b.2）。</text>
+</svg>
+</div>
+<figcaption><b>図10　存在性の推理の骨組み。</b>否定的随伴（刹那性がなければ存在性もない）を、能力の分析から直接示す。</figcaption>
+</figure>
+</section>
+
+<!-- ============ 4.2 ============ -->
+<section id="p8">
+<h2><span class="no">4.2</span>結果因</h2>
+<p class="range">科段 4.20–4.221　校訂本 23,11–25,15</p>
+<p>結果因の領域は、論証因とは<strong>別の実在</strong>を推知する場合です（4.20）。逸脱しない根拠は因果関係にあります。</p>
+<h3><span class="no">4.21</span>因果関係はあらゆる点に及ぶのではない</h3>
+<p>反論：因果関係で知らせるのなら、結果と原因のあらゆる属性の間に推知の関係があることになる。答え：結果は、原因の本性のうち<strong>それと不可離であるかぎりのもの</strong>についてだけ論証因になる。それがなくても生じるものは、それから生じると限定されていないからです。結果の側も、それらがなければ生じない属性によってのみ論証因になります。</p>
+<h3><span class="no">4.22</span>本性の限定が遍充を保証する</h3>
+<p>結果と原因は、生じる本性・生じさせる本性という相関によって特徴づけられます。煙がもし火などの総体以外からも生じるなら、煙はそれから生じる本性をもたないことになり、一度もそこから生じないはずです。煙が「生じる本性と生じない本性」を両方もつこともできません（単一の本性だから）。こうして<strong>煙を生む総体と、その総体から生じたものとしての煙</strong>が互いに限定され、異類からの生起は否定されます。</p>
+<div class="scroll"><table>
+<thead><tr><th>見かけ上の反例（4.221）</th><th>Dharmakīrti の説明</th></tr></thead>
+<tbody>
+<tr><td>牛糞（<i>gomaya</i>）から睡蓮の根（<i>śālūka</i>）が生じる</td><td>そういう総体がその種のものの最初の原因（<i>ādinimitta</i>）なのであって、原因の違いではない。連続して生じる場合は <i>śara</i> から生じる</td></tr>
+<tr><td>形が同じなのに由来が違う</td><td>形の類似だけが本質を決めるのではない。牛糞から生じたものとそれ以外から生じたものとでは、形が同じでも本性が違う</td></tr>
+</tbody></table></div>
+<div class="point"><b>要点</b>　結果因の遍充は、因果関係が確定されれば成立します（3.32 の知覚と非知覚による確定）。もし異類からの生起を認めれば、原因の違い・同一が結果の違い・同一を決めることがなくなり、世界の違いは原因のないものになってしまう、というのが最終的な論拠です。</div>
+</section>
+
+<!-- ============ 4.3 / c. ============ -->
+<section id="p9">
+<h2><span class="no">4.3・c.</span>非認識因と非認識論</h2>
+<p class="range">科段 4.30–4.311、余論 c.　校訂本 26,1–34,6</p>
+<p>非認識因の領域は、知覚の条件を満たすもの（<i>upalabdhilakṣaṇaprāpta</i>）の非認識によって示される、無あるいは「無い」という言語活動（<i>abhāvavyavahāra</i>）です（4.30）。では、非認識とはそもそも何か。余論 c. はこの問いに Dharmakīrti 自身の定義を与え（c.1）、その定義を実在論者、とくに Kumārila に対して弁護します（c.2）。</p>
+
+<h3><span class="no">c.1</span>非認識の定義：相対否定による「他の認識」</h3>
+<div class="scroll"><table>
+<thead><tr><th>非認識を何の属性とみるか</th><th>非認識の正体</th><th>科段</th></tr></thead>
+<tbody>
+<tr><td class="k">認識する側の属性<br><i>jñātṛdharma</i></td><td>無いものとは<strong>別のものの認識</strong>（たとえば、壺のない場所の認識）</td><td class="ia">c.111</td></tr>
+<tr><td class="k">認識される側の属性<br><i>jñeyadharma</i></td><td>無いものとは<strong>別の実在</strong>がもつ、認識を生む適性（場所そのもの）</td><td class="ia">c.112</td></tr>
+</tbody></table></div>
+<p>どちらの場合も、否定は相対否定（<i>paryudāsa</i>）の仕方で理解されます。「食べてはならないもの」が「食べてよいもの以外のもの」を指すように、「非認識」は「意図された認識以外の認識」を指すのです。単なる否定（<i>prasajyapratiṣedha</i>）では、論証手段として成り立たないからです（c.21）。</p>
+<p>ただし「別のもの」は何でもよいのではありません（c.113）。あるものが認識されるとき必ず認識されるもの、つまり<strong>一つの認識に結合している</strong>（<i>ekajñānasaṃsargin</i>）同じ適性をもつ二つのものの間でだけ、「それとは別のもの」が成り立ちます。壺と、壺の置かれうる場所がその典型です。</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 200" width="680" style="max-width:100%;height:auto" role="img" aria-label="一つの認識に結合する二つのもの">
+  <rect x="20" y="30" width="280" height="130" rx="6" fill="var(--paper)" stroke="var(--muted)"/>
+  <text x="34" y="52" font-size="12.5" font-weight="700">壺がある場合の認識</text>
+  <rect x="40" y="70" width="110" height="70" fill="var(--cool-soft)" stroke="var(--cool)"/><text x="52" y="110" font-size="12">場所</text>
+  <rect x="170" y="70" width="110" height="70" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="182" y="110" font-size="12">壺</text>
+  <rect x="380" y="30" width="280" height="130" rx="6" fill="var(--paper)" stroke="var(--muted)"/>
+  <text x="394" y="52" font-size="12.5" font-weight="700">壺がない場合の認識</text>
+  <rect x="400" y="70" width="110" height="70" fill="var(--cool-soft)" stroke="var(--cool)"/><text x="412" y="100" font-size="12">場所だけ</text><text x="412" y="120" font-size="11" class="m">（単独 <tspan class="ia">kevala</tspan>）</text>
+  <rect x="530" y="70" width="110" height="70" fill="none" stroke="var(--muted)" stroke-dasharray="4 3"/><text x="542" y="110" font-size="12" class="m">壺の無</text>
+  <text x="20" y="190" font-size="11.5" class="m">場所が「単独で」認識されること＝壺の非認識＝壺の無。別の推論を介さない（c.22）。</text>
+</svg>
+</div>
+<figcaption><b>図11　非認識の構造。</b>同じ適性をもち一つの認識に結合するはずの二つのうち、一方だけが「単独で」認識されること、それが他方の非認識であり無である。</figcaption>
+</figure>
+
+<h3><span class="no">c.22–c.2212</span>他の存在は無の「証因」ではない</h3>
+<p>実在論者は、「他のものの存在」は「無」を知らせる証因（<i>liṅga</i>）だと考えます。Dharmakīrti の立場では、他のものの存在がそのまま無なので、証因と所証の関係は成り立ちません。反論者が持ち出す関係を一つずつ退けていきます。</p>
+<div class="scroll"><table>
+<thead><tr><th>想定される関係</th><th>反駁</th><th>科段</th></tr></thead>
+<tbody>
+<tr><td>そもそも別個に知られる</td><td>無は他の存在と別のものとして知られるのではない</td><td class="ia">c.2211</td></tr>
+<tr><td>対象と主体の関係（言葉と意味のように）</td><td>言葉と意味の関係も、話者の意図を介した因果か不可離の関係にすぎない。証因と所証の関係が先に成り立たなければ、対象・主体の関係も成り立たない（相互依存）</td><td class="ia">c.22121</td></tr>
+<tr><td>（論証の形式上）</td><td>他の存在から無を論証すると、所証が属性と有法の結合（<i>samudāya</i>）でなくなる。場所こそが他のものだから</td><td class="ia">c.221211</td></tr>
+<tr><td>普遍と特殊の関係</td><td>その特定の場所の認識によってこそ無が理解され、その場所は他に随伴しない。また主張の一部なので証因でない</td><td class="ia">c.2212111</td></tr>
+<tr><td>矛盾（<i>virodha</i>）</td><td>否定対象の無は他の存在と矛盾せず、共存する。証因と所証の間に矛盾はない</td><td class="ia">c.22122</td></tr>
+</tbody></table></div>
+
+<h3><span class="no">c.22123</span>関係なしに無が分かる仕組み</h3>
+<p>関係がないなら、なぜ他の存在の認識から無が分かるのか。答えは、他の存在が無そのものだから、です。この節で Kumārila の「非存在という認識手段」（<i>abhāvapramāṇa</i>）が論駁されます（c.221231）。単なる知覚の無が認識手段なら、眠り・酩酊・失神のときにも無が理解されるはずだ、というのです。</p>
+<p>そのうえで Dharmakīrti は、一つの認識手段の働きを三つの面から説明します（c.221233）。</p>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 230" width="680" style="max-width:100%;height:auto" role="img" aria-label="一つの認識手段の働き">
+  <rect x="10" y="20" width="660" height="150" rx="6" fill="var(--paper)" stroke="var(--line)"/>
+  <rect x="30" y="40" width="190" height="110" fill="var(--accent-soft)" stroke="var(--accent)"/>
+  <text x="44" y="64" font-size="13" font-weight="700">① 限定する</text><text x="44" y="84" font-size="11.5" class="ia">paricchinatti</text><text x="44" y="110" font-size="11.5">見られたものを</text><text x="44" y="128" font-size="11.5">「それ」と確定</text>
+  <rect x="245" y="40" width="190" height="110" fill="var(--cool-soft)" stroke="var(--cool)"/>
+  <text x="259" y="64" font-size="13" font-weight="700">② 排除する</text><text x="259" y="84" font-size="11.5" class="ia">vyavacchinatti</text><text x="259" y="110" font-size="11.5">見られないものを</text><text x="259" y="128" font-size="11.5">「それ以外」として排除</text>
+  <rect x="460" y="40" width="190" height="110" fill="var(--warm-soft)" stroke="var(--warm)"/>
+  <text x="474" y="64" font-size="13" font-weight="700">③ 第三を否定</text><text x="474" y="84" font-size="11.5" class="ia">tṛtīyaprakārābhāva</text><text x="474" y="110" font-size="11.5">「それ」と「それ以外」</text><text x="474" y="128" font-size="11.5">以外の可能性はない</text>
+  <text x="10" y="196" font-size="11.5" class="m">三つは別々の認識手段ではなく、一つの認識手段の働き（<tspan class="ia">ekapramāṇavyāpāra</tspan>）。</text>
+  <text x="10" y="216" font-size="11.5" class="m">ただし排除されるのは、あれば知覚されるはずのものだけ（c.221233）。Steinkellner はここに排中律を見る。</text>
+</svg>
+</div>
+<figcaption><b>図12　一つの認識手段の働き。</b>知覚が「この場所・この時・この本性・この状態のもの」を捉えることは、同時に他のあり方の排除である。これが非認識の論理的土台になる。</figcaption>
+</figure>
+<p>この排除は、同じ場所・時にある他のすべてのものに及ぶのではありません。味と色のように、本質は違っても同じ場所・時にあるものはありうるからです。だから無の確定には、知覚の条件を満たすもの（あれば見えるはずのもの）という限定が欠かせません（c.221233）。</p>
+
+<h3><span class="no">c.23・4.31</span>結論と非認識の三種</h3>
+<p>無はいかなる証因からも論証されません。知覚によって成立した他の存在が、扱い方を知らない迷った人（<i>mūḍha</i>）に「無い」という言語活動を論証するだけです（c.23）。こうして本題に戻り、非認識因の三つの基本型が示されます。</p>
+<div class="scroll"><table>
+<thead><tr><th>型</th><th>前提となる関係</th><th>何の非認識か</th><th>何を論証するか</th></tr></thead>
+<tbody>
+<tr><td class="k">原因の非認識<br><i>kāraṇānupalabdhi</i></td><td>因果関係が成立している</td><td>無が成立した原因</td><td>結果の無、または「無い」という言語活動</td></tr>
+<tr><td class="k">遍充者の非認識<br><i>vyāpakānupalabdhi</i></td><td>遍充関係が成立している</td><td>無が成立した遍充者</td><td>被遍充者の無、または言語活動</td></tr>
+<tr><td class="k">それ自体の非認識<br><i>svabhāvānupalabdhi</i></td><td>—</td><td>それ自体</td><td>「無い」という言語活動だけ</td></tr>
+</tbody></table></div>
+<div class="point"><b>要点</b>　原因と遍充者の非認識は、それら自体の無がすでに（他の存在の成立として）知られていることを前提にします。そのため、知覚の及ばない対象（<i>parokṣa</i>）について認識手段として用いることはできず、関係が成り立っていればその無から他の無が必ず確定される、ということを示すためにだけ用いられます（4.311）。</div>
+<p>(4.) で三種の論証因の説明が締めくくられ、偈の注釈は終わります。</p>
+</section>
+
+<!-- ============ d. ============ -->
+<section id="p10">
+<h2><span class="no">d.</span>六相説批判</h2>
+<p class="range">補遺 d.1–(d.)　校訂本 34,7–41,1</p>
+<p>最後に Dharmakīrti は、伝承では彼の師とされる Īśvarasena の「論証因は六つの特質をもつ」（<i>ṣaḍlakṣaṇo hetuḥ</i>）という説を批判します。三相に加えられた三つの特質が、それぞれ不要であることを示す構成です。</p>
+<div class="scroll"><table>
+<thead><tr><th>特質</th><th>内容</th><th>Dharmakīrti の判定</th><th>科段</th></tr></thead>
+<tbody>
+<tr><td class="k">第一〜第三</td><td>主題所属性・肯定的随伴・否定的随伴</td><td><span class="tag">認める</span></td><td>—</td></tr>
+<tr><td class="k">第四</td><td>対象が否定されていないこと<br><i>abādhitaviṣayatva</i></td><td><span class="tag w">不要</span>不可離の関係と否定は両立しない</td><td class="ia">d.1</td></tr>
+<tr><td class="k">第五</td><td>唯一数が意図されていること<br><i>vivakṣitaikasaṅkhyatva</i></td><td><span class="tag w">不要</span>第四と同じ理由。自性因・結果因に対抗論証因はない</td><td class="ia">d.2</td></tr>
+<tr><td class="k">第六</td><td>知られていること<br><i>jñātatva</i></td><td><span class="tag w">不要</span>証因の属性でなく、第二・第三相に含まれる</td><td class="ia">d.3</td></tr>
+</tbody></table></div>
+
+<h3><span class="no">d.1</span>第四相：否定されていないこと</h3>
+<p>不可離の関係とは、論証因が所証のあるところにのみあることです。もし知覚や推理が有法から所証を否定（<i>bādhā</i>）しているのに論証因がそこにあるなら、論証因は所証がないのにあることになり、不可離の関係はもともとなかったことになります。否定と不可離の関係は<strong>矛盾</strong>する（d.11）。だから不可離の関係を立てれば、否定のないことを別に立てる必要はありません。</p>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 680 210" width="680" style="max-width:100%;height:auto" role="img" aria-label="否定と不可離の関係の両立不可能">
+  <g font-size="12.5">
+    <rect x="10" y="20" width="300" height="60" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="22" y="44">不可離の関係がある</text><text x="22" y="64" font-size="11.5" class="m">所証のあるところにのみ論証因がある</text>
+    <rect x="370" y="20" width="300" height="60" fill="var(--warm-soft)" stroke="var(--warm)"/><text x="382" y="44">否定がある</text><text x="382" y="64" font-size="11.5" class="m">有法に所証がないことが確定している</text>
+    <text x="318" y="56" font-size="20" fill="var(--warm)" font-weight="700">✕</text>
+  </g>
+  <g font-size="11.8">
+    <text x="10" y="112">反論者の逃げ道</text>
+    <text x="24" y="136" class="m">d.111 「別の有法では不可離」→ 主題の有法で逸脱するなら遍充はない</text>
+    <text x="24" y="158" class="m">d.112 「否定がないこと＝否定の非認識」→ 否定がありうる以上、論証因は無力か無用</text>
+    <text x="24" y="180" class="m">d.12 したがって主張の過失（<tspan class="ia">pratijñādoṣa</tspan>）も、論証因を使えば生じない</text>
+  </g>
+</svg>
+</div>
+<figcaption><b>図13　第四相の論駁。</b>否定と不可離の関係が両立しない以上、第四相は第二・第三相の確定に含まれてしまう。</figcaption>
+</figure>
+
+<h3><span class="no">d.2</span>第五相：唯一数が意図されていること</h3>
+<p>この特質は相違決定（<i>viruddhāvyabhicārin</i>）、すなわち同等の二つの論証因が相反する結論を導く場合を排除するためのものです。第四相の論駁ですでに退けられますが（d.21）、Dharmakīrti は二者択一で個別にも論駁します（d.22）。</p>
+<div class="scroll"><table>
+<thead><tr><th>選択肢</th><th>問題点</th><th>科段</th></tr></thead>
+<tbody>
+<tr><td class="k">実際に対抗論証因がありえない</td><td>確定できない特質は特質にならない。見たか見ないかで不可離の関係を立てる立場では、いつ対抗論証因が見つかるか分からず、どの論証因も成り立たなくなる</td><td class="ia">d.221</td></tr>
+<tr><td class="k">対抗論証因が示されていない</td><td>論証因の正しさが、誰かが別の論証因を思いつくかどうかに左右される。王国を失った王のように、正しかった論証因が後から苦行林へ去ることになる</td><td class="ia">d.222</td></tr>
+</tbody></table></div>
+<p>d.2221 では、この特質の根拠として引かれる Dignāga の言葉（「無常の論証因が示されなければ、これは論証因になるだろう」）が、誤った依拠であることを正します。結論として、本性によって所証と不可離である自性因・結果因には対抗論証因がありえず、この特質は排除するものをもたないので無用です（d.23）。</p>
+
+<h3><span class="no">d.3</span>第六相：知られていること</h3>
+<p>「知られていること」とは実際には知（<i>jñāna</i>）のことで、それは証因の属性ではなく認識する人の属性です（d.31）。論証因の特質として述べられるのは、理解する者を欺かない証因自身の姿であって、他者の姿ではありません。</p>
+<p>ただし、論証因の定義に「確定された」（<i>niścita</i>）の語を入れたのは意味があります（d.311–d.3111）。見られること・見られないことだけで論証因を認める論者に対し、存在と非存在は、それを論証する認識手段によって確定されたものでなければならない、と示すためです。</p>
+<div class="scroll"><table>
+<thead><tr><th>問い</th><th>答え</th><th>科段</th></tr></thead>
+<tbody>
+<tr><td>「確定された」の語は不要では？</td><td>不要ではない。見る・見ないだけで随伴を立てる論者を退けるための語</td><td class="ia">d.311</td></tr>
+<tr><td>知は別の特質では？</td><td>存在・非存在を述べれば、それを論証する認識手段（知）も含意される。適合の意味が主題所属性に含まれるのと同じ</td><td class="ia">d.32</td></tr>
+<tr><td>それなら肯定的・否定的随伴も別の特質でなくなるのでは？</td><td>同類における存在と異類における非存在は、互いに依存し合っていない。一つの文が両方を伝えるのであって、一方の意味が他方を含むのではない</td><td class="ia">d.321</td></tr>
+</tbody></table></div>
+<div class="point"><b>要点</b>　六相説批判は、三相の確定がそれ自体で足りることを示す消去法の論証です。第四・第五相は不可離の関係（遍充）の確定に、第六相は三相そのものに含まれる。したがって論証因は六相ではない（(d.)）。HB は、冒頭の綱要の偈に示した三相・三種の説が完結していることを、他説の批判によって確かめて終わります。</div>
+<p class="range" style="margin-top:28px">奥書（41,2–3）：師ダルマキールティ作の論書『ヘートゥビンドゥ』終わる。</p>
+</section>
+
+</div>
+
+</body>
+</html>
