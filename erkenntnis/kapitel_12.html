@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第ⅩⅡ章 物理的実験とその指導動機</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第ⅩⅡ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a><a href="#s16">§16</a><a href="#s17">§17</a><a href="#s18">§18</a><a href="#s19">§19</a><a href="#s20">§20</a><a href="#s21">§21</a><a href="#s22">§22</a><a href="#s23">§23</a><a href="#s24">§24</a><a href="#s25">§25</a><a href="#s26">§26</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL XII · 第ⅩⅡ章</div>
+  <h1>物理的実験とその指導動機</h1>
+  <div class="de-title" lang="de">Das physische Experiment und dessen Leitmotive</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 201–219　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;201</span></span></aside>
+  <p class="de" lang="de">1. Das Experiment kann als die selbsttätige Aufsuchung neuer Reaktionen, bezw. neuer Zusammenhänge derselben bezeichnet werden. Das physische Experiment haben wir schon als die natürliche Fortsetzung des Gedankenexperiments kennen gelernt, welche überall da eintritt, wo eine Entscheidung durch ersteres zu schwierig, oder zu unvollständig, oder unmöglich ist. Auch eine gelegentliche auffallende Beobachtung kann instinktiv zu einem besonderen motorischen Verhalten Anlaß geben, durch welches wir zur Kenntnis neuer Reaktionen oder deren Zusammenhänge gelangen. Solche Fälle können wir an Tieren und bei genügender Aufmerksamkeit auch an uns selbst wahrnehmen. Wir können in solchen Fällen von einem instinktiven Experimentieren sprechen.</p>
+  <p class="jp" lang="ja">1. 実験とは、新しい反応、あるいはその新しい連関を自ら進んで探求することと言い表すことができる。物理的実験を、われわれはすでに思考実験の自然な継続として知った。それは、思考実験による決定があまりに難しいか、不完全か、不可能であるところでは、どこでも現れる。また、ときおりの目立った観察が、本能的に特別な運動的ふるまいのきっかけとなり、それによってわれわれが新しい反応やその連関を知るにいたることもある。そのような場合は動物において、また十分に注意すれば自分自身においても知覚することができる。そのような場合には本能的な実験について語ることができる。</p>
+</article>
+<article class="row" id="p1.2">
+  <aside class="mg"><a class="pid" href="#p1.2">1.2</a><span class="pg"><span>S.&nbsp;201</span></span></aside>
+  <p class="de" lang="de">Wenn aber eine zufällige Beobachtung uns in ungewöhnlicher Weise an einen bereits bekannten Zusammenhang erinnert, noch mehr aber, wenn dieselbe zu dem Bekannten oder Gewohnten in auffallendem Gegensatz steht, werden durch dieselbe Gedanken suggeriert, welche als das eigentlich Treibende in dem nun folgenden physischen Experiment angesehen werden können. Unter den zahlreichen Fällen dieser Art erinnern wir an Galileis schwingende Lampe, an Grimaldis farbige, den Schatten säumende Streifen, an Boyles und Hookes Farben der Seifenblasen und feiner Sprünge im Glase. Wir erinnern ferner an Galvanis Frosch, an Aragos Dämpfung der schwingenden Magnetnadel durch eine Kupferscheibe, an seinen Fund der chromatischen Polarisation, an Faradays Entdeckung der Induktion u. s. w. Jeder Experimentator wird aus seiner Erfahrung solche Beispiele anführen können, wenn auch nur wenige historisch so wichtig und folgenschwer geworden sind, wie die angeführten.</p>
+  <p class="jp" lang="ja">しかし偶然の観察が、すでに知られた連関を異常な仕方で思い出させるとき、さらにはそれが既知のもの、なじんだものと目立って対立するとき、それによって思考が示唆され、その思考がこれに続く物理的実験における本来の推進力とみなされうる。この種の数多くの場合のうち、ガリレイの揺れるランプ、グリマルディの影の縁を彩る色の縞、ボイルとフックのシャボン玉やガラスの細かいひびの色を思い起こそう。さらに、ガルヴァーニの蛙、銅板による揺れる磁針の制動と色偏光の発見というアラゴの業績、ファラデーの誘導の発見などを思い起こそう。どの実験家も、自分の経験からこのような例を挙げることができるであろう。ただ、挙げた例ほど歴史的に重要で帰結豊かなものになったものは少ないとしても。</p>
+</article>
+<article class="row" id="p1.3">
+  <aside class="mg"><a class="pid" href="#p1.3">1.3</a><span class="pg"><span>S.&nbsp;201</span><span>S.&nbsp;202</span></span></aside>
+  <p class="de" lang="de">Meine Untersuchungen über <span class="pb" title="Leipzig 1906, S. 202">202</span>Sinnesorgane wurden eingeleitet durch den Kontrast des Anblicks eines Quadrates mit vertikaler Seite gegen jenen eines solchen mit vertikaler Diagonale. Eine Erweiterung der Gesetze des Helligkeitskontrastes fand ich durch die zufällige Beobachtung einer Erscheinung an rotierenden Sektoren mit geknickter Begrenzung, welche Erscheinung nach dem Talbot-Plateauschen Gesetze eben unverständlich war. Ebenso wie theoretisch wichtige Entdeckungen können auch praktisch wertvolle Erfindungen durch zufällige Beobachtungen veranlaßt werden. So soll Samuel Brown durch den Anblick einer Spinne in ihrem Netz zur Konstruktion der Kettenbrücke, James Watt durch Betrachtung einer Krebsschale zum Plan einer Wasserleitung gelangt sein.<a class="fr" href="#n1">1</a> Welchen Anteil man in solchen Fällen dem Zufall zuschreiben kann, und worin dessen Funktion besteht, habe ich anderwärts auseinandergesetzt.<a class="fr" href="#n2">2</a></p>
+  <p class="jp" lang="ja">感覚器官についての私の研究は、辺が垂直な正方形の見え方と、対角線が垂直な正方形の見え方との対照によって始まった。明るさの対比の法則の拡張を、私は折れ曲がった境界をもつ回転扇形板でのある現象を偶然観察したことによって見いだした。その現象はタルボ＝プラトーの法則によればまさに理解できないものであった。理論的に重要な発見と同じく、実践的に価値ある発明も偶然の観察によって引き起こされることがある。サミュエル・ブラウンは網のなかの蜘蛛の姿を見て吊り橋（チェーンブリッジ）の構造に、ジェイムズ・ワットはザリガニの殻を眺めて水道管の計画にいたったという<a class="fr" href="#n1">1</a>。このような場合に偶然にどれほどの役割を帰することができ、その機能が何にあるかは、別のところで論じた<a class="fr" href="#n2">2</a>。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">G. A. Colozza, L'Immaginatione nella scienza. Torino 1900. p. 156.</p><p class="jp" lang="ja">G. A. コロッツァ『科学における想像力』トリノ、1900年、156頁。</p></li><li id="n2"><span class="nn">2</span><p class="de" lang="de">Über den Einfluß zufälliger Umstände auf die Entwicklung von Erfindungen und Entdeckungen. Popul.-wissensch. Vorlesungen. 3. Aufl. 1903. S. 287 u. f.</p><p class="jp" lang="ja">「発明と発見の発展に対する偶然的事情の影響について」『通俗科学講義』第3版、1903年、287頁以下。</p></li></ol>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;202</span></span></aside>
+  <p class="de" lang="de">2. Die absichtliche selbsttätige Erweiterung der Erfahrung durch das physische Experiment, und die planmäßige Beobachtung, steht also immer unter Leitung der Gedanken, und ist von dem Gedankenexperiment nie scharf abzugrenzen und zu trennen.<a class="fr" href="#n3">3</a> Deshalb haben die für das physische Experiment aufzustellenden Leitmotive, die wir nun betrachten wollen, auch für das Gedankenexperiment und die Forschung überhaupt Bedeutung. Diese Leitmotive lassen sich aus den Arbeiten der Forscher abstrahieren; sie haben sich bisher bewährt, und wir können daher bei Beachtung derselben noch weitere Erfolge erwarten. Auf Erschöpfung der Möglichkeiten macht unsere Darstellung keinen Anspruch.</p>
+  <p class="jp" lang="ja">2. したがって、物理的実験による意図的で自発的な経験の拡張と計画的な観察とは、つねに思考の導きのもとにあり、思考実験から鋭く区切り切り離すことはけっしてできない<a class="fr" href="#n3">3</a>。それゆえ、これから考察する物理的実験のために立てるべき指導動機は、思考実験と研究一般にとっても意義をもつ。これらの指導動機は研究者の仕事から抽象することができる。それらはこれまで確証されてきたのであり、それゆえそれに注意を払えば、さらなる成功を期待することができる。われわれの叙述は可能性を汲み尽くすことを要求するものではない。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">Claude Bernard erteilt den Rat, bei der experimentellen Untersuchung von jeder Theorie abzusehen, die Theorie vor der Tür zu lassen. Duhem wendet mit Recht ein, daß dies in der Physik, wo das Experiment ohne Theorie ganz unverständlich ist, unmöglich sei. Ich meine, es ist in der Physiologie nicht viel anders. In der Tat kann man nur empfehlen, achtzugeben, ob der Ausfall des Experimentes überhaupt zu der mitgebrachten Theorie paßt. Vgl. Duhem (La Théorie physique, S. 297 u. f.).</p><p class="jp" lang="ja">クロード・ベルナールは、実験的研究においてはあらゆる理論を度外視し、理論を戸口に置いておくよう助言している。デュエムは、実験が理論なしにはまったく理解できない物理学においてはそれは不可能であると正しく反論している。私は、生理学においても事情はあまり違わないと思う。実際、勧められるのはただ、実験の結果がそもそも持ちこんだ理論に合うかどうかに注意を払うことだけである。デュエム（『物理理論』297頁以下）参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;202</span><span>S.&nbsp;203</span></span></aside>
+  <p class="de" lang="de">3. Alles, was wir durch ein Experiment erfahren können, ist <span class="pb" title="Leipzig 1906, S. 203">203</span>durch die Abhängigkeit oder Unabhängigkeit der Elemente (oder Umstände) einer Erscheinung voneinander gegeben und erschöpft. Indem wir eine gewisse Gruppe oder auch ein Element, willkürlich variieren, ändern sich hiermit auch andere Elemente oder bleiben unter Umständen unverändert. Die Grundmethode des Experimentes ist die Methode der Variation. Könnte man jedes Element allein für sich variieren, so wäre die Untersuchung verhältnismäßig leicht. Man würde durch ein systematisches Verfahren bald die bestehenden Abhängigkeiten ermitteln. Allein die Elemente hängen meist gruppenweise zusammen, manche können nur miteinander variiert werden; jedes Element wird gewöhnlich von mehreren andern und in verschiedener Weise beeinflußt.</p>
+  <p class="jp" lang="ja">3. 実験によって知りうることはすべて、ある現象の要素（あるいは事情）の相互の依存性あるいは独立性によって与えられ、汲み尽くされている。ある群、あるいはある一つの要素を任意に変化させると、それとともに他の要素も変化するか、場合によっては変わらないままである。実験の根本方法は変化（変分）の方法である。もしどの要素もそれだけで変化させることができるのなら、研究は比較的容易であろう。体系的な手続きによってまもなく存在する依存関係を確定できるであろう。しかし要素はたいてい群ごとに連関しており、あるものは一緒にしか変化させられない。各要素はふつう、他のいくつかの要素によって、しかも異なる仕方で影響を受けている。</p>
+</article>
+<article class="row" id="p3.2">
+  <aside class="mg"><a class="pid" href="#p3.2">3.2</a><span class="pg"><span>S.&nbsp;203</span></span></aside>
+  <p class="de" lang="de">Dadurch wird also eine Kombination von Variationen notwendig. Wächst die Zahl der Elemente, so steigt die Zahl der durch den Versuch zu erprobenden Kombinationen, wie einfache Rechnungen lehren, so rasch, daß eine systematische Erledigung der Aufgabe immer schwieriger und schließlich praktisch unmöglich wird. Das willkürliche Experiment wäre, ohne eine gewisse vorher erworbene Erfahrung auf Grund unabsichtlicher Beobachtungen, in den meisten Fällen machtlos. Die im Dienste des biologischen Bedürfnisses erworbene Erfahrung erleichtert uns nun die Aufgabe wesentlich, indem sie uns ein rohes Bild der stärksten Abhängigkeiten und Unabhängigkeiten bietet, welches allerdings für die ganz neuen wissenschaftlichen Zwecke einer starken Korrektur bedarf.</p>
+  <p class="jp" lang="ja">それによって変化の組み合わせが必要になる。要素の数が増えると、試みによって吟味すべき組み合わせの数は、簡単な計算が教えるように急速に増え、課題を体系的に片づけることはますます難しく、ついには実際上不可能になる。任意の実験は、意図しない観察にもとづいて予め獲得されたある程度の経験がなければ、たいていの場合無力であろう。生物学的欲求に仕えて獲得された経験は、最も強い依存関係と独立関係の粗い像を与えることによって、われわれの課題を本質的に容易にしてくれる。もっともその像は、まったく新しい科学的目的のためには大いに修正を必要とする。</p>
+</article>
+<article class="row" id="p3.3">
+  <aside class="mg"><a class="pid" href="#p3.3">3.3</a><span class="pg"><span>S.&nbsp;203</span></span></aside>
+  <p class="de" lang="de">Wenn wir also an eine experimentelle Untersuchung gehen, so wissen wir wenigstens ungefähr, von welchen Umständen wir vorläufig absehen können. Die genauere Ermittelung solcher Unabhängigkeiten ist aber sehr wichtig. Dadurch z. B., daß die an einem Körper durch verschiedene andere bestimmten Beschleunigungen aufeinander keinen Einfluß üben, daß dasselbe für sich durchkreuzende Strahlungen, stationäre elektrische und thermische Strömungen gilt, können wir in der Untersuchung derselben das Prinzip der Isolation, bei Kombination derselben aber das Prinzip der Superposition zur Anwendung bringen (P. Volkmann s. S. 141).</p>
+  <p class="jp" lang="ja">それゆえ実験的研究に取りかかるとき、われわれは少なくともおおよそ、さしあたりどの事情を度外視してよいかを知っている。しかしこのような独立関係をより正確に確定することはきわめて重要である。たとえば、ある物体においてさまざまな他の物体によって規定される加速度が互いに影響し合わないこと、同じことが交差する放射や、定常的な電流や熱流についても成り立つことによって、われわれはそれらの研究においては孤立化の原理を、それらを組み合わせる際には重ね合わせの原理を適用することができるのである（P. フォルクマン、141頁参照）。</p>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;203</span><span>S.&nbsp;204</span></span></aside>
+  <p class="de" lang="de">4. Es handle sich nun um die Ermittelung der Abhängigkeit der Erscheinungselemente voneinander. Da haben wir die qualitative von der quantitativen Abhängigkeit zu unterscheiden. Wir <span class="pb" title="Leipzig 1906, S. 204">204</span>ermitteln z. B. eine qualitative Abhängigkeit, wenn wir durch das Experiment erfahren, daß von den Tönen der diatonischen Tonleiter, die wir uns durch das bloße Gehör gefunden vorstellen, c und g konsonieren, c und h aber dissonieren. Ebenso ist es ein qualitatives Versuchsergebnis, daß ein bestimmtes Rot und Grün sich zu Weiß vereinigen lassen, während Rot und Blau sich zu Violett ergänzen. Qualitativ experimentiert auch ein Chemiker, der die Reaktion von Stoffen bestimmter sinnlicher Eigenschaften aufeinander untersucht, oder ein Pharmakologe, welcher die giftige, z. B. narkotische Wirkung gewisser Pflanzenstoffe auf den tierischen Organismus erprobt.</p>
+  <p class="jp" lang="ja">4. さて、現象の要素の相互依存関係を確定することが問題であるとしよう。そこでは質的な依存関係と量的な依存関係とを区別しなければならない。たとえば、単に耳によって見いだされたと考える全音階の音のうち、c と g は協和し、c と h は不協和であることを実験によって知るとき、われわれは質的な依存関係を確定している。同じく、ある特定の赤と緑とが合わさって白になりうるのに対して、赤と青は補い合って紫になる、というのも質的な実験結果である。一定の感性的性質をもつ物質の相互反応を研究する化学者や、ある種の植物成分の動物の有機体に対する有毒な、たとえば麻酔的な作用を試す薬理学者も、質的に実験している。</p>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;204</span></span></aside>
+  <p class="de" lang="de">Wenn wir dagegen die Abhängigkeit des Brechungswinkels vom Einfallswinkel, oder die Abhängigkeit des Fallraums von der Fallzeit zu bestimmen suchen, so stellen wir uns eine quantitative Aufgabe. Die einzelnen Winkel sind nicht so verschieden voneinander, miteinander nicht so unvergleichbar, wie etwa Rot und Grün; die ersteren lassen sich vielmehr in lauter gleiche Elemente zerlegen, und ein Winkel unterscheidet sich von dem andern nur durch die Zahl dieser gleichen Elemente. Ebenso läßt sich der Fallraum in gleiche Elemente teilen, desgleichen die Fallzeit u. s. w. Tragen wir nun die zusammengehörigen Werte von Fallraum und Fallzeit in eine Tabelle ein, so reduziert sich die ganze Abhängigkeit darauf, daß jetzt einer gewissen Anzahl Fallzeitelemente eine bestimmte von ersterer abhängige Anzahl Fallraumelemente entspricht. Die quantitative Abhängigkeit ist ein besonderer einfacherer Fall der qualitativen Abhängigkeit.</p>
+  <p class="jp" lang="ja">これに対して、入射角に対する屈折角の依存関係、あるいは落下時間に対する落下距離の依存関係を定めようとするとき、われわれは量的な課題を立てているのである。個々の角は、たとえば赤と緑のように互いにそれほど異なってはおらず、それほど比較不可能でもない。むしろ角はまったく同じ要素に分解でき、ある角が他の角と異なるのは、ただその等しい要素の数によってだけである。同じく落下距離も、また落下時間も等しい要素に分けることができる。そこで、対応する落下距離と落下時間の値を表に記入すると、依存関係全体は、ある数の落下時間要素に、それに依存するある定まった数の落下距離要素が対応する、ということに帰着する。量的な依存関係は、質的な依存関係の特別なより単純な場合なのである。</p>
+</article>
+<article class="row" id="p4.3">
+  <aside class="mg"><a class="pid" href="#p4.3">4.3</a><span class="pg"><span>S.&nbsp;204</span><span>S.&nbsp;205</span></span></aside>
+  <p class="de" lang="de">Wenn sich nun gar eine Rechnungsregel von immer gleicher Form finden läßt, durch welche man aus der Zahl der Fallzeitelemente t die Zahl der Fallraumelemente s, (s=gt²/2), oder aus der Zahl der Einfallswinkelelemente α die Zahl der Brechungswinkelelemente β, (sin α/sin β = n) ableiten kann, so wird das schwerfällige Mittel der Tabellen mit großem Vorteil durch diese Rechnungsregeln, Formeln oder Gesetze ersetzt oder vertreten. Zu diesem Vorteil kommt noch, daß durch das Zahlensystem, ohne neue Erfindung, ohne besondere Nomenklatur die Feinheit der Unterscheidung der besonderen, voneinander abhängigen Umstände beliebig weit getrieben werden kann. Bei der quantitativen Abhängigkeit liegt ein übersichtliches, anschauliches Kon<span class="pb" title="Leipzig 1906, S. 205">205</span>tinuum von Fällen vor, während im Falle der qualitativen Abhängigkeit immer nur eine Anzahl von Individualfällen gesondert betrachtet werden muß.<a class="fr" href="#n4">4</a> Natürlich wird man die Einfachheit, Gleichförmigkeit und Übersichtlichkeit der quantitativen Behandlung überall einzuführen trachten, wo dieser Vorteil erreichbar ist.</p>
+  <p class="jp" lang="ja">さらに、落下時間要素の数 t から落下距離要素の数 s を（s＝gt²/2）、あるいは入射角要素の数 α から屈折角要素の数 β を（sin α/sin β＝n）導き出すことのできる、つねに同じ形の計算規則が見いだされれば、表という扱いにくい手段は、大いに有利にこれらの計算規則、公式あるいは法則によって置き換えられ、代表される。この利点に加えて、数の体系によって、新たな発明も特別な命名もなしに、互いに依存する特別な事情の区別の精密さを任意に推し進めることができる。量的な依存関係においては、場合の見通しのよい直観的な連続体が目の前にあるのに対して、質的な依存関係の場合には、つねにいくつかの個別の場合を別々に考察しなければならない<a class="fr" href="#n4">4</a>。当然ながら、量的な扱いの単純さ、一様性、見通しのよさは、この利点が達成できるところではどこでも導入しようとされるであろう。</p>
+  <ol class="notes"><li id="n4"><span class="nn">4</span><p class="de" lang="de">Über das Prinzip der Vergleichung. Popul. Vorlesungen. S. 263 u. f.</p><p class="jp" lang="ja">「比較の原理について」『通俗科学講義』263頁以下。</p></li></ol>
+</article>
+<article class="row" id="p4.4">
+  <aside class="mg"><a class="pid" href="#p4.4">4.4</a><span class="pg"><span>S.&nbsp;205</span></span></aside>
+  <p class="de" lang="de">Dies ist möglich, sobald es gelingt für qualitativ ungleichartige Elemente quantitativ gleichartige, dieselben vollkommen charakterisierende Merkmale aufzufinden.<a class="fr" href="#n5">5</a> Wenn man, statt die Tonqualitäten nach dem Gehör zu unterscheiden, die Höhe durch die Schwingungszahl charakterisiert, kann man die Konsonanz sofort als an die einfachsten rationalen Schwingungszahlenverhältnisse gebunden erkennen. Wie die verschiedenfarbigen Lichtstrahlen im Prisma gebrochen werden, muß im einzelnen beschrieben werden. Hat man aber die Farbenqualität durch die Wellenlänge (die Interferenzstreifenbreite unter bestimmten Umständen) charakterisiert, so findet sich alsbald eine Formel, welche den Brechungsexponenten aus der Wellenlänge ableitet. Die Naturwissenschaften zeigen ein entschiedenes Streben, soweit als möglich qualitative Abhängigkeiten durch quantitative zu ersetzen.</p>
+  <p class="jp" lang="ja">このことは、質的に異種の要素に対して、それを完全に特徴づける量的に同種の特徴を見いだすことに成功するやいなや可能となる<a class="fr" href="#n5">5</a>。音の質を耳によって区別するかわりに、高さを振動数によって特徴づけるならば、協和がきわめて単純な有理数の振動数比に結びついていることがすぐに認識できる。異なる色の光線がプリズムでどのように屈折されるかは、個別に記述しなければならない。しかし色の質を波長（一定の事情のもとでの干渉縞の幅）によって特徴づければ、まもなく波長から屈折率を導き出す公式が見いだされる。自然科学は、できるかぎり質的な依存関係を量的な依存関係によって置き換えようとする決然とした努力を示している。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">Analyse der Empfindungen. 4. Aufl. 1903. S. 209.</p><p class="jp" lang="ja">『感覚の分析』第4版、1903年、209頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;205</span><span>S.&nbsp;206</span></span></aside>
+  <p class="de" lang="de">5. Die positive Untersuchung wird wesentlich erleichtert, wenn man zuvor alles ausschaltet, was auf die Elemente, deren Abhängigkeit von andern man prüfen will, keinen Einfluß übt, und dadurch das Gebiet der Untersuchung einschränkt. Ein schönes historisches Beispiel dieses Motivs liefert die Beugung am Rande von Schirmen, welche Newton auf eine Massenwirkung des Schirmes auf die Lichtteilchen zurückzuführen dachte. s'Gravesand und Fresnel zeigten aber, daß die Dicke und das Material des Schirmes auf das Beugungsphänomen ohne Einfluß und nur die Art der Begrenzung des Lichtes maßgebend ist. Brewster gelang es, den Perlmutterglanz und dessen Farbenschimmer auf einem Abdruck in Siegellack zu erhalten, wodurch die Form der Oberfläche allein als maßgebend nachgewiesen war. Le Monnier zeigte, daß hohle und massive Leiter von gleicher Form sich in Bezug auf die elektrische Ladung ganz <span class="pb" title="Leipzig 1906, S. 206">206</span>gleich verhalten, und schränkte dadurch die Untersuchung auf die Abhängigkeit der Ladung von der Größe und Form der Oberfläche ein.</p>
+  <p class="jp" lang="ja">5. 他のものへの依存関係を調べようとする要素に何の影響も与えないものを予めすべて排除し、それによって研究の範囲を限定すれば、積極的な研究は本質的に容易になる。この動機の美しい歴史的な例を提供するのは、遮蔽板の縁での回折である。ニュートンはそれを光の粒子に対する遮蔽板の質量作用に帰着させようと考えた。しかしスフラーフェサンデとフレネルは、遮蔽板の厚さと材質は回折現象に影響せず、光の境界の仕方だけが決定的であることを示した。ブルースターは真珠の光沢とその色のきらめきを封蝋の型に写し取ることに成功し、それによって表面の形だけが決定的であることが証明された。ル・モニエは、同じ形の中空の導体と中実の導体とが電気の帯電に関してまったく同じふるまいをすることを示し、それによって研究を、表面の大きさと形に対する帯電の依存関係に限定した。</p>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;206</span></span></aside>
+  <p class="de" lang="de">6. Die Beseitigung dessen, was die zu verfolgende Abhängigkeit verdeckt oder stört, ist ungemein wichtig. Um die Brechung im Prisma rein zu beobachten, experimentiert Newton im verdunkelten Zimmer; er läßt sehr dünne Sonnenlichtbündel eintreten, damit die Teile dickerer Lichtbündel sich nicht stören und gegenseitig überdecken; er bildet die kleine Lichtöffnung durch eine Linse ab, um die Bilder verschiedenfarbiger Strahlen nebeneinander zu erhalten. Bei Untersuchung der Spiegel- und Linsenfehler blenden Foucault und Toepler das regelmäßig reflektierte und gebrochene Licht ab, und es gelangt nur das von den Fehlern herrührende, nun nicht mehr von anderem überdeckte und unterdrückte Licht rein zur Wahrnehmung, wodurch eine der feinsten optischen Methoden gewonnen ist.</p>
+  <p class="jp" lang="ja">6. 追跡すべき依存関係を覆い隠したり乱したりするものを除去することは、きわめて重要である。プリズムにおける屈折を純粋に観察するために、ニュートンは暗くした部屋で実験する。彼は、太い光束の部分どうしが乱し合い互いに覆い合わないように、きわめて細い太陽光線の束を入れる。彼は小さな光の開口をレンズで結像させて、異なる色の光線の像を並べて得る。鏡やレンズの欠陥を調べる際、フーコーとテプラーは規則正しく反射され屈折された光を遮り、欠陥に由来する光だけが、もはや他のものに覆われ抑えられることなく純粋に知覚されるようにする。それによって最も精密な光学的方法の一つが得られたのである。</p>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;206</span></span></aside>
+  <p class="de" lang="de">7. Große Experimentatoren haben stets die Anordnung ihrer Versuche so vereinfacht, daß fast nur das zu Untersuchende sich äußerte und alle übrigen Einflüsse unmerklich wurden. Man vergleiche z. B. die geniale Art, in welcher Ramsden die thermische Längenausdehnung der Stäbe bestimmt, und die nicht minder sinnreiche Methode von Dulong und Petit zur Bestimmung der absoluten kubischen Wärmeausdehnung des Quecksilbers nach dem hydrostatischen Prinzip. Die Schriften der großen Forscher sind reich an Mustern dieser Art und können durch nichts ersetzt werden. Galilei weist ohne Luftpumpe das Gewicht der Luft nach, mißt bei seinen Fallversuchen kleine Zeiten durch Ausfließen von Wasser und läßt statt des freien Falles die Körper auf der schiefen Ebene herabrollen. Newton prüft die Gegenwirkung der Magnete durch Einschließen derselben in auf Wasser schwimmende Gläschen.</p>
+  <p class="jp" lang="ja">7. 偉大な実験家はつねに、研究すべきものだけがほとんど現れ、他のすべての影響が感知できなくなるように、実験の配置を単純化してきた。たとえば、ラムズデンが棒の熱による線膨張を測定した天才的なやり方や、静水力学の原理にもとづいて水銀の絶対体膨張を測定したデュロンとプティのそれに劣らず巧妙な方法を比べてみよ。偉大な研究者の著作はこの種の手本に富んでおり、何ものによっても代えがたい。ガリレイは空気ポンプなしに空気の重さを証明し、落下実験では水の流出によって短い時間を測り、自由落下のかわりに物体を斜面に沿って転がり下りさせる。ニュートンは、磁石を水に浮かぶ小さなガラス容器に閉じこめることによって、磁石の反作用を検証する。</p>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;206</span><span>S.&nbsp;207</span></span></aside>
+  <p class="de" lang="de">Derselbe vergleicht seine errechnete Schallgeschwindigkeit mit dem Versuch, indem er in einem langen Gang, ein Fadenpendel von veränderlicher Länge beobachtend, auf das mehrfache Echo achtet. Die Ampèreschen, Faradayschen, Bunsenschen Apparate sind Muster von Einfachheit und Zweckmäßigkeit. Aber nicht nur bei absichtlich angestellten Versuchen hat man nach Einfachheit zu streben, sondern man soll von den großen Forschern auch <span class="pb" title="Leipzig 1906, S. 207">207</span>lernen, in ganz gewöhnlichen Vorkommnissen mehr zu sehen als gleichgültige Dinge. Die durch ein bestimmtes Interesse geschärfte Aufmerksamkeit vermag auch ohne besondere Veranstaltungen die Spuren wichtiger Zusammenhänge in der täglichen Umgebung zu erschauen. Wer sich diese Fähigkeit nicht erworben hat, wird auf experimentellem Wege schwerlich viele Entdeckungen machen. Huygens sieht in Siegellackstückchen, welche in wirbelndem Wasser sich in der Drehungsachse am Boden sammeln, Vorgänge, die ihn zu Gedanken über die Gravitation leiten.</p>
+  <p class="jp" lang="ja">ニュートンはまた、計算した音速を実験と比べるために、長い廊下で長さを変えられる糸の振り子を観察しながら、多重のこだまに注意を払う。アンペール、ファラデー、ブンゼンの装置は単純さと目的適合性の模範である。しかし意図的に行う実験において単純さを目指すべきであるばかりでなく、まったくありふれた出来事のなかにどうでもよい事柄以上のものを見ることを、偉大な研究者から学ぶべきである。ある特定の関心によって研ぎ澄まされた注意は、特別な仕掛けなしにも、日常の環境のなかに重要な連関の痕跡を見て取ることができる。この能力を身につけていない者は、実験の道でそれほど多くの発見をすることはまずないであろう。ホイヘンスは、渦巻く水のなかで回転軸の底に集まる封蝋のかけらのうちに、重力についての思考へと彼を導く過程を見る。</p>
+</article>
+<article class="row" id="p7.3">
+  <aside class="mg"><a class="pid" href="#p7.3">7.3</a><span class="pg"><span>S.&nbsp;207</span></span></aside>
+  <p class="de" lang="de">Das vollkommen scharfe Bild zarter monochromatisch beleuchteter Fliegenfüßchen, durch ein Prisma gesehen, ist für Newton ein Zeichen, daß monochromatisches Licht keine weitere prismatische Auflösung erfährt. In dem Haften eines großen flach aufliegenden Hutes auf einer Platte sieht Pascal eine hydrodynamische Erscheinung, eine Äußerung des Luftdruckes. Die Spuren von Farben an Sprüngen im Glase, die Hooke wahrgenommen hat, leiten ihn zur Aufeinanderlegung zweier Brillengläser, welche die vollständige Ringerscheinung zeigt, die Newton nachher genau quantitativ untersucht hat. An der Stanniolkapsel einer Weinflasche werden die meisten Menschen nichts Besonderes bemerken. Wer aber gewohnt ist auf Wärmeerscheinungen zu achten, fühlt sofort die reflektierte Strahlung seines eigenen Fingers, sobald er diesen ohne Berührung in die Kapsel taucht. An dem Felde einer schwingenden Saite meint man nichts besonderes zu sehen.</p>
+  <p class="jp" lang="ja">単色光で照らされた繊細な蠅の脚をプリズムを通して見た完全に鮮明な像は、ニュートンにとって、単色光はそれ以上プリズムによって分解されないことのしるしである。平らに置かれた大きな帽子が板にくっつくことのうちに、パスカルは流体力学的な現象、すなわち気圧の表れを見る。ガラスのひびにフックが認めた色の痕跡は、彼を二枚の眼鏡レンズを重ねることへと導き、それは完全な環の現象を示し、のちにニュートンがそれを量的に正確に研究した。葡萄酒の瓶の錫箔のキャップに、たいていの人は何も特別なことに気づかないであろう。しかし熱の現象に注意を払う習慣のある人は、指を触れずにキャップのなかに入れるやいなや、自分自身の指の反射された放射をすぐに感じる。振動している弦の振動域にも、何も特別なものは見えないように思われる。</p>
+</article>
+<article class="row" id="p7.4">
+  <aside class="mg"><a class="pid" href="#p7.4">7.4</a><span class="pg"><span>S.&nbsp;207</span><span>S.&nbsp;208</span></span></aside>
+  <p class="de" lang="de">Der geübte Akustiker sieht aber an einer Schattierung des Feldes die Obertöne, welche die Saite gibt. An dem gleichmäßigen Felde einer gestrichenen Saite erkennt man, daß jedes Element sein Feld mit konstanter Geschwindigkeit durcheilt. Sobald der Bogen abgesetzt wird, erhält das Feld einen stärkeren Rand; die frei schwingende Saite verweilt also an den Grenzen des Feldes verhältnismäßig länger. Ein zufälliges glänzendes Flitterchen auf der Saite verrät dem Beobachter bei einer raschen Augenbewegung durch das ausgezogene Nachbild des Flitterchens die Schwingungsform. Experimente mit den gewöhnlichsten Utensilien, wie sie z. B. G. Tissandier<a class="fr" href="#n6">6</a> in seinem bekannten Buche beschreibt, <span class="pb" title="Leipzig 1906, S. 208">208</span>sind deshalb recht förderlich, indem sie den Blick schärfen und auf meist gar nicht beachtete Dinge lenken.</p>
+  <p class="jp" lang="ja">しかし熟練した音響学者は、振動域の濃淡のうちに弦が出す倍音を見る。弓で弾いた弦の一様な振動域から、各要素がその振動域を一定の速度で駆け抜けることが分かる。弓を離すやいなや、振動域の縁はより濃くなる。つまり自由に振動する弦は、振動域の境界に比較的長くとどまるのである。弦の上の偶然の光るかけらは、目をすばやく動かすと、そのかけらの引き伸ばされた残像によって、観察者に振動の形を明かす。たとえば G. ティサンディエ<a class="fr" href="#n6">6</a>がよく知られた本で記述しているような、ごくありふれた道具を用いる実験は、それゆえきわめて有益である。それは目を研ぎ澄まし、たいていまったく顧みられない事柄へと目を向けさせるからである。</p>
+  <ol class="notes"><li id="n6"><span class="nn">6</span><p class="de" lang="de">Tissandier, La Physique sans appareils. Paris. 7me édit.</p><p class="jp" lang="ja">ティサンディエ『器具なしの物理学』パリ、第7版。</p></li></ol>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;207</span></span></aside>
+  <p class="de" lang="de">8. Wenn in einem Komplex von Umständen ein Umstand B durch einen Umstand A bedingt ist, so wird zu erwarten sein, daß mit dem Eintreten von A auch B erscheint, mit dem Verschwinden von A auch B verschwindet, mit der Verstärkung von A auch B sich verstärkt und mit der Umkehrung von A auch B sich umkehrt.</p>
+  <p class="jp" lang="ja">8. 事情の複合体のなかで、ある事情 B がある事情 A によって条件づけられているならば、A が生じれば B も現れ、A が消えれば B も消え、A が強まれば B も強まり、A が逆転すれば B も逆転すると期待されるであろう。</p>
+</article>
+<article class="row" id="p8.2">
+  <aside class="mg"><a class="pid" href="#p8.2">8.2</a><span class="pg"><span>S.&nbsp;208</span></span></aside>
+  <p class="de" lang="de">Es bedeute A die Temperatursteigerung, die Stärke des Magnetpols, den Druck, B hingegen bezw. die Gasspannung, den induzierten Strom, die Doppelbrechung eines durchsichtigen Körpers. Dieses Leitmotiv des Parallelismus, wie man es nennen könnte, welches schon J. F. W. Herschel<a class="fr" href="#n7">7</a> angibt, ist ein sicherer Führer des Experimentierenden.</p>
+  <p class="jp" lang="ja">A を温度上昇、磁極の強さ、圧力とし、B をそれぞれ気体の張力、誘導電流、透明な物体の複屈折としよう。並行性と呼べるようなこの指導動機は、すでに J. F. W. ハーシェル<a class="fr" href="#n7">7</a>が挙げているもので、実験する者の確かな導き手である。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">J. F. W. Herschel, A preliminary discourse on the study of natural philosophy. London 1831. p. 151 u. f.</p><p class="jp" lang="ja">J. F. W. ハーシェル『自然哲学研究序説』ロンドン、1831年、151頁以下。</p></li></ol>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;208</span></span></aside>
+  <p class="de" lang="de">9. Wenn der Einfluß von A auf B nur gering ist, so daß die Variationen von B nur schwer zu beobachten sind, so gilt es, die letzteren zu verstärken. Galilei erläutert schon den Vorgang der Summation der Effekte an einer schweren Glocke, welche durch taktmäßige kleine Impulse, die stets in derselben Schwingungsphase angebracht werden, in ausgiebige Schwingungen gerät. Er erklärt auf diese Weise das Mitschwingen.</p>
+  <p class="jp" lang="ja">9. A の B への影響がごくわずかで、B の変化が観察しにくいときには、後者を強めることが肝要である。ガリレイはすでに、いつも同じ振動の位相で加えられる拍子に合った小さな衝撃によって大きく振動しはじめる重い鐘において、効果の加算の過程を説明している。彼はこのようにして共振を説明する。</p>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;208</span></span></aside>
+  <p class="de" lang="de">Das Verfahren wird gegenwärtig angewendet, um durch die sogenannte ballistische Methode kräftige Ausschläge der Galvanometernadel mit sehr schwachen Strömen zu erzielen. Durch Vermehrung der stromleitenden Windungen vergrößert man bis zu einer gewissen Grenze den Ausschlag der Galvanometernadel bei schwachen Strömen (Multiplikator). Voltas Erfindung des Elektrophors hat den Weg gezeigt, durch Verwendung zweier Kondensator-Elektroskope eine kaum merkliche Elektrizitätsmenge zu multiplizieren, insbesondere den Prozeß der Duplikation oft nacheinander anzuwenden. Die Influenzmaschinen verwenden diesen Prozeß automatisch zur Erzeugung größerer Elektrizitätsmengen. Wenn Fresnel viele Prismen hinter einander stellt, um die geringe Doppelbrechung durch Druck in denselben sichtbar zu machen, wenn er in seinem Interferenzrefraktometer lange Lichtwege anwendet, um einen merklichen Gangunterschied der Strahlen in trockener und feuchter Luft zu erzielen, wenn Faraday den polarisierten Strahl nach der Richtung der magnetischen Kraftlinien oft hin und her reflektiert, um in seinem schweren Glase die Drehung der Polarisationsebene deutlicher hervortreten zu lassen, so sind dies ebensoviele Beispiele der Häufung der Effekte. Maxwell hat an einer zähen Flüssigkeit durch Reibungszug momentane Doppelbrechung beobachtet, und ich habe dieselbe an halbflüssigen plastischen Massen bei Druck wahrgenommen. Beide Erscheinungen waren aber nur von kurzer Dauer. Kundt schloß nun solche Flüssigkeiten zwischen zwei lange konachsiale Zylinder ein, von welchen er den einen kontinuierlich rasch rotierte. Durch den langen Weg einerseits und durch den dauernden Reibungszug anderseits trat nun die Erscheinung kräftig, dauernd und leicht meßbar hervor.</p>
+  <p class="jp" lang="ja">この手続きは現在、いわゆる弾道検流法によって、きわめて弱い電流で検流計の針の強い振れを得るために用いられている。電流を通す巻き線を増やすことによって、弱い電流での検流計の針の振れを、ある限界まで大きくする（増倍器）。ヴォルタの電気盆の発明は、二つのコンデンサー検電器を用いてほとんど感知できない電気量を増倍する道、とりわけ倍加の過程を何度も続けて適用する道を示した。誘導起電機はこの過程を自動的に用いて、より大きな電気量を生み出す。フレネルが、圧力によるわずかな複屈折を見えるようにするために多くのプリズムを並べるとき、また干渉屈折計において乾いた空気と湿った空気のなかの光線の目立つ光路差を得るために長い光路を用いるとき、ファラデーが重いガラスにおける偏光面の回転をよりはっきり現れさせるために偏光した光線を磁力線の方向に何度も往復反射させるとき、それらは効果の累積の同じだけの例である。マクスウェルは粘性の液体において摩擦による引きによって瞬間的な複屈折を観察し、私は半流動の可塑的な塊において圧力のもとでそれを知覚した。しかしどちらの現象も短時間しか続かなかった。そこでクントは、そのような液体を二つの長い同軸の円筒のあいだに閉じこめ、その一方を連続的にすばやく回転させた。長い光路と持続する摩擦の引きとによって、いまや現象は強く、持続的に、容易に測定できる形で現れたのである。</p>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;209</span></span></aside>
+  <p class="de" lang="de">10. Um ein Element zu bestimmen, dessen direkte Ermittelung unbequem, schwierig oder unmöglich ist, bedient man sich zuweilen der Substitution eines bekannten äquivalenten Elementes. Zur Bestimmung eines galvanischen Leitungswiderstandes setzt man z. B. an die Stelle desselben so viel vorher geaichten Rheostatendraht, daß alle Erscheinungen gleich bleiben. Als Hirn seine Versuche über die Wärmeproduktion eines arbeitenden und nicht arbeitenden Menschen anstellte, und hierbei einen Mann in ein großes Kalorimeter einschloß, in welchem er an einem Tretrad aufsteigen, absteigen oder sich ruhig verhalten konnte, war die produzierte Wärmemenge wegen der gleichzeitigen Verluste des Kalorimeters direkt schwer zu bestimmen.</p>
+  <p class="jp" lang="ja">10. 直接に確定することが不便であったり、難しかったり、不可能であったりする要素を定めるために、ときに既知の等価な要素による代置（置換）を用いる。たとえば電気の導線抵抗を定めるために、そのかわりに、予め較正した可変抵抗器の線を、すべての現象が同じままであるだけ入れる。イルンが、労働している人間と労働していない人間の熱産生についての実験を行い、その際一人の男を大きな熱量計のなかに閉じこめ、そのなかで踏み車を上ったり下りたり、じっとしていたりできるようにしたとき、熱量計の同時的な損失のために、産生された熱量を直接に定めることは難しかった。</p>
+</article>
+<article class="row" id="p10.2">
+  <aside class="mg"><a class="pid" href="#p10.2">10.2</a><span class="pg"><span>S.&nbsp;209</span><span>S.&nbsp;210</span></span></aside>
+  <p class="de" lang="de">Deshalb wurde in Parallelversuchen der Mann durch einen Gasbrenner ersetzt, der in derselben Zeit denselben Effekt am Kalorimeter hervorbrachte, dessen Wärmeproduktion aber aus dem Gasverbrauch leicht bestimmt werden konnte.<a class="fr" href="#n8">8</a> Joule komprimierte durch eine in dem Kompressionsgefäß eingeschlossene Pumpe Luft, während das Gefäß selbst in ein Kalorimeter versenkt war. Die Bestimmung der Kompressionswärme, welche der Kompressionsarbeit entsprach, war dadurch erschwert, daß die Reibungswärme der Pumpe zu ersterer Wärme sich hinzufügte. Ließ man aber die Pumpe durch dieselbe Zeit mit derselben Geschwindigkeit <span class="pb" title="Leipzig 1906, S. 210">210</span>leer gehen, so konnte man die Kompressionswärme indirekt rein bestimmen.<a class="fr" href="#n9">9</a></p>
+  <p class="jp" lang="ja">それゆえ並行実験において、その男は、同じ時間に熱量計に同じ効果をもたらし、しかもその熱産生はガスの消費から容易に定めることのできるガスバーナーによって置き換えられた<a class="fr" href="#n8">8</a>。ジュールは、圧縮容器のなかに閉じこめたポンプによって空気を圧縮し、容器そのものは熱量計に沈めておいた。圧縮仕事に対応する圧縮熱を定めることは、ポンプの摩擦熱が前者の熱に加わることによって難しくなっていた。しかしポンプを同じ時間、同じ速さで空転させれば、圧縮熱を間接に純粋に定めることができたのである<a class="fr" href="#n9">9</a>。</p>
+  <ol class="notes"><li id="n8"><span class="nn">8</span><p class="de" lang="de">Hirn, Théorie mécanique de la chaleur. Paris 1865. S. 26-34.</p><p class="jp" lang="ja">イルン『熱の力学的理論』パリ、1865年、26–34頁。</p></li><li id="n9"><span class="nn">9</span><p class="de" lang="de">Joule, On the changes of temperature produced by the rarefaction and condensation of air. Phil. Mag. 1845.</p><p class="jp" lang="ja">ジュール「空気の希薄化と凝縮によって生じる温度変化について」『フィロソフィカル・マガジン』1845年。</p></li></ol>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;210</span></span></aside>
+  <p class="de" lang="de">11. Zur indirekten Bestimmung dient auch die Methode der Kompensation. Durch irgend einen Umstand wird ein schwer bestimmbares Element B hervorgerufen. Man fügt das bestimmbare Element B′ hinzu, wodurch B wieder verschwindet, kompensiert, zugleich aber bestimmt ist. Bringt man zwei interferierenden Strahlen einen größeren Gangunterschied bei, so verschwindet das Interferenzstreifensystem, und der Gangunterschied ist eben deshalb durch Ausmessung der Verschiebung in Streifenbreiten nicht mehr direkt bestimmbar. Vernichtet man aber den Gangunterschied wieder durch Einschaltung von Glas bestimmbarer Dicke auf der vorher nicht verzögerten Seite, so ist der Gangunterschied kompensiert und indirekt bestimmt. So kann man auch den Galvanometerausschlag, der durch eine unbekannte Bestrahlung einer Thermosäule hervorgebracht wird, durch eine bekannte der Gegenseite zugeführte Bestrahlung vernichten und dadurch erstere bestimmen.</p>
+  <p class="jp" lang="ja">11. 間接的な決定には補償の方法も役立つ。何らかの事情によって、定めにくい要素 B が呼び起こされる。そこに定めうる要素 B′ を加えると、それによって B は再び消え、補償されるが、同時に定められる。二つの干渉する光線により大きな光路差を与えると、干渉縞の系は消え、まさにそのために、光路差は縞の幅を単位とするずれを測ることによってはもはや直接に定めることができない。しかし、以前に遅らされていなかった側に厚さの定まったガラスを挿入して光路差を再び打ち消せば、光路差は補償され、間接に定められる。同じように、熱電堆に未知の放射を当てることによって生じる検流計の振れを、反対側に当てた既知の放射によって打ち消し、それによって前者を定めることもできる。</p>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;210</span></span></aside>
+  <p class="de" lang="de">12. Das Prinzip der Kompensation ist noch in anderer Beziehung wichtig. Ein Umstand A bedingte das Eintreten von B; wenn aber A außerdem den Eintritt von N bestimmt, welches selbst wieder auf B Einfluß nimmt, so wird hierdurch die reine Beziehung von A und B getrübt. Es muß also dafür gesorgt werden, N zu kompensieren. Jamin leitet zwei interferierende Lichtbündel durch gleich lange Röhren mit Wasser. Wird in der einen Röhre das Wasser unter Druck gesetzt, so wird das betreffende Lichtbündel sofort verzögert, aber mehr als der Verdichtung des Wassers allein entspricht, da die Röhre sich zugleich etwas verlängert. Letzterer Umstand wird aber bis auf eine leicht anzubringende Korrektur kompensiert, wenn man beide Röhren in eine weitere Röhre mit Wasser (ohne Druck) legt. Das Prinzip der Kompensation ist auch in technischer und praktisch-wissenschaftlicher Richtung wichtig, wo es sich um das Konstanthalten gewisser Umstände, z. B. um die Erhaltung der Länge eines zeitmessenden Pendels handelt.</p>
+  <p class="jp" lang="ja">12. 補償の原理は別の点でも重要である。事情 A が B の出現を条件づけていたとしよう。しかし A がさらに N の出現をも規定し、その N がまた B に影響を与えるならば、それによって A と B の純粋な関係は濁らされる。それゆえ N を補償するよう配慮しなければならない。ジャマンは二つの干渉する光束を、水を満たした同じ長さの管に通す。一方の管の水に圧力を加えると、その光束はただちに遅らされるが、水の圧縮だけに相当するよりも多く遅らされる。管が同時にいくらか伸びるからである。しかし両方の管を、水を満たした（圧力をかけない）より太い管のなかに入れれば、この後者の事情は、容易に加えられる補正を除いて補償される。補償の原理は、技術的および実用科学的な方面でも重要である。そこでは、たとえば時計の振り子の長さを保つことのように、ある事情を一定に保つことが問題となる。</p>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;211</span></span></aside>
+  <p class="de" lang="de">13. Die Substitution, besonders aber die Kompensation führt in ihrer Verfeinerung zu den sogenannten Nullmethoden. Wenn kleine von A abhängige Änderungen von B untersucht werden sollen, so erzielt man die höchste Empfindlichkeit, indem man B durch Kompensation unwahrnehmbar macht, so daß es erst bei Änderung von A hervortritt. Es sei A die Temperatur, B der von derselben abhängige galvanische Leitungswiderstand. Man kompensiert in einer galvanometrischen Aufstellung B bis zur gänzlichen Unterdrückung des Ausschlages durch einen gleichen Widerstand (Wheatstonesche Brücke). Sobald aber B durch Temperatursteigerung wächst, natürlich ohne Änderung des kompensierenden Widerstandes, wird diese Änderung von B durch den Ausschlag sofort angezeigt (Bolometer). Legt man an zwei Punkte derselben Niveaulinie einer durchströmten Platte die Drahtenden eines Galvanometers, so gibt dieses keinen Ausschlag. Die geringste asymmetrische Verschiebung der Niveaulinien, etwa durch magnetische Änderung des Leitungswiderstandes, bewirkt aber sofort einen Ausschlag (Hallsches Phänomen). Die Anwendung des Soleilschen Doppelquarzes bei Versuchen über Drehung der Polarisationsebene ist ebenfalls ein Beispiel der Nullmethode.</p>
+  <p class="jp" lang="ja">13. 置換、とりわけ補償は、その精密化においていわゆる零位法へと導く。A に依存する B の小さな変化を調べようとするとき、B を補償によって知覚できなくし、A が変化してはじめて現れるようにすると、最高の感度が得られる。A を温度、B をそれに依存する電気の導線抵抗としよう。検流計の配置において、B を等しい抵抗によって振れが完全に消えるまで補償する（ホイートストン・ブリッジ）。しかし温度上昇によって B が増すやいなや——補償する抵抗はもちろん変わらない——B のこの変化は振れによってただちに示される（ボロメーター）。電流の流れる板の同じ等電位線上の二点に検流計の導線の端をつけると、検流計は振れない。しかし、たとえば導線抵抗の磁気的な変化による等電位線のごくわずかな非対称なずれは、ただちに振れを引き起こす（ホール現象）。偏光面の回転についての実験におけるソレイユの二重水晶の使用も、零位法の一例である。</p>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;211</span><span>S.&nbsp;212</span></span></aside>
+  <p class="de" lang="de">14. Vorgänge, welche für unsere direkte Beobachtung zu rapid sind, müssen natürlich indirekt ermittelt werden. Man benützt hierzu die Methode der Zusammensetzung. Der unbekannte zu untersuchende Vorgang liefert die eine Komponente, welche mit einer anderen bekannten Komponente eine beobachtbare Resultante gibt. Die vertikale Fallbewegung verrät ihre Eigentümlichkeit durch die entstehende Parabel, wenn sie mit einer gleichförmigen Horizontalbewegung von bekannter Geschwindigkeit kombiniert wird, wie in dem verbreiteten Apparat von Morin, oder bei Zusammensetzung mit einer harmonischen horizontalen Schwingung wie in dem Apparat von Lippich, oder am einfachsten am horizontal ausgeworfenen Wasserstrahl. Eine mächtige Anregung zur Ausbildung dieser Methode ging von Wheatstone aus, als er den rotierenden Spiegel zur Ermittlung der Fortpflanzungsgeschwindigkeit und der Dauer der elektrischen Entladung anwendete. Die Vervollkommnung dieses Verfahrens durch Feddersen führte zur genauen Kenntnis der elektrischen <span class="pb" title="Leipzig 1906, S. 212">212</span>Oszillationen. Eine andere Ausbildung liegt in Foucaults Methode zur Bestimmung der Lichtgeschwindigkeit. Sehr zahlreich sind die akustischen Anwendungen des rotierenden Spiegels.</p>
+  <p class="jp" lang="ja">14. われわれの直接の観察には速すぎる過程は、もちろん間接に確定しなければならない。そのためには合成の方法が用いられる。未知の研究すべき過程が一方の成分を与え、それが他の既知の成分とともに観察可能な合成結果を与える。垂直な落下運動は、モランの広く用いられている装置におけるように、既知の速さの一様な水平運動と組み合わされると、生じる放物線によってその特性を明かす。またリッピヒの装置におけるように調和的な水平振動と合成されることによって、あるいは最も簡単には水平に噴き出す水の噴流において。この方法の発展への強力な刺激は、ホイートストンが電気放電の伝播速度と持続時間を確定するために回転鏡を用いたときに彼から発した。フェッダーセンによるこの手続きの完成は、電気振動の正確な知識へと導いた。もう一つの発展はフーコーの光速測定法にある。回転鏡の音響学的な応用はきわめて多い。</p>
+</article>
+<article class="row" id="p14.2">
+  <aside class="mg"><a class="pid" href="#p14.2">14.2</a><span class="pg"><span>S.&nbsp;212</span></span></aside>
+  <p class="de" lang="de">Die Wahl einer optischen Bewegung als bekannte Komponente liegt so nahe, weil durch diese der zu untersuchende Vorgang in keiner Weise beeinflußt wird. Auch Fizeaus Verfahren zur Messung der Lichtgeschwindigkeit ist ein schönes Beispiel einer genialen Anwendung dieses Mittels. Die Benützung rasch rotierender Scheiben und Zylinder zur Aufnahme von Funkenmarken behufs sonst schwieriger Zeitbestimmungen, etwa bei Projektil-, Schall- oder Entladungsversuchen, die stroboskopische Methode, das Wheatstonesche Kaleidophon, die Lissajoussche Stimmmethode, das Helmholtzsche Vibrationsmikroskop u. s. w. gehören alle hierher.</p>
+  <p class="jp" lang="ja">既知の成分として光学的な運動を選ぶのはきわめて手近である。それによって研究すべき過程は何の影響も受けないからである。フィゾーの光速測定法も、この手段の天才的な応用の美しい例である。投射体や音や放電の実験などで、ほかでは難しい時間の決定のために火花の痕跡を受け止める、すばやく回転する円板や円筒の利用、ストロボスコープ法、ホイートストンのカレイドフォン、リサジューの調律法、ヘルムホルツの振動顕微鏡などは、すべてここに属する。</p>
+</article>
+<article class="row" id="p14.3">
+  <aside class="mg"><a class="pid" href="#p14.3">14.3</a><span class="pg"><span>S.&nbsp;212</span></span></aside>
+  <p class="de" lang="de">Die Kombination der Ausströmungsgeschwindigkeit eines explosiven Gases mit dessen Explosionsgeschwindigkeit zur Bestimmung der letzteren, die Benützung der Schallgeschwindigkeit zur Messung anderer Geschwindigkeiten ist nicht mehr ungewöhnlich, und es ist nicht abzusehen, warum die Lichtgeschwindigkeit nicht in ähnlicher Weise zu noch viel feineren Zeitbestimmungen dienen sollte. Die Komposition unbekannter Prozesse mit Bewegungen empfiehlt sich aus dem bezeichneten Grunde am besten. Es ist aber nicht von vornherein auszuschließen, daß auch die Kombination zweier beliebiger Prozesse, von welchen der eine zu erforschen, der andere schon bekannt ist, wertvolle Ergebnisse liefern könnte, wenn nur der eine vom andern unabhängig oder in bekannter Weise beeinflußt ist.</p>
+  <p class="jp" lang="ja">爆発性ガスの流出速度をその爆発速度と組み合わせて後者を定めること、音速を他の速度の測定に用いることは、もはや珍しくない。そして光速がさらにはるかに精密な時間決定に同様の仕方で役立ってはならない理由は見当たらない。未知の過程を運動と合成することは、上に述べた理由から最も推奨される。しかし、一方が研究すべきもの、他方がすでに知られているものである任意の二つの過程の組み合わせも、一方が他方から独立であるか、既知の仕方で影響されているのでありさえすれば、価値ある成果をもたらしうることを、はじめから排除することはできない。</p>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;212</span><span>S.&nbsp;213</span></span></aside>
+  <p class="de" lang="de">15. Von besonderem Interesse sind solche Experimente, durch welche nicht nur die Zusammengehörigkeit zweier Werte eines Paares von Umständen A und B festgestellt, sondern die Übersicht über ein ganzes System von zusammengehörigen Werten gewonnen wird. Die Hooke-Newtonsche Glaskombination liefert schon ein solches Experiment. Wenn Newton seine Glaskombination durch das Spektrum führt und die Kontraktion der Ringe vom Rot gegen Violett beobachtet, so stellt er wieder ein solches Experiment an. Löst man die Beugungserscheinung einer engen, sehr kurzen, vertikalen Spalte nach der Spaltenrichtung, <span class="pb" title="Leipzig 1906, S. 213">213</span>also senkrecht zur Beugungsrichtung spektral auf,<a class="fr" href="#n10">10</a> so erhält man die verschiedenen monochromatischen Beugungserscheinungen zugleich untereinander gesetzt. Die Achsenbilder der chromatischen Polarisation der Kristallplatten, der von Spottiswoode und mir angegebene rotierende Polarisationsapparat, Kundts Bestäubung pyroelektrischer Kristalle mit dem Gemisch von Mennige und Schwefelblumen, Chladnis Sandfiguren auf tönenden Platten, die bekannten magnetischen Kurven sind andere Beispiele der Experimente, die Herschel<a class="fr" href="#n11">11</a> „collective instances“, Jevons<a class="fr" href="#n12">12</a> „collective experiments“ nennt.</p>
+  <p class="jp" lang="ja">15. 二つの事情 A と B の一組の値の対応が確定されるばかりでなく、対応する値の体系全体の見通しが得られるような実験は、とくに興味深い。フック＝ニュートンのガラスの組み合わせは、すでにそのような実験をもたらす。ニュートンが自分のガラスの組み合わせをスペクトルのなかを通して動かし、赤から紫にかけて環が縮むのを観察するとき、彼は再びそのような実験を行っているのである。狭く非常に短い垂直なスリットによる回折像を、スリットの方向に沿って、つまり回折の方向に垂直にスペクトル的に分解すると<a class="fr" href="#n10">10</a>、さまざまな単色の回折像が同時に上下に並べられて得られる。結晶板の色偏光の軸像、スポッティスウッドと私が示した回転偏光装置、鉛丹と硫黄華の混合物を焦電性結晶に振りかけるクントの方法、鳴っている板の上のクラドニの砂の図形、よく知られた磁力線の曲線は、ハーシェル<a class="fr" href="#n11">11</a>が「集合的事例（collective instances）」、ジェヴォンズ<a class="fr" href="#n12">12</a>が「集合的実験（collective experiments）」と呼ぶ実験の他の例である。</p>
+  <ol class="notes"><li id="n10"><span class="nn">10</span><p class="de" lang="de">Fraunhofer, Gesammelte Schriften. München 1888. S. 71.</p><p class="jp" lang="ja">フラウンホーファー『著作集』ミュンヘン、1888年、71頁。</p></li><li id="n11"><span class="nn">11</span><p class="de" lang="de">Herschel, a. a. O. S. 185.</p><p class="jp" lang="ja">ハーシェル前掲書、185頁。</p></li><li id="n12"><span class="nn">12</span><p class="de" lang="de">W. S. Jevons, The Principles of science. London 1892. S. 447.</p><p class="jp" lang="ja">W. S. ジェヴォンズ『科学の原理』ロンドン、1892年、447頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s16"><a href="#s16">§ 16</a></h2>
+<article class="row" id="p16.1">
+  <aside class="mg"><a class="pid" href="#p16.1">16.1</a><span class="pg"><span>S.&nbsp;213</span></span></aside>
+  <p class="de" lang="de">16. Bei jedem Experiment muß man die möglichen Fehler beachten, um dasselbe nicht irrtümlich auszulegen. Insbesondere ist dies aber dann nötig, wenn man nur minimale Anzeigen zu erwarten hat. Als Faraday den Einfluß eines starken Elektromagneten auf schwach magnetische und diamagnetische Substanzen untersuchte, versäumte er nicht, den bloßen Aufhängeapparat, die Papiere und Gläschen, in welche die zu untersuchenden Körper eingeschlossen wurden, für sich auf das magnetische Verhalten zu prüfen. Erst wenn die Aufhängevorrichtung nicht reagierte, schenkte er den Versuchen mit der Substanz selbst Vertrauen. Ein solcher Versuch mit Ausschaltung des eigentlichen Versuchsobjektes heißt ein blinder Versuch.</p>
+  <p class="jp" lang="ja">16. どの実験においても、それを誤って解釈しないために、ありうる誤差に注意しなければならない。とりわけそれが必要なのは、ごくわずかな指示しか期待できない場合である。ファラデーは、強力な電磁石が弱い磁性体や反磁性体に及ぼす影響を研究したとき、単なる吊り下げ装置や、研究すべき物体を包んだ紙や小さなガラス容器そのものについて、その磁気的なふるまいを調べることを怠らなかった。吊り下げ装置が反応しないときにはじめて、彼は物質そのものでの実験を信頼した。本来の実験対象を除いたこのような試みは、空試験（ブランク試験）と呼ばれる。</p>
+</article>
+<article class="row" id="p16.2">
+  <aside class="mg"><a class="pid" href="#p16.2">16.2</a><span class="pg"><span>S.&nbsp;213</span></span></aside>
+  <p class="de" lang="de">Dieselbe Vorsicht ist geboten, wenn man z. B. eine sehr kleine zu untersuchende Elektrizitätsmenge durch Duplikation vergrößern muß, um sie deutlich beobachtbar zu machen. Da muß man sich überzeugen, ob nicht die Kondensatorelektroskope noch eine rückständige Ladung von einem früheren Versuch hatten, oder ob nicht die Prozedur des Duplizierens selbst eine Ladung entwickelt. Bevor der Chemiker den Marshschen Apparat zur Prüfung einer Substanz auf Arsengehalt verwendet, überzeugt er sich, ob die Arsenanzeige nicht schon erfolgt, ohne daß die zu prüfende Substanz eingebracht worden wäre, ob also nicht die Substanzen des Apparates selbst Arsen enthalten.</p>
+  <p class="jp" lang="ja">たとえば、調べるべきごく小さな電気量をはっきり観察できるようにするために倍加によって大きくしなければならないときにも、同じ用心が必要である。そのときは、コンデンサー検電器に以前の実験からの残留電荷がないかどうか、あるいは倍加の手続きそのものが電荷を生じないかどうかを確かめなければならない。化学者は、マーシュの装置を用いて物質のヒ素含有を調べる前に、調べるべき物質を入れなくてもヒ素の指示が出ないかどうか、つまり装置の物質そのものがヒ素を含んでいないかどうかを確かめる。</p>
+</article>
+<h2 class="sec" id="s17"><a href="#s17">§ 17</a></h2>
+<article class="row" id="p17.1">
+  <aside class="mg"><a class="pid" href="#p17.1">17.1</a><span class="pg"><span>S.&nbsp;213</span><span>S.&nbsp;214</span></span></aside>
+  <p class="de" lang="de">17. Die Geschichte der Wissenschaft lehrt, daß Experimente mit negativem Ergebnis niemals als definitiv entscheidend angesehen <span class="pb" title="Leipzig 1906, S. 214">214</span>werden dürfen. Hooke vermochte den Einfluß der Entfernung von der Erde auf das Gewicht der Körper mit seinen Wagen nicht nachzuweisen, dies gelingt aber ohne Schwierigkeit mit den viel empfindlicheren Wagen der Gegenwart. J. F. W. Herschel gelang es nicht, galvanische oder magnetische Drehung der Polarisationsebene zu beobachten, wohl aber Faraday. Die Versuche J. Kerrs über die elektrische Doppelbrechung der Dielectrica wurden lange vor ihm oft mit negativem Erfolg angestellt. Bennet versuchte vergebens den Druck des Lichtes auf die bestrahlte Fläche nachzuweisen, Crookes gelang dieser Nachweis mit seinem Radiometer, A. Schuster aber zeigte, daß dieser Druck von inneren Kräften des Apparates herrührt und nicht durch heranfliegende Teilchen erklärt werden kann.</p>
+  <p class="jp" lang="ja">17. 科学の歴史が教えるように、否定的な結果をもった実験はけっして最終的な決定とみなしてはならない。フックは自分の天秤では、地球からの距離が物体の重さに及ぼす影響を証明できなかったが、それは現在のはるかに感度のよい天秤では難なく成功する。J. F. W. ハーシェルは電流や磁気による偏光面の回転を観察することに成功しなかったが、ファラデーは成功した。J. カーの誘電体の電気的複屈折についての実験は、彼よりずっと前にしばしば否定的な結果で行われていた。ベネットは照射された面に対する光の圧力を証明しようとしてむなしく試み、クルックスはその放射計によってこの証明に成功した。しかし A. シュスターは、この圧力が装置の内部の力に由来し、飛んでくる粒子によっては説明できないことを示した。</p>
+</article>
+<article class="row" id="p17.2">
+  <aside class="mg"><a class="pid" href="#p17.2">17.2</a><span class="pg"><span>S.&nbsp;214</span></span></aside>
+  <p class="de" lang="de">So bleibt also sowohl der Ausfall, als auch die Auslegung eines negativen Experimentes problematisch.</p>
+  <p class="jp" lang="ja">したがって、否定的な実験の結果もその解釈も、問題をはらんだままである。</p>
+</article>
+<h2 class="sec" id="s18"><a href="#s18">§ 18</a></h2>
+<article class="row" id="p18.1">
+  <aside class="mg"><a class="pid" href="#p18.1">18.1</a><span class="pg"><span>S.&nbsp;214</span></span></aside>
+  <p class="de" lang="de">18. Die hier dargelegten formgebenden Motive des Experimentes sind von wirklich ausgeführten Experimenten abstrahiert. Die Aufzählung derselben soll keine vollständige sein, denn diese Motive werden durch geniale Forscher immer noch vermehrt. Die Aufzählung soll aber auch keine Einteilung vorstellen, denn diese Motive schließen sich nicht allgemein aus. In einem Experiment können mehrere derselben vereinigt sein.</p>
+  <p class="jp" lang="ja">18. ここに述べた実験の形を与える動機は、実際に行われた実験から抽象されたものである。その列挙は完全なものであろうとするのではない。これらの動機は天才的な研究者によってたえず増やされていくからである。またその列挙は分類を表すものでもない。これらの動機は一般に互いに排除し合わないからである。一つの実験のうちに、それらのいくつかが結びついていることもありうる。</p>
+</article>
+<article class="row" id="p18.2">
+  <aside class="mg"><a class="pid" href="#p18.2">18.2</a><span class="pg"><span>S.&nbsp;214</span></span></aside>
+  <p class="de" lang="de">Fizeaus und Foucaults Methoden zur Bestimmung der Lichtgeschwindigkeit enthalten z. B. das Motiv der Zusammensetzung des Bekannten mit dem noch Unbekannten zu einem beobachtbaren Resultat, aber auch das Motiv der Häufung der Effekte, und auch noch die zeitliche Stabilisierung einer momentanen Erscheinung. Bei Fizeaus Bestimmungen sind von der Geschwindigkeit abhängige Maxima und Minima der Helligkeit, bei Foucaults Messungen dagegen von den Geschwindigkeiten abhängige Verschiebungsgrößen eines Bildes maßgebend.<a class="fr" href="#n13">13</a></p>
+  <p class="jp" lang="ja">たとえばフィゾーとフーコーの光速測定法は、既知のものとまだ未知のものとを観察可能な結果へと合成するという動機を含むが、また効果の累積の動機をも、さらに瞬間的な現象の時間的な安定化をも含んでいる。フィゾーの測定では速度に依存する明るさの極大と極小が、フーコーの測定では速度に依存する像のずれの大きさが決定的である<a class="fr" href="#n13">13</a>。</p>
+  <ol class="notes"><li id="n13"><span class="nn">13</span><p class="de" lang="de">Foucault, Recueil des travaux scientifiques. Paris 1878. S. 197. Foucault charakterisiert seine Methode als „l'observation d'une image fixe d'une image mobile“, womit mir übrigens das Wesentliche nicht bezeichnet zu sein scheint.</p><p class="jp" lang="ja">フーコー『科学論文集』パリ、1878年、197頁。フーコーは自分の方法を「動く像の固定した像の観察（l'observation d'une image fixe d'une image mobile）」と特徴づけているが、それによって本質的なことが示されているとは私には思われない。</p></li></ol>
+</article>
+<h2 class="sec" id="s19"><a href="#s19">§ 19</a></h2>
+<article class="row" id="p19.1">
+  <aside class="mg"><a class="pid" href="#p19.1">19.1</a><span class="pg"><span>S.&nbsp;214</span></span></aside>
+  <p class="de" lang="de">19. Betrachten wir nun noch die Ideen zur Erweiterung unserer Kenntnisse durch experimentelle Untersuchungen. Alle unsere Ideen können nur durch die bisher gewonnene Erfahrung entstanden sein und durch die künftige weiter entwickelt werden. Die Gedanken, welche der Erfahrung vorauseilen und die Erwartung, die das Experiment vorbildet, können nur Übereinstimmungen oder Unterschiede des Neuen und des Bekannten betreffen. Wie weit darf man ein experimentelles Ergebnis als gültig betrachten? Wie weit muß dasselbe bei veränderten Umständen eingeschränkt werden? Diese Fragen bezeichnen die Hauptideen des an die experimentelle Untersuchung herantretenden Forschers. Die Spezialideen sollen wieder aus historisch wichtigen Fällen abstrahiert werden.</p>
+  <p class="jp" lang="ja">19. さて、実験的研究によってわれわれの知識を拡張するための考えを、さらに考察しよう。われわれの考えはすべて、これまでに得られた経験によってのみ生じえたものであり、将来の経験によってさらに発展させられうるものである。経験に先回りする思考と、実験を前もって形づくる期待とは、新しいものと既知のものとの一致点あるいは相違点にのみ関わりうる。実験の結果をどこまで妥当なものとみなしてよいか。事情が変わったとき、それをどこまで制限しなければならないか。これらの問いが、実験的研究に向かう研究者の主要な考えを示している。特殊な考えを、ここでも歴史的に重要な場合から抽象することにしよう。</p>
+</article>
+<h2 class="sec" id="s20"><a href="#s20">§ 20</a></h2>
+<article class="row" id="p20.1">
+  <aside class="mg"><a class="pid" href="#p20.1">20.1</a><span class="pg"><span>S.&nbsp;215</span></span></aside>
+  <p class="de" lang="de">20. Man kennt ein experimentelles Ergebnis und versucht nun rein kollektiv dasselbe möglichst weit auszudehnen. Es gibt magnetische Eisenerze. Sind noch andere Körper magnetisch? Ist der Doppelspat der einzige doppelt brechende Körper? Welche Körper können durch Reibung elektrisch werden? Welche sind Leiter, welche Isolatoren? Wie weit reicht die Verbreitung der Phosphoreszenz?<a class="fr" href="#n14">14</a> Hierher gehört auch die Aufsuchung aller Fälle, in welchen eine durch Einzelbeobachtung entdeckte Erscheinung auftritt. Oerstedt sucht alle möglichen Lagen der Magnetnadel gegen den Stromleiter und deren Verhalten zu bestimmen, nachdem er einen Fall der Ablenkung beobachtet hat, und gelangt so zur vollständigen Kenntnis des magnetischen Feldes des Stromleiters.</p>
+  <p class="jp" lang="ja">20. ある実験結果を知っており、それを純粋に集合的にできるかぎり広げようと試みる。磁性をもつ鉄鉱石がある。ほかにも磁性をもつ物体があるか。方解石は唯一の複屈折する物体か。どの物体が摩擦によって帯電しうるか。どれが導体で、どれが絶縁体か。燐光はどこまで広く見られるか<a class="fr" href="#n14">14</a>。個別の観察によって発見された現象が現れるすべての場合を探し出すこともここに属する。エルステッドは、偏向の一例を観察したのち、導線に対する磁針のありとあらゆる位置とそのふるまいを定めようとし、こうして導線の磁場の完全な知識に到達する。</p>
+  <ol class="notes"><li id="n14"><span class="nn">14</span><p class="de" lang="de">J. P. Heinrich, Die Phosphoreszenz der Körper. Nürnberg 1820. A. E. Becquerel, Sur la phosphorescence par insolation. Ann. chim. phys. T. 22. 1848.</p><p class="jp" lang="ja">J. P. ハインリヒ『物体の燐光』ニュルンベルク、1820年。A. E. ベクレル「日光照射による燐光について」『化学物理学年報』第22巻、1848年。</p></li></ol>
+</article>
+<h2 class="sec" id="s21"><a href="#s21">§ 21</a></h2>
+<article class="row" id="p21.1">
+  <aside class="mg"><a class="pid" href="#p21.1">21.1</a><span class="pg"><span>S.&nbsp;215</span><span>S.&nbsp;216</span></span></aside>
+  <p class="de" lang="de">21. Die Ausdehnung einer Untersuchung von einem bekannten Fall auf analoge Fälle wird besonders einladend sein. Die Analogien zwischen Wärme, Elektrizität, mechanischen und Diffusionsvorgängen u. s. w. haben zahlreiche Experimente veranlaßt. Es sei nur die Ficksche Untersuchung über den Diffusionsstrom erwähnt. Magnete stehen in Wechselwirkung; ein Strom mit einem Magnet auch. Der Strom wirkt auf den Magnet ähnlich wie ein Magnet. Sollten sich Ströme gegen Ströme magnetähnlich verhalten? Arago hat darauf hingewiesen, daß man bei Übertragungen nach Analogie auch auf das Auftreten von Unterschieden gefaßt sein muß. Magnete und weiches Eisen ziehen sich gegenseitig an; weiches Eisen verhält sich in diesem Falle <span class="pb" title="Leipzig 1906, S. 216">216</span>magnetähnlich; dennoch verhalten sich weiche Eisenstücke gegeneinander indifferent. Allerdings verhält sich der Strom und weiches Eisen dem Magnet gegenüber nicht ganz übereinstimmend; ersterer zeigt in diesem Falle Polarität, letzteres aber nicht.</p>
+  <p class="jp" lang="ja">21. 研究を既知の場合から類似の場合へと広げることは、とりわけ誘いかけるものであろう。熱、電気、力学的過程、拡散過程などのあいだの類似は、数多くの実験を引き起こした。フィックの拡散流についての研究だけを挙げておこう。磁石どうしは相互作用する。電流と磁石も相互作用する。電流は磁石に対して磁石と似たようにはたらく。電流どうしは磁石のようにふるまうのではないか。アラゴは、類推による転用に際しては相違が現れることにも備えていなければならないと指摘した。磁石と軟鉄は互いに引き合う。この場合、軟鉄は磁石のようにふるまう。それでも軟鉄の小片どうしは互いに無関心にふるまう。もっとも、電流と軟鉄とは磁石に対してまったく一致したふるまいをするわけではない。この場合、前者は極性を示すが、後者は示さない。</p>
+</article>
+<h2 class="sec" id="s22"><a href="#s22">§ 22</a></h2>
+<article class="row" id="p22.1">
+  <aside class="mg"><a class="pid" href="#p22.1">22.1</a><span class="pg"><span>S.&nbsp;216</span></span></aside>
+  <p class="de" lang="de">22. Wo Erscheinungen in verschiedenem Grade auftreten, wird man auch an die Möglichkeit eines Gegensatzes denken dürfen. Verschieden starke Magnetismen legen den Gedanken eines entgegengesetzten Verhaltens, des diamagnetischen, nahe. Kennt man die eine Art der Doppelbrechung, etwa die als negativ bezeichnete, so sucht man nach dem Gegensatz, nach der positiven. Nicht alles, was man durch diesen Ideengang hätte finden können, ist auf diesem Wege wirklich gefunden worden, sondern wurde oft durch Zufall entdeckt, wie z. B. zu der bereits bekannten einen Art der Elektrizität die andere durch Dufay. Nicht jeder Gegensatz, der zuerst als solcher erscheint, muß es wirklich sein. So faßt man Magnetismus und Diamagnetismus heute nicht als Gegensatz, sondern besser als Gradunterschiede gegen ein allgemein verbreitetes Medium auf, so wie man in der Luft aufsteigenden Körpern nicht mehr absolute Leichtigkeit, negative Schwere, sondern nur geringeres Gewicht als dem gleichen Volum Luft zuschreibt. Ähnliches kann man über den Gegensatz von Wärme und Kälte, von positiver und negativer Elektrizität u. s. w. sagen. Solche Wandlungen gehören übrigens in das Gebiet der Theorie.</p>
+  <p class="jp" lang="ja">22. 現象がさまざまな程度で現れるところでは、対立の可能性を考えてもよいであろう。さまざまな強さの磁性は、反対のふるまい、すなわち反磁性の考えを示唆する。複屈折の一つの種類、たとえば負と呼ばれるものを知っていれば、その対立、すなわち正のものを探す。この考えの道筋によって見いだすことができたであろうものすべてが、実際にこの道で見いだされたわけではなく、しばしば偶然に発見された。たとえば、すでに知られていた一方の種類の電気に対して、もう一方の種類がデュフェによって発見されたように。最初に対立として現れるものすべてが本当に対立である必要はない。こうして今日では、磁性と反磁性を対立としてではなく、むしろ一般に広がった媒質に対する程度の違いとして解する。ちょうど空気中を上昇する物体に、もはや絶対的な軽さ、負の重さではなく、同じ体積の空気より小さい重さだけを認めるように。熱と冷たさ、正と負の電気などの対立についても同様のことが言える。ちなみにこのような変化は理論の領域に属する。</p>
+</article>
+<h2 class="sec" id="s23"><a href="#s23">§ 23</a></h2>
+<article class="row" id="p23.1">
+  <aside class="mg"><a class="pid" href="#p23.1">23.1</a><span class="pg"><span>S.&nbsp;216</span><span>S.&nbsp;217</span></span></aside>
+  <p class="de" lang="de">23. Der Kontinuität der Variation der Umstände entspricht eine Kontinuität der Erwartung in Bezug auf die experimentellen Ergebnisse. Ungleicher Druck in verschiedener Richtung erzeugt an starren Körpern Doppelbrechung. Nun ist der Übergang von der Starrheit zur Flüssigkeit in Bezug auf die Rigidität und Viskosität ein ganz allmählicher. Man darf also erwarten, daß auch plastische Körper und zähe Flüssigkeiten durch passenden Druck oder Zug Doppelbrechung erlangen werden, wie es wirklich beobachtet worden ist. Ja, da keine Flüssigkeit ganz ohne Rigidität oder Viskosität sein wird, so wird es nur auf die Größe der Kräfte und die Geschwindigkeit der Deformationen ankommen, ob die Doppelbrechung bemerklich wird. Auch zwischen Gasen und Dämpfen finden wir eine kontinuierliche Variation der Eigenschaften, weshalb der Gedanke, alle Gase bei entsprechender <span class="pb" title="Leipzig 1906, S. 217">217</span>Temperatur durch Druck zu verflüssigen, sich ganz natürlich ergab. Es gibt starre und flüssige Körper, welche die Polarisationsebene drehen; man kann vermuten, daß dies auch bei Dämpfen und Gasen vorkommen wird. Die magnetische Drehung ist für jeden Aggregatzustand nachgewiesen, zuletzt für Gase 1879 von Kundt und gleichzeitig unabhängig von Lippich. Gibt es noch einen vierten Aggregatzustand? (Crookes.)</p>
+  <p class="jp" lang="ja">23. 事情の変化の連続性には、実験結果に関する期待の連続性が対応する。異なる方向の不均等な圧力は、剛体に複屈折を生じさせる。ところで剛体から液体への移行は、剛性と粘性に関してまったく漸次的である。それゆえ、可塑的な物体や粘性の液体も、適当な圧力や引きによって複屈折を得るであろうと期待してよい。実際それは観察されている。それどころか、剛性や粘性をまったくもたない液体はないであろうから、複屈折が目立つかどうかは、ただ力の大きさと変形の速さにかかっているであろう。気体と蒸気とのあいだにも性質の連続的な変化が見られる。それゆえ、すべての気体を適当な温度で圧力によって液化するという考えは、まったく自然に生じた。偏光面を回転させる固体と液体がある。蒸気や気体でもそれが起こるであろうと推測できる。磁気的回転はどの集合状態についても証明されており、最後に気体について1879年にクントによって、また同時に独立にリッピヒによって証明された。第四の集合状態はなおあるのか（クルックス）。</p>
+</article>
+<h2 class="sec" id="s24"><a href="#s24">§ 24</a></h2>
+<article class="row" id="p24.1">
+  <aside class="mg"><a class="pid" href="#p24.1">24.1</a><span class="pg"><span>S.&nbsp;217</span></span></aside>
+  <p class="de" lang="de">24. Die Variation einer Erscheinung bei Variation der Umstände erregt den Wunsch, die erstere auch bei den extremen Werten der letzteren kennen zu lernen. So untersucht man das Verhalten der Körper bei den höchsten und tiefsten erreichbaren Temperaturen in Bezug auf Härte, Elastizität, galvanischen Leitungswiderstand u. s. w. Man setzt die schmelzenden, frierenden, verdampfenden Körper unter den höchsten erreichbaren Druck. Man untersucht die Eigenschaften des vollkommensten Vakuums, trachtet die größten elektrischen Spannungen, den stärksten Strom zu erzielen. Man unterwirft die längsten und die kürzesten Lichtwellen der Untersuchung. Bei Versuchen dieser Art kann man immer auf Ergiebigkeit rechnen.</p>
+  <p class="jp" lang="ja">24. 事情の変化にともなう現象の変化は、事情の極端な値における現象をも知りたいという願いを呼び起こす。こうして、到達しうる最高と最低の温度における物体のふるまいが、硬さ、弾性、電気抵抗などについて研究される。融解し、凍結し、蒸発する物体を、到達しうる最高の圧力のもとに置く。最も完全な真空の性質を研究し、最大の電圧、最強の電流を得ようと努める。最も長い光の波と最も短い光の波を研究にかける。この種の実験では、つねに実り豊かであることを当てにできる。</p>
+</article>
+<h2 class="sec" id="s25"><a href="#s25">§ 25</a></h2>
+<article class="row" id="p25.1">
+  <aside class="mg"><a class="pid" href="#p25.1">25.1</a><span class="pg"><span>S.&nbsp;217</span></span></aside>
+  <p class="de" lang="de">25. So wie wir einerseits durch Aufsuchung möglichst weit reichender Übereinstimmungen unsere Erfahrung bereichern, geschieht dies auch durch die den jedesmaligen Umständen entsprechende Restriktion, Spezialisierung, Individualisierung. Kennen wir auch die Brechung als eine allgemeine bei jedem Übergang aus einem Medium ins andere auftretende Erscheinung, so bleibt uns noch der für jedes Medienpaar charakteristische Brechungsexponent, oder die jedem Medium entsprechende Fortpflanzungsgeschwindigkeit zu bestimmen. In solchen Restriktionen können ebenso große Entdeckungen liegen, wie in Verallgemeinerungen. Man denke an die Newtonsche Entdeckung der Dispersion durch Zuweisung besonderer Brechungsexponenten an die besonderen Farben, an die Klassifikation der Farben nach Periodenlängen. Alle quantitativen Bestimmungen der für Stoffindividuen charakteristischen Konstanten, wie Dichten, spezifische Wärmen, Ausdehnungs- und Spannungskoeffizienten, Leitungswiderstände, Dielektrizitätskonstanten und Magnetisierungszahlen u. s. w. gehören hierher.</p>
+  <p class="jp" lang="ja">25. 一方では、できるかぎり広く及ぶ一致点を探すことによって経験を豊かにするように、他方では、そのときどきの事情に応じた制限、特殊化、個別化によっても経験は豊かになる。屈折を、ある媒質から他の媒質への移行のたびに現れる一般的な現象として知っているとしても、それぞれの媒質の組に特徴的な屈折率、あるいはそれぞれの媒質に対応する伝播速度を定めることがなお残っている。このような制限のうちにも、一般化のうちにあるのと同じくらい大きな発見がありうる。特別な色に特別な屈折率を割り当てることによる分散のニュートンの発見、周期の長さによる色の分類を考えてみよ。密度、比熱、膨張係数と張力係数、導線抵抗、誘電率、磁化率など、物質の個体に特徴的な定数のすべての量的決定はここに属する。</p>
+</article>
+<h2 class="sec" id="s26"><a href="#s26">§ 26</a></h2>
+<article class="row" id="p26.1">
+  <aside class="mg"><a class="pid" href="#p26.1">26.1</a><span class="pg"><span>S.&nbsp;217</span><span>S.&nbsp;218</span></span></aside>
+  <p class="de" lang="de">26. Ein fruchtbares Leitmotiv ist das der vereinigten Wirkung <span class="pb" title="Leipzig 1906, S. 218">218</span>und Gegenwirkung. Schärfer als durch einen Namen läßt es sich so formulieren. Wenn der Umstand A das Eintreten des Umstandes + B bedingt, so bedingt der Umstand + B das Eintreten von — A, des Gegenteils von A. Beispiel hierfür ist in der Mechanik Druck und Gegendruck. Erwärmtes Gas dehnt sich aus, unter Druck sich ausdehnendes Gas kühlt sich ab. Der Strom treibt den Magnetpol, der Magnetpol den Strom in entgegengesetztem Sinne. Der Widerstand wird durch den Strom erwärmt, Erwärmung des Widerstandes schwächt den Strom. Der dauernde Strom macht das Eisen zum Magnet, der angenäherte Magnet, oder der Magnet von wachsender Intensität, erzeugt einen Strom von der Dauer der Änderung, welcher jenen Magnet zu entfernen, bezw. zu schwächen strebt.</p>
+  <p class="jp" lang="ja">26. 実り豊かな指導動機は、結びついた作用と反作用の動機である。名前によるよりも鋭く、それは次のように定式化できる。事情 A が事情 ＋B の出現を条件づけるならば、事情 ＋B は A の反対である －A の出現を条件づける。その例が力学における圧力と反圧力である。熱せられた気体は膨張し、圧力に抗して膨張する気体は冷える。電流は磁極を動かし、磁極は電流を反対の向きに動かす。抵抗は電流によって熱せられ、抵抗が熱せられると電流は弱まる。持続する電流は鉄を磁石にし、近づけられた磁石、あるいは強さの増していく磁石は、変化の続くあいだ電流を生じ、その電流はその磁石を遠ざけ、あるいは弱めようとする。</p>
+</article>
+<article class="row" id="p26.2">
+  <aside class="mg"><a class="pid" href="#p26.2">26.2</a><span class="pg"><span>S.&nbsp;218</span></span></aside>
+  <p class="de" lang="de">Wenn der Seebecksche Thermostrom durch die erwärmte Berührungsstelle von M zu N fließt, so wird nach Peltier<a class="fr" href="#n15">15</a> der von M zu N fließende Strom die passierte Berührungsstelle abkühlen. Bei weitem wieder nicht alle Phänomene, zu welchen dieses Motiv hätte leiten können, sind auf diesem Wege gefunden worden. Faraday sucht als Gegenerscheinung zur Erregung des Elektromagneten durch den Strom eine Stromerregung durch Einlegen eines Magnetkerns in die Drahtspule. Er fand aber nur beim Einführen oder Entfernen des magnetischen Kerns den momentanen „induzierten“ Strom. Auch Peltier suchte nicht die Gegenerscheinung zur Seebeckschen Erscheinung. Er denkt an einen Einfluß der Wärmeleitungsfähigkeit der Metalle bei der Seebeckschen Erscheinung.</p>
+  <p class="jp" lang="ja">ゼーベックの熱電流が熱せられた接触点を通って M から N へと流れるならば、ペルティエ<a class="fr" href="#n15">15</a>によれば、M から N へと流れる電流は、それが通過する接触点を冷やす。しかしここでもまた、この動機が導きえたであろう現象のすべてが、この道で見いだされたわけではまったくない。ファラデーは、電流による電磁石の励起に対する反対の現象として、線輪に磁性の芯を入れることによる電流の励起を探した。しかし彼が見いだしたのは、磁性の芯を入れたり取り出したりするときの瞬間的な「誘導」電流だけであった。ペルティエもまた、ゼーベックの現象に対する反対の現象を探したのではなかった。彼はゼーベックの現象における金属の熱伝導率の影響を考えていた。</p>
+  <ol class="notes"><li id="n15"><span class="nn">15</span><p class="de" lang="de">L'Institut 1834. 21. April und 11. August.</p><p class="jp" lang="ja">『ランスティテュ』1834年4月21日および8月11日。</p></li></ol>
+</article>
+<article class="row" id="p26.3">
+  <aside class="mg"><a class="pid" href="#p26.3">26.3</a><span class="pg"><span>S.&nbsp;218</span></span></aside>
+  <p class="de" lang="de">Indem er die Metalle der Thermosäule durch den Strom erwärmt, findet er eine Ungleichheit der Erwärmung der Lötstellen je nach dem Stromsinne. Durch Einschließen eines dicken<a class="fr" href="#n16">16</a> Wismut- und eines ebensolchen Antimonstabes in das Gefäß eines Luftthermometers ergibt sich Erwärmung durch den positiven Strom vom Antimon zum Wismut, aber eine unerwartete Abkühlung durch den entgegengesetzten Stromsinn. Wenn wir zu einer Erscheinung die Gegenerscheinung suchen, so kann uns das oben bezeichnete Motiv wohl einen Fingerzeig geben, allein es vermag uns nicht allein zu leiten. Ein dauernder Strom kann wohl einen Magnet erzeugen, allein ein ruhender Magnet kann keinen Strom hervorbringen, der ja Arbeit ohne Energieverbrauch repräsentieren würde. Energieprinzip und Induktionsgesetz zusammen liefern erst ein vollständig geschlossenes System von Erscheinungen und Gegenerscheinungen. Das obige Motiv bedarf also einer Ergänzung durch Spezialerfahrungen. Dies liegt daran, daß wir in den untersuchten Phänomenen selten einfache, reine und unmittelbare Zusammenhänge vor uns haben. Von zwei in unmittelbarer Wechselbeziehung stehenden Körpern kann der eine nur auf Kosten des anderen Bewegungsquantität, Wärmemenge, Elektrizitätsmenge u. s. w. erhalten. Wären alle Verhältnisse so einfach, so könnte das bezeichnete Motiv sehr sicher leiten. Bei vermittelten Wechselbeziehungen ist die Sache nicht so einfach, und die direkte Umkehrung ist unzulässig.<a class="fr" href="#n17">17</a></p>
+  <p class="jp" lang="ja">彼は熱電堆の金属を電流によって熱することによって、電流の向きに応じて接合部の熱せられ方が等しくないことを見いだす。太い<a class="fr" href="#n16">16</a>ビスマスの棒と同じくアンチモンの棒とを空気温度計の容器に閉じこめると、アンチモンからビスマスへの正の電流によって加熱が生じるが、逆向きの電流によっては予期しなかった冷却が生じる。ある現象に対して反対の現象を探すとき、上に示した動機は手がかりを与えてくれるかもしれないが、それだけでわれわれを導くことはできない。持続する電流はたしかに磁石を生み出しうるが、静止した磁石は電流を生み出すことはできない。それはエネルギーの消費なしに仕事をなすことになってしまうからである。エネルギー原理と誘導の法則とが一緒になってはじめて、現象と反対の現象とのまったく閉じた体系を与える。したがって上の動機は特殊な経験による補完を必要とする。それは、われわれが研究する現象のうちに、単純で純粋で直接的な連関を目にすることがまれであることによる。直接の相互関係にある二つの物体のうち、一方は他方の犠牲においてのみ運動量、熱量、電気量などを得ることができる。すべての関係がこのように単純であれば、上に示した動機はきわめて確実に導きうるであろう。媒介された相互関係においては事情はそれほど単純ではなく、直接の逆転は許されない<a class="fr" href="#n17">17</a>。</p>
+  <ol class="notes"><li id="n16"><span class="nn">16</span><p class="de" lang="de">Weil dadurch die Peltiersche Temperaturänderung der Lötstellen gegen die Joulesche-Erwärmung deutlich hervortritt.</p><p class="jp" lang="ja">そうすることによって、接合部のペルティエ温度変化がジュール熱に対してはっきり現れるからである。</p></li><li id="n17"><span class="nn">17</span><p class="de" lang="de">Vgl. Analyse der Empfindungen S. 69-76.</p><p class="jp" lang="ja">『感覚の分析』69–76頁参照。</p></li></ol>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§7–9</td><td lang="de">§8・§9 が §7 の段落に連結; S. 208 の脚注（Herschel, A preliminary discourse …）が本文に混入</td><td lang="de">§8・§9 を独立させ、注7 として分離</td></tr>
+  <tr><td>§15.1, 注9</td><td lang="de">„… Beugungserscheinung also senkrecht …“; 本文の一句 „einer engen, sehr kurzen, vertikalen Spalte nach der Spaltenrichtung,“ が Joule の注に混入</td><td lang="de">本文に戻す</td></tr>
+  <tr><td>§17–19</td><td lang="de">§18・§19 が §17 の段落に連結; S. 215 の脚注（Foucault, Recueil …）が本文に混入</td><td lang="de">§18・§19 を独立させ、注13 として分離</td></tr>
+  <tr><td>§26.2–26.3</td><td lang="de">S. 219 の脚注2件（L'Institut 1834 / Weil dadurch …）が本文に混入</td><td lang="de">注15・注16 として分離</td></tr>
+  <tr><td>§4.3</td><td lang="de">Einfallswinkelelemente a; sin a/sin β; Übersichtlichtkeit</td><td lang="de">α; sin α/sin β; Übersichtlichkeit</td></tr>
+  <tr><td>§11.1</td><td lang="de">Man fügt das bestimmbare Element B hinzu, wodurch B wieder verschwindet</td><td lang="de">… Element B′ hinzu …（文意による）</td></tr>
+  <tr><td>§13.1; §17.1</td><td lang="de">Auschlages; Doppelberechnung</td><td lang="de">Ausschlages; Doppelbrechung</td></tr>
+  <tr><td>注参照</td><td lang="de">anderwärts（注番号ずれ）, trennen.³), Herschel¹), Herschel²), Peltier¹), dicken²)</td><td lang="de">それぞれ注2・3・7・11・15・16</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_11.html">← 第ⅩⅠ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
