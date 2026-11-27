@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第Ⅴ章 自然的および文化的環境における個体性の発達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第Ⅴ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a><a href="#s16">§16</a><a href="#s17">§17</a><a href="#s18">§18</a><a href="#s19">§19</a><a href="#s20">§20</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL V · 第Ⅴ章</div>
+  <h1>自然的および文化的環境における個体性の発達</h1>
+  <div class="de-title" lang="de">Die Entwicklung der Individualität in der natürlichen und kulturellen Umgebung</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 70–87　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;70</span></span></aside>
+  <p class="de" lang="de">1. Vom Elternleibe losgetrennt beginnt der tierische Organismus ein selbständiges Leben. Als Erbe nimmt er nur eine Anzahl von Reflexreaktionen mit, die ihm über die erste Not hinweghelfen sollen. Indem er diesen Besitz seiner besonderen Umgebung anpaßt, entsprechend modifiziert und vermehrt, Erfahrungen erwirbt, wird er zur leiblichen und psychischen Individualität. Das menschliche Kind verhält sich hier gerade so, wie das mit der Eierschale davonlaufende und pickende Rebhuhn, und der an der Nabelschnur die Schale noch nach sich ziehende eben ausgeschlüpfte Alligator,<a class="fr" href="#n1">1</a> der aber schon mit offenem Rachen fauchend und schnappend auf jeden angenäherten Körper losfährt. Nur weniger reif, weniger reich ausgestattet, trennt sich das menschliche Kind äußerlich von der Mutter, deren leiblicher und psychischer Besitz noch lange ergänzen muß, was dem Kinde zur Selbständigkeit fehlt.</p>
+  <p class="jp" lang="ja">1. 親の体から切り離されると、動物の有機体は自立した生活を始める。遺産としてそれがたずさえていくのは、最初の窮地を切り抜けさせてくれるはずのいくつかの反射反応だけである。この所有物を自らの特別な環境に適応させ、それに応じて修正し増やし、経験を獲得することによって、それは身体的かつ心的な個体性となる。人間の子どももここではまさに、卵殻をつけたまま走り回りついばむヤマウズラや、臍の緒でまだ殻を引きずっている孵ったばかりのワニ<a class="fr" href="#n1">1</a>——それでももう口を開けてシューシューと威嚇し、近づけられるどんな物体にも噛みつこうと飛びかかる——と同じようにふるまう。ただ人間の子どもは、より未熟で、より乏しいそなえのまま、外見上母親から離れるのであり、子どもが自立するのに欠けているものを、母親の身体的・心的な所有物がなお長いあいだ補わなければならない。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Morgan, Comparative Psychology. London 1894. p. 209.</p><p class="jp" lang="ja">モーガン『比較心理学』ロンドン、1894年、209頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;70</span><span>S.&nbsp;71</span></span></aside>
+  <p class="de" lang="de">2. Individuelle Erfahrungen sammeln die Tiere in derselben Weise wie der Mensch. Die Biologie und die Kulturgeschichte sind gleichwertige, sich gegenseitig ergänzende Quellen der Psychologie und Erkenntnislehre. Mag es auch recht schwierig sein, sich in das psychische Leben der Insekten z. B. hineinzudenken, deren Lebensbedingungen, deren Sinne uns so wenig bekannt sind, mag es auch verlockend scheinen, dieselben als bloße Maschinen zu studieren, von Schlüssen auf das psychische Leben ganz abzusehen, den wertvollen Leitfaden der Analogie zur eigenen Psyche sollte man desto weniger unbenützt lassen, je unzureichender <span class="pb" title="Leipzig 1906, S. 71">71</span>gerade hier die übrigen Mittel der Forschung sind. Wir sind ja gelegentlich sehr geneigt, die Kluft zwischen dem Menschen und seinen tierischen Genossen zu überschätzen.</p>
+  <p class="jp" lang="ja">2. 動物も人間と同じ仕方で個体的な経験を集める。生物学と文化史とは、心理学と認識論にとって同等の価値をもち、互いに補い合う源泉である。たとえば昆虫の心的生活は、その生活条件もその感官もわれわれにはほとんど知られていないので、それに身を置いて考えるのはかなり難しいかもしれない。また、昆虫を単なる機械として研究し、心的生活についての推論をまったく差し控えることが魅力的に見えるかもしれない。しかし、ほかの研究手段がまさにここで不十分であればあるほど、自分自身の心との類推という貴重な導きの糸を使わずにおくべきではない。われわれはときに、人間とその動物の仲間とのあいだの隔たりを過大評価しがちである。</p>
+</article>
+<article class="row" id="p2.2">
+  <aside class="mg"><a class="pid" href="#p2.2">2.2</a><span class="pg"><span>S.&nbsp;71</span></span></aside>
+  <p class="de" lang="de">Wir vergessen zu leicht, wie viel in unserem eigenen psychischen Leben mechanisch verläuft. Halten wir das Benehmen der Insekten, Fische und Vögel der Flamme und dem Glase gegenüber für auffallend dumm, so bedenken wir nicht, wie wir selbst uns gegen solche Objekte verhalten würden, wenn dieselben unserer Erfahrung gänzlich fremd wären und nun plötzlich auftreten würden. Dieselben müßten uns geradezu als Zauberei erscheinen, und wir würden wohl mehr als einmal gegen dieselben anrennen. Gehen wir von dem Studium der dem Menschen nächststehenden Tiere aus, zu den fernerstehenden allmählich fortschreitend, so muß dies zu einer soliden vergleichenden Psychologie führen. Erst eine solche wird die Erscheinungen des höchsten und des niedersten psychischen Lebens durchleuchten, die wahren Übereinstimmungen und Unterschiede beider klarlegen.</p>
+  <p class="jp" lang="ja">自分自身の心的生活のなかでどれほど多くのことが機械的に進行しているかを、われわれはあまりにたやすく忘れる。炎やガラスに対する昆虫や魚や鳥のふるまいをひどく愚かだと思うとき、もしそうした対象がわれわれの経験にまったく未知のもので、それが突然現れたとしたら、われわれ自身がそれに対してどうふるまうかを考えていない。それはわれわれにはまさしく魔法のように見えるにちがいなく、われわれもおそらく一度ならずそれにぶつかっていくであろう。人間に最も近い動物の研究から出発し、しだいにより遠い動物へと進んでいけば、それは堅固な比較心理学へと導くにちがいない。そのような比較心理学がはじめて、最高の心的生活と最低の心的生活の現象を照らし出し、両者の真の一致点と相違点とを明らかにするであろう。</p>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;71</span></span></aside>
+  <p class="de" lang="de">3. Einige Beispiele mögen das Verhältnis der tierischen zur menschlichen Psyche beleuchten. L. Morgan<a class="fr" href="#n2">2</a> ließ einen jungen Hund einen Stock herbeibringen. Derselbe brannte sich beim Aufnehmen des Stockes an Nesseln und wollte denselben Stock nicht mehr anfassen, auch wenn dieser im freien Felde lag. Andere Stöcke faßte er ohne Widerstand an, und so auch den verhängnisvollen Stock nach einigen Stunden, nachdem mit dem Schmerz auch die lebhafte Vorstellung desselben geschwunden war. - Ein anderer Hund faßte einen Stock mit schwerem Knopf in der Mitte, was ihm große Unbequemlichkeiten verursachte. Durch viele Versuche lernte er aber den Stock nahe am Knopf - in der Nähe des Schwerpunktes - fassen.</p>
+  <p class="jp" lang="ja">3. いくつかの例によって、動物の心と人間の心との関係を照らしてみよう。L. モーガン<a class="fr" href="#n2">2</a>は若い犬に棒を取ってこさせた。犬は棒をくわえるときイラクサでやけどし、その同じ棒は、開けた野原に置かれていても、もうくわえようとしなかった。ほかの棒はためらわずにくわえ、あの災いの棒も、数時間後に痛みとともにその生き生きとした表象も消え去ってからはくわえた。——別の犬は、真ん中に重い握りのついた棒をくわえ、それがたいへん不便であった。しかし何度も試みるうちに、その犬は握りの近く——重心の近く——で棒をくわえることを学んだ。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">Morgan, l. c. p. 91, 254, 288, 301, 302.</p><p class="jp" lang="ja">モーガン前掲書、91、254、288、301、302頁。</p></li></ol>
+</article>
+<article class="row" id="p3.2">
+  <aside class="mg"><a class="pid" href="#p3.2">3.2</a><span class="pg"><span>S.&nbsp;71</span><span>S.&nbsp;72</span></span></aside>
+  <p class="de" lang="de">Zwei junge Hunde trugen Stöcke quer im Maul, deren Enden an die Pfeiler eines engen Durchgangs für Fußgänger anstießen. Die Hunde ließen die Stöcke fallen und liefen hindurch. Zurückgesandt, faßte der eine den Stock an einem Ende und zog ihn ohne Schwierigkeit hindurch, während der andere fortfuhr, in der Mitte anzufassen, anzustoßen und fallen zu lassen. Bei der Rückkehr an denselben Ort, nach einer Stunde, hatte auch der scheinbar klügere vergessen, den <span class="pb" title="Leipzig 1906, S. 72">72</span>Vorteil zu nützen, den ihm offenbar der Zufall dargeboten hatte. - Ein Hund lernt leicht ein Gittertor öffnen, indem er den Kopf unter den Riegel schiebt und diesen hebt.</p>
+  <p class="jp" lang="ja">二匹の若い犬が棒を口に横にくわえて運んでいたが、棒の両端が歩行者用の狭い通路の柱にぶつかった。犬たちは棒を落として通り抜けた。送り返されると、一匹は棒の一端をくわえて難なく引き通したが、もう一匹は相変わらず真ん中をくわえてはぶつかり、落としつづけた。一時間後に同じ場所に戻ってきたときには、見かけ上賢かったほうも、明らかに偶然が提供してくれた利点を利用することを忘れていた。——犬は、頭をかんぬきの下に入れて持ち上げることで、格子戸を開けることを容易に学ぶ。</p>
+</article>
+<article class="row" id="p3.3">
+  <aside class="mg"><a class="pid" href="#p3.3">3.3</a><span class="pg"><span>S.&nbsp;72</span></span></aside>
+  <p class="de" lang="de">Beobachtet man genau, so zeigt sich, daß dieses Verfahren, durch spielende oder ungestüme Versuche, hinaus zu gelangen, zufällig gefunden wurde und keineswegs in der klaren Einsicht der Bedingungen des Öffnens. - Ein Hund verfolgte mehrmals ein aufgescheuchtes Kaninchen auf einem krummen Pfad durch das Gebüsch, wobei ihm dasselbe schließlich in seinen Bau entwischte. Endlich aber schlug der Hund, nachdem er das Tier aufgejagt, den geraden Weg zum Bau ein, woselbst er das ankommende Tier erwartete und erfaßte. - Pferde und Hunde, welche eine Last einen steilen Hügel hinanzuschleppen haben, ziehen den Zickzackweg von geringerer Steigung dem geraden Weg vor.</p>
+  <p class="jp" lang="ja">注意深く観察すると、このやり方は、外に出ようとする遊び半分の、あるいは激しい試みのなかで偶然見いだされたのであって、開け方の条件を明瞭に洞察したものではけっしてないことが分かる。——ある犬は、追い出されたウサギを何度も茂みのなかの曲がりくねった小道で追いかけたが、ウサギは最後には巣穴に逃げこんでしまった。しかしついにこの犬は、ウサギを狩り出すと巣穴へとまっすぐな道をとり、そこでやって来るウサギを待ち受けて捕らえた。——急な丘に荷を引き上げなければならない馬や犬は、まっすぐな道よりも勾配のゆるいジグザグの道を選ぶ。</p>
+</article>
+<article class="row" id="p3.4">
+  <aside class="mg"><a class="pid" href="#p3.4">3.4</a><span class="pg"><span>S.&nbsp;72</span><span>S.&nbsp;73</span></span></aside>
+  <p class="de" lang="de">Aus diesen Beispielen scheinen sich folgende Regeln ableiten zu lassen: 1. Die Tiere wissen Associationen, welche der Zufall herbeiführt, zu ihrem Vorteil zu nützen. 2. Wegen Komplikation der Tatsachen können auch nicht fest zusammenhängende Merkmale sich associieren; es kann z. B. das Brennen dem Stock zugeschrieben werden, auf den die Aufmerksamkeit eben gerichtet ist, während die Nesseln unbeachtet bleiben. 3. Nur oft erneuerte, biologisch wichtige Associationen erhalten sich. Man wird zugeben, daß das Verhalten der meisten Menschen nach denselben Regeln verständlich ist. Züge von unglaublicher Dummheit erzählt Morgan<a class="fr" href="#n3">3</a> von einer Kuh, deren Kalb bald nach der Geburt verendete. Da diese Kuh sich nur in Gegenwart des Kalbes melken ließ, stopfte der Hirt den Balg des Kalbes ohne Kopf und Beine mit Heu aus, welches Phantom die Kuh beroch und mit Zärtlichkeit leckte, während der Hirt das Melken vornahm. Als aber später durch das beharrliche Liebkosen das Heu zum Vorschein kam, fraß die Kuh dieses mit aller Gemütsruhe auf. Züge von gelegentlicher menschlicher <span class="pb" title="Leipzig 1906, S. 73">73</span>Stumpfheit, welche an die referierten erinnern, erzählt aber Maupassant in mancher seiner meisterhaften Novellen; dieselben beruhen kaum auf reiner Erfindung.</p>
+  <p class="jp" lang="ja">これらの例から次の規則が導き出せるように思われる。一、動物は、偶然がもたらした連合を自分の利益に利用することを知っている。二、事実の複雑さのために、固く連関していない特徴どうしも連合しうる。たとえばやけどは、イラクサが顧みられないまま、ちょうど注意が向けられていた棒のせいにされうる。三、しばしば更新される、生物学的に重要な連合だけが保持される。たいていの人間のふるまいも同じ規則によって理解できることは認められよう。モーガン<a class="fr" href="#n3">3</a>は、生まれてまもなく子牛が死んでしまった雌牛について、信じがたいほど愚かなふるまいを語っている。この雌牛は子牛がいるときにしか乳を搾らせなかったので、牧人は頭と脚のない子牛の皮に干し草を詰めた。雌牛はこのまがいものの匂いをかぎ、いとおしげになめ、そのあいだに牧人が乳を搾った。しかしのちに、しつこく愛撫しているうちに干し草が出てくると、雌牛はそれを平然と食べてしまった。しかし、ここに報告したことを思わせる人間のときおりの鈍さの特徴を、モーパッサンがそのみごとな短編のいくつかで語っている。それらはおそらく純粋な作り話ではないであろう。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">Morgan, Animal Life. London 1891. p. 334. - Gute psychologische und biologische Betrachtungen bei Th. Zell (Ist das Tier unvernünftig? Stuttgart - Tierfabeln. Ebendaselbst - Das rechnende Pferd. Berlin). Sehr gut ist die Unterscheidung von Augentieren und Nasentieren, sowie das Sparsamkeitsgesetz. Bei seinen Lesern setzt Zell eine allzugroße Naivetät voraus, was den Büchern nicht zum Vorteil gereicht.</p><p class="jp" lang="ja">モーガン『動物の生活』ロンドン、1891年、334頁。——すぐれた心理学的・生物学的考察が Th. ツェル（『動物は理性をもたないか』シュトゥットガルト——『動物寓話』同——『計算する馬』ベルリン）にある。目の動物と鼻の動物との区別、ならびに節約の法則はたいへんよい。ツェルは読者にあまりに大きな素朴さを前提しており、それがこれらの本にとって得になっていない。</p></li></ol>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;73</span></span></aside>
+  <p class="de" lang="de">4. Ist das psychische Leben durch die biologische Notwendigkeit einmal zu gewisser Stärke entwickelt, so äußert es sich auch selbständig über diese Notwendigkeit hinaus. Ein solcher Überschuß des psychischen Lebens tritt in der Neugier zu Tage. Man kennt das kurze abgebrochene Bellen, welches der Hund hören läßt, wenn irgend eine ungewöhnliche Erscheinung seine Aufmerksamkeit in Anspruch nimmt. Er beruhigt sich erst, wenn sich diese in einer für ihn verständlichen Weise aufklärt. - Eine schlafende Katze<a class="fr" href="#n4">4</a> wurde durch den Schall eines Kindertrompetchens sehr erregt, legte sich aber ruhig wieder nieder, als sie den Knaben wahrnahm, der das Geräusch verursachte.</p>
+  <p class="jp" lang="ja">4. 心的生活が生物学的必要によってひとたびある程度の強さにまで発達すると、それはこの必要を越えて自立的にも発現する。心的生活のこのような余剰は好奇心のうちに現れる。何か見慣れない現象が注意を奪うとき、犬が聞かせる短い途切れ途切れの吠え声はよく知られている。犬は、その現象が自分に理解できる仕方で解明されたときにはじめて落ち着く。——眠っていた猫<a class="fr" href="#n4">4</a>が子どものおもちゃのラッパの音にひどく興奮したが、その音を立てた少年に気づくと、また静かに横になった。</p>
+  <ol class="notes"><li id="n4"><span class="nn">4</span><p class="de" lang="de">Morgan, l. c. p. 339.</p><p class="jp" lang="ja">モーガン前掲書、339頁。</p></li></ol>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;73</span></span></aside>
+  <p class="de" lang="de">Ein Affe<a class="fr" href="#n5">5</a> in einem Tiergarten fing ein Oppossum, untersuchte dasselbe, fand den Beutel, aus dem er die Jungen herausnahm, und legte sie nach genauer Besichtigung wieder hinein. In letzterem Falle geht das Interesse des kleinen Zoologen schon beträchtlich über die biologische Notwendigkeit hinaus. Romanes<a class="fr" href="#n6">6</a> beobachtete, daß ein Hund beunruhigt und furchtsam wurde, als ein Knochen, den er benagt hatte, durch einen verborgenen Faden in Bewegung gesetzt wurde. Er deutete dies, etwas kühn, als Anlage zum Fetischismus. Es erinnert dies in der Tat entfernt an die Verehrung eines Südseeinsulaners für einen beschriebenen Holzspan,<a class="fr" href="#n7">7</a> der in einer ihm unverständlichen Weise eine Nachricht vermittelt hatte.</p>
+  <p class="jp" lang="ja">動物園のある猿<a class="fr" href="#n5">5</a>はフクロネズミを捕まえて調べ、袋を見つけ、そこから子どもたちを取り出し、詳しく眺めたのちにまた袋に戻した。この最後の場合には、小さな動物学者の関心はすでにかなり生物学的必要を越えている。ロマーニズ<a class="fr" href="#n6">6</a>は、かじっていた骨が隠された糸によって動かされたとき、犬が不安になって怖がるのを観察した。彼はこれを、いささか大胆にも、呪物崇拝（フェティシズム）の素質と解釈した。実際これは、自分に理解できない仕方で知らせを伝えた、字の書かれた木切れに対する南洋の島民の崇拝<a class="fr" href="#n7">7</a>を遠く思い出させる。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">Morgan, l. c. p. 340.</p><p class="jp" lang="ja">モーガン前掲書、340頁。</p></li><li id="n6"><span class="nn">6</span><p class="de" lang="de">Morgan, Comparative Psychology, p. 259. - Schopenhauers Hund wußte „a priori“, daß jeder Vorgang seine Ursache hat, suchte in einem analogen Falle nach dieser und behalf sich ohne Fetischismus. (Schopenhauer, Über die vierfache Wurzel des Satzes vom zureichenden Grunde. Leipzig 1864. 3. Aufl. S. 76.) So merkwürdig richtet sich die Philosophie des Hundes nach jener seines Beobachters.</p><p class="jp" lang="ja">モーガン『比較心理学』259頁。——ショーペンハウアーの犬は、どんな出来事にもその原因があることを「ア・プリオリに」知っており、類似の場合にその原因を探し、呪物崇拝なしにすませた。（ショーペンハウアー『充足根拠律の四方向に分岐した根について』ライプツィヒ、1864年、第3版、76頁。）犬の哲学は、かくも奇妙にその観察者の哲学に従うのである。</p></li><li id="n7"><span class="nn">7</span><p class="de" lang="de">Tylor, Einleitung i. d. Studium d. Anthropologie. Braunschweig 1883. S. 197.</p><p class="jp" lang="ja">タイラー『人類学研究入門』ブラウンシュヴァイク、1883年、197頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;73</span></span></aside>
+  <p class="de" lang="de">5. Das psychische Leben des Tieres wird noch wesentlich bereichert durch Beobachtung des Verhaltens seiner Artgenossen, durch deren Beispiel und deren, wenn auch unvollkommene, sprachliche Mitteilungen, welche schon in den reflektorisch entstehenden Warnungs- und Lockzeichen liegen. So können Verhaltungsweisen älterer Artgenossen auf jüngere, durch Tradition,<a class="fr" href="#n8">8</a> übertragen werden, so können aber auch von einzelnen Individuen neu aufgebrachte Verhaltungsweisen auf viele oder alle Mitglieder einer Art übergehen. Das Leben einer Art erfährt also im Verlauf der Zeit Veränderungen. Wenn diese auch sehr selten so rapid<a class="fr" href="#n9">9</a> auftreten, wie dies im Kulturleben des Menschen etwa durch Erfindungen geschieht, so sind die Vorgänge doch hier wie dort gleichartig, und hier wie dort können wir von einer Geschichte<a class="fr" href="#n10">10</a> sprechen.</p>
+  <p class="jp" lang="ja">5. 動物の心的生活は、同種の仲間のふるまいを観察すること、その手本、そして不完全ではあれ言語的な伝達——それはすでに反射的に生じる警告や誘いの合図のうちにある——によって、さらに本質的に豊かになる。こうして年長の仲間のふるまい方が伝統<a class="fr" href="#n8">8</a>によって若い仲間へと伝えられうるし、また個々の個体が新たに始めたふるまい方が、種の多くの、あるいはすべての成員に移っていくこともありうる。したがって種の生活は、時の経過のなかで変化をこうむる。この変化が、人間の文化生活においてたとえば発明によって起こるほど急速に<a class="fr" href="#n9">9</a>現れることはきわめてまれであるとしても、過程はあちらでもこちらでも同種のものであり、あちらでもこちらでも歴史<a class="fr" href="#n10">10</a>について語ることができる。</p>
+  <ol class="notes"><li id="n8"><span class="nn">8</span><p class="de" lang="de">Auf Nachahmung hoffte man die Wanderungen der Zugvögel zurückzuführen. Dieselben entstanden vielleicht zu einer Zeit, als die Ziele der Wanderung noch nicht durch Meere getrennt waren. Neue Blicke und neue größere Rätsel bei K. Graeser, Der Zug der Vögel. Berlin 1905.</p><p class="jp" lang="ja">渡り鳥の渡りを模倣に帰着させようと人々は期待した。渡りはおそらく、渡りの目的地がまだ海によって隔てられていなかった時代に生じたのであろう。新しい見方と新しいより大きな謎が、K. グレーザー『鳥の渡り』ベルリン、1905年にある。</p></li><li id="n9"><span class="nn">9</span><p class="de" lang="de">Doch soll ein australischer Papagei auf den Einfall gekommen sein, die Schafe anzufallen und anzufressen, welches Beispiel von den übrigen Vertretern der Art nachgeahmt worden sein soll.</p><p class="jp" lang="ja">ただし、オーストラリアのあるオウムが羊を襲って食べることを思いつき、その例が同種の他の個体によって模倣されたという。</p></li><li id="n10"><span class="nn">10</span><p class="de" lang="de">Vgl. H. v. Buttel-Reepen, Die stammesgeschichtliche Entstehung des Bienenstaates. Leipzig 1903.</p><p class="jp" lang="ja">H. v. ブッテル＝レーペン『蜜蜂の国家の系統発生的成立』ライプツィヒ、1903年参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;74</span></span></aside>
+  <p class="de" lang="de">6. Die Unterschiede, welche der Mensch in psychischer Beziehung gegen die Tiere darbietet, sind nicht qualitativer, sondern bloß quantitativer Art. Infolge seiner verwickelten Lebensbedingungen hat sich 1. sein psychisches Leben intensiver und reicher gestaltet, 2. ist sein Interessenkreis größer und weiter, 3. ist er fähig, zur Erreichung seiner biologischen Ziele, einen längeren Umweg einzuschlagen, 4. übt das Leben der Zeitgenossen und Vorfahren, vermöge der vollkommeneren mündlichen und schriftlichen Mitteilung, einen stärkeren und direkteren Einfluß auf das Individuum, 5. findet in der Lebenszeit des einzelnen eine raschere Umwandlung des psychischen Lebens statt.</p>
+  <p class="jp" lang="ja">6. 人間が心的な点で動物に対して示す違いは、質的なものではなく、単に量的なものである。その錯綜した生活条件の結果として、一、人間の心的生活はより強く豊かに形成され、二、その関心の範囲はより大きく広く、三、生物学的目標を達成するためにより長い回り道をとることができ、四、より完全な口頭および文字による伝達によって、同時代人や祖先の生活がより強く直接的な影響を個人に及ぼし、五、個人の生涯のうちに心的生活のより急速な変化が起こる。</p>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;74</span><span>S.&nbsp;75</span></span></aside>
+  <p class="de" lang="de">7. Der Mensch erwirbt seine kulturellen Errungenschaften in kleinen Schritten auf dem Weg primitiver Erfahrungen, wie die Tiere. Wenn die Früchte der Bäume nicht mehr reichen, beschleicht er wie ein Raubtier seine Jagdbeute und verwendet ähnliche Kunstgriffe wie dieses. Allerdings zeigt sich hier schon in der Wahl der Mittel die größere Kraft seiner durch reichere Erfahrung gestärkten Phantasie. Der Indianer beschleicht in der <span class="pb" title="Leipzig 1906, S. 75">75</span>Renntiermaske die Renntierherde;<a class="fr" href="#n11">11</a> der Australier schwimmt, durch ein Rohr atmend, unter Wasser an die Wasservögel heran, die er so mühelos herabzieht und erstickt; der Ägypter verbirgt zu demselben Zweck seinen Kopf in einem Kürbis. Zur Verwendung solcher Mittel mögen wohl zufällige Erfahrungen geleitet haben. Der Zufall hat vermutlich auch das Fangen der Fische bei Ebbe durch einen Pfahlzaun gelehrt.<a class="fr" href="#n12">12</a> Die äußerst sinnreiche Konstruktion der verschiedenen Fallen zeugt ebenso sehr für die Schlauheit des Menschen, wie für jene der Tiere, welche dieselben bald kennen und vermeiden lernen und so dem Menschen stets neue Aufgaben stellen. Neue wichtige Erfahrungen mußte der Mensch machen, als ihn die Vermehrung seines Geschlechtes zwang, von dem Jäger- zum Nomadenleben und schließlich zum Landbau überzugehen.</p>
+  <p class="jp" lang="ja">7. 人間は、自らの文化的獲得物を、動物と同じく原始的な経験の道を通って小さな歩みで獲得する。木の実が足りなくなると、人間は猛獣のように獲物に忍び寄り、猛獣と似た手口を用いる。もっともここですでに、手段の選び方のうちに、より豊かな経験によって強められた人間の想像力のより大きな力が現れている。インディアンはトナカイの仮面をかぶってトナカイの群れに忍び寄る<a class="fr" href="#n11">11</a>。オーストラリア人は葦の管で息をしながら水中を泳いで水鳥に近づき、やすやすと水中に引きこんで窒息させる。エジプト人は同じ目的のために頭をカボチャのなかに隠す。こうした手段を用いるにいたったのは、おそらく偶然の経験に導かれてのことであろう。干潮のときに杭垣で魚を捕まえることも、おそらく偶然が教えたのであろう<a class="fr" href="#n12">12</a>。さまざまな罠のきわめて巧妙な構造は、人間の狡猾さを証しているのと同じくらい、それをまもなく知って避けることを学び、こうして人間につねに新たな課題を課す動物の狡猾さをも証している。人間は、人口の増加によって狩猟生活から遊牧生活へ、そして最後に農耕へと移行することを強いられたとき、新たな重要な経験をしなければならなかった。</p>
+  <ol class="notes"><li id="n11"><span class="nn">11</span><p class="de" lang="de">Tylor, Anthropologie, S. 246.</p><p class="jp" lang="ja">タイラー『人類学』246頁。</p></li><li id="n12"><span class="nn">12</span><p class="de" lang="de">Diodor, III, 15, 22.</p><p class="jp" lang="ja">ディオドロス、第3巻、15、22。</p></li></ol>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;75</span></span></aside>
+  <p class="de" lang="de">Die Muschelschalenhaufen, „Kjökkenmöddings“, an den Küsten zeigen, daß die Ernährung vieler Menschen der Steinzeit von jenen der Tiere kaum verschieden war. Der primitive Mensch schlägt sein Lager in Baumgeflechten auf, wie die Vögel und Affen oder benutzt eine Höhle als Wohnung, wie die Raubtiere. Die runde Indianerhütte,<a class="fr" href="#n13">13</a> welche durch das Zusammenbinden der Wipfel von Bäumchen entsteht, weicht allmählich bei größerem Raumbedarf der länglichen rechteckigen Hütte. Klimatische Verhältnisse und die Art des vorhandenen Materials bedingen den Übergang zum Holzbau und Steinbau mit rohen oder behauenen Steinen.</p>
+  <p class="jp" lang="ja">海岸の貝塚、「ケッケンメッディング（Kjökkenmöddings）」は、石器時代の多くの人間の栄養摂取が動物のそれとほとんど違わなかったことを示している。原始人は鳥や猿のように木の枝を編んだなかに寝床をつくるか、猛獣のように洞窟を住まいとして利用する。若木の梢を結び合わせてつくる円形のインディアンの小屋<a class="fr" href="#n13">13</a>は、より広い空間が必要になるにつれて、しだいに長方形の細長い小屋に場所を譲る。気候の事情と手に入る材料の種類が、木造建築へ、そして粗い石や切り石による石造建築への移行を条件づける。</p>
+  <ol class="notes"><li id="n13"><span class="nn">13</span><p class="de" lang="de">Tylor, l. c. S. 275.</p><p class="jp" lang="ja">タイラー前掲書、275頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;75</span><span>S.&nbsp;76</span></span></aside>
+  <p class="de" lang="de">8. Sehr auffallend unterscheidet sich der Mensch von seinen tierischen Genossen durch den Gebrauch der Kleidung. Zwar schützen sich zarte Krebse durch Verkriechen in Muschelschalen, und gewisse Insektenlarven bereiten sich eine Hülle von Steinchen und Blättern, allein solche Fälle sind verhältnismäßig sehr selten. Meist genügt die von der Natur mitgegebene Körperhülle zu ausreichendem Schutz. Durch welche Umstände verlor nun der Mensch bis auf ein Rudiment das vermutlich von seinen Vorfahren ererbte Haarkleid? Was mußte wohl vorausgehen, bevor der Mensch unter ungünstigen klimatischen Verhältnissen <span class="pb" title="Leipzig 1906, S. 76">76</span>durch Kleider sich zu schützen suchte? Hat der aus wärmerem Klima nach dem Norden vertriebene Mensch durch die Kleider die Behaarung verloren? Oder haben verwickelte prähistorische Vorgänge den gegenwärtigen Zustand herbeigeführt? Tierfelle und Baumrinden<a class="fr" href="#n14">14</a> waren die ersten Hüllen, nach welchen der schutzbedürftige Mensch griff. Auch Geflechte aus Gras mußten diese gelegentlich ersetzen. Fortschreitend führte dies zur Herstellung von gedrehten Fäden aus Pflanzenfasern, Haaren und Wolle, zum Spinnen und zum Flechten mit diesen Fäden, d. h. zum Weben. Die Notwendigkeit, die Häute oder gewebten Stücke zu Kleidern zu verbinden, lehrte das Nähen.</p>
+  <p class="jp" lang="ja">8. 人間がその動物の仲間ときわめて目立って区別されるのは、衣服の使用によってである。たしかに柔らかい甲殻類は貝殻にもぐりこんで身を守り、ある種の昆虫の幼虫は小石や葉で覆いをつくるが、そのような例は比較的ごくまれである。たいていは自然が与えた体の覆いで十分に身を守れる。では、どのような事情によって人間は、おそらく祖先から受け継いだ毛皮を、痕跡を残してほとんど失ってしまったのだろうか。人間が不利な気候条件のもとで衣服によって身を守ろうとするまでには、いったい何が先行しなければならなかったのか。より暖かい気候から北へと追いやられた人間が、衣服によって体毛を失ったのか。それとも錯綜した先史時代の過程が現在の状態をもたらしたのか。獣皮と樹皮<a class="fr" href="#n14">14</a>が、保護を必要とする人間が手に取った最初の覆いであった。草で編んだものもときにはその代わりとならなければならなかった。それはしだいに、植物の繊維や毛や羊毛から撚った糸をつくること、紡ぐこと、そしてこの糸で編むこと、すなわち織ることへと導いた。皮や織った布を衣服へとつなぎ合わせる必要が、縫うことを教えた。</p>
+  <ol class="notes"><li id="n14"><span class="nn">14</span><p class="de" lang="de">Tylor, l. c. S. 290.</p><p class="jp" lang="ja">タイラー前掲書、290頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;76</span></span></aside>
+  <p class="de" lang="de">9. Das Tier und der Mensch wählen bei Befriedigung ihrer Bedürfnisse etwas verschiedene Wege. Beide können sich nur durch die Muskel ihres Leibes mit den Körpern der Umgebung in Beziehung setzen. Während aber das Tier, ganz von seinem Bedürfnis erfüllt, meist unmittelbar die Ergreifung des bedürfnisbefriedigenden oder die Entfernung des störenden Körpers anstrebt, sieht der Mensch in größerer psychischer Stärke und Freiheit auch noch die Seitenwege und wählt von diesen den bequemsten. Er hat schon die Muße gefunden, das Verhalten der Körper gegen Körper zu beobachten, obgleich dies unmittelbar ihn wenig berührt, und weiß es gelegentlich zu nützen. Er weiß, daß die Tiere ihre Genossen, die Vögel den Kürbis nicht fürchten und wählt danach seine Masken.</p>
+  <p class="jp" lang="ja">9. 動物と人間とは、欲求を満たすにあたっていくらか異なる道を選ぶ。両者とも、自分の身体の筋肉によってのみ環境の物体と関係をもつことができる。しかし動物は、すっかり欲求に満たされて、たいていは欲求を満たす物体をつかむこと、あるいは邪魔な物体を取り除くことを直接目指すのに対して、人間はより大きな心的な強さと自由のうちに、わき道をも見て、そのなかから最も楽な道を選ぶ。人間は、物体どうしのふるまいを、それが直接には自分にほとんど関わらないとしても観察する余裕をすでに見いだしており、それをときに利用するすべを知っている。人間は、動物が仲間を恐れず、鳥がカボチャを恐れないことを知っており、それに従って仮面を選ぶのである。</p>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;76</span></span></aside>
+  <p class="de" lang="de">Während der Affe vergebens nach dem Vogel hascht, trifft ihn der Mensch mit dem Wurfgeschoß, dessen Verhalten und Wirkung beim Zusammentreffen mit andern Körpern er im planmäßigen Spiel erprobt hat. Auch der Affe hüllt sich gern in die Decke, wenn er sie hat; er weiß sich aber das Fell und die Rinde nicht zu schaffen. Der Affe wirft gelegentlich nach dem Feind, schlägt auch mit dem Stein Früchte auf. Der Mensch stabilisiert aber jedes vorteilhaftere Verfahren; er ist mehr ökonomisch veranlagt. Er beschäftigt sich mit dem Stein, formt ihn zu Hammer und Axt, schleift wochenlang an seinem Speer, erfindet, den Zwischenmitteln die Aufmerksamkeit zuwendend, Waffen und Werkzeuge, die ihm unschätzbare Vorteile verschaffen.</p>
+  <p class="jp" lang="ja">猿がむなしく鳥をつかもうとするのに対して、人間は投擲物で鳥を射止める。他の物体とぶつかったときのその投擲物のふるまいと効果を、人間は計画的な遊びのなかで試してきたのである。猿も毛布があれば好んでそれにくるまる。しかし猿は毛皮や樹皮を自分で手に入れるすべを知らない。猿はときに敵に物を投げつけ、石で木の実を割りもする。しかし人間は、より有利なやり方をすべて固定する。人間はより経済的な素質をもっているのである。人間は石に取り組み、それをハンマーや斧に形づくり、何週間も槍を研ぎ、中間手段に注意を向けながら、計り知れない利益をもたらす武器や道具を発明する。</p>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;77</span></span></aside>
+  <p class="de" lang="de">10. Wenn durch einen Blitzschlag z. B. ein Feuer entsteht, so benützen die Affen diese Gelegenheit, sich zu wärmen, so gern als der Mensch. Aber nur der letztere bemerkt, daß zugelegtes Holz das Feuer erhält. Nur er macht von dieser Beobachtung Gebrauch, pflegt, erhält und überträgt für seinen Zweck das Feuer.<a class="fr" href="#n15">15</a> Ja die neuen Erfahrungen, die er bei Beschaffung leicht entzündbaren und fortglimmenden Materials, des Zunders, gewinnt, befähigen ihn, sogar das Feuer neu zu erzeugen, den Feuerbohrer zu erfinden und in den dauernden Besitz des Feuers zu gelangen.</p>
+  <p class="jp" lang="ja">10. たとえば落雷によって火が生じると、猿も人間と同じく喜んでその機会を利用して暖をとる。しかし、薪をくべれば火が保たれることに気づくのは人間だけである。人間だけがこの観察を利用し、自分の目的のために火を世話し、保ち、運ぶ<a class="fr" href="#n15">15</a>。それどころか、燃えやすく火種を保つ材料、すなわち火口（ほくち）を手に入れる際に得られる新しい経験によって、人間は火を新たに起こすことさえできるようになり、火錐（ひきり）を発明し、火を持続的に所有するにいたる。</p>
+  <ol class="notes"><li id="n15"><span class="nn">15</span><p class="de" lang="de">Vgl. Populär-wissenschaftliche Vorlesungen, 3. Aufl., S. 293.</p><p class="jp" lang="ja">『通俗科学講義』第3版、293頁参照。</p></li></ol>
+</article>
+<article class="row" id="p10.2">
+  <aside class="mg"><a class="pid" href="#p10.2">10.2</a><span class="pg"><span>S.&nbsp;77</span></span></aside>
+  <p class="de" lang="de">Im Besitz des Feuers erschaut er gelegentlich mit seinem über das Dringendste hinausreichenden Blick die Glasbildung, die Metallschmelzung u. s. w. Die Benützung des Feuers ist der Schlüssel zu den Schätzen der chemischen Technologie, sowie die Benützung der Werkzeuge und Waffen zu jenen der mechanischen Technologie. So verlockend und psychologisch lehrreich es wäre, die Entwicklung der Technologie aus primitiven Erfahrungen zu verfolgen, so würde dies hier doch zu weit führen. Die psychologischen Folgerungen, die sich aus einem solchen Studium ergeben, habe ich gedrängt darzustellen versucht in meinem Vortrag: „Über den Einfluß zufälliger Umstände auf die Entwicklung von Erfindungen und Entdeckungen.“<a class="fr" href="#n16">16</a> Viel Material findet man in kulturgeschichtlichen Schriften.<a class="fr" href="#n17">17</a></p>
+  <p class="jp" lang="ja">火を所有すると、人間は最も差し迫ったものを越えて及ぶまなざしによって、ときにガラスの生成や金属の溶融などを目にする。火の利用は化学的技術の宝への鍵であり、道具と武器の利用は機械的技術の宝への鍵である。原始的な経験から技術の発展を追うことは、いかに魅力的で心理学的に教えられるところが多いとしても、ここではあまりに遠くへ導くことになろう。そのような研究から生じる心理学的帰結を、私は講演「発明と発見の発展に対する偶然的事情の影響について」<a class="fr" href="#n16">16</a>において簡潔に述べようと試みた。多くの資料は文化史の著作に見いだされる<a class="fr" href="#n17">17</a>。</p>
+  <ol class="notes"><li id="n16"><span class="nn">16</span><p class="de" lang="de">Populär-wissenschaftliche Vorlesungen, S. 287.</p><p class="jp" lang="ja">『通俗科学講義』287頁。</p></li><li id="n17"><span class="nn">17</span><p class="de" lang="de">Vgl. Tylor, Urgeschichte der Menschheit. Leipzig. Ambrosius Abel (ohne Jahresz.). - E. B. Tylor, Einleitung i. d. Studium d. Anthropologie u. Zivilisation. Braunschweig 1883. - Otis T. Mason, The Origins of Invention. London 1895.</p><p class="jp" lang="ja">タイラー『人類の原始史』ライプツィヒ、アンブロジウス・アーベル（刊年なし）参照。——E. B. タイラー『人類学と文明の研究入門』ブラウンシュヴァイク、1883年。——オーティス・T. メイソン『発明の起源』ロンドン、1895年。</p></li></ol>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;77</span><span>S.&nbsp;78</span></span></aside>
+  <p class="de" lang="de">11. Jeder, der experimentiert hat, weiß, daß es viel leichter ist, eine zweckmäßige Bewegung der Hand auszuführen, welche ja fast von selbst unseren Absichten entspricht, als das Verhalten von Körpern gegeneinander genau zu beobachten und in der Vorstellung zu reproduzieren. Ersteres gehört zu unserer fortwährend geübten biologischen Funktion, während letzteres, außerhalb unseres unmittelbaren Interesses liegend, ein solches erst bei einem Überschuß sich spielend betätigenden Sinnen- und Vorstellungslebens gewinnen kann. Das Beobachten und erfinderische Phantasieren setzt schon ein gewisses Wohlbehagen und <span class="pb" title="Leipzig 1906, S. 78">78</span>Muße voraus. Um dieses zu üben, mußte der primitive Mensch schon unter relativ günstigen Verhältnissen leben. Übrigens erfinden die wenigsten Menschen. Die meisten benützen und lernen das von jenen wenigen Erfundene. Darin besteht die Erziehung, welche mäßige Mängel der Anlage ersetzen und den Kulturgewinn wenigstens erhalten kann. Es liegt in der Natur der Sache, daß der über das unmittelbar Nützliche hinausschweifende Blick ein größerer Segen ist für die Gesamtheit als für den Inhaber desselben.</p>
+  <p class="jp" lang="ja">11. 実験をしたことのある人なら誰でも、ほとんどひとりでにわれわれの意図に応える目的にかなった手の運動を行うほうが、物体どうしのふるまいを正確に観察して表象のうちに再現するよりもはるかに容易であることを知っている。前者はわれわれのたえず訓練されている生物学的機能に属するが、後者はわれわれの直接の関心の外にあり、遊びながら活動する感官と表象の生活に余剰があるときにはじめて関心を得ることができる。観察することや発明的に空想することは、すでにある程度の安楽と余暇を前提としている。それを行うためには、原始人はすでに比較的恵まれた事情のもとで生きていなければならなかった。ちなみに、発明する人間はごくわずかである。たいていの人間は、そのわずかな人々が発明したものを利用し、学ぶ。そこに教育があるのであって、教育は素質のほどほどの欠陥を補い、文化の獲得物を少なくとも保持することができる。直接に有用なものを越えてさまようまなざしが、それを持つ当人にとってよりも全体にとってより大きな恵みであるのは、事柄の本性にある。</p>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;78</span></span></aside>
+  <p class="de" lang="de">12. Erwägt man das eben Gesagte, so kann man ermessen, wie nur sehr schwer und langsam sich der primitive Mensch über seine tierischen Genossen erheben konnte. Erst mit der Erhebung selbst nimmt das Wachstum der Kultur rascher zu. Mächtig steigt dieselbe durch die Bildung der Gesellschaft, durch die Teilung in Stände, Berufe, Handwerke, wobei dem einzelnen ein Teil der Sorge um den Unterhalt abgenommen und dafür ein engeres Feld der Tätigkeit zugewiesen wird, welches er nun vollständiger beherrschen kann. Die gesellige Vereinigung erzeugt noch besondere Erfindungen, welche nur durch dieselbe möglich, ihr eigentümlich sind.</p>
+  <p class="jp" lang="ja">12. いま述べたことを考えれば、原始人がその動物の仲間の上に立ち上がるのが、いかにきわめて困難でゆっくりとしたものでしかありえなかったかが推し量られる。この上昇そのものとともにはじめて、文化の成長はより速く増していく。文化は、社会の形成によって、身分、職業、手工業への分化によって力強く高まる。その際、個人からは生計の心配の一部が取り除かれ、そのかわりにより狭い活動の場が割り当てられ、個人はいまやそれをより完全に支配することができる。社会的な結合はさらに、それによってのみ可能でそれに固有の特別な発明を生み出す。</p>
+</article>
+<article class="row" id="p12.2">
+  <aside class="mg"><a class="pid" href="#p12.2">12.2</a><span class="pg"><span>S.&nbsp;78</span></span></aside>
+  <p class="de" lang="de">Es ist dies die räumlich und zeitlich (rhythmisch) organisierte Arbeit<a class="fr" href="#n18">18</a> vieler mit gemeinsamem Ziel, wie wir sie in der Handhabung der Waffen kämpfender Truppen, in der Fortschaffung großer Lasten, z. B. bei den Ägyptern, teilweise in der Fabriksarbeit der Gegenwart antreffen. Die durch historische Umstände bevorzugten Stände solcher Associationen verfehlen nicht, die Arbeit der andern mehr als billig auszunützen. Indem aber die ersteren neue Bedürfnisse erfinden, regen sie auch zum Suchen nach neuen Mitteln der leichteren Befriedigung an, und was nicht den letzteren zuliebe geschah, kommt ihnen oft durch die Kultursteigerung doch indirekt zu statten. Dies gilt in Bezug auf materielle und geistige Kultur.</p>
+  <p class="jp" lang="ja">それは、共通の目標をもつ多くの人々の、空間的かつ時間的に（リズミカルに）組織された労働<a class="fr" href="#n18">18</a>であり、それは戦う部隊の武器の操作に、たとえばエジプト人における大きな荷の運搬に、また部分的には現代の工場労働に見られる。このような結合のなかで歴史的事情によって優遇された身分は、他の人々の労働を正当な程度以上に利用することを怠らない。しかし前者は新しい欲求を考え出すことによって、それをより容易に満たす新しい手段の探求をも促し、後者のためになされたのではないものが、文化の向上によって間接的に後者の役に立つこともしばしばある。このことは物質的文化にも精神的文化にも当てはまる。</p>
+  <ol class="notes"><li id="n18"><span class="nn">18</span><p class="de" lang="de">Wallaschek, Primitive Music. London 1893. Deutsch und erweitert. Leipzig 1903. In dieser Schrift wird die praktische Bedeutung des Rhythmus erörtert. Bücher (Arbeit und Rhythmus. Leipzig 1902. 3. Aufl.) erörtert dieses Thema in etwas anderer Weise.</p><p class="jp" lang="ja">ヴァラシェク『原始音楽』ロンドン、1893年。ドイツ語増補版、ライプツィヒ、1903年。この著作ではリズムの実際上の意義が論じられている。ビュッヒャー（『労働とリズム』ライプツィヒ、1902年、第3版）は、このテーマをいくらか違った仕方で論じている。</p></li></ol>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;78</span><span>S.&nbsp;79</span></span></aside>
+  <p class="de" lang="de">13. Der Mensch lernt die Leistungen der Tiere für seine Zwecke ausnützen und steigert hierdurch ungemein seine Kraft. In der Association gewinnt er Erfahrungen über den hohen Wert der <span class="pb" title="Leipzig 1906, S. 79">79</span>Menschenarbeit. Dies führt dazu, Kriegsgefangene nicht zu töten, sondern zur Arbeit zu zwingen. Die Sklaverei, welche einen Grundpfeiler der antiken Kultur bildet und unter verschiedenen Formen bis in die Neuzeit fortbesteht, hat hierin ihren Ursprung. In Europa und Amerika ist heute die Sklaverei dem Namen und der Form nach aufgehoben, das Wesen der Sache aber, die Ausnützung vieler Menschen durch wenige, ist geblieben. Die Unterjochung von Genossen anderer oder derselben Art wird übrigens nicht nur vom Menschen geübt; wir finden sie auch anderwärts, z. B. im Ameisenstaat.</p>
+  <p class="jp" lang="ja">13. 人間は動物の働きを自分の目的に利用することを学び、それによって自らの力を途方もなく高める。結合のなかで人間は、人間の労働の高い価値について経験を得る。このことが、戦争捕虜を殺さずに労働を強いることへと導く。古代文化の大きな柱をなし、さまざまな形で近代まで存続する奴隷制は、ここにその起源をもつ。ヨーロッパとアメリカでは今日、奴隷制は名称と形式のうえでは廃止されているが、事柄の本質、すなわち少数者による多数者の利用は残っている。ちなみに他の種あるいは同じ種の仲間を隷属させることは、人間だけが行うのではない。われわれはそれをほかの所にも、たとえば蟻の国家にも見いだす。</p>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;79</span></span></aside>
+  <p class="de" lang="de">14. Neben der Tier- und Menschenarbeit verfiel man nach und nach auf die Ausnützung der Arbeitskräfte der „unbelebten“ Natur. So entstanden die Wassermühlen, die Windmühlen. Mehr und mehr Arbeiten, die zuvor durch Tier- oder Menschenkraft verrichtet worden waren, übertrug man nun dem bewegten Wasser und der bewegten Luft, welche nur die Maschinenanlage erforderten, nicht genährt werden mußten und im allgemeinen auch weniger widerspenstig waren, als Tiere und Menschen. Die Erfindung der Dampfmaschine erschloß den reichen Arbeitsvorrat, welcher in der seit Jahrmillionen als Steinkohle aufgespeicherten Waldvegetation der Vorwelt verborgen war und nun zur Leistung für die Menschen herangezogen wird.</p>
+  <p class="jp" lang="ja">14. 動物と人間の労働に加えて、人々はしだいに「生命のない」自然の労働力を利用することを思いついた。こうして水車や風車が生まれた。以前は動物や人間の力によって行われていたますます多くの仕事が、いまや動く水や動く空気に委ねられた。それらは機械設備を必要とするだけで、養う必要がなく、また一般に動物や人間ほど反抗的でもなかった。蒸気機関の発明は、何百万年ものあいだ石炭として蓄えられてきた太古の森林植生のうちに隠されていた豊かな労働の蓄えを開き、それはいまや人間のための仕事に引き出されている。</p>
+</article>
+<article class="row" id="p14.2">
+  <aside class="mg"><a class="pid" href="#p14.2">14.2</a><span class="pg"><span>S.&nbsp;79</span></span></aside>
+  <p class="de" lang="de">Die neu erstandene Elektrotechnik erweitert durch die elektrische Kraftübertragung das Anwendungsgebiet der Dampfmaschine sowohl, als auch jenes der an abgelegenen Orten angreifenden Wind- und Wasserkräfte. Schon im Jahre 1878, also vor dem großen Aufschwung der Elektrotechnik, waren in England Dampfmaschinen mit der Gesamtsumme von 4½ Millionen Pferdekräften in Gang, welche der Arbeitskraft von 100 Millionen Menschen entsprachen. Die mehrfache Bevölkerung von England hätte also diese Arbeit nicht leisten können. Die Industriemaschinen Englands verrichteten aber im Jahre 1860 so viel, als 1200 Millionen fleißiger Handarbeiter, also fast die ganze Bevölkerung der Erde hätte zustande bringen können.<a class="fr" href="#n19">19</a></p>
+  <p class="jp" lang="ja">新たに興った電気工学は、電力伝送によって、蒸気機関の応用範囲をも、また人里離れた場所ではたらく風力や水力の応用範囲をも広げている。すでに1878年、つまり電気工学の大躍進の前に、イギリスでは総計450万馬力の蒸気機関が稼働しており、それは1億人の労働力に相当した。イギリスの人口の数倍をもってしても、この仕事は成し遂げられなかったであろう。しかもイギリスの工業機械は、1860年に、勤勉な手作業の労働者12億人、つまりほとんど地球の全人口が成し遂げえたであろうほどの仕事をしていたのである<a class="fr" href="#n19">19</a>。</p>
+  <ol class="notes"><li id="n19"><span class="nn">19</span><p class="de" lang="de">Bourdeau, Les Forces de l'Industrie. Paris 1884. p. 209-240.</p><p class="jp" lang="ja">ブルドー『工業の力』パリ、1884年、209–240頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;79</span><span>S.&nbsp;80</span></span></aside>
+  <p class="de" lang="de">15. Man sollte nun meinen, daß bei einer solchen Steigerung der Arbeitskräfte der arbeitende Teil der Menschheit, der nur <span class="pb" title="Leipzig 1906, S. 80">80</span>mehr die Maschinen zu bedienen hat, bedeutend entlastet werden müßte. Wenn man aber genau zusieht, so ist dies keineswegs der Fall. Die Arbeit bleibt so aufreibend wie zuvor. Der Traum des Aristoteles von einem zukünftigen maschinen-technischen Zeitalter ohne Sklaverei hat sich nicht erfüllt. Die Umstände, an welchen dies liegt, hat J. Popper in einer sehr schönen und aufklärenden Schrift dargelegt.<a class="fr" href="#n20">20</a> Die kolossale Leistung der Maschinen wird nämlich nicht sowohl zur Erleichterung des Unterhalts der Menschen, als vielmehr größtenteils zur Befriedigung der Luxusbedürfnisse des herrschenden Teiles der Menschheit aufgewendet.</p>
+  <p class="jp" lang="ja">15. 労働力がこれほど高まれば、もはや機械を操作するだけの人類の労働する部分は、大いに負担を軽減されるにちがいないと思われるかもしれない。しかし詳しく見ると、けっしてそうではない。労働は以前と同じく消耗させるものである。奴隷制のない未来の機械技術の時代についてのアリストテレスの夢は実現していない。それがどのような事情によるのかを、J. ポッパーは非常に美しく啓発的な著作において述べている<a class="fr" href="#n20">20</a>。すなわち、機械の途方もない働きは、人間の生計を楽にするためにではなく、むしろ大部分、人類のうちの支配する部分の贅沢の欲求を満たすために費やされているのである。</p>
+  <ol class="notes"><li id="n20"><span class="nn">20</span><p class="de" lang="de">J. Popper, Die technischen Fortschritte nach ihrer ästhetischen und kulturellen Bedeutung. Leipzig 1888. S. 59 u. f.</p><p class="jp" lang="ja">J. ポッパー『美的・文化的意義から見た技術の進歩』ライプツィヒ、1888年、59頁以下。</p></li></ol>
+</article>
+<article class="row" id="p15.2">
+  <aside class="mg"><a class="pid" href="#p15.2">15.2</a><span class="pg"><span>S.&nbsp;80</span></span></aside>
+  <p class="de" lang="de">Es ist z. B. sehr angenehm, sich die Schnelligkeit der heutigen Eisenbahnzüge, die Leichtigkeit des Post-, Telegraphen- und Telephonverkehrs vorzustellen, für jenen, der diese Leichtigkeit genießt. Anders sieht es aber aus, wenn man die Kehrseite dieser Dinge ins Auge faßt und die Qual derjenigen betrachtet, welche diese Verkehrshetze aufrecht zu halten haben. Angesichts des intensiven Kulturlebens regen sich noch andere Gedanken. Die summenden Straßenbahnen, die schwirrenden Räder der Fabriken, das strahlende elektrische Licht betrachten wir nicht mehr mit reinem Vergnügen, wenn wir die Masse der Kohle erwägen, welche hierbei stündlich in die Luft geht. Wir nähern uns mit unheimlicher Geschwindigkeit der Zeit, da die Erde diese Schätze, die Ersparnisse ihrer Jugendzeit, wie ein alternder Organismus fast erschöpft haben wird.</p>
+  <p class="jp" lang="ja">たとえば今日の鉄道列車の速さや、郵便・電信・電話の交通の容易さを思い浮かべるのは、その容易さを享受する者にとってはたいへん快いことである。しかし、こうした事柄の裏面に目を向け、この交通の慌ただしさを維持しなければならない人々の苦しみを考えるとき、様子は違って見える。集約的な文化生活を前にして、さらに別の考えも湧いてくる。ブンブンと音を立てる路面電車、工場のうなる車輪、輝く電灯を、それによって一時間ごとに空中へと消えていく石炭の量を考えるとき、われわれはもはや純粋な喜びをもって眺めはしない。われわれは不気味な速さで、地球がこれらの宝、その青年期の蓄えを、老いていく有機体のようにほとんど使い果たしてしまう時代に近づいているのである。</p>
+</article>
+<article class="row" id="p15.3">
+  <aside class="mg"><a class="pid" href="#p15.3">15.3</a><span class="pg"><span>S.&nbsp;80</span><span>S.&nbsp;81</span></span></aside>
+  <p class="de" lang="de">Was dann? Werden wir in die Barbarei zurücksinken? Oder wird sich bis dahin die Menschheit die Weisheit des Alters erworben und haushalten gelernt haben? Fortschritte der Kultur sind nur bei einem gewissen Übermute denkbar und können deshalb im allgemeinen nur von den teilweise entlasteten Menschen angeregt werden. Dies gilt für die materielle und für die geistige Kultur. Die letztere hat aber die köstliche Eigenschaft, daß ihre Verbreitung auf den belasteten Teil der Menschheit nicht zu hindern ist. Es kann also nicht fehlen, daß einmal dieser Teil der Menschen in richtiger Erkenntnis der Verhältnisse gegen den herrschenden Teil Front macht und <span class="pb" title="Leipzig 1906, S. 81">81</span>eine billigere, zweckmäßigere Verwendung des gemeinsamen Besitzes fordert.<a class="fr" href="#n21">21</a></p>
+  <p class="jp" lang="ja">そのときどうなるのか。われわれは野蛮へと逆戻りするのだろうか。それとも人類はそれまでに老年の知恵を身につけ、やりくりすることを学んでいるだろうか。文化の進歩は、ある程度の余裕があってはじめて考えられるものであり、それゆえ一般には部分的に負担を軽減された人々によってのみ促されうる。このことは物質的文化にも精神的文化にも当てはまる。しかし精神的文化には、それが負担を負っている人類の部分へと広がるのを妨げることはできない、というすばらしい性質がある。それゆえ、いつかこの部分の人々が、事情を正しく認識して支配する部分に立ち向かい、共有の財産のより公正で、より目的にかなった使用を要求することは避けられないであろう<a class="fr" href="#n21">21</a>。</p>
+  <ol class="notes"><li id="n21"><span class="nn">21</span><p class="de" lang="de">Ein Programm hierzu gibt J. Popper in seinem Buche: „Das Recht zu leben und die Pflicht zu sterben.“ Leipzig 1878. Poppers Ziele stehen den ursprünglichen sozialdemokratischen nahe, unterscheiden sich aber darin vorteilhaft, daß nach seinem Programm die Organisation sich auf das Wichtigste und Notwendigste beschränken, im übrigen aber die Freiheit des Individuums gewahrt werden soll. Im entgegengesetzten Falle könnte wohl die Sklaverei in einem sozialdemokratischen Staat noch allgemeiner und drückender werden, als in einem monarchischen oder oligarchischen. In einer ergänzenden Schrift (Fundament eines neuen Staatsrechts. 1905) führt Popper das Leitmotiv durch: „Für sekundäre Bedürfnisse das Majoritätsprinzip; für fundamentale das Prinzip der garantierten Individualität.“ In wichtigen Punkten stimmt mit Popper überein: A. Menger, Neue Staatslehre. Jena, G. Fischer, 1902.</p><p class="jp" lang="ja">そのためのプログラムを J. ポッパーがその著書『生きる権利と死ぬ義務』（ライプツィヒ、1878年）で示している。ポッパーの目標は本来の社会民主主義の目標に近いが、彼のプログラムによれば組織は最も重要で必要なものに限られ、その他の点では個人の自由が守られるべきだという点で、有利に区別される。逆の場合には、社会民主主義国家における奴隷制は、君主制や寡頭制の国家におけるよりもいっそう全般的で重苦しいものとなりかねないであろう。補完的な著作（『新しい国法の基礎』1905年）において、ポッパーは「副次的な欲求には多数決原理を、根本的な欲求には保証された個体性の原理を」という主導動機を貫いている。重要な点でポッパーと一致しているのが、A. メンガー『新国家論』イェーナ、G. フィッシャー、1902年である。</p></li></ol>
+</article>
+<h2 class="sec" id="s16"><a href="#s16">§ 16</a></h2>
+<article class="row" id="p16.1">
+  <aside class="mg"><a class="pid" href="#p16.1">16.1</a><span class="pg"><span>S.&nbsp;81</span></span></aside>
+  <p class="de" lang="de">16. Zu den Erfindungen, welche aus dem sozialen Leben des Menschen hervorgehen, gehört auch die Sprache und die Schrift. Die reflektorischen Lautäußerungen, die bei durch bestimmte Anlässe hervorgerufenen Gemütserregungen eintreten, werden von selbst und unwillkürlich zu Erinnerungen, Zeichen dieser Anlässe und Erregungen, d. h. sie werden von einem unter gleichen Umständen lebenden Individuum derselben Art verstanden. So wenig spezialisiert die Lautäußerungen der Tiere auch sein mögen, so ist die Menschensprache doch nur eine weitere Entwicklung der Tiersprache. Sie entsteht, indem bei größerer Mannigfaltigkeit der Erlebnisse die Laute sich weiter modifizieren und spezialisieren, durch Nachahmung sich in dieser Spezialisierung verbreiten und durch Tradition sich erhalten. Das emotionelle Moment, welches den Laut erzeugt hat, tritt immer mehr zurück, der Laut spezialisiert sich und associiert sich immer mehr mit den entsprechenden Vorstellungen.</p>
+  <p class="jp" lang="ja">16. 人間の社会生活から生じる発明には、言語と文字も属する。一定のきっかけによって呼び起こされた情動の際に生じる反射的な発声は、おのずから、そして意図せずして、それらのきっかけと興奮の記憶となり、記号となる。すなわちそれは、同じ事情のもとで生きている同種の個体によって理解される。動物の発声がいかに特殊化されていないとしても、人間の言語は動物の言語のさらなる発展にすぎない。人間の言語は、体験の多様性が増すにつれて音がさらに変化し特殊化し、模倣によってこの特殊化のまま広まり、伝統によって保持されることによって生じる。音を生み出した情動的な契機はますます後退し、音は特殊化して、それに対応する表象とますます連合していく。</p>
+</article>
+<article class="row" id="p16.2">
+  <aside class="mg"><a class="pid" href="#p16.2">16.2</a><span class="pg"><span>S.&nbsp;81</span><span>S.&nbsp;82</span></span></aside>
+  <p class="de" lang="de">Jerusalem verfolgt sehr schön die Bildung von Namen aus solchen Gefühlslauten bei Laura Bridgman.<a class="fr" href="#n22">22</a> In beschränktem Maße können wir die Vorgänge der Sprachwandlung an unseren Kindern beobachten. Ausgedehnteres Material liefert uns die Vergleichung der Sprachen von Völkern gemeinschaftlicher Abstammung. Wir sehen da, wie mit der Teilung des Volkes in mehrere Zweige, die in verschiedenen Verhältnissen leben, die Sprache sich eben<span class="pb" title="Leipzig 1906, S. 82">82</span>falls teilt. Die Worte wandeln sich. Worte, für welche keine Objekte mehr vorhanden sind, verschwinden, oder werden zur Bezeichnung anderer verwandter oder ähnlicher Objekte verwendet wegen des für dieselben fehlenden Ausdrucks. Da der Vergleichungspunkt von Fall zu Fall wechselt, erlangt dasselbe Wort in verwandten Sprachen nach und nach oft weit voneinander entfernte Bedeutungen.</p>
+  <p class="jp" lang="ja">イェルーザレムは、ローラ・ブリッジマンにおけるこのような感情音からの名前の形成を、非常にみごとに追跡している<a class="fr" href="#n22">22</a>。限られた程度でなら、言語変化の過程をわれわれの子どもたちに観察することができる。より広範な資料は、共通の起源をもつ民族の言語を比較することによって得られる。そこでは、民族がさまざまな事情のもとで生きるいくつかの分枝に分かれるにつれて、言語もまた分かれていくのが見られる。語は変化する。もはや対象が存在しない語は消えるか、あるいは類縁の、あるいは似た対象に対する表現がないために、それらを指すのに用いられる。比較の点が場合ごとに変わるので、同じ語が類縁の言語において、しだいにしばしば互いに遠く隔たった意味を獲得する。</p>
+  <ol class="notes"><li id="n22"><span class="nn">22</span><p class="de" lang="de">Psychologie, S. 105. Ausführlicher: Laura Bridgman. Wien 1891. S. 41 u. f.</p><p class="jp" lang="ja">『心理学』105頁。より詳しくは『ローラ・ブリッジマン』ウィーン、1891年、41頁以下。</p></li></ol>
+</article>
+<article class="row" id="p16.3">
+  <aside class="mg"><a class="pid" href="#p16.3">16.3</a><span class="pg"><span>S.&nbsp;82</span></span></aside>
+  <p class="de" lang="de">Dadurch kann die Lektüre einer holländischen Zeitung, oder der Aufschriften in den Straßen einer holländischen Stadt, einem Deutschen eine harmlose ergötzliche Unterhaltung gewähren und ohne Zweifel mutatis mutandis auch umgekehrt.<a class="fr" href="#n23">23</a> Die Wichtigkeit des Wortes als Zentrum der Associationen wurde schon früher (S. 44 u. f.) hervorgehoben. Die psychische Entwicklung erfährt durch die sprachliche Mitteilung und Übertragung von Erfahrungen die mächtigste Förderung. Die Bedeutung der Sprache für die Abstraktion soll später noch erörtert werden.<a class="fr" href="#n24">24</a> Die Lautsprache bedient sich nur ganz ausnahmsweise der Nachahmung eines zu bezeichnenden Hörbaren. Die Geberdensprache, welcher sich fremde Völker zur Verständigung untereinander bedienen, oder die natürliche Geberdensprache der Taubstummen (im Gegensatz zur künstlichen Fingersprache derselben), macht von der Nachahmung des Sichtbaren, wo nicht direkt auf dasselbe hingewiesen werden kann, den ausgiebigsten Gebrauch.<a class="fr" href="#n25">25</a></p>
+  <p class="jp" lang="ja">そのために、オランダの新聞や、オランダの町の通りの看板を読むことは、ドイツ人にとって無邪気で愉快な楽しみとなりうるし、疑いもなく必要な変更を加えれば逆もまた然りである<a class="fr" href="#n23">23</a>。連合の中心としての語の重要性は、すでに先に（44頁以下）強調した。心的発達は、言語による経験の伝達と伝承によって最も力強い促進を受ける。抽象にとっての言語の意義については、のちに論じることにする<a class="fr" href="#n24">24</a>。音声言語が、表示すべき聞こえるものの模倣を用いるのは、ごく例外的なことにすぎない。異民族が互いに意思を通じ合うために用いる身ぶり言語、あるいは聾唖者の自然な身ぶり言語（その人工的な指文字に対して）は、直接にそれを指し示すことができない場合、見えるものの模倣をきわめて広く用いる<a class="fr" href="#n25">25</a>。</p>
+  <ol class="notes"><li id="n23"><span class="nn">23</span><p class="de" lang="de">Analoge Beispiele aus der Sprache der Kinder s. Analyse S. 250.</p><p class="jp" lang="ja">子どもの言語からの類似の例については『感覚の分析』250頁を見よ。</p></li><li id="n24"><span class="nn">24</span><p class="de" lang="de">Von älteren sprachphilosophischen Schriften ist wegen ihrer Originalität besonders lesenswert: L. Geiger, Ursprung und Entwicklung der menschlichen Sprache und Vernunft. Stuttgart 1868. - L. Noiré, Logos. Ursprung und Wesen der Begriffe. Leipzig 1885. - Whitney, Leben und Wachstum der Sprache. Leipzig 1876. - In vielen Richtungen sehr anregend: Fritz Mauthner, Beiträge zur Kritik der Sprache. Stuttgart, Cotta, 1901.</p><p class="jp" lang="ja">古い言語哲学の著作のうち、その独創性のゆえにとくに読む価値があるのは、L. ガイガー『人間の言語と理性の起源と発展』シュトゥットガルト、1868年。——L. ノワレ『ロゴス——概念の起源と本質』ライプツィヒ、1885年。——ホイットニー『言語の生命と成長』ライプツィヒ、1876年。——多くの方向できわめて刺激的なのは、フリッツ・マウトナー『言語批判への寄与』シュトゥットガルト、コッタ、1901年。</p></li><li id="n25"><span class="nn">25</span><p class="de" lang="de">Tylor, Urgeschichte der Menschheit. S. 17-104.</p><p class="jp" lang="ja">タイラー『人類の原始史』17–104頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s17"><a href="#s17">§ 17</a></h2>
+<article class="row" id="p17.1">
+  <aside class="mg"><a class="pid" href="#p17.1">17.1</a><span class="pg"><span>S.&nbsp;82</span><span>S.&nbsp;83</span></span></aside>
+  <p class="de" lang="de">17. Durch die Verwendung bleibender sichtbarer statt momentaner hörbarer Zeichen der Verständigung entsteht die Schrift. In dem Verharren<a class="fr" href="#n26">26</a> liegt der Vorzug der Schrift vor dem ver<span class="pb" title="Leipzig 1906, S. 83">83</span>gänglichen, rasch verfliegenden und wieder vergessenen, gesprochenen Wort. Am nächsten liegt es, Mitteilungen oder Nachrichten über Vorgänge zu geben durch Abbildung derselben. Die Indianer Nordamerikas bedienen sich in der Tat dieses Mittels. Ein Beispiel dafür ist die Zeichnung auf einem Felsen am Oberen See, welche Nachricht über einen Kriegszug zu Schiff gibt.<a class="fr" href="#n27">27</a> Anfänge der Schrift liegen ferner im Tätowieren, indem die Zeichnungen auf der Haut nach und nach von selbst zu Stammeszeichen, zu „Totems“ werden.</p>
+  <p class="jp" lang="ja">17. 意思疎通のために、瞬間的な聞こえる記号のかわりに持続する見える記号を用いることによって、文字が生じる。持続すること<a class="fr" href="#n26">26</a>のうちに、移ろいやすく、すばやく消え去り、また忘れられてしまう話された言葉に対する文字の利点がある。出来事についての伝達や知らせを、それを描くことによって与えるのが最も手近である。北アメリカのインディアンは実際にこの手段を用いている。その一例が、スペリオル湖畔の岩の上の絵で、それは船による遠征についての知らせを伝えている<a class="fr" href="#n27">27</a>。文字の始まりはさらに入れ墨のうちにもある。皮膚の上の絵がしだいにおのずから部族の印、「トーテム」となるからである。</p>
+  <ol class="notes"><li id="n26"><span class="nn">26</span><p class="de" lang="de">Seit Erfindung des Phonographen kann eine gesprochene Rede beliebig oft reproduziert werden wie eine geschriebene. Das phonographische Archiv der Wiener Akademie ist ein Beispiel hierfür. Die Idee des Phonographen schuf die Phantasie des Cyrano de Bergerac (Histoire comique des états et empires de la lune. 1648).</p><p class="jp" lang="ja">蓄音機の発明以来、話された演説も書かれたものと同じく何度でも再生できるようになった。ウィーン学士院の録音資料館がその一例である。蓄音機の着想は、シラノ・ド・ベルジュラックの想像力が生み出した（『月の諸国諸帝国の滑稽譚』1648年）。</p></li><li id="n27"><span class="nn">27</span><p class="de" lang="de">Wuttke, Geschichte der Schrift. Leipzig 1872. I. S. 156, Abbildungen: S. 10, Taf. XIII. Auch andere Stellen für das hier Besprochene wichtig.</p><p class="jp" lang="ja">ヴトケ『文字の歴史』ライプツィヒ、1872年、第1巻、156頁、図版：10頁、第13図版。ほかの箇所も、ここで論じたことにとって重要である。</p></li></ol>
+</article>
+<article class="row" id="p17.2">
+  <aside class="mg"><a class="pid" href="#p17.2">17.2</a><span class="pg"><span>S.&nbsp;83</span></span></aside>
+  <p class="de" lang="de">Die konventionellen Erinnerungszeichen, Knoten, quere Kerben auf Stäben, welche der Länge nach gespalten von beiden einen Vertrag schließenden Teilen aufbewahrt wurden, die in der peruanischen Verwaltung verwendeten Knotenschnüre, „Quipus“, die „Wampungürtel“ sind ebenfalls solche Anfänge. Die weitere Entwicklung der Schrift kann nun zwei verschiedene Wege einschlagen. Entweder schrumpfen die Abbildungen der Dinge durch schnelles vereinfachendes Schreiben zu konventionellen Begriffszeichen ein, wie in der chinesischen Schrift, oder die Abbildungen werden nach Art eines „Rebus“, indem sie an die Laute des Namens der abgebildeten Dinge erinnern, zu phonetischen Zeichen, wie in der Hieroglyphik der Ägypter.</p>
+  <p class="jp" lang="ja">慣習的な記憶の記号、結び目、契約を結ぶ両当事者が縦に割ってそれぞれ保管した棒の上の横の刻み目、ペルーの行政で用いられた結び縄「キープ」、「ワンパム帯」もまた、そうした始まりである。文字のさらなる発展は、二つの異なる道をとりうる。物の描写が、すばやく単純化して書くことによって縮んで慣習的な概念記号となるか——中国の文字のように——、あるいは描写が「判じ絵（レーブス）」の仕方で、描かれた物の名前の音を思い出させることによって、エジプト人の象形文字のように音声記号となるかである。</p>
+</article>
+<article class="row" id="p17.3">
+  <aside class="mg"><a class="pid" href="#p17.3">17.3</a><span class="pg"><span>S.&nbsp;83</span></span></aside>
+  <p class="de" lang="de">Die Neigung abstrakt zu denken und der Wunsch die Schrift dieser Neigung dienstbar zu machen, leitete auf den ersten, dagegen die Notwendigkeit Personennamen, überhaupt Eigennamen zu schreiben, leitete auf den zweiten Weg, auf dem sich die Buchstabenschrift entwickelt hat. Jede dieser Methoden hat ihre besonderen Vorteile. Die zweite kommt mit sehr wenigen Mitteln aus und folgt jeder phonetisch-sprachlichen und begrifflichen Wandlung mit Leichtigkeit. Die erstere ist von der Phonetik ganz unabhängig, wie denn das Chinesische auch von den Japanern, die eine ganz andere phonetische Sprache sprechen, gelesen wird. Die chinesische Schrift ist fast eine Pasigraphie, die allerdings, jeder begrifflichen Umwandlung entsprechend, ebenfalls einer Umwandlung bedarf.<a class="fr" href="#n28">28</a></p>
+  <p class="jp" lang="ja">抽象的に考える傾向と、文字をこの傾向に役立たせたいという願いは第一の道へと導き、これに対して人名、一般に固有名詞を書く必要は第二の道へと導いた。この第二の道の上で、アルファベット文字が発達したのである。これらの方法はそれぞれ特別な利点をもっている。第二の方法はきわめてわずかな手段で間に合い、音声的・言語的および概念的な変化のすべてに容易についていく。第一の方法は音声からまったく独立しており、実際、中国の文字は、まったく異なる音声言語を話す日本人によっても読まれる。中国の文字はほとんど万国共通文字（パシグラフィー）であるが、もちろん概念の変化に応じて、やはり変化を必要とする<a class="fr" href="#n28">28</a>。</p>
+  <ol class="notes"><li id="n28"><span class="nn">28</span><p class="de" lang="de">Gegenwärtig werden die alten philosophischen Probleme der Pasigraphie und internationalen Sprache wieder theoretisch erörtert und praktisch zu lösen versucht, letzteres namentlich von der „Délégation pour l'adoption d'une langue auxiliaire internationale“. Sollte die Lösung dieser sprachtechnischen Aufgabe gelingen, so würde dies einen der wichtigsten Kulturfortschritte bedeuten.</p><p class="jp" lang="ja">現在、万国共通文字と国際語という古い哲学的問題が、理論的に再び論じられ、実際的にも解決が試みられている。後者はとくに「国際補助語採用のための代表団」によって行われている。この言語技術上の課題の解決が成功すれば、それは最も重要な文化の進歩の一つを意味するであろう。</p></li></ol>
+</article>
+<h2 class="sec" id="s18"><a href="#s18">§ 18</a></h2>
+<article class="row" id="p18.1">
+  <aside class="mg"><a class="pid" href="#p18.1">18.1</a><span class="pg"><span>S.&nbsp;84</span></span></aside>
+  <p class="de" lang="de">18. Sprache und Schrift, ein Produkt der sozialen Kultur, wirken steigernd auf diese zurück. Man kann sich leicht vorstellen, daß das menschliche Leben sich vom tierischen nicht wesentlich unterscheiden könnte, wenn keine vollkommenere Mitteilung der Erfahrungen von Individuum zu Individuum stattfinden würde, jedes Individuum von neuem beginnen müßte und auf seine eigenen Erfahrungen beschränkt bliebe. Der Zustand der Wildheit könnte aber nicht überschritten werden, wenn die direkten Mitteilungen über die Zeit eines Menschenalters nicht weit hinausreichen würden. Die teilweise materielle Entlastung des einzelnen durch die Gesellschaft und die geistige Unterstützung desselben durch die Mitteilung der Zeitgenossen und Vorfahren, ermöglichen erst die Entstehung jenes Produktes des sozialen Lebens, welches wir Wissenschaft nennen. Der Wilde ist im Besitze der mannigfaltigsten Erfahrungen.</p>
+  <p class="jp" lang="ja">18. 社会的文化の産物である言語と文字は、文化を高めるように反作用する。経験が個人から個人へとより完全に伝達されることがなく、各個人が新たに始めなければならず、自分自身の経験に限られたままであったとしたら、人間の生活は動物の生活と本質的に異ならなかったであろうことは容易に想像できる。直接の伝達が一世代の時間をはるかに越えて及ぶのでなければ、未開の状態を越えることはできなかったであろう。社会による個人の部分的な物質的負担の軽減と、同時代人や祖先の伝達による個人の精神的な支援が、科学と呼ばれる社会生活のあの産物の成立をはじめて可能にするのである。未開人はきわめて多様な経験を所有している。</p>
+</article>
+<article class="row" id="p18.2">
+  <aside class="mg"><a class="pid" href="#p18.2">18.2</a><span class="pg"><span>S.&nbsp;84</span></span></aside>
+  <p class="de" lang="de">Er kennt die giftigen und die genießbaren Pflanzen, verfolgt die Spuren der Jagdtiere und weiß sich vor den Raubtieren und Giftschlangen zu hüten. Er weiß Feuer und Wasser für seine Zwecke zu benutzen, Steine und Holz für seine Waffen auszuwählen, lernt Metalle schmelzen und bearbeiten. Er lernt an den Fingern zählen und rechnen, mit Hilfe seiner Hände und Füsse messen. Er sieht wie ein Kind das Himmelsgewölbe, beobachtet die Drehung desselben und die Lagenveränderung der Sonne und der Planeten auf demselben. Alle oder die meisten seiner Beobachtungen macht er jedoch bei Gelegenheit, oder zum Zwecke der nützlichen Anwendung für sich. Dieselben primitiven Erfahrungen bilden die Keime verschiedener Wissenschaften.<a class="fr" href="#n29">29</a></p>
+  <p class="jp" lang="ja">彼は有毒な植物と食べられる植物を知っており、獲物の足跡を追い、猛獣や毒蛇から身を守るすべを知っている。火と水を自分の目的に利用し、武器のために石と木を選ぶことを知り、金属を溶かし加工することを学ぶ。指で数え計算することを、手足を使って測ることを学ぶ。彼は子どものように天穹を見、その回転や、その上での太陽や惑星の位置の変化を観察する。しかしその観察のすべて、あるいは大部分を、彼は折にふれて、あるいは自分にとって有用な応用のために行う。これらと同じ原始的な経験が、さまざまな科学の萌芽をなしている<a class="fr" href="#n29">29</a>。</p>
+  <ol class="notes"><li id="n29"><span class="nn">29</span><p class="de" lang="de">Tylor, Anthropologie, S. 371 u. f.</p><p class="jp" lang="ja">タイラー『人類学』371頁以下。</p></li></ol>
+</article>
+<article class="row" id="p18.3">
+  <aside class="mg"><a class="pid" href="#p18.3">18.3</a><span class="pg"><span>S.&nbsp;84</span><span>S.&nbsp;85</span></span></aside>
+  <p class="de" lang="de">Die Wissenschaft selbst kann erst entstehen, wenn durch materielle Entlastung so viel Freiheit und Muße gewonnen, anderseits durch häufige Inanspruchnahme der Intellekt so weit gestärkt ist, daß die Beobachtung an sich, ohne direkte Rücksicht auf deren Verwendung, das nötige Interesse gewonnen hat. Nun werden die Beobachtungen der Zeitgenossen und Vorfahren gesammelt, geordnet, geprüft, die durch zufällige Umstände veranlaßten Irrtümer ausgeschieden, <span class="pb" title="Leipzig 1906, S. 85">85</span>und der Zusammenhang des Feststehenden wird ermittelt. Was hierbei die Schrift leistet, sieht man schon an einem denkwürdigen Falle. Als die europäische Menschheit, nach länger als ein Jahrtausend währenden barbarischen Zuständen, den Faden der antiken Wissenschaften im 16. und 17. Jahrhundert wieder aufnahm, hatte sie nicht nötig, von neuem denselben Anlauf zu wiederholen, sondern konnte rasch die antike Höhe erreichen und übersteigen. Die historische Verfolgung der Bildung der Wissenschaften durch Aufsammlung und Ordnung von primitiven Erfahrungen gewährt ein reizendes und genußreiches Studium.<a class="fr" href="#n30">30</a></p>
+  <p class="jp" lang="ja">科学そのものは、物質的負担の軽減によって十分な自由と余暇が得られ、他方では頻繁に使われることによって知性が十分に強められ、観察それ自体が、その利用への直接の顧慮なしに必要な関心を得るようになったとき、はじめて成立しうる。いまや同時代人や祖先の観察が集められ、秩序づけられ、吟味され、偶然的な事情によって引き起こされた誤りが除かれ、確定したものの連関が明らかにされる。その際に文字が何を成し遂げるかは、ある記憶すべき事例を見ればすでに分かる。ヨーロッパの人類が、千年以上も続いた野蛮な状態ののち、十六世紀と十七世紀に古代の科学の糸を再び取り上げたとき、同じ出発を新たに繰り返す必要はなく、すばやく古代の高みに達し、それを越えることができたのである。原始的な経験を集め秩序づけることによる科学の形成を歴史的に追うことは、魅力的で楽しい研究となる<a class="fr" href="#n30">30</a>。</p>
+  <ol class="notes"><li id="n30"><span class="nn">30</span><p class="de" lang="de">Auf die Entwicklungsgeschichte der Wissenschaften im einzelnen kann hier nicht eingegangen werden. Vgl. Schriften allgemeineren Inhalts, wie Whewell, Geschichte der induktiven Wissenschaften. Deutsch v. Littrow. Stuttgart 1840. Besonders lehrreich sind Werke über Spezialgebiete, wie M. Cantor, Mathematische Beiträge zum Kulturleben der Völker. Halle 1863, Cantor, Geschichte der Mathematik. 1880.</p><p class="jp" lang="ja">ここでは諸科学の発展史に個別に立ち入ることはできない。ヒューウェル『帰納的諸科学の歴史』（リトロウ独訳、シュトゥットガルト、1840年）のような一般的内容の著作を参照。とくに教えられるところが多いのは、M. カントール『諸民族の文化生活への数学的寄与』ハレ、1863年、カントール『数学史』1880年のような、特殊領域についての著作である。</p></li></ol>
+</article>
+<article class="row" id="p18.4">
+  <aside class="mg"><a class="pid" href="#p18.4">18.4</a><span class="pg"><span>S.&nbsp;85</span></span></aside>
+  <p class="de" lang="de">Einige Wissensgebiete, wie Mechanik, Wärmelehre u. a. sind besonders lehrreich, weil in denselben das Emporwachsen der Wissenschaft aus dem Handwerk, aus dem Gewerbe besonders deutlich hervortritt.<a class="fr" href="#n31">31</a> Man sieht hier, wie das materielle, das technische Bedürfnis, welches ursprünglich das Treibende war, sehr allmählich dem rein intellektuellen Interesse Platz macht. Die intellektuelle Beherrschung eines Tatsachengebietes wirkt nun auf die instinktive Technik, aus welcher sie hervorgegangen ist, zurück, und verwandelt dieselbe in eine zielbewußte wissenschaftliche Technik, welche nicht mehr auf zufällige Erfahrungen angewiesen ist, sondern planmäßig auf die Lösung ihrer Aufgaben losgehen kann. So bleiben theoretisches und praktisches Denken, wissenschaftliche und technische Erfahrung in dauerndem Kontakt und fördern sich gegenseitig.</p>
+  <p class="jp" lang="ja">力学や熱学などのいくつかの知識領域は、とくに教えられるところが多い。そこでは手工業から、職業から科学が伸び育っていくことがとりわけはっきりと現れるからである<a class="fr" href="#n31">31</a>。ここでは、もともと推進力であった物質的・技術的な必要が、きわめて徐々に純粋に知的な関心に場所を譲っていくのが見られる。ある事実領域の知的な支配は、いまやそれが生まれてきた本能的な技術に反作用し、それを目的を意識した科学的技術へと変える。この技術はもはや偶然の経験に頼ることなく、計画的にその課題の解決に取り組むことができる。こうして理論的思考と実践的思考、科学的経験と技術的経験とは持続的な接触を保ち、互いに促進し合うのである。</p>
+  <ol class="notes"><li id="n31"><span class="nn">31</span><p class="de" lang="de">Vgl. des Verf. „Mechanik“ und „Prinzipien der Wärmelehre“.</p><p class="jp" lang="ja">著者の『力学』および『熱学の原理』を参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s19"><a href="#s19">§ 19</a></h2>
+<article class="row" id="p19.1">
+  <aside class="mg"><a class="pid" href="#p19.1">19.1</a><span class="pg"><span>S.&nbsp;85</span><span>S.&nbsp;86</span></span></aside>
+  <p class="de" lang="de">19. Wie die Wissenschaft ist auch die Kunst<a class="fr" href="#n32">32</a> ein Nebenprodukt, das sich bei Befriedigung der Bedürfnisse ergibt. Das Notwendige, das Nützliche, das Zweckmäßige wird zunächst gesucht. Ergibt sich hierbei Gefälliges ohne Rücksicht auf den Nutzen, so erregt auch dieses gelegentlich das Interesse, wird seiner selbst wegen festgehalten und gepflegt. So entsteht durch <span class="pb" title="Leipzig 1906, S. 86">86</span>das nützliche Geflecht, mit seiner regelmäßigen Wiederkehr der Formen, das Gefallen am Ornament, durch den nützlichen Rhythmus (S. 78) das Vergnügen am Metrum. Aus dem Bogen als Waffe entwickelt sich der Musikbogen,<a class="fr" href="#n33">33</a> die Harfe und das Klavier u. s. w.</p>
+  <p class="jp" lang="ja">19. 科学と同じく芸術<a class="fr" href="#n32">32</a>もまた、欲求を満たす際に生じる副産物である。まず求められるのは必要なもの、有用なもの、目的にかなったものである。その際、有用性とは無関係に好ましいものが生じると、それもときに関心を呼び起こし、それ自体のために保持され育まれる。こうして、形の規則的な繰り返しをもつ有用な編み物によって装飾への好みが生じ、有用なリズム（78頁）によって韻律への楽しみが生じる。武器としての弓から楽弓<a class="fr" href="#n33">33</a>、竪琴、ピアノなどが発展する。</p>
+  <ol class="notes"><li id="n32"><span class="nn">32</span><p class="de" lang="de">Vgl. Haddon, Evolution in Art. London 1895. — Wallaschek, Primitive Music, und Tylor, Anthropologie, S. 343 u. f.</p><p class="jp" lang="ja">ハッドン『芸術における進化』ロンドン、1895年参照。——ヴァラシェク『原始音楽』、およびタイラー『人類学』343頁以下。</p></li><li id="n33"><span class="nn">33</span><p class="de" lang="de">Tylor, a. a. O. S. 353.</p><p class="jp" lang="ja">タイラー前掲書、353頁。</p></li></ol>
+</article>
+<article class="row" id="p19.2">
+  <aside class="mg"><a class="pid" href="#p19.2">19.2</a><span class="pg"><span>S.&nbsp;86</span></span></aside>
+  <p class="de" lang="de">Kunst und Wissenschaft, jede rechtliche<a class="fr" href="#n34">34</a> und ethische, ja jede höhere geistige Kultur kann nur in der geselligen Vereinigung gedeihen, nur wenn ein Teil für den andern Lasten übernimmt. Möchten die „obersten Zehntausend“ klar erkennen, was sie dem arbeitenden Volke schulden! Möchten Künstler und Forscher bedenken, daß es ein großer gemeinsamer und gemeinsam erworbener Besitz der Menschheit ist, den sie für diese verwalten und mehren!</p>
+  <p class="jp" lang="ja">芸術と科学、あらゆる法的<a class="fr" href="#n34">34</a>および倫理的文化、それどころかあらゆる高度な精神的文化は、社会的な結合のなかで、一部の人々が他の人々のために負担を引き受けるときにのみ栄えうる。「上流の一万人」が、自分たちが労働する民衆に何を負っているかをはっきりと認識してくれればよいのだが。芸術家と研究者が、自分たちが人類のために管理し増やしているのは、人類の大きな共有の、共同で獲得された財産なのだということを考えてくれればよいのだが。</p>
+  <ol class="notes"><li id="n34"><span class="nn">34</span><p class="de" lang="de">Lubbock, Die Entstehung der Zivilisation. Jena 1875. - Lubbock, Die vorgeschichtliche Zeit. Jena 1874.</p><p class="jp" lang="ja">ラボック『文明の起源』イェーナ、1875年。——ラボック『先史時代』イェーナ、1874年。</p></li></ol>
+</article>
+<h2 class="sec" id="s20"><a href="#s20">§ 20</a></h2>
+<article class="row" id="p20.1">
+  <aside class="mg"><a class="pid" href="#p20.1">20.1</a><span class="pg"><span>S.&nbsp;86</span></span></aside>
+  <p class="de" lang="de">20. Die Verwicklung und Mannigfaltigkeit der Einflüsse, welche aus der natürlichen und kulturellen Umgebung des Menschen hervorgehen, bedingen bei demselben einen weit größeren Erfahrungs-, Associations- und Interessenkreis, als irgend ein Tier zu gewinnen vermag. Dem entspricht die höhere Intelligenz. Vergleichen wir aber die Menschen einer sozialen Klasse, oder sogar nur eines Berufes untereinander, so werden diese natürlich gemeinsame, der Klasse oder dem Beruf entsprechende Züge aufweisen; trotzdem wird aber jeder einzelne, der Variation seiner erblichen Anlage und der Eigentümlichkeit seiner Erlebnisse entsprechend, eine einzige, nicht wieder auffindbare psychische Individualität darstellen. Die Differenz der intellektuellen Individualitäten wird selbstverständlich ungemein vergrößert, wenn wir uns an die Schranken der Klasse und des Berufes nicht binden.</p>
+  <p class="jp" lang="ja">20. 人間の自然的および文化的環境から生じる影響の錯綜と多様性は、人間に、どの動物が獲得しうるよりもはるかに大きな経験・連合・関心の範囲をもたらす。それに対応するのがより高い知性である。しかし、ある社会階級の人々、あるいはある職業の人々だけを互いに比較してみると、彼らは当然、階級や職業に対応する共通の特徴を示すであろう。それにもかかわらず各個人は、その遺伝的素質の変異とその体験の独自性に応じて、唯一の、二度と見いだされない心的個体性を呈するであろう。階級と職業の枠にとらわれないなら、知的個体性の違いはもちろんはるかに大きくなる。</p>
+</article>
+<article class="row" id="p20.2">
+  <aside class="mg"><a class="pid" href="#p20.2">20.2</a><span class="pg"><span>S.&nbsp;86</span><span>S.&nbsp;87</span></span></aside>
+  <p class="de" lang="de">Stellen wir uns nun vor, daß diese so verschiedenen Intelligenzen in freien Verkehr treten, in innigerer Berührung sich gegenseitig anregen bei Unternehmungen, welche wie Wissenschaft, Technik, Kunst u. s. w. eben gemeinsame Angelegenheiten sind, so kann man die gewaltige, gegenwärtig fast noch unausgenützte geistige Potenz der Menschheit abschätzen. Durch Zusammenwirken vieler verschiedener Individualitäten ergibt sich eben eine mächtige Bereicherung und Erweiterung des <span class="pb" title="Leipzig 1906, S. 87">87</span>Umfanges der Erfahrung ohne Abstumpfung der Schärfe und Lebendigkeit derselben. Ein zweckmäßig organisierter Unterricht kann ja zum Teil diesen freien Verkehr ersetzen. Aber eine allzustramme Organisation des Unterrichtes, Uniformierung der Volkserziehung nach Klassen und Berufen, Aufrichtung und Erhöhung der Schranken zwischen Klassen und Berufen, kann wieder sehr viel verderben. Hüten wir uns vor allzufesten starren Formen!<a class="fr" href="#n35">35</a></p>
+  <p class="jp" lang="ja">さて、これらのかくも異なる知性が自由な交流に入り、科学や技術や芸術などのようにまさに共通の事柄である企てにおいて、より緊密な接触のなかで互いに刺激し合うことを思い描くならば、人類の巨大な、現在ではまだほとんど利用されていない精神的潜在力を推し量ることができる。多くの異なる個体性の協働によって、経験の鋭さと生き生きとした性格を鈍らせることなく、経験の範囲の力強い豊富化と拡張が生じるのである。目的にかなうように組織された授業は、この自由な交流を部分的には代替しうる。しかし、授業をあまりに厳格に組織すること、階級や職業に応じて国民教育を画一化すること、階級と職業のあいだの柵を立て、高くすることは、また多くのものを損ないうる。あまりに固く硬直した形式に気をつけよう<a class="fr" href="#n35">35</a>。</p>
+  <ol class="notes"><li id="n35"><span class="nn">35</span><p class="de" lang="de">Die Naturwissenschaften möchten sich aus dem Handwerk als Nebenprodukt ergeben haben. Da nun das Handwerk und überhaupt die körperliche Arbeit in der antiken Welt mißachtet, die arbeitenden, die Natur beobachtenden Sklaven von den mit Muße spekulierenden und dilettierenden Herren, welche die Natur oft nur vom Hörensagen kannten, streng geschieden waren, so erklärt sich hieraus ein guter Teil des Naiven, Verschwommenen und Traumhaften der antiken Naturwissenschaft. Nur selten bricht der Trieb, selbst zu versuchen, zu experimentieren, durch bei Geometern, Astronomen, Ärzten und Ingenieuren. Und dann ergibt sich auch immer ein bedeutender Fortschritt, wie bei Archytas von Tarent oder Archimedes von Syrakus.</p><p class="jp" lang="ja">自然科学は手工業から副産物として生じてきたのであろう。ところで古代世界では手工業および肉体労働一般が軽蔑され、労働し自然を観察する奴隷は、余暇のうちに思弁にふけりディレッタント的に営み、しばしば自然を伝聞によってしか知らない主人たちから厳しく隔てられていたので、古代の自然科学の素朴で曖昧で夢のような性格のかなりの部分はこのことから説明される。自分で試み、実験しようという衝動が突き破って現れるのは、幾何学者、天文学者、医者、技術者においてまれなことにすぎない。そしてそのときにはいつも、タレントゥムのアルキュタスやシュラクサイのアルキメデスにおけるように、大きな進歩が生じるのである。</p></li></ol>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>各頁</td><td lang="de">柱 „Die Entwicklung der Individualität etc.“ が本文に混入</td><td lang="de">除去</td></tr>
+  <tr><td>§5.1</td><td lang="de">S. 73 の脚注（Morgan, l. c. p. 339 / p. 340）が本文中に混入</td><td lang="de">注4・注5 として分離（§4 の Katze¹), Affe²) への参照）</td></tr>
+  <tr><td>§7.1</td><td lang="de">gegeleitet; Jägerzum</td><td lang="de">geleitet; Jäger- zum</td></tr>
+  <tr><td>§14.2</td><td lang="de">4/2 Millionen</td><td lang="de">4½ Millionen</td></tr>
+  <tr><td>注25–26</td><td lang="de">Phonograph の注（„+)“）が Tylor の注に連結</td><td lang="de">§17.1 „Verharren“ への注26 として分離</td></tr>
+  <tr><td>注参照</td><td lang="de">Indianerhütte,³), Schriften.³), bedarf.³), hervortritt.2), Kunst³)</td><td lang="de">それぞれ注13・17・28・31・32 への参照</td></tr>
+  <tr><td>注</td><td lang="de">1. c.</td><td lang="de">l. c.</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_04.html">← 第Ⅳ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
