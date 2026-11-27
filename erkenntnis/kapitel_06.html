@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第Ⅵ章 表象生活の繁茂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第Ⅵ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a><a href="#s16">§16</a><a href="#s17">§17</a><a href="#s18">§18</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL VI · 第Ⅵ章</div>
+  <h1>表象生活の繁茂</h1>
+  <div class="de-title" lang="de">Die Wucherung des Vorstellungslebens</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 88–107　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;88</span></span></aside>
+  <p class="de" lang="de">1. Die Entwicklung des Vorstellungslebens bringt zunächst Vorteile für das organische, insbesondere für das vegetative Leben mit sich. Gewinnt aber das Vorstellungsleben ein zu großes Übergewicht über das Sinnenleben, so kann es gelegentlich auch zum Nachteil des organischen Lebens ausschlagen. Die Seele wird dann zum Parasiten des Leibes, welcher das Öl des Lebens verzehrt, wie Herbart sich gelegentlich ausdrückt. Wir verstehen dies, wenn wir bedenken, daß die Association, auf welcher die Anpassung der Gedanken an die Tatsachen beruht, wie dies schon durch Beispiele erläutert wurde, Zufälligkeiten unterliegt. Haben günstige Umstände die Vorstellungen so gelenkt, daß ihr Lauf den Tatsachen folgt oder vorauseilt, so gewinnen wir Erkenntnis.</p>
+  <p class="jp" lang="ja">1. 表象生活の発達は、まず有機的生活、とくに植物的生活に利益をもたらす。しかし表象生活が感官の生活に対してあまりに大きな優位を得ると、それはときに有機的生活の不利にはたらくこともありうる。そのとき魂は、ヘルバルトがときおり言い表しているように、生命の油を食い尽くす身体の寄生者となる。思考を事実に適応させることのもとにある連合が、すでに例によって説明したように、偶然に左右されることを考えれば、このことは理解できる。好都合な事情が表象を導いて、その経過が事実に従うか事実に先回りするようにしたならば、われわれは認識を得る。</p>
+</article>
+<article class="row" id="p1.2">
+  <aside class="mg"><a class="pid" href="#p1.2">1.2</a><span class="pg"><span>S.&nbsp;88</span></span></aside>
+  <p class="de" lang="de">Ungünstige Umstände können aber die Aufmerksamkeit auf Unwesentliches lenken und Gedankenverbindungen befördern, welche den Tatsachen nicht entsprechen und irre führen. Gedanken, welche nach wiederholter Prüfung den Tatsachen entsprechend gefunden worden sind, können als Regulativ der Handlung nur fördern. Nimmt man aber unter besonderen Umständen zufällig entstandene Gedankenverbindungen ohne Prüfung als den Tatsachen allgemein entsprechend hin, so ergeben sich daraus schwere Irrtümer, und bei Leitung der Handlungen durch dieselben die schlimmsten praktischen Folgen. Dies soll nun hier zunächst durch einige Beispiele aus der Kulturgeschichte erläutert werden.</p>
+  <p class="jp" lang="ja">しかし不都合な事情は、注意を非本質的なものへと向け、事実に対応せず人を誤らせるような思考結合を助長することがある。繰り返し吟味されたうえで事実に対応することが分かった思考は、行為の規制原理として役立つばかりである。しかし、特別な事情のもとで偶然生じた思考結合を、吟味せずに事実一般に対応するものとして受け入れると、そこから重大な誤りが生じ、それによって行為が導かれる場合には最悪の実践的結果が生じる。このことを、ここではまず文化史からのいくつかの例によって説明しよう。</p>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;88</span><span>S.&nbsp;89</span></span></aside>
+  <p class="de" lang="de">2. Kinder schlagen nach dem Bilde einer unbeliebten Person, geben ihren Unwillen wohl auch laut in Worten Ausdruck. Sie mißhandeln das Bild des Raubtieres, suchen das Bild des angegriffenen Tieres vor demselben zu schützen. Mit steigender Entwicklung wird eben das erstarkte Vorstellungsleben selbst<span class="pb" title="Leipzig 1906, S. 89">89</span>ständig und gewinnt zuweilen das Übergewicht über die Sinne. Es ist anzunehmen, daß wenig kultivierte Menschen, Wilde, sich ähnlich verhalten werden. Wenn nun ein solcher das Bild eines Feindes mißhandelt und verwünscht, der Feind aber nun zufällig wirklich erkrankt oder gar stirbt, so kann er leicht den Gedanken fassen, daß seine Handlungsweise, sein Wunsch, den Tod des Feindes zur Folge gehabt hat. Dieser Glaube wird sich um so leichter halten können, als auf diesem unkontrollierbaren Gebiet der Gegenbeweis sehr schwer zu erbringen ist.</p>
+  <p class="jp" lang="ja">2. 子どもは嫌いな人の絵をたたき、その不満をおそらく大声で言葉にも表す。猛獣の絵をいじめ、襲われている動物の絵を猛獣から守ろうとする。発達が進むにつれて、強まった表象生活そのものが自立し、ときに感官に対して優位を得る。文化の程度の低い人々、未開人も似たようにふるまうと考えてよいであろう。さて、そのような者が敵の像をいじめ呪い、ところが敵がたまたま本当に病気になったり死んだりすれば、彼は自分のやり方、自分の願いが敵の死を引き起こしたのだという考えを容易に抱きうる。この信念は、この統制不可能な領域では反証を挙げることがきわめて難しいだけに、いっそう容易に保たれうるであろう。</p>
+</article>
+<article class="row" id="p2.2">
+  <aside class="mg"><a class="pid" href="#p2.2">2.2</a><span class="pg"><span>S.&nbsp;89</span></span></aside>
+  <p class="de" lang="de">In der Tat ist das Verfahren, eine Puppe des Feindes oder einen Körperteil desselben, Haare, Nägel zu mißhandeln und Verwünschungen auszusprechen, ebenso wie der Glaube an die Wirksamkeit dieser Handlung ungemein weit verbreitet. Dr. Martius teilt folgende nächtliche Beobachtung aus einer Indianerhütte mit:<a class="fr" href="#n1">1</a> „In einem dunklen Winkel erhob sich ein altes Weib, nackt, mit Staub und Asche bedeckt, ein Jammerbild des Hungers und Elends; sie war die Sklavin meiner Wirte, eine Gefangene, die man einem andern Stamme entführt hatte. Sie schlich sich vorsichtig zum Herde und blies das Feuer an, brachte einige Kräuter und Abschnitzel von Menschenhaar zum Vorschein, murmelte etwas in ernstem Tone und grinste und gestikulierte seltsam gegen die Kinder ihrer Herren. Sie kratzte einen Schädel, warf Kräuter und Haare zu Kugeln geballt ins Feuer u. s. f. Eine Zeitlang konnte ich nicht begreifen, was dies alles bedeutet, bis ich endlich, aus meiner Hängematte springend und dicht zu ihr hingehend, aus ihrem Schrecken und ihrer flehenden Geberde, sie nicht zu verraten, erkannte, daß sie Zauberkünste übte, um die Kinder ihrer Feinde und Unterdrücker zu vernichten.</p>
+  <p class="jp" lang="ja">実際、敵の人形や敵の体の一部、髪や爪を痛めつけて呪いの言葉を唱えるというやり方も、またこの行為の効き目に対する信仰も、きわめて広く行きわたっている。マルティウス博士は、あるインディアンの小屋での夜の観察を次のように伝えている<a class="fr" href="#n1">1</a>。「暗い片隅で一人の老婆が起き上がった。裸で、塵と灰にまみれ、飢えと悲惨の哀れな姿であった。彼女は私の宿主たちの奴隷で、別の部族からさらわれてきた捕虜であった。彼女は用心深く炉に忍び寄って火を吹きおこし、いくつかの薬草と人の髪の切れ端を取り出し、何かを真剣な口調でつぶやき、主人の子どもたちに向かって歯をむき出し、奇妙な身ぶりをした。彼女は頭蓋骨をひっかき、薬草と髪を丸めて火に投げ入れた、等々。しばらくのあいだ私はこれがすべて何を意味するのか理解できなかったが、ついにハンモックから飛び出して彼女のすぐそばに行ったとき、その驚きぶりと、告げ口しないでくれと懇願する身ぶりから、彼女が敵であり抑圧者である者たちの子どもを滅ぼすために魔術を行っていたのだと悟った。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Tylor, Urgeschichte, S. 173.</p><p class="jp" lang="ja">タイラー『人類の原始史』173頁。</p></li></ol>
+</article>
+<article class="row" id="p2.3">
+  <aside class="mg"><a class="pid" href="#p2.3">2.3</a><span class="pg"><span>S.&nbsp;89</span><span>S.&nbsp;90</span></span></aside>
+  <p class="de" lang="de">Dies war nicht das erste Beispiel von Zauberei, dem ich unter den Indianern begegnet war.“ Hier lernen wir die einfachen psychologischen Grundlagen der unter den wilden Stämmen weit verbreiteten Zauberei verstehen und begreifen auch, daß man auf dieser Stufe sich vor den Hexen zu schützen suchte, indem man dieselben, wie es noch heute in Afrika üblich ist, zu Asche verbrannte. Es ist bekannt, wie dieser alte Glaube der wilden Völker seit dem 13. Jahrhundert unter der Autorität der Kirche (!) <span class="pb" title="Leipzig 1906, S. 90">90</span>auch in Europa wieder stärker hervortrat, wie derselbe durch die Bulle des Papstes Innozenz VIII (1484) förmlich sanktioniert wurde, wie dem durch den „Hexenhammer“ geregelten teuflischen Prozeßverfahren im 15., 16. und 17. Jahrhundert Tausende von Menschen jeden Alters, Standes und Geschlechtes, namentlich aber arme alte Weiber zum Opfer fielen, wie endlich zu Ende des 17. Jahrhunderts die Vernunft zum Worte kam, so daß 1782 (!) zu Glarus die letzte Hexe hingerichtet wurde.</p>
+  <p class="jp" lang="ja">これは私がインディアンのあいだで出会った魔術の最初の例ではなかった」。ここでわれわれは、未開の部族のあいだに広く行きわたっている魔術の単純な心理学的基礎を理解し、またこの段階では、今日なおアフリカで慣わしとなっているように、魔女を灰になるまで焼くことによって身を守ろうとしたことも理解する。未開民族のこの古い信仰が、十三世紀以来、教会(!)の権威のもとにヨーロッパでも再び強く現れたこと、それが教皇インノケンティウス八世の勅書（1484年）によって正式に認可されたこと、「魔女への鉄槌」によって定められた悪魔的な訴訟手続きによって、十五、十六、十七世紀にあらゆる年齢・身分・性別の何千もの人々が、とりわけ貧しい老婆たちが犠牲となったこと、そしてついに十七世紀の終わりに理性が発言するようになり、1782年(!)にグラールスで最後の魔女が処刑されたことは、よく知られている。</p>
+</article>
+<article class="row" id="p2.4">
+  <aside class="mg"><a class="pid" href="#p2.4">2.4</a><span class="pg"><span>S.&nbsp;90</span></span></aside>
+  <p class="de" lang="de">Dieser furchtbare, Jahrhunderte währende Wahn mit seinen schrecklichen verwüstenden Folgen sollte die Menschheit warnen, sich von irgend einem Glauben die Lebenswege vorschreiben zu lassen.<a class="fr" href="#n2">2</a> Daß solche Vorstellungen selbst den gebildeteren Kreisen der antiken Kulturvölker nicht allzufern lagen, ersehen wir z. B. aus der Satyre des Petronius (Werwolfgeschichte des Niceros, Hexenabenteuer des Trimalchio). Die ersten 3 Bücher der allerdings zur Unterhaltung dienenden „Metamorphosen“ des Apuleius sind ganz von diesem Stoff erfüllt. Lucians beißender Spott über gebildete Leute, die solche Dinge ernst nehmen, bricht in der Erzählung der Unterhaltung bei dem kranken Eukrates rückhaltlos hervor.<a class="fr" href="#n3">3</a></p>
+  <p class="jp" lang="ja">何世紀も続いたこの恐ろしい妄想と、その恐るべき荒廃的な帰結とは、何らかの信仰によって人生の道を指図されることのないよう、人類を戒めるべきものであろう<a class="fr" href="#n2">2</a>。そのような表象が古代の文化民族のより教養のある階層にとってさえあまり遠いものではなかったことは、たとえばペトロニウスの『サテュリコン』（ニケロスの人狼の話、トリマルキオの魔女の冒険）から分かる。もっぱら娯楽に供するものではあるが、アプレイウスの『変身物語』の最初の三巻はこの素材で満ちている。そのようなことを真に受ける教養人に対するルキアノスの辛辣な嘲笑は、病気のエウクラテスのもとでの会話の物語において遠慮なくほとばしり出ている<a class="fr" href="#n3">3</a>。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">Ennemoser, Geschichte der Magie. Leipzig 1844. Roskoff, Geschichte des Teufels. Leipzig 1869. - Soldan, Geschichte der Hexenprozesse. Stuttgart 1843. Wer bei dieser Lektüre den Humor verlieren sollte, lese zur Erholung Voltaires Artikel: Bekker, Incubes, Magie, Superstition in dessen Dictionaire philosophique, und zur völligen Aufheiterung Mises (G. T. Fechner), Vier Paradoxen. Leipzig 1846, und zwar: „Es gibt Hexerei“.</p><p class="jp" lang="ja">エンネモーザー『魔術の歴史』ライプツィヒ、1844年。ロスコフ『悪魔の歴史』ライプツィヒ、1869年。——ゾルダン『魔女裁判の歴史』シュトゥットガルト、1843年。これを読んでユーモアを失いそうになった人は、気晴らしにヴォルテールの『哲学辞典』の項目「ベッカー」「夢魔」「魔術」「迷信」を、そしてすっかり気分を晴らすためにミーゼス（G. T. フェヒナー）『四つの逆説』ライプツィヒ、1846年の、しかも「魔術は存在する」を読まれたい。</p></li><li id="n3"><span class="nn">3</span><p class="de" lang="de">Über die pathologischen Tatsachen, welche die Entwicklung solcher Vorstellungen (Lykanthropie, Vampyrismus u. s. w.), den Glauben an Zauberei fördern, vgl. die Anmerkung S. 68.</p><p class="jp" lang="ja">このような表象（人狼症、吸血鬼症など）の発達や魔術の信仰を促す病理的事実については、68頁の注を参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;90</span><span>S.&nbsp;91</span></span></aside>
+  <p class="de" lang="de">3. Im allgemeinen ist es ja richtig, daß was sinnlich sich nahe berührt, sich auch gedanklich verbindet. Da aber Gedanken durch Association leicht in mannigfaltige und zufällige Verbindung treten, so ist man häufigen Irrtümern ausgesetzt, wenn man umgekehrt auch alles gedanklich Verknüpfte für sinnlich verknüpft hält. Das Wort ist ein Associationszentrum, in welchem vielfältige Gedankenfäden zusammenlaufen. Es wird dadurch zur Quelle eines sonderbaren und sehr verbreiteten Aberglaubens, des Wortaberglaubens.<a class="fr" href="#n4">4</a> Wer ein Wort ausspricht, erinnert sich leb<span class="pb" title="Leipzig 1906, S. 91">91</span>haft des Bezeichneten und aller seiner Beziehungen. Den genannten gefürchteten Feind sieht er herankommen; er hütet sich denselben zu nennen. „Wenn man den Wolf nennt, kommt er gerennt.“ Man will „den Teufel nicht nennen“, den „Teufel nicht an die Wand malen“. „Dii avertite omen“ riefen die Römer, wenn ein Wort von böser Bedeutung gesprochen wurde.</p>
+  <p class="jp" lang="ja">3. 一般には、感性的に近く接しているものは思考においても結びつく、というのは確かに正しい。しかし思考は連合によって容易に多様で偶然的な結合に入るので、逆に思考において結びついているものをすべて感性的にも結びついているとみなすと、しばしば誤りにさらされる。語は連合の中心であり、そこには多様な思考の糸が集まってくる。それによって語は、奇妙で非常に広まった迷信、すなわち言葉の迷信の源泉となる<a class="fr" href="#n4">4</a>。ある語を口にする者は、それによって示されるものとそのすべての関係とを生き生きと思い出す。名を呼ばれた恐ろしい敵が近づいてくるのが見える。それゆえ彼はその名を口にしないよう用心する。「狼の話をすれば狼が走ってくる」。人々は「悪魔の名を口にし」ようとせず、「悪魔を壁に描こう」としない。不吉な意味の言葉が口にされると、ローマ人は「神々よ、凶兆をそらしたまえ（Dii avertite omen）」と叫んだ。</p>
+  <ol class="notes"><li id="n4"><span class="nn">4</span><p class="de" lang="de">Tylor, Urgeschichte, S. 159.</p><p class="jp" lang="ja">タイラー『人類の原始史』159頁。</p></li></ol>
+</article>
+<article class="row" id="p3.2">
+  <aside class="mg"><a class="pid" href="#p3.2">3.2</a><span class="pg"><span>S.&nbsp;91</span></span></aside>
+  <p class="de" lang="de">Umgekehrt tritt ein ausgesprochener Wunsch lebhafter ins Bewußtsein, erscheint der Verwirklichung näher. Hat der Mensch doch oft den Wunsch anderer erfüllt, und haben ja andere seinem Worte Folge geleistet. Warum sollte nicht irgend ein Dämon, den der Naturmensch immer und überall vermutet, auch den ausgesprochenen Wunsch erfüllen? Der Name der Person erscheint dem Wilden als ein Teil derselben; er wird vor dem Feind geheim gehalten, um diesem keine Macht über die Person, keinen Anknüpfungspunkt für Zaubereien zu geben. Der Name wird bei Krankheiten geändert, um den Dämon der Krankheit zu täuschen. Der Name des Verstorbenen und Worte, die an denselben anklingen, dürfen nicht ausgesprochen werden; sie sind „Tapu“. Wer den großen, geheim gehaltenen Namen Gottes kennen würde, meinen die Mohammedaner, könnte durch Aussprechen desselben die größten Wunder verrichten.</p>
+  <p class="jp" lang="ja">逆に、口に出された願いは、より生き生きと意識に上り、実現により近いように見える。人間はしばしば他人の願いをかなえてきたし、他人も彼の言葉に従ってきたではないか。自然人がいつもどこでも想定しているどこかのダイモーンが、口に出された願いをかなえてくれないはずがあろうか。人の名は未開人にはその人の一部に見える。それは、敵にその人物に対する何の力も、魔術の何の手がかりも与えないために、敵に対して秘密にされる。病気のときには、病気のダイモーンを欺くために名が変えられる。死者の名と、それに似た響きの言葉は口にしてはならない。それは「タプ（禁忌）」なのである。秘められた偉大な神の名を知る者は、それを口にすることによって最大の奇跡を行うことができる、とイスラム教徒は考えている。</p>
+</article>
+<article class="row" id="p3.3">
+  <aside class="mg"><a class="pid" href="#p3.3">3.3</a><span class="pg"><span>S.&nbsp;91</span></span></aside>
+  <p class="de" lang="de">Um Mißbrauch hintanzuhalten, muß derselbe geheim gehalten werden. „Den Namen Gottes nicht eitel nennen!“ Der Gedanke reicht weit zurück bis in das alte Ägypten. Die schlaue Göttin Isis bezwingt den Gott Re, indem sie ihm durch List das Geheimnis seines eigentlichen Namens entlockt. (A. Erman, Ägypten II, S. 359.) Der Wilde weiß, daß seine Glieder seinem Willen folgen und seine Umgebung nach seinem Wunsche ändern; er täuscht sich aber, indem er die genaue Grenze verkennt, die seinem Willen gezogen ist. So sehen wir auch am Sonntag den kegelschiebenden Bauer sich unwillkürlich nach der Seite neigen, nach welcher die längst losgelassene Kugel laufen soll. Und ähnliches beobachtet der Aufmerksame am eifrigen Billardspieler. Die Nichtbeachtung der Grenze, welche wir U genannt haben, ist überhaupt eine Hauptquelle der schon besprochenen und noch zu besprechenden Verirrungen.</p>
+  <p class="jp" lang="ja">濫用を防ぐために、その名は秘密にされなければならない。「神の名をみだりに唱えてはならない」。この考えは古代エジプトにまでさかのぼる。狡猾な女神イシスは、策略によって神ラーからその本当の名の秘密を聞き出し、ラーを屈服させる。（A. エルマン『エジプト』第2巻、359頁。）未開人は、自分の手足が自分の意志に従い、周囲を自分の願いどおりに変えることを知っている。しかし彼は、自分の意志に引かれている正確な境界を見誤ることによって思い違いをする。同じように、日曜日に九柱戯をする農夫が、とっくに手を離れた球が転がっていくべき方向へと思わず体を傾けるのが見られる。注意深い者は、熱心な玉突きの競技者にも同様のことを観察する。われわれが U と名づけた境界を顧みないことは、すでに論じた、そしてこれから論じる迷誤の主要な源泉なのである。</p>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;91</span><span>S.&nbsp;92</span></span></aside>
+  <p class="de" lang="de">4. Ein Mensch liegt schlafend regungslos da und erwacht dann. In der Zwischenzeit hat er aber von einem Gang in ferner <span class="pb" title="Leipzig 1906, S. 92">92</span>Gegend geträumt, wohin sein Leib tatsächlich nicht gekommen ist; vielleicht hat er im Traume auch mit seinem längst verstorbenen Vater verkehrt, mit diesem Gespräche geführt. Nehmen wir den Fall der Ohnmacht, des Scheintodes, des Todes hinzu. Bei naiven Menschen, die wie die Kinder zwischen Träumen und Wachen keine scharfe Grenze ziehen, entsteht notwendig die Vorstellung eines zweiten, schattenhaften Ich des Menschen, welches sich von dem Leibe trennen und mit demselben wieder vereinigen kann, wobei im ersten Fall der Leib leblos, im zweiten wieder belebt wird. Es bildet sich so die Vorstellung von einer Seele,<a class="fr" href="#n5">5</a> die ein selbständiges Leben führt. Besteht die Vorstellung von einem zweiten schattenhaften Leben nach dem Tode länger, so wird sie im einzelnen ausgemalt.</p>
+  <p class="jp" lang="ja">4. ある人が眠ってじっと横たわり、それから目を覚ます。しかしそのあいだに彼は、彼の身体が実際には行かなかった遠い地方への旅を夢に見た。おそらく夢のなかで、とうに亡くなった父親と交わり、会話もしたであろう。これに失神、仮死、死の場合を加えてみよう。子どものように夢と覚醒とのあいだに鋭い境界を引かない素朴な人々においては、人間の第二の影のような自我、身体から離れまた身体と再び結びつくことのできる自我の表象が必然的に生じる。前の場合には身体は生命を失い、後の場合には再び生命を得る。こうして、自立した生活を営む魂<a class="fr" href="#n5">5</a>の表象が形成される。死後の第二の影のような生活の表象がより長く存続すると、それは細部にわたって描き出される。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">Neben der Vorstellung von der Schattenseele entwickelt sich aus leicht begreiflichen, dem wachen Leben entnommenen Gründen der Gedanke einer Hauch- und einer Blutseele. Vgl. Odyssee G. XI, V. 33-154. Die Schattenseelen gewinnen Erinnerung, indem sie Blut trinken.</p><p class="jp" lang="ja">影の魂の表象と並んで、覚醒生活から取られた容易に理解できる理由から、息の魂と血の魂という考えが発達する。『オデュッセイア』第11歌、33–154行を参照。影の魂は血を飲むことによって記憶を得る。</p></li></ol>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;92</span></span></aside>
+  <p class="de" lang="de">Die Menschen träumen von diesem Leben, von dem Schattenreich, von dem sie so oft reden gehört haben, und die Vorstellungen hiervon werden immer reicher und mannigfaltiger. Eine solche Erzählung des Neuseeländers Te Wharewera teilt Tylor<a class="fr" href="#n6">6</a> mit: „Eine Tante dieses Mannes starb in einer einsamen Hütte nahe den Ufern des Rotorua-Sees. Da sie eine Dame von Stande war, so wurde sie in ihrer Hütte gelassen, Tür und Fenster wurden geschlossen und die Wohnung aufgegeben, da der Todesfall sie zum Tapu gemacht hatte. Aber einen oder zwei Tage nachher ruderte Te Wharewera mit einigen anderen in einem Boote nahe bei jenem Orte und sah am frühen Morgen eine Gestalt am Ufer sitzen, die ihm zuwinkte. Es war die Tante, die wieder zum Leben zurückgekehrt war, aber schwach und frierend und halb verhungert. Als sie durch ihre rechtzeitige Hilfe wiederhergestellt war, erzählte sie ihre Erlebnisse.</p>
+  <p class="jp" lang="ja">人々は、何度も話に聞いてきたこの生活、この影の国の夢を見、それについての表象はますます豊かで多様になる。ニュージーランド人テ・ワレウェラのそのような物語を、タイラー<a class="fr" href="#n6">6</a>が伝えている。「この男のおばが、ロトルア湖の岸辺近くの人里離れた小屋で死んだ。彼女は身分の高い婦人であったので、小屋に残され、戸と窓は閉ざされ、住まいは放棄された。死によってそこはタプとなったからである。ところが一、二日後、テ・ワレウェラは何人かの者と舟でその場所の近くを漕いでいたとき、早朝、岸に座って自分に手招きしている姿を見た。それは生き返ったおばであったが、弱り、凍え、半ば飢えていた。彼らが折よく助けたので彼女が回復すると、彼女は自分の体験を語った。</p>
+  <ol class="notes"><li id="n6"><span class="nn">6</span><p class="de" lang="de">Tylor, Anfänge der Kultur, II, S. 49.</p><p class="jp" lang="ja">タイラー『文化の始源』第2巻、49頁。</p></li></ol>
+</article>
+<article class="row" id="p4.3">
+  <aside class="mg"><a class="pid" href="#p4.3">4.3</a><span class="pg"><span>S.&nbsp;92</span><span>S.&nbsp;93</span></span></aside>
+  <p class="de" lang="de">Ihre Seele hatte, den Leib verlassend, ihren Flug nach dem Nordkap genommen und war am Eingange von Reigna angekommen. Dort hielt sie an bei dem Stamme der kriechenden Akike-Pflanze, stieg den Abhang hinab und befand sich am sandigen Ufer eines Flusses. Als sie um sich schaute, erblickte sie in einiger Entfernung <span class="pb" title="Leipzig 1906, S. 93">93</span>einen ungeheuren Vogel (Moa), größer als ein Mensch, der in schneller Bewegung auf sie zukam. Dieser furchtbare Anblick setzte sie so in Schrecken, daß ihr erster Gedanke war den Versuch zu machen, die steile Klippe wieder zu übersteigen; als sie aber einen alten Mann ein kleines Boot auf sich zurudern sah, eilte sie ihm entgegen und entkam so dem Vogel.</p>
+  <p class="jp" lang="ja">彼女の魂は身体を離れ、北の岬へと飛んでいき、レインガの入口に着いた。そこで彼女は這うアキケ草の茎のところで止まり、斜面を下ると、川の砂浜にいた。あたりを見回すと、少し離れたところに人間より大きな巨大な鳥（モア）がいて、すばやい動きで彼女のほうへやって来るのが見えた。この恐ろしい光景に彼女はひどくおびえ、最初に考えたのは、険しい崖をまたよじ登ってみようということであった。しかし一人の老人が小さな舟を漕いで自分のほうへやって来るのを見ると、彼女はその老人のほうへ急ぎ、こうして鳥から逃れた。</p>
+</article>
+<article class="row" id="p4.4">
+  <aside class="mg"><a class="pid" href="#p4.4">4.4</a><span class="pg"><span>S.&nbsp;93</span></span></aside>
+  <p class="de" lang="de">Als sie sicher hinüber gebracht worden war, fragte sie den alten Charon, indem sie ihren Familiennamen nannte, wo die Geister ihrer Verwandten wohnten, und als sie den Pfad, den der alte Mann ihr bezeichnet hatte, verfolgte, war sie überrascht, gerade so einen Weg zu finden, wie sie ihn auf Erden gegangen war; der Anblick der Gegend, die Bäume, Sträucher und Kräuter, das war ihr alles bekannt. Sie erreichte das Dorf und unter der versammelten Menge fand sie ihren Vater und viele nahe Verwandte. Sie begrüßten sie und bewillkommneten sie mit dem Klagegesange, den die Maoris immer anstimmen, wenn sie mit Bekannten nach langer Trennung wieder zusammentreffen. Aber als ihr Vater sie nach seinen noch lebenden Verwandten und besonders nach ihrem eigenen Kinde gefragt hatte, erklärte er ihr, daß sie auf die Erde zurückkehren müsse, denn es wäre keiner übrig geblieben, um für seinen Enkel Sorge zu tragen.</p>
+  <p class="jp" lang="ja">無事に向こう岸に渡してもらうと、彼女は自分の一族の名を告げて、親族の霊はどこに住んでいるのかと老いたカロンに尋ねた。そして老人が教えてくれた小道をたどっていくと、地上で歩いていたのとまったく同じような道が見つかったので驚いた。土地の眺め、木々、灌木、草はすべて見覚えのあるものであった。彼女は村に着き、集まった群衆のなかに父と多くの近い親族を見つけた。彼らは彼女に挨拶し、長い別離ののちに知人と再会するときマオリ族がいつも唱える嘆きの歌で彼女を迎えた。しかし父は、まだ生きている親族のこと、とくに彼女自身の子どものことを尋ねたのち、お前は地上に帰らなければならない、孫の面倒を見る者が誰も残っていないのだから、と彼女に言い聞かせた。</p>
+</article>
+<article class="row" id="p4.5">
+  <aside class="mg"><a class="pid" href="#p4.5">4.5</a><span class="pg"><span>S.&nbsp;93</span></span></aside>
+  <p class="de" lang="de">Auf seine Veranlassung weigerte sie sich, die Nahrung zu genießen, welche die Toten ihr anboten, und trotz ihrer Anstrengungen, sie zurückzuhalten, brachte ihr Vater sie sicher in das Boot, setzte mit ihr über und gab ihr zwei ungeheure Bataten, die er unter dem Mantel hervorholte, damit sie dieselben zur besonderen Nahrung seines Enkels zu Hause einpflanze. Als sie aber anfing, den Abhang wieder emporzuklimmen, hielten sie zwei nachgefolgte Kinderseelen fest, und sie entkam nur dadurch, daß sie die Bataten nach ihnen warf, bei deren Verzehren sich jene aufhielten, während sie mit Hilfe des Akikestammes den Felsen emporstieg, bis sie die Erde wieder erreichte und dann dahin zurückflog, wo sie ihren Körper verlassen hatte. Bei der Rückkehr zum Leben befand sie sich im Dunkeln, und was vorgefallen war, schien ihr wie ein Traum, bis sie wahrnahm, daß sie verlassen und die Türe fest verschlossen war, woraus sie den Schluß zog, daß sie wirklich gestorben und zum Leben zurückgekehrt sei.</p>
+  <p class="jp" lang="ja">父の勧めで、彼女は死者たちが差し出す食物を口にすることを拒んだ。死者たちは彼女を引き止めようとしたが、父は彼女を無事に舟に乗せて向こう岸へ渡し、マントの下から取り出した二つの巨大なサツマイモを与えて、家に帰ったら孫の特別な食べ物として植えるようにと言った。ところが彼女が斜面を再びよじ登りはじめると、あとを追ってきた二人の子どもの霊が彼女をつかまえた。彼女はサツマイモを彼らに投げつけることでようやく逃れ、彼らがそれを食べているあいだに、アキケの茎の助けを借りて岩をよじ登り、ついに地上に戻り、それから自分が身体を離れた場所へと飛び帰った。生に戻ったとき、彼女は暗闇のなかにいて、起こったことは夢のように思われた。しかし自分が置き去りにされ、戸が固く閉ざされていることに気づいたとき、自分は本当に死んで生き返ったのだと結論した。</p>
+</article>
+<article class="row" id="p4.6">
+  <aside class="mg"><a class="pid" href="#p4.6">4.6</a><span class="pg"><span>S.&nbsp;93</span><span>S.&nbsp;94</span></span></aside>
+  <p class="de" lang="de">Als der Morgen dämmerte, drang ein <span class="pb" title="Leipzig 1906, S. 94">94</span>schwaches Licht durch die Spalten des verschlossenen Hauses herein und sie sah auf dem Flur in ihrer Nähe einen Flaschenkürbis, der zum Teil mit roter Ockererde und mit Wasser gefüllt war; dies trank sie begierig bis zum Bodensatze aus, worauf sie sich ein wenig gekräftigt fühlte; es gelang ihr, die Tür zu öffnen und zum Ufer hinabzukriechen, wo sie ihre Freunde bald nachher auffanden. Diejenigen, welche ihrer Erzählung zuhörten, waren fest von der Glaubwürdigkeit ihrer Abenteuer überzeugt, doch bedauerte man sehr, daß sie nicht wenigstens eine der ungeheuren Bataten als Beweis ihrer Reise in das Land der Geister mit zurückgebracht hatte.“ Diese poetische und anheimelnde Erzählung hört sich wie ein Märchen von Baumbach an. Fast möchte man die Maoris um ihre behaglichen Vorstellungen beneiden.</p>
+  <p class="jp" lang="ja">夜が明けると、閉ざされた家の隙間から弱い光が差しこみ、彼女は近くの床に、一部に赤い黄土と水の入ったひょうたんがあるのを見た。彼女はそれを底の沈殿物まで貪るように飲みほし、それで少し元気が出た。戸を開けて岸辺まで這い下りることができ、そこでまもなく友人たちが彼女を見つけたのである。彼女の話を聞いた人々は、その冒険の真実性を固く信じたが、霊の国への旅の証拠として、巨大なサツマイモのせめて一つでも持ち帰らなかったことをたいへん残念がった」。この詩的で心なごむ物語は、バウムバッハの童話のように聞こえる。マオリ族の居心地のよい表象をうらやみたくなるほどである。</p>
+</article>
+<article class="row" id="p4.7">
+  <aside class="mg"><a class="pid" href="#p4.7">4.7</a><span class="pg"><span>S.&nbsp;94</span></span></aside>
+  <p class="de" lang="de">Übrigens ließen sich dieser Erzählung noch viele andere ähnliche von andern Stämmen herrührende an die Seite stellen. Wir wollen nur noch eine erwähnen, weil dieselbe lehrt, daß Traumerscheinungen auch die Vorstellung von Tier- und Gegenstandseelen begründen. Ein Indianerhäuptling am oberen See wünschte, daß man seine schöne Flinte mit ihm begrabe. Nach einer Krankheit von wenigen Tagen schien er zu sterben, doch wurde er, weil man seines Todes nicht sicher war, nicht bestattet. Seine Frau wartete vier Tage bei ihm, er kehrte zum Leben zurück und erzählte seine Geschichte.<a class="fr" href="#n7">7</a> „Nach dem Tode wanderte sein Geist auf der breiten Straße der Toten zum Lande der Glückseligen; dabei kam er durch große, üppig grünende Ebenen, sah schöne Haine und hörte den Gesang unzähliger Vögel, bis er schließlich von dem Gipfel eines Hügels die ferne Stadt der Toten zu Gesicht bekam, weit, weit hinten, zum Teil in Nebel gehüllt und mit glitzernden Seen und Strömen überstreut.</p>
+  <p class="jp" lang="ja">ちなみに、この物語と並べて、他の部族に由来する同様の物語をさらに多く挙げることができよう。夢の現れが動物や物の魂の表象をも基礎づけることを教えてくれるので、もう一つだけ挙げておこう。スペリオル湖畔のあるインディアンの酋長は、自分の立派な銃を一緒に埋めてくれるよう望んでいた。数日の病気ののち彼は死んだように見えたが、死が確かでなかったので埋葬されなかった。妻が四日間彼のそばで待っていると、彼は生き返り、自分の話を語った<a class="fr" href="#n7">7</a>。「死後、彼の霊は死者の広い道を通って至福の者たちの国へと旅した。その際、大きな、豊かに緑なす平原を通り、美しい林を見、無数の鳥の歌を聞き、ついに丘の頂から遠くの死者の町を目にした。それは遠く遠くかなたにあり、一部は霧に包まれ、きらめく湖や川が点在していた。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">Tylor, a. a. O., I, S. 474.</p><p class="jp" lang="ja">タイラー前掲書、第1巻、474頁。</p></li></ol>
+</article>
+<article class="row" id="p4.8">
+  <aside class="mg"><a class="pid" href="#p4.8">4.8</a><span class="pg"><span>S.&nbsp;94</span><span>S.&nbsp;95</span></span></aside>
+  <p class="de" lang="de">Da sah er Herden von stattlichen Hirschen und Elentiere und anderes Wild, das ohne Furcht nahe am Pfade einherging. Aber er hatte keine Flinte, und da er sich erinnerte, wie er seine Freunde gebeten hatte, ihm seine Flinte mit ins Grab zu legen, so kehrte er um, um sie zu holen. Da traf er den ganzen Zug von Männern, Frauen und Kindern, die nach der Stadt der Toten wanderten. <span class="pb" title="Leipzig 1906, S. 95">95</span>Sie waren schwer beladen mit Flinten, Pfeifen, Kesseln, Fleisch und anderen Gegenständen; Frauen trugen Korbwerk und bemalte Ruder, und kleine Knaben hatten ihre bunt geschnitzten Keulen und ihre Bogen und Pfeile, die Geschenke ihrer Freunde.“ Als der Häuptling aus seiner Entrückung erwachte, gab er seiner Umgebung den Rat, sie sollten den Toten nicht so viele schwere Dinge mitgeben, die sie nur behinderten, sondern nur solche, die sie ausdrücklich verlangten.</p>
+  <p class="jp" lang="ja">そこで彼は、堂々とした鹿やヘラジカやその他の獲物の群れが、恐れもなく道のすぐそばを歩いているのを見た。しかし彼には銃がなかった。そして友人たちに銃を墓に入れてくれるよう頼んだことを思い出し、それを取りに引き返した。そこで彼は、死者の町へと旅していく男や女や子どもたちの行列全体に出会った。彼らは銃やパイプや鍋や肉やその他の品物を重く背負っていた。女たちは籠細工や彩色した櫂を運び、小さな男の子たちは色とりどりに彫られた棍棒や弓矢、友人たちからの贈り物を持っていた」。酋長は恍惚状態から目覚めると、周囲の人々に、死者に重い物をたくさん持たせないように、それは彼らの邪魔になるだけだから、彼らがはっきりと望んだものだけを持たせるように、と忠告した。</p>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;95</span></span></aside>
+  <p class="de" lang="de">5. Nach diesen Vorstellungen entspricht also nicht nur jedem Menschen- oder Tierleib, sondern auch jedem Gegenstand eine Seele oder eine Art Geist, der natürlich nach Analogie des eigenen gedacht wird. Der Wilde versteht die Vorgänge, die er in seiner Umgebung hervorbringt, am besten als Wirkungen seines Willens. So faßt er auch alle ihm angenehmen oder unangenehmen Vorkommnisse als Äußerungen eines ihm freundlich oder feindlich gesinnten geistigen Wesens auf. Die stets geschäftige und wuchernde Phantasie des nach einer Unternehmung gierigen oder durch Feinde geängstigten Negers erblickt in den unbedeutendsten ihm auffallenden Dingen die Spuren solcher freundlichen oder feindlichen Geister. Diese Objekte „Fetische“ werden gesammelt, verehrt und gepflegt, mit Branntwein begossen, wenn sie sich günstig erweisen, wohl auch mißhandelt im Fall der vermeintlichen Ungefügigkeit.</p>
+  <p class="jp" lang="ja">5. したがってこれらの表象によれば、人間や動物の身体ばかりでなく、あらゆる物にもまた魂ないし一種の霊が対応しており、それは当然、自分自身の魂との類推によって考えられる。未開人は、自分が周囲に生み出す出来事を、自分の意志の作用として最もよく理解する。それゆえ彼は、自分にとって快いあるいは不快なあらゆる出来事を、自分に好意的あるいは敵意をもつ霊的存在の表れと解する。何かの企てに貪欲な、あるいは敵におびえる黒人のたえず忙しく繁茂する想像力は、目についたごくささいな物のうちにも、そのような好意的あるいは敵対的な霊の痕跡を見る。これらの対象「フェティシュ（呪物）」は集められ、崇められ、世話され、それが好都合であることが分かると火酒を注がれ、また思いどおりにならないと思われる場合には、おそらく虐待もされる。</p>
+</article>
+<article class="row" id="p5.2">
+  <aside class="mg"><a class="pid" href="#p5.2">5.2</a><span class="pg"><span>S.&nbsp;95</span></span></aside>
+  <p class="de" lang="de">„Ein Neger wollte einst zu einem wichtigen Geschäft ausgehen, als er aber die Türschwelle überschritt, trat er auf einen Stein und verletzte sich dabei. Aha, dachte er, bist du da? So nahm er den Stein auf und er half ihm tagelang bei seinem Unternehmen.“<a class="fr" href="#n8">8</a> Es gibt nichts, was ein Fetisch nicht tun und verrichten kann, wenn es nur der rechte Fetisch ist! Wir sind geneigt uns dieser Auffassung gegenüber sehr stolz zu fühlen, aber auch unter uns finden sich Menschen, welche Amulette, Glücksschweinchen, Medaillons und andere Dinge mit sich tragen und nicht nur zum Scherz. Unsere wissenschaftliche Auffassung von der Abhängigkeit der Naturvorgänge voneinander ist eben doch eine andere als jene, welche noch in dem Volke lebt, von dem wir ein Teil sind.</p>
+  <p class="jp" lang="ja">「ある黒人が重要な用事で出かけようとして敷居をまたいだとき、石を踏んでけがをした。ははあ、お前がいたのか、と彼は思った。そこで彼はその石を拾い上げ、石は何日も彼の企てを助けた」<a class="fr" href="#n8">8</a>。それが正しいフェティシュでさえあれば、フェティシュにできないこと、成し遂げられないことは何もないのである。われわれはこうした考え方に対してたいへん誇らしく感じがちであるが、われわれのあいだにも、お守りや幸運の豚や記念のメダルなどを、しかも冗談だけでなく身につけている人々がいる。自然の出来事の相互依存についてのわれわれの科学的な把握は、やはり、われわれ自身がその一部である民衆のなかになお生きている把握とは別物なのである。</p>
+  <ol class="notes"><li id="n8"><span class="nn">8</span><p class="de" lang="de">Tylor, a. a. O., II, S. 159.</p><p class="jp" lang="ja">タイラー前掲書、第2巻、159頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;95</span><span>S.&nbsp;96</span></span></aside>
+  <p class="de" lang="de">6. Die dualistischen Vorstellungen von Geistern, von einem <span class="pb" title="Leipzig 1906, S. 96">96</span>jenseitigen Leben u. s. w. sind sehr harmlos, solange sie rein theoretisch bleiben und sich auf einem gänzlich unkontrollierbaren Gebiet bewegen. Wenn aber die durch Träume erzeugten Ansichten praktische Folgen haben, zu Handlungen treiben, welche das Wohlbefinden und Leben der Genossen zerstören, ohne auch nur einem den geringsten Nutzen zu bringen, wenn das Unkontrollierbare hinreichende Macht gewinnt, sich mit dem Kontrollierbaren in Widerspruch zu setzen, dann führt dies zu den furchtbarsten Tatsachen der Kulturgeschichte. Wir denken zunächst an die Menschenopfer bei der Leichenfeier der Verstorbenen, um diesen auch nach dem Tode Frauen, Diener, kurz alle Bequemlichkeiten zu verschaffen. „Der König von Dahome<a class="fr" href="#n9">9</a> muß in das Totenland mit einem Geisterhofe von Hunderten von Frauen, Eunuchen, Sängern, Trommlern und Soldaten einziehen.“</p>
+  <p class="jp" lang="ja">6. 霊や来世の生活などについての二元論的な表象は、純粋に理論的なものにとどまり、まったく統制不可能な領域を動いているかぎりは、まったく無害である。しかし夢によって生み出された見解が実践的な帰結をもち、誰にも少しの利益ももたらさないのに仲間の幸福と生命を破壊する行為へと駆り立てるとき、統制不可能なものが統制可能なものと矛盾するほどの力を得るとき、それは文化史の最も恐ろしい事実へと導く。われわれがまず思い浮かべるのは、死者の葬儀における人身供犠である。死者に死後も妻や従者、要するにあらゆる便宜を与えるためのものである。「ダホメの王<a class="fr" href="#n9">9</a>は、何百人もの妻、宦官、歌い手、太鼓打ち、兵士からなる霊の宮廷を引き連れて死者の国に入らなければならない」。</p>
+  <ol class="notes"><li id="n9"><span class="nn">9</span><p class="de" lang="de">Tylor, a. a. O., I, S. 451.</p><p class="jp" lang="ja">タイラー前掲書、第1巻、451頁。</p></li></ol>
+</article>
+<article class="row" id="p6.2">
+  <aside class="mg"><a class="pid" href="#p6.2">6.2</a><span class="pg"><span>S.&nbsp;96</span></span></aside>
+  <p class="de" lang="de">„Von Zeit zu Zeit versehen sie den abgeschiedenen Monarchen in der Schattenwelt mit frischer Dienerschaft.“ „Selbst dieses jährliche Gemetzel wird noch durch fast tägliche Hinmordungen ergänzt: jede Handlung, welche der König vollzieht, muß, mag sie noch so trivial sein, pflichtgetreu seinem Vater ins Schattenreich gemeldet werden. Dazu wird ein Unglücklicher, fast immer ein Kriegsgefangener, erwählt.“ Solche Gebräuche sind sehr verbreitet und waren in älterer Zeit noch viel allgemeiner. Auf Borneo werden bei der Leichenfeier eines angesehenen Mannes Sklaven zu Tode gespeert, um dem Verstorbenen zu dienen. Auf den Fidschi-Inseln werden die Frauen, Freunde und Sklaven des angesehenen Verstorbenen erwürgt. Untergeordnete Diener dienen als „Gras zur Ausbettung des Grabes“. Wir alle kennen die Leichenfeier des Patroklos, die Witwenverbrennung der Inder. Dergleichen Riten reichen in verschiedener Form bis in „hoch zivilisierte“ Zeiten herauf.</p>
+  <p class="jp" lang="ja">「ときどき彼らは、影の世界にいる亡き君主に新たな従者を補充する」。「この年ごとの殺戮でさえ、ほとんど毎日の殺害によって補われる。王が行う行為は、どれほどささいなものであれ、すべて忠実に影の国の父王に報告されなければならない。そのために一人の不幸な者、ほとんどいつも戦争捕虜が選ばれる」。このような慣習は非常に広まっており、古い時代にはさらにずっと一般的であった。ボルネオでは、身分の高い男の葬儀の際に、死者に仕えさせるために奴隷が槍で突き殺される。フィジー諸島では、身分の高い死者の妻や友人や奴隷が絞め殺される。身分の低い従者は「墓に敷く草」として役立てられる。われわれは皆、パトロクロスの葬儀やインドの寡婦焚死を知っている。このような儀礼はさまざまな形で「高度に文明化された」時代にまで及んでいる。</p>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;96</span><span>S.&nbsp;97</span></span></aside>
+  <p class="de" lang="de">7. Wo tote Menschen schon nach Mord so lüstern waren, konnten Geister, Dämonen und Gottheiten nicht bescheidener sein. „Die Karthager waren im Kriege mit Agathokles besiegt und hart bedrängt worden und schrieben ihre Niederlage göttlichem Zorn zu. In früheren Zeiten wählten sie die Opfer für den Kronos (Moloch) unter ihren eigenen Söhnen aus, später <span class="pb" title="Leipzig 1906, S. 97">97</span>aber speisten sie ihn mit Kindern ab, die sie zu diesem Zweck kauften und aufzogen. Sie waren damit der natürlichen Tendenz des Opfers zur Substitution gefolgt, jetzt aber, in der Zeit des Unglücks, trat der Rückschlag ein. Um die Rechnung auszugleichen und den aus Sparsamkeit begangenen Betrug wieder gut zu machen, wurde ein ungeheures Opfer veranstaltet.</p>
+  <p class="jp" lang="ja">7. 死んだ人間がすでにこれほど殺しを渇望していたとすれば、霊やダイモーンや神々がもっと控えめであるはずがなかった。「カルタゴ人はアガトクレスとの戦争で敗れ、ひどく追いつめられ、その敗北を神々の怒りのせいにした。以前の時代には、彼らはクロノス（モロク）への生贄を自分たちの息子のなかから選んでいたが、のちにはこの目的のために買い入れて育てた子どもたちでごまかしていた。彼らはそれによって、生贄が代替へと向かう自然な傾向に従ったのであったが、いまや不幸の時にあたって揺り戻しが起こった。帳尻を合わせ、倹約のために犯した欺瞞を償うために、途方もない生贄が催された。</p>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;97</span></span></aside>
+  <p class="de" lang="de">Zweihundert Kinder aus den edelsten Familien des Landes wurden zu dem Idol des Moloch gebracht; denn sie hatten dort eine eherne Bildsäule des Kronos, deren ausgestreckte Arme abwärts gerichtet waren, so daß das hineingelegte Kind herabrollte und in einen feuergefüllten Schlund fiel.“<a class="fr" href="#n10">10</a> Die große Verbreitung der den Göttern dargebrachten Menschenopfer ist bekannt. Die wilden oder halbkultivierten Vorfahren aller Kulturvölker übten das Menschenopfer. Teils ist dies historisch nachgewiesen, teils deuten Sagen auf einen solchen Gebrauch (Opfer des Isaak, Opfer der Iphigenie). Kein Volk hat da dem anderen etwas vorzuwerfen. Es sei nur noch auf die nach Zeit und Ort weit entlegenen Menschenopfer hingewiesen, welche die Spanier bei der Eroberung von Mexiko daselbst vorfanden.</p>
+  <p class="jp" lang="ja">国の最も高貴な家の子ども二百人がモロクの偶像のもとへ連れていかれた。というのも、彼らはそこにクロノスの青銅の像をもっており、その差し伸べられた腕は下へ向けられていたので、そこに置かれた子どもは転がり落ちて火の満ちた深淵に落ちたのである」<a class="fr" href="#n10">10</a>。神々に捧げられる人身供犠が非常に広まっていたことはよく知られている。あらゆる文化民族の未開あるいは半ば文化をもつ祖先は、人身供犠を行っていた。一部は歴史的に証明されており、一部は伝説がそのような慣習を示唆している（イサクの犠牲、イピゲネイアの犠牲）。この点でどの民族も他の民族を非難することはできない。時と所の点で遠く隔たった人身供犠として、スペイン人がメキシコ征服の際にそこで見いだしたものだけを指摘しておこう。</p>
+  <ol class="notes"><li id="n10"><span class="nn">10</span><p class="de" lang="de">Tylor, a. a. O., II, S. 405. Das Tatsächliche findet sich bei Diodor XX, 14. Bei diesem noch andere Berichte über Menschenopfer. - Ferner Herodot, IV, 62.</p><p class="jp" lang="ja">タイラー前掲書、第2巻、405頁。事実はディオドロス第20巻14にある。そこには人身供犠についてのほかの報告もある。——さらにヘロドトス第4巻62。</p></li></ol>
+</article>
+<article class="row" id="p7.3">
+  <aside class="mg"><a class="pid" href="#p7.3">7.3</a><span class="pg"><span>S.&nbsp;97</span></span></aside>
+  <p class="de" lang="de">Diese Dämonen und Gottheiten, von denen ein eingebildeter Vorteil so teuer gegen einen reellen Schaden erkauft wird, sind nun leider sehr mannigfaltiger Art und von ungeheurer Anzahl. Herodot<a class="fr" href="#n11">11</a> erzählt vom Zuge des Xerxes gegen die Griechen: „Diese Landschaft um das Pangäische Gebirge wird Phyllis genannt, westwärts zieht sie sich bis an den Fluß Angites, welcher in den Strymon mündet, nach Süden zu bis an den Strymon selbst, wo die Magier weiße Rosse schlachteten zu einem günstigen Übergang. Nachdem sie zur Beruhigung des Flusses dieses und noch vieles andere getan, zogen sie bei Ennea Hodoi (Neunwege) im Lande der Hedonen über die Brücken, da sie den Strom überbrückt gefunden hatten. Und als sie hörten, daß dieser Ort Ennea Hodoi genannt werde, begruben sie bei demselben ebensoviele (neun) Knaben und Jungfrauen von den Landesbewohnern lebendig.</p>
+  <p class="jp" lang="ja">想像上の利益が現実の損害と引き換えにかくも高く購われるこれらのダイモーンや神々は、残念ながらきわめて多種多様で、途方もない数にのぼる。ヘロドトス<a class="fr" href="#n11">11</a>はクセルクセスのギリシア遠征について語っている。「パンガイオン山のまわりのこの地方はピュリスと呼ばれ、西はストリュモン川に注ぐアンギテス川まで、南はストリュモン川そのものまで伸びている。そこでマゴス僧たちは、渡河が首尾よくいくよう白馬を屠った。川を鎮めるためにこれやほかにも多くのことを行ったのち、彼らはエドノイ人の地のエンネア・ホドイ（九つの道）で、川に橋がかけられているのを見て、その橋を渡った。そしてこの場所がエンネア・ホドイと呼ばれていると聞くと、その地の住民の少年と少女をそれと同じ数（九人）だけ、そこに生き埋めにした。</p>
+  <ol class="notes"><li id="n11"><span class="nn">11</span><p class="de" lang="de">Herodot, VII, C. 113, 114..</p><p class="jp" lang="ja">ヘロドトス第7巻、113、114章。</p></li></ol>
+</article>
+<article class="row" id="p7.4">
+  <aside class="mg"><a class="pid" href="#p7.4">7.4</a><span class="pg"><span>S.&nbsp;97</span><span>S.&nbsp;98</span></span></aside>
+  <p class="de" lang="de">Es ist nämlich persische Sitte, lebendig <span class="pb" title="Leipzig 1906, S. 98">98</span>zu begraben, wie ich ja auch vernehme, daß Amestris, des Xerxes Weib, in ihrem Alter zweimal sieben persische Knaben von angesehenen Männern vergraben ließ, um dem Gotte, der unter der Erde wohnen soll, damit sich dankbar zu erweisen.“ Andere Völker, andere Zeiten sind nicht klüger als die Perser.<a class="fr" href="#n12">12</a> „In Galam in Afrika pflegte man einen Knaben und ein Mädchen vor dem großen Tore der Stadt lebendig zu begraben, um dieselbe dadurch uneinnehmbar zu machen.“ „Bei den Milanau-Dajaks auf Borneo wurde bei Erbauung des größten Hauses ein tiefes Loch gegraben, um den ersten Pfosten aufzunehmen, der sodann darüber aufgehängt wurde; dann wurde eine Sklavin in die Aushöhlung gebracht; auf ein Signal wurden die Stricke zerschnitten, und der ungeheure Balken stürzte herab und zerschmetterte das Mädchen zu Tode, ein Opfer den Geistern.“</p>
+  <p class="jp" lang="ja">生き埋めにするのはペルシアの風習なのである。聞くところによれば、クセルクセスの妻アメストリスも、老年になって、地下に住むといわれる神に感謝を示すために、身分の高い者たちのペルシア人の少年を二度にわたって七人ずつ埋めさせたという」。他の民族、他の時代もペルシア人より賢くはない<a class="fr" href="#n12">12</a>。「アフリカのガラムでは、町を難攻不落にするために、町の大門の前に少年と少女を生き埋めにするのが常であった」。「ボルネオのミラナウ・ダヤク族のもとでは、いちばん大きな家を建てる際、最初の柱を受けるための深い穴が掘られ、柱はその上に吊るされた。それから一人の女奴隷がその穴に入れられ、合図とともに綱が切られ、巨大な梁が落ちて少女を押しつぶして殺した。霊たちへの生贄である」。</p>
+  <ol class="notes"><li id="n12"><span class="nn">12</span><p class="de" lang="de">Tylor, a. a. O., I, S. 106 u. f.</p><p class="jp" lang="ja">タイラー前掲書、第1巻、106頁以下。</p></li></ol>
+</article>
+<article class="row" id="p7.5">
+  <aside class="mg"><a class="pid" href="#p7.5">7.5</a><span class="pg"><span>S.&nbsp;98</span></span></aside>
+  <p class="de" lang="de">Alte grauenhafte Sagen, welche sich an europäische Bauten knüpfen und der abgeschwächte Gebrauch, bei solchen Gelegenheiten kleine Tiere zu schlachten oder leere Särge einzumauern, deuten darauf, daß auch unseren Vorfahren diese Handlungsweise nicht fremd war. Die Wassergeister sind ebenso grausam. „Der Hindu rettet keinen Menschen, welcher im heiligen Ganges ertrinkt.“ Die Insulaner des malayischen Archipels teilen mit vielen europäischen Völkern den Glauben, daß man einen Ertrinkenden nicht ungestraft retten dürfe. „Der See, der Fluß will sein Opfer haben.“ Auch Vulkanen werden Menschen geopfert, d. h. in die Krater geworfen. So ist also die müßige wuchernde menschliche Phantasie eifrig beschäftigt, die natürlichen Übel, die der Mensch ohnehin zu ertragen hat, noch ausgiebig zu vermehren.</p>
+  <p class="jp" lang="ja">ヨーロッパの建造物にまつわる古い恐ろしい伝説や、そうした機会に小動物を屠ったり空の棺を塗りこめたりする弱められた慣習は、われわれの祖先にもこのようなやり方が無縁ではなかったことを示している。水の霊も同じく残酷である。「ヒンドゥー教徒は聖なるガンジス川で溺れる者を誰も助けない」。マレー諸島の島民は、溺れる者を助けると罰を受けずにはすまないという信仰を、多くのヨーロッパの民族と共有している。「湖が、川が、その生贄を求めているのだ」。火山にも人間が捧げられる。すなわち火口に投げこまれる。こうして、暇をもてあまし繁茂する人間の想像力は、人間がいずれにせよ耐えなければならない自然の災いを、さらにたっぷりと増やすことに熱心にいそしんでいるのである。</p>
+</article>
+<article class="row" id="p7.6">
+  <aside class="mg"><a class="pid" href="#p7.6">7.6</a><span class="pg"><span>S.&nbsp;98</span><span>S.&nbsp;99</span></span></aside>
+  <p class="de" lang="de">Diese Qualen sind keineswegs nur an die niederste Kultur gebunden. Auch die europäische Menschheit der neueren Zeit hatte noch schwer an denselben zu tragen. Bedenken wir nur, daß die Inquisition, nachdem sie durch Jahrhunderte gewütet, den grausamen Tod von vielen Tausenden von Menschen verschuldet, blühende Staaten und Kulturen zu Grunde gerichtet, erst mit dem Ende des 18. Jahrhunderts zur Einstellung ihrer verhängnisvollen Tätigkeit sich gezwungen sah.<a class="fr" href="#n13">13</a> Den Betroffenen macht <span class="pb" title="Leipzig 1906, S. 99">99</span>es gewiß keinen Unterschied, ob sie für die Erdgeister lebendig begraben oder für die Geister der Dogmen verbrannt werden, ob sie dem Aberglauben und dem Despotismus des Xerxes, den Intriguen der Magier, oder der Herrschsucht und Intoleranz moderner Priester zum Opfer fallen. Unsere Kultur ist der Barbarei noch bedenklich nahe.</p>
+  <p class="jp" lang="ja">こうした苦しみは、けっして最も低い文化にだけ結びついているのではない。近代のヨーロッパの人類も、なおそれに重く苦しまなければならなかった。異端審問が、何世紀にもわたって猛威をふるい、何千もの人々の残酷な死の責めを負い、栄えていた国家と文化を滅ぼしたのち、十八世紀の終わりになってようやく、その災いに満ちた活動を停止せざるをえなくなったことを考えてみればよい<a class="fr" href="#n13">13</a>。犠牲となる者にとっては、地の霊のために生き埋めにされようと、教義の霊のために焼かれようと、クセルクセスの迷信と専制の、マゴス僧の陰謀の、あるいは近代の聖職者の支配欲と不寛容の犠牲になろうと、確かに何の違いもない。われわれの文化は、なお危ういほど野蛮に近いのである。</p>
+  <ol class="notes"><li id="n13"><span class="nn">13</span><p class="de" lang="de">F. Hoffmann, Geschichte der Inquisition. Bonn 1878. — Lea, A history of the inquisition. New York 1888.</p><p class="jp" lang="ja">F. ホフマン『異端審問の歴史』ボン、1878年。——リー『異端審問の歴史』ニューヨーク、1888年。</p></li></ol>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;99</span></span></aside>
+  <p class="de" lang="de">8. Wenden wir uns nun freundlicheren Bildern zu. Die spontan spielenden Vorstellungen, die wechselnden Verbindungen der Gedanken, welche unabhängig von der jedesmaligen sinnlichen Leitung und ohne Nötigung durch das materielle Bedürfnis, ja weit über dessen Maß hinaus, ihr Leben betätigen, erheben den Menschen über das Tier. Das Phantasieren über das Erlebte, das Gesehene, die Poesie, ist die erste Erhebung über das Alltägliche, über das keuchende Lasttragen des Lebens. Mag diese Poesie, kritiklos ins Praktische übersetzt, auch oft schlimme Früchte tragen, wie wir eben gesehen haben, so ist sie doch der Anfang der geistigen Entwicklung. Wenn diese Phantasien sich mit der sinnlichen Erfahrung in Beziehung setzen, in der ernsten Absicht, letztere zu durchleuchten und sich anderseits von dieser zurechtweisen zu lassen, so ergeben sich stufenweise religiöse, philosophische, wissenschaftliche Vorstellungen (A. Comte). Betrachten wir also diese poetische Phantasie, welche geschäftig alles Erlebte ergänzt und modifiziert.</p>
+  <p class="jp" lang="ja">8. さて、もっと親しみやすい情景に目を向けよう。そのつどの感性的な導きから独立に、物質的な欲求に強いられることなく、それどころかその程度をはるかに越えて自らの生命を発揮する、自発的に戯れる表象、思考の変化する結合は、人間を動物の上に高める。体験したこと、見たことについて空想すること、すなわち詩は、日常的なものを越える、生活の喘ぎながらの荷運びを越える最初の上昇である。この詩は、無批判に実践へと移されるとしばしば悪い実を結ぶことは、いま見たとおりであるとしても、やはり精神的発達の始まりなのである。これらの空想が感性的経験と関係を結び、真剣な意図をもって経験を照らし出し、また他方では経験によって正されるようになると、段階的に宗教的、哲学的、科学的な表象が生じる（A. コント）。それゆえ、体験したことすべてを忙しく補い修正するこの詩的な想像力を考察しよう。</p>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;99</span><span>S.&nbsp;100</span></span></aside>
+  <p class="de" lang="de">9. Die Knochen großer Tiere, wie Rhinozeros, Mammut u. s. w., welche in der Erde gefunden werden, erzeugen bei den naiven Bewohnern der betreffenden Gegend fast regelmäßig die Vorstellung und die Sage eines Kampfes von Riesen, der hier stattgefunden hat.<a class="fr" href="#n14">14</a> Eine Sandhose, welche durch die Wüste, eine Wasserhose, welche über das Meer dahinschreitet, wird für den naiven Beobachter zum riesigen Dämon, dem „Dschin“ von „Tausend und einer Nacht“. Dem Chinesen gelingt es sogar, den Kopf oder Schweif des Drachen zu erkennen, der sich aus den Wolken ins Meer stürzt. Die Sintflutsage der hebräischen Bibel ist, wie aus vielen gemeinsamen Einzelheiten hervorgeht, der älteren babylonischen Sage nachgebildet. Die weite Ver<span class="pb" title="Leipzig 1906, S. 100">100</span>breitung analoger Sagen rührt aber daher, daß dieselben überall fast notwendig entstehen.</p>
+  <p class="jp" lang="ja">9. 地中で見つかるサイやマンモスなどの大きな動物の骨は、その地方の素朴な住民のうちに、ここで巨人の戦いが行われたという表象と伝説を、ほとんど規則的に生み出す<a class="fr" href="#n14">14</a>。砂漠を進んでいく砂の竜巻、海の上を進んでいく水の竜巻は、素朴な観察者にとって巨大なダイモーン、『千夜一夜物語』の「ジン」となる。中国人にいたっては、雲から海へと身を投げる竜の頭や尾を見分けることさえできる。ヘブライ語聖書の洪水伝説は、多くの共通の細部から分かるように、より古いバビロニアの伝説をまねたものである。しかし類似の伝説が広く分布しているのは、それらがほとんどどこでも必然的に生じるからである。</p>
+  <ol class="notes"><li id="n14"><span class="nn">14</span><p class="de" lang="de">Tylor, Urgeschichte, S. 104-112, Tylor, Anfänge der Kultur, I, S. 288, 289.</p><p class="jp" lang="ja">タイラー『人類の原始史』104–112頁。タイラー『文化の始源』第1巻、288、289頁。</p></li></ol>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;100</span></span></aside>
+  <p class="de" lang="de">Wenn auf größeren Höhen versteinerte Muscheln und andere Wassertiere gefunden, gelegentlich auch Boote von nicht mehr gebräuchlicher Form daselbst ausgegraben werden, welche Befunde in der Tat weit verbreitet sind, so muß dem naiven Beobachter, der nichts von Hebungen und Senkungen weiß, dem geologische Betrachtungen fremd sind, der Gedanke einer großen, in ungewöhnliche Höhe reichenden Flut sich aufdrängen.<a class="fr" href="#n15">15</a> Vulkane werden oft als von Geistern geheizte, von Titanen bewohnte Berge aufgefaßt, deren Bewohner Brände und Steine ausschleudern. In eigentümlicher Weise legen sich die Kamtschadalen das Vorkommen der Walfischknochen auf Vulkanen zurecht, welche letztere sie als von Geistern bewohnt fürchten. Die Geister fangen in der Nacht Walfische, kochen dieselben und werfen die Knochen hinaus. „Wenn die Geister ihre Berge geheizt haben, wie wir unsere Jurten, werfen sie den Rest der Brände zum Schornstein hinaus, um zuschließen zu können. Gott im Himmel macht es bisweilen auch so, zur Zeit, wenn unser Sommer und sein Winter ist, und wenn er seine Jurte heizt.“ So erklären sie die Blitze.<a class="fr" href="#n16">16</a></p>
+  <p class="jp" lang="ja">かなりの高所で貝やその他の水生動物の化石が見つかり、ときにはもはや使われていない形の舟がそこで掘り出されたりすると——このような発見は実際に広く見られるのだが——隆起や沈降について何も知らず、地質学的考察に無縁な素朴な観察者には、異常な高さにまで達した大洪水という考えが浮かばずにはいない<a class="fr" href="#n15">15</a>。火山はしばしば、霊が焚き、ティタン族が住む山とみなされ、その住人が燃えさしや石を投げ出すのだとされる。カムチャダール人は、火山の上に鯨の骨があることを独特の仕方で解釈する。彼らは火山を霊の住むところとして恐れている。霊たちは夜に鯨を捕り、それを煮て、骨を外に投げ捨てるのだという。「霊たちが、われわれがユルタ（住居）を暖めるように自分たちの山を暖めたとき、火を閉じられるように燃えさしの残りを煙突から外へ投げ捨てる。天の神もときどき同じことをする。われわれの夏が神の冬であるときに、神が自分のユルタを暖めるときに」。こうして彼らは稲妻を説明するのである<a class="fr" href="#n16">16</a>。</p>
+  <ol class="notes"><li id="n15"><span class="nn">15</span><p class="de" lang="de">Tylor, Urgeschichte, S. 409 u. f. - Ich selbst hörte einmal bei Gelegenheit eines Aufenthaltes am Gardasee von einem Landmann die Ansicht aussprechen, daß der See einst viel höher gestanden und der Monte Brione zwischen Riva und Torbole eine Insel gewesen sei, weil man oben Muscheln finde.</p><p class="jp" lang="ja">タイラー『人類の原始史』409頁以下。——私自身も、ガルダ湖畔に滞在した折、ある農夫が、湖はかつてずっと高く、リーヴァとトルボレのあいだのブリオーネ山は島であった、上で貝が見つかるから、という意見を述べるのを聞いたことがある。</p></li><li id="n16"><span class="nn">16</span><p class="de" lang="de">Tylor, Urgeschichte, S. 411.</p><p class="jp" lang="ja">タイラー『人類の原始史』411頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;100</span><span>S.&nbsp;101</span></span></aside>
+  <p class="de" lang="de">10. Alles, was der primitive Mensch nicht versteht, erscheint ihm in einem eigentümlichen Licht. Wir können diese Beleuchtung nur wiedergewinnen, wenn wir uns lebhaft in die frühe Jugendzeit, in die Kindheit zurückversetzen. Da lernen wir begreifen, wie dem Wilden sein Spiegelbild im Wasser oder das Echo seiner Stimme unter unbekannten, seltener eintretenden Umständen als etwas Geisterhaftes erscheint.<a class="fr" href="#n17">17</a> Wer hätte als Kind <span class="pb" title="Leipzig 1906, S. 101">101</span>nicht ähnliches empfunden? Und in der Tat, kann es auch nach dem theoretischen Verständnis etwas Merkwürdigeres geben als dies körperlose Gesichtsobjekt, oder dies einfachste Phonogramm, das unsere Stimme der Luft eingeprägt hat, und das wir nach einigen Sekunden nochmals mit dem Ohr abfassen? Aber leider verliert der zivilisierte Mensch zu seinem Schaden so leicht die Fähigkeit, sich zu verwundern.</p>
+  <p class="jp" lang="ja">10. 原始人が理解しないものはすべて、彼には独特の光のもとに現れる。われわれがこの照明を取り戻すことができるのは、幼い少年時代、子ども時代に生き生きと身を置き戻すときだけである。そのときわれわれは、未開人にとって、水に映る自分の姿や、見知らぬ、あまり起こらない事情のもとでの自分の声のこだまが、何か幽霊のようなものに見えることを理解するようになる<a class="fr" href="#n17">17</a>。子どものころに似たようなことを感じなかった人がいるだろうか。そして実際、理論的に理解したあとでも、この身体をもたない視覚の対象、あるいは、われわれの声が空気に刻みつけ、数秒後に再び耳でとらえるこの最も単純なフォノグラム（録音）ほど奇妙なものがありうるだろうか。しかし残念ながら、文明人は損なことに、驚く能力をいとも簡単に失ってしまうのである。</p>
+  <ol class="notes"><li id="n17"><span class="nn">17</span><p class="de" lang="de">T. W. Powell, Truth and error. Chicago 1898. p. 348. - Von einem Echo, welches einen gespenstischen oder dämonischen Eindruck hinterlassen mußte, berichtet Cardanus (De subtilitate, 1560, Lib. XVIII, p. 527) nach dem Erlebnis eines Freundes A. L. Derselbe kommt nachts an einen Fluß, den er überschreiten will, und ruft: Oh! - Echo: Oh! - A. L.: Unde debo passà? - Echo: Passà! - A. L.: Debo passà qui? - Echo: Passà qui! - Da aber an der betreffenden Stelle sich ein furchtbarer Wirbel zeigt, wird A. L. von Entsetzen erfaßt und kehrt um. Cardanus erkennt die Erscheinung als Echo und weist darauf hin, daß sie nach dem Tonfall leicht als solches zu erkennen war.</p><p class="jp" lang="ja">T. W. パウエル『真理と誤謬』シカゴ、1898年、348頁。——幽霊のような、あるいは悪魔的な印象を残したにちがいないこだまについて、カルダーノ（『精妙さについて』1560年、第18巻、527頁）が友人 A. L. の体験にもとづいて報告している。彼は夜、渡ろうとする川に来て叫ぶ。「おーい！」——こだま「おーい！」——A. L.「どこを渡ればいいのか（Unde debo passà）？」——こだま「渡れ（Passà）！」——A. L.「ここを渡るのか（Debo passà qui）？」——こだま「ここを渡れ（Passà qui）！」——ところがその場所には恐ろしい渦が見えたので、A. L. は恐怖にとらえられて引き返す。カルダーノはこの現象をこだまと認め、抑揚から容易にそれと分かったはずだと指摘している。</p></li></ol>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;101</span></span></aside>
+  <p class="de" lang="de">11. Ein anderer Zug, den die Wilden mit dem Kinde gemein haben, ist das Verhalten gegen die Tiere. Dem Wilden sind die Tiere fast seinesgleichen, seine „jüngeren Brüder“, mit denen er, wie die Kinder, spricht. Er wünscht ihre Sprache zu verstehen, um zu erfahren, was sie wissen. Er schreibt ihnen Kräfte zu, welche die seinigen übersteigen.<a class="fr" href="#n18">18</a> Er kann ja nicht wie der Vogel fliegen, wie der Fisch tauchen, wie die Spinne an einem Faden klettern. Als mein etwa vierjähriger Junge einen mächtigen zahmen Raben auf der Schwelle eines Hauses sitzen sah, blieb er verwundert vor ihm stehen, und tat ganz ernsthaft die Frage: „Wer ist das?“ Die Form der Rede hat ja bei Kindern nicht viel zu bedeuten. Aber auch ich konnte mich des Eindrucks einer bedächtigen Persönlichkeit nicht erwehren, zumal ich kurz zuvor gesehen, wie der Vogel einen ihn neckenden Schusterjungen „zurechtgewiesen“ hatte.</p>
+  <p class="jp" lang="ja">11. 未開人が子どもと共有するもう一つの特徴は、動物に対するふるまいである。未開人にとって動物はほとんど自分と同等の者、自分の「弟たち」であり、子どもと同じく動物に話しかける。動物が知っていることを知るために、その言葉を理解したいと願う。動物に自分を越える力を認める<a class="fr" href="#n18">18</a>。実際、彼は鳥のように飛ぶことも、魚のように潜ることも、蜘蛛のように糸をつたって登ることもできない。四歳ほどの私の息子は、ある家の敷居に大きな馴れたカラスがとまっているのを見たとき、驚いてその前に立ち止まり、まったく真剣に「あれはだれ？」と尋ねた。子どもにおいては言い方はたいした意味をもたない。しかし私自身も、思慮深い人物という印象を振り払うことができなかった。とりわけその少し前に、このカラスが、からかってきた靴屋の小僧を「たしなめる」のを見ていたからである。</p>
+  <ol class="notes"><li id="n18"><span class="nn">18</span><p class="de" lang="de">Powell, a. a. O. S. 384.</p><p class="jp" lang="ja">パウエル前掲書、384頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;101</span><span>S.&nbsp;102</span></span></aside>
+  <p class="de" lang="de">12. Steht man am Ufer des Meeres, so erscheint dieses als eine flache Scheibe, das Land, wenn man weiteren Horizont hat, ebenfalls als eine Scheibe, welche auf dem Meere sozusagen schwimmt. Das Ganze deckt das „Gewölbe“ des Himmels. Diese Beobachtungen bilden zugleich die ersten Grundlagen der primitiven Geographie und Astronomie. Daß dieser Anblick auf physiologischen Umständen beruht, erkennt der Beobachter auf einer hohen isolierten Bergspitze oder gar im Luftballon. Er glaubt sich dann in einer bemalten Hohlkugel zu befinden, deren untere Hälfte die Erde, deren obere Hälfte der Himmel vorstellt, die der Ballonbewegung entgegen fortzurollen oder zu fließen scheinen. <span class="pb" title="Leipzig 1906, S. 102">102</span>Diese Beobachtung ergibt sich aber zu selten, um auf die populäre Vorstellung Einfluß zu üben.</p>
+  <p class="jp" lang="ja">12. 海の岸辺に立つと、海は平らな円盤のように見え、より広い視界があれば陸地もやはり、いわば海の上に浮かぶ円盤のように見える。全体を天の「穹窿」が覆っている。これらの観察は同時に、原始的な地理学と天文学の最初の基礎をなしている。この眺めが生理学的事情にもとづいていることを、観察者は高く孤立した山頂で、あるいは気球のなかでさえ認識する。そのとき彼は、自分が色を塗った中空の球のなかにいて、その下半分が大地、上半分が天を表し、それらが気球の運動とは逆向きに転がっていくか流れていくように見える、と信じるのである。しかしこの観察はあまりにまれにしか生じないので、民衆の表象に影響を与えることはない。</p>
+</article>
+<article class="row" id="p12.2">
+  <aside class="mg"><a class="pid" href="#p12.2">12.2</a><span class="pg"><span>S.&nbsp;102</span></span></aside>
+  <p class="de" lang="de">Für den gemeinen Mann bleibt Meer und Erde (physikalisch) eine Scheibe, der Himmel ein Gewölbe. Wenn nun dieser Mann an einer westlichen Meeresküste die glühende Sonne ins Wasser tauchen sieht, so glaubt er, er müsse sie zischen hören. Er hört sie wohl auch wirklich zischen, indem er irgend ein zufälliges Geräusch hierauf bezieht. So entsteht die Vorstellung und Sage, welche nach Strabo<a class="fr" href="#n19">19</a> beim „heiligen Vorgebirge“ (St. Vincent) in Iberien (Spanien) in Umlauf war und die Mr. Ellis in weiter Ferne, auf den Gesellschaftsinseln der Südsee wieder gefunden hat.<a class="fr" href="#n20">20</a></p>
+  <p class="jp" lang="ja">普通の人にとって、海と大地は（物理的に）円盤のままであり、天は穹窿のままである。さてこの人が西の海岸で、燃える太陽が水に沈むのを見ると、それがジュッと音を立てるのが聞こえるにちがいないと信じる。そして実際に何か偶然の物音をそれに結びつけて、ジュッという音を聞きもする。こうして、ストラボン<a class="fr" href="#n19">19</a>によればイベリア（スペイン）の「聖なる岬」（サン・ヴィセンテ岬）で流布していた表象と伝説が生じたのであり、エリス氏はそれを遠く離れた南洋のソシエテ諸島で再び見いだしたのである<a class="fr" href="#n20">20</a>。</p>
+  <ol class="notes"><li id="n19"><span class="nn">19</span><p class="de" lang="de">Strabo, III. Iberia, 1.</p><p class="jp" lang="ja">ストラボン、第3巻、イベリア、1。</p></li><li id="n20"><span class="nn">20</span><p class="de" lang="de">Ich selbst hörte noch als Kind von 4 oder 5 Jahren die Sonne zischen, als sie scheinbar in einen großen Teich tauchte, und wurde darob von den Erwachsenen verlacht. Die Erinnerung ist mir aber sehr wertvoll.</p><p class="jp" lang="ja">私自身も四、五歳の子どものころ、太陽が見かけ上大きな池に沈むとき、それがジュッと音を立てるのを聞き、そのことで大人たちに笑われた。しかしこの記憶は私にとってたいへん貴重である。</p></li></ol>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;102</span></span></aside>
+  <p class="de" lang="de">13. Das Kind und die Völker im Urzustand haben keine Gelegenheit, über solche naive Vorstellungen hinauszukommen. Das Kind sieht die Sonne hinter einem Hügel auf- oder untergehen und läuft hin, um dieselbe zu fassen. Zwar zeigt sich dann, daß der Hügel nicht der richtige war, daß dahinter ein zweiter und dritter sich erhebt, an dem die Sonne hängt, aber einer wird doch der richtige sein.<a class="fr" href="#n21">21</a> Der Gedanke, die Sonne mit einem Netz einzufangen, schließt für das Kind keine Unmöglichkeit ein. Die über die Erde weit verbreiteten Märchen vom Sonnenfänger lassen uns eine primitive Kulturstufe vermuten, für welche das, was uns zur angenehmen Beschäftigung der Phantasie erfunden scheint, ganz wohl ernst gemeint sein konnte. Ähnlich verhält es sich wahrscheinlich mit anderen Märchen, z. B. jenem von Hans und dem Bohnenstengel, und der ganzen Gruppe analoger Geschichten. Der Himmel erscheint den naiven Sinnen des Kindes keineswegs so hoch, daß es denselben durch Klettern an einem hohen Baum für unerreichbar halten müßte. Und dies ist das gemeinsame, für uns märchenhafte Motiv der genannten Gruppe von Erzählungen.<a class="fr" href="#n22">22</a> Erst nach und nach, mit steigender Kultur, erhalten solche Erzählungen einen leisen Zug von Humor und Ironie, bis sie endlich als Hirngespinste zur bloßen Belustigung behandelt werden. Durch die Märchen primitiver Stämme, verbunden mit der Beobachtung der Kinder, erhalten wir einen Einblick in die Anfänge der Kultur, wie derselbe größer und tiefer kaum gedacht werden kann.</p>
+  <p class="jp" lang="ja">13. 子どもや原始状態の民族には、このような素朴な表象を越える機会がない。子どもは丘の向こうに太陽が昇ったり沈んだりするのを見て、それをつかまえようとそこへ走っていく。たしかにそのとき、その丘が正しい丘ではなく、その向こうに第二、第三の丘がそびえ、太陽はそれにかかっているのだということが分かる。しかしどれか一つは正しい丘であるはずだ<a class="fr" href="#n21">21</a>。網で太陽を捕まえるという考えも、子どもにとっては何の不可能性も含まない。地上に広く分布している太陽捕りの童話は、われわれには想像力の楽しい遊びのために考え出されたと見えるものが、まったく真剣に考えられていた原始的な文化段階を推測させる。他の童話、たとえば「ジャックと豆の木」や、類似の物語のグループ全体についても、おそらく事情は同様である。子どもの素朴な感官にとって、天はけっして、高い木に登っても届かないとみなさざるをえないほど高くは見えない。そしてこれが、上に挙げた物語のグループに共通する、われわれにとっては童話的な動機なのである<a class="fr" href="#n22">22</a>。文化が高まるにつれてようやく、そのような物語はかすかなユーモアと皮肉の色合いを帯び、ついには単なる娯楽のための絵空事として扱われるようになる。原始的な部族の童話を子どもの観察と結びつけることによって、われわれは文化の始まりについての、これ以上大きく深いものはほとんど考えられないほどの洞察を得るのである。</p>
+  <ol class="notes"><li id="n21"><span class="nn">21</span><p class="de" lang="de">Auch ich bin als Kind der untergehenden Sonne von Hügel zu Hügel nachgelaufen.</p><p class="jp" lang="ja">私も子どものころ、沈む太陽を追って丘から丘へと走ったことがある。</p></li><li id="n22"><span class="nn">22</span><p class="de" lang="de">Tylor, Urgeschichte, S. 436 u. f., 443 u. f.</p><p class="jp" lang="ja">タイラー『人類の原始史』436頁以下、443頁以下。</p></li></ol>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;103</span></span></aside>
+  <p class="de" lang="de">14. Ergreift die Phantasie ergänzend und modifizierend schon die einzelne Beobachtung, so schont sie auch den ganzen Komplex eines historischen Berichtes nicht. Mit einiger Vorsicht läßt sich aber der tatsächliche Kern aus der poetischen Hülle herausschälen, und braucht nicht mit dieser als wertlos weggeworfen zu werden. Als Beispiel sei die Tradition eines zentralamerikanischen Stammes über die Einwanderung aus dem Norden angeführt:<a class="fr" href="#n23">23</a> „Sie wanderten von Sonnenaufgang aus. Aber es ist nicht klar, wie sie über die See gelangten, sie gingen vorwärts, als ob es keine See gegeben hätte, denn sie gingen über zerstreute Felsen, und diese Felsen waren auf Sand gerollt. Deshalb nannten sie den Ort: gereihte Steine und aufgewühlter Sand, welchen Namen sie ihm gaben während ihres Zuges in der See, indem das Wasser geteilt war, während sie durchgingen.</p>
+  <p class="jp" lang="ja">14. 想像力がすでに個々の観察を補い修正しながら捉えるのだとすれば、それは歴史的報告の複合体全体をも容赦しない。しかし、ある程度用心すれば、事実の核を詩的な外皮から取り出すことができ、それを外皮とともに無価値なものとして捨て去る必要はない。例として、北からの移住についての中央アメリカのある部族の伝承を挙げよう<a class="fr" href="#n23">23</a>。「彼らは日の昇るところから旅立った。しかし彼らがどのようにして海を越えたのかは明らかでない。彼らはまるで海がなかったかのように進んでいった。というのも彼らは散らばった岩の上を進み、その岩は砂の上に転がっていたからである。それゆえ彼らはその場所を、並んだ石とかき乱された砂、と名づけた。この名を彼らは海中を進むあいだに与えたのであり、そのとき彼らが通り抜けるあいだ水は分かれていた。</p>
+  <ol class="notes"><li id="n23"><span class="nn">23</span><p class="de" lang="de">Tylor, Urgeschichte, S. 387.</p><p class="jp" lang="ja">タイラー『人類の原始史』387頁。</p></li></ol>
+</article>
+<article class="row" id="p14.2">
+  <aside class="mg"><a class="pid" href="#p14.2">14.2</a><span class="pg"><span>S.&nbsp;103</span></span></aside>
+  <p class="de" lang="de">Dann sammelte sich das Volk auf einem Berge, genannt Chi Pixab, und dort fasteten sie in Dunkelheit und Nacht. Hernach wird berichtet, daß sie abzogen und die nahende Dämmerung erwarteten. Nunmehr, siehe, waren unsere Vorfahren und unsere Väter Herren geworden und hatten ihre Dämmerung. Wir wollen auch berichten das Kommen der Dämmerung und das Erscheinen der Sonne, des Mondes und der Sterne. Groß war ihre Freude, als sie den Morgenstern sahen, der mit seinem leuchtenden Antlitz zuerst erschien vor der Sonne. Endlich begann die Sonne selbst hervorzukommen; die Tiere, große und kleine, waren voll Freude; sie erhoben sich aus den Flußtälern und Schluchten und standen auf den Berggipfeln, mit ihren Köpfen der kommenden Sonne zugewandt. Es war da eine zahllose Menschenmenge und die Dämmerung warf ihr Licht auf alle diese Völker auf einmal.</p>
+  <p class="jp" lang="ja">それから民はチ・ピシャブと呼ばれる山に集まり、そこで暗闇と夜のなかで断食した。その後、彼らは出発して近づく夜明けを待ったと伝えられる。さて見よ、われらの祖先、われらの父たちは主となり、彼らの夜明けを得た。われわれはまた夜明けの到来と、太陽と月と星の出現をも語ろう。彼らが、輝く顔をして太陽より先に最初に現れた明けの明星を見たとき、その喜びは大きかった。ついに太陽そのものが現れはじめた。大小の動物たちは喜びに満ち、川の谷や峡谷から起き上がって山の頂に立ち、その頭を昇ってくる太陽に向けた。そこには数えきれない人の群れがいて、夜明けはこれらすべての民の上に一度にその光を投げかけた。</p>
+</article>
+<article class="row" id="p14.3">
+  <aside class="mg"><a class="pid" href="#p14.3">14.3</a><span class="pg"><span>S.&nbsp;103</span><span>S.&nbsp;104</span></span></aside>
+  <p class="de" lang="de">Endlich ward die Fläche des Bodens von der Sonne getrocknet; wie ein Mann zeigte sich die Sonne und ihre Gegenwart wärmte und trocknete die Oberfläche des Bodens. Bevor die Sonne <span class="pb" title="Leipzig 1906, S. 104">104</span>erschien, war die Oberfläche des Bodens schlammig und feucht, und es war bevor die Sonne erschien, und dann nur erhob sich die Sonne wie ein Mann. Aber ihre Hitze hatte keine Kraft, und sie zeigte sich nur, als sie sich erhob, sie blieb nur gleich (einem Bild in) einem Spiegel, und es ist in der Tat nicht die nämliche Sonne, die jetzt erscheint, wie man in den Sagen berichtet.“ Der Bericht ist nicht sehr klar, doch das Charakteristische der arktischen Region, die lange Winternacht, die gefrorene mit Eisstücken bedeckte See, die beim Wiederscheinen kraftlose Sonne, ist unverkennbar.</p>
+  <p class="jp" lang="ja">ついに大地の面は太陽によって乾かされた。太陽は一人の人のように姿を現し、その臨在は大地の表面を暖め乾かした。太陽が現れる前、大地の表面はぬかるんで湿っていた。それは太陽が現れる前のことであり、それからようやく太陽は一人の人のように昇った。しかしその熱には力がなく、昇ったときに姿を見せただけで、まるで鏡のなかの（像のように）にとどまった。伝説で語られているように、いま現れるのはまことに同じ太陽ではないのである」。この報告はあまり明瞭ではないが、北極地方の特徴、すなわち長い冬の夜、氷塊に覆われた凍った海、再び現れたときの力のない太陽は見まがいようがない。</p>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;104</span></span></aside>
+  <p class="de" lang="de">15. Aus phantastisch verwobenen Naturbeobachtungen und historischen Traditionen entstehen die Vorstellungen des primitiven Menschen über seine Herkunft, über sein Verhältnis zu den Geistern, das Leben nach dem Tode, kurz die Ansichten, die man gewöhnlich als die religiösen oder mythologischen bezeichnet. Welchen Wert dieselben als poetische Erhebung haben, wurde bereits besprochen. Schon indem der Mensch die Hilfe seiner Götter oder Dämonen erhofft, wird er manche Notlage leichter ertragen, und indem er im Glück auch Schlimmes befürchtet, mag sein Übermut oft in heilsamer Weise gedämpft werden. Diese Ansichten sollen hier nicht weiter diskutiert werden. Dem Beobachter, der die modernen Religionen kennt, fällt an allen diesen primitiven Systemen auf, daß dieselben, und insbesondere die Vorstellungen von einem Leben nach dem Tode, nichts mit Lohn und Strafe, nichts mit Vergeltung und überhaupt nichts mit Ethik zu tun haben.</p>
+  <p class="jp" lang="ja">15. 空想的に織り合わされた自然観察と歴史的伝承から、原始人の自分の起源についての表象、霊との関係、死後の生活についての表象、要するにふつう宗教的あるいは神話的と呼ばれる見解が生じる。それらが詩的な高揚としてどのような価値をもつかは、すでに論じた。人間は、自分の神々やダイモーンの助けを望むことによって、すでに多くの窮地をより容易に耐えるであろうし、幸運のなかにあっても悪いことを恐れることによって、その思い上がりはしばしば有益な仕方で抑えられるであろう。これらの見解をここでこれ以上論じるつもりはない。近代の宗教を知る観察者には、これらすべての原始的な体系について、それが、そしてとりわけ死後の生活についての表象が、報いや罰とも、応報とも、総じて倫理ともまったく関係がないことが目につく。</p>
+</article>
+<h2 class="sec" id="s16"><a href="#s16">§ 16</a></h2>
+<article class="row" id="p16.1">
+  <aside class="mg"><a class="pid" href="#p16.1">16.1</a><span class="pg"><span>S.&nbsp;104</span><span>S.&nbsp;105</span></span></aside>
+  <p class="de" lang="de">16. Die Ethik des primitiven Menschen, die allerdings von der modernen, den ungleichen Lebensbedingungen entsprechend, sehr verschieden, aber darum nicht minder streng ist, wird ihm von der öffentlichen Meinung vorgeschrieben, welche wohl erkennt, was dem Gemeinwesen dient oder nicht zuträglich ist. Bei Verstößen gegen diese Ethik hat er sich mit dieser öffentlichen Meinung und deren Folgen abzufinden. Sein Verhalten regelt sich in natürlicher Weise nach den Verhältnissen des gegenwärtigen Lebens. Es ist gewiß nicht rationell, die Ethik auf in Bezug ihrer Richtigkeit unkontrollierbare Grundlagen zu stellen. Wo aber ein Teil des Volkes zu dauernder Sklaverei verurteilt, der andere Teil bestrebt ist, alles Gute des diesseitigen Lebens <span class="pb" title="Leipzig 1906, S. 105">105</span>für sich zu nehmen, da ist eine Ethik, welche mit Vergeltung nach dem Tode rechnet, für ersteren Teil ein nicht zu unterschätzender Trost, für letzteren Teil recht bequem. Gesünder aber ist eine Ethik, welche, wie die hoch entwickelte chinesische, nur auf Tatsächliches sich gründet. Ethik und Recht gehören zur sozialen Kulturtechnik, und stehen desto höher, je mehr das vulgäre Denken durch wissenschaftliches Denken aus beiden Gebieten verdrängt ist.</p>
+  <p class="jp" lang="ja">16. 原始人の倫理は、不平等な生活条件に応じて近代の倫理とはきわめて異なってはいるが、それだからといって厳しさに劣るわけではなく、それは、何が共同体に役立ち何が有益でないかをよく認識している世論によって彼に命じられる。この倫理に違反すれば、彼はこの世論とその帰結に向き合わなければならない。彼のふるまいは、現在の生活の事情に従って自然に規制される。その正しさについて統制できない基礎の上に倫理を置くのは、確かに合理的ではない。しかし民の一部が持続的な奴隷状態を宣告され、他の一部がこの世の生活のあらゆる良いものを自分のものにしようと努めているところでは、死後の応報を当てにする倫理は、前者にとっては軽視できない慰めであり、後者にとってはまことに好都合である。しかし、高度に発達した中国の倫理のように、ただ事実的なものにのみもとづく倫理のほうがより健全である。倫理と法は社会的な文化技術に属し、通俗的思考が科学的思考によって両領域から追い出されればされるほど、より高い水準に立つのである。</p>
+</article>
+<h2 class="sec" id="s17"><a href="#s17">§ 17</a></h2>
+<article class="row" id="p17.1">
+  <aside class="mg"><a class="pid" href="#p17.1">17.1</a><span class="pg"><span>S.&nbsp;105</span></span></aside>
+  <p class="de" lang="de">17. Es wird wohl auch behauptet, daß manchen Stämmen alle religiösen oder mythologischen Vorstellungen fehlen. Als Beispiel mag folgender Bericht Erwähnung finden.<a class="fr" href="#n24">24</a> „Es unterliegt keinem Zweifel, daß die Arafuras von Vorkay, einer der südlicheren Aru-Inseln, nicht die mindeste Religion besitzen . . . Von der Unsterblichkeit der Seele haben sie nicht die leiseste Ahnung. Erkundigte ich mich danach, so antworteten sie stets: Es ist noch nie ein Arafura nach seinem Tode zu uns zurückgekehrt, daher wissen wir nichts von einem zukünftigen Leben, heute hören wir zum erstenmal davon. Ihr Glaubensbekenntnis hieß: Mati, Mati sudah, d. h. wenn du tot bist, dann ist es mit dir zu Ende. Auch über die Erschaffung der Welt hatten sie nie nachgedacht. Um mich zu überzeugen, ob sie wirklich nichts von einem höheren Wesen wußten, fragte ich sie, zu wem sie um Hilfe flehten, wenn sie in Not seien und ihre Schiffe von der Gewalt eines heftigen Sturmes erfaßt würden?</p>
+  <p class="jp" lang="ja">17. いくつかの部族には宗教的あるいは神話的な表象がまったく欠けている、と主張されることもある。例として次の報告を挙げてもよいであろう<a class="fr" href="#n24">24</a>。「アル諸島のより南にある島の一つ、ヴォルカイのアラフラ族が、ほんのわずかな宗教ももっていないことは疑いの余地がない……魂の不死について、彼らはかすかな予感さえもっていない。それについて尋ねると、彼らはいつもこう答えた。死んでから私たちのところに戻ってきたアラフラはまだ一人もいない。だから私たちは来世の生活について何も知らない。今日はじめてそれを聞いた、と。彼らの信仰告白は、マティ、マティ・スダ、すなわち、死んだらお前はそれでおしまいだ、というものであった。世界の創造についても彼らは考えたことがなかった。彼らが本当に高い存在について何も知らないのかを確かめるために、私は彼らに、困ったとき、激しい嵐の力に船がとらえられたとき、誰に助けを求めるのかと尋ねた。</p>
+  <ol class="notes"><li id="n24"><span class="nn">24</span><p class="de" lang="de">Lubbock, Entstehung der Zivilisation. Jena 1875. S. 175.</p><p class="jp" lang="ja">ラボック『文明の起源』イェーナ、1875年、175頁。</p></li></ol>
+</article>
+<article class="row" id="p17.2">
+  <aside class="mg"><a class="pid" href="#p17.2">17.2</a><span class="pg"><span>S.&nbsp;105</span></span></aside>
+  <p class="de" lang="de">Der Älteste hielt eine Beratung mit seinen Genossen, dann erwiderte er: Wir wissen nicht, wen wir um Beistand anrufen können; wenn du es aber weißt, so sei so gut und sag es uns.“ Wir glauben zunächst aus diesen Worten die überlegene Ironie eines Freigeistes herauszuhören, welcher die vermeintliche höhere Einsicht des aufdringlichen proselytenmachenden Europäers gebührend zurückweist. Allein derartige Berichte sind mit größter Vorsicht aufzunehmen. Wir wissen, wie allgemein bei wilden Stämmen der Glaube an Geister und Dämonen ist, und wie sehr sie von demselben gepeinigt werden. Sollte also der Bericht nicht doch auf irgend einem Mißverständnis beruhen, sondern der klare, reine Ausdruck des Sachverhalts sein, so müßte man diesen als eine Ausnahme, als ein seltenes Vorkommnis betrachten.</p>
+  <p class="jp" lang="ja">最年長の者が仲間たちと相談し、それから答えた。私たちは誰に助けを呼び求めればよいのか知らない。だがあなたがそれを知っているなら、どうか私たちに教えてほしい」。われわれはまずこの言葉のうちに、押しつけがましく改宗を迫るヨーロッパ人のいわゆる高い洞察をしかるべく退ける自由思想家の、余裕ある皮肉を聞き取る思いがする。しかしこの種の報告はきわめて慎重に受け取らなければならない。未開の部族のあいだで霊やダイモーンへの信仰がいかに一般的であり、彼らがそれにどれほど苦しめられているかを、われわれは知っている。それゆえ、もしこの報告がやはり何かの誤解にもとづくのではなく、事態の明晰で純粋な表現であるとすれば、それは例外、まれな出来事とみなさなければならないであろう。</p>
+</article>
+<h2 class="sec" id="s18"><a href="#s18">§ 18</a></h2>
+<article class="row" id="p18.1">
+  <aside class="mg"><a class="pid" href="#p18.1">18.1</a><span class="pg"><span>S.&nbsp;106</span></span></aside>
+  <p class="de" lang="de">18. Religion, Philosophie und Naturauffassung sind auf primitiver Entwicklungsstufe untrennbar. Wo, wie im antiken Griechenland, eine geschlossene Priesterkaste fehlt, welche ihre Interessen kräftig vertreten könnte, entwickelt sich leichter eine freiere, die Schranken der herkömmlichen religiös-mythologischen Vorstellungen durchbrechende Philosophie. Phantastisch und abenteuerlich ist auch diese erste Philosophie, wie wir an den Versuchen der Jonier und Pythagoräer sehen. Und wie sollte es auch anders sein. Gilt es doch vor allem, überhaupt eine Weltansicht zu gewinnen, und kann doch die Kritik erst einsetzen, wenn mehrere Versuche, mehrere ungleichwertig scheinende Ansichten zu Vergleich, Widerspruch oder Zustimmung auffordern. Philosophie und Naturwissenschaft ist da noch eins.</p>
+  <p class="jp" lang="ja">18. 宗教、哲学、自然観は、原始的な発展段階においては分かちがたい。古代ギリシアのように、自分たちの利害を力強く主張しうる閉鎖的な祭司階級が欠けているところでは、伝統的な宗教的・神話的表象の枠を破る、より自由な哲学がより容易に発達する。この最初の哲学も、イオニア学派やピュタゴラス学派の試みに見られるように、空想的で奇想天外である。どうしてそうでないことがありえようか。何よりもまず、そもそも一つの世界観を得ることが問題なのであり、批判は、いくつもの試み、価値の等しくないように見えるいくつもの見解が、比較、反論、あるいは賛同を促すときになってはじめて始まりうるのである。そこでは哲学と自然科学とはまだ一つである。</p>
+</article>
+<article class="row" id="p18.2">
+  <aside class="mg"><a class="pid" href="#p18.2">18.2</a><span class="pg"><span>S.&nbsp;106</span></span></aside>
+  <p class="de" lang="de">Die ersten Philosophen sind auch Astronomen, Geometer, Physiker, kurz Naturforscher. Gelingt es ihnen aber, neben ihrer Weltanschauung von zweifelhaftem Wert auch die Bilder kleinerer Naturausschnitte in vor der Kritik besser standhaltender Weise festzuhalten, so sammeln sich diese, werden allgemeiner anerkannt und bilden die Anfänge einer besonderen Naturwissenschaft. Man denke etwa an die geometrischen Funde des Thales und Pythagoras, an die akustischen Beobachtungen des letzteren. Auch diese beginnende Naturwissenschaft enthält noch reichlich phantastische Elemente. Wir können sie unbedenklich größeren Teils als eine Naturmythologie bezeichnen. Indem nun der sehr vernünftige Versuch gemacht wird, die ganze Natur durch einen dem Forscher leichter verständlichen Teil zu begreifen, wird allmählich eine animistisch-dämonologische Naturmythologie, durch eine Mythologie der Stoffe oder Kräfte, durch eine mechanisch-atomistische oder durch eine dynamische Naturmythologie abgelöst.</p>
+  <p class="jp" lang="ja">最初の哲学者たちは天文学者、幾何学者、物理学者、要するに自然研究者でもある。しかし彼らが、疑わしい価値の世界観と並んで、より小さな自然の切片の像をも、批判によりよく耐える仕方で書きとめることに成功すると、それらは集まり、より一般に承認され、特別な自然科学の端緒をなす。たとえばタレスとピュタゴラスの幾何学的発見、後者の音響学的観察を考えてみればよい。この始まりつつある自然科学も、なお空想的な要素を豊富に含んでいる。われわれはそれを、ためらうことなく大部分は自然神話と呼ぶことができる。さて、自然全体を、研究者にとってより理解しやすい一部分によって把握しようという、きわめて理性的な試みがなされることによって、アニミズム的・悪魔論的な自然神話は、しだいに物質あるいは力の神話によって、機械論的・原子論的な、あるいは力動的な自然神話によって取って代わられていく。</p>
+</article>
+<article class="row" id="p18.3">
+  <aside class="mg"><a class="pid" href="#p18.3">18.3</a><span class="pg"><span>S.&nbsp;106</span><span>S.&nbsp;107</span></span></aside>
+  <p class="de" lang="de">Häufig bestehen diese verschiedenen Auffassungen auch nebeneinander, und die Spuren derselben reichen bis in die neue Zeit. Man denke an die Lichtteilchen Newtons, an die Atome Demokrits und Daltons, an die Theorien der modernen Chemiker, an die Käfigmoleküle und gyrostatischen Systeme, endlich an die modernen Ionen und Elektronen. Die mannigfaltigen physikalischen Stoffhypothesen, die Descartesschen und Eulerschen Wirbel, die in den neuen elektromagnetischen Strömungs- und Wirbeltheorien wieder aufleben, die Sink- und Quellstellen, welche in <span class="pb" title="Leipzig 1906, S. 107">107</span>die vierte Dimension des Raumes führen, die ultramundanen Körperchen, welche die Gravitation erzeugen u. s. w. u. s. w. mögen noch erwähnt werden.</p>
+  <p class="jp" lang="ja">しばしばこれらのさまざまな把握は並存しもし、その痕跡は近代にまで及んでいる。ニュートンの光の粒子、デモクリトスとドルトンの原子、近代の化学者の理論、籠形分子やジャイロスタット系、そして最後に近代のイオンや電子を考えてみればよい。さらに、多種多様な物理学的物質仮説、新しい電磁気的な流れと渦の理論のなかで再びよみがえっているデカルトやオイラーの渦、空間の第四次元へと通じる吸いこみ口と湧き出し口、重力を生み出す世界外の微粒子、等々、等々も挙げておいてよいであろう。</p>
+</article>
+<article class="row" id="p18.4">
+  <aside class="mg"><a class="pid" href="#p18.4">18.4</a><span class="pg"><span>S.&nbsp;107</span></span></aside>
+  <p class="de" lang="de">Ich denke, das ist ein Achtung gebietender Hexensabbat von abenteuerlichen modernen Vorstellungen. Diese Ausgeburten der Phantasie kämpfen ums Dasein, indem sie sich gegenseitig zu überwuchern suchen. Zahllose dieser Phantasiesprossen und Blüten müssen angesichts der Tatsachen von der unerbittlichen Kritik vernichtet werden, bevor eine sich weiter entwickeln kann und längeren Bestand hat. Um diesen Vorgang zu würdigen, bedenke man, daß es gilt, die Naturvorgänge auf die einfachsten begrifflichen Elemente zurückzuführen. Dem Begreifen der Natur muß aber die Erfassung durch die Phantasie vorausgehen, um den Begriffen lebendigen anschaulichen Inhalt zu schaffen. Und eine desto lebhaftere Phantasie ist erforderlich, je ferner die zu lösende Aufgabe dem unmittelbaren biologischen Interesse liegt.</p>
+  <p class="jp" lang="ja">これは、奇想天外な近代の表象の、畏敬に値する魔女の夜宴（ヘクセンザバト）であると私は思う。これらの想像力の産物は、互いに相手をはびこり覆おうとすることによって、生存競争をしている。これらの空想の芽と花の数えきれないものが、事実を前にして容赦ない批判によって滅ぼされなければならず、そのあとでようやく一つがさらに発展し、より長く存続しうる。この過程を正しく評価するためには、自然の出来事を最も単純な概念的要素へと帰着させることが問題なのだということを考えてみるがよい。しかし自然を概念的に把握するには、概念に生き生きとした直観的な内容を与えるために、想像力による把握が先行しなければならない。そして、解くべき課題が直接の生物学的関心から遠く離れていればいるほど、それだけ生き生きとした想像力が必要とされるのである。</p>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§2.3</td><td lang="de">Innozenz VIII (1448)</td><td lang="de">Innozenz VIII (1484)（勅書 Summis desiderantes の年）</td></tr>
+  <tr><td>§7.3</td><td lang="de">in den Strynom</td><td lang="de">in den Strymon</td></tr>
+  <tr><td>§9.1</td><td lang="de">,Tausend und einer Nacht“</td><td lang="de">„Tausend und einer Nacht“</td></tr>
+  <tr><td>§12.2–13.1</td><td lang="de">S. 102 の脚注（Strabo, III. Iberia, 1.）が §13 本文中に混入</td><td lang="de">注19 として分離（Strabo¹) への参照）</td></tr>
+  <tr><td>§18.2</td><td lang="de">mechanischatomistische</td><td lang="de">mechanisch-atomistische</td></tr>
+  <tr><td>注参照</td><td lang="de">hervor.³), Wortaberglaubens.³)</td><td lang="de">注3・注4 への参照</td></tr>
+  <tr><td>注2</td><td lang="de">Leigzig</td><td lang="de">Leipzig</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_05.html">← 第Ⅴ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
