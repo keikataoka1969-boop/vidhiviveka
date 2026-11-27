@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第Ⅲ章 記憶・再生・連合</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第Ⅲ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a><a href="#s16">§16</a><a href="#s17">§17</a><a href="#s18">§18</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL III · 第Ⅲ章</div>
+  <h1>記憶・再生・連合</h1>
+  <div class="de-title" lang="de">Gedächtnis. Reproduktion und Association</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 31–49　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;31</span></span></aside>
+  <p class="de" lang="de">1. Auf einem Spaziergang durch die Straßen von Innsbruck begegnet mir ein Herr, dessen Gesicht, Gestalt, Gang und Redeweise mir die lebhafte Vorstellung eines solchen Gesichtes, Ganges u. s. w. in einer andern Umgebung, in Riva am Gardasee, erregt. Ich erkenne den Herrn A, der in der Umgebung I als sinnliches Erlebnis vor mir steht, als denselben, der auch einen Bestandteil meiner Erinnerungsvorstellung mit der Umgebung R ausmacht. Das Wiedererkennen, Identifizieren hätte keinen Sinn, wenn A nicht zweimal gegeben wäre.</p>
+  <p class="jp" lang="ja">1. インスブルックの通りを散歩していて、私はある紳士に出会う。その顔、姿、歩き方、話しぶりが、別の環境、すなわちガルダ湖畔のリーヴァにおける、そのような顔や歩き方などの生き生きとした表象を私のうちに呼び起こす。私は、環境 I のなかで感性的体験として私の前に立っている紳士 A を、環境 R をともなう私の記憶表象の構成部分をもなしているのと同じ人物として認める。もし A が二度与えられていなかったならば、再認や同定は何の意味ももたないであろう。</p>
+</article>
+<article class="row" id="p1.2">
+  <aside class="mg"><a class="pid" href="#p1.2">1.2</a><span class="pg"><span>S.&nbsp;31</span></span></aside>
+  <p class="de" lang="de">Alsbald fallen mir auch mit A in R geführte Gespräche ein, ich erinnere mich der Ausflüge in seiner Gesellschaft u. s. w. Ähnliche Tatsachen, die wir bei den mannigfaltigsten Anlässen beobachten, lassen sich in eine Regel zusammenfassen: Ein sinnliches Erlebnis aus den Bestandteilen ABCD... bringt ein früheres sinnliches Erlebnis mit den Bestandteilen AKLM... in Erinnerung, d. h. letzteres tritt als Vorstellung auf, wird reproduziert. Da nun die Reproduktion von KLM... durch BCD... im allgemeinen nicht erfolgt, so ergibt sich die natürliche Ansicht, daß dieselbe durch den gemeinsamen Bestandteil A eingeleitet wird und von diesem ausgeht. An die Reproduktion von A schließt sich jene von KLM..., die mit A unmittelbar oder mit andern bereits reproduzierten Gliedern gleichzeitig (in zeitlicher Berührung) sinnlich gegeben waren. Auf dieses einzige Associationsgesetz lassen sich alle hierher gehörigen Vorgänge zurückführen.</p>
+  <p class="jp" lang="ja">ほどなく私は、R で A と交わした会話も思い出し、彼と一緒にした遠足なども思い出す。きわめてさまざまな機会に観察される同様の事実は、一つの規則にまとめることができる。すなわち、構成要素 ABCD… からなる感性的体験は、構成要素 AKLM… をもつ以前の感性的体験を思い出させる。つまり後者が表象として現れ、再生される。ところで KLM… の再生は一般に BCD… によっては起こらないから、再生は共通の構成要素 A によって導入され、A から出発するという自然な見方が生じる。A の再生には、A と直接に、あるいはすでに再生された他の項と同時に（時間的接触において）感性的に与えられていた KLM… の再生が続く。この唯一の連合法則に、ここに属するすべての過程を帰着させることができる。</p>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;31</span><span>S.&nbsp;32</span></span></aside>
+  <p class="de" lang="de">2. Die Association ist von großer biologischer Wichtigkeit. Auf derselben beruht jede psychische Anpassung an die Umgebung, jede vulgäre und auch jede wissenschaftliche Erfahrung. Wenn die Umgebung der Lebewesen nicht wenigstens aus annähernd konstant bleibenden Teilen bestünde, oder in periodisch <span class="pb" title="Leipzig 1906, S. 32">32</span>sich wiederholende Ereignisse sich zerlegen ließe, wäre die Erfahrung unmöglich, die Association wertlos. Nur bei unveränderter Umgebung kann der Vogel an den sichtbaren Teil der Umgebung die Vorstellung der Lage seines Nestes anschließen. Nur wenn immer dasselbe Geräusch den nahenden Feind oder die fliehende Beute voraus ankündigt, kann die associierte Vorstellung dazu dienen, die entsprechende Flucht- oder Angriffsbereitschaft auszulösen. Eine annähernde Stabilität macht die Erfahrung möglich, und die tatsächliche Möglichkeit der Erfahrung läßt umgekehrt auf die Stabilität der Umgebung schließen. Der Erfolg rechtfertigt unsere wissenschaftlich-methodische Voraussetzung der Beständigkeit.<a class="fr" href="#n1">1</a></p>
+  <p class="jp" lang="ja">2. 連合は大きな生物学的重要性をもっている。環境へのあらゆる心的適応、あらゆる通俗的な経験、そしてまたあらゆる科学的経験は、連合にもとづいている。もし生物の環境が、少なくともおおよそ一定にとどまる部分から成り立っていなかったならば、あるいは周期的に繰り返す出来事に分解できなかったならば、経験は不可能であり、連合は無価値であろう。環境が変わらないときにだけ、鳥は環境の見える部分に巣の位置の表象を結びつけることができる。いつも同じ物音が近づく敵や逃げる獲物を前もって告げるときにだけ、連合された表象は、それに応じた逃走や攻撃の構えを引き起こすのに役立ちうる。おおよその安定性が経験を可能にし、逆に経験が事実上可能であることから、環境の安定性が推論される。成功が、恒常性というわれわれの科学的・方法的前提を正当化するのである<a class="fr" href="#n1">1</a>。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Die Erfahrung hat uns Stabilitäten kennen gelehrt, unsere psychische Organisation paßt sich denselben leicht an und gewährt uns Vorteile. Wir führen dann die Voraussetzung weiterer Stabilitäten bewußt und willkürlich ein, in der Erwartung weiterer Vorteile, wenn sich dieselbe bewährt. Die Annahme eines a priori gegebenen Begriffes zur Begründung dieses methodischen Verfahrens haben wir weder nötig, noch würde sie uns irgend welchen Nutzen gewähren. Sie wäre eine Verkehrtheit, angesichts der augenscheinlich empirischen Bildung dieses Begriffes.</p><p class="jp" lang="ja">経験はわれわれに安定性を教えてきた。われわれの心的組織はそれに容易に適応し、われわれに利益をもたらす。そこでわれわれは、さらなる安定性の前提を、それが確証されればさらなる利益が得られることを期待して、意識的かつ任意に導入するのである。この方法的手続きを基礎づけるために、ア・プリオリに与えられた概念を想定する必要はわれわれにはなく、またそれは何の役にも立たないであろう。この概念が明らかに経験的に形成されていることに照らせば、そのような想定は倒錯であろう。</p></li></ol>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;32</span></span></aside>
+  <p class="de" lang="de">3. Das neugeborene Kind ist, wie ein Tier von niederer Organisation, auf seine Reflexbewegungen angewiesen. Es hat den angeborenen Trieb zu saugen, zu schreien, wenn es der Hilfe bedarf u. s. w. Heranwachsend erwirbt es, wie die höheren Tiere, durch Association die ersten primitiven Erfahrungen. Es lernt die Berührung der Flamme, das Anstoßen an harte Körper als schmerzhaft vermeiden, lernt mit dem Anblick des Apfels die Vorstellung von dessen Geschmack verbinden u. s. w. Bald aber läßt es alle Tiere an Reichtum und Feinheit der Erfahrung weit hinter sich. Es ist sehr lehrreich, die Bildung der Associationen an jungen Tieren zu beobachten, wie dies C. L. Morgan<a class="fr" href="#n2">2</a> an jungen Hühnchen und Enten systematisch getan hat, die in einem Brutofen ausgeschlüpft waren.</p>
+  <p class="jp" lang="ja">3. 生まれたばかりの子どもは、下等な組織の動物と同じく、反射運動に頼っている。子どもには、吸う、助けが必要なときに泣くといった生得的な衝動がある。成長するにつれて子どもは、高等動物と同じく、連合によって最初の原始的な経験を獲得する。炎に触れること、硬い物体にぶつかることを痛いものとして避けることを学び、リンゴを見るとその味の表象を結びつけることを学ぶ、等々。しかしまもなく子どもは、経験の豊かさと繊細さにおいて、あらゆる動物をはるかに引き離す。若い動物において連合の形成を観察するのは非常に教えられるところが多い。C. L. モーガン<a class="fr" href="#n2">2</a>は、孵卵器で孵ったひよこや子鴨について、これを体系的に行った。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">C. L. Morgan, Comparative Psychology, London, 1894. S. 85 u. f.</p><p class="jp" lang="ja">C. L. モーガン『比較心理学』ロンドン、1894年、85頁以下。</p></li></ol>
+</article>
+<article class="row" id="p3.2">
+  <aside class="mg"><a class="pid" href="#p3.2">3.2</a><span class="pg"><span>S.&nbsp;32</span><span>S.&nbsp;33</span></span></aside>
+  <p class="de" lang="de">Die Hühnchen sind wenige Stunden nach dem Ausschlüpfen schon mit zweckmäßigen Reflexbewegungen ausgestattet. Sie laufen, picken nach auffallenden Objekten und treffen dieselben mit Sicherheit. Rebhühner sieht man sogar, noch zum Teil mit der Eierschale bedeckt, davonlaufen. Die jungen Hühnchen pickten <span class="pb" title="Leipzig 1906, S. 33">33</span>anfänglich nach allem, nach den Lettern eines bedruckten Blattes, nach den eigenen Zehen, nach den eigenen Exkrementen. Im letzteren Falle warf aber das Hühnchen das schlecht schmeckende Objekt sofort wieder weg, schüttelte den Kopf und reinigte den Schnabel wetzend am Boden. Ähnlich verfuhr das Tier, nachdem es eine Biene oder Raupe von schlechtem Geschmack aufgefaßt hatte. Das Picken nach unpassenden, nicht zweckdienlichen Objekten hört aber bald auf.</p>
+  <p class="jp" lang="ja">ひよこは孵化後わずか数時間で、すでに目的にかなった反射運動をそなえている。走り、目立つ対象をついばみ、それを確実に命中させる。ヤマウズラにいたっては、まだ一部卵殻をかぶったまま走り去るのが見られる。若いひよこは最初、何でもついばんだ。印刷された紙の活字も、自分の足指も、自分の糞も。しかし最後の場合には、ひよこはまずい味のする対象をすぐに投げ捨て、頭を振り、くちばしを地面にこすりつけて清めた。まずい味の蜂や毛虫をくわえたあとも、この動物は同じようにふるまった。だが、不適当で役に立たない対象をついばむことはまもなくやむ。</p>
+</article>
+<article class="row" id="p3.3">
+  <aside class="mg"><a class="pid" href="#p3.3">3.3</a><span class="pg"><span>S.&nbsp;33</span></span></aside>
+  <p class="de" lang="de">Eine Schale mit Wasser lassen die Hühnchen unbeachtet, trinken aber sofort, sobald sie beim Laufen mit den Füßen zufällig ins Wasser geraten.<a class="fr" href="#n3">3</a> Junge Entchen hingegen stürzen gleich in die dargebotene Wasserschale, waschen sich in derselben, tauchen unter u. s. w. Als ihnen am nächsten Tage dieselbe Schale leer dargeboten wurde, stürzten sie wieder in dieselbe hinein und führten auch da dieselben Bewegungen aus wie im Wasser. Sie lernten aber bald die leere Schale von der gefüllten unterscheiden. Ich selbst deckte einmal ein Trinkglas über ein vor mehreren Stunden ausgeschlüpftes Hühnchen und brachte eine Fliege in seine Gesellschaft. Sofort begann eine höchst ergötzliche, aber resultatlose Jagd. Das Hühnchen war doch noch zu wenig geschickt.</p>
+  <p class="jp" lang="ja">ひよこは水の入った皿には注意を払わないが、走っているうちに偶然足が水に入るとすぐに飲む<a class="fr" href="#n3">3</a>。これに対して子鴨は、差し出された水皿にすぐさま飛びこみ、そのなかで体を洗い、潜ったりする。翌日同じ皿を空のまま差し出すと、子鴨はまたそこに飛びこみ、水中と同じ動作をそこでも行った。しかし子鴨はまもなく、空の皿と満たされた皿とを区別することを学んだ。私自身、あるとき数時間前に孵ったひよこにコップをかぶせ、一匹の蠅を同居させてみた。すぐに、きわめて愉快な、しかし成果のない狩りが始まった。ひよこはまだあまりに不器用だったのである。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">So verhalten sich aber auch des Großhirns beraubte Vögel. Die Erscheinung beruht also wohl auf einem von den Vorfahren erworbenen Reflex. Vgl. den Schluß dieses Kapitels.</p><p class="jp" lang="ja">しかし大脳を除去された鳥もまた、このようにふるまう。したがってこの現象は、おそらく祖先が獲得した反射にもとづいている。本章の終わりを参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;33</span></span></aside>
+  <p class="de" lang="de">4. Die Manieren der Hühner und Enten sind den jungen Tieren angeboren; sie üben dieselben ohne jeden Unterricht. Dieselben sind durch den Bewegungsmechanismus vorbereitet, ebenso wie die Lautäußerungen. Man unterscheidet bei Hühnchen die Lautäußerung der Behaglichkeit, wenn sie sich in die dargebotene warme Hand verkriechen, den Gefahrschrei beim Anblick etwa eines großen schwarzen Käfers, das Geschrei der Einsamkeit u.s.w. Soviel auch bei diesen Tieren mechanisch vorbereitet und angeboren ist, so sehr auch das Zustandekommen gewisser Associationen anatomisch begünstigt und erleichtert sein mag, die Associationen selbst sind nicht angeboren, sondern müssen durch individuelle Erfahrung erworben werden.</p>
+  <p class="jp" lang="ja">4. 鶏や鴨の作法は若い動物に生まれつきそなわっており、彼らはいかなる教えもなしにそれを行う。それは運動のメカニズムによってあらかじめ準備されており、発声についても同様である。ひよこには、差し出された暖かい手のなかにもぐりこむときの心地よさの声、たとえば大きな黒い甲虫を見たときの危険の叫び、孤独の鳴き声などが区別される。これらの動物において、どれほど多くのものが機械的に準備され生得的であろうとも、また一定の連合の成立がどれほど解剖学的に促進され容易にされていようとも、連合そのものは生得的ではなく、個体の経験によって獲得されなければならない。</p>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;33</span><span>S.&nbsp;34</span></span></aside>
+  <p class="de" lang="de">Dies wird wohl richtig sein, wenn wir die Bezeichnung „Association“ nur auf (bewußte) Vorstellungen anwenden. Nehmen wir dieselbe in dem weiteren Sinne einer Auslösung gleichzeitig <span class="pb" title="Leipzig 1906, S. 34">34</span>stattgehabter organischer Vorgänge durcheinander, so möchte die Grenze zwischen Angeborenem (Ererbtem) und individuell Erworbenem recht schwer zu ziehen sein. Und so muß es sich wohl verhalten, sollen die Erwerbungen der Art vom Individuum vermehrt oder modifiziert werden. Mein zahmer Sperling kennt keine Furcht, setzt sich den Familiengliedern auf die Schulter, zupft sie an Haaren und Bart, wehrt sich tapfer und mit Zorngeschnatter gegen die Hand, die ihn von der Schulter einer bevorzugten Person vertreiben will. Doch zucken seine Flügel nervös bei jedem Geräusch, bei jeder Bewegung in seiner Umgebung. Wenn er beim Mittagstisch kleine Bissen auffaßt, so fliegt er mit jedem, wenn auch nur einen Fuß weit, fort, ganz wie seine Kollegen auf der Straße, obgleich er von keinem Genossen gestört wird.</p>
+  <p class="jp" lang="ja">「連合」という名称を（意識的な）表象にだけ適用するのであれば、これはおそらく正しいであろう。しかしこれを、同時に生じた有機的過程が互いに引き起こし合うというより広い意味にとるならば、生得的（遺伝的）なものと個体的に獲得されたものとの境界を引くのはかなり難しいであろう。そして、種の獲得物が個体によって増やされたり修正されたりするべきであるなら、事情はそうであるにちがいない。私の飼っている馴れた雀は恐れというものを知らず、家族の者の肩にとまり、髪や髭を引っぱり、お気に入りの人の肩から追い払おうとする手に対しては、怒りの鳴き声をあげて勇敢に抵抗する。それでも雀の翼は、周囲の物音や動きのたびに神経質にぴくりと震える。昼食の食卓で小さな食べ物をくわえると、雀はそのたびに、たとえ一フィートにすぎなくても飛び去る。どの仲間にも邪魔されていないのに、通りにいる同類とまったく同じようにである。</p>
+</article>
+<article class="row" id="p4.3">
+  <aside class="mg"><a class="pid" href="#p4.3">4.3</a><span class="pg"><span>S.&nbsp;34</span></span></aside>
+  <p class="de" lang="de">Junge Hühnchen, die im Brutofen gezogen wurden, beachten das Glucken der Henne nicht, fürchten weder die Katze noch den Falken. Wenn junge, noch blinde Kätzchen, mit einer Hand angefaßt, die eben einen Hund gestreichelt hat, wirklich fauchen sollten, so müßte man diese Äußerung für einen Geruchsreflex halten.<a class="fr" href="#n4">4</a> Durch ungewöhnliche Erscheinungen werden junge Tiere allerdings leicht in Furcht gesetzt. So schlucken junge Hühner, die mit kleinen Würmern gefüttert werden, gelegentlich auch gedrehte Wolle, bleiben aber vor einem großen Stück derselben bedenklich stehen. Ein junger zahmer Sperling getraute sich lange nicht an seinen Futterbehälter, als versuchsweise ein großer Mehlwurm in denselben getan wurde.<a class="fr" href="#n5">5</a> Die Furcht vor dem Ungewöhnlichen, Auffallenden scheint eben für viele Tiere eines der wichtigsten Schutzmittel zu sein.</p>
+  <p class="jp" lang="ja">孵卵器で育てられた若いひよこは、雌鶏のコッコッという声に注意を払わず、猫も鷹も恐れない。まだ目の見えない子猫が、ちょうど犬をなでたばかりの手でつかまれて本当にフーッとうなるのだとすれば、この反応は嗅覚反射とみなさなければならないであろう<a class="fr" href="#n4">4</a>。もっとも、若い動物は見慣れない現象によって容易に恐怖に陥る。たとえば小さな虫で餌づけされている若い鶏は、ときおりよじった毛糸も飲みこむが、大きな毛糸のかたまりの前では警戒して立ち止まる。馴れた若い雀は、試しに大きなミールワームを餌入れに入れられると、長いあいだ餌入れに近づこうとしなかった<a class="fr" href="#n5">5</a>。見慣れないもの、目立つものに対する恐れは、まさに多くの動物にとって最も重要な防御手段の一つであるように思われる。</p>
+  <ol class="notes"><li id="n4"><span class="nn">4</span><p class="de" lang="de">Schneider, Der tierische Wille. Leipzig 1880.</p><p class="jp" lang="ja">シュナイダー『動物の意志』ライプツィヒ、1880年。</p></li><li id="n5"><span class="nn">5</span><p class="de" lang="de">Beobachtung meiner Tochter.</p><p class="jp" lang="ja">私の娘の観察による。</p></li></ol>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;34</span><span>S.&nbsp;35</span></span></aside>
+  <p class="de" lang="de">5. Bei höher entwickelten Tieren kann man die Bildung von Associationen noch auffallender wahrnehmen und zugleich deren Dauerhaftigkeit konstatieren. In dem Dorfe, in welchem ich einen Teil meiner Jugend zugebracht habe, hatten viele Hunde, von den Dorfjungen schikaniert, die Gewohnheit angenommen, winselnd auf drei Beinen davonzulaufen, sobald jemand einen Stein vom Boden aufhob. Natürlich war man geneigt, dies nach <span class="pb" title="Leipzig 1906, S. 35">35</span>menschlichem Maß für einen schlauen Kunstgriff zur Erregung des Mitleids zu halten. Selbstverständlich war es aber nur eine lebhafte, associierte Erinnerung an die Qual, welche zuweilen dem aufgehobenen Stein gefolgt war.</p>
+  <p class="jp" lang="ja">5. より高度に発達した動物では、連合の形成をさらにはっきりと知覚でき、同時にその持続性を確認することができる。私が少年時代の一部を過ごした村では、村の子どもたちにいじめられた多くの犬が、誰かが地面から石を拾い上げるやいなや、鼻を鳴らしながら三本脚で逃げていく習慣を身につけていた。当然、人はこれを人間の尺度で、同情を引くための狡猾な手口とみなしがちであった。しかしもちろんそれは、拾い上げられた石のあとにときおり続いた苦痛についての、生き生きとした連合的記憶にすぎなかったのである。</p>
+</article>
+<article class="row" id="p5.2">
+  <aside class="mg"><a class="pid" href="#p5.2">5.2</a><span class="pg"><span>S.&nbsp;35</span></span></aside>
+  <p class="de" lang="de">Einen jungen Jagdhund meines Vaters sah ich einmal ungestüm einen Ameisenhaufen durchwühlen, darauf aber sofort sein empfindliches Geruchsorgan in verzweifelter Weise mit den Pfoten putzen. Von da an respektierte er sorgfältig das Domizil der Ameisen. Als einmal dieser Hund durch seine unerwünschte übertriebene Anhänglichkeit mich in der Arbeit beharrlich störte, klappte ich ihm ein Buch mit lautem Schall vor der Nase zu. Erschrocken zog er sich zurück. Das Ergreifen eines Buches genügte von da an, um jede Störung fernzuhalten. Dieser Hund muß, nach seinem Muskelspiel im Schlaf zu urteilen, auch eine lebhafte Traumphantasie gehabt haben.</p>
+  <p class="jp" lang="ja">父の若い猟犬が、あるとき蟻塚を猛然と掘り返し、そのあとすぐに鋭敏な嗅覚器官を前足で必死にこすっているのを私は見た。それ以来この犬は蟻の住みかを注意深く尊重した。あるときこの犬が、望まれない過剰ななつき方で私の仕事をしつこく邪魔したので、私は犬の鼻先で本を大きな音を立てて閉じた。犬は驚いて退いた。それ以来、本を手に取るだけで、どんな邪魔も遠ざけるのに十分であった。この犬は、眠っているときの筋肉の動きから判断すると、生き生きとした夢の空想ももっていたにちがいない。</p>
+</article>
+<article class="row" id="p5.3">
+  <aside class="mg"><a class="pid" href="#p5.3">5.3</a><span class="pg"><span>S.&nbsp;35</span></span></aside>
+  <p class="de" lang="de">Als er einmal ruhig schlafend dalag, brachte ich ein kleines Stückchen Fleisch in die Nähe seiner Nase. Nach einiger Zeit begann ein lebhaftes Muskelspiel, insbesondere der Nasenflügel. Nach einer halben Minute etwa erwachte der Hund, schnappte den Bissen und schlief dann ruhig weiter. Von der Dauerhaftigkeit der Associationen dieses Hundes konnte ich mich ebenfalls überzeugen. Als ich nach neunjähriger Abwesenheit im Dunkel des Abends und zu Fuß unerwartet ins Vaterhaus kam, empfing mich der Hund mit wütendem Gebell; ein einziger Anruf genügte aber, um sofort das freundlichste Benehmen desselben auszulösen. Ich halte daher die homerische Erzählung von dem Hunde des Odysseus für keine poetische Übertreibung.<a class="fr" href="#n6">6</a></p>
+  <p class="jp" lang="ja">あるとき犬が静かに眠って横たわっていたとき、私は小さな肉のかけらをその鼻の近くに持っていった。しばらくすると、とくに鼻翼の、活発な筋肉の動きが始まった。三十秒ほどすると犬は目を覚まし、肉片をぱくりと食べ、それからまた静かに眠りつづけた。この犬の連合の持続性についても、私は確かめることができた。九年ぶりに、夕暮れの暗がりのなか徒歩で思いがけず実家に帰ったとき、犬は猛烈に吠えたてて私を迎えた。しかし一声呼びかけただけで、たちまちこのうえなく親しげなふるまいが引き起こされた。それゆえ私は、オデュッセウスの犬についてのホメロスの物語を詩的誇張とは考えない<a class="fr" href="#n6">6</a>。</p>
+  <ol class="notes"><li id="n6"><span class="nn">6</span><p class="de" lang="de">Nächst den Schriften von Morgan ist in Bezug auf Psychologie der niederen und höheren Tiere sehr lehrreich: K. Möbius, Die Bewegungen der Tiere und ihr psychischer Horizont. (Schriften des naturwissensch. Vereins f. Schleswig-Holstein 1873.) Ferner: A. Ölzelt-Newin, Kleinere philosophische Schriften. Zur Psychologie der Seesterne. Wien 1903. Von älteren Schriften möchte ich empfehlen: H. S. Reimarus, Triebe der Tiere, 1790, ferner J. H. F. Autenrieth, Ansichten über Natur- und Seelenleben. 1836.</p><p class="jp" lang="ja">モーガンの著作に次いで、下等動物および高等動物の心理学に関してきわめて教えられるところが多いのは、K. メビウス『動物の運動とその心的地平』（シュレースヴィヒ＝ホルシュタイン自然科学協会紀要、1873年）である。さらに A. エルツェルト＝ネーヴィン『哲学小論集——ヒトデの心理学のために』ウィーン、1903年。古い著作では、H. S. ライマールス『動物の衝動』1790年、さらに J. H. F. アウテンリート『自然と心的生活についての見解』1836年を推薦したい。</p></li></ol>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;35</span><span>S.&nbsp;36</span></span></aside>
+  <p class="de" lang="de">6. Die Wichtigkeit der Vergleichung eines sinnlichen Erlebnisses ABCD... mit einem in der Vorstellung reproduzierten sinnlichen Erlebnis AKLM... kann für die psychische Entwicklung gar nicht hoch genug angeschlagen werden. Die einzelnen <span class="pb" title="Leipzig 1906, S. 36">36</span>Buchstaben mögen zunächst ganze Komplexe von Elementen bedeuten. A sei z. B. ein Körper, den wir einmal in der Umgebung BCD... angetroffen haben, jetzt aber in der Umgebung KLM... treffen, ein Körper etwa, der sich vor seinem Grunde bewegt und der eben dadurch als ein besonderes Gebilde von relativer Selbständigkeit erkannt wird. Geben wir nun den einzelnen Buchstaben die Bedeutung von einzelnen Elementen (Empfindungen), so lernen wir diese als selbständige Bestandteile unserer Erlebnisse kennen, indem z. B. das Rotgelb A nicht nur an der Orange, sondern auch an einem Stück Tuch, einer Blume oder einem Mineral, also in verschiedenen Komplexen auftritt.</p>
+  <p class="jp" lang="ja">6. 感性的体験 ABCD… を、表象において再生された感性的体験 AKLM… と比較することが心的発達にとってもつ重要性は、いくら高く評価してもしすぎることはない。個々の文字はさしあたり要素の複合体全体を意味するとしてよい。たとえば A を、かつて環境 BCD… のなかで出会ったが、いまは環境 KLM… のなかで出会う物体、たとえばその背景の前で動き、まさにそのことによって相対的な自立性をもつ特別な形成物として認識される物体だとしよう。次に、個々の文字に個々の要素（感覚）という意味を与えると、われわれはこれらを、われわれの体験の自立的な構成要素として知るようになる。たとえば赤黄色 A は、オレンジだけでなく、布切れや花や鉱物にも、つまりさまざまな複合体のうちに現れるからである。</p>
+</article>
+<article class="row" id="p6.2">
+  <aside class="mg"><a class="pid" href="#p6.2">6.2</a><span class="pg"><span>S.&nbsp;36</span></span></aside>
+  <p class="de" lang="de">Aber nicht nur die Analyse, sondern auch die Kombination beruht auf der Association. A sei z. B. das Gesichtsbild einer Orange, bezw. einer Rose, während K in dem reproduzierten Komplex den Geschmack der Orange, bezw. den Geruch der Rose bedeute. Sofort associieren wir dem neuerlich auftretenden Gesichtsbild die vorher erprobten Eigenschaften. Die Vorstellungen, welche uns durch die uns umgebenden Dinge auftauchen, entsprechen darum nicht genau den aktuellen Empfindungen, sondern sind in der Regel weit reicher. Es sind ganze Bündel von associierten Vorstellungen, welche, von vorausgehenden Erlebnissen herrührend, mit den aktuellen Empfindungen sich verweben, die unser Verhalten viel weiter bestimmen, als die letzteren allein es vermöchten. Wir sehen nicht nur eine rotgelbe Kugel, sondern meinen ein weiches, wohlriechendes und erfrischend säuerlich schmeckendes körperliches Ding wahrzunehmen.</p>
+  <p class="jp" lang="ja">しかし分析だけでなく、結合（コンビネーション）もまた連合にもとづいている。たとえば A をオレンジないしバラの視覚像とし、K は再生された複合体のなかでオレンジの味ないしバラの香りを意味するとしよう。新たに現れた視覚像に、われわれはただちに以前に確かめられた性質を連合させる。それゆえ、われわれを取りまく物によって浮かび上がる表象は、現実の感覚に正確に対応するのではなく、通常はそれよりはるかに豊かである。それは、先行する体験に由来して現実の感覚と織り合わされる、連合された表象のまるごとの束であり、それが現実の感覚だけでなしうるよりもはるかに広くわれわれのふるまいを規定するのである。われわれは単に赤黄色の球を見るのではなく、柔らかく、香りがよく、さわやかに酸っぱい味のする物体的な物を知覚していると思うのである。</p>
+</article>
+<article class="row" id="p6.3">
+  <aside class="mg"><a class="pid" href="#p6.3">6.3</a><span class="pg"><span>S.&nbsp;36</span><span>S.&nbsp;37</span></span></aside>
+  <p class="de" lang="de">Wir sehen nicht eine braune vertikale glänzende Fläche, sondern etwa den Kleiderschrank. Dafür können wir aber auch gelegentlich durch eine gelbe Holzkugel, ein Gemälde oder ein Spiegelbild irregeführt werden. Mit der Dauer unseres Lebens wächst die Mannigfaltigkeit und der Reichtum unserer sinnlichen Erlebnisse, sowie die Zahl und Mannigfaltigkeit der associativen Verbindungen zwischen denselben. Dadurch kommt es, wie wir gesehen haben, sowohl zu einer fortschreitenden Zerlegung in die Bestandteile dieser Erlebnisse, als auch zu einer fortgesetzten Bildung neuer Synthesen aus denselben. Nach Erstarkung des Vorstellungslebens können auch Vorstellungskomplexe gegeneinander ebenso sich reproduzierend und asso<span class="pb" title="Leipzig 1906, S. 37">37</span>ciativ verhalten, wie sinnliche Erlebnisse. Auch in den Vorstellungskomplexen treten neue Analysen und Synthesen auf, wie jeder Roman und jede wissenschaftliche Arbeit lehrt und wie dies jeder Denker an sich selbst beobachten kann.</p>
+  <p class="jp" lang="ja">われわれは茶色の垂直な光沢のある面を見るのではなく、たとえば洋服箪笥を見る。そのかわり、われわれはときに黄色の木の球や絵画や鏡像によって欺かれることもある。生きる時間が長くなるにつれて、われわれの感性的体験の多様性と豊かさは増し、またそれらのあいだの連合的結合の数と多様性も増していく。それによって、すでに見たように、これらの体験をその構成要素へと分解することが進むとともに、それらから新しい総合をたえず形成することも進む。表象生活が強化されると、表象複合体どうしもまた、感性的体験と同じように、互いに再生し合い連合し合うようにふるまいうる。表象複合体においても新しい分析と総合が現れることは、どの小説もどの学術論文も教えるところであり、どの思想家も自分自身において観察しうるところである。</p>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;37</span></span></aside>
+  <p class="de" lang="de">7. Obgleich nun nur ein Prinzip der Reproduktion und Association, nämlich das der Gleichzeitigkeit, aufgefunden werden kann, so nimmt doch der Vorstellungsverlauf in verschiedenen Fällen einen sehr differenten Charakter an. Dies wird durch folgende Überlegung aufgeklärt. Die meisten Vorstellungen haben sich im Laufe des Lebens mit sehr vielen andern associiert, und diese nach verschiedenen Richtungen auseinander gehenden Associationen widerstreben sich zum Teil und schwächen sich gegenseitig. Wenn nun nicht gerade einige davon, welche nach demselben Punkt konvergieren, das Übergewicht erhalten oder ein zufälliger Anlaß die eine besonders begünstigt, so werden diese Associationen nicht wirksam werden. Weiß etwa jemand anzugeben, wo und wann er einen bestimmten Buchstaben, ein Wort, einen Begriff, eine Rechnungsweise gebraucht, in Anwendung gesehen oder kennen gelernt hat?</p>
+  <p class="jp" lang="ja">7. さて、再生と連合の原理としてはただ一つ、すなわち同時性の原理しか見いだせないにもかかわらず、表象の経過はさまざまな場合にきわめて異なった性格をとる。このことは次の考察によって明らかになる。たいていの表象は生涯のうちにきわめて多くの他の表象と連合しており、さまざまな方向に分かれていくこれらの連合は、部分的には互いに抵抗し合い、弱め合う。そこで、同じ一点に収束するいくつかの連合がたまたま優勢を得るか、偶然の機会がある一つの連合をとくに助けるのでなければ、これらの連合は効力をもたないであろう。ある特定の文字、語、概念、計算法を、いつどこで用いたか、用いられているのを見たか、あるいは知ったかを、誰か言えるであろうか。</p>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;37</span></span></aside>
+  <p class="de" lang="de">Je häufiger er die betreffenden Mittel verwendet, je vertrauter er mit denselben ist, desto weniger wird er hierzu im stande sein. Der Name Schmidt ist selbst in dieser bestimmten Orthographie so mannigfaltig mit den verschiedensten Fächern und Beschäftigungen verbunden, daß er für sich allein eben gar keine Association auslöst. Je nach meiner augenblicklichen Gedankenrichtung oder Beschäftigung kann mir derselbe einen Philosophen, Zoologen, Literaturhistoriker, Archäologen, Maschinenbauer u. s. w. in Erinnerung bringen. Auch bei selteneren Namen kann man dies beobachten. Oft fuhr ich bei einem Plakat von Maggis Fleischextrakt vorbei und erinnerte mich doch nur einmal des gleichnamigen Verfassers einer für mich interessanten Mechanik, als ich eben an Physikalisches dachte. So wird auch die blaue Farbe eines Tuches dem Erwachsenen für sich allein nichts suggerieren, während sich das Kind vielleicht der Kornblume erinnert, die es gestern gepflückt hat.</p>
+  <p class="jp" lang="ja">それらの手段を頻繁に使えば使うほど、それに馴染めば馴染むほど、それを言うことはできなくなるであろう。シュミットという名は、この特定の綴りにおいてさえ、きわめてさまざまな専門や職業と多様に結びついているので、それだけではまったく何の連合も引き起こさない。そのときどきの私の思考の方向や仕事に応じて、その名は私に哲学者、動物学者、文学史家、考古学者、機械技師などを思い起こさせうる。もっと珍しい名前でもこのことは観察できる。私はマギーの肉エキスのポスターのそばを何度も通りすぎたが、私にとって興味深い力学書の同名の著者を思い出したのは、ちょうど物理学のことを考えていたときの一度だけであった。同様に、布の青い色は、大人にはそれだけでは何も示唆しないであろうが、子どもは昨日摘んだヤグルマギクを思い出すかもしれない。</p>
+</article>
+<article class="row" id="p7.3">
+  <aside class="mg"><a class="pid" href="#p7.3">7.3</a><span class="pg"><span>S.&nbsp;37</span><span>S.&nbsp;38</span></span></aside>
+  <p class="de" lang="de">Bei dem Namen Paris fallen mir vielleicht die Sammlungen des Louvre, oder dessen berühmte Physiker und Mathematiker, oder dessen feine Restaurants ein, je nachdem ich gerade für Kunstgenuß, für wissen<span class="pb" title="Leipzig 1906, S. 38">38</span>schaftliche Beschäftigung oder für kulinarische Genüsse gestimmt bin. Auch Umstände, welche in keiner sachlichen Beziehung zu der eingeschlagenen Gedankenrichtung stehen, können entscheidend werden. So soll sich Grillparzer eines infolge langer Krankheit gänzlich vergessenen poetischen Entwurfs wieder erinnert haben, als er die Symphonie wieder spielte, die er zur Zeit der Beschäftigung mit jenem Entwurf gespielt hatte. Daß auch Associationen durch unbewußte Mittelglieder herbeigeführt werden können, lehrt ein von Jerusalem mitgeteilter Fall.<a class="fr" href="#n7">7</a> Das Prinzip der Gleichzeitigkeit äußert sich in diesen Fällen sehr rein und deutlich.<a class="fr" href="#n8">8</a></p>
+  <p class="jp" lang="ja">パリという名を聞くと、私が芸術の享受に、学問的な仕事に、あるいは美食の楽しみに気分が向いているかに応じて、ルーヴルの収集品か、その有名な物理学者や数学者か、あるいはその上品なレストランが思い浮かぶかもしれない。とられている思考の方向と事柄のうえで何の関係もない事情も、決定的になりうる。グリルパルツァーは、長い病気のためにすっかり忘れていた詩の構想を、その構想に取り組んでいた頃に弾いていた交響曲を再び弾いたとき、思い出したという。連合が無意識の中間項によっても引き起こされうることは、イェルーザレムが伝えている一例が教えている<a class="fr" href="#n7">7</a>。これらの場合には、同時性の原理がきわめて純粋かつはっきりと現れている<a class="fr" href="#n8">8</a>。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">Wundt, Philosophische Studien. Bd. X, S. 323.</p><p class="jp" lang="ja">ヴント『哲学研究』第10巻、323頁。</p></li><li id="n8"><span class="nn">8</span><p class="de" lang="de">Daß nicht alle psychischen Vorgänge durch temporär erworbene (bewußte) Associationen erklärt werden können, soll später noch zur Sprache kommen. Hier handelt es sich darum, was durch Association verständlich ist.</p><p class="jp" lang="ja">すべての心的過程が一時的に獲得された（意識的な）連合によって説明できるわけではないことは、のちに論じることにする。ここで問題なのは、連合によって何が理解できるかということである。</p></li></ol>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;38</span></span></aside>
+  <p class="de" lang="de">8. Betrachten wir nun einige Typen des Vorstellungsverlaufes.<a class="fr" href="#n9">9</a> Wenn ich ohne Plan und Ziel, möglichst abgeschlossen von äußeren Störungen, etwa in einer schlaflosen Nacht, mich ganz meinen Gedanken überlasse, so komme ich, wie man zu sagen pflegt, vom Hundertsten aufs Tausendste. Komische und tragische, erinnerte und erfundene Situationen wechseln mit wissenschaftlichen Einfällen und Arbeitsplänen, und es wäre sehr schwer, die kleinen Zufälligkeiten zu bezeichnen, welche in jedem Augenblick dieser „freien Phantasie“ die Richtung gegeben haben. Nicht viel anders verlaufen die Vorstellungen, wenn zwei oder mehrere Personen zwanglos miteinander plaudern, nur daß hier die Gedanken mehrerer Personen sich gegenseitig beeinflussen.</p>
+  <p class="jp" lang="ja">8. さて、表象経過のいくつかの類型を考察しよう<a class="fr" href="#n9">9</a>。私が計画も目的もなく、外からの妨げをできるかぎり遮断して、たとえば眠れぬ夜に、まったく自分の思考に身を委ねると、俗に言うように、話はあらぬ方へとそれていく。滑稽な状況と悲劇的な状況、思い出された状況と作り出された状況が、学問上の着想や仕事の計画と入れ替わり、この「自由な空想」の各瞬間にその方向を与えた小さな偶然を挙げることは非常に難しいであろう。二人あるいは数人の人が気ままにおしゃべりするときにも、表象はあまり違わない経過をたどる。ただここでは、複数の人の思考が互いに影響し合うのである。</p>
+  <ol class="notes"><li id="n9"><span class="nn">9</span><p class="de" lang="de">Vgl. James, The Principles of Psychology. I. p. 550-604.</p><p class="jp" lang="ja">ジェイムズ『心理学原理』第1巻、550–604頁参照。</p></li></ol>
+</article>
+<article class="row" id="p8.2">
+  <aside class="mg"><a class="pid" href="#p8.2">8.2</a><span class="pg"><span>S.&nbsp;38</span><span>S.&nbsp;39</span></span></aside>
+  <p class="de" lang="de">Die überraschenden Sprünge und Wendungen des Gespräches lösen da oft die verwunderte Frage aus: Ja, wie sind wir denn auf das gekommen? Die Fixierung der Gedanken durch laut ausgesprochene Worte und die Mehrzahl der Beobachter erleichtert hier auch die Beantwortung, welche nur selten ausbleibt. Die wunderlichsten Wege schlagen die Vorstellungen wohl im Traum ein. Der Faden der Association ist aber in diesem Falle am schwersten zu verfolgen, teils wegen der unvollständigen Erinnerung, welche der Traum zurückläßt, teils auch wegen der häufigeren Störung durch leise Empfindungen <span class="pb" title="Leipzig 1906, S. 39">39</span>des Schlafenden. Im Traum erlebte Situationen, erschaute Gestalten, gehörte Melodien sind oft sehr wertvolle Grundlagen des künstlerischen Schaffens,<a class="fr" href="#n10">10</a> an die Traumgedanken kann aber der Forscher nur in äußerst seltenen Fällen anknüpfen.</p>
+  <p class="jp" lang="ja">そこでは会話の思いがけない跳躍や転回が、しばしば「いったいどうしてこんな話になったのだろう」という不思議そうな問いを引き起こす。声に出して語られた言葉によって思考が固定されていること、そして観察者が複数いることが、ここでは答えることも容易にしており、答えが出ないことはめったにない。表象がいちばん奇妙な道をたどるのは、おそらく夢のなかであろう。しかしこの場合、連合の糸をたどるのは最も難しい。一つには夢が残す記憶が不完全だからであり、一つには眠っている人のかすかな感覚によってしばしば妨げられるからである。夢のなかで体験された状況、見られた姿、聞かれた旋律は、しばしば芸術的創造のきわめて貴重な基礎となる<a class="fr" href="#n10">10</a>。しかし研究者が夢の思考に結びつくことができるのは、きわめてまれな場合にかぎられる。</p>
+  <ol class="notes"><li id="n10"><span class="nn">10</span><p class="de" lang="de">Bekannte Fälle dieser Art sind folgende: Voltaire träumt einen vollständigen variierten Gesang der „Henriade“. Noch merkwürdiger ist, daß der Teufel im Traum Tartini den Satz einer Sonate vorspielt, den der Künstler wachend nicht zu stande gebracht hatte, wenn nicht Dichtung und Wahrheit in dem Bericht ein Kompromiß geschlossen haben.</p><p class="jp" lang="ja">この種のよく知られた例は次のとおりである。ヴォルテールは『アンリアード』のある歌の、完全な異稿を夢に見る。さらに奇妙なのは、悪魔が夢のなかでタルティーニにソナタの一楽章を弾いてみせたことで、その楽章は芸術家が覚醒時には仕上げられなかったものであった——もっとも、その報告において詩と真実とが妥協を結んでいなければの話であるが。</p></li></ol>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;39</span></span></aside>
+  <p class="de" lang="de">9. Lucians köstliche Münchhauseniade entspricht nicht mehr ganz dem Typus der freien Phantasie. Dieser geistreichste Feuilletonist der antiken Welt hält hier aus Prinzip nur die abenteuerlichsten und unwahrscheinlichsten seiner Einfälle fest. Er erfindet kolossale Spinnen, die den Raum zwischen Mond und Morgenstern mit einem gangbaren Gewebe durchziehen, weist spielend den Mondbewohnern flüssige Luft als Getränk an, 1700 Jahre vor deren wirklicher Darstellung. Ein Reiseplan ist es, an dem er als leitenden Faden seine Phantasien aufreiht. Diese Reise führt ihn auch auf die Insel der Träume, deren unbestimmtes widerspruchsvolles Wesen er wunderbar dadurch charakterisiert, daß sie desto mehr zurückweicht, je mehr der Reisende sich ihr nähert. Trotz dieser überreich wuchernden Phantasie lassen sich die Fäden der Association doch auffinden, wo dieselben etwa nicht absichtlich verborgen wurden. Die Reise beginnt bei den Säulen des Herakles und geht westwärts.</p>
+  <p class="jp" lang="ja">9. ルキアノスのすばらしいほら話（ミュンヒハウゼン風の物語）は、もはや自由な空想の類型に完全には合致しない。古代世界で最も才気ある文芸欄作家であったこの人は、ここで原則として自分の思いつきのうち最も奇想天外で最もありそうもないものだけを書きとめている。彼は、月と明けの明星とのあいだの空間に通行可能な網を張りめぐらす巨大な蜘蛛を考え出し、液体空気が実際に作られる千七百年も前に、たわむれに月の住人に液体空気を飲み物として与えている。彼が空想を連ねる導きの糸となっているのは、ある旅の計画である。この旅は彼を夢の島へも連れていくが、その島の曖昧で矛盾に満ちた本質を、旅人が近づけば近づくほど島が遠ざかっていくということによって、彼はみごとに特徴づけている。このあふれんばかりに繁茂する空想にもかかわらず、連合の糸は、意図的に隠されていないかぎり、やはり見つけ出すことができる。旅はヘラクレスの柱から始まり、西へと向かう。</p>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;39</span><span>S.&nbsp;40</span></span></aside>
+  <p class="de" lang="de">Nach 80 Tagen erreicht er eine Insel mit einer Denksäule und Inschrift des Herakles und Dionysos, sowie mit kolossalen Fußspuren beider. Natürlich gibt es daselbst einen Fluß, der Wein führt mit Fischen, deren Genuß Rausch erzeugt. Die Quellen dieses Flusses entspringen an den Wurzeln üppig wachsender Weinstöcke, und an dessen Ufern trifft man Frauen, welche ähnlich Daphne teilweise zu Weinstöcken umgewandelt wurden. An dieser Stelle ist ja der Faden der Association zu einem recht tragfähigen Strick angeschwollen. An andern Stellen hat der Autor Triebe und Blüten seiner Phantasie, welche dem ästhetischen und satirischen Zweck nicht entsprachen, eben weggeschnitten. Durch dieses Ausmerzen des Unbrauchbaren unterscheidet sich das Vorstellungsleben, welches sich in einem <span class="pb" title="Leipzig 1906, S. 40">40</span>literarischen oder sonstigen noch so freien Kunstwerk äußert, von dem planlosen Hingeben an die eigenen Vorstellungen.</p>
+  <p class="jp" lang="ja">八十日後、彼はヘラクレスとディオニュソスの記念柱と碑文、そして両者の巨大な足跡のある島に着く。当然そこには葡萄酒の流れる川があり、そこにいる魚を食べると酔ってしまう。この川の源は豊かに茂る葡萄の木の根もとから湧き出ており、その岸辺では、ダフネのように一部が葡萄の木に変えられた女たちに出会う。ここでは連合の糸はまったく丈夫な綱にまで太くなっている。別の箇所では、作者は自分の空想の芽や花のうち、美的・風刺的な目的にそぐわないものをまさに切り取ってしまったのである。役に立たないものをこのように取り除くことによって、文学作品やその他の、どれほど自由なものであれ芸術作品において表現される表象生活は、自分の表象に無計画に身を委ねることから区別されるのである。</p>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;40</span></span></aside>
+  <p class="de" lang="de">10. Wenn ich an einen Ort und in eine Umgebung komme, in welcher ich einen Teil meiner Jugendzeit verlebt habe, und wenn ich mich einfach den Eindrücken dieser Umgebung überlasse, so ergibt sich wieder ein anderer Typus des Vorstellungsverlaufes. Was sich dort meinen Sinnen darbietet, ist so vielfach mit den Erlebnissen meiner Jugend associiert und mit spätern Ereignissen so schwach oder gar nicht verknüpft, daß die Vorgänge jener Lebensperiode nach und nach alle, in vollkommener Treue und in fester Verknüpfung untereinander, zeitlich und räumlich geordnet, aus der Vergessenheit auftauchen. Immer entdeckt man in einem solchen Falle, wie Jerusalem<a class="fr" href="#n11">11</a> treffend bemerkt, sich selbst als beteiligt. Man kann deshalb an dem Faden der Person die Elemente der Erinnerung zeitlich aufreihen. Ähnliches, wenn auch weniger vollständig, stellt sich schon ein, sobald mir das Bild der Heimat auftaucht, wenn dasselbe nur nicht gestört und demselben Zeit gelassen wird, sich zu ergänzen. Die jedem wohlbekannten Erzählungen alter Leute aus ihrer Jugendzeit oder der Bericht über deren Sommeraufenthalt und ihre Erlebnisse daselbst, wobei uns nicht die geringste Einzelheit erlassen wird, sind Beispiele für diesen Typus.</p>
+  <p class="jp" lang="ja">10. 私が少年時代の一部を過ごした場所と環境に行き、ただその環境の印象に身を委ねると、また別の類型の表象経過が生じる。そこで私の感官に現れるものは、私の少年時代の体験と多様に連合しており、のちの出来事とはごく弱くしか、あるいはまったく結びついていないので、その時期の出来事が次々にすべて、完全な忠実さで、互いにしっかりと結びつき、時間的・空間的に秩序づけられて、忘却のなかから浮かび上がってくる。イェルーザレム<a class="fr" href="#n11">11</a>が的確に述べているように、このような場合にはつねに自分自身が関与していることが分かる。それゆえ、人物という糸に沿って記憶の要素を時間的に並べることができる。故郷の像が浮かんできたときにも、それが妨げられず、補われるための時間が与えられさえすれば、完全ではないにせよ同様のことがすでに起こる。誰もがよく知っている老人たちの少年時代の思い出話や、避暑地での滞在とそこでの体験についての報告——そこではほんのささいな細部も省いてもらえない——は、この類型の例である。</p>
+  <ol class="notes"><li id="n11"><span class="nn">11</span><p class="de" lang="de">Jerusalem, Lehrbuch der Psychologie. 3. Aufl. Wien 1902. S. 91.</p><p class="jp" lang="ja">イェルーザレム『心理学教本』第3版、ウィーン、1902年、91頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;40</span><span>S.&nbsp;41</span></span></aside>
+  <p class="de" lang="de">11. Handelte es sich in dem vorigen Fall wesentlich um Auffrischung schon bestehender Vorstellungsverbindungen, um einfache Erinnerungen, so erfordert die Lösung eines Wort- oder Sachrätsels, einer geometrischen oder technischen Konstruktionsaufgabe, eines wissenschaftlichen Problems, die Ausführung eines künstlerischen Vorwurfs u. s. w. eine Vorstellungsbewegung mit einem bestimmten Ziel und Zweck. Es wird hierbei etwas Neues, zurzeit nur teilweise Bekanntes, gesucht. Diese Vorstellungsbewegung, welche das mehr oder weniger umschriebene Ziel nie aus den Augen verliert, nennen wir Nachdenken. Steht eine Person vor mir, die mir ein Rätsel aufgibt, eine Aufgabe stellt, oder sitze ich an meinem Schreibtisch, auf welchem ich schon die Spuren meiner Arbeitsvorkehrungen sehe, so ist hiermit ein Empfindungskomplex gesetzt, welcher meine Gedanken immer <span class="pb" title="Leipzig 1906, S. 41">41</span>auf das Ziel zurückführt und deren planloses Herumschweifen verhindert.</p>
+  <p class="jp" lang="ja">11. 前の場合に問題であったのが本質的にはすでにある表象結合の活性化、単純な想起であったとすれば、言葉の謎や事物の謎、幾何学的あるいは技術的な作図問題、科学的な問題を解くこと、芸術的な主題を仕上げることなどは、一定の目標と目的をもった表象の運動を必要とする。そこでは、何か新しいもの、目下のところ部分的にしか知られていないものが探し求められる。多少とも輪郭の定まった目標をけっして見失わないこの表象の運動を、われわれは熟考（Nachdenken）と呼ぶ。謎をかけたり課題を出したりする人が私の前に立っているとき、あるいはすでに自分の仕事の準備の跡が見える机に向かって座っているとき、それによってある感覚複合体が置かれており、それが私の思考をつねに目標へと連れ戻し、思考が無計画にさまようのを妨げる。</p>
+</article>
+<article class="row" id="p11.2">
+  <aside class="mg"><a class="pid" href="#p11.2">11.2</a><span class="pg"><span>S.&nbsp;41</span></span></aside>
+  <p class="de" lang="de">Diese äußerliche Einschränkung der Gedanken ist schon für sich nicht zu unterschätzen. Wenn ich mit einer wissenschaftlichen Aufgabe im Sinne endlich ermüdet einschlafe, so fehlt sofort jener äußerliche Mahner und Weiser auf das Ziel, und meine Vorstellungen diffundieren und verlassen die passenden Wege. Dies ist wohl mit ein Grund, warum die Lösung wissenschaftlicher Aufgaben so selten im Traume gefördert wird. Wird aber das unwillkürliche Interesse an der Lösung einer Aufgabe stark genug, dann sind allerdings die äußerlichen Mahner ganz überflüssig. Alles, was man denkt und beobachtet, führt dann von selbst auf die Aufgabe zurück, zuweilen sogar im Traum.</p>
+  <p class="jp" lang="ja">思考をこのように外的に制限することは、それだけでもすでに軽視できない。科学的な課題を念頭に置いたまま、ついに疲れて眠りこむと、目標へのあの外的な注意喚起者・案内者はただちに失われ、私の表象は拡散して適切な道を離れてしまう。これがおそらく、科学的な課題の解決が夢のなかで促進されることがかくもまれな理由の一つであろう。しかし、課題の解決への無意識的な関心が十分に強くなれば、外的な注意喚起者はたしかにまったく不要となる。そのときには、考えることも観察することもすべておのずから課題へと立ち返り、ときには夢のなかでさえそうなるのである。</p>
+</article>
+<article class="row" id="p11.3">
+  <aside class="mg"><a class="pid" href="#p11.3">11.3</a><span class="pg"><span>S.&nbsp;41</span></span></aside>
+  <p class="de" lang="de">Die im Nachdenken gesuchte Vorstellung hat gewisse Bedingungen zu erfüllen. Sie hat ein Rätsel oder ein Problem zu lösen, eine Konstruktion zu ermöglichen. Die Bedingungen sind bekannt, die Vorstellung aber nicht. Um die Art der Gedankenbewegung zu erläutern, welche zur Auffindung des Gesuchten führt, wählen wir eine einfache geometrische Konstruktion. Die Form des Vorganges ist nämlich in allen hier in Betracht kommenden Fällen dieselbe, und ein Beispiel genügt, um alle Fälle verständlich zu machen. Zwei zueinander senkrechte Gerade a und b, Fig. 1, werden von einer dritten beliebig schiefen geschnitten. In das so entstandene Dreieck soll ein Quadrat eingeschrieben werden, dessen vier Ecken bezw. auf a, b, dem Durchschnittspunkt von a und b, und auf c liegen. Wir versuchen nun, uns Quadrate vorzustellen und herzustellen, welche alle diese Bedingungen erfüllen. Drei Ecken genügen ohne weiteres den Bedingungen, wenn wir eine Ecke eines beliebigen Quadrates mit dem Durchschnittspunkt von a und b und zwei Quadratseiten mit a, bezw. b zusammenfallen lassen. Damit fällt aber die vierte Ecke nicht gerade auf c, sondern innerhalb oder außerhalb des Dreieckes.</p>
+  <p class="jp" lang="ja">熟考において探し求められる表象は、一定の条件を満たさなければならない。それは謎や問題を解き、作図を可能にしなければならない。条件は知られているが、表象は知られていない。探し求めるものの発見に導く思考の運動の仕方を説明するために、一つの簡単な幾何学的作図を選ぼう。というのも、ここで問題となるすべての場合において過程の形式は同じであり、一つの例ですべての場合を理解させるのに十分だからである。互いに垂直な二直線 a と b（図1）が、任意に傾いた第三の直線によって切られる。こうしてできた三角形に、四つの頂点がそれぞれ a 上、b 上、a と b の交点、そして c 上にあるような正方形を内接させたい。そこでわれわれは、これらの条件をすべて満たす正方形を思い浮かべ、作ってみようと試みる。任意の正方形の一つの頂点を a と b の交点に一致させ、二辺をそれぞれ a と b に一致させれば、三つの頂点はそのまま条件を満たす。しかしそれでは、第四の頂点はちょうど c 上には来ず、三角形の内側か外側に来てしまう。</p>
+</article>
+<figure class="fig"><span lang="de">Fig. 1 (S. 41)</span><em>図版は原書を参照</em></figure>
+<article class="row" id="p11.4">
+  <aside class="mg"><a class="pid" href="#p11.4">11.4</a><span class="pg"><span>S.&nbsp;41</span><span>S.&nbsp;42</span></span></aside>
+  <p class="de" lang="de">Nimmt man hingegen einen Eckpunkt beliebig auf c, so ist das Rechteck, welches man ergänzend hierzu zeichnet, im allgemeinen kein <span class="pb" title="Leipzig 1906, S. 42">42</span>Quadrat. Man sieht aber, daß man von einem Rechteck mit größerer vertikaler Seite, durch Wahl des Eckpunktes auf c, zu einem Rechteck mit größerer horizontaler Seite übergehen kann, also auf einen Zwischenfall mit gleichen Seiten stoßen muß. Man kann also unter der Reihe der eingeschriebenen Rechtecke das Quadrat mit beliebiger Annäherung heraussuchen. Es gibt aber noch einen andern Weg. Geht man von einem Quadrat aus, dessen vierter Eckpunkt innerhalb des Dreieckes fällt, und vergrößert dasselbe, bis dieser Eckpunkt außerhalb fällt, so muß derselbe hierbei c passieren. Also auch in der Reihe der Quadrate läßt sich dasjenige von richtiger Größe mit beliebiger Annäherung heraussuchen.</p>
+  <p class="jp" lang="ja">これに対して、一つの頂点を c 上に任意にとると、それを補って描いた長方形は一般には正方形ではない。しかし、c 上の頂点の選び方によって、縦の辺のほうが長い長方形から横の辺のほうが長い長方形へと移っていけること、したがって辺の等しい中間の場合に行き当たるはずであることが分かる。それゆえ、内接する長方形の系列のなかから、正方形を任意の近似で探し出すことができる。しかし、もう一つ別の道がある。第四の頂点が三角形の内側に来る正方形から出発し、その頂点が外側に来るまで正方形を大きくしていくと、その頂点はその途中で c を通過しなければならない。したがって正方形の系列においても、正しい大きさのものを任意の近似で探し出すことができる。</p>
+</article>
+<article class="row" id="p11.5">
+  <aside class="mg"><a class="pid" href="#p11.5">11.5</a><span class="pg"><span>S.&nbsp;42</span></span></aside>
+  <p class="de" lang="de">Solche tatonnierende Sondierungen der Vorstellungsgebiete, in welchen wir die Lösung der Aufgabe zu suchen haben, gehen naturgemäß der vollkommenen Lösung voraus. Das vulgäre Denken mag sich auch mit einer praktisch zureichenden annähernden Lösung begnügen. Die Wissenschaft fordert die allgemeinste, kürzeste und übersichtlichste Lösung. Diese erhalten wir, indem wir (von der Betrachtung der Rechtecke oder der Quadrate ausgehend) uns erinnern, daß alle eingeschriebenen Quadrate die von dem Durchschnittspunkt der a und b ausgehende Winkelhalbierende als Diagonale gemein haben. Zieht man also von diesem bekannten Punkt aus diese Winkelhalbierende, so kann man, von deren gefundenem Durchschnittspunkt mit c aus, ohne weiteres das gesuchte Quadrat ergänzen.</p>
+  <p class="jp" lang="ja">このように、課題の解決を探すべき表象領域を手探りで探ること（tatonnieren）は、当然、完全な解決に先立つ。通俗的思考は、実際上十分な近似的解決で満足するかもしれない。科学は最も一般的で、最も短く、最も見通しのよい解決を要求する。それをわれわれは、（長方形あるいは正方形の考察から出発して）内接するすべての正方形が、a と b の交点から出る角の二等分線を対角線として共有していることを思い出すことによって得る。したがってこの既知の点からこの角の二等分線を引けば、それと c との交点が見つかり、そこから求める正方形をそのまま補って描くことができる。</p>
+</article>
+<article class="row" id="p11.6">
+  <aside class="mg"><a class="pid" href="#p11.6">11.6</a><span class="pg"><span>S.&nbsp;42</span><span>S.&nbsp;43</span></span></aside>
+  <p class="de" lang="de">So simpel auch dieses mit Absicht gewählte und ausführlich dargelegte Beispiel ist, so bringt es doch das Wesentliche jeder Problemlösung, das Experimentieren mit Gedanken, mit Erinnerungen,<a class="fr" href="#n12">12</a> sowie die Identität mit der jedem geläufigen Rätsellösung zu klarem Bewußtsein. Das Rätsel wird gelöst durch eine Vorstellung, welche den Bedingungen ABC entsprechende Eigenschaften aufweist. Die Association liefert uns Reihen von Vorstellungen von der Eigenschaft A, von der Eigenschaft B u. s. w. Das Glied (oder die Glieder), welches allen diesen Reihen angehört, in welchem sich alle diese Reihen kreuzen, löst die Aufgabe. Wir kommen auf diesen wichtigen Gegenstand noch ausführlicher zurück. Hier galt es nur den <span class="pb" title="Leipzig 1906, S. 43">43</span>Typus des Vorstellungsverlaufs darzulegen, welchen man Nachdenken nennt.<a class="fr" href="#n13">13</a></p>
+  <p class="jp" lang="ja">この意図的に選び、詳しく説明した例はきわめて単純ではあるが、それでも、あらゆる問題解決の本質、すなわち思考による実験、記憶による実験<a class="fr" href="#n12">12</a>を、そしてまた誰もがよく知っている謎解きとの同一性を、明瞭に意識させてくれる。謎は、条件 ABC に対応する性質を示す表象によって解かれる。連合は、性質 A をもつ表象の系列、性質 B をもつ表象の系列などをわれわれに提供する。これらすべての系列に属する項（あるいは項の群）、これらすべての系列が交わる項が課題を解くのである。この重要な対象には、あとでもっと詳しく立ち返ることにする。ここでは、熟考と呼ばれる表象経過の類型を示すことだけが問題であった<a class="fr" href="#n13">13</a>。</p>
+  <ol class="notes"><li id="n12"><span class="nn">12</span><p class="de" lang="de">Diese Fragen werden noch ausführlicher erörtert.</p><p class="jp" lang="ja">これらの問題はのちにさらに詳しく論じる。</p></li><li id="n13"><span class="nn">13</span><p class="de" lang="de">Man könnte versucht sein, das „aktive“ Nachdenken als wesentlich verschieden von dem „passiven“ Laufenlassen der Gedanken anzusehen. Allein, so wie wir bei einer körperlichen Handlung nicht Herren sind über die Sinnesempfindungen und Erinnerungen, welche diese Handlung auslösen, so vermögen wir auch nichts über eine Vorstellung von unmittelbarem oder mittelbarem biologischen Interesse, die immer wieder auftaucht und an welche sich immer wieder neue Associationsreihen anschließen. Vgl. populär-wissensch. Vorlesungen. 3. Aufl. S. 287-308.</p><p class="jp" lang="ja">「能動的な」熟考を、思考を「受動的に」流れるにまかせることとは本質的に異なるものとみなしたくなるかもしれない。しかし、身体的な行為において、その行為を引き起こす感官の感覚や記憶について主人でないのと同じく、われわれは、直接的あるいは間接的に生物学的な関心をもち、何度も浮かび上がっては、そのたびに新たな連合系列が結びつくような表象に対しても、何もできないのである。『通俗科学講義』第3版、287–308頁参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;43</span></span></aside>
+  <p class="de" lang="de">12. Das Vorausgehende setzt die Bedeutung der reproduzierbaren und associierbaren Erinnerungsspuren der sinnlichen Erlebnisse für das ganze psychische Leben außer Zweifel, und zeigt zugleich, daß psychologische und physiologische Untersuchungen nicht voneinander getrennt werden können, da schon in den Elementen der Erlebnisse beiderlei Beziehungen aufs engste verknüpft sind.</p>
+  <p class="jp" lang="ja">12. これまで述べたことは、感性的体験の再生可能で連合可能な記憶痕跡が心的生活全体にとってもつ意義を疑問の余地のないものとし、同時に、心理学的研究と生理学的研究とは互いに切り離すことができないことを示している。体験の要素においてすでに、両方の関係がきわめて緊密に結びついているからである。</p>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;43</span></span></aside>
+  <p class="de" lang="de">13. Die Reproduzierbarkeit und Associierbarkeit bildet auch die Grundlage des „Bewußtseins“. Das unausgesetzte Bestehen einer unveränderlichen Empfindung wird schwerlich jemand als Bewußtsein bezeichnen wollen. Schon Hobbes sagt: Sentire semper idem et non sentire ad idem recidunt.<a class="fr" href="#n14">14</a> Es ist auch nicht einzusehen, was durch die Annahme einer besonderen, von allen übrigen physikalischen Energien verschiedenen „Energie des Bewußtseins“ gewonnen sein soll. Das wäre eine Voraussetzung, welche im Gebiete der Physik gar keine Funktion hätte, unnötig wäre, im Gebiete der Psychologie aber nichts verständlicher machen würde. Das Bewußtsein ist keine besondere (psychische) Qualität oder Klasse von Qualitäten, die sich von den physischen Qualitäten unterscheidet; es ist auch keine besondere Qualität, die zu der physischen hinzukommen müßte, um das Unbewußte zum Bewußten zu machen.</p>
+  <p class="jp" lang="ja">13. 再生可能性と連合可能性はまた、「意識」の基礎をもなしている。変化しない一つの感覚がずっと存続しているのを、意識と呼ぼうとする人はまずいないであろう。すでにホッブズが言っている。「つねに同じものを感覚することと、感覚しないこととは、同じことに帰着する（Sentire semper idem et non sentire ad idem recidunt）」<a class="fr" href="#n14">14</a>。また、他のすべての物理的エネルギーとは異なる特別な「意識のエネルギー」を想定することによって何が得られるのかも分からない。それは物理学の領域ではまったく何の機能ももたず不要であり、心理学の領域では何ひとつ理解しやすくしないような前提であろう。意識は、物理的性質と区別される特別な（心理的）性質ないし性質の類ではない。また、無意識的なものを意識的なものにするために物理的性質に付け加わらなければならないような特別な性質でもない。</p>
+  <ol class="notes"><li id="n14"><span class="nn">14</span><p class="de" lang="de">Hobbes, Physica, IV, 25.</p><p class="jp" lang="ja">ホッブズ『自然学』第4部、25。</p></li></ol>
+</article>
+<article class="row" id="p13.2">
+  <aside class="mg"><a class="pid" href="#p13.2">13.2</a><span class="pg"><span>S.&nbsp;43</span><span>S.&nbsp;44</span></span></aside>
+  <p class="de" lang="de">Sowohl die Introspektion als auch die Beobachtung anderer Lebewesen, welchen wir Bewußtsein analog dem unsrigen zuschreiben müssen, lehrt, daß das Bewußtsein in der Reproduktion und Association seine Wurzel hat und daß die Höhe des Bewußtseins mit dem Reichtum, der Leichtigkeit, Geschwindigkeit, Lebhaftigkeit und Ordnung dieser Funktionen parallel geht. Das Bewußtsein besteht <span class="pb" title="Leipzig 1906, S. 44">44</span>nicht in einer besonderen Qualität, sondern in einem besondern Zusammenhang gegebener Qualitäten. Die Empfindung muß man nicht erklären wollen. Sie ist etwas so Einfaches und Fundamentales, daß ihre Zurückführung auf noch Einfacheres, wenigstens heute, nicht gelingen kann. Die einzelne Empfindung ist übrigens weder bewußt, noch unbewußt. Bewußt wird dieselbe durch die Einordnung in die Erlebnisse der Gegenwart.<a class="fr" href="#n15">15</a> Jede Störung der Reproduktion und Association ist eine Störung des Bewußtseins, welches alle Grade aufweisen kann, von der vollkommenen Klarheit bis zur vollen Bewußtlosigkeit im traumlosen Schlaf oder in der Ohnmacht.</p>
+  <p class="jp" lang="ja">内観も、われわれと類似の意識を認めざるをえない他の生物の観察も、意識が再生と連合のうちにその根をもち、意識の高さがこれらの機能の豊かさ、容易さ、速さ、生き生きとした度合い、秩序と並行していることを教える。意識は特別な性質のうちにではなく、与えられた性質の特別な連関のうちに成り立っている。感覚を説明しようとしてはならない。感覚はきわめて単純で根本的なものであるから、それをさらに単純なものに還元することは、少なくとも今日では成功しえない。ちなみに個々の感覚は、意識的でも無意識的でもない。それは現在の体験のなかに組み入れられることによって意識的になる<a class="fr" href="#n15">15</a>。再生と連合のあらゆる障害は意識の障害であり、意識は、完全な明晰さから、夢のない眠りや失神における完全な無意識にいたるまで、あらゆる程度を示しうる。</p>
+  <ol class="notes"><li id="n15"><span class="nn">15</span><p class="de" lang="de">Wer meint, die Welt aus Bewußtsein aufbauen zu können, hat sich wohl nicht klar gemacht, was für eine Komplikation die Tatsache des Bewußtseins einschließt. Sehr lesenswerte und gedrängte Ausführungen über die Natur und die Bedingungen des Bewußtseins finden sich bei Wernicke, Gesammelte Aufsätze. Berlin 1893. Über das Bewußtsein S. 130-145. Vgl. auch die in der folgenden Anmerkung zitierten Vorträge von Meynert.</p><p class="jp" lang="ja">世界を意識から組み立てることができると思っている人は、意識という事実がどれほどの複雑さを含んでいるかをおそらく明らかにしていないのであろう。意識の本性と条件についての、きわめて読む価値のある簡潔な論述が、ヴェルニッケ『論文集』ベルリン、1893年、「意識について」130–145頁にある。次の注で引用するマイネルトの講演も参照。</p></li></ol>
+</article>
+<article class="row" id="p13.3">
+  <aside class="mg"><a class="pid" href="#p13.3">13.3</a><span class="pg"><span>S.&nbsp;44</span></span></aside>
+  <p class="de" lang="de">Temporäre oder dauernde Störung des Zusammenhanges der Gehirnfunktionen ist auch temporäre oder dauernde Störung des Bewußtseins. Vergleichend anatomische, physiologische und psychopathologische Tatsachen nötigen zu der Annahme, daß durch die Integrität der Großhirnlappen die Integrität des Bewußtseins bedingt ist. Verschiedene Teile der Hirnrinde bewahren die Spuren verschiedener Sinneserregungen, bestimmte Teile die optischen, andere die akustischen, andere die haptischen u. s. w. Diese verschiedenen Rindenfelder stehen untereinander in den mannigfaltigsten Verbindungen durch die „Associationsfasern“. Jeder Ausfall der Funktion eines Rindenfeldes oder jede Unterbrechung einer Verbindung hat psychische Störungen zur Folge.<a class="fr" href="#n16">16</a> Ohne auf viele Einzelheiten einzugehen, soll dies doch durch typische Beispiele erläutert werden.</p>
+  <p class="jp" lang="ja">脳の機能の連関の一時的あるいは持続的な障害は、意識の一時的あるいは持続的な障害でもある。比較解剖学的、生理学的、精神病理学的な事実は、大脳半球の無傷であることによって意識の無傷であることが条件づけられている、と想定せざるをえなくする。大脳皮質の異なる部分が異なる感官の興奮の痕跡を保存している。特定の部分は視覚的な痕跡を、他の部分は聴覚的な痕跡を、さらに他の部分は触覚的な痕跡を保存する、等々。これらのさまざまな皮質野は、「連合線維」によって互いにきわめて多様に結びついている。ある皮質野の機能が脱落したり、ある結合が中断されたりすると、そのたびに心的障害が生じる<a class="fr" href="#n16">16</a>。多くの細部に立ち入ることなく、いくつかの典型的な例によってこのことを説明しよう。</p>
+  <ol class="notes"><li id="n16"><span class="nn">16</span><p class="de" lang="de">Meynert, Populäre Vorträge. Wien 1892, S. 2-40.</p><p class="jp" lang="ja">マイネルト『通俗講演集』ウィーン、1892年、2–40頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;44</span><span>S.&nbsp;45</span></span></aside>
+  <p class="de" lang="de">14. Die Vorstellung einer Orange ist eine äußerst komplizierte Sache. Gestalt, Farbe, Geschmack, Geruch, Tastbarkeit u. s. w. sind in eigentümlicher Weise verwebt. Wenn ich den Namen „Orange“ höre, so zieht diese Folge von akustischen Empfindungen wie an einem Faden das ganze Bündel der genannten Vorstellungen hervor. Hierzu kommt noch, daß sich an den <span class="pb" title="Leipzig 1906, S. 45">45</span>gehörten Namen die Erinnerung an die Empfindungen beim Aussprechen des Namens, sowie die Erinnerung an die Empfindungen bei den betreffenden Schreibbewegungen und an das Gesichtsbild des geschriebenen oder gedruckten Wortes anschließt. Gibt es also im Gehirn ein besonderes optisches, akustisches, haptisches Feld, so müssen bei Ausschaltung eines dieser Felder, durch Unterdrückung der Funktion eines dieser Felder oder Aufhebung der Association desselben mit den übrigen Feldern eigentümliche Erscheinungen auftreten. Solche sind wirklich beobachtet worden.</p>
+  <p class="jp" lang="ja">14. オレンジの表象はきわめて複雑なものである。形、色、味、香り、手触りなどが独特の仕方で織り合わされている。「オレンジ」という名を聞くと、この聴覚的感覚の系列は、糸を引くように、上に挙げた表象の束全体を引き出す。さらに、聞いた名には、その名を発音するときの感覚の記憶、それに対応する書く運動のときの感覚の記憶、書かれた語や印刷された語の視覚像の記憶が結びつく。したがって、もし脳のなかに特別な視覚野、聴覚野、触覚野があるのなら、これらの野の一つを除去すると、つまりその野の機能を抑えたり、その野と他の野との連合を断ったりすると、独特な現象が現れるにちがいない。そうした現象は実際に観察されている。</p>
+</article>
+<article class="row" id="p14.2">
+  <aside class="mg"><a class="pid" href="#p14.2">14.2</a><span class="pg"><span>S.&nbsp;45</span></span></aside>
+  <p class="de" lang="de">Bleibt das optische bezw. akustische Feld in Funktion, während die associativen Verbindungen desselben mit andern wichtigen Feldern außer Funktion treten, so entsteht die „Seelenblindheit“ bezw. „Seelentaubheit“, welche Munk an Hunden bei Operationen am Großhirn beobachtet hat.<a class="fr" href="#n17">17</a> Solche Hunde sehen, allein sie verstehen das Gesehene nicht, erkennen die Futterschale, die Peitsche, die drohende Geberde nicht. Im Falle der Seelentaubheit hört der Hund, achtet aber nicht auf den gewohnten Anruf, versteht denselben nicht. Die Beobachtungen der Physiologen werden hier durch jene der Psychopathologen bestätigt und ergänzt. Besonders ergiebig ist hier das Studium der Sprachstörungen.<a class="fr" href="#n18">18</a> Die Bedeutung des Wortes liegt ja in der Menge der Associationen, welche dasselbe wachruft, und der richtige Gebrauch desselben beruht umgekehrt auf dem Vorhandensein dieser Associationen. Störungen der letzteren müssen sich hier auffallend äußern. Die meisten Menschen sind rechtshändig, üben daher die linke Großhirnhemisphäre für die feineren Arbeiten und auch für die Sprache ein.</p>
+  <p class="jp" lang="ja">視覚野ないし聴覚野は機能を保っているが、それと他の重要な野との連合的結合が機能を失うと、「精神盲」ないし「精神聾」が生じる。これはムンクが犬の大脳の手術において観察したものである<a class="fr" href="#n17">17</a>。このような犬は見ることはできるが、見たものを理解しない。餌皿も、鞭も、威嚇する身ぶりも認識しない。精神聾の場合、犬は聞こえてはいるが、慣れた呼びかけに注意を払わず、それを理解しない。生理学者の観察は、ここで精神病理学者の観察によって確証され、補完される。とりわけ実り多いのは言語障害の研究である<a class="fr" href="#n18">18</a>。語の意味は、その語が呼び起こす連合の量のうちにあり、逆に語の正しい使用は、これらの連合が存在することにもとづいている。連合の障害は、ここで目立った形で現れるにちがいない。たいていの人は右利きであり、それゆえ左の大脳半球を、より繊細な仕事のために、また言語のためにも訓練している。</p>
+  <ol class="notes"><li id="n17"><span class="nn">17</span><p class="de" lang="de">An einer Verschiedenheit der Leistungen verschiedener Hirnpartien ist wohl kaum zu zweifeln. Wenn aber doch, wie Goltz nachgewiesen hat, allmählich ein Teil der Großhirnrinde für den anderen ersetzend eintreten kann, so ist an eine schroffe Abgrenzung der Funktionen nicht zu denken, sondern nur an eine „graduelle Lokalisation“ im Sinne von R. Semon (Die Mneme. Leipzig 1904. S. 160). Vgl. auch Analyse der Empfindungen. 1886. S. 82. 4. Aufl. S. 155.</p><p class="jp" lang="ja">脳の異なる部分の働きが異なっていることは、ほとんど疑いえない。しかし、ゴルツが証明したように、大脳皮質の一部がしだいに他の部分の代わりを務めることができるのであれば、機能の截然とした区分を考えることはできず、ただ R. ゼーモン（『ムネーメ』ライプツィヒ、1904年、160頁）の意味での「段階的局在」を考えうるのみである。『感覚の分析』1886年、82頁、第4版155頁も参照。</p></li><li id="n18"><span class="nn">18</span><p class="de" lang="de">Kußmaul, Störungen der Sprache. Leipzig 1885.</p><p class="jp" lang="ja">クスマウル『言語の障害』ライプツィヒ、1885年。</p></li></ol>
+</article>
+<article class="row" id="p14.3">
+  <aside class="mg"><a class="pid" href="#p14.3">14.3</a><span class="pg"><span>S.&nbsp;45</span><span>S.&nbsp;46</span></span></aside>
+  <p class="de" lang="de">Broca erkannte nun die Wichtigkeit des hintern Dritteils der dritten linken Stirnwindung für die artikulierte Sprache, welche durch Erkrankung dieses Hirnteils (Apoplexie) jedesmal verloren geht. Die Sprachlosigkeit (Aphasie) kann noch durch <span class="pb" title="Leipzig 1906, S. 46">46</span>sehr mannigfache verschiedene Defekte bedingt sein. Der Patient erinnert sich z. B. der Worte als Lautbilder, kann dies auch durch die Schrift kund tun und vermag trotz der Beweglichkeit der Zunge, Lippen u. s. w. die Worte nicht auszusprechen; das motorische Wortbild fehlt und löst die passende Bewegung nicht aus. Auch die optischen oder motorischen Schriftbilder können fehlen (Agraphie). Die Vorstellungen können vorhanden sein, das akustische Wortbild aber fehlt. Auch kommt es umgekehrt vor, daß das gesprochene bezw. geschriebene Wort nicht verstanden wird, keine Associationen auslöst, was man Worttaubheit bezw. Wortblindheit genannt hat.</p>
+  <p class="jp" lang="ja">さてブローカは、左の第三前頭回の後ろ三分の一が分節言語にとって重要であることを認識した。脳のこの部分が病気（卒中）に冒されると、分節言語はそのたびに失われる。言語喪失（失語症）は、さらにきわめて多様な欠損によって引き起こされうる。たとえば患者は語を音の像としては覚えており、それを書くことによって示すこともでき、舌や唇などは動くにもかかわらず、語を発音することができない。運動的な語像が欠けていて、適切な運動を引き起こさないのである。視覚的あるいは運動的な文字像が欠けていることもある（失書症）。表象はあっても、聴覚的な語像が欠けていることもありうる。また逆に、話された語ないし書かれた語が理解されず、何の連合も引き起こさないこともあり、これは語聾ないし語盲と呼ばれている。</p>
+</article>
+<article class="row" id="p14.4">
+  <aside class="mg"><a class="pid" href="#p14.4">14.4</a><span class="pg"><span>S.&nbsp;46</span></span></aside>
+  <p class="de" lang="de">Einen solchen Fall von Worttaubheit und Wortblindheit bei sonst erhaltener Intelligenz hat Lordat an sich selbst erlebt und konnte nach seiner Heilung über denselben berichten. Er schildert bewegt den Augenblick, als er nach traurigen Wochen in seiner Bibliothek auf dem Rücken eines Buches die Worte: „Hippocratis opera“ erblickte, dieselben wieder lesen und verstehen konnte.<a class="fr" href="#n19">19</a> Man kann schon nach dieser summarischen, keineswegs vollständigen und detaillierten Aufzählung der hier vorkommenden Fälle ermessen, wie viele Verbindungsbahnen zwischen den sensorischen und motorischen Feldern hier in Betracht kommen.<a class="fr" href="#n20">20</a> Geringere Störungen der Sprache, wie sie sich im Versprechen und Verschreiben äußern, kommen als Folgen temporärer Ermüdung und Zerstreutheit auch bei ganz gesunden Menschen vor. So zitierte jemand die beiden Chemiker Liebig und Mitscherlich als „Mitschich und Liederlich“. Ein anderer bezeichnete einen Magister der Pharmacie als „Philister der Magie“.<a class="fr" href="#n21">21</a></p>
+  <p class="jp" lang="ja">ロルダは、ほかの点では知性が保たれたまま、このような語聾と語盲の一例を自ら体験し、回復したのちにそれについて報告することができた。彼は、悲しい数週間ののち、自分の書斎で一冊の本の背に「ヒポクラテス全集（Hippocratis opera）」という語を見つけ、それを再び読んで理解できた瞬間を、感動をこめて描いている<a class="fr" href="#n19">19</a>。ここに見られる場合を、このように概略的に、けっして完全でも詳細でもなく数え上げただけでも、感覚野と運動野のあいだにどれほど多くの連絡路がここで問題になるかを推し量ることができる<a class="fr" href="#n20">20</a>。言い間違いや書き間違いに現れるような、より軽い言語の障害は、一時的な疲労や放心の結果として、まったく健康な人にも起こる。ある人は二人の化学者リービッヒとミッチャーリヒを「ミッチヒとリーダーリヒ（だらしない）」と引用した。別の人は薬学の修士（マギスター・デア・ファルマツィー）を「魔術の俗物（フィリスター・デア・マギー）」と呼んだ<a class="fr" href="#n21">21</a>。</p>
+  <ol class="notes"><li id="n19"><span class="nn">19</span><p class="de" lang="de">Kußmaul, a. a. O. S. 175.</p><p class="jp" lang="ja">クスマウル前掲書、175頁。</p></li><li id="n20"><span class="nn">20</span><p class="de" lang="de">Kußmaul, a. a. O. S. 182.</p><p class="jp" lang="ja">クスマウル前掲書、182頁。</p></li><li id="n21"><span class="nn">21</span><p class="de" lang="de">Über merkwürdige, der Aphasie und Agraphie analoge Störungen bei Musikern berichtet R. Wallaschek (Psychologie und Pathologie der Vorstellung. Leipzig, J. A. Barth, 1905).</p><p class="jp" lang="ja">失語症や失書症に類似した、音楽家における奇妙な障害については、R. ヴァラシェク（『表象の心理学と病理学』ライプツィヒ、J. A. バルト、1905年）が報告している。</p></li></ol>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;46</span></span></aside>
+  <p class="de" lang="de">15. Einen interessanten Fall von Seelenblindheit führt Wilbrand<a class="fr" href="#n22">22</a> an. Ein sehr gebildeter belesener Kaufmann erfreute sich eines ausgezeichneten optischen Gedächtnisses. Die Gesichtszüge der Personen, an welche er sich erinnerte, die Formen und Farben der Gegenstände, an welche er dachte, Bühnenszenen, Landschaftsbilder, die er gesehen hatte, standen in voller Deutlichkeit mit allen Einzelheiten vor ihm. Er konnte aus dem Gedächtnis Briefstellen und mehrere Seiten aus von ihm bevorzugten Schriftstellern ablesen, indem er den Text mit allen Einzelheiten vor sich sah. Das Gedächtnis für Gehörseindrücke war gering und der Sinn für Musik fehlte. Schweren Sorgen, die sich als unbegründet erwiesen, folgte eine Zeit der Verwirrung und darauf eine vollständige Umwandlung seines psychischen Lebens. Seine optische Erinnerung war vollständig verloren gegangen. Eine Stadt, in welche er oft zurückkehrte, erschien ihm jedesmal neu, als ob er zum erstenmal dahin käme. Die Züge seiner Frau und seiner Kinder waren ihm fremd, ja sich selbst, als er sich im Spiegel sah, hielt er für eine fremde Person.</p>
+  <p class="jp" lang="ja">15. 精神盲の興味深い一例をヴィルブラント<a class="fr" href="#n22">22</a>が挙げている。非常に教養があり博識なある商人は、すぐれた視覚的記憶に恵まれていた。思い出した人々の顔立ち、考えた対象の形や色、舞台の場面、見たことのある風景が、すべての細部をそなえて、まったく鮮明に彼の前にあった。彼は手紙の一節や、好きな作家の本の何ページもを、テキストをすべての細部とともに目の前に見ながら、記憶から読み上げることができた。聴覚的印象の記憶は乏しく、音楽の感覚は欠けていた。根拠のないことが分かった深刻な心配ごとのあと、混乱の時期が続き、それから彼の心的生活は完全に変わってしまった。彼の視覚的記憶はすっかり失われていた。しばしば帰ってくる町が、そのたびに、初めて来たかのように新しく見えた。妻や子どもたちの顔立ちは彼には見知らぬものとなり、それどころか鏡に映った自分自身を他人だと思った。</p>
+  <ol class="notes"><li id="n22"><span class="nn">22</span><p class="de" lang="de">Wilbrand, Seelenblindheit. Wiesbaden 1887. S. 43-51.</p><p class="jp" lang="ja">ヴィルブラント『精神盲』ヴィースバーデン、1887年、43–51頁。</p></li></ol>
+</article>
+<article class="row" id="p15.2">
+  <aside class="mg"><a class="pid" href="#p15.2">15.2</a><span class="pg"><span>S.&nbsp;47</span></span></aside>
+  <p class="de" lang="de">Wenn er jetzt rechnen wollte, was vorher durch Gesichtsvorstellungen vermittelt war, mußte er die Zahlen leise aussprechen, und ebenso mußte er Gehörsvorstellungen, Vorstellungen von Sprach- und Schreibbewegungen zu Hilfe nehmen, um Redensarten zu merken oder an Geschriebenes sich zu erinnern. - Nicht minder bemerkenswert ist ein anderer Fall von Verlust des optischen Gedächtnisses.<a class="fr" href="#n23">23</a> Eine Dame stürzt plötzlich zusammen. Sie wird nachher für blind gehalten, da sie keine Person ihrer Umgebung erkennt. Der Anfall läßt aber außer einer Einschränkung des Gesichtsfeldes, welche sich allmählich verbessert, nur den Verlust des optischen Gedächtnisses zurück, dessen sich Patientin vollkommen bewußt ist. Sie tut die charakteristische Äußerung: „Nach meinem Zustand zu folgern, sieht der Mensch mehr mit dem Gehirn, als mit dem Auge, das Auge ist bloß das Mittel zum Sehen; denn ich sehe ja alles klar und deutlich, ich erkenne es aber nicht und weiß oft nicht, was das Gesehene sein soll.“<a class="fr" href="#n24">24</a></p>
+  <p class="jp" lang="ja">いまや彼が計算しようとすると——以前は視覚表象によって媒介されていたのだが——数を小声で口に出さなければならなかった。同様に、言い回しを覚えたり書かれたものを思い出したりするには、聴覚表象や、話す運動・書く運動の表象の助けを借りなければならなかった。——視覚的記憶の喪失のもう一つの例も、それに劣らず注目に値する<a class="fr" href="#n23">23</a>。ある婦人が突然倒れる。彼女はその後、周囲のどの人も認識しないので、盲目になったと思われる。しかし発作は、しだいに回復していく視野の狭窄のほかには、視覚的記憶の喪失を残しただけであり、患者自身そのことを完全に自覚している。彼女は特徴的な発言をしている。「私の状態から推して、人間は目でよりも脳でものを見ているのです。目は見るための手段にすぎません。というのも、私にはすべてがはっきりと鮮明に見えているのに、それを認識できず、見たものが何であるべきなのかしばしば分からないのですから」<a class="fr" href="#n24">24</a>。</p>
+  <ol class="notes"><li id="n23"><span class="nn">23</span><p class="de" lang="de">Wilbrand, a. a. O. S. 54.</p><p class="jp" lang="ja">ヴィルブラント前掲書、54頁。</p></li><li id="n24"><span class="nn">24</span><p class="de" lang="de">Wilbrand, a. a. O. S. 57.</p><p class="jp" lang="ja">ヴィルブラント前掲書、57頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s16"><a href="#s16">§ 16</a></h2>
+<article class="row" id="p16.1">
+  <aside class="mg"><a class="pid" href="#p16.1">16.1</a><span class="pg"><span>S.&nbsp;47</span><span>S.&nbsp;48</span></span></aside>
+  <p class="de" lang="de">16. Nach den oben angeführten Tatsachen muß man sagen, daß es nicht ein Gedächtnis gibt, sondern daß das Gedächtnis sich aus vielen Partialgedächtnissen zusammensetzt, welche voneinander getrennt werden und einzeln verloren gehen können. Diesen Partialgedächtnissen entsprechen verschiedene Teile des Hirns, von welchen sich einige schon jetzt mit ziemlicher Bestimmtheit lokalisieren lassen. Andere Fälle von Gedächtnis<span class="pb" title="Leipzig 1906, S. 48">48</span>verlust scheinen schwerer auf ein Prinzip zurückzuführen. Wir wollen nur einige von jenen betrachten, welche Ribot (les maladies de la mémoire, Paris 1888) zusammengestellt hat. Eine junge Frau, die ihren Mann leidenschaftlich liebte, verfiel im Kindbett in eine lange währende Bewußtlosigkeit, infolge welcher die Erinnerung an die Zeit ihrer Ehe gänzlich entschwand, während die Erinnerung an ihr früheres Leben bis zu ihrer Verheiratung ungeschwächt blieb.</p>
+  <p class="jp" lang="ja">16. 以上に挙げた事実によれば、記憶は一つではなく、互いに切り離されたり、個別に失われたりしうる多くの部分記憶から構成されている、と言わなければならない。これらの部分記憶には脳の異なる部分が対応しており、そのうちいくつかはすでに今日かなりの確かさで局在を定めることができる。他の記憶喪失の場合は、一つの原理に帰着させるのがより難しいように思われる。ここでは、リボー（『記憶の病』パリ、1888年）が集めた例のうちいくつかだけを考察しよう。夫を熱烈に愛していたある若い女性が、産褥で長く続く意識喪失に陥り、その結果、結婚生活の時期の記憶がすっかり消え失せたが、結婚するまでの以前の生活の記憶は衰えずに残った。</p>
+</article>
+<article class="row" id="p16.2">
+  <aside class="mg"><a class="pid" href="#p16.2">16.2</a><span class="pg"><span>S.&nbsp;48</span></span></aside>
+  <p class="de" lang="de">Nur das Zeugnis ihrer Eltern vermochte sie dazu, den Mann und das Kind als die ihrigen anzuerkennen. Der Gedächtnisverlust blieb irreparabel. - Eine Frau wird von Schlafsucht befallen, welche zwei Monate dauert. Nach dem Erwachen kennt sie keine Person ihrer Umgebung und hat alles vorher Erlernte vergessen. Sie lernt alles wieder leicht und in kurzer Zeit, jedoch ohne Erinnerung daran, daß sie es vorher schon gekonnt. — Eine Frau fällt zufällig ins Wasser und ertrinkt fast. Als sie wieder die Augen öffnet, erkennt sie ihre Umgebung nicht, hat die Sprache, das Gehör, den Geruch und den Geschmack verloren. Sie muß gefüttert werden. Sie fängt täglich an, von neuem zu lernen. Ihr Zustand bessert sich allmählich. Sie erinnert sich einer Liebschaft, ihres Sturzes ins Wasser und wird durch Eifersucht geheilt.</p>
+  <p class="jp" lang="ja">両親の証言によってのみ、彼女は夫と子どもを自分のものと認めるようになった。記憶喪失は回復しないままであった。——ある女性が二か月続く嗜眠に襲われる。目覚めたあと、彼女は周囲の誰も知らず、以前に学んだことをすべて忘れている。彼女はすべてを容易に短期間で学び直すが、それを以前にすでにできたという記憶はない。——ある女性が偶然水に落ちて溺れかける。再び目を開けたとき、彼女は周囲を認識せず、言葉も聴覚も嗅覚も味覚も失っている。食べさせてもらわなければならない。彼女は毎日新たに学びはじめる。状態はしだいに良くなる。彼女はある恋愛と、自分が水に落ちたことを思い出し、嫉妬によって治癒する。</p>
+</article>
+<h2 class="sec" id="s17"><a href="#s17">§ 17</a></h2>
+<article class="row" id="p17.1">
+  <aside class="mg"><a class="pid" href="#p17.1">17.1</a><span class="pg"><span>S.&nbsp;48</span></span></aside>
+  <p class="de" lang="de">17. Am merkwürdigsten sind die periodisch wechselnden Gedächtnisverluste. Eine Frau hat nach einem langen Schlaf alles Erlernte vergessen. Sie muß von neuem lesen, rechnen und ihre Umgebung kennen lernen. Nach einigen Monaten tritt wieder ein tiefer Schlaf ein. Erwacht, befindet sie sich im Besitze ihrer Jugenderinnerungen, wie vor dem ersten Schlaf, hat aber die Vorgänge zwischen den beiden Schlafanfällen vergessen. Von da an wechseln durch vier Jahre periodisch die beiden Bewußtseins- und Gedächtniszustände. In dem ersten Zustand hat sie eine schöne Schrift, in dem zweiten eine mangelhafte. Personen, die sie dauernd kennen soll, müssen ihr in beiden Zuständen vorgestellt sein. — Der letztere Fall wird durch einen oft zitierten eines Dienstmannes illustriert, welcher im Rausch ein Paket verliert und nur in einem zweiten Rausch dasselbe wiederzufinden vermag. — Im wachen Zustande erinnert man sich selbst lebhafter Träume sehr schwer, sowie umgekehrt im Traum die Verhältnisse des Wachens uns meist gänzlich entschwinden.</p>
+  <p class="jp" lang="ja">17. 最も奇妙なのは、周期的に交替する記憶喪失である。ある女性が長い眠りのあと、学んだことをすべて忘れてしまう。彼女は改めて読み方、計算、周囲のことを学ばなければならない。数か月後、再び深い眠りが訪れる。目覚めると、最初の眠りの前と同じく少女時代の記憶をもっているが、二度の眠りの発作のあいだの出来事は忘れている。それ以来四年にわたって、二つの意識状態・記憶状態が周期的に交替する。第一の状態では彼女は美しい字を書き、第二の状態ではへたな字を書く。彼女が持続的に知っているべき人は、両方の状態で彼女に紹介されていなければならない。——後者の場合は、しばしば引用される荷運び人の例によって説明される。彼は酔って荷物をなくし、二度目に酔ったときにだけそれを再び見つけることができたという。——覚醒状態では、生き生きとした夢でさえ思い出すのはきわめて難しく、逆に夢のなかでは覚醒時の状況はたいていすっかり消え失せている。</p>
+</article>
+<article class="row" id="p17.2">
+  <aside class="mg"><a class="pid" href="#p17.2">17.2</a><span class="pg"><span>S.&nbsp;48</span><span>S.&nbsp;49</span></span></aside>
+  <p class="de" lang="de">Da<span class="pb" title="Leipzig 1906, S. 49">49</span>gegen wiederholen sich dieselben Situationen oft genug im Traum. Endlich kann jeder auch im Wachen den Wechsel der Stimmungen an sich bemerken, mit welchem zugleich die Erlebnisse verschiedener Lebensperioden in ganz verschiedener Lebhaftigkeit in das Bewußtsein treten. Alle diese Fälle bilden einen kontinuierlichen Übergang von schroffer Trennung verschiedener Bewußtseinszustände bis zu fast vollständiger Verwischung der Grenze. Dieselben lassen sich auffassen als Beispiele der Bildung verschiedener Associationszentren, um welche, durch Zeit und Stimmung begünstigt, die Vorstellungsmassen sich scharen, während diese Massen untereinander keinen oder nur einen geringen Grad des Zusammenhanges aufweisen.<a class="fr" href="#n25">25</a></p>
+  <p class="jp" lang="ja">これに対して、同じ状況はしばしば夢のなかで繰り返される。最後に、誰でも覚醒時に自分の気分の変化に気づくことができるが、気分の変化とともに、さまざまな人生の時期の体験がまったく異なる鮮明さで意識に上ってくる。これらすべての場合は、異なる意識状態の截然とした分離から、境界がほとんど完全にぼやけてしまうところまでの、連続的な移行をなしている。それらは、時と気分に助けられて表象の塊がそのまわりに集まる、さまざまな連合中心の形成の例と解することができる。他方、これらの塊どうしは、まったく、あるいはわずかな程度の連関しか示さない<a class="fr" href="#n25">25</a>。</p>
+  <ol class="notes"><li id="n25"><span class="nn">25</span><p class="de" lang="de">Mit Rücksicht auf solche periodische Störungen des Gedächtnisses erscheinen Beobachtungen wie die von Swoboda (Die Perioden des menschlichen Organismus. 1904) durchaus nicht so abenteuerlich, als sie auf den ersten Blick sich darstellen.</p><p class="jp" lang="ja">このような周期的な記憶障害を考慮すると、スヴォボダ（『人間の有機体の周期』1904年）のような観察も、一見して思われるほど突飛なものではけっしてない。</p></li></ol>
+</article>
+<h2 class="sec" id="s18"><a href="#s18">§ 18</a></h2>
+<article class="row" id="p18.1">
+  <aside class="mg"><a class="pid" href="#p18.1">18.1</a><span class="pg"><span>S.&nbsp;49</span></span></aside>
+  <p class="de" lang="de">18. Schreibt man den Organismen (mit Hering) überhaupt die Eigenschaft zu, sich wiederholenden Vorgängen successive besser anzupassen, so erkennt man das, was wir gewöhnlich Gedächtnis nennen, als eine Teilerscheinung einer allgemeinen organischen Erscheinung. Es ist die Adaption an periodische Vorgänge, soweit sie unmittelbar ins Bewußtsein fällt. Vererbung, Instinkt u.s.w. können dann als über das Individuum hinausreichendes Gedächtnis bezeichnet werden. In dem oben zitierten „Mneme“ betitelten Buch von R. Semon liegt wohl der erste Versuch vor, das Verhältnis von Vererbung und Gedächtnis wissenschaftlich zu erforschen und zu erklären.<a class="fr" href="#n26">26</a></p>
+  <p class="jp" lang="ja">18. 有機体一般に、（ヘーリングとともに）繰り返される過程にしだいによりよく適応するという性質を認めるならば、われわれがふつう記憶と呼んでいるものは、ある一般的な有機的現象の部分現象として認識される。それは、直接に意識に上るかぎりでの、周期的過程への適応である。そうすると遺伝や本能などは、個体を越えて及ぶ記憶と呼ぶことができる。上に引用した R. ゼーモンの『ムネーメ』と題する本には、遺伝と記憶との関係を科学的に探究し説明しようとする、おそらく最初の試みがある<a class="fr" href="#n26">26</a>。</p>
+  <ol class="notes"><li id="n26"><span class="nn">26</span><p class="de" lang="de">C. Detto, Über den Begriff des Gedächtnisses in seiner Bedeutung für die Biologie (Naturwiss. Wochenschr. 1905, Nr. 42). — Der Verfasser wird wohl kaum annehmen, daß Hering oder Semon in die von ihm gerügten Fehler verfallen werden. Den Vorteil der Untersuchung des Organischen von zwei Seiten her scheint er mir aber bedeutend zu unterschätzen. Die psychologische Beobachtung kann uns die Existenz von physikalischen Vorgängen enthüllen, zu deren Kenntnis wir auf physikalischem Wege nicht so bald gelangen würden.</p><p class="jp" lang="ja">C. デット「生物学にとっての意義における記憶の概念について」（『自然科学週報』1905年、第42号）。——著者は、ヘーリングやゼーモンが彼の非難する誤りに陥るとはおそらく考えないであろう。しかし有機的なものを二つの側から研究することの利点を、彼はかなり過小評価しているように私には思われる。心理学的観察は、物理学的な道によってはそう早くは知ることのできない物理的過程の存在を、われわれに明かしうるのである。</p></li></ol>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§1.1</td><td lang="de">in der Umgebung / als</td><td lang="de">in der Umgebung I als</td></tr>
+  <tr><td>§6.2</td><td lang="de">Kin dem reproduzierten Komplex</td><td lang="de">K in dem reproduzierten Komplex</td></tr>
+  <tr><td>§11.3</td><td lang="de">図版脇の短い行が別段落に分断、図中文字 „a c 6 Fig. 1.“ が混入</td><td lang="de">一段落に接続し、図1の位置を示す</td></tr>
+  <tr><td>§11.4</td><td lang="de">hierbei e passieren</td><td lang="de">hierbei c passieren</td></tr>
+  <tr><td>§13.3</td><td lang="de">zur der Annahme</td><td lang="de">zu der Annahme</td></tr>
+  <tr><td>§14.4–15.1</td><td lang="de">S. 46 の脚注（Kußmaul, a. a. O. S. 175 / S. 182）が §15 の本文中に混入</td><td lang="de">注19・注20 として分離</td></tr>
+  <tr><td>注参照</td><td lang="de">Morgan²), recidunt. 2), Folge.²), soll.““), erklären.*)</td><td lang="de">それぞれ注2・14・16・24・26 への参照</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_02.html">← 第Ⅱ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
