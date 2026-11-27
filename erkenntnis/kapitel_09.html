@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第Ⅸ章 感覚・直観・空想</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第Ⅸ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a><a href="#s16">§16</a><a href="#s17">§17</a><a href="#s18">§18</a><a href="#s19">§19</a><a href="#s20">§20</a><a href="#s21">§21</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL IX · 第Ⅸ章</div>
+  <h1>感覚・直観・空想</h1>
+  <div class="de-title" lang="de">Empfindung, Anschauung, Phantasie</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 144–163　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;144</span></span></aside>
+  <p class="de" lang="de">1. Aus den Empfindungen und durch deren Zusammenhang entspringen unsere Begriffe und das Ziel der letzteren ist, uns in jedem gegebenen Fall auf den bequemsten und kürzesten Wegen zu sinnlichen Vorstellungen zu leiten, welche mit den Sinnesempfindungen in bester Übereinstimmung sich befinden. So geht alles intellektuelle Leben von den Sinnesempfindungen aus und kehrt wieder zu diesen zurück. Unsere eigentlichen psychischen Arbeiter sind die sinnlichen Vorstellungen, die Begriffe aber die Ordner und Aufseher, welche die Scharen der ersteren auf ihren Platz stellen, und ihnen ihr Geschäft anweisen. Bei einfachen Verrichtungen verkehrt der Intellekt unmittelbar mit den Arbeitern, bei größeren Unternehmungen aber mit den leitenden Ingenieuren, welche ihm jedoch nichts nützen würden, wenn er nicht auch für die Beistellung verläßlicher Arbeiter gesorgt hätte.</p>
+  <p class="jp" lang="ja">1. 感覚から、そして感覚の連関によって、われわれの概念は生じる。概念の目標は、与えられたどの場合にも、最も楽で最も短い道によって、感官の感覚と最もよく一致する感性的表象へとわれわれを導くことである。こうして、あらゆる知的生活は感官の感覚から出発し、再びそこへと立ち返る。われわれの本来の心的な労働者は感性的表象であり、概念はその群れをそれぞれの場所に配置し、仕事を割り当てる整理係であり監督である。単純な仕事では知性は労働者と直接に交わるが、より大きな事業では指揮をとる技師たちと交わる。しかし、もし知性が信頼できる労働者を確保する配慮もしていなかったならば、技師たちは知性にとって何の役にも立たないであろう。</p>
+</article>
+<article class="row" id="p1.2">
+  <aside class="mg"><a class="pid" href="#p1.2">1.2</a><span class="pg"><span>S.&nbsp;144</span></span></aside>
+  <p class="de" lang="de">Schon das Tier ist durch sein Vorstellungsleben davon befreit, den Eindrücken des Augenblicks ganz zu unterliegen. Wenn die Vorsorge des kultivierten Menschen für die Zukunft über jene des Wilden hinausgeht, wenn der erstere für Ziele arbeitet, welche sogar weit über das eigene Leben hinausreichen, so ist er hierzu durch seine Begriffe und den Reichtum derselben an geordneten Vorstellungen befähigt. Wie sehr aber der Verkehr mit Begriffen jenem mit sinnlichen Vorstellungen an Unmittelbarkeit nachsteht, erfahren wir häufig genug. Einem Unglücklichen, mit dem wir persönlich zusammentreffen, verweigern wir nicht leicht die Hilfe, während uns ein gedruckter Aufruf zur Hilfeleistung, den wir lesen, doch sehr besonnen findet.</p>
+  <p class="jp" lang="ja">すでに動物は、その表象生活によって、その瞬間の印象にすっかり支配されることから解放されている。文化をもつ人間の将来への配慮が未開人のそれを越え、前者が自分の生涯をはるかに越える目標のためにさえ働くとすれば、彼はそれを自分の概念と、その概念が含む秩序づけられた表象の豊かさとによって可能にされているのである。しかし、概念との交わりが直接性の点で感性的表象との交わりにいかに劣るかを、われわれは十分にしばしば経験する。個人的に出会った不幸な人に助けを拒むことはたやすくはないのに、読んだ印刷された救援の呼びかけに対しては、われわれはずいぶんと冷静でいられるのである。</p>
+</article>
+<article class="row" id="p1.3">
+  <aside class="mg"><a class="pid" href="#p1.3">1.3</a><span class="pg"><span>S.&nbsp;144</span><span>S.&nbsp;145</span></span></aside>
+  <p class="de" lang="de">Der platonische Sokrates erklärt gelegentlich die Tugend für ein Wissen. Allein sie muß ein Wissen sein, das nicht immer sehr lebendig ist. Wenige Verbrechen würden ja begangen, wenn deren Folgen <span class="pb" title="Leipzig 1906, S. 145">145</span>immer lebhaft und deutlich vorgestellt würden. Wir würden nicht das Elend mit Luxus zudecken, nicht für die Leidenden tanzen, oder einen Blumenkorso veranstalten, wenn der Unterschied des Begriffs und der sinnlichen Vorstellung nicht bestünde. Der geizige Rentner befiehlt den armen Schnorrer vor die Türe zu setzen, „denn er zerbricht ihm durch seine Klage das Herz“. Mit dem Begriff des Elends weiß er sich besser abzufinden.<a class="fr" href="#n1">1</a> Die Sinnesempfindungen sind eben die eigentlichen ursprünglichen Motoren, während die Begriffe sich auf jene, oft nur durch andere begriffliche Zwischenglieder berufen.</p>
+  <p class="jp" lang="ja">プラトンのソクラテスは、ときに徳を知であると説明する。しかしそれは、いつもあまり生き生きとしているわけではない知でなければならない。犯罪の結果がつねに生き生きとはっきり表象されるならば、犯罪はほとんど犯されないであろう。もし概念と感性的表象との違いがなかったならば、われわれは悲惨を贅沢で覆い隠したり、苦しむ人々のために踊ったり、花車パレードを催したりはしないであろう。けちな金利生活者は、貧しい物乞いを戸口から追い出すよう命じる。「その嘆きで心が張り裂けるから」というのである。悲惨という概念となら、彼はもっとうまく折り合いをつけられるのである<a class="fr" href="#n1">1</a>。感官の感覚こそが本来の根源的な原動力であり、概念は、しばしば他の概念的な中間項を介してのみ、それを引き合いに出すにすぎない。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Wie sehr die Begriffe an Unmittelbarkeit den Empfindungen und sinnlichen Vorstellungen nachstehen, lehrt folgender Vorfall. In einer Universitätsstadt, in welcher zwei Nationalitäten A und B auf gespanntem Fuße lebten, wohnte ein der Nationalität A angehöriger Professor im zweiten Stockwerk des Institutes für pathologische Anatomie und gab gelegentlich einen Hausball. Sofort erschien in einem die Interessen des Volksstamms B vertretenden Journal ein Artikel „ein Ball ober Leichen“, welcher einen pöbelhaften Straßenexzeß gegen den Professor provozierte. Die tatenlustige Menge mochte wohl glauben, daß ein Professor, der täglich mit Leichen verkehrt, keine vergnügte Stunde mehr haben dürfe, wenn er nicht ein ganz roher und herzloser Mensch sei, und jene Journalisten gaben wenigstens vor dies zu glauben. Wer läßt sich aber durch den Gedanken, daß jeden Augenblick ein Mensch sein Leben aushaucht, oder daß seine Angehörigen auf dem Friedhof liegen, in seinem Vergnügen stören?</p><p class="jp" lang="ja">概念が直接性の点で感覚や感性的表象にいかに劣るかを、次の出来事が教えている。二つの民族 A と B が緊張した関係で暮らしているある大学町で、民族 A に属するある教授が病理解剖学研究所の三階に住み、ときおり家で舞踏会を催していた。するとすぐに、民族 B の利益を代表するある新聞に「死体の上の舞踏会」という記事が載り、それが教授に対する下劣な街頭暴動を引き起こした。行動したがる群衆は、毎日死体を扱っている教授は、まったく粗野で無情な人間でもないかぎり、もはや楽しい時間をもってはならないと信じたのであろうし、あの記者たちも少なくともそう信じるふりをした。しかし、いま刻一刻と誰かが息を引き取っているとか、自分の身内が墓地に眠っているとかいう考えによって、自分の楽しみを妨げられる人がいるだろうか。</p></li></ol>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;145</span><span>S.&nbsp;146</span></span></aside>
+  <p class="de" lang="de">2. Alles, was der Mensch vor der Verwendung von Werkzeugen von der Natur erfahren konnte, haben ihm direkt die Sinne verraten. Dies spricht sich noch deutlich genug aus in der heutigen, historisch hergebrachten, nicht mehr konsequenten und nicht zureichenden Einteilung der Physik. Sobald aber Werkzeuge in Verwendung kommen, kann nach Spencers<a class="fr" href="#n2">2</a> <span class="pb" title="Leipzig 1906, S. 146">146</span>Auffassung jeder Beobachtungsapparat als eine künstliche Erweiterung der Sinne, jede Maschine als eine künstliche Ausdehnung der Bewegungsorgane aufgefaßt werden. Dieser natürliche Gedanke scheint sich mehrmals dargeboten zu haben. Viel später als Spencer, wohl unabhängig von demselben, aber leider in recht phantastischer Form, wurde derselbe ausführlich dargelegt von E. Kapp.<a class="fr" href="#n3">3</a> Eine an interessanten und instruktiven Einzelheiten reiche Ausführung verdanken wir O. Wiener.<a class="fr" href="#n4">4</a></p>
+  <p class="jp" lang="ja">2. 道具を使用する以前に人間が自然について経験しえたことはすべて、感官が直接に人間に明かしたものである。このことは、今日の、歴史的に伝えられた、もはや首尾一貫しておらず十分でもない物理学の区分のうちに、なおかなりはっきりと現れている。しかし道具が用いられるようになるやいなや、スペンサー<a class="fr" href="#n2">2</a>の把握によれば、あらゆる観察装置は感官の人工的な拡張として、あらゆる機械は運動器官の人工的な延長として解することができる。この自然な考えは何度も浮かんだようである。スペンサーよりずっとあとに、おそらく彼とは独立に、しかし残念ながらかなり空想的な形で、E. カップ<a class="fr" href="#n3">3</a>がこれを詳しく論じた。興味深く教えられるところの多い細部に富んだ論述を、われわれは O. ヴィーナー<a class="fr" href="#n4">4</a>に負っている。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">Spencer, The Principles of Psychology, London 1870, I, § 164, S. 365. - „We may properly say that in the higher forms, the correspondence between the organism and its environment is effected by means of supplementary senses and supplementary limbs. All observing instruments, all weights, measures, scales, micrometers, verniers, microscopes, thermometers, etc., are artificial extensions of the senses; and all levers, screws, hammers, wedges, lathes, etc., are artificial extensions of the limbs. The magnifying glass adds but another lens to the lenses existing in the eye. The crowbar is but one more lever attached to the series of levers forming the arm and hand. And the relationship which is so obvious in these first steps, holds throughout.“</p><p class="jp" lang="ja">スペンサー『心理学原理』ロンドン、1870年、第1巻、第164節、365頁。——「高等な形態においては、有機体とその環境との対応は、補助的な感官と補助的な肢体によって行われると言ってよいであろう。あらゆる観測器具、あらゆる分銅、尺度、目盛り、マイクロメーター、副尺、顕微鏡、温度計等々は感官の人工的な拡張であり、あらゆるてこ、ねじ、ハンマー、くさび、旋盤等々は肢体の人工的な拡張である。拡大鏡は目のなかにあるレンズにもう一枚のレンズを加えるにすぎない。かなてこは、腕と手をなすてこの系列にもう一本のてこを付け加えるにすぎない。そしてこれら最初の段階でかくも明白なこの関係は、全体を通じて成り立つ」。</p></li><li id="n3"><span class="nn">3</span><p class="de" lang="de">E. Kapp, Grundlinien einer Philosophie der Technik. Braunschweig 1877. - Alle Instrumente, Werkzeuge und Maschinen werden als unbewußte Projektionen der Organe des Leibes angesehen. Hiermit scheint mir der Gedanke von Spencer recht vernebelt, und ich glaube, daß wir auf diesem Wege nur zu einer traumhaften „Philosophie der Technik“ kommen können. Man frage sich doch, welches Organ in der Schraube, dem Rade, der Dynamomaschine, dem Interferenzrefraktometer u. s. w. projiziert ist. Richtig ist nur, daß wir durch das Studium der Technik auch zum Verständnis einiger Organe unseres Leibes gelangt sind.</p><p class="jp" lang="ja">E. カップ『技術の哲学の基本線』ブラウンシュヴァイク、1877年。——あらゆる器具、道具、機械は、身体の器官の無意識的な投影とみなされている。これによってスペンサーの思想はかなり霧に包まれてしまったように私には思われ、この道では夢のような「技術の哲学」にしか至りえないと思う。ねじや車輪や発電機や干渉屈折計などにどの器官が投影されているのか、自問してみるがよい。正しいのはただ、われわれが技術の研究によって身体のいくつかの器官の理解にも至ったということだけである。</p></li><li id="n4"><span class="nn">4</span><p class="de" lang="de">O. Wiener, Die Erweiterung der Sinne. Antrittsvorlesung. Leipzig 1900.</p><p class="jp" lang="ja">O. ヴィーナー『感官の拡張』就任講演、ライプツィヒ、1900年。</p></li></ol>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;146</span></span></aside>
+  <p class="de" lang="de">3. Ohne der Darstellung von Wiener genau zu folgen, wollen wir hier einige wichtige Gesichtspunkte herausheben. Die Sinnesorgane sind im allgemeinen sehr empfindliche Organe, was darauf beruht, daß dieselben physikalische Reize nicht bloß wie leblose Objekte aufnehmen, sondern daß diese Reize in den Organen aufgespeicherte und bereitliegende Energieen auslösen, wie dies bei physikalischen Apparaten nur ausnahmsweise etwa beim Mikrophon, Telegraphen-Relais u. s. w. vorkommt. Das Auge und das Ohr wird ungefähr durch ein Hundertmillionenteil eines Erg<a class="fr" href="#n5">5</a> in einen merklichen Reizzustand versetzt, welche Arbeit eben auch genügt, um bei den empfindlichsten Wagen einen sichtbaren Ausschlag zu bewirken. Das Auge ist hundertmal so empfindlich als die empfindlichste photographische Platte.</p>
+  <p class="jp" lang="ja">3. ヴィーナーの叙述を正確にたどることなく、ここではいくつかの重要な観点を取り出してみよう。感覚器官は一般にきわめて敏感な器官である。それは、感覚器官が物理的刺激を単に生命のない対象のように受け取るのではなく、刺激が器官のうちに蓄えられ準備されているエネルギーを解発することにもとづいている。物理的装置ではこのようなことは、たとえばマイクロフォンや電信のリレーなどで例外的に起こるにすぎない。目と耳は、ほぼ一億分の一エルグ<a class="fr" href="#n5">5</a>で感知できる刺激状態に置かれる。この仕事は、最も感度のよい天秤で目に見える振れを生じさせるのにちょうど足りる量でもある。目は最も感度のよい写真乾板の百倍も敏感である。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">Ich habe gelegentlich selbst eine solche Empfindlichkeitsschätzung eines Sinnesorgans versucht. Vgl. Bewegungsempfindungen. Leipzig 1875. S. 119 u. f.</p><p class="jp" lang="ja">私自身もかつて、感覚器官のこのような感度の見積もりを試みたことがある。『運動感覚』ライプツィヒ、1875年、119頁以下参照。</p></li></ol>
+</article>
+<article class="row" id="p3.2">
+  <aside class="mg"><a class="pid" href="#p3.2">3.2</a><span class="pg"><span>S.&nbsp;146</span><span>S.&nbsp;147</span></span></aside>
+  <p class="de" lang="de">Wenn wir ein Gewicht von 100-1000 Gramm auf der Hand liegen haben, so empfinden wir ungefähr eine Verminderung desselben um 30% unmittelbar durch den Drucksinn, und beim Auf- und Abbewegen der Hand kann diese Unterschieds<span class="pb" title="Leipzig 1906, S. 147">147</span>empfindlichkeit bis zu etwa 10% gesteigert werden. Die empfindlichsten Wagen zeigen aber bei 1 kg Belastung noch 1/200 mg, also 1/(2·10⁸) der Belastung an. Die Töplersche Libellenwage zeigt Druckunterschiede an, die 1/10⁸ einer Atmosphäre betragen. Das Auge kann zwei Striche von 1/40 mm Abstand in 10 cm Entfernung eben noch unterscheiden. Mit dem Mikroskop gelingt aber die Auflösung noch bei 1/7000 mm Abstand. Durch Benützung der Lichtwellenlängen können noch weit kleinere Distanzen geschätzt werden.</p>
+  <p class="jp" lang="ja">100グラムから1000グラムのおもりを手に載せているとき、われわれはその約30パーセントの減少を圧覚によって直接に感じ、手を上下に動かすとこの弁別感度はおよそ10パーセントまで高めることができる。しかし最も感度のよい天秤は、1キログラムの負荷でなお1/200ミリグラム、つまり負荷の1/(2·10⁸)を示す。テプラーの水準器天秤は、1/10⁸気圧にあたる圧力差を示す。目は、10センチメートルの距離で1/40ミリメートル離れた二本の線をかろうじて区別できる。しかし顕微鏡を用いれば、1/7000ミリメートルの間隔でもなお分解できる。光の波長を利用すれば、さらにはるかに小さな距離を見積もることができる。</p>
+</article>
+<article class="row" id="p3.3">
+  <aside class="mg"><a class="pid" href="#p3.3">3.3</a><span class="pg"><span>S.&nbsp;147</span></span></aside>
+  <p class="de" lang="de">Wenn durch das bloße Ohr noch ein Zeitunterschied von 1/500 Sekunden zwischen zwei elektrischen Funken bemerkt werden kann, so erlaubt das Wheatstone - Feddersensche Verfahren des rotierenden Spiegels dagegen noch auf optischem Wege Zeitmessungen bis zu 1/10⁸ Sekunde. Unser Wärmesinn empfindet einen Temperaturunterschied von etwa 1/5 Grad Celsius. Nach der bolometrischen Methode von Langley und Paschen gelingt es, Temperaturunterschiede von 1/10⁶ Grad Celsius nachzuweisen. Die Empfindlichkeit der Sinnesorgane kann also durch physikalische Apparate in manchen Beziehungen erreicht, in anderen sehr bedeutend überschritten werden. Der Physiker gelangt hierdurch zur Kenntnis so feiner Abstufungen der Reaktionen, wie sie ihm ohne diese Mittel stets unbekannt bleiben müßten.</p>
+  <p class="jp" lang="ja">耳だけでは二つの電気火花のあいだの1/500秒の時間差がなお気づかれうるのに対して、ホイートストン＝フェッダーセンの回転鏡の方法を用いれば、光学的な仕方で1/10⁸秒までの時間測定ができる。われわれの温度感覚は、セ氏約1/5度の温度差を感じる。ラングレーとパッシェンのボロメーターによる方法では、セ氏1/10⁶度の温度差を検出することができる。したがって感覚器官の感度は、物理的装置によって、ある点では到達され、他の点でははるかに凌駕されうる。物理学者はそれによって、こうした手段がなければつねに知られないままであったにちがいない反応のきわめて微細な段階を知るにいたるのである。</p>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;147</span><span>S.&nbsp;148</span></span></aside>
+  <p class="de" lang="de">4. Die Physik kennt aber auch Mittel, einen Sinn durch den anderen vertreten zu lassen. Durch optische Vorkehrungen können wir Schallvorgänge sichtbar und umgekehrt Lichtprozesse hörbar machen. Man denke an die verschiedenen vibroskopischen Methoden, an die Sichtbarkeit der Luftwellen im Schlierenapparat, an das Photophon u. s. w. Die Wärme verrät sich unmittelbar nur dem Tastsinn,<a class="fr" href="#n6">6</a> mit Hilfe des Thermometers aber auch dem Auge. Selbst Vorgänge, welche unmittelbar sich gar keinem unserer Sinne offenbaren würden, wie sehr schwache elektrische Ströme oder Schwankungen der magnetischen Intensität, die wir weder sehen, noch hören, noch tasten könnten, machen wir durch das Galvanometer und Magnetometer dem Gesichtssinn zugänglich, der überhaupt meist eintritt, wo es sich um sehr feine Reaktionen handelt. Nun dürfen wir freilich <span class="pb" title="Leipzig 1906, S. 148">148</span>nicht vergessen, daß Vorgänge, die sich wirklich streng jedem unserer natürlichen Sinne entziehen würden, ewig unentdeckt und unentdeckbar bleiben müßten. Es handelt sich also bei Anwendung künstlicher Mittel genau genommen immer nur um Auffindung von zahlreicheren, mannigfaltigeren und feiner abgestuften Reaktionen, welche in eines der Gebiete unserer natürlichen Sinne hereinragen.</p>
+  <p class="jp" lang="ja">4. しかし物理学は、ある感官を別の感官によって代理させる手段も知っている。光学的な工夫によって、音響過程を見えるものにし、逆に光の過程を聞こえるものにすることができる。さまざまな振動観測法、シュリーレン装置における空気の波の可視化、フォトフォンなどを考えてみればよい。熱は直接には触覚<a class="fr" href="#n6">6</a>にのみ現れるが、温度計の助けを借りれば目にも現れる。直接にはわれわれのどの感官にもまったく現れないであろう過程、たとえば見ることも聞くことも触れることもできないきわめて弱い電流や磁気強度の変動でさえ、われわれは検流計や磁力計によって視覚に近づけるのであり、視覚はきわめて微細な反応が問題となる場合にたいてい代わりを務める。もっとも、本当に厳密にわれわれのあらゆる自然な感官から逃れるような過程は、永遠に発見されず発見不可能なままであるにちがいないということを忘れてはならない。したがって人工的な手段を用いる場合に問題なのは、厳密に言えばつねに、われわれの自然な感官のいずれかの領域に入りこんでくる、より数多く、より多様で、より細かく段階づけられた反応を見いだすことだけなのである。</p>
+  <ol class="notes"><li id="n6"><span class="nn">6</span><p class="de" lang="de">Eigentlich dem mit dem Tastsinn räumlich vereinigten Wärmesinn.</p><p class="jp" lang="ja">本来は、触覚と空間的に結びついた温度感覚に。</p></li></ol>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;148</span></span></aside>
+  <p class="de" lang="de">5. Um diese Betrachtung zu ergänzen, denken wir uns z. B. eine Orange, dann einen Kochsalzwürfel, Platin und Luft. Der erste dieser Körper reagiert ohne irgend welche künstliche Veranstaltungen auf alle Sinne, beim zweiten fehlt die Geruchs-, beim dritten auch die Geschmacksreaktion. Die Luft ist für uns auch unsichtbar; wir fühlen sie höchstens warm oder kalt, und bei starker Bewegung reizt sie den Tastsinn nur noch als Wind. Von ihrer Körperlichkeit überzeugen wir uns erst recht durch künstliche Einschließung derselben in einen Schlauch, welches Verfahren in der Tat zu den ältesten physikalischen Experimenten gehört. Durch künstliche Vorkehrungen können nun bei jedem der genannten Körper noch verschiedene Reaktionen hervorgerufen werden, welche denselben charakterisieren. Die Körper sind also nichts weiter als Bündel gesetzmäßig zusammenhängender Reaktionen.</p>
+  <p class="jp" lang="ja">5. この考察を補うために、たとえばオレンジ、次に食塩の立方体、白金、空気を考えてみよう。最初の物体は、何の人工的な仕掛けもなしにすべての感官に反応する。二番目では嗅覚の反応が、三番目ではさらに味覚の反応が欠けている。空気はわれわれにとって目にも見えない。せいぜい暖かいとか冷たいと感じるだけで、強く動くときにだけ風として触覚を刺激する。空気が物体であることを、われわれは人工的にそれを革袋に閉じこめることによってはじめてしっかりと確信する。この手続きは実際、最も古い物理学的実験の一つに属する。さて、人工的な仕掛けによって、上に挙げたどの物体についても、それを特徴づけるさまざまな反応をさらに呼び起こすことができる。したがって物体とは、法則的に連関する反応の束にほかならないのである。</p>
+</article>
+<article class="row" id="p5.2">
+  <aside class="mg"><a class="pid" href="#p5.2">5.2</a><span class="pg"><span>S.&nbsp;148</span></span></aside>
+  <p class="de" lang="de">Dasselbe gilt von Vorgängen jeder Art, die wir unserem Übersichtsbedürfnis entsprechend klassifizieren und benennen. Ob es sich um Wasserwellen handelt, die wir mit dem Auge und mit dem Tastsinn verfolgen, oder um Schallwellen in der Luft, die wir nur hören und nur künstlich sichtbar machen können, oder um einen elektrischen Strom, der überhaupt fast nur in künstlich herbeigeführten Reaktionen zu verfolgen ist, immer ist der gesetzmäßige Zusammenhang der Reaktionen, und dieser allein, das Beständige. Dies ist der kritisch geläuterte Substanzbegriff, welcher wissenschaftlich an die Stelle des vulgären zu treten hat. Der vulgäre Substanzbegriff, welcher im gewöhnlichen Hausgebrauch nicht nur ganz unschädlich, sondern sogar bei Handgriffen sehr nützlich ist — er wäre ja sonst nicht instinktiv entstanden — spielt in der wissenschaftlichen Physik dieselbe trügerische Rolle wie das „Ding an sich“ in der Philosophie.</p>
+  <p class="jp" lang="ja">われわれの見通しの欲求に応じて分類し命名するあらゆる種類の過程についても、同じことが当てはまる。目と触覚で追う水の波であれ、聞くことしかできず人工的にしか見えるようにできない空気中の音波であれ、そもそもほとんど人工的に引き起こされた反応においてしか追えない電流であれ、つねに反応の法則的な連関こそが、そしてそれだけが恒常的なものである。これこそ、科学的には通俗的な実体概念に取って代わるべき、批判的に純化された実体概念である。通俗的な実体概念は、日常の家庭の用途ではまったく無害であるばかりか、手仕事においてはきわめて有用でさえある——そうでなければそれは本能的に生じはしなかったであろう——が、科学的物理学においては、哲学における「物自体」と同じ欺瞞的な役割を演じている。</p>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;148</span><span>S.&nbsp;149</span></span></aside>
+  <p class="de" lang="de">6. Im Verlauf des obzitierten Vortrages gelangt Wiener zur <span class="pb" title="Leipzig 1906, S. 149">149</span>Fiktion von intelligenten Wesen mit von den unsrigen verschiedenen Sinnen. Nervenorgane, von hinreichend intensiven magnetischen Körpern umgeben, würden z. B. einen magnetischen Sinn vorstellen, wie ein solcher künstlich gelegentlich bei Krebsen von Kreidl wirklich dargestellt worden ist.<a class="fr" href="#n7">7</a> Das Auge könnte z. B., statt für die kurzwelligen, für die ultraroten Strahlen empfindlich sein. Dann könnten Fernrohre mit Hartgummilinsen zur Verwendung kommen u. s. w. u. s. w. Durch solche ansprechende, auch mir sympathische Betrachtungen, denkt Wiener von der besonderen Natur unserer Sinne sich unabhängig machen zu können, und eine Aussicht auf eine einheitliche physikalische Theorie zu gewinnen.</p>
+  <p class="jp" lang="ja">6. 上に引用した講演の過程で、ヴィーナーは、われわれとは異なる感官をもつ知的存在という虚構に至る。たとえば十分に強い磁性体に囲まれた神経器官は磁気の感覚を表すであろう。そのような感覚はクライドルによって実際にカニにおいてときおり人工的に作り出されている<a class="fr" href="#n7">7</a>。目はたとえば、短い波長の光線のかわりに赤外線に敏感であるかもしれない。そうすれば硬質ゴムのレンズをもつ望遠鏡が用いられうるであろう、等々。このような魅力的な、私にも共感できる考察によって、ヴィーナーはわれわれの感官の特殊な性質から独立となり、統一的な物理学理論への見通しを得ることができると考えている。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">Populäre Vorlesungen. 3. Aufl. Leipzig 1903. S. 398.</p><p class="jp" lang="ja">『通俗科学講義』第3版、ライプツィヒ、1903年、398頁。</p></li></ol>
+</article>
+<article class="row" id="p6.2">
+  <aside class="mg"><a class="pid" href="#p6.2">6.2</a><span class="pg"><span>S.&nbsp;149</span></span></aside>
+  <p class="de" lang="de">Meine Meinung über diesen Punkt ist folgende. Ich denke mir alle organischen Wesen, wenigstens auf der Erde, sehr nahe verwandt, demnach die Sinne des einen als bloße Variationen der Sinne des anderen. Die Empfindungen unserer gegenwärtigen natürlichen Sinne werden wohl immer die Grundelemente unserer psychischen und physischen Welt bleiben. Das hindert aber nicht, daß unsere physikalischen Theorien von der besondern Qualität unserer Sinnesempfindungen unabhängig werden. Wir treiben Physik, indem wir Variationen des beobachtenden Subjekts ausschließen, durch Korrektionen entfernen, oder in irgend einer Weise von denselben abstrahieren.</p>
+  <p class="jp" lang="ja">この点についての私の考えは次のとおりである。私は、少なくとも地球上のすべての有機的存在はきわめて近い類縁関係にあり、したがって一方の感官は他方の感官の単なる変異であると考える。現在のわれわれの自然な感官の感覚は、おそらくいつまでもわれわれの心的および物理的世界の基本要素であり続けるであろう。しかしそのことは、われわれの物理学理論が、われわれの感官の感覚の特殊な質から独立になることを妨げない。われわれは、観察する主体の変異を排除し、補正によって取り除き、あるいは何らかの仕方でそれを捨象することによって物理学を営むのである。</p>
+</article>
+<article class="row" id="p6.3">
+  <aside class="mg"><a class="pid" href="#p6.3">6.3</a><span class="pg"><span>S.&nbsp;149</span></span></aside>
+  <p class="de" lang="de">Wir vergleichen die physikalischen Körper oder Vorgänge untereinander, so daß es nur auf Gleichheit und Ungleichheit einer Empfindungsreaktion ankommt, die Besonderheit der Empfindung aber für die gefundene Beziehung, die in Gleichungen ihren Ausdruck findet, nicht mehr von Belang ist. Hierdurch gewinnt das Ergebnis der physikalischen Forschung Gültigkeit nicht nur für alle Menschen, sondern selbst für Wesen mit anderen Sinnen, sobald sie unsere Empfindungen als Anzeigen einer Art physikalischer Apparate betrachten.<a class="fr" href="#n8">8</a> Dieselben würden nur für diese Wesen keine direkte Anschaulichkeit haben, sondern müßten hierzu in ihre Sinnesempfindungen übersetzt werden, etwa so, wie wir uns Unanschauliches durch graphische Darstellung veranschaulichen.</p>
+  <p class="jp" lang="ja">われわれは物理的物体あるいは過程を互いに比較するので、問題となるのはただ感覚反応の同等と不同等だけであり、感覚の特殊性は、方程式に表現される見いだされた関係にとってもはや重要ではない。それによって物理学的研究の成果は、すべての人間に対してばかりでなく、他の感官をもつ存在に対してさえ、彼らがわれわれの感覚を一種の物理的装置の表示とみなすやいなや、妥当性を得る<a class="fr" href="#n8">8</a>。ただ、それらの成果はそのような存在にとって直接の直観性をもたず、そのためには彼らの感官の感覚へと翻訳されなければならないであろう。ちょうどわれわれが直観できないものをグラフ表示によって直観化するように。</p>
+  <ol class="notes"><li id="n8"><span class="nn">8</span><p class="de" lang="de">Analyse der Empfindungen. 4. Aufl. 1903. S. 209.</p><p class="jp" lang="ja">『感覚の分析』第4版、1903年、209頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;150</span></span></aside>
+  <p class="de" lang="de">7. In den vorstehenden Ausführungen haben wir unser Augenmerk hauptsächlich auf die einzelnen Empfindungen und deren Bedeutung gerichtet. Das ganze System der räumlich und zeitlich geordneten Empfindungen, welche uns der Gesichtssinn vorführt, der uns z. B. die ganze Anordnung der Körper oder deren Bewegung gegeneinander in einem Blick erkennen läßt, nennen wir vorzugsweise Anschauung. Der Name trägt deutlich sein Ursprungszeugnis an sich. Für den Sehenden ist ja die Gesichtsanschauung die wichtigste, durch die er am meisten und vieles auf einmal erfährt. Hoch intelligente Blinde, z. B. der Geometer Saunderson, belehren uns jedoch darüber, daß man auch durch den Tastsinn rasch eine geordnete Übersicht gewinnen kann, für welche der Name Tastanschauung passend wäre.</p>
+  <p class="jp" lang="ja">7. これまでの論述では、われわれは主として個々の感覚とその意義に注目してきた。視覚がわれわれに示す、空間的・時間的に秩序づけられた感覚の体系全体——それはたとえば物体の配置全体や物体相互の運動を一目で認識させる——を、われわれはとりわけ直観（Anschauung）と呼ぶ。この名前ははっきりとその起源の証しを帯びている。目の見える人にとって、視覚的直観は最も重要であり、それによって最も多くのことを、そして多くのことを一度に経験するからである。しかし、たとえば幾何学者ソーンダーソンのような非常に知的な盲人は、触覚によっても迅速に秩序づけられた見通しを得ることができることを教えてくれる。それには触覚的直観という名がふさわしいであろう。</p>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;150</span></span></aside>
+  <p class="de" lang="de">Gewandten Musikern wird man eine Art anschaulicher Übersicht der zeitlich-rhythmischen Bewegungen, der Verteilung und des Fortschreitens der Stimmen im Tongebiet oder im Tonraum nicht absprechen können. Von den beiden hervorragenden Künstlern im Kopfrechnen Inaudi und Diamandi gehörte der erstere dem auditiven, der letztere dem visuellen Typus<a class="fr" href="#n9">9</a> an. Der erstere hatte seine Kunstübungen begonnen, als er noch nicht lesen konnte, er stellte sich die Zahlen durch das Gehör vor. Der andere hatte bei Beginn seiner Übungen schon die Schule besucht und Schreiben gelernt.</p>
+  <p class="jp" lang="ja">熟達した音楽家に、時間的・リズム的な運動、音域あるいは音の空間における声部の配置と進行についての一種の直観的な見通しを否定することはできないであろう。暗算の二人の傑出した名人イノーディとディアマンディのうち、前者は聴覚型に、後者は視覚型<a class="fr" href="#n9">9</a>に属していた。前者はまだ字が読めないころにその芸を始めており、数を聴覚によって表象していた。後者は練習を始めたときにはすでに学校に通い、書くことを学んでいた。</p>
+  <ol class="notes"><li id="n9"><span class="nn">9</span><p class="de" lang="de">Revue générale des sciences. 1892.</p><p class="jp" lang="ja">『科学総合評論』1892年。</p></li></ol>
+</article>
+<article class="row" id="p7.3">
+  <aside class="mg"><a class="pid" href="#p7.3">7.3</a><span class="pg"><span>S.&nbsp;150</span></span></aside>
+  <p class="de" lang="de">Ordnete man Zahlen in horizontale Zeilen, die man so untereinander setzte, daß deren Ziffern auch vertikale Kolumnen bildeten, und las man dieselben zeilenweise vor, so wußte Diamandi sofort auch die Ziffern aus dem Gedächtnis anzugeben, welche eine Kolumne bildeten, denn er sah die Zahlen in Ziffern räumlich angeordnet vor sich. Inaudi hingegen brachte dies nur mit einiger Mühe zu stande, denn er hörte im Geiste die Zahlen nacheinander nennen, und mußte diese zeitliche Reihe sozusagen erst in Stücke teilen, die er untereinander setzte. Diamandi hatte eine visuelle räumliche, Inaudi eine auditive zeitliche Anschauung. Wir lassen es dahingestellt, ob etwa auch in anderen Sinnesgebieten, z. B. bei hoch entwickeltem Geruchssinn (Hunde, Ameisen), wie Forel meint, etwas Analoges möglich sei.</p>
+  <p class="jp" lang="ja">数を横の行に並べ、その数字が縦の列をもなすように上下に置き、それを行ごとに読み上げると、ディアマンディは一つの列をなす数字をもすぐさま記憶から言うことができた。彼には数が数字で空間的に配置されて目の前に見えていたからである。これに対してイノーディは、それをいくらか苦労してしか成し遂げられなかった。彼は心のなかで数が次々に読み上げられるのを聞いており、この時間的な系列をまずいわば切れ切れに分けて、それを上下に並べなければならなかったからである。ディアマンディは視覚的・空間的な直観を、イノーディは聴覚的・時間的な直観をもっていた。フォレルが考えるように、他の感官の領域でも、たとえば高度に発達した嗅覚（犬、蟻）において、何か類似のことが可能かどうかは、未決のままにしておこう。</p>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;150</span><span>S.&nbsp;151</span></span></aside>
+  <p class="de" lang="de">8. Darüber ist kein Zweifel, daß nach der einzelnen Empfindung <span class="pb" title="Leipzig 1906, S. 151">151</span>zunächst die Anschauung die Vorstellungen und die Handlungen in Bewegung gesetzt hat, als noch das begriffliche Denken sehr im Rückstand war. Die Anschauung ist organisch älter und stärker fundiert, als das begriffliche Denken. Wir übersehen mit einem Blick die Plastik eines Terrains, bewegen uns ohne weiteres dem entsprechend, weichen einem rollenden Stein aus, reichen einem fallenden Gefährten die Hand, ergreifen einen uns interessierenden Gegenstand, ohne daß wir nötig haben, dies alles zu überlegen. An dem Anschaulichen entwickeln sich die ersten klaren Vorstellungen, die ersten Begriffe, das erste Denken. Wo es also immer möglich ist, das begriffliche Denken durch die Anschauung zu stärken, da wird dies mit Vorteil geschehen. Man stützt hierbei die individuellen neuen Erwerbungen auf die alten erprobten Erwerbungen der Art.</p>
+  <p class="jp" lang="ja">8. 個々の感覚に次いで、まず直観が、概念的思考がまだきわめて遅れていたころに、表象と行為を動かしてきたことは疑いない。直観は、概念的思考よりも有機的に古く、より強く基礎づけられている。われわれは地形の起伏を一目で見渡し、それに応じてそのまま動き、転がってくる石をよけ、倒れる仲間に手を差し伸べ、関心のある対象をつかむ。そのすべてを熟慮する必要はない。直観されるものにおいて、最初の明瞭な表象、最初の概念、最初の思考が発達する。それゆえ、概念的思考を直観によって強めることが可能なところでは、どこでもそうすると有利であろう。そうすることによって、個人の新しい獲得物を、種の古い試された獲得物の上に支えるのである。</p>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;151</span></span></aside>
+  <p class="de" lang="de">9. Die graphischen Künste, insbesondere die Photographie und Stereoskopie ermöglichen heute einen Reichtum von Anschauungen zu gewinnen, welcher vor einem halben Jahrhundert nur mit dem größten Aufwand zu erlangen war. Ferne Länder, deren Völkertypen und Architekturen, Scenen des tropischen Urwaldes und der eisigen Polargegenden treten mit gleicher Lebendigkeit vor unsere Augen. Die Farbenphotographie, der Kinematograph werden die Natürlichkeit noch steigern und der Phonograph wird auf akustischem Gebiete mit seinen optischen Vorbildern wetteifern. Die Wissenschaft hat auch die Mittel gefunden, Objekte, welche der natürlichen Anschauung unzugänglich sind, dennoch in das Gebiet derselben zu ziehen.</p>
+  <p class="jp" lang="ja">9. 図像の技術、とりわけ写真と立体鏡は、今日、半世紀前には最大の費用をかけてようやく得られたような豊かな直観を得ることを可能にしている。遠い国々、そこの民族の典型や建築、熱帯の原生林や氷の極地の情景が、同じように生き生きとわれわれの目の前に現れる。カラー写真や映写機（キネマトグラフ）は自然さをいっそう高め、蓄音機は音響の領域でその光学的な先駆者と競うであろう。科学はまた、自然な直観には近づけない対象をも直観の領域に引き入れる手段を見いだした。</p>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;151</span><span>S.&nbsp;152</span></span></aside>
+  <p class="de" lang="de">Die Momentphotographie fixiert jede Phase einer für die direkte Beobachtung zu raschen Bewegung, sie annulliert die Geschwindigkeit, läßt das Objekt sozusagen erstarren. Marey, Anschütz, Muybridge haben die Phasen der Bewegungen der Tiere fixiert. Sogar die Bilder von Schallwellen, fliegenden Projektilen u. s. w. sind durch feinere Methoden festgehalten worden. Die Methode der Serienbilder, seit langer Zeit in der speziellen Form der stroboskopischen Methode zur Beobachtung rascher periodischer Bewegungen angewandt, läßt eine dreifache Verwertung zu. Es gibt Bewegungen, deren Geschwindigkeit im Bereich unserer natürlichen Anschauung liegt. Der Kinematograph reproduziert sie mit der ihr eigentümlichen Geschwindigkeit. Bewegungen, die zu rasch vorgehen, <span class="pb" title="Leipzig 1906, S. 152">152</span>um gesehen zu werden, wie die Flugbewegungen der Insekten, die Schallschwingungen u. s. w. können mit Hilfe der Serienbilder beliebig verlangsamt werden.</p>
+  <p class="jp" lang="ja">瞬間写真は、直接の観察には速すぎる運動のあらゆる段階を固定し、速度を無効にし、対象をいわば凍りつかせる。マレー、アンシュッツ、マイブリッジは動物の運動の段階を固定した。音波や飛んでいく弾丸などの像でさえ、より精密な方法によって捉えられている。連続写真の方法は、ずっと以前から速い周期運動を観察するためのストロボスコープ法という特殊な形で用いられてきたが、三重の活用を許す。われわれの自然な直観の範囲内の速度をもつ運動がある。映写機はそれをその固有の速度で再現する。昆虫の飛ぶ運動や音の振動など、速すぎて見えない運動は、連続写真の助けを借りて任意に遅くすることができる。</p>
+</article>
+<article class="row" id="p9.3">
+  <aside class="mg"><a class="pid" href="#p9.3">9.3</a><span class="pg"><span>S.&nbsp;152</span></span></aside>
+  <p class="de" lang="de">Veränderungen hingegen, welche zu langsam vorgehen, um direkt gesehen zu werden, wie das Wachstum einer Pflanze, eines Embryo, einer Stadt u. s. w. kann man mit Hilfe der Serienbilder kinematographisch in beliebiger Geschwindigkeit ablaufen sehen. Man denke sich die Änderungen einer wachsenden Pflanze mit allen ihren geotropischen und heliotropischen Bewegungen in gesteigerter Geschwindigkeit, die Bewegungen eines Tieres in entsprechender Langsamkeit vorgeführt, so muß der Eindruck des Tierischen und Pflanzlichen geradezu sich vertauschen. Die kinematographische Vorführung eines Kindes, welches heranwächst, aufblüht, reift und als Greis verfällt, könnte in ihrer Wirkung durch keine noch so ergreifende Bußpredigt übertroffen werden.</p>
+  <p class="jp" lang="ja">これに対して、植物や胚や都市などの成長のように、遅すぎて直接には見えない変化は、連続写真の助けを借りて、映写によって任意の速さで経過させて見ることができる。成長する植物の変化を、そのすべての屈地的・屈光的な運動とともに速めて、動物の運動をそれに応じて遅くして見せることを考えてみよ。そうすれば動物的なものと植物的なものの印象はまさしく入れ替わるにちがいない。成長し、花開き、成熟し、老人となって衰えていく子どもを映写して見せれば、その効果は、どれほど心を揺さぶる悔い改めの説教によっても凌駕されえないであろう。</p>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;152</span></span></aside>
+  <p class="de" lang="de">10. Der Gegensatz zwischen zeitlicher Verlängerung und Verkürzung ist analog jenem zwischen räumlicher Vergrößerung und Verkleinerung. Dem hochgeschätzten Mikroskop gegenüber steht die wenig beachtete aber ebenso wichtige bildliche Verkleinerung für unser Gesichtsfeld zu großer Objekte, wie wir sie z. B. in der geographischen Kartendarstellung üben. Auch in diesem letzteren Falle bringen wir schwerfällig begrifflich erkannte Objekte in den Bereich der bequemen geläufigen Anschauung. Die Stärkung des abstrakten Denkens durch Kurven zeichnende Registrierapparate verwenden wir schon beim Experimentieren, und ebenso bei Darstellung bereits gewonnener Ergebnisse durch Kurven, geometrische Konstruktionen u. s. w.<a class="fr" href="#n10">10</a> Ein einziges Beispiel genügt, um den Wert der Eroberung eines Gebietes für die Anschauung fühlbar zu machen. Man weiß, welche Mühe Kepler aufwenden mußte, um aus einzelnen begrifflichen Daten die elliptischen Planetenbahnen zu konstruieren. Kaum mehr als ein Blick hätte genügt, das Richtige zu erraten, wenn diese Bewegungen anschaulich in verkleinertem Raum- und Zeitmaßstab gegeben gewesen wären.</p>
+  <p class="jp" lang="ja">10. 時間的な引き延ばしと短縮との対立は、空間的な拡大と縮小との対立に類似している。高く評価されている顕微鏡に対して、ほとんど注目されないが同じく重要なのが、われわれの視野には大きすぎる対象の図像的な縮小であり、それはたとえば地図の表現において行われている。この後者の場合にも、われわれは概念的に骨折って認識された対象を、楽でなじんだ直観の範囲へともたらすのである。曲線を描く記録装置によって抽象的思考を強めることを、われわれはすでに実験の際に用いており、また得られた成果を曲線や幾何学的作図などによって表すときにも用いている<a class="fr" href="#n10">10</a>。一つの例だけで、ある領域を直観のために獲得することの価値を実感させるのに十分である。ケプラーが個々の概念的なデータから惑星の楕円軌道を構成するためにどれほどの労力を費やさなければならなかったかは知られている。これらの運動が縮小された空間と時間の尺度で直観的に与えられていたならば、正しいことを言い当てるには一瞥以上のものはほとんど必要なかったであろう。</p>
+  <ol class="notes"><li id="n10"><span class="nn">10</span><p class="de" lang="de">Populäre Vorlesungen, S. 124-134.</p><p class="jp" lang="ja">『通俗科学講義』124–134頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;152</span><span>S.&nbsp;153</span></span></aside>
+  <p class="de" lang="de">11. Aus der Anschauung schöpft die Erinnerung. Wenn bei einem zufälligen Anlaß mir das Bild des kleinen glattrasierten <span class="pb" title="Leipzig 1906, S. 153">153</span>graugelockten Herrn auftaucht, der nach allen Seiten freundlich grüßend zur Table d'hôte hereinkommt, wenn ich von verschiedenen Seiten flüstern höre: Ein deutscher Professor! Voila un professeur allemand! Aoh! a German professor! wenn alles in der Vorstellung, wesentlich in der Verbindung auftritt, in der ich es erlebt habe, so nenne ich dies eine Erinnerung. Haben sich aber durch viele verschiedene Erlebnisse mannigfaltige associative Verbindungen unter den Elementen der Anschauung hergestellt, und dadurch die einzelnen gelockert, so können sich durch Nebeneinflüsse verschiedene dieser Verbindungen kombinieren, welche in den sinnlichen Erlebnissen sich noch nie zusammen gefunden hatten, und jetzt in der Vorstellung zum erstenmal beisammen sind.</p>
+  <p class="jp" lang="ja">11. 記憶は直観から汲み取る。何かの偶然の機会に、四方に愛想よく挨拶しながら定食（ターブル・ドート）の席に入ってくる、小柄な、きれいに髭を剃った、灰色の巻き毛の紳士の姿が浮かび、あちこちから「ドイツの教授だ！」「ヴォアラ、アン・プロフェスール・アルマン！」「アオー、ア・ジャーマン・プロフェッサー！」とささやくのが聞こえ、すべてが表象のうちに本質的に私が体験したとおりの結合で現れるならば、私はこれを記憶と呼ぶ。しかし多くの異なる体験によって、直観の要素のあいだに多様な連合的結合がつくられ、それによって個々の結合がゆるめられていると、副次的な影響によって、感性的体験においてはまだ一度も一緒になったことのない、いまはじめて表象のうちで一緒になるような、これらの結合のさまざまなものが組み合わさることがありうる。</p>
+</article>
+<article class="row" id="p11.2">
+  <aside class="mg"><a class="pid" href="#p11.2">11.2</a><span class="pg"><span>S.&nbsp;153</span></span></aside>
+  <p class="de" lang="de">Solche Vorstellungen nennen wir Phantasievorstellungen. Wenn ich nur einen Hund in meinem Leben gesehen hätte, und mir jetzt einen Hund vorstelle, so würde derselbe wahrscheinlich alle Merkmale an sich tragen, welche bei der Beobachtung dieses Hundes meiner Aufmerksamkeit nicht entgangen sind. Ich habe aber unzählige verschiedene Hunde und auch hundeähnliche andere Tiere gesehen. Infolgedessen ist wohl der Hund, den ich mir vorstelle, von jedem Hund verschieden, den ich je gesehen habe.</p>
+  <p class="jp" lang="ja">このような表象を、われわれは空想表象と呼ぶ。もし私が生涯にただ一匹の犬しか見たことがなく、いま犬を表象するとすれば、その犬はおそらく、その犬を観察したときに私の注意を逃れなかったすべての特徴を帯びているであろう。しかし私は無数の異なる犬と、また犬に似た他の動物も見てきた。そのため、私が表象する犬は、おそらくこれまで見たどの犬とも異なっている。</p>
+</article>
+<article class="row" id="p11.3">
+  <aside class="mg"><a class="pid" href="#p11.3">11.3</a><span class="pg"><span>S.&nbsp;153</span></span></aside>
+  <p class="de" lang="de">Ein Wirt wählt das Schild „Zum blauen Hund“. Sein Schild ist ein Hund von Holz. Nun soll er Farbe bekommen. Der Wirt hat aber beim Anstreicher viele Töpfe mit verschiedenen Farben nebeneinander gesehen, und will etwas Auffallendes haben. So entsteht also seine „Phantasieschöpfung“ durch Kombination von Associationen, welche verschiedenen Erlebnissen angehören. Diese einfachen Betrachtungen lehren, daß eine absolut scharfe Grenze zwischen Erinnerung und Phantasie nicht zu ziehen ist. Kein Erlebnis steht so allein, daß andere Erlebnisse die Erinnerung an ersteres nicht beeinflussen könnten. Jede Erinnerung ist „Dichtung und Wahrheit“. Anderseits werden die Erinnerungselemente in den Phantasievorstellungen meist nachzuweisen sein.</p>
+  <p class="jp" lang="ja">ある宿屋の主人が「青い犬亭」という看板を選ぶ。看板は木製の犬である。さてそれに色を塗ることになる。しかし主人はペンキ屋でさまざまな色の壺がたくさん並んでいるのを見ており、何か目立つものにしたいと思う。こうして彼の「空想の創造」は、異なる体験に属する連合の組み合わせによって生じる。これらの単純な考察は、記憶と空想とのあいだに絶対的に鋭い境界を引くことはできないことを教える。どの体験も、他の体験がそれについての記憶に影響を与えられないほど孤立してはいない。どの記憶も「詩と真実」である。他方、空想表象のうちには、たいてい記憶の要素を指摘することができるであろう。</p>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;153</span><span>S.&nbsp;154</span></span></aside>
+  <p class="de" lang="de">12. Ein Kind erblickt einen Hinkenden. „Der arme Mann ist auf einem großen Pferd gesessen, herabgefallen und hat sein Bein an einem Stein verletzt.“ Diese Phantasiegeschichte eines 3½ Jahre alten Kindes kombiniert sich leicht aus dessen Erinnerungen. Ein anderes 3jähriges Kind wünscht wie ein Fisch im Wasser oder <span class="pb" title="Leipzig 1906, S. 154">154</span>wie ein Stern am Himmel zu leben, und ist eben so phantasiereich wie jenes, das eine Bohrung in einem zufällig gefundenen Stein von Feen bewohnt sein läßt. Ob es als Phantasieschöpfung anzusehen ist, wenn ein Kind einen Flaschenstöpsel eine „Türe“, eine kleine Münze ein „Dollarkind“ nennt, bei Anblick betauten Grases ausruft: „Der Rasen weint“, ist mir nach Erfahrungen an meinen eigenen Kindern recht fraglich.<a class="fr" href="#n11">11</a> Das Kind im Stadium der Sprachentwicklung hat wenig Worte, und spricht wie der Wilde poetisch aus Not, indem es durch jede Ähnlichkeit zur Übertragung von Wortbedeutungen veranlaßt wird. Ganz ähnlich wie die kindliche Phantasie setzt der Wilde seine Kosmogonien aus den ihm aus der Erinnerung vertrauten Elementen zusammen.</p>
+  <p class="jp" lang="ja">12. ある子どもが足を引きずっている人を見る。「かわいそうなおじさんは大きな馬に乗っていて、落ちて、石で足をけがしたんだ」。三歳半の子どものこの空想の物語は、その子の記憶から容易に組み立てられる。別の三歳の子どもは、水のなかの魚のように、あるいは空の星のように暮らしたいと願っており、偶然見つけた石の穴に妖精を住まわせる子と同じく空想力豊かである。子どもが瓶の栓を「ドア」と、小さな硬貨を「ドルの子ども」と呼び、露に濡れた草を見て「芝生が泣いている」と叫ぶことを空想の創造とみなすべきかどうかは、自分の子どもたちでの経験からすると、私にはきわめて疑わしい<a class="fr" href="#n11">11</a>。言語発達の段階にある子どもは語彙が少なく、未開人と同じく必要に迫られて詩的に話すのであり、どんな類似によっても語の意味を転用するよう促される。子どもの空想とまったく同じように、未開人は自分の宇宙創成論を、記憶からなじんだ要素で組み立てる。</p>
+  <ol class="notes"><li id="n11"><span class="nn">11</span><p class="de" lang="de">Ribot, Essai sur l'imagination créatrice. Paris 1900. S. 89-97. Vgl. Analyse der Empfindungen. S. 250.</p><p class="jp" lang="ja">リボー『創造的想像力試論』パリ、1900年、89–97頁。『感覚の分析』250頁参照。</p></li></ol>
+</article>
+<article class="row" id="p12.2">
+  <aside class="mg"><a class="pid" href="#p12.2">12.2</a><span class="pg"><span>S.&nbsp;154</span></span></aside>
+  <p class="de" lang="de">Riesige Frösche, Kröten, Spinnen und Heuschrecken spielen darin eine Rolle. Bei Stämmen, welche an der See oder an großen Flüssen leben, beteiligen sich kolossale aus der Tiefe auftauchende Fische oder Schildkröten an der Herstellung der gegenwärtigen Weltordnung. Wenn ein kleines Mädchen, als Tochter eines Ökonomen mit dem Hühnerhof vertraut, die Frage hören läßt: „ob die Sterne die Eier seien, welche der Mond gelegt hat?“, so ist dies ein schönes Beispiel für die Art der Bildung naiver Kosmogonien.<a class="fr" href="#n12">12</a> So sehen wir, daß bei den Ägyptern, einem Volke, welches die Töpferei sehr früh auf eine hohe Stufe gebracht hat, Gott Ptah auf der Töpferscheibe das Ei bildet, aus welchem sich die Welt entwickelt.<a class="fr" href="#n13">13</a> Man braucht sich nur der eigenen Jugend zu erinnern, um es zu begreifen, daß bei dem gänzlichen Fehlen einer soliden Erfahrungsgrundlage für das Weltverständnis, notwendig die Phantasie gut oder übel die Lücke ausfüllen und das Bedürfnis decken muß.</p>
+  <p class="jp" lang="ja">巨大な蛙、ヒキガエル、蜘蛛、バッタがそこで役割を演じる。海辺や大河のほとりに住む部族では、深みから浮かび上がる巨大な魚や亀が現在の世界秩序の成立に関与する。農場主の娘で鶏小屋になじんでいる小さな女の子が、「お星さまは、お月さまが産んだ卵なの？」と尋ねるとすれば、それは素朴な宇宙創成論がどのように形成されるかを示すすばらしい例である<a class="fr" href="#n12">12</a>。こうしてわれわれは、陶芸をきわめて早く高い段階にまで発達させた民族であるエジプト人のもとで、プタハ神がろくろの上で、そこから世界が発展する卵を形づくるのを見る<a class="fr" href="#n13">13</a>。世界の理解のための堅固な経験的基礎がまったく欠けている場合には、空想がよかれあしかれ必然的に隙間を埋め、欲求を満たさなければならないことを理解するには、自分自身の少年時代を思い出すだけでよい。</p>
+  <ol class="notes"><li id="n12"><span class="nn">12</span><p class="de" lang="de">Beobachtung meiner Schwester.</p><p class="jp" lang="ja">私の姉（妹）の観察による。</p></li><li id="n13"><span class="nn">13</span><p class="de" lang="de">Erman, Ägypten II, S. 352, 605 u. f.</p><p class="jp" lang="ja">エルマン『エジプト』第2巻、352、605頁以下。</p></li></ol>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;154</span><span>S.&nbsp;155</span></span></aside>
+  <p class="de" lang="de">13. Wer die Entwicklungsgeschichte der Wissenschaft kennt, oder wer an der Forschung teilgenommen hat, wird nicht bezweifeln, daß die wissenschaftliche Forscherarbeit eine recht starke Phantasie erfordert. Die Art der Phantasie ist allerdings etwas verschieden von jener des Künstlers, auf welche wir nachher noch zu sprechen <span class="pb" title="Leipzig 1906, S. 155">155</span>kommen. Betrachten wir zunächst die Tätigkeit des forschenden Experimentators in einigen Beispielen. Jedem Zeitgenossen Galileis war es bekannt, daß der Schall sich langsamer fortpflanzt als das Licht, da man das Aufschlagen des Hammers eines in der Entfernung arbeitenden Zimmermanns zuerst sieht und erst später hört. Hier dient das unvergleichlich schnellere Licht als Zeitmarke des Abganges des Schalles. Um die Lichtgeschwindigkeit zu bestimmen, ist dies Verfahren nicht anwendbar.</p>
+  <p class="jp" lang="ja">13. 科学の発展史を知る者、あるいは研究に参加したことのある者は、科学的な研究の仕事がかなり強い想像力を必要とすることを疑わないであろう。もっとも、その想像力の種類は、あとでなお論じる芸術家の想像力とはいくらか異なっている。まず、いくつかの例において、研究する実験家の活動を考察しよう。ガリレイの同時代人なら誰でも、音が光よりゆっくり伝わることを知っていた。遠くで働いている大工の金槌が打ち下ろされるのを、まず見てから、あとで聞くからである。ここでは比べものにならないほど速い光が、音の発信の時刻の目印として役立っている。光の速度を測るには、この手続きは用いられない。</p>
+</article>
+<article class="row" id="p13.2">
+  <aside class="mg"><a class="pid" href="#p13.2">13.2</a><span class="pg"><span>S.&nbsp;155</span></span></aside>
+  <p class="de" lang="de">Wie soll man die Zeit des Lichtabganges markieren? Galilei denkt sich das Licht von einem Beobachter A, bei plötzlich abgedeckter Laterne, einem fernen Beobachter B, und von diesem durch Abdeckung seiner Laterne wieder zum Beobachter A zurückgesendet, so daß A selbst sowohl die Abgangs- als Ankunftszeit bei Durchlaufen der Strecke 2AB markieren kann. Diese geniale Anordnung entstand durch die kombinierende, allen Bedingungen Rechnung tragende Phantasie. Vielleicht hat die Erinnerung an das Echo hierbei mitgewirkt. Obgleich Galilei selbst den Versuch wegen der großen Lichtgeschwindigkeit als unausführbar erkannte, so konnte doch Fizeau, mehr als 200 Jahre später, seine Phantasiearbeit fortsetzen. Er dachte sich statt des Beobachters B einen nach A zurückreflektierenden Spiegel, in A ein regelmäßig rotierendes Zahnrad, welches den Lichtabgang und die Lichtrückkehr in A gleich exakt markiert, in A und B Fernrohre zur Verminderung der Lichtverluste.</p>
+  <p class="jp" lang="ja">光の発信の時刻をどのように目印づけたらよいのか。ガリレイは、観測者 A が覆いを急に取ったランタンから遠くの観測者 B へと光を送り、B は自分のランタンの覆いを取ることによって再び A へと光を送り返すことを考える。そうすれば A 自身が、距離 2AB を進むときの発信と到着の時刻の両方を目印づけることができる。この天才的な配置は、あらゆる条件を考慮に入れる結合的な想像力によって生まれた。おそらくそこには、こだまの記憶もはたらいていたであろう。ガリレイ自身は光の速度が大きいためにこの実験を実行不可能と認めたが、二百年以上ものちにフィゾーがその想像力の仕事を継続することができた。彼は観測者 B のかわりに A へと反射して返す鏡を、A には光の発信と帰還を A において等しく正確に目印づける規則正しく回転する歯車を、そして光の損失を減らすために A と B に望遠鏡を考えたのである。</p>
+</article>
+<article class="row" id="p13.3">
+  <aside class="mg"><a class="pid" href="#p13.3">13.3</a><span class="pg"><span>S.&nbsp;155</span></span></aside>
+  <p class="de" lang="de">Das lebhafte Interesse für das Ziel hält die Associationen in Bewegung, und die Vergegenwärtigung der zu erfüllenden Bedingungen bewirkt die Auslese der für den Zweck brauchbaren Associationen, aus deren Kombination das Phantasieprodukt hervorgeht. Blitz und Knall des elektrischen Funkens erregen Franklin die Vermutung, daß Blitz und Donner elektrischer Natur seien. Es entsteht der lebhafte Wunsch, dieser vermuteten Elektrizität habhaft zu werden. Aber wie das anfangen? Eine leitende Stange reicht nicht; einen babylonischen Turm kann er nicht bauen. Da fällt ihm ein, daß es Papierdrachen gibt, welche im Winde steigen.</p>
+  <p class="jp" lang="ja">目標への生き生きとした関心が連合を動かし続け、満たすべき条件を思い浮かべることが、目的に役立つ連合の選択をもたらし、その組み合わせから想像力の産物が生まれる。電気火花の閃光と破裂音は、フランクリンに、稲妻と雷鳴が電気的な性質のものではないかという推測を呼び起こす。この推測された電気をつかまえたいという生き生きとした願いが生じる。しかしどうやってそれを始めたらよいのか。導電性の棒では届かない。バベルの塔を建てることもできない。そこで彼は、風に乗って昇る紙の凧があることを思いつく。</p>
+</article>
+<article class="row" id="p13.4">
+  <aside class="mg"><a class="pid" href="#p13.4">13.4</a><span class="pg"><span>S.&nbsp;155</span><span>S.&nbsp;156</span></span></aside>
+  <p class="de" lang="de">Er versieht einen solchen Drachen mit einer metallenen Spitze, mit einer Hanfschnur mit einem Schlüssel am unteren Ende, und läßt den Drachen bei Herannahen eines Gewitters steigen, indem er zwischen die Hanfschnur und seine Hand ein Stück einer <span class="pb" title="Leipzig 1906, S. 156">156</span>seidenen Schnur einschaltet. In der Tat wird die Hanfschnur durch den Regen leitend. Franklin kann aus dem Schlüssel Funken ziehen, mit denselben Flaschen laden, das „elektrische Feuer“ auf Flaschen füllen. Ein Fesselballon könnte heute den Drachen vertreten. — Von solchen durch die Phantasie herbeigeschafften Hilfsmitteln des Experimentes mögen noch erwähnt werden Newtons Kombination von Konvexlinse und Planglas, welche alle Farben dünner Plättchen zugleich darbietet und die jeder Farbe entsprechende Dicke leicht zu bestimmen gestattet, Sauveurs Reiter zum Nachweis der Schwingungsknoten, Wheatstones rotierender Spiegel, Königs akustische Flammenzeiger u. s. w.</p>
+  <p class="jp" lang="ja">彼はそのような凧に金属の先端をつけ、下端に鍵のついた麻ひもをつけ、麻ひもと自分の手のあいだに一片の絹ひもをはさんで、雷雨が近づくときに凧を揚げる。実際、麻ひもは雨によって導電性になる。フランクリンは鍵から火花を引き出し、それで瓶（ライデン瓶）を充電し、「電気の火」を瓶に詰めることができる。今日なら係留気球が凧の代わりを務めうるであろう。——想像力によってもたらされた実験のこのような補助手段として、さらに次のものを挙げておこう。薄い板のすべての色を同時に示し、各色に対応する厚さを容易に定めることを可能にする、凸レンズと平面ガラスとのニュートンの組み合わせ、振動の節を示すためのソヴールの紙の騎手、ホイートストンの回転鏡、ケーニヒの音響炎などである。</p>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;156</span></span></aside>
+  <p class="de" lang="de">14. Schon in den zuvor erwähnten Fällen der Lösung experimenteller Aufgaben, haben wir nicht bloß mit sinnlichen Vorstellungen zu tun, sondern auch mit Begriffen. Hat man sich einmal geläufige Begriffe erworben, welche durch Worte, Zeichen, Formeln, Definitionen fixiert sind, so stellen diese Begriffe eben auch Objekte des Gedächtnisses, der Erinnerung, der Phantasie vor. Man kann auch in Begriffen phantasieren, das Gebiet derselben an dem Faden der Association durchwühlen, und den Bedingungen der Aufgabe gemäß eine kombinierende Auslese treffen. Dies geschieht besonders bei Lösung einer der Theorie angehörigen Aufgabe, wenn man das Begriffsgebilde erschaut, welches alles durchleuchtet, den Schlüssel zur Lösung gibt.</p>
+  <p class="jp" lang="ja">14. すでに先に挙げた実験的課題の解決の場合にも、われわれは単に感性的表象を扱っているのではなく、概念をも扱っている。ひとたび語や記号や式や定義によって固定されたなじみの概念を身につけると、それらの概念もまた記憶や想起や空想の対象となる。人は概念においても空想することができ、連合の糸に沿って概念の領域を掘り返し、課題の条件に従って結合的な選択を行うことができる。このことはとりわけ理論に属する課題を解く際に起こる。すべてを照らし出し、解決の鍵を与える概念の形成物を見て取るときである。</p>
+</article>
+<article class="row" id="p14.2">
+  <aside class="mg"><a class="pid" href="#p14.2">14.2</a><span class="pg"><span>S.&nbsp;156</span></span></aside>
+  <p class="de" lang="de">Bei seinen hydrostatischen Untersuchungen bemerkt Stevin, daß die Erstarrung eines beliebigen Teiles der im Gleichgewicht befindlichen Flüssigkeit dieses Gleichgewicht nicht stört, dagegen eine Reihe hydrostatischer Aufgaben auf bereits gelöste Aufgaben der Statik starrer Körper zurückführt. — Die Keplerschen Gesetze sind gefunden, und Newton geht daran, das Rätsel derselben zu lösen. Die krumme Bahn der Planeten (Gesetz 1) weist ihn auf eine von einem Punkte innerhalb der Bahn ausgehende Anziehungskraft hin. Das für die Sonne gültige 2. Sektorengesetz bestimmt genauer die Sonne als diesen Punkt.</p>
+  <p class="jp" lang="ja">ステヴィンは流体静力学の研究において、釣り合っている液体の任意の部分を凝固させてもこの釣り合いは乱されないことに気づくが、それによって一連の流体静力学の課題を、剛体の静力学のすでに解かれた課題に帰着させる。——ケプラーの法則が見いだされ、ニュートンはその謎を解こうとする。惑星の曲がった軌道（第一法則）は、彼に、軌道の内部の一点から出る引力を示唆する。太陽について成り立つ第二の面積速度の法則は、この点が太陽であることをより詳しく規定する。</p>
+</article>
+<article class="row" id="p14.3">
+  <aside class="mg"><a class="pid" href="#p14.3">14.3</a><span class="pg"><span>S.&nbsp;156</span><span>S.&nbsp;157</span></span></aside>
+  <p class="de" lang="de">Das 3. Gesetz r³/t² = konst., wobei r die Entfernung, t die Umlaufszeit des Planeten bedeutet, stimmt mit dem Huygensschen Ausdruck für die Zentralbeschleunigung φ = 4r π²/t² nur, wenn φ = k/r². Eine dem Quadrat der Entfernung verkehrt proportionale Zentral<span class="pb" title="Leipzig 1906, S. 157">157</span>kraft löst also das ganze von Kepler aufgegebene Rätsel.<a class="fr" href="#n14">14</a> Die Gesetze der Reflexion und Brechung des Lichtes klären sich für Huygens durch die Vorstellung des Zusammenwirkens von Elementarwellen, deren Geschwindigkeit durch das Medium bestimmt ist. Die Malusschen quantitativen Gesetze der Lichtpolarisation, die Analogie der Farben doppeltbrechender Kristallplatten mit den Farben dünner Plättchen, die Biotschen Formeln für erstere, werden sämtlich aufgeklärt und in Zusammenhang gebracht durch die Young-Fresnelsche Konzeption der Transversalschwingungen des Lichtes in Verbindung mit dem Begriff der Kohärenz.</p>
+  <p class="jp" lang="ja">第三の法則 r³/t²＝一定（r は距離、t は惑星の公転周期）は、中心加速度についてのホイヘンスの表式 φ＝4rπ²/t² と、φ＝k/r² のときにのみ一致する。したがって、距離の二乗に反比例する中心力が、ケプラーによって課された謎全体を解くのである<a class="fr" href="#n14">14</a>。光の反射と屈折の法則は、ホイヘンスにとって、その速度が媒質によって規定される素元波の協働という表象によって明らかになる。光の偏光についてのマリュスの量的法則、複屈折結晶板の色と薄い板の色との類似、前者についてのビオの式は、すべて、光の横振動というヤング＝フレネルの構想と干渉性（コヒーレンス）の概念との結合によって解明され、連関づけられる。</p>
+  <ol class="notes"><li id="n14"><span class="nn">14</span><p class="de" lang="de">Mechanik, 5. Aufl. 1904. S. 88, 195.</p><p class="jp" lang="ja">『力学』第5版、1904年、88、195頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;157</span></span></aside>
+  <p class="de" lang="de">15. Das Gesetz der Association hat sich ausreichend gezeigt, die hier betrachtete Tätigkeit der wissenschaftlichen Phantasie zu durchleuchten. Die künstlerische Phantasie weist aber in ihren Äußerungen gewisse Eigentümlichkeiten auf, zu deren Darstellung wir etwas weiter ausholen müssen. Die Association beschränkt sich nicht auf die Vorgänge des Bewußtseins, auf die Vorstellungen. Überhaupt alle Vorgänge des Organismus, welche öfter miteinander aufgetreten sind, zeigen eine Tendenz sich dauernd zu verbinden. So associieren sich Bewegungen durch Übung miteinander, es treten auch associativ Sekretionen auf u. s. w. Die Association ist die temporär erworbene Verbindung verschiedener organischer Funktionen miteinander, die temporär erworbene Erregung einer organischen Tätigkeit durch eine andere, die zeitliche Anpassung der Teile des Organismus aneinander im Dienste des Ganzen und durch die Umstände des individuellen Lebens.</p>
+  <p class="jp" lang="ja">15. 連合の法則は、ここで考察した科学的想像力の活動を照らし出すのに十分であることが示された。しかし芸術的想像力は、その発現においてある種の特性を示し、それを述べるにはいくらか遠くから説き起こさなければならない。連合は意識の過程、すなわち表象に限られない。総じて、しばしば一緒に現れた有機体のあらゆる過程は、持続的に結びつく傾向を示す。こうして運動は練習によって互いに連合し、分泌も連合的に生じる、等々。連合とは、さまざまな有機的機能どうしの一時的に獲得された結合であり、ある有機的活動による他の活動の一時的に獲得された興奮であり、全体のために、また個体の生活の事情によって、有機体の諸部分が互いに一時的に適応することである。</p>
+</article>
+<article class="row" id="p15.2">
+  <aside class="mg"><a class="pid" href="#p15.2">15.2</a><span class="pg"><span>S.&nbsp;157</span><span>S.&nbsp;158</span></span></aside>
+  <p class="de" lang="de">Allein die Verbindung der Organe, welche eine solche Wechselwirkung ermöglicht, entsteht nicht erst durch das individuelle Leben, sondern sie ist dem Organismus schon als ererbter Besitz wenigstens großenteils auf den Lebensweg mitgegeben. Hiermit ist schon ein Bestand von Wechselwirkung gegeben (z. B. die Reflexbewegungen), welcher Bestand im Laufe der organischen Entwicklung (Pubertät) noch weiter sich vermehrt, und der durch die temporären Erwerbungen des individuellen Lebens nur modifiziert werden kann. Mit den temporär erworbenen Associationen allein kann also die Psychologie nicht für alle Fälle <span class="pb" title="Leipzig 1906, S. 158">158</span>auskommen.<a class="fr" href="#n15">15</a> Das Leben auf Grund bloßer Associationen im gewöhnlichen Sinn wäre gar nicht möglich. Wir haben ferner zu bedenken, daß die Organe zwar für einander da sind und einander dienen, daß aber jedes doch auch sein besonderes selbständiges Leben führt.</p>
+  <p class="jp" lang="ja">しかし、このような相互作用を可能にする器官の結合は、個体の生活によってはじめて生じるのではなく、少なくとも大部分は遺伝された所有物としてすでに有機体に人生の道連れとして与えられている。それによってすでに相互作用の一定の蓄え（たとえば反射運動）が与えられており、この蓄えは有機的発達の過程（思春期）でさらに増していき、個体の生活の一時的な獲得物によって修正されうるにすぎない。したがって心理学は、一時的に獲得された連合だけではすべての場合に間に合うことはできない<a class="fr" href="#n15">15</a>。通常の意味での単なる連合にもとづく生活はまったく不可能であろう。さらにわれわれは、器官はたしかに互いのために存在し互いに仕えているが、それぞれがやはり固有の自立した生活をも営んでいることを考えなければならない。</p>
+  <ol class="notes"><li id="n15"><span class="nn">15</span><p class="de" lang="de">Analyse u. s. w. S. 185.</p><p class="jp" lang="ja">『感覚の分析』185頁。</p></li></ol>
+</article>
+<article class="row" id="p15.3">
+  <aside class="mg"><a class="pid" href="#p15.3">15.3</a><span class="pg"><span>S.&nbsp;158</span></span></aside>
+  <p class="de" lang="de">Dieses Leben äußert sich in dessen spezifischen Energieen,<a class="fr" href="#n16">16</a> die zwar durch die Erregung von außen oder durch andere Organe modifiziert werden können, im ganzen aber einen bestimmten Charakter haben, und die sich gelegentlich auch selbständig bemerklich machen. So kann das Gesichts- oder Gehörsorgan, oder jedes andere Sinnesorgan die Empfindungen, welche es gewöhnlich unter dem Einfluß physikalischer Reize entwickelt, unter eigentümlichen noch näher zu erforschenden Lebensbedingungen selbständig als Hallucinationen produzieren, so kann die Hirnrinde fixe Ideen produzieren, so kann ein Muskel auch ohne willkürliche Innervation sich kontrahieren, eine Drüse ohne den gewöhnlichen Anlaß secernieren. Die Hallucinationen sind es ja, die uns recht eigentlich die Empfindungen als Zustände des eigenen Leibes kennen lehren. Die einseitige Überschätzung dieser Erkenntnis dient dann ebenso einseitigen philosophischen (solipsistischen) Systemen zur Grundlage.</p>
+  <p class="jp" lang="ja">この生活はその器官の特殊エネルギー<a class="fr" href="#n16">16</a>のうちに現れる。それは外からの興奮や他の器官によって修正されうるが、全体としては一定の性格をもち、ときには自立的にも目立つ。こうして視覚器官や聴覚器官、あるいは他のどの感覚器官も、ふつうは物理的刺激の影響のもとで展開する感覚を、まだ詳しく研究されるべき独特の生活条件のもとで、幻覚として自立的に生み出しうる。こうして大脳皮質は固定観念を生み出しうるし、筋肉は随意の神経支配なしにも収縮し、腺はいつものきっかけなしに分泌しうる。まさに幻覚こそが、感覚を自分自身の身体の状態として本当に教えてくれるのである。この認識の一面的な過大評価が、同じく一面的な哲学的（独我論的）体系の基礎となる。</p>
+  <ol class="notes"><li id="n16"><span class="nn">16</span><p class="de" lang="de">Hier ist die von Johannes Müller aufgestellte, von Hering weiter entwickelte Theorie gemeint.</p><p class="jp" lang="ja">ここではヨハネス・ミュラーが立て、ヘーリングがさらに発展させた理論を指している。</p></li></ol>
+</article>
+<h2 class="sec" id="s16"><a href="#s16">§ 16</a></h2>
+<article class="row" id="p16.1">
+  <aside class="mg"><a class="pid" href="#p16.1">16.1</a><span class="pg"><span>S.&nbsp;158</span></span></aside>
+  <p class="de" lang="de">16. Die Gesichtshallucinationen, in welchen sich die selbständigen spontanen Lebensäußerungen des Gesichtssinns aussprechen, hat Johannes Müller<a class="fr" href="#n17">17</a> eingehend studiert und anschaulich beschrieben. Lebhaft gefärbte Gestalten, z. B. von Pflanzen, Tieren, Menschen, treten im Gesichtsfelde auf und ändern sich ohne unser Zutun durch allmähliche Umbildung. Diese Gestalten sind Neubildungen, keine Erinnerungsbilder vorher gesehener Objekte, und nicht durch Gedanken an diese hervorgerufen. Der Wille hat keinen nachweisbaren Einfluß auf dieselben. Müller benützt den Anlaß, um die Wertlosigkeit der Associationsgesetze zu betonen. Das ist aber entschieden zu weit gegangen. Gewiß kann, was spontan hervortritt, sich auch spontan ändern. Die Phantasmen widersprechen aber nicht den Associationsgesetzen, wenn deren Bildung auch nicht nach denselben allein verständlich ist; sie gehören eben einer andern Klasse von Erscheinungen an. Dafür sind uns die Associationsgesetze in vielen Gebieten wertvolle Führer. Es gibt übrigens eine Art von Phantasmen, die sich an unmittelbar zuvor Gesehenes genauer anschließen; es sind die besonders von Fechner<a class="fr" href="#n18">18</a> beschriebenen Erscheinungen des Sinnengedächtnisses. Wenn wir uns mit einer Art von Gesichtsobjekten andauernd beschäftigt haben, so treten uns die Bilder derselben, namentlich im Halbdunkel, blitzartig, aber ohne Änderung und mit voller Objektivität entgegen.</p>
+  <p class="jp" lang="ja">16. 視覚の自立的で自発的な生命の発現が現れている視覚的幻覚を、ヨハネス・ミュラー<a class="fr" href="#n17">17</a>は詳しく研究し、生き生きと記述している。鮮やかに彩られた形、たとえば植物や動物や人間の形が視野に現れ、われわれの関与なしにしだいに作り変えられて変化していく。これらの形は新しい形成物であり、以前に見た対象の記憶像ではなく、それについての思考によって呼び起こされたものでもない。意志はそれに対して証明できる影響をもたない。ミュラーはこの機会に連合の法則の無価値さを強調している。しかしそれは確かに行き過ぎである。もちろん、自発的に現れるものは自発的に変化することもありうる。しかし幻像は、その形成がそれだけで理解できるわけではないとしても、連合の法則に矛盾するわけではない。それはまさに別の種類の現象に属するのである。そのかわり連合の法則は、多くの領域でわれわれにとって貴重な導き手である。ちなみに、直前に見たものにより正確に結びつく種類の幻像もある。それはとりわけフェヒナー<a class="fr" href="#n18">18</a>が記述した感官記憶の現象である。ある種の視覚対象に長く取り組んでいると、その像が、とりわけ薄暗がりのなかで、稲妻のように、しかし変化せず、完全な客観性をもってわれわれの前に現れる。</p>
+  <ol class="notes"><li id="n17"><span class="nn">17</span><p class="de" lang="de">J. Müller, Über die phantastischen Gesichtserscheinungen. Koblenz 1826. — F. P. Gruithuisen, Beiträge zur Physiognosie und Eautognosie. München 1812, S. 202—296.</p><p class="jp" lang="ja">J. ミュラー『幻想的な視覚現象について』コブレンツ、1826年。——F. P. グルイトゥイゼン『生理認識と自己認識のための寄与』ミュンヘン、1812年、202–296頁。</p></li><li id="n18"><span class="nn">18</span><p class="de" lang="de">Fechner, Elemente der Psychophysik. Leipzig 1860. II. S. 498. — Vgl. ferner Analyse der Empfindungen S. 157.</p><p class="jp" lang="ja">フェヒナー『精神物理学要綱』ライプツィヒ、1860年、第2巻、498頁。——さらに『感覚の分析』157頁参照。</p></li></ol>
+</article>
+<article class="row" id="p16.2">
+  <aside class="mg"><a class="pid" href="#p16.2">16.2</a><span class="pg"><span>S.&nbsp;159</span></span></aside>
+  <p class="de" lang="de">Diese sind den zuvor gesehenen Objekten sehr ähnlich, wenn auch vielleicht nicht mit denselben identisch.<a class="fr" href="#n19">19</a> Wenn wir Objekte bei schwacher Beleuchtung durch Illusion modifiziert sehen, so deutet dies darauf, daß die extremen Prozesse: spontane Phantasmen und durch physikalische Reize bestimmte Bilder in allen Verhältnissen kombiniert vorkommen können. Ebenso scheinen alle Zwischenstufen zwischen Empfindung und Vorstellung zu bestehen. Halten wir nun fest, daß eine Vorstellung gewöhnlich durch die andere erregt wird, unter besonderen Umständen aber auch spontan hervortreten kann, so wird dies mit den bisher bekannten Tatsachen in gutem Einklang stehen.<a class="fr" href="#n20">20</a></p>
+  <p class="jp" lang="ja">それらは先に見た対象にきわめて似ているが、それと同一ではないかもしれない<a class="fr" href="#n19">19</a>。弱い照明のもとで対象が錯覚によって変形されて見えるとき、それは、自発的な幻像と物理的刺激によって規定された像という両極端の過程が、あらゆる割合で組み合わさって生じうることを示している。同様に、感覚と表象とのあいだにもあらゆる中間段階が存在するように見える。さて、表象はふつう他の表象によって引き起こされるが、特別な事情のもとでは自発的にも現れうる、ということを確認しておけば、それはこれまで知られている事実とよく調和するであろう<a class="fr" href="#n20">20</a>。</p>
+  <ol class="notes"><li id="n19"><span class="nn">19</span><p class="de" lang="de">Oelzelt-Newin, Über Phantasie-Vorstellungen, Graz 1889, S. 12 berichtet, daß er, nachdem er von Schlangen belästigt, viele getötet hatte, in der folgenden schlaflosen Nacht fortwährend von deren objektiv erscheinenden Bildern und Bewegungen verfolgt war. Ähnliches widerfuhr mir, als ich mehrere Tage mit Spinnen experimentierte. Ich sah sie im Traume mich umkriechen. Als ich einen jungen Sperling mit Heuschrecken auffütterte, kam einmal im Traum eine Heuschrecke von Menschengröße wie drohend auf mich zugekrochen, als wollte sie sagen: Raum für alle hat die Erde, was verfolgst du meine Herde?</p><p class="jp" lang="ja">エルツェルト＝ネーヴィン『空想表象について』グラーツ、1889年、12頁は、蛇に悩まされて多くを殺したのち、次の眠れぬ夜にたえずその客観的に現れる像と動きに追いかけられたと報告している。似たことが、私が数日間蜘蛛で実験したときに私にも起こった。夢のなかで蜘蛛が私のまわりを這い回るのを見たのである。若い雀をバッタで育てていたとき、あるとき夢のなかで人間ほどの大きさのバッタが、まるで「大地には万物のための場所がある、なぜわが群れを追うのか」とでも言いたげに、威嚇するように這い寄ってきた。</p></li><li id="n20"><span class="nn">20</span><p class="de" lang="de">Analyse. S. 159.</p><p class="jp" lang="ja">『感覚の分析』159頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s17"><a href="#s17">§ 17</a></h2>
+<article class="row" id="p17.1">
+  <aside class="mg"><a class="pid" href="#p17.1">17.1</a><span class="pg"><span>S.&nbsp;159</span><span>S.&nbsp;160</span></span></aside>
+  <p class="de" lang="de">17. Sogenannte frei steigende Vorstellungen, plötzliche lebhafte Erinnerungen an einmal Gesehenes, an irgendwann gehörte Melodieen u. s. w., ohne daß man den associativen Anknüpfungspunkt in den vorausgehenden Gedanken oder in der augen<span class="pb" title="Leipzig 1906, S. 160">160</span>blicklichen Situation aufzufinden vermag, hat wohl jeder schon beobachtet. Herbart kannte die Erscheinung und suchte sie in seiner Weise zu erklären. Dieselbe scheint den Hallucinationen verwandt zu sein. Wenn man aber die Association in einem weiteren Sinne nimmt, wenn man sich vorstellt, daß eine Associationsreihe auch mit unbewußten Vorgängen beginnen oder endigen kann, so hat man nicht nötig, jede scheinbar frei steigende Vorstellung als die Associationsgesetze wirklich durchbrechend anzusehen. Mit denselben körperlichen bewußten oder unbewußten Zuständen können auch dieselben Vorstellungen sich einstellen. Diese Auffassung scheint mir die interessanten Beobachtungen von Swoboda<a class="fr" href="#n21">21</a> von einer neuen Seite zu beleuchten und mit den Ansichten von R. Semon<a class="fr" href="#n22">22</a> gut zu stimmen.</p>
+  <p class="jp" lang="ja">17. いわゆる自由に浮かぶ表象、すなわち、先行する思考のうちにも、そのときの状況のうちにも連合のきっかけを見いだすことができないのに、一度見たものや、いつか聞いた旋律などを突然生き生きと思い出すことは、誰でもすでに観察したことがあるであろう。ヘルバルトはこの現象を知っており、彼なりの仕方でそれを説明しようとした。それは幻覚と類縁のものであるように見える。しかし連合をより広い意味にとり、連合の系列が無意識の過程で始まったり終わったりしうると考えるならば、見かけ上自由に浮かぶ表象をすべて、本当に連合の法則を破るものとみなす必要はない。同じ身体的な、意識的あるいは無意識的な状態とともに、同じ表象が現れることもありうる。この把握は、スヴォボダ<a class="fr" href="#n21">21</a>の興味深い観察を新しい側面から照らし出し、R. ゼーモン<a class="fr" href="#n22">22</a>の見解ともよく一致するように私には思われる。</p>
+  <ol class="notes"><li id="n21"><span class="nn">21</span><p class="de" lang="de">Swoboda, Die Perioden des menschlichen Organismus. Wien 1904. Eine genaue Periodicität konnte ich an mir nicht beobachten, wiewohl mir die Erscheinung der frei steigenden Vorstellungen häufig vorkommt. Vielleicht zeigt sich die scharfe Periodicität nur bei sehr sensiblen Individuen.</p><p class="jp" lang="ja">スヴォボダ『人間の有機体の周期』ウィーン、1904年。自由に浮かぶ表象の現象は私にしばしば起こるが、正確な周期性を自分に観察することはできなかった。おそらく鋭い周期性はきわめて敏感な個人にのみ現れるのであろう。</p></li><li id="n22"><span class="nn">22</span><p class="de" lang="de">Semon, Mneme. Leipzig 1904.</p><p class="jp" lang="ja">ゼーモン『ムネーメ』ライプツィヒ、1904年。</p></li></ol>
+</article>
+<h2 class="sec" id="s18"><a href="#s18">§ 18</a></h2>
+<article class="row" id="p18.1">
+  <aside class="mg"><a class="pid" href="#p18.1">18.1</a><span class="pg"><span>S.&nbsp;160</span></span></aside>
+  <p class="de" lang="de">18. Als Merkmal der künstlerisch produzierenden Phantasie wird gewöhnlich die spontane mühelose Neubildung ihrer Schöpfungen angesehen, welche die einfache Nachahmung des Erlebten ausschließt. Hierzu kommt die Plötzlichkeit, mit der wenigstens die Grundzüge der Schöpfung sich entweder geradezu als Hallucination oder in nahe verwandter Form dem Künstler darbieten. In den Schriften über Phantasie, namentlich in dem oben zitierten originellen und ansprechenden Buch von Oelzelt-Newin, werden zahlreiche Beispiele dieser Art angeführt. Um aber nicht als Regel anzusehen, was zuweilen eintreten mag, und um nicht Übertreibungen an Stelle nüchterner wissenschaftlicher Auffassung zu setzen, frage man sich, ob man es für möglich hält, daß ein Beethoven oder Raphael unter Wilden aufgetreten wäre?</p>
+  <p class="jp" lang="ja">18. 芸術的に生産する想像力の特徴としてふつう挙げられるのは、その創造物が自発的に苦労なく新たに形成されることであり、それは体験したものの単純な模倣を排除する。そこに加わるのが、少なくとも創造物の大筋が、まさしく幻覚として、あるいはそれに近い形で、芸術家に与えられるときの突然性である。想像力についての著作、とりわけ上に引用したエルツェルト＝ネーヴィンの独創的で魅力的な本には、この種の例が数多く挙げられている。しかし、ときに起こりうることを規則とみなさないために、また冷静な科学的把握のかわりに誇張を置かないために、ベートーヴェンやラファエロが未開人のあいだに現れることがありえたと思うかどうかを、自分に問うてみるがよい。</p>
+</article>
+<article class="row" id="p18.2">
+  <aside class="mg"><a class="pid" href="#p18.2">18.2</a><span class="pg"><span>S.&nbsp;160</span><span>S.&nbsp;161</span></span></aside>
+  <p class="de" lang="de">Da wird man sofort fühlen, daß der ganze Charakter der Schöpfungen solcher Künstler gar sehr von der vorausgehenden Kunst, also von deren Erlebnissen mit bestimmt ist.<a class="fr" href="#n23">23</a> Die hallucinatorische Form ihrer Inspirationen zugegeben, müssen wir auch diese als abhängig von dem Erlebten betrachten. Nun kommt <span class="pb" title="Leipzig 1906, S. 161">161</span>noch die Detailarbeit hinzu, welche von der wissenschaftlichen Detailarbeit sich kaum durch anderes unterscheiden wird, als durch den mehr sinnlichen, weniger abstrakten Charakter. Wer sich eine Schumannsche Symphonie oder ein Heinesches Gedicht genau zu Gemüte führt, erkennt darin die Spuren der älteren Kunst. Ja man wird zugeben, daß ein guter Teil des Reizes dieser Werke in der überraschenden Variation alter Wendungen besteht, welche uns angenehm enttäuschen. Ohne das ältere Trivialere konnten sie weder entstehen, noch verstanden werden.<a class="fr" href="#n24">24</a></p>
+  <p class="jp" lang="ja">そうすれば、そのような芸術家の創造物の性格全体が、先行する芸術によって、したがって彼らの体験によって大いに規定されていることがすぐに感じられるであろう<a class="fr" href="#n23">23</a>。彼らの霊感が幻覚の形をとることを認めるとしても、われわれはそれもまた体験されたものに依存するものとみなさなければならない。さらにそこに細部の仕事が加わるが、それは科学的な細部の仕事とは、より感性的で抽象的でない性格によってしか区別されないであろう。シューマンの交響曲やハイネの詩をよく味わってみる者は、そのうちに古い芸術の痕跡を認める。それどころか、これらの作品の魅力のかなりの部分は、われわれを快く裏切る古い言い回しの意外な変奏のうちにあることを認めるであろう。古くよりありふれたものがなければ、それらは生まれることも理解されることもできなかったのである<a class="fr" href="#n24">24</a>。</p>
+  <ol class="notes"><li id="n23"><span class="nn">23</span><p class="de" lang="de">Sehr gesunde und nüchterne Ansichten hierüber bei R. Wallaschek, Anfänge der Tonkunst. Leipzig 1903, insbesondere S. 291 u. f.</p><p class="jp" lang="ja">これについてのきわめて健全で冷静な見解が、R. ヴァラシェク『音楽の始まり』ライプツィヒ、1903年、とくに291頁以下にある。</p></li><li id="n24"><span class="nn">24</span><p class="de" lang="de">Vgl. die reizende kleine Schrift von E. Kulke, Über die Umbildung der Melodie. Prag 1884. – Analoge Betrachtungen lassen sich über die Umbildung der Harmonie anstellen. Um nur ein Beispiel zu nennen, sei auf den Gang im Fliegenden Holländer, Balladenszene und Ouverture hingewiesen, in welchem die Dreiklänge: F-Dur, Es-Dur, D-Moll, noch dazu mit auffallender Mißachtung des Quintenverbotes sich folgen. Es liegt hier eine geringe Modifikation des trivialen Ganges vor: F-Dur-Dreiklang, Dominant-Septimenakkord, F-Dur-Dreiklang, und gerade darin besteht der Reiz.</p><p class="jp" lang="ja">E. クルケのすばらしい小著『旋律の変形について』プラハ、1884年を参照。——和声の変形についても類似の考察を行うことができる。一例だけ挙げれば、『さまよえるオランダ人』のバラードの場面と序曲における進行を指摘しておこう。そこではヘ長調、変ホ長調、ニ短調の三和音が、しかも連続五度の禁止を目立って無視しながら続いていく。ここにはヘ長調の三和音、属七の和音、ヘ長調の三和音というありふれた進行のわずかな変形があり、まさにそこに魅力があるのである。</p></li></ol>
+</article>
+<h2 class="sec" id="s19"><a href="#s19">§ 19</a></h2>
+<article class="row" id="p19.1">
+  <aside class="mg"><a class="pid" href="#p19.1">19.1</a><span class="pg"><span>S.&nbsp;161</span></span></aside>
+  <p class="de" lang="de">19. Kann nun eine wissenschaftliche Entdeckung mit einem hallucinatorischen Blick beginnen? Vielleicht ist Goethes Metamorphose der Pflanzen so eingeleitet worden. Seltene Ausnahmen kann man nicht ausschließen; im allgemeinen wird aber hier das gelten, was über die Traumphantasmen (S. 38) gesagt wurde. Ich bin mit Hallucinationen und Traumphantasmen aus eigener Erfahrung wohl vertraut, und mir ist manches optische und musikalische Phantasma vorgekommen, das einer künstlerischen Verwendung wohl fähig gewesen wäre. Dagegen kenne ich keinen Fall einer hallucinatorischen wissenschaftlichen Entdeckung, weder unter den großen klassischen historischen Beispielen, noch aus der eigenen Erfahrung.<a class="fr" href="#n25">25</a> Die Fälle sind ja nicht selten, daß sich plötzlich eine Perspektive eröffnet, wie ein Problem zu lösen ist, und ich habe selbst solche erlebt.</p>
+  <p class="jp" lang="ja">19. では、科学的発見が幻覚的な一瞥とともに始まることはありうるだろうか。おそらくゲーテの『植物の変態』はそのようにして始まったのであろう。まれな例外を排除することはできない。しかし一般には、ここでは夢の幻像について（38頁）述べたことが当てはまるであろう。私は自分の経験から幻覚や夢の幻像によく通じており、芸術的に十分利用できたであろうような視覚的あるいは音楽的な幻像も少なからず経験した。これに対して、大きな古典的な歴史上の例のなかにも、自分自身の経験のなかにも、幻覚的な科学的発見の例を私は一つも知らない<a class="fr" href="#n25">25</a>。ある問題をどう解けばよいかの見通しが突然開けるという場合はまれではなく、私自身もそのような経験をしたことがある。</p>
+  <ol class="notes"><li id="n25"><span class="nn">25</span><p class="de" lang="de">Es wird erzählt, daß Kekulé seinen Benzolring als Hallucination im Londoner Nebel erschaut hätte, allein sein eigener schlichter Bericht über seine spekulative Beschäftigung in London und Gent spricht durchaus nicht für diese Auffassung. (Berichte d. Deutschen chem. Gesellschaft, 23. Jahrg., 1890, S. 1306 u. f.)</p><p class="jp" lang="ja">ケクレはベンゼン環をロンドンの霧のなかで幻覚として見たと語られているが、ロンドンとゲントでの自分の思弁的な取り組みについての彼自身の飾らない報告は、けっしてこの把握を支持しない。（『ドイツ化学会報告』第23年、1890年、1306頁以下。）</p></li></ol>
+</article>
+<article class="row" id="p19.2">
+  <aside class="mg"><a class="pid" href="#p19.2">19.2</a><span class="pg"><span>S.&nbsp;161</span><span>S.&nbsp;162</span></span></aside>
+  <p class="de" lang="de">Sieht man aber genau nach, so findet man, daß hier immer eine lange mühsame Arbeit, ein Durchwühlen des Gebietes vorausgegangen ist, oder daß man mühelos spielend, aber von einem bestimmt gerichteten <span class="pb" title="Leipzig 1906, S. 162">162</span>Interesse beherrscht, Daten gesammelt hat, die sich mit einem letzten Fund zu einem Ganzen schließen. Warum verhält sich nun Kunst und Wissenschaft in diesem Punkt so verschieden? Ich glaube der Grund ist leicht anzugeben. Die Kunst bleibt überwiegend sinnlich und wendet sich hauptsächlich an einen Sinn. Jeder Sinn kann für sich hallucinieren. Die Wissenschaft aber bedarf der Begriffe. Gibt es Begriffshallucinationen? Wie könnten sie zu stande kommen? Welchen Sinn könnte es haben, die letzte menschliche intellektuelle Erwerbung, den wissenschaftlichen Begriff, welcher seiner Natur nach durch bewußte absichtliche Arbeit entstanden ist, als Geschenk von dem unbewußten Organischen zu erwarten?</p>
+  <p class="jp" lang="ja">しかし詳しく調べてみると、そこにはつねに長く骨の折れる仕事、その領域を掘り返すことが先行していたか、あるいは、苦労なく遊びながらではあっても、一定の方向に向けられた関心に支配されて、最後の発見によって一つの全体へと閉じるデータを集めていたことが分かる。では、なぜ芸術と科学はこの点でかくも異なるふるまいをするのか。その理由は容易に挙げられると私は思う。芸術はおもに感性的なものにとどまり、主として一つの感官に向かう。どの感官もそれだけで幻覚を生じうる。しかし科学は概念を必要とする。概念の幻覚というものがあるだろうか。それはどのようにして生じうるのか。人間の最後の知的獲得物であり、その本性上、意識的で意図的な仕事によって生じた科学的概念を、無意識の有機的なものからの贈り物として期待することに、どんな意味がありうるだろうか。</p>
+</article>
+<h2 class="sec" id="s20"><a href="#s20">§ 20</a></h2>
+<article class="row" id="p20.1">
+  <aside class="mg"><a class="pid" href="#p20.1">20.1</a><span class="pg"><span>S.&nbsp;162</span></span></aside>
+  <p class="de" lang="de">20. Betrachten wir zum Schluß noch einmal das Verhältnis des Begriffes zur Anschauung und Empfindung. Der Vorteil geläufiger, selbst erworbener, nicht bloß durch Worte oder Lektüre übertragener Begriffe besteht in der leichten Erweckbarkeit der in denselben potentiell enthaltenen Anschauungen und Empfindungen, welche letzteren man ebenso leicht wieder in Begriffen aufzuspeichern vermag. Ein triviales Beispiel soll dies erläutern. Wir denken an die etwa 3600 Jahre zurückliegende Zeit der Pharaonen, aus welcher wir noch historische Nachrichten haben. Diese 3600 Jahre sind fast nur „flatus vocis“, solange wir sie nicht in Anschaulicheres umsetzen.</p>
+  <p class="jp" lang="ja">20. 最後にもう一度、概念と直観および感覚との関係を考察しよう。なじんだ、自分で獲得した、単に言葉や読書によって伝えられたのではない概念の利点は、そのうちに潜在的に含まれている直観や感覚を容易に呼び覚ませることにあり、その直観や感覚をまた同じく容易に概念のうちに蓄えることができる。ありふれた例でこれを説明しよう。われわれは、今日もなお歴史的な知らせが残っている、およそ三千六百年前のファラオの時代を考える。この三千六百年は、それをもっと直観的なものに置き換えないかぎり、ほとんど「声の息（flatus vocis）」にすぎない。</p>
+</article>
+<article class="row" id="p20.2">
+  <aside class="mg"><a class="pid" href="#p20.2">20.2</a><span class="pg"><span>S.&nbsp;162</span></span></aside>
+  <p class="de" lang="de">Denken wir uns aber einen alten Ägypter von 60 Jahren, der einen Sohn erzeugt; dieser tut desgleichen im gleichen Alter u. s. f., so gehört der sechzigste Nachkomme dieser Reihe, die wir leicht an der Wand eines mäßigen Zimmers aufgestellt denken können, schon der Gegenwart an. Die Pharaonenzeit rückt uns hiermit bedenklich nahe, und wir wundern uns nicht mehr, daß noch so viel Barbarei auf uns lastet. Wer an seine braven Vorfahren denkt oder sich gern die schöne Zukunft seiner Nachkommen ausmalt, der setze seine anschaulichen Vorstellungen umgekehrt in Begriffe um. Jeder hat 2 Eltern, 4 Großeltern, 8 Urgroßeltern, und kommt so fortrechnend in wenigen Jahrhunderten zu einer Volkszahl, welche kein Land zu fassen vermag.</p>
+  <p class="jp" lang="ja">しかし、六十歳で息子をもうける古代エジプト人を考え、その息子も同じ年齢で同じことをし、等々と考えてみよう。そうすると、この系列の六十番目の子孫——この系列は、ほどほどの広さの部屋の壁ぞいに並んでいると容易に考えられる——は、もう現代に属することになる。ファラオの時代はそれによってわれわれにぎょっとするほど近づき、なおかくも多くの野蛮がわれわれにのしかかっていることにもはや驚かなくなる。自分の立派な先祖を思う者、あるいは子孫の美しい未来を好んで思い描く者は、逆に自分の直観的表象を概念に置き換えてみるがよい。誰にも二人の両親、四人の祖父母、八人の曽祖父母がおり、こうして数えていくと、わずか数世紀で、どの国にも収まりきらないほどの人数に達する。</p>
+</article>
+<article class="row" id="p20.3">
+  <aside class="mg"><a class="pid" href="#p20.3">20.3</a><span class="pg"><span>S.&nbsp;162</span><span>S.&nbsp;163</span></span></aside>
+  <p class="de" lang="de">Da nun um so weniger jeder seine besonderen eigenen braven Vorfahren haben kann, so muß er sich damit zufrieden geben unter den gemeinsamen Vorfahren eine Unmasse von Dieben, Mördern u. s. w. zu seiner Ver<span class="pb" title="Leipzig 1906, S. 163">163</span>wandtschaft zu rechnen, mit deren psychischen Erbschaften er sich abfinden muß. Wer bescheiden 3 Kinder hinterläßt, die desgleichen tun u. s. f., dessen Nachkommen würden in wenigen Jahrhunderten die Erde füllen. Es folgt, daß die meisten derselben im Kampf ums Dasein, der gewiß nicht immer mit den edelsten Mitteln geführt werden wird, umkommen müssen. Vielleicht wird dieses einfache Beispiel der Umsetzung der Begriffe in Anschauungen und umgekehrt den Gedanken nahe legen, daß die exzessive rücksichtslose egoistische Sorge für die eigenen Nachkommen auf einer Illusion beruht und besser durch die Sorge für die Menschheit ersetzt werden sollte.</p>
+  <p class="jp" lang="ja">そうなると、誰もが自分だけの特別な立派な先祖をもつことはなおさらできないのだから、共通の先祖のなかの膨大な数の泥棒や人殺しなどを自分の親類に数えることで満足しなければならず、その心的な遺産と折り合いをつけなければならない。控えめに三人の子どもを残し、その子どもたちも同じようにし、等々とすれば、その子孫はわずか数世紀で地球を満たしてしまうであろう。したがって、その大部分は、確かにいつも最も高貴な手段で行われるとはかぎらない生存競争のなかで滅びなければならないことになる。概念を直観に、またその逆に置き換えるこの単純な例が、自分の子孫に対する過度で容赦のない利己的な配慮は錯覚にもとづいており、人類に対する配慮によって置き換えられるほうがよい、という考えを示唆してくれるかもしれない。</p>
+</article>
+<h2 class="sec" id="s21"><a href="#s21">§ 21</a></h2>
+<article class="row" id="p21.1">
+  <aside class="mg"><a class="pid" href="#p21.1">21.1</a><span class="pg"><span>S.&nbsp;163</span></span></aside>
+  <p class="de" lang="de">21. Der Besitzer eines reich gegliederten, seinen Interessen Rechnung tragenden Begriffsystems, das er durch Sprache, Erziehung und Unterricht sich zu eigen gemacht hat, erfreut sich großer Vorteile gegenüber dem auf bloße Wahrnehmungen Angewiesenen. Wem aber die Fähigkeit fehlen würde, sinnliche Vorstellungen rasch und geläufig in Begriffe umzusetzen und umgekehrt, der könnte gelegentlich auch durch seine Begriffe irregeführt werden; dieselben könnten dann für ihn zu einer bloßen Belastung mit Vorurteilen werden.</p>
+  <p class="jp" lang="ja">21. 言語、教育、授業によって身につけた、豊かに分節され自分の関心に配慮した概念体系の所有者は、単なる知覚に頼っている者に対して大きな利点を享受する。しかし、感性的表象をすばやくなめらかに概念に置き換え、またその逆を行う能力を欠いている者は、ときに自分の概念によって誤らされることもありうる。そのとき概念は彼にとって、単なる先入見の重荷となりうるのである。</p>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§12.1</td><td lang="de">„… hat sein Bein anderes 3jähriges Kind …“（S. 153 の2行が注10 の末尾へ誤配置）</td><td lang="de">„… hat sein Bein an einem Stein verletzt.“ Diese Phantasiegeschichte eines 3½ Jahre alten Kindes … Ein anderes 3jähriges Kind …</td></tr>
+  <tr><td>§15.2–16.1</td><td lang="de">S. 158 の脚注（Analyse u. s. w. S. 185.）が §16 本文中に混入</td><td lang="de">注15 として分離</td></tr>
+  <tr><td>§3.2–3.3</td><td lang="de">1/2 1/108; 1/108; 1/106</td><td lang="de">1/(2·10⁸); 1/10⁸; 1/10⁶</td></tr>
+  <tr><td>§5.2</td><td lang="de">nützlich ist er wäre ja sonst nicht instinktiv entstanden spielt</td><td lang="de">nützlich ist — er wäre … entstanden — spielt</td></tr>
+  <tr><td>§14.3</td><td lang="de">nur, wenn = k/r²</td><td lang="de">nur, wenn φ = k/r²</td></tr>
+  <tr><td>各所</td><td lang="de">gegebenem; zeitlichrhythmischen; letzeren; Anschuung; Aufmersamkeit; Phansieschöpfung; fortpfanzt; Kepterschen</td><td lang="de">gegebenen; zeitlich-rhythmischen; letzteren; Anschauung; Aufmerksamkeit; Phantasieschöpfung; fortpflanzt; Keplerschen</td></tr>
+  <tr><td>注参照</td><td lang="de">Erg³), Kosmogonien.²), entwickelt.³), auskommen.1), identisch.²), stehen.³), Semon²), ist. *)</td><td lang="de">それぞれ注5・12・13・15・19・20・22・23 への参照</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_08.html">← 第Ⅷ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
