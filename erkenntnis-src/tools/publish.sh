@@ -12,7 +12,7 @@ import re,json,os
 meta=json.load(open('/home/user/erkenntnis/data/meta.json',encoding='utf-8'))
 R=['','Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ','Ⅶ','Ⅷ','Ⅸ','Ⅹ','ⅩⅠ','ⅩⅡ','ⅩⅢ','ⅩⅣ','ⅩⅤ','ⅩⅥ','ⅩⅦ','ⅩⅧ','ⅩⅨ','ⅩⅩ','ⅩⅩⅠ','ⅩⅩⅡ','ⅩⅩⅢ','ⅩⅩⅣ','ⅩⅩⅤ']
 done=[n for n in range(1,26) if os.path.exists('/home/user/vv-pages/erkenntnis/kapitel_%02d.html'%n)]
-lis=''.join('<li><a href="erkenntnis/kapitel_%02d.html">第%s章 %s</a></li>\n'%(n,R[n],meta['chapters_jp'][n-1]) for n in done)
+lis=('<li><a href="erkenntnis/kapitel_00.html">序文</a></li>\n' if os.path.exists('/home/user/vv-pages/erkenntnis/kapitel_00.html') else '')+''.join('<li><a href="erkenntnis/kapitel_%02d.html">第%s章 %s</a></li>\n'%(n,R[n],meta['chapters_jp'][n-1]) for n in done)
 p='/home/user/vv-pages/index.html'; s=open(p,encoding='utf-8').read()
 s=re.sub(r'(<!-- erkenntnis-chapters -->\n)(.*?)(</ul>)',lambda m:m.group(1)+lis+m.group(3),s,count=1,flags=re.S)
 open(p,'w',encoding='utf-8').write(s)

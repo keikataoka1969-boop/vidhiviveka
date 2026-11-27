@@ -54,6 +54,16 @@ def load_ja(n):
     return d
 
 
+ROMAN_PG = False
+SEC_TITLES = {}
+
+
+def pglabel(p):
+    if not ROMAN_PG:
+        return str(p)
+    return ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'][int(p)]
+
+
 def inline(text, lang, pb=True):
     """Escape and convert ⟦pb:N⟧ ⟦fn:K⟧ ⟦br⟧ tokens; *x* -> <i>x</i>."""
     parts = re.split(r'(⟦[^⟧]+⟧)', text)
@@ -68,7 +78,7 @@ def inline(text, lang, pb=True):
         kind, arg = m.group(1), m.group(2)
         if kind == 'pb':
             if pb:
-                out.append('<span class="pb" title="Leipzig 1906, S. %s">%s</span>' % (arg, arg))
+                out.append('<span class="pb" title="Leipzig 1906, S. %s">%s</span>' % (pglabel(arg), pglabel(arg)))
         elif kind == 'fn':
             out.append('<a class="fr" href="#n%s">%s</a>' % (arg, arg))
         elif kind == 'br':
@@ -88,8 +98,13 @@ def pages_of(row):
 
 
 def chapter_html(n, meta, de, ja, prev_link, next_link):
+    global ROMAN_PG, SEC_TITLES
     head, rows, notes = de
-    title_jp = meta['chapters_jp'][n - 1]
+    ROMAN_PG = (n == 0)
+    SEC_TITLES = {'1': '序文', '2': '第二版への序文'} if n == 0 else {}
+    title_jp = meta['chapters_jp'][n - 1] if n else '序文'
+    label = ('第%s章' % ROMAN[n]) if n else '序文'
+    kicker = ('KAPITEL %s · 第%s章' % (LATIN[n], ROMAN[n])) if n else 'VORWORT · 序文'
     secs = []
     for r in rows:
         s = r['id'].split('.')[0]
@@ -107,12 +122,12 @@ def chapter_html(n, meta, de, ja, prev_link, next_link):
     o = []
     o.append('<!DOCTYPE html>\n<html lang="ja">\n<head>\n<link rel="stylesheet" href="iast-fonts.css">\n'
              '<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n')
-    o.append('<title>第%s章 %s</title>\n' % (ROMAN[n], html.escape(title_jp)))
+    o.append('<title>%s</title>\n' % (html.escape(label + ' ' + title_jp) if n else 'Mach 認識と誤謬 序文'))
     o.append('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
              '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
              '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">\n')
     o.append('<style>' + css + '</style>\n</head>\n<body>\n')
-    o.append('<div class="bar"><div class="bar-in">\n  <a class="ch" href="index.html" title="目次">第%s章</a>\n' % ROMAN[n])
+    o.append('<div class="bar"><div class="bar-in">\n  <a class="ch" href="index.html" title="目次">%s</a>\n' % label)
     o.append('  <span class="seg" role="group" aria-label="表示言語">\n'
              '    <button type="button" data-v="both" aria-pressed="true">対訳</button>\n'
              '    <button type="button" data-v="only-de" aria-pressed="false">独</button>\n'
@@ -120,21 +135,21 @@ def chapter_html(n, meta, de, ja, prev_link, next_link):
              '  <span class="seg" role="group" aria-label="注">\n'
              '    <button type="button" data-n="show" aria-pressed="true">注あり</button>\n'
              '    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>\n  </span>\n')
-    o.append('  <nav class="secnav" aria-label="節">' + ''.join('<a href="#s%s">§%s</a>' % (s, s) for s in secs if s != '0') + '</nav>\n</div></div>\n\n')
+    o.append('  <nav class="secnav" aria-label="節">' + ''.join('<a href="#s%s">%s</a>' % (s, SEC_TITLES.get(s, '§' + s)) for s in secs if s != '0') + '</nav>\n</div></div>\n\n')
     pfirst, plast = head['pages'].split('-')
-    o.append('<header class="title">\n  <div class="kicker">KAPITEL %s · 第%s章</div>\n' % (LATIN[n], ROMAN[n]))
+    o.append('<header class="title">\n  <div class="kicker">%s</div>\n' % kicker)
     o.append('  <h1>%s</h1>\n  <div class="de-title" lang="de">%s</div>\n' % (html.escape(title_jp), html.escape(head['title'])))
     o.append('  <div class="source">底本：%s, S. %s–%s　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>\n</header>\n\n<main>\n'
-             % (meta['source'], pfirst, plast))
+             % (meta['source'], pglabel(pfirst), pglabel(plast)))
     cur = None
     for r in rows:
         s = r['id'].split('.')[0]
         if s != cur:
             cur = s
             if s != '0':
-                o.append('<h2 class="sec" id="s%s"><a href="#s%s">§ %s</a></h2>\n' % (s, s, s))
+                o.append('<h2 class="sec" id="s%s"><a href="#s%s">%s</a></h2>\n' % (s, s, SEC_TITLES.get(s, '§ ' + s)))
         pid = r['id']
-        pg = ''.join('<span>S.&nbsp;%d</span>' % p for p in pages_of(r))
+        pg = ''.join('<span>S.&nbsp;%s</span>' % pglabel(p) for p in pages_of(r))
         o.append('<article class="row" id="p%s">\n  <aside class="mg"><a class="pid" href="#p%s">%s</a><span class="pg">%s</span></aside>\n'
                  % (pid, pid, pid, pg))
         o.append('  <p class="de" lang="de">%s</p>\n' % inline(r['de'], 'de'))
@@ -175,6 +190,9 @@ def index_html(meta, done):
     import importlib.util
     spec = importlib.util.spec_from_file_location('prep', os.path.join(ROOT, 'tools', 'prep.py'))
     prep = importlib.util.module_from_spec(spec); spec.loader.exec_module(prep)
+    if load_de(0) and load_ja(0):
+        o.append('  <a class="ch" href="kapitel_00.html">\n    <span class="ch-num">序</span>\n    <span class="ch-titles">\n'
+                 '      <span class="ch-jp">序文</span>\n      <span class="ch-de">Vorwort · Vorwort zur zweiten Auflage</span>\n    </span>\n  </a>\n')
     for n in range(1, 26):
         tde = prep.CHAPTERS[n - 1][0]
         cls = 'ch' if n in done else 'ch pending'
@@ -191,17 +209,18 @@ def index_html(meta, done):
 def main():
     meta = json.load(open(os.path.join(ROOT, 'data', 'meta.json'), encoding='utf-8'))
     os.makedirs(OUT, exist_ok=True)
-    done = [n for n in range(1, 26) if load_de(n) and load_ja(n)]
+    done = [n for n in range(0, 26) if load_de(n) and load_ja(n)]
+    lab = lambda k: ('第%s章' % ROMAN[k]) if k else '序文'
     for n in done:
         prev_link = next_link = None
         if n - 1 in done:
-            prev_link = '<a href="kapitel_%02d.html">← 第%s章</a>' % (n - 1, ROMAN[n - 1])
+            prev_link = '<a href="kapitel_%02d.html">← %s</a>' % (n - 1, lab(n - 1))
         if n + 1 in done:
-            next_link = '<a href="kapitel_%02d.html">第%s章 →</a>' % (n + 1, ROMAN[n + 1])
+            next_link = '<a href="kapitel_%02d.html">%s →</a>' % (n + 1, lab(n + 1))
         h = chapter_html(n, meta, load_de(n), load_ja(n), prev_link, next_link)
         open(os.path.join(OUT, 'kapitel_%02d.html' % n), 'w', encoding='utf-8').write(h)
         print('wrote kapitel_%02d.html' % n)
-    open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(index_html(meta, done))
+    open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(index_html(meta, [d for d in done if d]))
     print('wrote index.html; chapters done:', done)
 
 

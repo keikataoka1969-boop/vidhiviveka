@@ -29,7 +29,7 @@ Spezialforscher 専門研究者 / Orientierung 方向づけ / Association 連合
 Reflex 反射 / Instinkthandlung 本能行為 / Wille 意志 / Aufmerksamkeit 注意 / Organempfindung 器官感覚
 
 ## 進捗
-第Ⅰ〜ⅩⅩⅤ章（全章）公開済み。序文（Vorwort）はOCRに含まれていない。
+序文・第Ⅰ〜ⅩⅩⅤ章（全章）公開済み。序文は別途提供のテキストから補った。
 
 ## 校訂で頻出するパターン（下書きTSVでの典型的な誤り）
 - 頁下の脚注（"1) Morgan, l. c. p. 339." 等）が次節の本文中に混入 → 抜き出して注を新設し、番号を繰り下げ
