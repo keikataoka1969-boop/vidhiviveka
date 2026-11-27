@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第ⅩⅢ章 研究の指導動機としての類似と類比</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第ⅩⅢ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL XIII · 第ⅩⅢ章</div>
+  <h1>研究の指導動機としての類似と類比</h1>
+  <div class="de-title" lang="de">Ähnlichkeit und Analogie als Leitmotive der Forschung</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 220–231　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;220</span></span></aside>
+  <p class="de" lang="de">1.<a class="fr" href="#n1">1</a> Ähnlichkeit ist teilweise Identität. Die Merkmale ähnlicher Objekte stimmen zum Teil überein, zum Teil sind sie verschieden. Die Analogie ist jedoch ein besonderer Fall der Ähnlichkeit. Nicht ein einziges unmittelbar wahrnehmbares Merkmal des einen Objektes braucht mit einem Merkmal des anderen Objektes übereinzustimmen, und doch können zwischen den Merkmalen des einen Objektes Beziehungen bestehen, welche zwischen den Merkmalen des anderen Objektes in übereinstimmender, identischer Weise wiedergefunden werden. Jevons<a class="fr" href="#n2">2</a> nennt die Analogie „eine tiefer liegende Ähnlichkeit“; man könnte dieselbe auch eine abstrakte Ähnlichkeit nennen.</p>
+  <p class="jp" lang="ja">1.<a class="fr" href="#n1">1</a> 類似とは部分的な同一性である。類似した対象の特徴は、一部は一致し、一部は異なる。しかし類比（アナロギー）は類似の特別な場合である。一方の対象の直接に知覚できる特徴のただ一つも、他方の対象の特徴と一致する必要はない。それでも、一方の対象の特徴のあいだに、他方の対象の特徴のあいだに一致した、同一の仕方で再び見いだされる関係が成り立っていることがありうる。ジェヴォンズ<a class="fr" href="#n2">2</a>は類比を「より深いところにある類似」と呼んでいる。それを抽象的な類似と呼ぶこともできよう。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Mit Erweiterungen aus Ostwalds „Annalen der Naturphilosophie“ B. I abgedruckt.</p><p class="jp" lang="ja">オストヴァルトの『自然哲学年報』第1巻から、増補して再録。</p></li><li id="n2"><span class="nn">2</span><p class="de" lang="de">Jevons, The principles of science. London 1892. p. 627.</p><p class="jp" lang="ja">ジェヴォンズ『科学の原理』ロンドン、1892年、627頁。</p></li></ol>
+</article>
+<article class="row" id="p1.2">
+  <aside class="mg"><a class="pid" href="#p1.2">1.2</a><span class="pg"><span>S.&nbsp;220</span></span></aside>
+  <p class="de" lang="de">Die Analogie kann unter Umständen der unmittelbaren sinnlichen Beobachtung ganz verborgen bleiben, und sich erst durch die Vergleichung der begrifflichen Beziehungen der Merkmale des einen Objektes untereinander mit den Beziehungen der Merkmale des anderen Objektes untereinander offenbaren. Maxwell<a class="fr" href="#n3">3</a> gibt nicht sowohl eine Definition der Analogie, als er vielmehr deren wichtigste Eigenschaft für den Naturforscher hervorhebt, wenn er sagt: „Unter einer physikalischen Analogie verstehe ich jene teilweise Ähnlichkeit zwischen den Gesetzen eines Erscheinungsgebietes mit jenen eines anderen, welche bewirkt, daß jedes das andere illustriert.“ Wir werden jedoch sehen, daß Maxwells Auffassung von der hier dargelegten nicht verschieden ist.</p>
+  <p class="jp" lang="ja">類比は、場合によっては直接の感性的観察にまったく隠されたままであり、一方の対象の特徴相互の概念的関係を、他方の対象の特徴相互の関係と比較することによってはじめて明らかになることもある。マクスウェル<a class="fr" href="#n3">3</a>は、こう言うとき、類比の定義を与えるというよりも、自然研究者にとってのその最も重要な性質を強調している。「物理的類比とは、ある現象領域の法則と別の現象領域の法則とのあいだの部分的な類似であって、それによって一方が他方を例示するようなものを言う」。しかしわれわれは、マクスウェルの把握がここで述べたものと異ならないことを見るであろう。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">Maxwell, Transact. of the Cambridge Philos. Soc. Vol. X, p. 27. 1855. (Ostwalds Klassiker Nr. 69.)</p><p class="jp" lang="ja">マクスウェル『ケンブリッジ哲学協会紀要』第10巻、27頁、1855年。（オストヴァルト古典叢書第69番。）</p></li></ol>
+</article>
+<article class="row" id="p1.3">
+  <aside class="mg"><a class="pid" href="#p1.3">1.3</a><span class="pg"><span>S.&nbsp;220</span><span>S.&nbsp;221</span></span></aside>
+  <p class="de" lang="de">Hoppe<a class="fr" href="#n4">4</a> <span class="pb" title="Leipzig 1906, S. 221">221</span>hält den Begriff „Analogie“ für ganz überflüssig, indem es bei derselben, wie bei der Ähnlichkeit überhaupt, nur auf begriffliche Übereinstimmung, Übereinstimmung in gewissen Merkmalen der in Analogie gesetzten Objekte ankomme. Es ist dies letztere richtig, doch hat man guten Grund die Analogie als einen besonderen Fall der Ähnlichkeit von dem allgemeineren Begriff zu unterscheiden. Insbesondere der Naturforscher, der durch Beachtung von Analogien sehr gefördert wird, fühlt sich hierzu gedrängt. Es liegt übrigens die Bemerkung nahe, daß auch Objekte, deren Ähnlichkeit der sinnlichen Beobachtung unmittelbar auffällt, Analogie, Beziehungsgleichheit zwischen den Merkmalen des einen Objektes untereinander und jenen des anderen untereinander darbieten können, welche als selbstverständlich oft unbeachtet bleiben.</p>
+  <p class="jp" lang="ja">ホッペ<a class="fr" href="#n4">4</a>は「類比」の概念をまったく余計なものとみなしている。類比においても、類似一般においてと同じく、問題なのはただ概念的な一致、類比に置かれた対象のある特徴における一致だけだというのである。この後者は正しいが、類比を類似の特別な場合としてより一般的な概念から区別する十分な理由がある。とりわけ、類比に注意を払うことによって大いに促進される自然研究者は、そうせざるをえないと感じる。ちなみに、その類似が感性的観察に直接目につく対象もまた、一方の対象の特徴相互のあいだと他方の対象の特徴相互のあいだとに、類比、すなわち関係の同等性を示しうることは容易に気づかれる。それは自明のこととしてしばしば顧みられないのである。</p>
+  <ol class="notes"><li id="n4"><span class="nn">4</span><p class="de" lang="de">Hoppe, Die Analogie. Berlin 1873.</p><p class="jp" lang="ja">ホッペ『類比』ベルリン、1873年。</p></li></ol>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;221</span></span></aside>
+  <p class="de" lang="de">2. Die sinnlich beobachtete Ähnlichkeit bedingt schon unbewußt und unwillkürlich ein ähnliches Verhalten, ähnliche motorische Reaktionen gegenüber den ähnlichen Objekten. Beim Erwachen des Intellekts wird sich auch dieser den ähnlichen Objekten gegenüber ähnlich verhalten, wie dies Stern<a class="fr" href="#n5">5</a> bezüglich des volkstümlichen Denkens ausführlich dargelegt hat. Übrigens enthalten die Schriften von Tylor<a class="fr" href="#n6">6</a> hierfür schon reichliche Belege. Wenn nun das begriffliche Denken erstarkt, so wird auch das absichtliche zielbewußte Streben, sich von einer praktischen oder intellektuellen Unbehaglichkeit zu befreien, ebenfalls durch Ähnlichkeiten, und bald auch durch tiefer liegende Analogien, geleitet sein.</p>
+  <p class="jp" lang="ja">2. 感性的に観察された類似は、すでに無意識に、意図せずに、類似した対象に対する類似したふるまい、類似した運動反応をもたらす。知性が目覚めると、知性もまた類似した対象に対して類似したふるまいをするであろう。このことはシュテルン<a class="fr" href="#n5">5</a>が民衆の思考について詳しく述べたとおりである。ちなみに、タイラー<a class="fr" href="#n6">6</a>の著作にもすでにそのための豊富な証拠がある。さて概念的思考が強まると、実践的あるいは知的な居心地の悪さから解放されようとする意図的で目標を意識した努力もまた、類似によって、そしてまもなくより深いところにある類比によって導かれるであろう。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">W. Stern, Die Analogie im volkstümlichen Denken. Berlin 1893.</p><p class="jp" lang="ja">W. シュテルン『民衆の思考における類比』ベルリン、1893年。</p></li><li id="n6"><span class="nn">6</span><p class="de" lang="de">Tylor, Die Anfänge der Kultur. Deutsch. Leipzig 1873.</p><p class="jp" lang="ja">タイラー『文化の始源』独訳、ライプツィヒ、1873年。</p></li></ol>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;221</span><span>S.&nbsp;222</span></span></aside>
+  <p class="de" lang="de">3. In einer älteren Schrift<a class="fr" href="#n7">7</a> habe ich die Analogie definiert als eine Beziehung von Begriffssystemen, in welcher sowohl die Verschiedenheit je zweier homologer Begriffe als auch die Übereinstimmung in den logischen Verhältnissen je zweier homologer Begriffspaare zum klaren Bewußtsein kommt. Es scheint, daß zuerst im Gebiete der Mathematik, wo allerdings die Sache am einfachsten liegt, die klärende, vereinfachende, heuristische Funktion der Analogie sich deutlich geoffenbart hat. Wenigstens bezieht Aristoteles die Analogie, wo er von derselben spricht, <span class="pb" title="Leipzig 1906, S. 222">222</span>auf quantitative (proportionale) Verhältnisse. Einfachere Analogien mußten schon den antiken Forschern auffallen. So nennt Euklid (im 7. Buch seiner Elemente Definition 16) das Produkt zweier Zahlen „Fläche“ und die Faktoren „Seiten“, ebenso (Definition 17) ein Produkt aus drei Faktoren „Körper“ und die Faktoren selbst „Seiten“, ein Produkt aus zwei, bezw. drei gleichen Faktoren (Definition 18, 19) Quadrat und Würfel.<a class="fr" href="#n8">8</a></p>
+  <p class="jp" lang="ja">3. 以前の著作<a class="fr" href="#n7">7</a>で、私は類比を、二つずつの相同な概念の相違も、二つずつの相同な概念対の論理的関係における一致も、ともに明瞭に意識されるような、概念体系の関係として定義した。類比の明らかにし、単純化し、発見を助ける機能がはじめてはっきりと現れたのは、事柄が最も単純である数学の領域においてであったように思われる。少なくともアリストテレスは、類比について語るところでは、それを量的（比例的）関係に関係づけている。より単純な類比は古代の研究者にもすでに目についたにちがいない。たとえばユークリッドは（『原論』第7巻、定義16）二つの数の積を「面」と呼び、その因数を「辺」と呼び、同じく（定義17）三つの因数の積を「立体」と呼び、因数そのものを「辺」と呼び、二つないし三つの等しい因数の積（定義18、19）を平方および立方と呼んでいる<a class="fr" href="#n8">8</a>。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">Populär-wissenschaftliche Vorlesungen. 3. Aufl. 1903. S. 277.</p><p class="jp" lang="ja">『通俗科学講義』第3版、1903年、277頁。</p></li><li id="n8"><span class="nn">8</span><p class="de" lang="de">Euklids Elemente. Ausgabe von J. F. Lorenz. Halle 1798.</p><p class="jp" lang="ja">『ユークリッド原論』J. F. ローレンツ版、ハレ、1798年。</p></li></ol>
+</article>
+<article class="row" id="p3.2">
+  <aside class="mg"><a class="pid" href="#p3.2">3.2</a><span class="pg"><span>S.&nbsp;222</span></span></aside>
+  <p class="de" lang="de">Wo Platon Geometrisches berührt, bedient er sich einer ähnlichen Redeweise. Die Erfindung der Algebra beruht auf dem Erschauen der Analogie der Rechnungsoperationen bei aller Verschiedenheit der in Betracht kommenden Zahlen. Sie erledigt das begrifflich Gleiche daran auf einmal und ein für allemal. Wo Größen in analoger Weise in eine Rechnung eingehen, erhält man, wenn nur eine berechnet ist, die übrigen durch eine einfache Vertauschung der Zeichen nach der Analogie. Die Descartessche Geometrie benützt in ausgiebiger Weise die Analogie zwischen Algebra und Geometrie, die Graßmannsche Mechanik (Ausdehnungslehre) jene zwischen Linien und Kräften, zwischen Flächen und Momenten u. s. w. Jede physikalische Anwendung der Mathematik beruht auf der Beachtung der Analogie zwischen Naturtatsachen und Rechnungsoperationen.</p>
+  <p class="jp" lang="ja">プラトンも幾何学的なことに触れるところでは、似たような言い方をしている。代数学の発明は、問題となる数がいかに異なろうとも、計算操作の類比を見て取ることにもとづいている。代数学はそこにおける概念的に等しいものを一挙に、そしてきっぱりと片づける。量が類比的な仕方で計算に入るところでは、一つを計算しさえすれば、ほかのものは類比に従って記号を単純に入れ替えることによって得られる。デカルトの幾何学は代数学と幾何学との類比を、グラスマンの力学（広延論）は線と力、面とモーメントなどのあいだの類比を、ふんだんに利用している。数学の物理学への応用はどれも、自然の事実と計算操作とのあいだの類比に注意を払うことにもとづいている。</p>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;222</span></span></aside>
+  <p class="de" lang="de">4. Den hohen Wert der Analogie für die Erkenntnis hat sich schon Kepler<a class="fr" href="#n9">9</a> zum klaren Bewußtsein gebracht. Indem er die Kegelschnitte mit Rücksicht auf ihre optischen Eigenschaften behandelt, sagt er: „Focus igitur in circulo unus est A, isque idem qui et centrum: in ellipsi foci duo sunt A, B, aequaliter a centro figurae remoti et plus in acutiore. In parabola unus D est intra sectionem, alter vel extra vel intra sectionem in axe fingendus est infinito intervallo a priore remotus, adeo ut educta HG vel IG ex illo caeco foco in quodcunque punctum sectionis G sit axi parallelos. In hyperbola focus externus F interno E tanto est propior, quanto est hyperbole obtusior.</p>
+  <p class="jp" lang="ja">4. 類比が認識にとってもつ高い価値を、すでにケプラー<a class="fr" href="#n9">9</a>ははっきりと意識していた。円錐曲線をその光学的性質に関して扱いながら、彼はこう言う。「それゆえ円においては焦点は A ひとつであり、それは中心と同じものである。楕円においては焦点は A、B の二つであり、図形の中心から等しく隔たっており、より鋭い楕円ほど遠く隔たる。放物線においては一つの焦点 D は曲線の内にあり、もう一つは曲線の外か内かの軸上に、前者から無限の間隔をへだてて想定されなければならない。そうして、その見えない焦点から曲線上の任意の点 G へと引かれた HG あるいは IG は軸に平行となる。双曲線においては、外の焦点 F は、双曲線が鈍いほど内の焦点 E に近い。</p>
+  <ol class="notes"><li id="n9"><span class="nn">9</span><p class="de" lang="de">Kepler, Opera, edidit Frisch. Vol. II, p. 186. Die dem Zitat entsprechenden Figuren sind als selbstverständlich weggelassen.</p><p class="jp" lang="ja">ケプラー『著作集』フリッシュ編、第2巻、186頁。引用に対応する図は自明のものとして省いた。</p></li></ol>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;222</span><span>S.&nbsp;223</span></span></aside>
+  <p class="de" lang="de">Et qui externus est alteri sectionum oppositarum, is alteri est internus et contra.“ „Sequitur ergo per analogiam, ut in recta linea uterque focus (ita loquimur de recta, sine usu, tantum ad analogiam complen<span class="pb" title="Leipzig 1906, S. 223">223</span>dam) coincidat in ipsam rectam: sitque unus ut in circulo. In circulo igitur focus in ipso centro est, longissime recedens a circumferentia proxima, in ellipsi jam minus recedit, et in parabola multo minus, tandem in recta focus minimum ab ipsa recedit, hoc est, in ipsam incidit. Sic itaque in terminis, circulo et recta, coeunt foci, illic longissime distat, hic plane incidit focus in lineam. In media parabole infinito intervallo distant, in ellipsi et hyperbole lateralibus bini actu foci spatio dimenso distant; in ellipsi alter etiam intra est, in hyperbole alter extra. Undique sunt rationes oppositae.“...</p>
+  <p class="jp" lang="ja">そして向かい合う曲線の一方にとって外にあるものは、他方にとっては内にあり、その逆も同様である」。「それゆえ類比によって、直線においては二つの焦点が（われわれは直線について、用途なしに、ただ類比を完成させるためにこう語るのである）直線そのものの上で一致し、円におけるように一つとなることが帰結する。それゆえ円においては焦点はまさに中心にあり、最も近い円周から最も遠く退いている。楕円においてはすでにより少なく退き、放物線においてはさらにずっと少なく、最後に直線においては焦点はそれ自身から最も少なく退く、すなわちそのなかに入りこむ。こうして両端、すなわち円と直線においては焦点は一致し、前者においては最も遠く隔たり、後者においてはまったく線のなかに入る。中間の放物線においては無限の間隔をへだて、側方の楕円と双曲線においては二つの焦点が実際に測られた間隔をへだてる。楕円においてはもう一つも内にあり、双曲線においては外にある。どこでも比は反対なのである」……</p>
+</article>
+<article class="row" id="p4.3">
+  <aside class="mg"><a class="pid" href="#p4.3">4.3</a><span class="pg"><span>S.&nbsp;223</span></span></aside>
+  <p class="de" lang="de">„Oportet enim nobis servire voces geometricas analogiae; plurimum namque amo analogias fidelissimos meos magistros, omnium naturae arcanorum conscios: in geometria praecipue suspiciendos, dum infinitos casus interjectos intra sua extrema mediumque quantumvis absurdis locutionibus concludunt, totamque rei alicujus essentiam luculenter ponunt ob oculos.“</p>
+  <p class="jp" lang="ja">「幾何学の言葉は類比に仕えなければならない。というのも私は類比をこよなく愛しているからである。それは私の最も忠実な師であり、自然のあらゆる秘密を知っている。とりわけ幾何学においては仰ぎ見るべきものである。類比は、どれほど不合理な言い回しによってであれ、その両極と中間とのあいだに挟まれた無限の場合を包括し、ある事物の本質全体をあざやかに目の前に置いてくれるからである」。</p>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;223</span></span></aside>
+  <p class="de" lang="de">5. Mit diesen klassischen Worten betont Kepler nicht nur den Wert der Analogie, sondern mit Recht auch das Prinzip der Kontinuität, welches ihn allein zu dem Grade der Abstraktion leiten konnte, der die Erfassung so tiefliegender Analogien ermöglichte. Aus der Werkstätte der antiken Forschung wissen wir ja sehr wenig. Es sind kaum die wichtigsten Ergebnisse der Forschung uns überliefert worden. Die Form der Darstellung ist aber, wie das drastische Beispiel Euklids lehrt, oft ganz dazu angetan, die Forschungswege zu verdecken. Leider ist entgegen dem Interesse der Wissenschaft und im Interesse einer falsch bewerteten Strenge das antike Beispiel in neuerer Zeit noch oft nachgeahmt worden. Am vollständigsten und strengsten ist jedoch ein Gedanke begründet, wenn alle Motive und Wege, welche zu demselben geleitet und ihn befestigt haben, klar dargelegt sind. Von dieser Begründung ist die logische Verknüpfung mit älteren, geläufigeren, unangefochtenen Gedanken doch eben nur ein Teil. Ein Gedanke, dessen Entstehungsmotive ganz klargelegt sind, ist für alle Zeiten unverlierbar, so lange letztere gelten, und kann andererseits sofort aufgegeben werden, sobald diese Motive als hinfällig erkannt werden.</p>
+  <p class="jp" lang="ja">5. この古典的な言葉によって、ケプラーは類比の価値を強調しているばかりでなく、正当にも連続性の原理をも強調している。この原理だけが、かくも深いところにある類比の把握を可能にした抽象の程度へと彼を導くことができたのである。古代の研究の仕事場については、われわれはほとんど何も知らない。研究の最も重要な成果さえ、かろうじて伝えられているにすぎない。しかし叙述の形式は、ユークリッドの際立った例が教えるように、しばしば研究の道筋を覆い隠すのにまったくうってつけである。残念ながら、科学の利益に反して、誤って評価された厳密さの利益のために、古代の例は近代になってもなおしばしば模倣されてきた。しかし、ある思考へと導き、それを固めたすべての動機と道筋とが明瞭に示されているとき、その思考は最も完全かつ最も厳密に基礎づけられている。より古く、よりなじんだ、異論のない思考との論理的な結合は、この基礎づけのやはり一部分にすぎないのである。その成立の動機がすっかり明らかにされた思考は、その動機が妥当するかぎり永久に失われることがなく、他方、その動機が根拠のないものと認識されるやいなや、ただちに放棄することができる。</p>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;223</span><span>S.&nbsp;224</span></span></aside>
+  <p class="de" lang="de">6. Der Verkehr mit den Klassikern der Periode des Wiederauflebens der Naturforschung gewährt eben dadurch einen so <span class="pb" title="Leipzig 1906, S. 224">224</span>unvergleichlichen Genuß und eine so ausgiebige, nachhaltige, unersetzliche Belehrung, daß diese großen, naiven Menschen ohne jede zunftmäßige gelehrte Geheimtuerei in der liebenswürdigen Freude des Suchens und Findens alles mitteilen, was und wie es ihnen klar geworden ist. So lernen wir bei Kopernikus, Stevin, Galilei, Gilbert, Kepler die Leitmotive der Forschung ohne allen Pomp an Beispielen der größten Forschungserfolge kennen. Die Methoden des physischen und des Gedankenexperiments,<a class="fr" href="#n10">10</a> der Analogie, das Prinzip der Simplizität und Kontinuität u. s. w. werden uns in der einfachsten Weise vertraut.</p>
+  <p class="jp" lang="ja">6. 自然研究の復興期の古典との交わりがかくも比類ない楽しみと、かくも豊かで持続的でかけがえのない教えを与えてくれるのは、まさに、これら偉大で素朴な人々が、何ら同業組合的な学者風の秘密主義なしに、探し見いだす愛すべき喜びのうちに、何がどのように明らかになったかをすべて伝えてくれるからである。こうしてわれわれは、コペルニクス、ステヴィン、ガリレイ、ギルバート、ケプラーのもとで、研究の指導動機を、何の仰々しさもなく、最大の研究成果の例において知るのである。物理的実験と思考実験の方法<a class="fr" href="#n10">10</a>、類比の方法、単純性と連続性の原理などが、最も単純な仕方でわれわれになじみのものとなる。</p>
+  <ol class="notes"><li id="n10"><span class="nn">10</span><p class="de" lang="de">Vgl. S. 183 u. f.</p><p class="jp" lang="ja">183頁以下参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;224</span></span></aside>
+  <p class="de" lang="de">7. Außer diesem kosmopolitischen Zuge von Offenheit zeichnet sich die Wissenschaft jener Zeit noch durch einen ungewöhnlichen Aufschwung der Abstraktion aus. Aus Einzelerkenntnissen wächst die Wissenschaft hervor, und am einzelnen bleibt auch die antike Forschung meist haften. Wer aber einen reichen Besitz schon als Erbschaft übernimmt, befindet sich in günstigerer Lage. Er kann über die ihm schon vertraut und geläufig gewordenen einzelnen Erkenntnisschätze den vergleichenden Blick oft, in verschiedener Ordnung, und in rascher Folge führen. Hierbei entdeckt er in weit Abliegendem noch Gemeinsames, wo dies dem Finder oder Neuling noch vor dem Verschiedenen zurücktrat. Namentlich eine Änderung der betrachteten Objekte, welche kontinuierlich oder doch in kleinen Stufen stattfindet, macht die Verwandtschaft weit abstehender Glieder einer Reihe fühlbar und bringt zum Bewußtsein, was trotz aller Änderung gleich geblieben ist.</p>
+  <p class="jp" lang="ja">7. この世界市民的な率直さの特徴のほかに、その時代の科学はさらに、抽象の異例の飛躍によって際立っている。科学は個別の認識から育ってくるのであり、古代の研究もたいていは個別のものにとどまっている。しかし豊かな所有物をすでに遺産として受け継ぐ者は、より有利な立場にいる。彼は、自分にすでになじみとなった個々の認識の宝のうえに、比較するまなざしを何度も、さまざまな順序で、すばやく次々に走らせることができる。そのとき彼は、遠く隔たったもののうちに、発見者や新参者にとってはまだ相違の前に退いていた共通のものを発見する。とりわけ、考察される対象が連続的に、あるいは少なくとも小さな段階で変化することは、系列の遠く離れた項どうしの類縁性を感じさせ、あらゆる変化にもかかわらず同じままであったものを意識させる。</p>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;224</span><span>S.&nbsp;225</span></span></aside>
+  <p class="de" lang="de">So kann ein sich schneidendes Geradenpaar als Hyperbel, eine Gerade als zwei zusammenfallende Hyperbeläste, eine begrenzte Gerade als Ellipse erscheinen u. s. w. Parallele und sich schneidende Gerade unterscheiden sich für Kepler nur mehr durch die Größe der Entfernung des Durchschnittspunktes. Für seinen jüngeren Zeitgenossen Desargues<a class="fr" href="#n11">11</a> ist die Gerade ein Kreis von unendlich fernem Mittelpunkt, die Tangente eine Sekante von zusammenfallenden Schnittpunkten, die Asymptote eine Tangente an einen unendlich fernen Punkt u. s. w. Alle diese für uns schon selbstverständlichen Schritte bereiteten <span class="pb" title="Leipzig 1906, S. 225">225</span>dem antiken Geometer noch unüberwindliche Schwierigkeiten.</p>
+  <p class="jp" lang="ja">こうして、交わる一対の直線は双曲線として、一本の直線は二つの一致した双曲線の枝として、限られた直線は楕円として現れうる、等々。平行な直線と交わる直線とは、ケプラーにとってはもはや交点の距離の大きさによってしか区別されない。彼の若い同時代人デザルグ<a class="fr" href="#n11">11</a>にとって、直線は無限に遠い中心をもつ円であり、接線は交点の一致した割線であり、漸近線は無限に遠い点における接線である、等々。われわれにとってすでに自明なこれらの歩みはすべて、古代の幾何学者にはまだ克服しがたい困難をもたらしたのである。</p>
+  <ol class="notes"><li id="n11"><span class="nn">11</span><p class="de" lang="de">Oeuvres de Desargues. Ed. Poudra. Paris 1864.</p><p class="jp" lang="ja">『デザルグ著作集』プードラ編、パリ、1864年。</p></li></ol>
+</article>
+<article class="row" id="p7.3">
+  <aside class="mg"><a class="pid" href="#p7.3">7.3</a><span class="pg"><span>S.&nbsp;225</span></span></aside>
+  <p class="de" lang="de">Mit der unter Leitung des Kontinuitätsprinzips erreichten Höhe der Abstraktion steigt natürlich die Fähigkeit zur Erfassung von Analogien. Analogien kontinuierlicher Größenänderungen zu anschaulicheren Verhältnissen der Geometrie führen zur Entwicklung der Infinitesimalrechnung sowohl in der Newtonschen als auch in der Leibnizschen Form. Die Vergleichung der algebraischen Zeichensprache mit der Vulgärsprache erweckt Leibniz den Gedanken einer allgemeinen Charakteristik oder Begriffsschrift und leitet ihn zu logischen Entdeckungen, welche eben erst wieder neues Leben gewinnen.<a class="fr" href="#n12">12</a> Die hohe Abstraktion, die sich Lagrange angeeignet hat, ermöglicht ihm, die Analogie zwischen den kleinen Änderungen durch Zuwüchse der unabhängig Variablen und den kleinen Änderungen durch Variation der Funktionsform zu erschauen. So entsteht die wunderbare Schöpfung der Variationsrechnung.</p>
+  <p class="jp" lang="ja">連続性の原理の導きのもとに達成された抽象の高さとともに、当然、類比を把握する能力も増す。連続的な量の変化と、より直観的な幾何学的関係との類比は、ニュートンの形においてもライプニッツの形においても、無限小解析の発展へと導く。代数学の記号言語と通俗言語との比較は、ライプニッツに普遍的記号法あるいは概念文字の考えを呼び起こし、彼を論理学上の発見へと導く。それはいまようやく新たな生命を得つつある<a class="fr" href="#n12">12</a>。ラグランジュが身につけた高度な抽象は、独立変数の増分による小さな変化と、関数の形の変分による小さな変化とのあいだの類比を見て取ることを彼に可能にする。こうして変分法という驚くべき創造物が生まれるのである。</p>
+  <ol class="notes"><li id="n12"><span class="nn">12</span><p class="de" lang="de">Vgl. Couturat, La logique de Leibniz. Paris, 1901.</p><p class="jp" lang="ja">クーチュラ『ライプニッツの論理学』パリ、1901年参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;225</span></span></aside>
+  <p class="de" lang="de">8. Wenn ein Objekt der Betrachtung M die Merkmale a, b, c, d, e aufweist und ein anderes Objekt N mit ersterem in den Merkmalen a, b, c übereinstimmt, so ist man sehr geneigt, zu erwarten, daß das letztere auch die Merkmale d, e aufweisen, mit M auch in diesen übereinstimmen werde. Diese Erwartung ist logisch nicht berechtigt. Denn das logische Verfahren verbürgt nur die Übereinstimmung mit dem einmal Festgesetzten, das Beibehalten desselben, schließt den Widerspruch gegen dieses aus. Unsere Neigung, unsere Erwartung ist aber in unserer psychologisch-physiologischen Organisation begründet. Schlüsse nach Ähnlichkeit und Analogie sind genau genommen kein Gegenstand der Logik, wenigstens nicht der formalen Logik, sondern nur der Psychologie.</p>
+  <p class="jp" lang="ja">8. 考察の対象 M が特徴 a, b, c, d, e を示し、別の対象 N が特徴 a, b, c において前者と一致するならば、後者も特徴 d, e を示し、これらにおいても M と一致するだろうと期待したくなるものである。この期待は論理的には正当化されない。というのも論理的手続きは、一度定められたものとの一致、それを保持することだけを保証し、それに対する矛盾を排除するだけだからである。しかしわれわれの傾向、われわれの期待は、われわれの心理学的・生理学的組織にもとづいている。類似と類比による推論は、厳密に言えば論理学の対象ではなく、少なくとも形式論理学の対象ではなく、ただ心理学の対象なのである。</p>
+</article>
+<article class="row" id="p8.2">
+  <aside class="mg"><a class="pid" href="#p8.2">8.2</a><span class="pg"><span>S.&nbsp;225</span><span>S.&nbsp;226</span></span></aside>
+  <p class="de" lang="de">Wenn in dem obigen Falle a, b, c, d, e unmittelbar wahrnehmbare Merkmale sind, so sprechen wir von Ähnlichkeit, bedeuten aber a, b, c, d, e begriffliche Beziehungen der Objektmerkmale von M zueinander, und ebenso in Bezug auf das Objekt N, so entspricht die Bezeichnung Analogie besser dem Sprachgebrauch. Ist uns das Objekt mit der Kombination seiner Merkmale a, b, c, d, e geläufig, so wird bei Betrachtung von N neben den Merkmalen a, b, c auch d, e durch Association in <span class="pb" title="Leipzig 1906, S. 226">226</span>Erinnerung gebracht, womit bei Gleichgültigkeit der Merkmale d, e der Prozeß abgeschlossen ist. Anders ist es, sobald d, e wegen ihrer nützlichen oder schädlichen Eigenschaft ein starkes biologisches Interesse, oder für einen technischen oder rein wissenschaftlich-intellektuellen Zweck einen besonderen Wert haben. Dann fühlen wir uns gedrängt nach d, e zu suchen; wir erwarten mit gespannter Aufmerksamkeit die Entscheidung.</p>
+  <p class="jp" lang="ja">上の場合に a, b, c, d, e が直接に知覚できる特徴であるならば、われわれは類似について語る。しかし a, b, c, d, e が M の対象の特徴相互の概念的関係を意味し、対象 N についても同様であるならば、類比という表示のほうが言葉の使い方によりよく合う。対象がその特徴 a, b, c, d, e の組み合わせとともにわれわれになじみであれば、N を考察するとき、特徴 a, b, c と並んで d, e も連合によって思い出され、特徴 d, e がどうでもよいものであれば、それで過程は完結する。しかし d, e がその有益なあるいは有害な性質のゆえに強い生物学的関心をもつか、技術的あるいは純粋に科学的・知的な目的にとって特別な価値をもつやいなや、事情は異なる。そのときわれわれは d, e を探すよう駆り立てられ、張りつめた注意をもって決定を待つ。</p>
+</article>
+<article class="row" id="p8.3">
+  <aside class="mg"><a class="pid" href="#p8.3">8.3</a><span class="pg"><span>S.&nbsp;226</span></span></aside>
+  <p class="de" lang="de">Diese erfolgt entweder durch einfache sinnliche Beobachtung, oder durch kompliziertere technische oder wissenschaftlich-begriffliche Reaktionen. Wie nun auch die Entscheidung erfolgen mag, ob wir die Merkmale d, e an dem Objekt N in Übereinstimmung mit M finden oder nicht, in beiden Fällen hat sich unsere Kenntnis des Objektes erweitert, indem sich eine neue Übereinstimmung oder ein neuer Unterschied gegen M ergeben hat. Beide Fälle sind gleich wichtig, beide schließen eine Entdeckung ein. Der Fall der Übereinstimmung hat aber außerdem noch die Bedeutung einer ökonomischen Ausdehnung einer gleichförmigen Auffassung auf ein größeres Gebiet, weshalb wir solche Fälle mit Vorliebe suchen. Das eben Gesagte enthält also die einfache biologische und erkenntnis-theoretische Begründung der Wertschätzung des Schlusses nach Ähnlichkeit und Analogie.</p>
+  <p class="jp" lang="ja">決定は、単純な感性的観察によってか、より複雑な技術的あるいは科学的・概念的な反応によって行われる。決定がどのように行われようと、対象 N に特徴 d, e を M と一致して見いだそうと見いださなかろうと、どちらの場合にも、M に対する新しい一致あるいは新しい相違が生じたことによって、対象についてのわれわれの知識は広がった。どちらの場合も同じく重要であり、どちらも発見を含んでいる。しかし一致の場合はさらに、一様な把握をより大きな領域へと経済的に拡張するという意義をもっており、それゆえわれわれはそのような場合を好んで探すのである。いま述べたことのうちに、類似と類比による推論が重んじられることの、単純な生物学的かつ認識論的な基礎づけが含まれている。</p>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;226</span></span></aside>
+  <p class="de" lang="de">9. Das Leitmotiv der Ähnlichkeit und Analogie erweist sich in mehrfacher Hinsicht als treibend und fruchtbar für die Erweiterung der Erkenntnis. Ein noch wenig geläufiges Tatsachengebiet N offenbare in irgend einer Weise seine Analogie zu einem uns geläufigeren, der unmittelbaren Anschauung zugänglicheren Gebiet M. Sofort fühlen wir uns angetrieben in Gedanken, durch Beobachtung und Experiment zu den bekannten Merkmalen oder Beziehungen der Merkmale von M die Homologen von N aufzusuchen. Unter diesen Homologen werden sich im allgemeinen bislang unbekannte Tatsachen des Gebietes N finden, die wir auf diese Weise entdecken.</p>
+  <p class="jp" lang="ja">9. 類似と類比という指導動機は、いくつかの点で、認識の拡張にとって推進的で実り豊かであることが示される。まだあまりなじみのない事実領域 N が、何らかの仕方で、よりなじんだ、直接の直観により近づきやすい領域 M との類比を明らかにしたとしよう。すぐさまわれわれは、思考のなかで、観察と実験によって、M の既知の特徴あるいは特徴の関係に対する N の相同物を探すよう駆り立てられる。これらの相同物のなかには、一般に、領域 N のこれまで知られていなかった事実が見いだされ、われわれはそれをこのようにして発見するのである。</p>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;226</span><span>S.&nbsp;227</span></span></aside>
+  <p class="de" lang="de">Trifft aber unsere Erwartung auch nicht zu, finden wir unvermutete Unterschiede von N gegen M, so hat sich unser Trieb doch nicht vergebens betätigt. Wir haben das Tatsachengebiet N genauer kennen gelernt, unsere begriffliche Kenntnis desselben hat sich bereichert. Die Operation mit Hypothesen wird durch den Reiz der Ähnlichkeit und <span class="pb" title="Leipzig 1906, S. 227">227</span>Analogie eingeleitet. Die Hypothese belebt die Anschauung, die Phantasie, und erregt durch diese die physische Reaktionstätigkeit. Die Funktion der Hypothese ist sonst teils eine sich selbst befestigende, verschärfende, teils eine sich selbst zerstörende, jedenfalls aber eine kenntniserweiternde.<a class="fr" href="#n13">13</a></p>
+  <p class="jp" lang="ja">しかし期待が当たらず、N に M に対する予期しなかった相違を見いだすとしても、われわれの衝動はむなしくはたらいたのではない。われわれは事実領域 N をより正確に知るようになり、それについての概念的知識は豊かになった。仮説による操作は、類似と類比の刺激によって始められる。仮説は直観を、想像力を活気づけ、それを通じて身体的な反応活動を呼び起こす。ちなみに仮説の機能は、一部は自らを固め鋭くすることであり、一部は自らを破壊することであるが、いずれにせよ知識を拡張するものである<a class="fr" href="#n13">13</a>。</p>
+  <ol class="notes"><li id="n13"><span class="nn">13</span><p class="de" lang="de">Mach, Bemerkungen über die historische Entwicklung der Optik. Poskes Zeitschrift f. physik. u. chem. Unterricht. XI. (1898.)</p><p class="jp" lang="ja">マッハ「光学の歴史的発展についての所見」ポスケ『物理化学教育雑誌』第11巻（1898年）。</p></li></ol>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;227</span></span></aside>
+  <p class="de" lang="de">10. Mehrere gleich gut bekannte Gebiete M, N, O, P können ebenfalls in Analogie zueinander treten, entweder paarweise oder mehrere zugleich. Selbstverständlich zeigen diese Tatsachengebiete außer den Übereinstimmungen auch Unterschiede, da sie ja sonst identisch wären. Daraus geht hervor, daß man beim Analogisieren bald das eine, bald das andere bevorzugen, bald von dem einen, bald von dem andern ausgehen kann, wobei verschiedene Analogien hervortreten und ihre Berechtigung geltend machen. Es ist klar, daß bei diesem Prozeß sich herausstellen muß, was an unseren Auffassungen zufällig und willkürlich ist, und welche Auffassungen sich in homogener Weise auf das weiteste Gebiet anwenden lassen, welche also dem Ideal der Wissenschaft am besten entsprechen.</p>
+  <p class="jp" lang="ja">10. 同じくらいよく知られたいくつかの領域 M, N, O, P もまた、二つずつ、あるいはいくつかが同時に、互いに類比の関係に入りうる。当然ながら、これらの事実領域は一致点のほかに相違点も示す。そうでなければ同一であろうから。そこから、類比を立てる際に、あるときは一方を、あるときは他方を優先させ、あるときは一方から、あるときは他方から出発することができ、その際さまざまな類比が現れてその正当性を主張することになる。この過程において、われわれの把握のうちの何が偶然的で恣意的であり、どの把握が最も広い領域に同質的な仕方で適用でき、したがって科学の理想に最もよく応えるかが、明らかにならざるをえないことは明白である。</p>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;227</span></span></aside>
+  <p class="de" lang="de">11. An Beispielen für die Bedeutung der Analogie fehlt es nicht. Dieselbe kann in der Naturwissenschaft kaum überschätzt werden. Schon in der antiken Zeit haben die unmittelbar sichtbaren Wasserwellen den Vorgang der Schallfortpflanzung erläutert und verständlich gemacht.<a class="fr" href="#n14">14</a> Die Vorstellungen über die Lichtfortpflanzung haben sich jenen über die Schallbewegung nachgebildet.<a class="fr" href="#n15">15</a> Die Entdeckung der Jupitertrabanten durch Galilei hat das Kopernikanische System mächtiger als alle anderen Argumente durch die Analogie gestützt. Das Jupitersystem stellt ein verkleinertes Modell des Planetensystems dar. Wir sehen, wie sehr Huygens diese Stütze zu schätzen wußte.</p>
+  <p class="jp" lang="ja">11. 類比の意義の例には事欠かない。自然科学においてその意義はほとんど過大評価しえない。すでに古代において、直接に目に見える水の波が音の伝播の過程を説明し、理解できるものにした<a class="fr" href="#n14">14</a>。光の伝播についての表象は、音の運動についての表象をまねて形成された<a class="fr" href="#n15">15</a>。ガリレイによる木星の衛星の発見は、類比によって、他のどの論拠よりも力強くコペルニクスの体系を支えた。木星系は惑星系の縮小模型を表している。ホイヘンスがこの支えをいかに高く評価していたかが分かる。</p>
+  <ol class="notes"><li id="n14"><span class="nn">14</span><p class="de" lang="de">Vitruvius, De architectura. V. Cap. III, 6.</p><p class="jp" lang="ja">ウィトルウィウス『建築について』第5巻、第3章、6。</p></li><li id="n15"><span class="nn">15</span><p class="de" lang="de">Huygens, Traité de la lumière. Leiden, 1690.</p><p class="jp" lang="ja">ホイヘンス『光についての論考』ライデン、1690年。</p></li></ol>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;227</span><span>S.&nbsp;228</span></span></aside>
+  <p class="de" lang="de">12. Die Drehung der Polarisationsebene des Lichtes durch den elektrischen Strom, welche Faraday im Jahre 1845 nachzuweisen glückte, ist eines der merkwürdigsten Beispiele einer großen Entdeckung unter Leitung der Analogie. J. F. W. Herschel hatte diese Beziehung zwischen Licht und Elektrizität schon <span class="pb" title="Leipzig 1906, S. 228">228</span>zwanzig Jahre vorher vermutet, und war bei seinen Experimenten, wenngleich dieselben wegen Anwendung zu geringer Kräfte negativ ausfielen, von einem richtigen Gedanken geleitet. Wir wissen dies aus einem Brief Herschels<a class="fr" href="#n16">16</a> an Faraday vom 9. November 1845. Herschel erhielt durch die Drehung der Polarisationsebene des Lichtes beim Fortschreiten des Strahles in gewissen starren und flüssigen Medien den Eindruck einer Schraube. Er suchte nun nach einer Schraubenstruktur (helicoidal dissymmetry) im Quarz. In der Tat äußert sich dieselbe bei diesem stark drehenden Körper in den plagiedrischen Flächen, obgleich die Quarzkristalle sonst den Eindruck der Symmetrie machen. Die optische helikoidale Dissymmetrie ist also an eine ebensolche Dissymmetrie des Mediums gebunden. Faßt man nun einen geradlinigen elektrischen Strom ins Auge, der den Nordpol der Magnetnadel, wo dieselbe auch in seiner Nähe sich befinden mag, stets zur Linken des Ampèreschen Schwimmers ablenkt, stets links herumtreibt, so erkennt man die helikoidale Dissymmetrie des magnetischen Stromfeldes. Herschel erwartete also, daß ein magnetisches Stromfeld das polarisierte Licht ähnlich beeinflussen würde, wie der Quarz. Seiner Vermutung entsprechend ließ er einmal einen Strahl durch die Achse einer durchströmten Drahtspule, ein anderes Mal zwischen zwei entgegengesetzt durchströmten parallelen Drähten längs der Länge derselben passieren, ohne ein positives Resultat zu erhalten. Die erstere Versuchsform entspricht bekanntlich der Faradayschen.</p>
+  <p class="jp" lang="ja">12. 1845年にファラデーが証明に成功した、電流による光の偏光面の回転は、類比の導きのもとでの大発見の最も注目すべき例の一つである。J. F. W. ハーシェルは、光と電気とのこの関係をすでに二十年前に推測しており、彼の実験は、あまりに小さな力を用いたために否定的な結果に終わったとはいえ、正しい考えに導かれていた。われわれはこのことを、1845年11月9日付のファラデー宛のハーシェルの手紙<a class="fr" href="#n16">16</a>から知っている。ハーシェルは、ある種の固体や液体の媒質のなかを光線が進むときの光の偏光面の回転から、ねじという印象を受けた。そこで彼は石英のうちにねじ構造（螺旋的非対称性、helicoidal dissymmetry）を探した。実際、この強く旋光する物体においては、石英の結晶がほかの点では対称の印象を与えるにもかかわらず、それは斜面体の面に現れている。したがって光学的な螺旋的非対称性は、媒質の同様の非対称性に結びついている。さて、磁針の北極を、それがその近くのどこにあろうとも、つねにアンペールの泳者の左へとそらし、つねに左回りに追い立てる直線電流に目を向けるならば、電流の磁場の螺旋的非対称性が認識される。それゆえハーシェルは、電流の磁場が石英と同じように偏光した光に影響を与えるであろうと期待した。その推測に従って、彼はあるときは電流の流れる線輪の軸に沿って、別のときは反対向きに電流の流れる二本の平行な導線のあいだをその長さに沿って光線を通したが、肯定的な結果は得られなかった。前者の実験形式は、よく知られているようにファラデーのものに対応している。</p>
+  <ol class="notes"><li id="n16"><span class="nn">16</span><p class="de" lang="de">Bence Jones, The life of Faraday. Vol. II, p. 205. London 1870.</p><p class="jp" lang="ja">ベンス・ジョーンズ『ファラデーの生涯』第2巻、205頁、ロンドン、1870年。</p></li></ol>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;228</span><span>S.&nbsp;229</span></span></aside>
+  <p class="de" lang="de">13. Ein anderes Beispiel mag die Vorteile des Analogisierens mehrerer schon bekannter Tatsachengebiete untereinander erläutern. Die Fouriersche Theorie des Wärmestroms scheint sich durch Beachtung der Analogie mit dem Wasserstrom entwickelt zu haben. Andererseits sind der Fourierschen Wärmeleitungstheorie andere Theorien, wie jene des elektrischen und des Diffusionsstroms nachgebildet worden. Unabhängig von diesen, und neben diesen, hat sich eine konforme Theorie der Fernkräfte, eine Attraktionstheorie entwickelt. Wenn man nun diese verschiedenen, große Tatsachengebiete zusammenfassend darstellenden Theorien vergleicht, so ergeben sich mannigfache <span class="pb" title="Leipzig 1906, S. 229">229</span>Analogien.</p>
+  <p class="jp" lang="ja">13. 別の例によって、すでに知られたいくつかの事実領域を互いに類比づけることの利点を説明しよう。フーリエの熱流の理論は、水の流れとの類比に注意を払うことによって発展したように思われる。他方、フーリエの熱伝導の理論をまねて、電流や拡散流の理論のような他の理論がつくられた。これらとは独立に、またこれらと並んで、遠隔力の同形の理論、すなわち引力の理論が発展した。さて、大きな事実領域をまとめて表すこれらさまざまな理論を比較すると、多様な類比が明らかになる。</p>
+</article>
+<article class="row" id="p13.2">
+  <aside class="mg"><a class="pid" href="#p13.2">13.2</a><span class="pg"><span>S.&nbsp;229</span></span></aside>
+  <p class="de" lang="de">W. Thomson<a class="fr" href="#n17">17</a> (Lord Kelvin) hat zunächst die Wärmeleitungstheorie mit der Attraktionstheorie verglichen und gefunden, daß die Formeln des ersteren Gebietes in jene des letzteren übergehen, wenn man an die Stelle des Begriffes Temperatur den Begriff Potential und an die Stelle des Begriffes Temperaturgefälle den Begriff Kraft einsetzt. Diese nahe Verwandtschaft ist sehr auffallend, wenn man bedenkt, daß die Grundvorstellungen, von welchen man in beiden Gebieten ausgeht, gänzlich verschieden zu sein scheinen, indem man die Wärmeleitung auf Nahewirkungen (Berührungswirkungen), die Attraktion auf Fernwirkungen zurückführt. Diese Gedanken haben wohl auf Maxwell sehr anregend gewirkt.</p>
+  <p class="jp" lang="ja">W. トムソン<a class="fr" href="#n17">17</a>（ケルヴィン卿）はまず熱伝導の理論を引力の理論と比較し、温度の概念のかわりにポテンシャルの概念を、温度勾配の概念のかわりに力の概念を置けば、前者の領域の公式が後者の領域の公式に移ることを見いだした。この近い類縁関係は、両領域で出発点とする基本表象がまったく異なっているように見えることを考えると、きわめて目立つ。熱伝導は近接作用（接触作用）に、引力は遠隔作用に帰着させられるからである。これらの考えはマクスウェルにきわめて刺激的にはたらいたであろう。</p>
+  <ol class="notes"><li id="n17"><span class="nn">17</span><p class="de" lang="de">W. Thomson, Cambridge mathemat. Journal. III, February 1842.</p><p class="jp" lang="ja">W. トムソン『ケンブリッジ数学雑誌』第3巻、1842年2月。</p></li></ol>
+</article>
+<article class="row" id="p13.3">
+  <aside class="mg"><a class="pid" href="#p13.3">13.3</a><span class="pg"><span>S.&nbsp;229</span></span></aside>
+  <p class="de" lang="de">Er erkannte auf diesem Wege die Gleichberechtigung der Faradayschen Nahewirkungstheorie der Elektrizität und des Magnetismus mit der bis dahin von den mathematischen Physikern allein anerkannten Fernwirkungstheorie, und wandte schließlich den großen Vorzügen der ersteren die Aufmerksamkeit zu.<a class="fr" href="#n18">18</a> Eine andere große Leistung dieser Art, die Erkenntnis der Analogie zwischen den Gleichungen der Lichtbewegung und jenen der elektrischen Schwingungen, die Begründung der elektromagnetischen Lichttheorie durch Maxwell<a class="fr" href="#n19">19</a> und die sich anschließende Eröffnung eines neuen Feldes der experimentellen Forschung durch Hertz<a class="fr" href="#n20">20</a> ist so bekannt, daß die bloße Erwähnung genügt.</p>
+  <p class="jp" lang="ja">彼はこの道で、電気と磁気についてのファラデーの近接作用理論が、それまで数理物理学者たちによって唯一認められていた遠隔作用理論と同等の権利をもつことを認識し、ついには前者の大きな長所に注意を向けた<a class="fr" href="#n18">18</a>。この種のもう一つの大きな業績、すなわち光の運動の方程式と電気振動の方程式とのあいだの類比の認識、マクスウェル<a class="fr" href="#n19">19</a>による光の電磁理論の基礎づけ、それに続くヘルツ<a class="fr" href="#n20">20</a>による実験的研究の新しい分野の開拓は、よく知られているので、言及するだけで十分である。</p>
+  <ol class="notes"><li id="n18"><span class="nn">18</span><p class="de" lang="de">Maxwell, A Treatise on Electricity and Magnetism. Vol. I, p. 99. Oxford 1873.</p><p class="jp" lang="ja">マクスウェル『電気磁気論』第1巻、99頁、オックスフォード、1873年。</p></li><li id="n19"><span class="nn">19</span><p class="de" lang="de">Maxwell, Dynamical Theory of the electromagn. field. London Phil. Trans. 1865.</p><p class="jp" lang="ja">マクスウェル「電磁場の動力学的理論」『ロンドン哲学紀要』1865年。</p></li><li id="n20"><span class="nn">20</span><p class="de" lang="de">Hertz, Untersuchungen über die Ausbreitung der elektrischen Kraft. Leipzig 1892.</p><p class="jp" lang="ja">ヘルツ『電気力の伝播についての研究』ライプツィヒ、1892年。</p></li></ol>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;229</span><span>S.&nbsp;230</span></span></aside>
+  <p class="de" lang="de">14. Maxwell<a class="fr" href="#n21">21</a> hat die Benützung der Analogie mit Bewußtsein zu einer sehr geklärten physikalischen Methode entwickelt. Maxwell findet, daß wir die Erscheinungen zu sehr <span class="pb" title="Leipzig 1906, S. 230">230</span>„aus den Augen verlieren“, wenn wir die Ergebnisse der Untersuchung nur in mathematischen Formeln darstellen. Wenn wir aber eine Hypothese benützen, sehen wir „wie durch eine gefärbte Brille“, und die Erklärung von einem einseitigen Standpunkt aus macht uns „gegen die Tatsachen blind“. Maxwell findet in den Erscheinungen des Gleichgewichtes der Elektrizität, des Magnetismus, der Strömung der Elektrizität u. s. w. gemeinsame Züge, die sämtlich an die Strömungserscheinungen einer Flüssigkeit erinnern. Um die Analogie ganz vollständig zu machen, wird jene Flüssigkeit von Maxwell idealisiert. Dieselbe wird ohne Trägheit (masselos), inkompressibel vorausgesetzt, und durch ein widerstehendes Medium strömend angenommen, dessen Widerstand der Stromgeschwindigkeit proportional gesetzt wird.</p>
+  <p class="jp" lang="ja">14. マクスウェル<a class="fr" href="#n21">21</a>は、類比の利用を意識的に、きわめて明晰な物理学的方法へと発展させた。マクスウェルは、研究の成果を数学的公式だけで表すと、現象をあまりに「見失って」しまうと考える。しかし仮説を用いると、われわれは「色眼鏡を通して見るように」見ることになり、一面的な立場からの説明はわれわれを「事実に対して盲目に」する。マクスウェルは、電気の平衡、磁気、電気の流れなどの現象のうちに、すべてが流体の流れの現象を思い出させる共通の特徴を見いだす。類比を完全なものにするために、その流体はマクスウェルによって理想化される。それは慣性のない（質量のない）、非圧縮性のものと前提され、抵抗する媒質のなかを流れるものと想定され、その抵抗は流速に比例するとされる。</p>
+  <ol class="notes"><li id="n21"><span class="nn">21</span><p class="de" lang="de">Maxwell, Transact. of the Cambridge Phil. Society. Vol. X, p. 27, 1855. Als ich selbst in der Prager Zeitschr. „Lotos“ (Februarnummer 1871) und in „Erhaltung der Arbeit“ (Prag 1872) diese Analogien in ähnlichem Sinne erörterte, waren mir Thomsons und Maxwells Arbeiten noch unbekannt und unzugänglich. S. Carnot scheint als der erste diese Denkweise mit Bewußtsein benützt zu haben.</p><p class="jp" lang="ja">マクスウェル『ケンブリッジ哲学協会紀要』第10巻、27頁、1855年。私自身がプラハの雑誌『ロートス』（1871年2月号）と『仕事の保存』（プラハ、1872年）でこれらの類比を似た意味で論じたとき、トムソンとマクスウェルの研究はまだ私には知られておらず、手に入らなかった。S. カルノーがこの考え方を意識して用いた最初の人であったようである。</p></li></ol>
+</article>
+<article class="row" id="p14.2">
+  <aside class="mg"><a class="pid" href="#p14.2">14.2</a><span class="pg"><span>S.&nbsp;230</span></span></aside>
+  <p class="de" lang="de">Es wird also ein imaginäres, analogisierendes, aber darum nicht minder anschauliches Bild angewendet. Man hält es nicht für etwas Wirkliches, und weiß genau, worin dasselbe mit dem Darzustellenden begrifflich übereinstimmt. Der Druck der Flüssigkeit entspricht den verschiedenen Potentialen, die Stromrichtung den Kraft- und Stromrichtungen, das Druckgefälle den Kräften u. s. w. Maxwell gelingt es auf diese Weise in seinen Darstellungen, ohne die Anschaulichkeit aufzugeben, die Unbefangenheit und die begriffliche Reinheit zu wahren. Er vereinigt die Vorteile der Hypothese mit jenen der mathematischen Formel.<a class="fr" href="#n22">22</a> Das Bild, welches er noch anwendet, ist, um einen modifizierten Ausdruck von Hertz zu gebrauchen, ein solches, dessen psychische Folgen wieder Bilder der Folgen der Tatsachen sind. Maxwell nähert sich sehr einer idealen Methode der Naturforschung. Daher seine ungewöhnlichen Erfolge!</p>
+  <p class="jp" lang="ja">したがって、想像上の、類比づける、しかしそれだからといって直観性において劣らない像が用いられているのである。人はそれを現実のものとはみなさず、それが表されるべきものと概念的にどこで一致しているかを正確に知っている。流体の圧力はさまざまなポテンシャルに、流れの向きは力と電流の向きに、圧力勾配は力に対応する、等々。マクスウェルはこのようにして、その叙述において、直観性を放棄することなく、偏見のなさと概念的純粋さとを保つことに成功している。彼は仮説の利点と数学的公式の利点とを結びつけているのである<a class="fr" href="#n22">22</a>。彼がなお用いている像は、ヘルツの言葉を少し変えて用いれば、その心的な帰結が再び事実の帰結の像であるようなものである。マクスウェルは自然研究の理想的な方法にきわめて近づいている。それゆえ彼の異例の成功があるのである。</p>
+  <ol class="notes"><li id="n22"><span class="nn">22</span><p class="de" lang="de">Vgl. Machs oben erwähnten Artikel in Zeitschr. f. physik. u. chem. Unterricht. X. (1897.)</p><p class="jp" lang="ja">上に挙げたマッハの論文、『物理化学教育雑誌』第10巻（1897年）参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;230</span><span>S.&nbsp;231</span></span></aside>
+  <p class="de" lang="de">15. Es sei zum Schlusse nochmals hervorgehoben, daß nicht nur die Verfolgung von vollständigen Analogien, welche zur Erkenntnis neuer Übereinstimmungen führen, sondern auch die Beachtung unvollständiger Analogien, welche die Unterschiede der verglichenen Tatsachengebiete enthüllen, der Forschung sehr förderlich sein kann. So wäre eine Energielehre bei bloßer Beachtung der Konformität der Energien auf Kenntnis des ersten <span class="pb" title="Leipzig 1906, S. 231">231</span>Hauptsatzes der Thermodynamik beschränkt geblieben, während gerade die Beachtung der Unterschiede zur wichtigen Kenntnis der Dissipation der Energie geleitet hat.<a class="fr" href="#n23">23</a> Ein sehr lehrreiches und historisch wichtiges Beispiel des vorzeitigen Fallenlassens einer fruchtbaren Analogie bietet ein Forscher wie Newton.</p>
+  <p class="jp" lang="ja">15. 最後にもう一度強調しておきたいのは、新しい一致の認識へと導く完全な類比を追うことばかりでなく、比較された事実領域の相違を明らかにする不完全な類比に注意を払うことも、研究にとってきわめて有益でありうるということである。たとえばエネルギー論は、エネルギーの同形性だけに注意を払っていたならば、熱力学の第一法則の知識に限られたままであったであろう。まさに相違に注意を払うことが、エネルギーの散逸という重要な知識へと導いたのである<a class="fr" href="#n23">23</a>。実り豊かな類比を早まって捨てた非常に教えられるところの多い歴史的に重要な例を、ニュートンのような研究者が提供している。</p>
+  <ol class="notes"><li id="n23"><span class="nn">23</span><p class="de" lang="de">Vgl. Mach, Prinzipien der Wärmelehre. 2. Aufl. 1900.</p><p class="jp" lang="ja">マッハ『熱学の原理』第2版、1900年参照。</p></li></ol>
+</article>
+<article class="row" id="p15.2">
+  <aside class="mg"><a class="pid" href="#p15.2">15.2</a><span class="pg"><span>S.&nbsp;231</span></span></aside>
+  <p class="de" lang="de">Die 28. Frage der Optik beschäftigt sich mit der Descartesschen Drucktheorie und mit der Huygensschen Wellentheorie des Lichtes.<a class="fr" href="#n24">24</a> Nachdem Newton die erstere abgewiesen hat, spricht er sich auch gegen die zweite aus. Denn er vermißt beim Licht die Beugung in den Schattenraum. Zwar weiß er, daß Wasserwellen stärker gebeugt werden als Schallwellen, allein da er nur Versuche angestellt hat, bei welchen ihm die noch geringere Beugung des Lichtes in den Schattenraum leicht entgehen konnte, und nur die entgegengesetzte bemerkt wurde, zieht er es vor, die letztere auf eine ablenkende von dem gestreiften Körper ausgehende Kraft zurückzuführen. Diese einmal gefaßte Stellung verschließt ihm auch das Verständnis der Huygensschen Arbeiten. Er bleibt bei seiner Projektiltheorie. Er erklärt alles „ex congenitis et immutabilibus radiorum proprietatibus“; das sei ohnehin noch schwierig genug.</p>
+  <p class="jp" lang="ja">『光学』の第28問は、デカルトの圧力説とホイヘンスの光の波動説を扱っている<a class="fr" href="#n24">24</a>。ニュートンは前者を退けたのち、後者にも反対を表明する。彼は光に影の空間への回折が欠けていると考えるからである。たしかに彼は、水の波が音の波より強く回折されることを知っている。しかし彼は、光のさらに小さな影の空間への回折を容易に見逃しうる実験しか行っておらず、反対向きの回折しか気づかなかったので、後者を、かすめられた物体から出るそらす力に帰着させるほうを選ぶ。いったんとられたこの立場は、ホイヘンスの研究の理解をも彼に閉ざしてしまう。彼は自分の射出体説にとどまる。彼はすべてを「光線の生得的で不変の性質から（ex congenitis et immutabilibus radiorum proprietatibus）」説明する。それだけでもすでに十分難しいというのである。</p>
+  <ol class="notes"><li id="n24"><span class="nn">24</span><p class="de" lang="de">Optice. Ed. Clarke. Londini 1719. p. 366.</p><p class="jp" lang="ja">『光学』クラーク編、ロンドン、1719年、366頁。</p></li></ol>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>章題</td><td lang="de">章題（注1付き）が本文段落として重複</td><td lang="de">注1 を §1 冒頭に付し、重複を削除</td></tr>
+  <tr><td>各頁</td><td lang="de">柱 „Die Ähnlichkeit und die Analogie als Leitmotiv der Forschung.“ が本文に混入</td><td lang="de">除去</td></tr>
+  <tr><td>§4.2, 注9</td><td lang="de">Kepler の引用の数行（„et recta, coeunt foci … Undique“）が注9 に混入</td><td lang="de">引用本文に戻す（„… circulo et recta, coeunt foci … Undique sunt rationes oppositae.“）</td></tr>
+  <tr><td>§12.1</td><td lang="de">„Faraday vom“ / „9. November 1845.“ が新しい節 9 と誤認</td><td lang="de">„… Faraday vom 9. November 1845.“ と接続</td></tr>
+  <tr><td>§11.1</td><td lang="de">gemacht. 2) / nachgebildet.³)（注番号ずれ）</td><td lang="de">注14（Vitruvius）・注15（Huygens）</td></tr>
+  <tr><td>注参照</td><td lang="de">Jevons²), Maxwell³), Hoppe), Tylor*), zu. ²), Lichtes.*)</td><td lang="de">それぞれ注2・3・4・6・18・24</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_12.html">← 第ⅩⅡ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
