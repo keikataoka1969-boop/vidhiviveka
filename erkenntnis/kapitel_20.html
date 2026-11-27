@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第ⅩⅩ章 計量的空間に対する生理学的空間</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第ⅩⅩ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a><a href="#s16">§16</a><a href="#s17">§17</a><a href="#s18">§18</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL XX · 第ⅩⅩ章</div>
+  <h1>計量的空間に対する生理学的空間</h1>
+  <div class="de-title" lang="de">Der physiologische Raum im Gegensatz zum metrischen</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 337–352　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;337</span></span></aside>
+  <p class="de" lang="de">1. Der physiologische Raum, der Raum unserer sinnlichen Anschauung, den wir bei vollem Erwachen unseres Bewußtseins fertig vorfinden, ist sehr verschieden von dem metrischen, begrifflichen Raum. Die geometrischen Begriffe werden größtenteils durch absichtliche Erfahrungen erworben. Der Raum der Euklidischen Geometrie hat überall, an allen Stellen und nach allen Richtungen dieselbe Beschaffenheit, ist unbegrenzt und unendlich. Vergleichen wir hiermit den Raum des Gesichtes, den „Sehraum“ nach der Bezeichnung von Joh. Müller und Hering, der dem Sehenden vor allem geläufig ist, so finden wir denselben weder überall noch nach allen Richtungen gleich beschaffen, noch unendlich, noch unbegrenzt.<a class="fr" href="#n1">1</a></p>
+  <p class="jp" lang="ja">1. 生理学的空間、すなわちわれわれが意識が完全に目覚めたときにすでに出来上がったものとして見いだす、われわれの感性的直観の空間は、計量的な、概念的な空間とはたいへん異なっている。幾何学の概念は、大部分、意図的な経験によって獲得される。ユークリッド幾何学の空間は、いたるところで、すべての場所ですべての方向に同じ性質をもち、無際限で無限である。これと、見る者にとりわけなじみのある視覚の空間、ヨハネス・ミュラーとヘリングの呼び名でいう「視空間」とを比べると、それはいたるところでもすべての方向にも同じ性質をもたず、無限でも無際限でもないことが分かる<a class="fr" href="#n1">1</a>。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Die Ausdrücke sind hier im Riemannschen Sinne zu verstehen.</p><p class="jp" lang="ja">これらの表現はここではリーマンの意味で理解すべきである。</p></li></ol>
+</article>
+<article class="row" id="p1.2">
+  <aside class="mg"><a class="pid" href="#p1.2">1.2</a><span class="pg"><span>S.&nbsp;337</span><span>S.&nbsp;338</span></span></aside>
+  <p class="de" lang="de">Die auf das Gestaltensehen bezüglichen Tatsachen, welche ich an einem andern Orte<a class="fr" href="#n2">2</a> besprochen habe, lehren, daß dem „Oben“ und dem „Unten“, ebenso dem „Nah“ und dem „Fern“ gänzlich verschiedene Empfindungen entsprechen. Auch das „Rechts“ und das „Links“ beruht auf verschiedenen Empfindungen, wenn auch auf viel ähnlicheren, wie aus den Tatsachen der physiologischen Symmetrie<a class="fr" href="#n3">3</a> hervorgeht. Die Ungleichheit der Richtungen spricht sich in den Erscheinungen der physiologischen Ähnlichkeit<a class="fr" href="#n4">4</a> aus. Das scheinbare Schwellen der Steine des Tunneleinganges beim Einfahren des Eisenbahnzuges, das Schrumpfen derselben Objekte beim Ausfahren, bringt uns nur in recht auffallender Weise die tägliche Erfahrung zur Kenntnis, daß die <span class="pb" title="Leipzig 1906, S. 338">338</span>Gesichtsobjekte im Sehraum nicht ebenso ohne Pressung und Dehnung beweglich sind, wie die denselben entsprechenden unveränderlichen, geometrischen Objekte.</p>
+  <p class="jp" lang="ja">形の視覚にかかわる事実——それについて私は別の箇所<a class="fr" href="#n2">2</a>で論じた——は、「上」と「下」に、また「近」と「遠」に、まったく異なる感覚が対応していることを教える。「右」と「左」もまた、生理学的対称性<a class="fr" href="#n3">3</a>の事実から明らかなように、はるかに似通ってはいるが、異なる感覚にもとづいている。方向の不等性は、生理学的相似<a class="fr" href="#n4">4</a>の現象に表れている。列車がトンネルに入るときにトンネル入口の石が見かけ上ふくらみ、出るときに同じ対象が縮むことは、視空間における視対象が、それに対応する不変の幾何学的対象と同じように圧縮や伸張なしに動けるのではないという日常の経験を、きわめて目立った仕方でわれわれに知らせるにすぎない。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">Analyse der Empfindungen. 4. Aufl. S. 86 u. f.</p><p class="jp" lang="ja">『感覚の分析』第4版、86頁以下。</p></li><li id="n3"><span class="nn">3</span><p class="de" lang="de">A. a. O. S. 88.</p><p class="jp" lang="ja">前掲書、88頁。</p></li><li id="n4"><span class="nn">4</span><p class="de" lang="de">A. a. O. S. 89.</p><p class="jp" lang="ja">前掲書、89頁。</p></li></ol>
+</article>
+<article class="row" id="p1.3">
+  <aside class="mg"><a class="pid" href="#p1.3">1.3</a><span class="pg"><span>S.&nbsp;338</span></span></aside>
+  <p class="de" lang="de">Auch schon ruhende, bekannte Objekte lehren dasselbe. Ein über das Gesicht gestülptes, weites tieferes Zylinderglas, oder ein an den Augenbrauenbogen angelegter horizontaler, zylindrischer Spazierstock, scheint in dieser ungewöhnlichen Lage auffallend konisch und gegen das Gesicht zu merklich trompetenförmig erweitert, bezw. verdickt.<a class="fr" href="#n5">5</a> Der Sehraum gleicht mehr den Gebilden der Metageometer als dem Euklidischen Raum. Der Sehraum ist nicht nur begrenzt, sondern scheint sogar recht enge Grenzen zu haben. Aus einem Versuch von Plateau geht hervor, daß ein Nachbild sich nicht mehr merklich verkleinert, wenn es auf eine Fläche projiziert wird, deren Entfernung vom Auge über 30 Meter anwächst. Alle naiven, auf den unmittelbaren Eindruck angewiesenen Menschen, auch die Astronomen des Altertums, sehen den Himmel ungefähr als eine Kugel von endlichem Radius.</p>
+  <p class="jp" lang="ja">静止している既知の対象もまた同じことを教える。顔にかぶせた広く深めの円筒形のガラス器や、眉の弓に水平にあてた円筒形のステッキは、この慣れない位置では、目立って円錐形に見え、顔のほうへ向かってはっきりとラッパ状に広がって、あるいは太くなって見える<a class="fr" href="#n5">5</a>。視空間はユークリッド空間よりも、むしろメタ幾何学者たちの形成物に似ている。視空間は限られているばかりでなく、かなり狭い限界をもっているようにさえ見える。プラトーの実験から明らかなように、残像は、目からの距離が三十メートルを超える面に投影されると、もはや目立って小さくならない。直接の印象に頼るすべての素朴な人間は、古代の天文学者も含めて、天をおよそ有限の半径をもつ球として見る。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">Seither ist eine ausführliche gründliche Arbeit über die hier berührte Frage erschienen: F. Hillebrand, Theorie der scheinbaren Größe bei binokularem Sehen (Denkschr. d. Wiener Akademie, math.-naturw. Cl., Bd. 72. 1902). - Der Verfasser nimmt den Ausdruck „scheinbare Größe“ im Sinne der „Sehgröße“ Herings. Die im Text erwähnte Erscheinung tritt bei der sinnreichen Beobachtungsmethode des Verfassers sehr deutlich und meßbar hervor. R. v. Sterneck, Versuch einer Theorie der scheinbaren Entfernungen. Ber. d. Wiener Akademie, math.-naturw. Cl., Bd. 114, A. IIa, S. 1685 (1905).</p><p class="jp" lang="ja">その後、ここで触れた問題について詳しく徹底的な研究が現れた。F. ヒレブラント「両眼視における見かけの大きさの理論」（『ウィーン学士院紀要』数学・自然科学部門、第72巻、1902年）。——著者は「見かけの大きさ」という表現をヘリングの「視覚的大きさ」の意味でとっている。本文で述べた現象は、著者の巧みな観察法においてきわめてはっきりと測定可能な形で現れる。R. v. シュテルネック「見かけの距離の理論の試み」『ウィーン学士院報告』数学・自然科学部門、第114巻、IIa部、1685頁（1905年）。</p></li></ol>
+</article>
+<article class="row" id="p1.4">
+  <aside class="mg"><a class="pid" href="#p1.4">1.4</a><span class="pg"><span>S.&nbsp;338</span><span>S.&nbsp;339</span></span></aside>
+  <p class="de" lang="de">Ja die Abplattung des Himmelsgewölbes, welche Ptolemaeus schon kennt, und Euler in moderner Zeit diskutiert, lehrt uns sogar eine ungleiche Ausdehnung des Sehraums in verschiedenen Richtungen kennen. Die physiologische Aufklärung dieser Tatsache hat Zoth<a class="fr" href="#n6">6</a> angebahnt, indem er die Erscheinung als abhängig von der gegen den Kopf orientierten Blickerhebung nachgewiesen hat. Die engen Grenzen des Sehraums folgen schon aus der Möglichkeit der Panoramamalerei. Endlich bemerken wir noch, daß der Sehraum ursprünglich überhaupt nicht <span class="pb" title="Leipzig 1906, S. 339">339</span>metrisch ist. Die Orte, Entfernungen u. s. w. des Sehraums sind qualitativ, nicht quantitativ unterschieden. Was wir Augenmaß nennen, entwickelt sich erst auf Grund primitiver physikalisch-metrischer Erfahrungen.</p>
+  <p class="jp" lang="ja">それどころか、プトレマイオスがすでに知り、近代にはオイラーが論じた天の穹窿の扁平さは、異なる方向における視空間の不等な広がりをさえ教えてくれる。この事実の生理学的な解明への道を開いたのはツォート<a class="fr" href="#n6">6</a>であり、彼はこの現象が頭に対して方向づけられた視線の上げ方に依存することを証明した。視空間の狭い限界は、すでにパノラマ画が可能であることから帰結する。最後になお注意しておくが、視空間はもともとまったく計量的ではない。視空間の場所、距離などは、量的にではなく質的に区別されている。目測と呼ばれるものは、原始的な物理的・計量的経験にもとづいてはじめて発達するのである。</p>
+  <ol class="notes"><li id="n6"><span class="nn">6</span><p class="de" lang="de">O. Zoth, Über den Einfluß der Blickrichtung auf die scheinbare Größe der Gestirne und die scheinbare Form des Himmelsgewölbes (Pflügers Archiv, Bd. 78, 1899). – Eine Erweiterung von Hillebrands Versuchen mit Rücksicht auf die Blickrichtung wäre sehr wünschenswert.</p><p class="jp" lang="ja">O. ツォート「天体の見かけの大きさと天の穹窿の見かけの形に対する視線方向の影響について」（『プフリューガー・アルヒーフ』第78巻、1899年）。——視線方向を顧慮してヒレブラントの実験を拡張することがきわめて望ましいであろう。</p></li></ol>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;339</span></span></aside>
+  <p class="de" lang="de">2. Räumliche Wahrnehmungen vermittelt auch die Haut, welche eine geschlossene Fläche von komplizierter geometrischer Form darstellt. Wir unterscheiden nicht nur die Qualität des Reizes, sondern durch irgend eine Zusatzempfindung auch die gereizte Stelle. Wenn nun letztere Empfindung nur von Stelle zu Stelle verschieden ist, und zwar desto mehr verschieden, je weiter die Stellen voneinander sind, so sind hiermit die wesentlichen biologischen Bedürfnisse schon gedeckt. Die großen Anomalien, welche der Raumsinn der Haut gegenüber dem metrischen Raum darbietet, sind von E. H. Weber<a class="fr" href="#n7">7</a> dargelegt worden. Die Entfernung zweier Zirkelspitzen, bei welcher die von beiden berührten Orte eben noch deutlich unterschieden werden, ist auf der Zungenspitze 50-60mal kleiner als auf der Mitte des Rückens.</p>
+  <p class="jp" lang="ja">2. 空間的な知覚は、複雑な幾何学的形状をもつ閉じた面をなす皮膚によっても媒介される。われわれは刺激の質を区別するばかりでなく、何かの付加的感覚によって刺激された場所をも区別する。さて後者の感覚が場所ごとに異なり、しかも場所が互いに離れていればいるほど異なるのであれば、それによって本質的な生物学的欲求はすでに満たされている。皮膚の空間感覚が計量的空間に対して示す大きな異常は、E. H. ヴェーバー<a class="fr" href="#n7">7</a>によって示された。二つのコンパスの先端が触れた場所がちょうどまだはっきり区別される距離は、舌の先では背中の中央の五十分の一から六十分の一である。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">E. H. Weber, Über den Raumsinn und die Empfindungskreise in der Haut und im Auge. (Ber. d. kgl. sächs. Gesellsch. d. Wissenschaften, math.- naturw. Cl. 1852. S. 85 u. f.)</p><p class="jp" lang="ja">E. H. ヴェーバー「皮膚と目における空間感覚と感覚圏について」（『ザクセン王立学術協会報告』数学・自然科学部門、1852年、85頁以下）。</p></li></ol>
+</article>
+<article class="row" id="p2.2">
+  <aside class="mg"><a class="pid" href="#p2.2">2.2</a><span class="pg"><span>S.&nbsp;339</span></span></aside>
+  <p class="de" lang="de">Die Hautteile zeigen große Abstufungen der Raumempfindlichkeit. Ein Zirkel, dessen Spitzen die Ober- und Unterlippe zwischen sich fassen, scheint sich bedeutend zu schließen, wenn man mit demselben horizontal gegen die Seite des Gesichts fährt (Fig. 9). Gibt man den Zirkelspitzen die Entfernung zweier benachbarter Fingerspitzen und führt dieselben von diesen über die innere Handfläche nach dem Unterarm, so scheinen sie daselbst ganz zusammenzuklappen (Fig. 10). In den Figuren ist die wirkliche Bahn punktiert, die scheinbare ausgezogen.</p>
+  <p class="jp" lang="ja">皮膚の各部分は空間感受性の大きな段階差を示す。先端が上唇と下唇をはさむコンパスを水平に顔の側面へと動かすと、それは著しく閉じるように見える（図9）。コンパスの先端に隣り合う二本の指先の距離を与え、それを指先から手のひらの内側を通って前腕へと動かすと、そこではまったく閉じてしまうように見える（図10）。図では実際の道筋が点線で、見かけの道筋が実線で示されている。</p>
+</article>
+<figure class="fig"><span lang="de">Fig. 9, Fig. 10 (S. 339)</span><em>図版は原書を参照</em></figure>
+<article class="row" id="p2.3">
+  <aside class="mg"><a class="pid" href="#p2.3">2.3</a><span class="pg"><span>S.&nbsp;339</span><span>S.&nbsp;340</span></span></aside>
+  <p class="de" lang="de">Die Formen der Körper, welche die Haut berühren, werden unter<span class="pb" title="Leipzig 1906, S. 340">340</span>schieden,<a class="fr" href="#n8">8</a> doch steht der Raumsinn der Haut gegen jenen des Auges sehr zurück.<a class="fr" href="#n9">9</a> Die Zungenspitze erkennt noch den kreisförmigen Querschnitt einer Röhre bei 2 mm Durchmesser desselben. Der Raum der Haut entspricht einem zweidimensionalen, endlichen unbegrenzten (geschlossenen) Riemannschen Raum. Durch die Empfindungen der Bewegung der Glieder, insbesondere der Arme, Hände und Finger kommt etwas einer dritten Dimension Entsprechendes hinzu. Wir lernen dieses System der Empfindungen allmählich durch das einfachere, anschaulichere Physikalische interpretieren. So schätzen wir die Dicke einer Tischplatte, die wir im Dunkeln zwischen Daumen und Zeigefinger fassen, ganz leidlich ab. Die Schätzung gelingt sogar, wenn wir zur Berührung der Ober- und Unterseite je einen Finger der rechten und der linken Hand verwenden. Der haptische Raum, oder der Tastraum, hat mit dem metrischen Raum ebensowenig gemein wie der Sehraum. Er ist wie der letztere anisotrop und inhomogen. Die Hauptrichtungen der Organisation: vorn-hinten, oben-unten, rechts-links sind in beiden physiologischen Räumen übereinstimmend ungleichwertig.</p>
+  <p class="jp" lang="ja">皮膚に触れる物体の形は区別される<a class="fr" href="#n8">8</a>が、皮膚の空間感覚は目のそれにはるかに及ばない<a class="fr" href="#n9">9</a>。舌の先は、直径2ミリの管の円形の断面をなお認める。皮膚の空間は、二次元の、有限で無際限な（閉じた）リーマン空間に対応する。四肢、とりわけ腕、手、指の運動の感覚によって、第三の次元に対応するものが加わる。われわれはこの感覚の体系を、より単純で直観的な物理的なものによってしだいに解釈することを学ぶ。たとえば暗闇のなかで親指と人さし指のあいだにはさんだテーブルの板の厚さを、われわれはかなりよく見積もる。上面と下面に触れるのに右手と左手の指を一本ずつ使っても、見積もりはうまくいく。触覚的空間あるいは触空間は、視空間と同じく、計量的空間とほとんど共通点をもたない。それは後者と同じく異方的で非一様である。体制の主要な方向、すなわち前後、上下、左右は、両方の生理学的空間において一致して等価ではない。</p>
+  <ol class="notes"><li id="n8"><span class="nn">8</span><p class="de" lang="de">Man muß natürlich für innige Berührung der Haut und der aufgelegten Körper sorgen. Als man mir in meine apoplektisch gelähmte Hand verschiedene Objekte legte, erkannte ich manche nicht, und man schloß hieraus auf eine teilweise Störung der Sensibilität. Der Schluß erwies sich aber als irrig. Ich ließ mir nämlich unmittelbar nach dieser Untersuchung die gelähmte Hand durch eine andere Person schließen, und erkannte nun sofort alle eingelegten Objekte.</p><p class="jp" lang="ja">もちろん皮膚と載せた物体とが密に接触するよう注意しなければならない。卒中で麻痺した私の手にさまざまな対象を置いたとき、私はそのいくつかを認めなかったので、感受性の部分的な障害があると推論された。しかしその推論は誤りであることが分かった。この検査の直後に、私は麻痺した手を他の人に握らせてみたところ、置かれた対象をすべてただちに認めたのである。</p></li><li id="n9"><span class="nn">9</span><p class="de" lang="de">E. H. Weber, a. a. O. S. 125.</p><p class="jp" lang="ja">E. H. ヴェーバー、前掲書、125頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;340</span><span>S.&nbsp;341</span></span></aside>
+  <p class="de" lang="de">3. Daß wir den Raumsinn nicht entwickelt finden, wo derselbe keine biologische Funktion hat, kann uns nicht sonderlich überraschen. Wozu sollte es uns dienen, über die Lage der inneren Organe unterrichtet zu sein, da wir doch auf deren Funktion keinen Einfluß haben? So erstreckt sich der Raumsinn nicht tief in die Nase hinein. Man kann nicht unterscheiden, ob man die durch eines von zwei Röhrchen eingeführten Gerüche rechts oder links empfindet.<a class="fr" href="#n10">10</a> Dagegen erstreckt sich die Tastempfindlichkeit nach E. Weber bis in das Trommelfell,<a class="fr" href="#n11">11</a> durch welche entschieden wird, ob die stärkere Schallaffektion von der rechten <span class="pb" title="Leipzig 1906, S. 341">341</span>oder linken Seite kommt. Die roheste Orientierung über die Lage der Schallquelle mag hierdurch vermittelt werden. Für die feinere Orientierung ist dies jedoch nicht zureichend.</p>
+  <p class="jp" lang="ja">3. 空間感覚が生物学的機能をもたないところで発達していないことは、それほど驚くにあたらない。内臓の機能にわれわれは何の影響も及ぼさないのに、その位置について知らされていることが何の役に立つであろうか。たとえば空間感覚は鼻の奥深くまでは及んでいない。二本の細管のどちらかから導き入れられた匂いを、右に感じるのか左に感じるのか区別することはできない<a class="fr" href="#n10">10</a>。これに対して、E. ヴェーバーによれば、触覚の感受性は鼓膜にまで及んでおり<a class="fr" href="#n11">11</a>、それによって、より強い音の作用が右から来るのか左から来るのかが決定される。音源の位置についての最も粗い方向づけは、これによって媒介されるのであろう。しかしより細かな方向づけには、それでは十分ではない。</p>
+  <ol class="notes"><li id="n10"><span class="nn">10</span><p class="de" lang="de">A. a. O. S. 126.</p><p class="jp" lang="ja">前掲書、126頁。</p></li><li id="n11"><span class="nn">11</span><p class="de" lang="de">A. a. O. S. 127.</p><p class="jp" lang="ja">前掲書、127頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;341</span></span></aside>
+  <p class="de" lang="de">4. Wenn auch bei manchen Empfindungen das Merkmal des Ortes und Raumes sehr viel deutlicher sich geltend macht, als bei andern, so dürfte doch James mit der Ansicht das Richtige getroffen haben, daß jeder Empfindung eine gewisse Räumlichkeit anhaftet.<a class="fr" href="#n12">12</a> Jeder Empfindung kommt durch das gereizte Element ein Ort zu, und da der Elemente meist mehrere oder viele sind, so kann man in einem gewissen Sinne auch von einem Volumen der Empfindung sprechen. Bei seinen Ausführungen beruft sich James mehrfach auf Hering, welcher den Eindruck glühender Flächen, durchleuchteter Räume u. s. w. als raumhaft bezeichnet. Die Töne werden gewöhnlich als Beispiel vollständig unräumlicher Empfindungen angeführt.</p>
+  <p class="jp" lang="ja">4. ある感覚においては場所と空間の徴表が他の感覚よりもはるかにはっきり現れるとしても、どの感覚にもある空間性がつきまとっているというジェイムズの見解<a class="fr" href="#n12">12</a>は、おそらく正しいところを突いているであろう。どの感覚にも、刺激された要素によって一つの場所が帰属し、要素はたいてい複数あるいは多数あるのだから、ある意味では感覚の容積について語ることもできる。ジェイムズはその論述において何度もヘリングを引き合いに出しているが、ヘリングは灼熱した面や光に満たされた空間などの印象を空間的と呼んでいる。音は通常、まったく空間をもたない感覚の例として挙げられる。</p>
+  <ol class="notes"><li id="n12"><span class="nn">12</span><p class="de" lang="de">James, The Principles of Psychology II, insbesondere S. 136 u. f.</p><p class="jp" lang="ja">ジェイムズ『心理学原理』第2巻、とりわけ136頁以下。</p></li></ol>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;341</span></span></aside>
+  <p class="de" lang="de">Ich glaube aber die gelegentliche Äußerung von Hering,<a class="fr" href="#n13">13</a> daß tieferen Tönen ein größeres Volumen zukommt als höheren, für zutreffend halten zu dürfen. Die höchsten hörbaren Töne der Königschen Stäbe machen geradezu den Eindruck eines Nadelstiches, während tiefe Töne den ganzen Kopf (oder besser gesagt, den ganzen akustischen Raum) zu erfüllen scheinen. Die Möglichkeit, die Schallquelle, wenn auch unvollkommen, zu lokalisieren, läßt ebenfalls eine Beziehung der Ton- und Raumempfindung vermuten. Reicht auch Steinhausers Parallele zwischen binokularem Sehen und binauralem Hören nicht sehr weit, so besteht doch eine gewisse Analogie, und das Lokalisieren wird vorzugsweise durch die hohen Töne von kleinem Volumen und schärfer bestimmtem Ort vermittelt.<a class="fr" href="#n14">14</a></p>
+  <p class="jp" lang="ja">しかし私は、低い音には高い音よりも大きな容積が帰属するというヘリングの折にふれての言葉<a class="fr" href="#n13">13</a>を、当を得たものとみなしてよいと信じる。ケーニヒの棒の最も高い可聴音はまさに針で刺されたような印象を与えるが、低い音は頭全体（あるいはより正確に言えば、聴覚的空間全体）を満たすように見える。音源を、不完全ながらも定位できるということも、音の感覚と空間感覚との関係を推測させる。両眼視と両耳聴とのあいだのシュタインハウザーの並行関係はそれほど遠くまでは及ばないとしても、ある類比は成り立っており、定位はとりわけ、容積が小さく場所がより鋭く定まった高い音によって媒介される<a class="fr" href="#n14">14</a>。</p>
+  <ol class="notes"><li id="n13"><span class="nn">13</span><p class="de" lang="de">Meine Erinnerung dürfte auf einer mündlichen Äußerung beruhen, da ich eine hierauf bezügliche Stelle in Hs. Schriften nicht finde.</p><p class="jp" lang="ja">私の記憶はおそらく口頭の発言にもとづいている。ヘリングの著作にそれに関する箇所を見いだせないからである。</p></li><li id="n14"><span class="nn">14</span><p class="de" lang="de">Analyse der Empfindungen. S. 206.</p><p class="jp" lang="ja">『感覚の分析』206頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;341</span><span>S.&nbsp;342</span></span></aside>
+  <p class="de" lang="de">5. Die physiologischen Räume verschiedener Sinne umfassen nur teilweise gemeinsame physikalische Gebiete. Dem Tastsinn ist die ganze Haut zugänglich, während nur ein Teil derselben gesehen werden kann. Dafür reicht der Gesichtssinn als Fernsinn physikalisch überhaupt viel weiter. Die räumliche Orientierung durch das Ohr ist viel unbestimmter, und auf ein engeres <span class="pb" title="Leipzig 1906, S. 342">342</span>Gebiet beschränkt, als jene durch das Auge. So lose auch die verschiedenen Raumempfindungen ursprünglich zusammenhängen mögen, so treten sie durch Association doch in Verbindung, und jenes System, welches im Augenblick die größere praktische Wichtigkeit hat, ist bereit, das andere zu ergänzen und zu vertreten. Die Raumempfindungen verschiedener Sinne mögen recht verwandt, werden aber kaum identisch sein. Es ist wohl nicht nötig, das offenbare und ausreichende associative Band durch Annahme eines räumlichen Generalsinns<a class="fr" href="#n15">15</a> zu stärken und zu ergänzen.</p>
+  <p class="jp" lang="ja">5. さまざまな感官の生理学的空間は、一部だけ共通の物理的領域を包括する。触覚には皮膚全体が近づきうるが、そのうち見ることのできるのは一部だけである。そのかわり視覚は遠隔感官として、物理的にははるかに遠くまで及ぶ。耳による空間的な方向づけは、目によるものよりもはるかに不確定で、より狭い領域に限られている。さまざまな空間感覚がもともとどれほどゆるやかにしか連関していないとしても、それらは連合によって結びつき、そのときより大きな実践的重要性をもつ体系が、他方を補い代理する用意がある。さまざまな感官の空間感覚はたいへん近縁ではあろうが、同一ではまずないであろう。明白で十分な連合の絆を、空間的な一般感覚<a class="fr" href="#n15">15</a>を想定することによって強めたり補ったりする必要は、おそらくない。</p>
+  <ol class="notes"><li id="n15"><span class="nn">15</span><p class="de" lang="de">Vgl. dagegen E. H. Weber, a. a. O. S. 85.</p><p class="jp" lang="ja">これに対してはE. H. ヴェーバー、前掲書、85頁を参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;342</span></span></aside>
+  <p class="de" lang="de">6. Alle Raumempfindungen haben die Funktion, die erhaltungsgemäßen Bewegungen richtig zu leiten. Diese gemeinsame Funktion bildet auch das associative Band zwischen den Raumempfindungen. Der Sehende wird vorzugsweise von den Empfindungen und Vorstellungen des Sehraums geleitet, denn diese sind ihm die geläufigsten und förderlichsten. Eine Figur, die ihm langsam im Dunkeln oder bei geschlossenen Augen auf die Haut gezeichnet wird, übersetzt er sich durch Vermittlung der empfundenen Bewegungen in ein Gesichtsbild, indem er sich selbst die empfundene Bewegung ausführend denkt. Soll mir z. B. eine Figur, die mir jemand auf die Stirne zeichnet, als R erscheinen, so muß der vor mir Stehende Я schreiben.</p>
+  <p class="jp" lang="ja">6. すべての空間感覚は、保存にかなった運動を正しく導くという機能をもつ。この共通の機能が、空間感覚のあいだの連合の絆をもなしている。目の見える者は、とりわけ視空間の感覚と表象によって導かれる。それが彼にとって最もなじみ深く、最も役に立つからである。暗闇のなかで、あるいは目を閉じているときに、ゆっくりと皮膚の上に描かれる図形を、彼は感じられた運動を媒介として、自分自身がその感じられた運動を行っていると考えることによって、視覚像に翻訳する。たとえば誰かが私の額に描く図形が R に見えるべきだとすれば、私の前に立つ人は Я と書かなければならない。</p>
+</article>
+<article class="row" id="p6.2">
+  <aside class="mg"><a class="pid" href="#p6.2">6.2</a><span class="pg"><span>S.&nbsp;342</span></span></aside>
+  <p class="de" lang="de">Auf mein Hinterhaupt müßte für den fremden Beschauer R, auf die Bauchhaut ᴚ geschrieben werden,<a class="fr" href="#n16">16</a> damit ich die Zeichen, mich selbst schreibend denkend, als R anerkenne. Ich stelle mir gewissermaßen in den beiden ersten Fällen meinen Kopf als durchsichtig, mich in derselben Orientierung hinter demselben stehend und die gewöhnlichen Schreibbewegungen ausführend vor. In dem letzten Falle stelle ich mir mich selbst auf der Bauchhaut schreibend und von dieser ablesend vor. Es ist für den Sehenden recht schwer, sich in die Raumvorstellungen des Blinden hineinzufinden. Daß aber auch diese einen hohen Grad von Klarheit erreichen können, lehren die Leistungen des blinden Geometers Saunderson.</p>
+  <p class="jp" lang="ja">私の後頭部には、外から見る者にとって R と、腹部の皮膚には ᴚ と書かれなければならない<a class="fr" href="#n16">16</a>。そうしてはじめて、私は自分が書いていると考えながら、その記号を R と認めるのである。いわば最初の二つの場合には、私は自分の頭を透明なものとして、自分が同じ向きでその後ろに立って通常の書く運動をしているものとして思い浮かべる。最後の場合には、私は自分が腹部の皮膚の上に書き、そこから読み取っているものとして思い浮かべる。目の見える者にとって、盲人の空間表象のなかに入りこむことはきわめて難しい。しかし盲人の空間表象もまた高い明晰さに達しうることは、盲目の幾何学者ソーンダーソンの業績が教えている。</p>
+  <ol class="notes"><li id="n16"><span class="nn">16</span><p class="de" lang="de">A. a. O. S. 99.</p><p class="jp" lang="ja">前掲書、99頁。</p></li></ol>
+</article>
+<article class="row" id="p6.3">
+  <aside class="mg"><a class="pid" href="#p6.3">6.3</a><span class="pg"><span>S.&nbsp;342</span><span>S.&nbsp;343</span></span></aside>
+  <p class="de" lang="de">Immerhin muß für ihn die Orientierung etwas schwerfällig geblieben sein, wie seine in einfachster Weise in quadratische <span class="pb" title="Leipzig 1906, S. 343">343</span>Felder geteilte Tafel beweist. In die Ecken und Mittelpunkte jener Felder pflegte er Nadeln tief einzustecken und deren Köpfe durch Fäden zu verbinden. Seine höchst originellen Darlegungen müssen aber gerade wegen ihrer Einfachheit für Anfänger besonders leicht verständlich gewesen sein. So bewies er den Satz, daß das Volumen der Pyramide gleich sei dem dritten Teil des Volumens eines Prismas von gleicher Basis und Höhe, durch Teilung des Würfels in sechs kongruente Pyramiden mit je einer Seitenfläche des Würfels als Basis und mit dem Scheitel im Mittelpunkte des Würfels.<a class="fr" href="#n17">17</a></p>
+  <p class="jp" lang="ja">とはいえ、彼にとって方向づけはいくぶん鈍重なままであったにちがいない。それは、きわめて単純な仕方で正方形の区画に分けられた彼の盤が証している。その区画の隅と中心に彼は針を深く刺し、その頭を糸で結ぶのを常としていた。しかし彼のきわめて独創的な説明は、まさにその単純さのゆえに、初学者にとりわけ理解しやすかったにちがいない。たとえば彼は、角錐の体積は底面と高さの等しい角柱の体積の三分の一に等しいという定理を、立方体を、それぞれ立方体の一つの面を底面とし頂点を立方体の中心にもつ六つの合同な角錐に分割することによって証明した<a class="fr" href="#n17">17</a>。</p>
+  <ol class="notes"><li id="n17"><span class="nn">17</span><p class="de" lang="de">Diderot, Lettre sur les aveugles.</p><p class="jp" lang="ja">ディドロ『盲人書簡』。</p></li></ol>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;343</span></span></aside>
+  <p class="de" lang="de">7. Wir dürfen annehmen, daß das System der Raumempfindungen für alle Tiere, an deren Leib sich, wie beim Menschen, drei ausgezeichnete Hauptrichtungen aufweisen lassen, wenn auch ungleich entwickelt, doch sehr ähnlich ist. Oben und unten sind solche Tiere ungleich, ebenso vorn und hinten. Rechts und links sind diese Tiere zwar scheinbar gleich, allein die geometrische und Massensymmetrie, die im Interesse der raschen Lokomotion besteht, darf uns über die anatomische und physiologische Asymmetrie nicht täuschen. Mag letztere auch gering erscheinen, so tritt sie doch darin klar zu Tage, daß zu symmetrischen Tieren sehr nahe Verwandte auffallende unsymmetrische Formen annehmen. Man denke an die unsymmetrischen Schollen (Plattfische), an die symmetrische nackte Schnecke im Gegensatz zu deren unsymmetrisch gestalteten Verwandten.</p>
+  <p class="jp" lang="ja">7. 人間と同じく、その身体に三つのきわだった主要方向が示されうるすべての動物にとって、空間感覚の体系は、発達の程度は等しくないにしても、たいへん似ていると想定してよい。そのような動物では上と下が等しくなく、前と後も同様である。右と左は、そのような動物では見かけ上は等しいが、速い移動のためにある幾何学的および質量的な対称性に、解剖学的・生理学的な非対称性を見誤らされてはならない。後者がわずかに見えるとしても、それは、対称的な動物にきわめて近い近縁のものが著しく非対称な形をとることにはっきり現れている。非対称なカレイ類（扁平魚）や、非対称な形をしたその近縁のものに対する、対称的なナメクジを考えてみよ。</p>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;343</span></span></aside>
+  <p class="de" lang="de">8. Wenn wir nun fragen, was denn eigentlich der physiologische Raum mit dem geometrischen Raum gemein hat, so finden wir nur wenige Übereinstimmungen. Beide Räume sind dreifache Mannigfaltigkeiten. Jedem Punkt des geometrischen Raumes A, B, C, D... entspricht ein Punkt A', B', C', D'... des physiologischen Raumes. Wenn C zwischen B und D liegt, so liegt auch C' zwischen B' und D'. Man kann auch sagen: einer kontinuierlichen Bewegung im geometrischen Raum entspricht eine kontinuierliche Bewegung des zugeordneten Punktes im physiologischen Raum.</p>
+  <p class="jp" lang="ja">8. さて、生理学的空間が幾何学的空間と本来何を共有しているのかと問うならば、一致はわずかしか見いだされない。両空間とも三重の多様体である。幾何学的空間の各点 A、B、C、D……に、生理学的空間の一点 A′、B′、C′、D′……が対応する。C が B と D のあいだにあれば、C′ も B′ と D′ のあいだにある。こうも言える。幾何学的空間における連続的な運動には、生理学的空間における対応する点の連続的な運動が対応する、と。</p>
+</article>
+<article class="row" id="p8.2">
+  <aside class="mg"><a class="pid" href="#p8.2">8.2</a><span class="pg"><span>S.&nbsp;343</span><span>S.&nbsp;344</span></span></aside>
+  <p class="de" lang="de">Daß die zur Bequemlichkeit fingierte Kontinuität weder für den einen, noch für den andern Raum eine wirkliche Kontinuität sein muß, wurde schon anderwärts <span class="pb" title="Leipzig 1906, S. 344">344</span>bemerkt.<a class="fr" href="#n18">18</a> Wenn man auch unbedenklich annimmt, daß der physiologische Raum angeboren ist, so zeigt dieser eine zu geringe Übereinstimmung mit dem geometrischen, um als ausreichende Grundlage einer a priori (im Kantschen Sinne) entwickelten Geometrie angesehen zu werden. Höchstens könnte man auf Grund desselben eine Topologie aufbauen.<a class="fr" href="#n19">19</a> Wie kommt es nun, daß der physiologische Raum vom geometrischen so sehr verschieden ist? Wie gelangt man doch von ersteren Vorstellungen allmählich zu den letzteren. Diese Fragen wollen wir in dem Folgenden nach Möglichkeit zu beantworten versuchen.</p>
+  <p class="jp" lang="ja">便宜のために仮構された連続性が、一方の空間にとっても他方の空間にとっても現実の連続性である必要はないことは、すでに別のところで述べた<a class="fr" href="#n18">18</a>。生理学的空間が生得的であることをためらわず想定するとしても、それは幾何学的空間との一致があまりに少ないので、（カント的な意味で）先天的に展開される幾何学の十分な基礎とみなすことはできない。せいぜいそれにもとづいて位相幾何学を築くことができるだけであろう<a class="fr" href="#n19">19</a>。それでは、生理学的空間が幾何学的空間とこれほど異なるのはどうしてであろうか。それにもかかわらず、前者の表象からしだいに後者の表象に達するのはどうしてであろうか。以下でこれらの問いにできるかぎり答えてみよう。</p>
+  <ol class="notes"><li id="n18"><span class="nn">18</span><p class="de" lang="de">Prinzipien der Wärmelehre. S. 76.</p><p class="jp" lang="ja">『熱学の原理』76頁。</p></li><li id="n19"><span class="nn">19</span><p class="de" lang="de">Vgl. Listing, Vorstudien zur Topologie. Göttingen 1847.</p><p class="jp" lang="ja">リスティング『位相幾何学予備研究』ゲッティンゲン、1847年を参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;344</span></span></aside>
+  <p class="de" lang="de">9. Stellen wir eine einfache, allgemeine teleologische Betrachtung an. Einem Frosch mögen verschiedene Stellen der Haut durch Säuretropfen gereizt werden. Er wird auf jede Reizung mit einer spezifischen, der gereizten Stelle entsprechenden Abwehrbewegung antworten. Qualitativ gleiche Reize, die verschiedene Elementarorgane treffen, auf verschiedenen Bahnen in den Tierkörper eindringen, lösen auch Reaktionsprozesse aus, welche durch verschiedene Organe auf verschiedenen Wegen in die Umgebung des Tieres sich zurück fortpflanzen.<a class="fr" href="#n20">20</a> Was für den Hautsinn gilt, gilt auch für den Gesichtssinn und für jeden andern Sinn.</p>
+  <p class="jp" lang="ja">9. 一つの単純で一般的な目的論的考察をしてみよう。蛙の皮膚のさまざまな場所が酸の滴で刺激されるとする。蛙はどの刺激にも、刺激された場所に対応する特有の防御運動で応えるであろう。異なる要素器官に当たり、異なる経路で動物の身体に入りこむ質的に等しい刺激は、異なる器官によって異なる道を通って動物の環境へと戻って伝わる反応過程を解発する<a class="fr" href="#n20">20</a>。皮膚感覚について言えることは、視覚にも、他のどの感官にも言える。</p>
+  <ol class="notes"><li id="n20"><span class="nn">20</span><p class="de" lang="de">Ich schließe mich hier einer von R. Wlassak geäußerten Ansicht in etwas modifizierter und erweiterter Fassung an. Vgl. dessen schönes Referat: „Über die statischen Funktionen des Ohrlabyrinths.“ (Vierteljahrschr. f. wiss. Philosophie, XVII, I, S. 29.)</p><p class="jp" lang="ja">私はここで、R. ヴラサックの述べた見解に、いくぶん変更し拡張した形で従っている。彼のすぐれた論評「内耳迷路の静的機能について」（『科学的哲学季刊誌』第17巻、第1号、29頁）を参照。</p></li></ol>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;344</span><span>S.&nbsp;345</span></span></aside>
+  <p class="de" lang="de">Nicht nur die Abwehr- und Fluchtbewegungen, sondern auch die Angriffsbewegungen spezialisieren sich nach der gereizten Stelle, nach der Individualität der betroffenen Elementarorgane. Man denke an das Schnappen des Frosches nach Fliegen, an das Picken des eben ausgeschlüpften Hühnchens nach Körnern. Was bisher gesagt wurde, gilt auch für bloße Reflexreaktionen, für Pflanzen sowohl wie für niedere Tiere. Soll aber die Reflexreaktion zweckmäßig beeinflußt, modifiziert werden, soll die Willkürhandlung an Stelle derselben treten, so müssen die Reize als Empfindungen bewußt werden, und ihre Spuren im Gedächtnis zurücklassen. In der Tat erkennen wir, <span class="pb" title="Leipzig 1906, S. 345">345</span>wie die Selbstbeobachtung lehrt, nicht nur die Qualität des Reizes, z. B. des Brennens, welche empfindende Stelle davon auch betroffen sei, unterscheiden aber doch zugleich auch die gereizten Stellen. Durch beide Momente wird unsere Reaktionsbewegung bestimmt. Wir dürfen also wohl annehmen, daß in diesen Fällen der qualitativ gleichen Empfindung ein differenter Bestandteil anhaftet, der von der spezifischen Natur des Elementarorgans, von der gereizten Stelle, mit Hering zu reden, von dem Orte der Aufmerksamkeit abhängt. Die vollkommenste gegenseitige biologische Anpassung einer Vielheit von Elementarorganen kommt eben in der räumlichen Wahrnehmung besonders deutlich zum Ausdruck.</p>
+  <p class="jp" lang="ja">防御運動と逃走運動だけでなく、攻撃運動もまた、刺激された場所に応じて、すなわち当たった要素器官の個体性に応じて特殊化する。蛙が蠅に向かってぱくりと食いつくこと、孵ったばかりのひよこが穀粒をついばむことを考えてみよ。これまで述べたことは、単なる反射反応にも、植物にも下等動物にも当てはまる。しかし反射反応が目的にかなうように影響され変更されるべきであり、随意行為がそれに代わるべきであるならば、刺激は感覚として意識され、その痕跡を記憶のなかに残さなければならない。実際われわれは、自己観察が教えるように、刺激の質、たとえば灼けるような痛みを、どの感覚する場所が当たっていても認めるが、それでも同時に刺激された場所をも区別する。この両契機によってわれわれの反応運動は規定される。それゆえ、これらの場合、質的に等しい感覚に、要素器官の特有の性質、刺激された場所、ヘリングの言い方を借りれば注意の場所に依存する、異なる成分がつきまとっていると想定してよいであろう。多数の要素器官の最も完全な相互の生物学的適応は、まさに空間的知覚においてとりわけはっきり表現されるのである。</p>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;345</span></span></aside>
+  <p class="de" lang="de">10. Wir können uns die räumliche Wahrnehmung in folgender Weise physiologisch begründet denken. Die Empfindung, welche ein Elementarorgan liefert, hängt zum Teil von der Art (Qualität) des Reizes ab; wir wollen diesen Teil Sinnesempfindung nennen. Ein Teil der Tätigkeit des Elementarorgans sei aber nur durch die Individualität des Elementarorgans bestimmt, bei jeder Reizung derselbe, und nur von Organ zu Organ variierend; diesen Teil nennen wir Organempfindung, und betrachten ihn als identisch mit der Raumempfindung. Die Organempfindung nehmen wir als desto mehr variierend an, je ferner die ontogenetische Verwandtschaft der Elementarorgane gemeinsamer Abstammung wird.</p>
+  <p class="jp" lang="ja">10. 空間的知覚は次のような仕方で生理学的に基礎づけられていると考えることができる。要素器官が与える感覚は、一部は刺激の種類（質）に依存する。この部分を感官感覚と呼ぼう。しかし要素器官の活動の一部は、要素器官の個体性によってのみ規定され、どの刺激の際にも同じであり、器官から器官へと変化するだけであるとしよう。この部分をわれわれは器官感覚と呼び、それを空間感覚と同一とみなす。器官感覚は、共通の由来をもつ要素器官の個体発生的な類縁が遠くなればなるほど、それだけ多く変化するとわれわれは想定する。</p>
+</article>
+<article class="row" id="p10.2">
+  <aside class="mg"><a class="pid" href="#p10.2">10.2</a><span class="pg"><span>S.&nbsp;345</span></span></aside>
+  <p class="de" lang="de">Die Organempfindung (Raumempfindung) kann nur auftreten, wenn überhaupt eine Reizung des Elementarorgans platzgreift; sie bleibt jedesmal dieselbe, wenn dasselbe Organ oder derselbe Organkomplex gereizt, derselbe Zusammenhang der Organe lebendig wird. Man kann sagen, daß der physiologische Raum ein System von abgestuften Organempfindungen ist, welches ohne Sinnesempfindungen allerdings nicht vorhanden wäre; wenn es aber durch variierende Sinnesempfindungen wachgerufen wird, so bildet es ein bleibendes Register, in welches jene veränderlichen Sinnesempfindungen eingeordnet werden. Wir machen hier über die Elementarorgane nur ganz ähnliche Voraussetzungen, wie wir sie in Bezug auf getrennte Individuen gleicher Abstammung, aber verschiedenen Grades der Verwandtschaft, sehr natürlich und durch die Erfahrung bewährt finden würden.</p>
+  <p class="jp" lang="ja">器官感覚（空間感覚）は、そもそも要素器官の刺激が生じるときにしか現れえない。同じ器官あるいは同じ器官複合体が刺激され、器官の同じ連関が活性化されるとき、それはそのつど同じである。生理学的空間は、段階づけられた器官感覚の体系であり、それはもちろん感官感覚なしには存在しないであろうが、変化する感官感覚によって呼び覚まされると、それらの変わりやすい感官感覚が組み入れられる持続的な登録簿をなす、と言うことができる。われわれはここで要素器官について、同じ由来をもつが類縁の程度の異なる別々の個体についてなら、きわめて自然であり経験によって確証されると思うであろうのとまったく似た前提を立てているにすぎない。</p>
+</article>
+<article class="row" id="p10.3">
+  <aside class="mg"><a class="pid" href="#p10.3">10.3</a><span class="pg"><span>S.&nbsp;345</span><span>S.&nbsp;346</span></span></aside>
+  <p class="de" lang="de">Was wir hier versuchen, ist allerdings keine eigentliche <span class="pb" title="Leipzig 1906, S. 346">346</span>Theorie der Raumwahrnehmung, sondern lediglich eine physiologische Umschreibung des psychologisch Beobachteten. Diese Umschreibung scheint aber das zu enthalten, was mit einer nativistischen Auffassung des physiologischen Raumes, mit den Beobachtungen von E. H. Weber,<a class="fr" href="#n21">21</a> mit dessen Theorie der Empfindungskreise, mit Lotzes<a class="fr" href="#n22">22</a> Lehre von den Lokalzeichen, soweit dieselbe physiologisch ist, mit den Ansichten von Hering und mit den kritischen Betrachtungen von Stumpf<a class="fr" href="#n23">23</a> vereinbar ist. Hiermit scheint sich die Aussicht zu eröffnen auf ein phylogenetisches und ontogenetisches Verständnis der Raumwahrnehmung, und wenn die betreffenden Verhältnisse einmal klargelegt sein werden, auch auf ein prinzipielles physikalisch-physiologisches Verständnis derselben.</p>
+  <p class="jp" lang="ja">もっとも、われわれがここで試みているのは本来の空間知覚の理論ではなく、心理学的に観察されたものの単なる生理学的な言い換えである。しかしこの言い換えは、生理学的空間の生得論的な把握、E. H. ヴェーバー<a class="fr" href="#n21">21</a>の観察とその感覚圏の理論、ロッツェ<a class="fr" href="#n22">22</a>の局所徴験の説の生理学的であるかぎりの部分、ヘリングの見解、そしてシュトゥンプ<a class="fr" href="#n23">23</a>の批判的考察と両立しうるものを含んでいるように思われる。それによって、空間知覚の系統発生的・個体発生的な理解への見通しが、そして当の関係がいつか明らかにされたあかつきには、その原理的な物理学的・生理学的理解への見通しも開けるように思われる。</p>
+  <ol class="notes"><li id="n21"><span class="nn">21</span><p class="de" lang="de">A. a. O.</p><p class="jp" lang="ja">前掲書。</p></li><li id="n22"><span class="nn">22</span><p class="de" lang="de">Lotze hat seine Lehre in verschiedenen Schriften dargelegt (Medizinische Psychologie. 1852. Mikrokosmos. 1856. Wagners Handwörterbuch der Physiologie. - Anhang zu dem in folgender Anmerkung zitierten Buch von Stumpf).</p><p class="jp" lang="ja">ロッツェはその説をさまざまな著作で述べている（『医学的心理学』1852年。『ミクロコスモス』1856年。ヴァーグナー『生理学辞典』。——次の注に引くシュトゥンプの書物への付録）。</p></li><li id="n23"><span class="nn">23</span><p class="de" lang="de">Stumpf, Über den psychologischen Ursprung der Raumvorstellungen. 1873.</p><p class="jp" lang="ja">シュトゥンプ『空間表象の心理学的起源について』1873年。</p></li></ol>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;346</span></span></aside>
+  <p class="de" lang="de">11. Soll das System der Raumempfindungen dem unmittelbaren biologischen Bedürfnis entsprechen, die erhaltungsgemäßen Reaktionen des Leibes leiten, so kann es wohl nicht anders gedacht werden, als wir es vorfinden. Jedes System der Empfindungen, so auch das System der Raumempfindungen ist endlich; eine unerschöpfliche Reihe von Empfindungsqualitäten oder Intensitäten ist eben physiologisch undenkbar. Verschiedene Organe des Leibes bedürfen zur Leitung ihrer Funktionen einer ungleichen Raumempfindlichkeit. Daher die reiche Ausstattung der macula lutea der Netzhaut, der Zungenspitze und der Fingerspitzen mit raumempfindenden Organen gegenüber den seitlichen Teilen der Netzhaut, der Haut des Oberarms oder des Rückens.</p>
+  <p class="jp" lang="ja">11. 空間感覚の体系が直接の生物学的欲求に応じ、身体の保存にかなった反応を導くべきであるならば、それはわれわれが見いだすのと別様には考えられないであろう。どの感覚の体系も、したがって空間感覚の体系も有限である。感覚の質あるいは強度の尽きることのない系列は、まさに生理学的に考えられない。身体のさまざまな器官は、その機能を導くために不等な空間感受性を必要とする。それゆえ、網膜の黄斑、舌の先、指先は、網膜の周辺部、上腕や背中の皮膚に比べて、空間を感じる器官を豊かに備えている。</p>
+</article>
+<article class="row" id="p11.2">
+  <aside class="mg"><a class="pid" href="#p11.2">11.2</a><span class="pg"><span>S.&nbsp;346</span><span>S.&nbsp;347</span></span></aside>
+  <p class="de" lang="de">Die Raumempfindungen müssen sich auf die Glieder des Leibes beziehen, und nach diesen orientiert sein, sollen sie dem biologischen Bedürfnis genügen. Es ist für uns wichtig, das Oben und Unten, das Vorn und Hinten, das Rechts und Links, das Nah und Fern, also Beziehungen auf unsern Leib zu unterscheiden. Mit einer bloßen Relation der Orte gegeneinander, <span class="pb" title="Leipzig 1906, S. 347">347</span>wie in der Geometrie, wäre uns nicht gedient. Zweckentsprechend ist weiter, daß für nähere, biologisch wichtigere Gesichtsobjekte die verfügbaren stereoskopischen Tiefenindizes reicher abgestuft sind, und daß dagegen für fernere, weniger wichtige Objekte mit dem begrenzten Vorrat der Indizes gespart wird. Wenn wir den physiologischen Raum, vom geometrischen ausgehend, nach Gesichtspunkten der Zweckmäßigkeit konstruieren sollten, so könnte derselbe kaum viel anders ausfallen, als wir ihn vorfinden.</p>
+  <p class="jp" lang="ja">空間感覚は、生物学的欲求を満たすべきであるならば、身体の四肢に関係し、それに従って方向づけられていなければならない。上と下、前と後、右と左、近と遠、すなわちわれわれの身体への関係を区別することがわれわれにとって重要なのである。幾何学におけるような場所相互の単なる関係では、われわれの役に立たないであろう。さらに目的にかなっているのは、より近い、生物学的により重要な視対象については利用できる立体視的な奥行きの指標がより豊かに段階づけられており、これに対してより遠い、あまり重要でない対象については指標の限られた蓄えが節約されていることである。もしわれわれが幾何学的空間から出発して、合目的性の観点に従って生理学的空間を構成しなければならないとしたら、それはわれわれが見いだすものとそれほど違ったものにはなりえないであろう。</p>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;347</span></span></aside>
+  <p class="de" lang="de">12. Wenn nun die Inkongruenz zwischen dem physiologischen und geometrischen Raum den Menschen, die nicht eine besondere Untersuchung darüber anstellen, gar nicht auffällt, wenn nicht gerade der geometrische Raum ihnen als ein Monstrum, als eine Fälschung des angebornen Raumes erscheint, so erklärt sich dies durch nähere Beachtung der Lebensumstände und der Entwicklung der Menschen. Die Raumempfindungen leiten unsere Bewegungen, aber ein Grund, dieselben an sich genau zu beachten und zu analysieren, ergibt sich nur selten. Das Ziel der Bewegung hat ein viel größeres Interesse für die Menschen. Nachdem die ersten primitiven Erfahrungen über (physikalische) Körper, Entfernungen u. s. w. gewonnen sind, nehmen diese unsere Aufmerksamkeit und unser Interesse fast ganz in Anspruch.</p>
+  <p class="jp" lang="ja">12. さて、生理学的空間と幾何学的空間との不一致が、それについて特別な研究をしない人々にはまったく目につかず、それどころか幾何学的空間が彼らには怪物のように、生得的空間の偽造のように見えることもないのは、人間の生活事情と発達にもっと注目することによって説明がつく。空間感覚はわれわれの運動を導くが、それをそれ自体として正確に注目し分析する理由はまれにしか生じない。運動の目標のほうが人間にとってはるかに大きな関心事である。（物理的な）物体、距離などについての最初の原始的な経験が得られたのちは、それがわれわれの注意と関心をほとんど完全に占めてしまう。</p>
+</article>
+<article class="row" id="p12.2">
+  <aside class="mg"><a class="pid" href="#p12.2">12.2</a><span class="pg"><span>S.&nbsp;347</span></span></aside>
+  <p class="de" lang="de">Könnte der Mensch, wie ein festsitzendes Seetier, seinen Ort nicht verlassen und seine Orientierung nicht wesentlich ändern, so würde er schwerlich jemals zur Vorstellung des Euklidischen Raumes gelangen. Sein Raum würde sich dann zum Euklidischen ungefähr so verhalten, wie ein triklines zu einem tesseralen Medium, derselbe würde immer anisotrop und begrenzt bleiben. Die beliebige Lokomotion des Leibes als Ganzes, und die Möglichkeit beliebiger Orientierung desselben, fördern die Einsicht, daß wir überall und nach allen Richtungen dieselben Bewegungen ausführen können, daß der Raum überall und nach allen Richtungen gleich beschaffen und daß derselbe als unbegrenzt und unendlich vorgestellt werden kann.</p>
+  <p class="jp" lang="ja">もし人間が、固着した海の動物のように、自分の場所を離れることもできず、その方向を本質的に変えることもできなかったならば、ユークリッド空間の表象にはまず到達しなかったであろう。そのとき彼の空間は、ユークリッド空間に対して、ちょうど三斜晶系の媒質が等軸晶系の媒質に対するような関係にあり、つねに異方的で限られたままであったろう。身体全体の任意の移動と、その任意の方向づけの可能性とが、われわれがいたるところで、すべての方向に同じ運動を行いうること、空間はいたるところで、すべての方向に同じ性質をもつこと、そしてそれは無際限で無限なものとして表象されうることの洞察を促すのである。</p>
+</article>
+<article class="row" id="p12.3">
+  <aside class="mg"><a class="pid" href="#p12.3">12.3</a><span class="pg"><span>S.&nbsp;347</span><span>S.&nbsp;348</span></span></aside>
+  <p class="de" lang="de">Der Geometer sagt, von jedem Punkte des Raumes aus, und in jeder Orientierung, seien dieselben Konstruktionen ausführbar. Bei gleichmäßig fortschreitender Lokomotion wiederholen sich immer dieselben Änderungen der Raumwerte. Dasselbe ist bei fortgesetzter Änderung der Orientierung, z. B. Drehung um die <span class="pb" title="Leipzig 1906, S. 348">348</span>Vertikalachse der Fall. Dadurch macht sich nicht nur die Gleichmäßigkeit, sondern auch die Unerschöpflichkeit, die unbegrenzte Wiederholbarkeit, Fortsetzbarkeit gewisser Raumerfahrungen geltend. An die Stelle der fixen Raumwerte der Objekte, welche der nur die Glieder bewegende Mensch vorfindet, treten bei der Lokomotion fließende Raumwerte auf. So kommen unsere Raumerfahrungen allmählich dem euklidischen Raum näher, ohne übrigens denselben auf diesem Wege vollständig zu erreichen.</p>
+  <p class="jp" lang="ja">幾何学者は、空間のどの点からも、どの方向づけにおいても、同じ作図が行えると言う。一様に進む移動の際には、空間値のつねに同じ変化がくり返される。方向づけを続けて変える場合、たとえば鉛直軸のまわりの回転の場合にも同じである。それによって、ある空間経験の一様性ばかりでなく、尽きることのなさ、無制限のくり返し可能性、継続可能性もまた現れてくる。四肢を動かすだけの人間が見いだす対象の固定した空間値のかわりに、移動においては流動的な空間値が現れる。こうしてわれわれの空間経験はしだいにユークリッド空間に近づくが、ちなみにこの道でそれに完全に達することはない。</p>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;348</span></span></aside>
+  <p class="de" lang="de">13. So wie die Raumempfindungen die Bewegung einzelner Glieder bestimmen, führen sie unter Umständen auch zur allgemeinen Lokomotion. Ein Hühnchen kann nach einem Objekt blicken, nach demselben picken, oder durch den Reiz sogar bestimmt werden, sich hinzuwenden, hinzudrehen, hinzulaufen. Ein Kind, das nach einem Ziele blickt und greift, wenn dies unerreichbar, dahin kriecht, endlich eines Tages aufsteht und mit einigen Schritten dahinläuft, verhält sich ebenso. Wir werden alle solche Fälle, welche kontinuierlich ineinander übergehen, in homogener Weise auffassen müssen. Anregung zu ausgiebiger Lokomotion und Änderung der Orientierung geht nicht nur von optischen Reizen aus, sondern kann auch durch chemische, thermische, akustische, galvanische Reize<a class="fr" href="#n24">24</a> u. s. w., und auch bei blinden Tieren eingeleitet werden. In der Tat beobachten wir auch bei von Haus aus blinden Tieren (blinden Würmern), sowie bei durch Rückbildung blinden Tieren (Maulwurf, Höhlentiere) ausgiebige Lokomotions- und Orientierungsbewegungen. Nur wird die bewegungsbestimmende Fernwahrnehmung bei blinden Tieren und Menschen auf einen engeren Bezirk eingeschränkt sein.</p>
+  <p class="jp" lang="ja">13. 空間感覚が個々の四肢の運動を規定するように、それは場合によっては全身の移動にも導く。ひよこはある対象を見つめ、それをついばむことができ、あるいはその刺激によって、そちらへ向き、回り、走っていくよう規定されることさえある。目標を見つめてつかもうとし、それが届かなければそこへ這っていき、ついにある日立ち上がって数歩でそこへ走っていく子供も同じようにふるまう。連続的に互いに移り行くこれらすべての場合を、われわれは同質的な仕方で把握しなければならないであろう。大きな移動と方向づけの変更へのきっかけは視覚的刺激からだけ生じるのではなく、化学的、熱的、音響的、電気的刺激<a class="fr" href="#n24">24</a>などによっても、また盲目の動物においても始まりうる。実際われわれは、生まれつき盲目の動物（盲目の虫）においても、退化によって盲目になった動物（モグラ、洞窟動物）においても、大きな移動運動と方向づけの運動を観察する。ただ、運動を規定する遠隔知覚は、盲目の動物や人間においてはより狭い範囲に限られているであろう。</p>
+  <ol class="notes"><li id="n24"><span class="nn">24</span><p class="de" lang="de">Loeb, Vergleichende Gehirnphysiologie. Leipzig 1899. S. 118 u. f.</p><p class="jp" lang="ja">ロェブ『比較脳生理学』ライプツィヒ、1899年、118頁以下。</p></li></ol>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;348</span><span>S.&nbsp;349</span></span></aside>
+  <p class="de" lang="de">14. Die Hauptschwierigkeit, die wir bei der Analyse des physiologischen Raumes finden, besteht darin, daß uns als gebildeten Menschen, wenn wir über diesen Stoff zu denken beginnen, die wissenschaftlichen geometrischen Vorstellungen schon zu geläufig sind, und daß wir diese überall als selbstverständlich hineintragen. Der beste Beleg dafür ist die bekannte Lehre von den optischen Richtungslinien, welche sich seit Ptolemaeus, Kepler und Descartes halten konnte, und die erst <span class="pb" title="Leipzig 1906, S. 349">349</span>von Hering definitiv beseitigt wurde. Der auf diesem Gebiet Forschende muß sich in eine künstliche Naivetät versetzen, zuvor viel Erlerntes zu vergessen suchen, um unbefangenen Blick zu gewinnen. Ohne auf physiologische Einzelheiten einzugehen,<a class="fr" href="#n25">25</a> wollen wir nur noch eine einfache allgemeine Betrachtung anstellen.</p>
+  <p class="jp" lang="ja">14. 生理学的空間の分析においてわれわれが見いだす主要な困難は、教養ある人間としてのわれわれには、この素材について考えはじめるとき、科学的な幾何学的表象がすでにあまりになじみ深く、われわれはそれを自明なものとしていたるところに持ちこんでしまうということにある。その最良の証拠は、プトレマイオス、ケプラー、デカルト以来保たれてきて、ヘリングによってはじめて決定的に取り除かれた、光学的方向線についての有名な説である。この領域で研究する者は、人工的な素朴さに身を置き、偏見のない目を得るために、前もって多くの学んだことを忘れるよう努めなければならない。生理学的な細部には立ち入らずに<a class="fr" href="#n25">25</a>、なお一つの単純で一般的な考察をするだけにしよう。</p>
+  <ol class="notes"><li id="n25"><span class="nn">25</span><p class="de" lang="de">In Bezug auf Einzelheiten muß ich auf die physiologische Literatur im allgemeinen verweisen. Vgl. auch Analyse der Empfindungen. 4. Aufl. S. 137-146. Vgl. ferner den Artikel in „The Monist“. Vol. XI, April 1901, S. 321-338.</p><p class="jp" lang="ja">細部については生理学の文献一般を参照していただくほかない。また『感覚の分析』第4版、137–146頁を参照。さらに『モニスト』誌、第11巻、1901年4月、321–338頁の論文も参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;349</span></span></aside>
+  <p class="de" lang="de">15. Auf gewisse Reize hin treten reflektorisch bestimmte Gliederbewegungen ein. Durch diese Bewegungen werden wieder peripherisch Reize erregt, welche in der Großhirnrinde als Spuren der Bewegungsempfindungen, als Bilder dieser Bewegungen zurückbleiben. Werden diese Bilder durch irgend einen Anlaß, z. B. Association, wieder lebendig, so sind sie geeignet, dieselben Bewegungen aufs neue hervorzurufen. Die Punkte des Raumes kennen wir physiologisch als Ziele verschiedener Bewegungen, Greif-, Blick- und Lokomotionsbewegungen. Die genannten Bewegungsbilder werden wohl an mehr oder weniger scharf bestimmte Teile des Gehirns gebunden, also irgendwie lokalisiert sein. Das ganze Hirn kann kaum bei allen in gleicher Weise beteiligt sein, wie schon aus den zentrifugalen Ableitungs- und aus den zentripetalen Zuleitungsverhältnissen hervorgeht.</p>
+  <p class="jp" lang="ja">15. ある刺激に応じて、反射的に一定の四肢の運動が生じる。これらの運動によって、また末梢で刺激が引き起こされ、それは大脳皮質のなかに運動感覚の痕跡として、これらの運動の像として残る。これらの像が何かのきっかけ、たとえば連合によって再び生き生きとすると、それは同じ運動を改めて呼び起こすのに適している。空間の点を、われわれは生理学的には、さまざまな運動、すなわちつかむ運動、見る運動、移動の運動の目標として知る。述べた運動像は、おそらく脳の多かれ少なかれ鋭く定まった部分に結びつけられており、したがって何らかの仕方で局在しているであろう。遠心的な導出と求心的な導入の関係からすでに明らかなように、脳全体がすべての運動に同じ仕方で関与していることはまずありえない。</p>
+</article>
+<article class="row" id="p15.2">
+  <aside class="mg"><a class="pid" href="#p15.2">15.2</a><span class="pg"><span>S.&nbsp;349</span></span></aside>
+  <p class="de" lang="de">Dann dürfen wir uns vielleicht die verschiedenen Ziele den Zentren der Komplexe der Bewegungsbilder in der Rinde zugeordnet denken. Die Punkte des Raumes, soweit dieser physiologisch in Betracht kommt, wären dann als Stellen im Gehirn abgebildet. Die Raumempfindungen würden dann den Organempfindungen dieser Stellen entsprechen. Wenn man auch annehmen wird, daß in der Hauptsache die räumliche Auffassung durch die angeborene Organisation vorgebildet ist, so bleibt doch der individuellen Entwicklung noch ein weiter Spielraum. Recht verschieden muß letztere ausfallen, je nachdem es sich um ein blindes oder sehendes Individuum handelt, je nachdem wir mit einem Plastiker, Maler, Jäger oder Musiker zu tun haben.<a class="fr" href="#n26">26</a></p>
+  <p class="jp" lang="ja">そうだとすれば、さまざまな目標は、皮質における運動像の複合体の中心に対応づけられていると考えてよいかもしれない。空間の点は、それが生理学的に問題となるかぎり、そのとき脳のなかの場所として写像されていることになろう。空間感覚は、そのときこれらの場所の器官感覚に対応するであろう。主要な点で空間的な把握は生得的な体制によってあらかじめ形成されていると想定するとしても、個人的な発達にはなお広い余地が残る。盲目の個人か目の見える個人かに応じて、彫刻家、画家、狩人、音楽家のいずれを相手にしているかに応じて、後者はきわめて異なったものになるにちがいない<a class="fr" href="#n26">26</a>。</p>
+  <ol class="notes"><li id="n26"><span class="nn">26</span><p class="de" lang="de">Der Raumsinn erfährt im Laufe der individuellen menschlichen Entwicklung wahrscheinlich bedeutende Veränderungen. Als Kind hatte ich bei Eisenbahnfahrten fast regelmäßig die Erscheinung der Mikropsie. Ich sah die fernen Hügel, Berge, die Gebäude und Menschen auf denselben als ganz kleine und nahe Modelle, als reizende Liliputanerlandschaften, obgleich ich wußte, daß dies nicht der Wirklichkeit entsprach. Später war es mir unmöglich, diesen Eindruck wieder zu gewinnen. Vgl. Analyse der Empfindungen, S. 194, eine analoge Beobachtung über den Zeitsinn. Aber auch sehr rasche temporäre Veränderungen kann der Raumsinn erfahren. Als Kind nach einer schweren Krankheit, wenn ich durch die Unterrichtstunden ermüdet war, sah ich die andern Personen sehr klein und sehr weit entfernt. Manche Narkotika, wie Haschisch, bewirken bekanntlich ebenfalls starke temporäre Änderungen des Raumsinnes. Solche Vorkommnisse sind kaum zu vereinigen mit der Annahme, daß die Raumwahrnehmung auf einer bloßen Anordnung der Elemente der Sinnesorgane und des Gehirns beruhe, also gewissermaßen in einer bloßen Ordnung und Nachbarschaft der Wahrnehmungselemente bestehe, welche sich auf die Ordnung und Nachbarschaft der Organe gründet. Man wird eher an Empfindungsqualitäten denken, welche abgestuften chemischen Prozessen entsprechen, welche daher auch chemischen Einflüssen unterliegen können. Vgl. Veraguth, Über Mikropsie und Makropsie. (Deutsche Zeitschr. f. Nervenheilkunde von Strümpell. Bd. 24, 1903. S. 453). Koster, Zur Kenntnis der Mikropsie und Makropsie. (Graefes Archiv für Ophthalmologie. Bd. 42, 1896. S. 134.)</p><p class="jp" lang="ja">空間感覚は、個人としての人間の発達の過程でおそらく著しい変化を経験する。子供のころ、私は鉄道旅行の際にほとんど決まって小視症の現象を経験した。遠くの丘や山、その上の建物や人間を、ごく小さな近くの模型として、愛らしい小人国の風景として見たのである。それが現実に合っていないことは知っていたのだが。のちにはこの印象を再び得ることはできなかった。時間感覚についての類似の観察は『感覚の分析』194頁を参照。しかし空間感覚はきわめて急速な一時的変化も経験しうる。子供のころ重い病気のあと、授業時間で疲れたとき、私は他の人々をたいへん小さく、たいへん遠く離れて見た。ハシッシュのようないくつかの麻酔薬も、よく知られているように、空間感覚の強い一時的な変化を引き起こす。このような出来事は、空間知覚が感官と脳の要素の単なる配列にもとづいている、すなわち器官の秩序と隣接にもとづく知覚要素の単なる秩序と隣接にいわば成り立っている、という想定とはほとんど両立しない。むしろ、段階づけられた化学的過程に対応し、それゆえ化学的影響をも受けうる感覚の質を考えたくなる。ヴェラグート「小視症と大視症について」（シュトリュンペル編『ドイツ神経学雑誌』第24巻、1903年、453頁）。コスター「小視症と大視症の知識のために」（『グレーフェ眼科学アルヒーフ』第42巻、1896年、134頁）を参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s16"><a href="#s16">§ 16</a></h2>
+<article class="row" id="p16.1">
+  <aside class="mg"><a class="pid" href="#p16.1">16.1</a><span class="pg"><span>S.&nbsp;350</span></span></aside>
+  <p class="de" lang="de">16. Kant hat behauptet: „Man kann sich niemals eine Vorstellung davon machen, daß kein Raum sei, ob man sich gleich ganz wohl denken kann, daß keine Gegenstände darin angetroffen werden.“ Heute zweifelt kaum jemand daran, daß die Sinnesempfindungen und die Raumempfindungen nur miteinander ins Bewußtsein treten und aus demselben wieder verschwinden können. Dasselbe muß wohl von den betreffenden Vorstellungen gelten. Wenn für Kant der Raum kein „Begriff“, sondern eine „reine (bloße) Anschauung a priori“ ist, so sind die heutigen Forscher sehr geneigt, den geometrischen Raum für einen Begriff, und zwar für einen durch Erfahrung erworbenen Begriff, zu halten.</p>
+  <p class="jp" lang="ja">16. カントは主張した。「空間がないということを表象することはけっしてできない。もっとも、そこに対象が何も見いだされないことは十分に考えることができるが」。今日では、感官感覚と空間感覚とがただ互いに一緒にのみ意識に入り、また意識から消えうることを疑う者はほとんどいない。同じことは当の表象についても言えるにちがいない。カントにとって空間が「概念」ではなく「先天的な純粋（単なる）直観」であるとすれば、今日の研究者たちは、幾何学的空間を一つの概念、しかも経験によって獲得された概念とみなすことに大いに傾いている。</p>
+</article>
+<article class="row" id="p16.2">
+  <aside class="mg"><a class="pid" href="#p16.2">16.2</a><span class="pg"><span>S.&nbsp;350</span><span>S.&nbsp;351</span></span></aside>
+  <p class="de" lang="de">Das bloße System der Raumempfindungen können wir nicht anschauen; wir können aber von den als nebensächlich betrachteten Sinnesempfindungen absehen, und wenn man diesen leicht und unvermerkt vor sich gehenden Prozeß nicht genug beachtet, kann leicht der Gedanke entstehen, man habe eine reine Anschauung vollzogen. Wenn die Raumempfindungen von der Qualität der sie miterregenden Reize unabhängig sind, so können wir über erstere (innerhalb der oben bezeichneten Grenzen S. 344) unabhängig von der physikalischen Erfahrung Aussagen <span class="pb" title="Leipzig 1906, S. 351">351</span>machen, wie dies übrigens von jedem System der Empfindungen, z. B. den Farbenempfindungen oder Tonempfindungen auch gilt. Dies bleibt an Kants Auffassung richtig. Zur Entwicklung einer Geometrie reicht aber diese Grundlage nicht aus, denn hierzu sind noch Begriffe, und zwar Erfahrungsbegriffe, durchaus notwendig.<a class="fr" href="#n27">27</a></p>
+  <p class="jp" lang="ja">空間感覚の体系だけを直観することはできない。しかし副次的とみなされた感官感覚を度外視することはでき、この容易に気づかれずに進む過程に十分注目しなければ、純粋直観を行ったのだという考えが容易に生じうる。空間感覚がそれを一緒に引き起こす刺激の質から独立であるならば、われわれは前者について（上に示した限界、344頁の内部で）物理的経験とは独立に言明をすることができる。ちなみにそれは、どの感覚の体系、たとえば色の感覚や音の感覚についても同じように言えることである。この点はカントの把握において正しいままである。しかし幾何学を展開するにはこの基礎では足りない。そのためにはさらに概念、しかも経験的概念がぜひとも必要だからである<a class="fr" href="#n27">27</a>。</p>
+  <ol class="notes"><li id="n27"><span class="nn">27</span><p class="de" lang="de">Über die verschiedenen Auffassungen der Stellung Kants vgl. K. Siegel, Über Raumvorstellung und Raumbegriff. Leipzig, J. A. Barth, 1905.</p><p class="jp" lang="ja">カントの立場についてのさまざまな把握については、K. ジーゲル『空間表象と空間概念について』ライプツィヒ、J. A. バルト、1905年を参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s17"><a href="#s17">§ 17</a></h2>
+<article class="row" id="p17.1">
+  <aside class="mg"><a class="pid" href="#p17.1">17.1</a><span class="pg"><span>S.&nbsp;351</span></span></aside>
+  <p class="de" lang="de">17. Der geometrische Raum ist begrifflich klarer, der physiologische Raum steht hingegen der Empfindung näher. Daher kommt es, daß bei geometrischen Beschäftigungen die Eigenschaften des physiologischen Raumes doch vielfach sich geltend machen. Wir unterscheiden an unsern Figuren die näheren von den ferneren Punkten, die rechts liegenden von den links liegenden, die oberen von den unteren nach physiologischen Momenten, obgleich der geometrische Raum keine Beziehungen zu unserem Leib, sondern nur Beziehungen der Punkte zueinander kennt. Unter den geometrischen Gebilden zeichnet sich die Gerade und die Ebene durch ihre physiologischen Eigenschaften aus, und sie sind auch die ersten geometrischen Untersuchungsobjekte. Die Symmetrie fällt vor allem durch ihre physiologischen Vorzüge auf und zieht durch diese die Aufmerksamkeit des Geometers auf sich. Sie wirkt auch ohne Zweifel bei Wahl der Raumteilung nach rechten Winkeln mit.</p>
+  <p class="jp" lang="ja">17. 幾何学的空間は概念的により明晰であり、これに対して生理学的空間は感覚により近い。そのため、幾何学的な仕事に際しても、生理学的空間の性質がやはりさまざまに現れてくる。われわれは図形において、より近い点とより遠い点、右にある点と左にある点、上の点と下の点を生理学的な契機に従って区別するが、幾何学的空間はわれわれの身体への関係を知らず、点相互の関係だけを知っている。幾何学的形成物のうちでは、直線と平面がその生理学的性質によってきわだっており、それらはまた最初の幾何学的研究対象でもある。対称性は何よりもその生理学的な長所によって目を引き、それによって幾何学者の注意を引きつける。それはまた疑いもなく、直角による空間の分割の選択にもともに作用している。</p>
+</article>
+<article class="row" id="p17.2">
+  <aside class="mg"><a class="pid" href="#p17.2">17.2</a><span class="pg"><span>S.&nbsp;351</span><span>S.&nbsp;352</span></span></aside>
+  <p class="de" lang="de">Daß die Ähnlichkeit vor anderen geometrischen Verwandtschaften untersucht wurde, beruht ebenfalls auf physiologischen Umständen. Die Descartessche Koordinatengeometrie bedeutet eine Befreiung der Geometrie von physiologischen Einflüssen, doch bleiben noch Reste derselben übrig in der Unterscheidung positiver und negativer Koordinaten, je nachdem dieselben nach rechts oder links, oben oder unten u. s. w. gezählt werden. Dies ist bequem und anschaulich, aber nicht notwendig. Eine vierte Koordinatenebene oder die Bestimmung eines Punktes durch die Abstände von vier nicht in einer Ebene liegenden Fundamentalpunkten befreit den Raum von dem fortwährenden Rekurrieren auf physiologische Momente. Die Notwendigkeit der Angabe „rechts herum“, „links herum“ und der Unterscheidung von <span class="pb" title="Leipzig 1906, S. 352">352</span>eigentlich kongruenten und symmetrisch kongruenten Gebilden entfällt hiermit. Die historischen Einflüsse der physiologischen Auffassung auf die Entwicklung der Geometrie sind natürlich nicht zu eliminieren.</p>
+  <p class="jp" lang="ja">相似が他の幾何学的類縁関係に先立って研究されたことも、同じく生理学的な事情にもとづいている。デカルトの座標幾何学は、幾何学の生理学的影響からの解放を意味するが、なお、座標が右か左か、上か下かなどに向かって数えられるのに応じて正の座標と負の座標を区別することのうちに、その名残がとどまっている。これは便利で直観的ではあるが、必然的ではない。第四の座標平面、あるいは一平面上にない四つの基本点からの距離による点の決定は、空間を生理学的契機へのたえざる立ち戻りから解放する。それによって、「右回り」「左回り」という指定や、本来の合同な形成物と対称的に合同な形成物との区別の必要はなくなる。生理学的把握が幾何学の発展に及ぼした歴史的な影響は、もちろん取り除くことはできない。</p>
+</article>
+<h2 class="sec" id="s18"><a href="#s18">§ 18</a></h2>
+<article class="row" id="p18.1">
+  <aside class="mg"><a class="pid" href="#p18.1">18.1</a><span class="pg"><span>S.&nbsp;352</span></span></aside>
+  <p class="de" lang="de">18. Selbst in seiner größten Annäherung an den euklidischen Raum bleibt der physiologische Raum von ersterem noch beträchtlich verschieden. Dies äußert sich auch in der Physik. Den Unterschied von rechts und links, vorn und hinten überwindet der naive Mensch leicht, nicht so jenen von oben und unten, wegen der Schwierigkeiten, welche sein Geotropismus einem dauernden Tausch dieser Richtungen entgegensetzt. Um die Unmöglichkeit einer Sache zu bezeichnen, läßt Herodot (V, 92) Sosikles von Korinth sagen: „Eher wird der Himmel unter der Erde sein, und die Erde über dem Himmel in der Luft schweben, als“.... Was der Kirchenvater Lactantius gegen die Antipodenlehre, gegen die mit den Köpfen nach unten hängenden Menschen und die abwärts gekehrten Baumwipfel vorbrachte, wogegen Augustinus sich sträubte, und was noch nach Jahrhunderten naiven Menschen unbegreiflich schien, wird uns aus den Eigenschaften des physiologischen Raumes verständlich. Wir haben weniger Ursache über die Beschränktheit der Gegner der Antipodenlehre zu staunen, als die Kraft der Abstraktion bei Archytas von Tarent, Aristarch von Samos und andern antiken Denkern zu bewundern.</p>
+  <p class="jp" lang="ja">18. ユークリッド空間に最も近づいた場合でさえ、生理学的空間は前者からなおかなり異なっている。このことは物理学においても現れる。右と左、前と後の違いを素朴な人間は容易に克服するが、上と下の違いはそうはいかない。彼の屈地性が、これらの方向を持続的に入れ替えることに困難を対置するからである。ある事柄の不可能性を表すために、ヘロドトス（第5巻、92）はコリントスのソシクレスに言わせている。「天が地の下になり、地が天の上の空中に浮かぶほうが先であろう、……よりも」。教父ラクタンティウスが対蹠人説に対して、頭を下にしてぶら下がる人間や下に向いた樹の梢に対して持ち出したこと、アウグスティヌスが逆らったこと、そして何世紀ものちにもなお素朴な人々に理解できないと思われたことは、生理学的空間の性質からわれわれに理解できるものとなる。われわれは、対蹠人説の反対者たちの偏狭さに驚くよりも、タレントゥムのアルキュタス、サモスのアリスタルコスその他の古代の思想家たちにおける抽象の力に感嘆すべき理由のほうが大きいのである。</p>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§1.2; §1.4; §2.3; §3.1</td><td lang="de">Orte); Ähnlichkeit); Zoth²); zurück.²); empfindet.³)</td><td lang="de">注2・4・6・9・10 への参照</td></tr>
+  <tr><td>§2.2–2.3</td><td lang="de">unter-Fig. 9. / Fig. 10. / schieden</td><td lang="de">図版標示を除いて unterschieden を接合</td></tr>
+  <tr><td>§6.1–6.2</td><td lang="de">鏡文字・倒立文字の R が OCR で通常の R に置換または脱落（auf die Bauchhaut geschrieben）</td><td lang="de">Stirn: Я（OCR原字）; Bauchhaut: ᴚ（文脈からの推定）; *) は注16 へ</td></tr>
+  <tr><td>§8.2; §10.3</td><td lang="de">bemerkt. 1) および S. 344 頁内注「Prinzipien der Wärmelehre. S. 76.」; Weber,¹) および S. 346 頁内注「A. a. O.」が本文中に混入</td><td lang="de">注18・注21 として復元（以下の注番号を繰り下げ）</td></tr>
+  <tr><td>§9.1; §10.3; §15.2</td><td lang="de">fortpflanzen.³); Stumpf³); haben.²)</td><td lang="de">注20・23・26 への参照</td></tr>
+  <tr><td>各所</td><td lang="de">Dimensión; uud; selbt; Qualiät; physikalischmetrisch</td><td lang="de">Dimension; und; selbst; Qualität; physikalisch-metrisch</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_19.html">← 第ⅩⅨ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
