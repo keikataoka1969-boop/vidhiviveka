@@ -98,6 +98,10 @@ def chapter_html(n, meta, de, ja, prev_link, next_link):
     css = read(os.path.join(TPL, 'chapter.css'))
     js = read(os.path.join(TPL, 'chapter.js'))
     missing = [r['id'] for r in rows if r['id'] not in ja] + ['n' + k for k in notes if 'n' + k not in ja]
+    for r in rows:
+        a = re.findall(r'⟦fn:(\d+)⟧', r['de']); b = re.findall(r'⟦fn:(\d+)⟧', ja.get(r['id'], ''))
+        if a != b:
+            print('  WARNING ch%d %s footnote refs differ: de=%s ja=%s' % (n, r['id'], a, b), file=sys.stderr)
     if missing:
         print('  WARNING ch%d missing ja for: %s' % (n, ', '.join(missing)), file=sys.stderr)
     o = []
