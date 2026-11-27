@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第ⅩⅦ章 研究の道筋の実例</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第ⅩⅦ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL XVII · 第ⅩⅦ章</div>
+  <h1>研究の道筋の実例</h1>
+  <div class="de-title" lang="de">Beispiele von Forschungswegen</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 287–303　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;287</span></span></aside>
+  <p class="de" lang="de">1. Wollte man kurz und allgemein zutreffend das Streben des Naturforschers, seine Tätigkeit in jedem einzelnen Fall, das Ziel, dessen Erreichung ihn befriedigt, bezeichnen, so müßte man sagen: Er will seine Gedanken mit den Tatsachen und erstere untereinander in möglichst gute Übereinstimmung bringen. Die „vollständige und einfachste Beschreibung“ (Kirchhoff 1874), „die ökonomische Darstellung des Tatsächlichen“ (Mach 1872), „Übereinstimmung des Denkens mit dem Sein und Übereinstimmung der Denkprozesse unter sich“ (Grassmann 1844) geben mit geringen Variationen demselben Gedanken Ausdruck. Anpassung der Gedanken an die Tatsachen wird in der Mitteilung an andere zur Beschreibung, zur ökonomischen Darstellung des Tatsächlichen bei vollständiger einfachster Beschreibung. Jede vermeidliche Inkongruenz, jede Unvollständigkeit, jede logische Differenz oder Abundanz der beschreibenden Gedanken bedeutet einen Verlust, ist unökonomisch. So allgemein und wenig bestimmt diese Charakteristik der Forschung auch erscheinen mag, dürfte sie mehr zum Verständnis der Tätigkeit des Forschers beitragen als speziellere, dafür aber einseitigere Beschreibungen dieser Tätigkeit. Erläutern wir dies durch Beispiele.</p>
+  <p class="jp" lang="ja">1. 自然研究者の努力、すなわち個々のどの場合における彼の活動、その達成が彼を満足させる目標を、簡潔に、そして一般に当てはまるように言い表そうとするならば、こう言わなければならないであろう。彼は自分の思考を事実と、また思考相互をできるかぎりよく一致させようとするのである、と。「完全で最も単純な記述」（キルヒホフ、1874年）、「事実的なものの経済的な表現」（マッハ、1872年）、「思考と存在との一致、および思考過程相互の一致」（グラスマン、1844年）は、わずかな変化をもって同じ思想を表している。思考の事実への適応は、他人への伝達においては記述となり、完全で最も単純な記述においては事実的なものの経済的な表現となる。記述する思考の避けうる不一致、不完全さ、論理的な相違あるいは余剰はどれも損失を意味し、非経済的である。研究のこの特徴づけはきわめて一般的であまり規定されていないように見えるかもしれないが、より特殊な、そのかわりより一面的な記述よりも、研究者の活動の理解に役立つであろう。これを例によって説明しよう。</p>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;287</span><span>S.&nbsp;288</span></span></aside>
+  <p class="de" lang="de">2. Die wissenschaftlichen astronomischen Vorstellungen haben sich (wie S. 101, 233 erwähnt) aus den naiven vulgären Ansichten entwickelt. Die Drehung des Himmelsgewölbes, der Fixsternsphäre um die Erde ist der unmittelbare Ausdruck der Beobachtung. Die Bewegungen der Sonne und des Mondes sowie der Planeten sind von jener der Fixsternsphäre verschieden. <span class="pb" title="Leipzig 1906, S. 288">288</span>Hipparch<a class="fr" href="#n1">1</a> versucht zuerst die Bewegung von Sonne und Mond durch Epicykel darzustellen. Es gelingt ihm dadurch, die Ungleichheiten der Bewegung aus einer viel einfacheren geometrischen Vorstellung ableitbar zu machen. Die Methode der Epicykel wird von Ptolemaeus<a class="fr" href="#n2">2</a> auf die Bewegung der Planeten ausgedehnt.</p>
+  <p class="jp" lang="ja">2. 科学的な天文学の表象は（101頁、233頁で述べたように）素朴な通俗的見解から発展してきた。天の穹窿、恒星天球が地球のまわりを回転することは、観察の直接の表現である。太陽と月と惑星の運動は恒星天球の運動とは異なっている。ヒッパルコス<a class="fr" href="#n1">1</a>は、はじめて太陽と月の運動を周転円によって表そうと試みる。それによって彼は、運動の不規則性をはるかに単純な幾何学的表象から導き出せるようにすることに成功する。周転円の方法は、プトレマイオス<a class="fr" href="#n2">2</a>によって惑星の運動へと拡張される。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Geb. um 160 v. Chr.</p><p class="jp" lang="ja">紀元前160年ごろ生まれる。</p></li><li id="n2"><span class="nn">2</span><p class="de" lang="de">Beobachtete ungefähr 125–150 n. Chr.</p><p class="jp" lang="ja">紀元後125–150年ごろ観測を行う。</p></li></ol>
+</article>
+<article class="row" id="p2.2">
+  <aside class="mg"><a class="pid" href="#p2.2">2.2</a><span class="pg"><span>S.&nbsp;288</span></span></aside>
+  <p class="de" lang="de">Die von Philolaus,<a class="fr" href="#n3">3</a> Archytas,<a class="fr" href="#n4">4</a> Aristarch<a class="fr" href="#n5">5</a> angebahnte heliozentrische Auffassung bricht endlich mit Kopernikus<a class="fr" href="#n6">6</a> definitiv durch. Hierdurch werden, wie Kepler<a class="fr" href="#n7">7</a> zeigt, 11 Bewegungen des geozentrischen Systems überflüssig. Von der Voraussetzung ausgehend, daß das Planetensystem von mystischen Zahlen- und geometrischen Verhältnissen beherrscht sein müsse, bemüht sich Kepler durch höchst phantastische Konstruktionen mittels der fünf regulären Körper, diese Verhältnisse zu ergründen.<a class="fr" href="#n8">8</a> Diese Spekulationen führen ihn aber nach 22 Jahren zur Entdeckung des Gesetzes, daß die dritte Potenz der Entfernung geteilt durch das Quadrat der Umlaufszeit für alle Planeten dieselbe Zahl gibt (sein 3. Gesetz). Er erläutert dies an dem Beispiel der Erde und des Saturn.<a class="fr" href="#n9">9</a> Durch das Studium der Marsbewegung auf Grund der Tychonischen Beobachtungen ergibt sich zunächst das Sektorengesetz<a class="fr" href="#n10">10</a> als physikalische Hypothese, die sich nachträglich bewährt.</p>
+  <p class="jp" lang="ja">ピロラオス<a class="fr" href="#n3">3</a>、アルキュタス<a class="fr" href="#n4">4</a>、アリスタルコス<a class="fr" href="#n5">5</a>によって道が開かれた太陽中心の把握は、ついにコペルニクス<a class="fr" href="#n6">6</a>によって決定的に突破する。それによって、ケプラー<a class="fr" href="#n7">7</a>が示すように、地球中心の体系の十一の運動が余計なものとなる。惑星系は神秘的な数と幾何学的関係に支配されているにちがいないという前提から出発して、ケプラーは五つの正多面体によるきわめて空想的な構成によって、これらの関係を究めようと努める<a class="fr" href="#n8">8</a>。しかしこれらの思弁は、二十二年後に、距離の三乗を公転周期の二乗で割ったものがすべての惑星について同じ数を与えるという法則（彼の第三法則）の発見へと彼を導く。彼はこれを地球と土星の例で説明している<a class="fr" href="#n9">9</a>。ティコの観測にもとづく火星の運動の研究によって、まず面積速度の法則<a class="fr" href="#n10">10</a>が物理学的仮説として得られ、それがあとから確証される。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">Um 410 v. Chr.</p><p class="jp" lang="ja">紀元前410年ごろ。</p></li><li id="n4"><span class="nn">4</span><p class="de" lang="de">Um 400 v. Chr.</p><p class="jp" lang="ja">紀元前400年ごろ。</p></li><li id="n5"><span class="nn">5</span><p class="de" lang="de">Lebte 310–250 v. Chr.</p><p class="jp" lang="ja">紀元前310–250年に生きる。</p></li><li id="n6"><span class="nn">6</span><p class="de" lang="de">Copernicus, De revolutionibus orbium coelestium. 1543.</p><p class="jp" lang="ja">コペルニクス『天球回転論』1543年。</p></li><li id="n7"><span class="nn">7</span><p class="de" lang="de">Kepler, Mysterium cosmographicum. 1596. Cap. 1.</p><p class="jp" lang="ja">ケプラー『宇宙の神秘』1596年、第1章。</p></li><li id="n8"><span class="nn">8</span><p class="de" lang="de">Ebendaselbst.</p><p class="jp" lang="ja">同書。</p></li><li id="n9"><span class="nn">9</span><p class="de" lang="de">Harmonice Mundi. 1619. Lib. V, S. 189, 190.</p><p class="jp" lang="ja">『世界の調和』1619年、第5巻、189、190頁。</p></li><li id="n10"><span class="nn">10</span><p class="de" lang="de">Astronomia nova. De Motibus stellae Martis. 1609. S. 194.</p><p class="jp" lang="ja">『新天文学——火星の運動について』1609年、194頁。</p></li></ol>
+</article>
+<article class="row" id="p2.3">
+  <aside class="mg"><a class="pid" href="#p2.3">2.3</a><span class="pg"><span>S.&nbsp;288</span></span></aside>
+  <p class="de" lang="de">Er denkt sich nämlich die „motrices animas“, welche die Himmelskörper um den Zentralkörper herumtreiben mit der Entfernung von letzterem abgeschwächt. Dieser Gedanke leitet ihn sowohl zum dritten und auch zum zweiten (Sektoren-) Gesetz.<a class="fr" href="#n11">11</a> Nach vielen vergeblichen Versuchen verfällt er auf die elliptische Planetenbahn<a class="fr" href="#n12">12</a> mit dem Brennpunkt in der Sonne. Diese drei Gesetze werden dann von Kepler auch auf die übrigen Planeten ausgedehnt.<a class="fr" href="#n13">13</a> Newtons Leistung besteht nun darin, daß er diese immer noch zahlreichen Einzelbeschreibungen, aus der Annahme einer verkehrt dem Quadrate der Entfernung von der Sonne proportionalen Beschleunigung der Planeten ableitbar macht. Diese Beschleunigungen betrachtet er als besondere Fälle einer allgemeinen gegenseitigen Beschleunigung der Massen, von welcher die Fallbeschleunigung der schweren Körper auf der Erde der bekannteste besondere Fall ist. Hiermit macht Newton die astronomischen Bewegungen zu einer Aufgabe der allgemeinen physikalischen Mechanik. Auch diesen Schritt finden wir übrigens schon durch die Ansichten des Kopernikus<a class="fr" href="#n14">14</a> und besonders des Kepler<a class="fr" href="#n15">15</a> über die Schwere als allgemeine gegenseitige Massenanziehung vorbereitet. Kepler braucht nicht nur die motrices animas zum Herumführen im Kreise, sondern äußert auch, daß der Mond zur Erde fallen würde, „si Luna et Terra non retineretur vi animali, aut alia aliqua aequipollenti, quaelibet in suo circuitu.“<a class="fr" href="#n16">16</a> Beiden fehlte eben noch die von Galilei und Huygens gewonnene Einsicht in dynamische Vorgänge, um auch diesen Schritt herbeizuführen.</p>
+  <p class="jp" lang="ja">すなわち彼は、天体を中心天体のまわりに駆り立てる「動かす魂（motrices animas）」が、後者からの距離とともに弱まると考える。この考えは彼を第三法則にも第二（面積速度）法則にも導く<a class="fr" href="#n11">11</a>。多くのむなしい試みののち、彼は太陽を焦点とする楕円の惑星軌道<a class="fr" href="#n12">12</a>に思い至る。これら三つの法則は、次にケプラーによって他の惑星にも拡張される<a class="fr" href="#n13">13</a>。さてニュートンの業績は、これらのなお数多い個別の記述を、太陽からの距離の二乗に反比例する惑星の加速度という想定から導き出せるようにしたことにある。この加速度を彼は、質量の一般的な相互加速度の特殊な場合とみなし、地上での重い物体の落下加速度がその最もよく知られた特殊な場合である。それによってニュートンは天文学的運動を一般的な物理学的力学の課題とする。ちなみにこの歩みも、すでに重さを一般的な相互の質量の引力とするコペルニクス<a class="fr" href="#n14">14</a>と、とりわけケプラー<a class="fr" href="#n15">15</a>の見解によって準備されていたことが分かる。ケプラーは円周をめぐらせるのに motrices animas を用いるばかりでなく、「もし月と地球がそれぞれその軌道において、生命の力、あるいは何か他の同等の力によって引き止められていなければ」、月は地球へと落ちるであろう、とも述べている<a class="fr" href="#n16">16</a>。二人には、この歩みをももたらすのに、ガリレイとホイヘンスによって得られた動力学的過程への洞察がまだ欠けていたのである。</p>
+  <ol class="notes"><li id="n11"><span class="nn">11</span><p class="de" lang="de">Mysterium cosmographicum. Cap. 20, 2 Ed, p. 75.</p><p class="jp" lang="ja">『宇宙の神秘』第20章、第2版、75頁。</p></li><li id="n12"><span class="nn">12</span><p class="de" lang="de">Ebenda S. 285 u. f.</p><p class="jp" lang="ja">同書、285頁以下。</p></li><li id="n13"><span class="nn">13</span><p class="de" lang="de">Epitome astronomiae Copernicanae. 1619.</p><p class="jp" lang="ja">『コペルニクス天文学概要』1619年。</p></li><li id="n14"><span class="nn">14</span><p class="de" lang="de">A. a. O., Lib. I, Cap. 9. Die Schwere wird daselbst schon allen Himmelskörpern zugeschrieben.</p><p class="jp" lang="ja">前掲書、第1巻、第9章。そこではすでにすべての天体に重さが帰せられている。</p></li><li id="n15"><span class="nn">15</span><p class="de" lang="de">Astronomia nova. Insbesondere die fünfte Seite der Introductio. Hier wird von der gegenseitigen Schwere von Erde und Mond gesprochen, daß der Mond das Wasser der Erde an sich ziehen würde, wenn dieses nicht gegen die Erde schwer wäre u. s. w.</p><p class="jp" lang="ja">『新天文学』とりわけ序論の第5ページ。そこでは地球と月の相互の重さについて、水が地球に向かって重くなければ月は地球の水を自分に引き寄せるであろう、などと語られている。</p></li><li id="n16"><span class="nn">16</span><p class="de" lang="de">Am zuvor angeführten Orte.</p><p class="jp" lang="ja">先に挙げた箇所。</p></li></ol>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;289</span><span>S.&nbsp;290</span></span></aside>
+  <p class="de" lang="de">3. Betrachtet man diese Entwicklung, so kann man in derselben die fortschreitend immer genauere Nachbildung der astronomischen Tatsachen in Gedanken nicht verkennen. Erst sind die scheinbaren Bewegungen der Himmelskörper auf der Fixsternsphäre in rohen Zügen aufzufassen, dann ziehen die Ungleichheiten die Aufmerksamkeiten auf sich, endlich auch die Entfernungen von der Erde und ihre Änderungen. Heute kann auch die Fixsternsphäre weder als eine Sphäre, noch als unveränderlich betrachtet werden. Der Prozeß ist nicht abgeschlossen und wohl auch nicht abschließbar.<a class="fr" href="#n17">17</a> Zugleich sehen <span class="pb" title="Leipzig 1906, S. 290">290</span>wir die Nachbildung in Gedanken, oder die Beschreibung, sich fort und fort vereinfachen oder ökonomischer gestalten, so daß sie zuletzt gar nicht mehr auf die Tatsachen beschränkt ist, für welche sie ursprünglich hergestellt wurde, sondern für ein viel weiteres Gebiet zureicht.</p>
+  <p class="jp" lang="ja">3. この発展を考察すると、そのうちに、天文学的事実が思考のなかで進歩的にますます正確に模写されていくことを見誤ることはできない。まず恒星天球の上での天体の見かけの運動が粗い輪郭で把握され、次に不規則性が注意を引き、最後に地球からの距離とその変化も注意を引く。今日では恒星天球も、天球とも不変のものともみなすことはできない。この過程は完結しておらず、おそらく完結しうるものでもない<a class="fr" href="#n17">17</a>。同時にわれわれは、思考のなかでの模写、すなわち記述がたえずより単純に、より経済的に形づくられていき、ついにはそれがもともとつくられた事実にもはや限られず、はるかに広い領域に十分なものとなるのを見る。</p>
+  <ol class="notes"><li id="n17"><span class="nn">17</span><p class="de" lang="de">Seit man weiß, daß der Fixsternhimmel veränderlich und die Fixsterne ungleich weit sind, ist das ursprüngliche kopernikanische Koordinatensystem wieder mit einer Unsicherheit behaftet. Aber auch ein rein terrestrisches System wäre schwerlich mit genügender Genauigkeit festzuhalten.</p><p class="jp" lang="ja">恒星天が変化しうるものであり、恒星が等しくない距離にあることが知られて以来、もとのコペルニクスの座標系は再び不確かさを帯びている。しかし純粋に地上の系も、十分な正確さで保持することはまず難しいであろう。</p></li></ol>
+</article>
+<article class="row" id="p3.2">
+  <aside class="mg"><a class="pid" href="#p3.2">3.2</a><span class="pg"><span>S.&nbsp;290</span></span></aside>
+  <p class="de" lang="de">Daß aber die Schritte, welche zu Vereinfachungen führen, nicht auf Augenblicksschlüssen beruhen, die nach irgend einer Formel ausgeführt werden können, sieht man aus dem Zeitaufwand, den sie erfordern. Keplers Astronomia nova ist durch seine eigenen Geständnisse und durch die offene Darlegung seiner Irrwege besonders lehrreich. Erst 22 Jahre Arbeit brachten ihm den erwünschten Erfolg. Aber auch von Newton wissen wir, daß Jahre zwischen dem ersten Einfall und der Ausführung seines Gedankens liegen.</p>
+  <p class="jp" lang="ja">しかし単純化へと導く歩みが、何かの公式に従って行うことのできる瞬間的な推論にもとづいているのではないことは、それに要する時間の費やし方から分かる。ケプラーの『新天文学』は、彼自身の告白と、その迷い道の率直な叙述とによって、とりわけ教えられるところが多い。二十二年の仕事がようやく彼に望んだ成功をもたらしたのである。しかしニュートンについても、最初の着想とその思想の遂行とのあいだに何年もがあったことをわれわれは知っている。</p>
+</article>
+<article class="row" id="p3.3">
+  <aside class="mg"><a class="pid" href="#p3.3">3.3</a><span class="pg"><span>S.&nbsp;290</span></span></aside>
+  <p class="de" lang="de">Eine mächtig wuchernde Phantasie fördert zahllose Ausgeburten zu Tage, bevor eine oder die andere als das richtige Mittel der Vereinfachung erkannt wird, und durch den Versuch sich als solches auch bewährt. Planmäßiges Suchen kann wenig nützen, wenn man den erlösenden Gedanken selbst noch nicht kennt, der erst, nachdem man denselben erraten hat, dem überraschten Finder sich als solcher offenbart. Mit dem Ziele fest im Auge in den Produkten der Phantasie zu wühlen, ist hier vorteilhafter. Das „Mysterium cosmographicum“ und die „Harmonice mundi“ sind da sehr lehrreich. Die Astronomie, deren Entwicklung sich durch Jahrtausende durch die verschiedensten Köpfe fortspinnt, zeigt recht augenscheinlich, daß die Wissenschaft keine persönliche Angelegenheit ist, sondern nur als soziale Angelegenheit bestehen kann.</p>
+  <p class="jp" lang="ja">力強く繁茂する想像力は、そのうちのどれか一つが単純化の正しい手段と認識され、試みによってそのようなものとしても確証されるまでに、数えきれないほどの産物を生み出す。救いとなる思考そのものをまだ知らないうちは、計画的な探索はあまり役に立たない。その思考は、それを言い当ててはじめて、驚いた発見者にそのようなものとして明らかになるのである。ここでは、目標をしっかりと見すえながら想像の産物のなかをかきまわすほうが有利である。『宇宙の神秘』と『世界の調和』はこの点できわめて教えられるところが多い。何千年にもわたってきわめてさまざまな頭脳を通じて紡がれていく天文学の発展は、科学が個人的な事柄ではなく、社会的な事柄としてのみ存立しうることを、まことにはっきりと示している。</p>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;290</span><span>S.&nbsp;291</span></span></aside>
+  <p class="de" lang="de">4. Das Bedürfnis nach den klärenden, vereinfachenden Gedanken muß natürlich dem untersuchten Gebiet selbst entspringen. Diese Gedanken können aber aus irgend einem andern Gebiet herstammen. Die Epicykel sind dem erfahrenen Geometer oder praktischen Mechaniker leicht zur Hand.<a class="fr" href="#n18">18</a> Alltägliche Er<span class="pb" title="Leipzig 1906, S. 291">291</span>fahrungen über scheinbare Bewegungen und perspektivische Verschiebungen kommen ersichtlich Kopernikus zu Hilfe. Zu allem diesem gesellen sich bei Kepler mystische und animistische Gedanken. Endlich erscheint Newton, der Physiker und überragende Geometer, fügt sein Werk hinzu, und beseitigt das nunmehr Überflüssige.</p>
+  <p class="jp" lang="ja">4. 明らかにし単純化する思考への欲求は、もちろん研究される領域そのものから生じなければならない。しかしその思考は、何か他の領域から由来することもありうる。周転円は、経験ある幾何学者や実践的な機械工には手近なものである<a class="fr" href="#n18">18</a>。見かけの運動や遠近法的なずれについての日常の経験は、明らかにコペルニクスを助けている。これらすべてに、ケプラーにおいては神秘的でアニミズム的な思考が加わる。最後に物理学者であり卓越した幾何学者であるニュートンが現れ、自分の仕事を付け加え、いまや余計となったものを取り除く。</p>
+  <ol class="notes"><li id="n18"><span class="nn">18</span><p class="de" lang="de">Jedem Mathematiker muß es auffallen, daß die Darstellung einer willkürlichen periodischen Bewegung durch Epicykel auf demselben Prinzip beruht, welches der Anwendung der Fourierschen Reihen zu Grunde liegt. So berührt sich unsere moderne mathematische Physik mit der antiken Astronomie.</p><p class="jp" lang="ja">任意の周期運動を周転円によって表すことが、フーリエ級数の応用の根底にあるのと同じ原理にもとづいていることは、どの数学者にも目につくにちがいない。こうしてわれわれの近代の数理物理学は古代の天文学と触れ合うのである。</p></li></ol>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;291</span></span></aside>
+  <p class="de" lang="de">Beim Wettbewerb um die Lösung solcher Fragen ist die Weite des Vorstellungskreises für den Sieg vielleicht ebenso wichtig, wie die Schärfe des kritischen Urteils über den ökonomischen Wert der zufällig gewählten und auf die Probe gestellten Gedanken. Psychologisch möglich muß natürlich der Weg sein, den auch das größte Genie einschlägt, denn wie sollte sonst der normale Durchschnittsmensch ihm folgen können? Die Dynamik muß vorbereitet, muß vorhanden sein, um in der Astronomie Anwendung zu finden. Wie groß aber trotzdem der Einfluß des individuellen psychischen Entwicklungsganges ist, zeigt eine aufmerksame Betrachtung. Huygens, der Astronom und Physiker, hat alle Mittel selbst entwickelt, die das Planetensystem erklären. Er löst trotzdem die Frage nicht, ja er vermag der fertigen Lösung kein rechtes Verständnis abzugewinnen.</p>
+  <p class="jp" lang="ja">このような問いの解決をめぐる競争においては、表象の範囲の広さが、偶然選ばれ試験にかけられた思考の経済的価値についての批判的判断の鋭さと同じくらい、勝利にとって重要であろう。最大の天才がとる道も、もちろん心理学的に可能なものでなければならない。そうでなければ、普通の平均的な人間がどうしてそれについていけるであろうか。動力学は、天文学に応用されるためには準備され、存在していなければならない。しかしそれにもかかわらず、個人の心的発達の歩みの影響がいかに大きいかは、注意深く考察すれば分かる。天文学者であり物理学者であるホイヘンスは、惑星系を説明するすべての手段を自ら発展させた。それにもかかわらず彼は問いを解かず、それどころか完成した解決を正しく理解することもできない。</p>
+</article>
+<article class="row" id="p4.3">
+  <aside class="mg"><a class="pid" href="#p4.3">4.3</a><span class="pg"><span>S.&nbsp;291</span></span></aside>
+  <p class="de" lang="de">Wer an die Schwere als das Maßgebende für die astronomischen Bewegungen dachte, mußte ja bald den Kern der Frage finden. Unabhängig von der Entfernung konnte die Schwere nicht sein, da sonst nicht einmal die Steine auf der Erde gegen die Erde fallen würden, und da hierbei das 3. Keplersche Gesetz nicht bestehen könnte. Man mußte also nach einer andern Abhängigkeit der Fallbeschleunigung von der Entfernung suchen, und das 3. Gesetz weist deutlich auf die verkehrt quadratische hin. In der Tat hat Hooke, als Mathematiker mit Huygens nicht vergleichbar, durch Gedanken über die Strahlung der Schwere unterstützt, diesen Kern erfaßt und sogar einem Newton vorweggenommen. Allein die ganze mathematische Aufgabe hat nur Newton bewältigt.</p>
+  <p class="jp" lang="ja">天文学的運動にとって決定的なものとして重さを考えた者は、まもなく問題の核心を見いださざるをえなかった。重さは距離から独立ではありえなかった。そうでなければ地上の石でさえ地球に向かって落ちないであろうし、その場合ケプラーの第三法則も成り立ちえないであろうからである。それゆえ落下加速度の距離に対する別の依存関係を探さなければならず、第三法則ははっきりと逆二乗の依存関係を指し示している。実際、数学者としてはホイヘンスとは比べものにならないフックが、重さの放射についての考えに助けられて、この核心をつかみ、ニュートンにさえ先んじた。しかし数学的課題全体を克服したのはニュートンだけであった。</p>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;291</span><span>S.&nbsp;292</span></span></aside>
+  <p class="de" lang="de">5. Betrachten wir ein weiteres Beispiel. Die seit der antiken Zeit bekannten elektrischen und magnetischen Erscheinungen wurden sehr oberflächlich aufgefaßt und häufig konfundiert, bis Gilbert<a class="fr" href="#n19">19</a> den Unterschied scharf hervorhob, und Guericke<a class="fr" href="#n20">20</a> <span class="pb" title="Leipzig 1906, S. 292">292</span>ein genaueres Studium der Elektrizität einleitete. Die Entdeckung zweier verschiedener elektrischen Zustände durch Dufay,<a class="fr" href="#n21">21</a> die Erkenntnis des Unterschiedes der Leiter und Nichtleiter, der Reichtum der allmählich bekannt werdenden Erscheinungen, ermöglichten Coulomb<a class="fr" href="#n22">22</a> die Begründung einer vollständigeren dualistischen mathematischen Theorie im Gegensatze zur älteren unitarischen des Aepinus.<a class="fr" href="#n23">23</a> Die magnetischen Erscheinungen konnte Coulomb in ganz ähnlicher Weise behandeln.</p>
+  <p class="jp" lang="ja">5. さらに別の例を考察しよう。古代から知られていた電気と磁気の現象は、きわめて表面的にしか把握されず、しばしば混同されていた。やがてギルバート<a class="fr" href="#n19">19</a>がその違いを鋭く際立たせ、ゲーリケ<a class="fr" href="#n20">20</a>が電気のより精密な研究を始めた。デュフェ<a class="fr" href="#n21">21</a>による二つの異なる電気状態の発見、導体と不導体の区別の認識、しだいに知られるようになった現象の豊かさは、クーロン<a class="fr" href="#n22">22</a>に、アエピヌス<a class="fr" href="#n23">23</a>のより古い一元論に対して、より完全な二元論的数学理論を基礎づけることを可能にした。磁気の現象を、クーロンはまったく同様の仕方で扱うことができた。</p>
+  <ol class="notes"><li id="n19"><span class="nn">19</span><p class="de" lang="de">Gilbert, De Magnete. 1600.</p><p class="jp" lang="ja">ギルバート『磁石論』1600年。</p></li><li id="n20"><span class="nn">20</span><p class="de" lang="de">Guericke, Experimenta Magdeburgica. 1672. S. 136, 147.</p><p class="jp" lang="ja">ゲーリケ『マクデブルクの実験』1672年、136、147頁。</p></li><li id="n21"><span class="nn">21</span><p class="de" lang="de">Mém. de l'Académie de Paris. 1733.</p><p class="jp" lang="ja">『パリ科学アカデミー紀要』1733年。</p></li><li id="n22"><span class="nn">22</span><p class="de" lang="de">Coulomb, Mém. de Paris. 1788.</p><p class="jp" lang="ja">クーロン『パリ紀要』1788年。</p></li><li id="n23"><span class="nn">23</span><p class="de" lang="de">Aepinus, Tentamen theoriae Electricitatis et Magnetismi. 1759.</p><p class="jp" lang="ja">アエピヌス『電気と磁気の理論の試み』1759年。</p></li></ol>
+</article>
+<article class="row" id="p5.2">
+  <aside class="mg"><a class="pid" href="#p5.2">5.2</a><span class="pg"><span>S.&nbsp;292</span></span></aside>
+  <p class="de" lang="de">Beide Theorien wurden von Poisson<a class="fr" href="#n24">24</a> weiter entwickelt, und die Analogie zwischen Magnetismus und Elektrizität trat nun aufs neue hervor. Diese bloße Analogie ließ schon einen Zusammenhang beider Gebiete vermuten, welche Vermutung noch durch zufällige Beobachtungen, wie die Magnetisierung von Stahlnadeln durch elektrische Entladungen, bestärkt wurde, ohne doch zu einem faßbaren Ergebnis zu führen. Als nun Volta<a class="fr" href="#n25">25</a> durch Konstruktion seiner Säule dem Studium der Elektrizität eine neue Anregung gab, wurden auch wieder erfolglose Versuche veranlaßt, jenem Zusammenhang nachzugehen. Oerstedt war endlich so glücklich, einen solchen Zusammenhang zu finden.</p>
+  <p class="jp" lang="ja">両理論はポアソン<a class="fr" href="#n24">24</a>によってさらに発展させられ、磁気と電気との類比が改めて現れた。この単なる類比がすでに両領域の連関を推測させ、その推測は、電気放電による鋼の針の磁化のような偶然の観察によってさらに強められたが、それでも捉えうる成果にはいたらなかった。さてヴォルタ<a class="fr" href="#n25">25</a>がその電堆の構成によって電気の研究に新たな刺激を与えたとき、その連関を追う試みが再び引き起こされたが、成果はなかった。ついにエルステッドがそのような連関を見いだす幸運に恵まれた。</p>
+  <ol class="notes"><li id="n24"><span class="nn">24</span><p class="de" lang="de">Mém. de Paris. 1811.</p><p class="jp" lang="ja">『パリ紀要』1811年。</p></li><li id="n25"><span class="nn">25</span><p class="de" lang="de">Philos. Transact. 1800.</p><p class="jp" lang="ja">『フィロソフィカル・トランザクションズ』1800年。</p></li></ol>
+</article>
+<article class="row" id="p5.3">
+  <aside class="mg"><a class="pid" href="#p5.3">5.3</a><span class="pg"><span>S.&nbsp;292</span></span></aside>
+  <p class="de" lang="de">Er bemerkte wohl zufällig, bei Gelegenheit einer Vorlesung, die Beunruhigung der Magnetnadel durch die Schließung einer Voltaschen Säule. Hier hatte er nun plötzlich den Faden in der Hand, nach dem er und andere so lange gesucht hatten, und es galt nur, denselben nicht mehr loszulassen. Indem Oerstedt<a class="fr" href="#n26">26</a> die Nadel in alle möglichen Lagen gegen den Schließungsdraht brachte, konnte er eine zusammenfassende Beschreibung aller hierher gehörigen Erscheinungen geben, die nur durch ihre Umständlichkeit und die ungewohnten Ausdrücke dem heutigen Leser weniger zusagt, sonst aber ganz korrekt ist. Ampère faßte die Tatsachen in die Regel zusammen: Der nach Norden weisende Pol (der Nordpol) der Nadel weicht zur Linken des mit dem positiven Strom schwimmenden, dem Pol zugewendeten Beobachters aus. Den Ausdruck „Strom“ gebraucht erst Ampère, während Oerstedt „elektrischer Konflikt“ sagt. Oerstedt erkennt, daß der elektrische Konflikt keine Anziehung bestimmt, daß derselbe durch Glas, Holz, Metall, Wasser u. s. w. hindurch sich geltend macht, dieselben Bewegungen der Nadel bestimmt, daß derselbe demnach keine elektrostatische Anziehungs- oder Abstoßungs-Kraft ausübt, daß derselbe nicht auf den leitenden Draht beschränkt ist, sondern sich um diesen weithin im Raume verbreitet. Er stellt sich vor, daß die eine elektrische Materie in einem Sinn um den Draht herumwirbelt und den Nordpol mitnimmt, während die andere im entgegengesetzten Sinne wirbelnde den Südpol mitnimmt. In der Tat wirbelt, wie wir wissen, bei geeigneter Veranstaltung ein Pol um den Stromleiter.</p>
+  <p class="jp" lang="ja">彼はおそらく講義の折に偶然、ヴォルタ電堆の回路を閉じることによって磁針が乱されることに気づいた。こうして彼は突然、彼や他の人々が長いあいだ探していた糸を手にしたのであり、問題はただそれをもう放さないことだけであった。エルステッド<a class="fr" href="#n26">26</a>は針を回路の導線に対してありとあらゆる位置に置くことによって、ここに属するすべての現象のまとまった記述を与えることができた。それはただその回りくどさと慣れない表現のために今日の読者にはあまり好ましくないが、ほかの点ではまったく正しい。アンペールは事実を次の規則にまとめた。正の電流とともに泳ぎ、極のほうを向いている観察者の左へと、針の北を指す極（北極）はそれる。「電流」という表現はアンペールがはじめて用いたもので、エルステッドは「電気的衝突」と言っている。エルステッドは、電気的衝突が引力を規定しないこと、それがガラス、木、金属、水などを通しても作用し、針の同じ運動を規定すること、したがってそれは静電的な引力や斥力を及ぼさないこと、それは導線に限られず、そのまわりの空間に遠く広がっていることを認識する。彼は、一方の電気物質がある向きに導線のまわりを渦巻いて北極を連れていき、他方の電気物質は反対向きに渦巻いて南極を連れていくと考える。実際、われわれが知っているように、適当な仕掛けをすれば、極は導線のまわりを渦巻くのである。</p>
+  <ol class="notes"><li id="n26"><span class="nn">26</span><p class="de" lang="de">Oerstedt, Gilberts Annalen. 1820.</p><p class="jp" lang="ja">エルステッド『ギルベルト年報』1820年。</p></li></ol>
+</article>
+<article class="row" id="p5.4">
+  <aside class="mg"><a class="pid" href="#p5.4">5.4</a><span class="pg"><span>S.&nbsp;293</span><span>S.&nbsp;294</span></span></aside>
+  <p class="de" lang="de">Diese naiven Vorstellungen, welche den heutigen viel näher stehen, als die um die Mitte des vorigen Jahrhunderts geltenden Schulvorstellungen, wurden von Th. Seebeck<a class="fr" href="#n27">27</a> und Faraday<a class="fr" href="#n28">28</a> in diesem Sinne weiter entwickelt und geklärt. Seebeck stellt schon die ringförmigen magnetischen Kraftlinien des Stromes wirklich dar, und betrachtet die durchströmte Kette als eine Art ringförmigen Magnet. Sehen wir uns den Fall genau an, so bemerken wir, daß hier etwas Gesuchtes durch einen glücklichen Zufall gefunden wurde, welches aber ebensogut auch ungesucht sich dem aufmerksamen Beobachter hätte darbieten können, wie z. B. die Röntgen-Strahlen und manche andere Entdeckung. Aber zwei Umstände, die niemand voraussehen konnte, schlossen das Finden nach einem Plan aus. Erstens konnte niemand wissen, daß nur ein dynamischer elektrischer Zustand einen statischen magnetischen bestimmen würde. Deshalb blieben auch die vielen Versuche, eine Wirkung der <span class="pb" title="Leipzig 1906, S. 294">294</span>offenen Kette auf den Magnet zu finden, deren Oerstedt erwähnt, erfolglos.</p>
+  <p class="jp" lang="ja">これらの素朴な表象——それは前世紀の半ばに通用していた学校の表象よりも今日の表象にはるかに近い——は、Th. ゼーベック<a class="fr" href="#n27">27</a>とファラデー<a class="fr" href="#n28">28</a>によってこの意味でさらに発展させられ明らかにされた。ゼーベックはすでに電流の環状の磁力線を実際に示し、電流の流れる回路を一種の環状磁石とみなしている。この場合を詳しく見ると、ここでは探していたものが幸運な偶然によって見いだされたのであり、しかしそれは、たとえばレントゲン線や他の多くの発見のように、探さなくても注意深い観察者の前に現れえたであろうことが分かる。しかし誰も予見できなかった二つの事情が、計画に従って見いだすことを排除していた。第一に、動的な電気状態だけが静的な磁気状態を規定するであろうことを、誰も知りえなかった。それゆえ、エルステッドが述べている、開いた回路の磁石への作用を見いだそうとする多くの試みも、成果がなかったのである。</p>
+  <ol class="notes"><li id="n27"><span class="nn">27</span><p class="de" lang="de">Th. Seebeck, Über den Magnetismus der galvanischen Kette, 1820, 1821 in der Berliner Akademie gelesen.</p><p class="jp" lang="ja">Th. ゼーベック「ガルヴァーニ回路の磁気について」1820、1821年、ベルリン学士院で講演。</p></li><li id="n28"><span class="nn">28</span><p class="de" lang="de">Faraday, Electro-magnetic Rotation Apparatus. 1822. (Experimental Researches in Electricity. Vol. II, p. 147.) On the physical character of lines of magnetic force. 1852. (Exp. Res. Vol. III, p. 418, n. 3265.) Die elektromagnetischen Rotationen waren deshalb so wichtig, weil Ampère an denselben erkannte, daß die (auf folgender Seite erwähnten) ponderomotorischen Fernwirkungen der Ströme nicht auf elektrostatische Wirkungen zurückführbar seien, sondern daß hier etwas fundamental Neues vorliege. Vgl. Duhem, La Théorie physique, S. 203 u. f.</p><p class="jp" lang="ja">ファラデー「電磁回転装置」1822年（『電気の実験的研究』第2巻、147頁）。「磁力線の物理的性格について」1852年（同第3巻、418頁、3265番）。電磁回転がとりわけ重要であったのは、アンペールがそれによって、（次頁で述べる）電流の重動的な遠隔作用が静電的作用に帰着できず、ここに根本的に新しいものがあることを認識したからである。デュエム『物理理論』203頁以下参照。</p></li></ol>
+</article>
+<article class="row" id="p5.5">
+  <aside class="mg"><a class="pid" href="#p5.5">5.5</a><span class="pg"><span>S.&nbsp;294</span></span></aside>
+  <p class="de" lang="de">Wie hätten Leute Versuche mit dynamischen Zuständen erfinden sollen, welche nur statische Erscheinungen kannten? Zweitens ist in der Elektrostatik fast<a class="fr" href="#n29">29</a> alles symmetrisch in Bezug auf positiv und negativ, ebenso in der Magnetostatik. Wer hätte je erwarten können, daß der Nordpol aus der durch die Nadel und den parallelen Stromleiter bestimmten Ebene einseitig (unsymmetrisch) ausweichen würde? Mit den Entdeckungen nach einer Formel oder Regel, sofern sich schon dagewesene intellektuelle Situationen nur wiederholen, hat es eine eigene Bewandtnis; solche Entdeckungen sind eben keine eigentlichen Entdeckungen. (Vgl. S. 200.) Jeder, der das Oerstedtsche Experiment geistig mit erlebte, mußte eine mächtige Erschütterung erfahren, denn er gewann plötzlich den Blick in eine neue bisher ungeahnte Welt. Was war das für ein sonderbares physikalisches Etwas, das hier die sonst scheinbar vollkommene Symmetrie störte?</p>
+  <p class="jp" lang="ja">静的な現象しか知らない人々が、どうして動的な状態での実験を考え出すことができたであろうか。第二に、静電気学ではほとんど<a class="fr" href="#n29">29</a>すべてが正と負に関して対称であり、静磁気学でも同様である。北極が、針とそれに平行な導線とによって定まる平面から一方の側へ（非対称に）それることを、誰が予期できたであろうか。すでにあった知的状況が繰り返されるだけであるかぎりでの、公式や規則に従った発見には特有の事情がある。そのような発見はまさに本来の発見ではないのである。（200頁参照。）エルステッドの実験を精神的にともに体験した者は誰でも、強い衝撃を経験したにちがいない。彼は突然、これまで予想もしなかった新しい世界をのぞき見たのだからである。ほかの点では見かけ上完全な対称性をここで乱していたのは、いったいどんな奇妙な物理的な何ものかであったのか。</p>
+  <ol class="notes"><li id="n29"><span class="nn">29</span><p class="de" lang="de">Wenn man von den einseitigen Entladungsvorgängen, Lichtenbergschen Figuren u. s. w. absieht.</p><p class="jp" lang="ja">一方的な放電過程、リヒテンベルク図形などを度外視すれば。</p></li></ol>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;294</span></span></aside>
+  <p class="de" lang="de">6. Der Fund Oerstedts hatte die Phantasie und den Eifer der durch Erfolglosigkeit ermüdeten Forscher mächtig angeregt, und rasch folgten nun wichtige Entdeckungen, welche den Zusammenhang zwischen Elektrizität und Magnetismus weiter enthüllten. Daß bewegliche Stromleiter auch durch den Magnet einen Antrieb erhalten, war als mechanische Gegenwirkung zu erwarten, und schon von Oerstedt nachgewiesen worden. Ampère vermutete eine Wechselwirkung der Ströme untereinander auf Grund des magnetähnlichen Verhaltens der Ströme. Seine Vermutung schien ihm selbst gewagt, da weiche Eisenstücke sich Magneten gegenüber auch als Magnete, gegeneinander aber indifferent verhalten. Das Experiment gab ihm aber recht. Wenn auch seine mathematische Theorie,<a class="fr" href="#n30">30</a> die von der Newtonschen Vorstellung fernwirkender Elementarkräfte stark beeinflußt war, der heutigen Kritik nicht Stand halten kann, so zeigte er doch, wie man sich in ihren Wirkungen alle Ströme durch Magnete und alle Magnete durch Ströme ersetzt denken kann. Er schuf der damaligen Physik in kürzester Zeit und in glänzender Weise ein vorzügliches Mittel der weiteren Forschung.</p>
+  <p class="jp" lang="ja">6. エルステッドの発見は、成果のなさに疲れていた研究者たちの想像力と熱意を力強く刺激し、いまや電気と磁気との連関をさらに明らかにする重要な発見が次々に続いた。動く導線も磁石によって推進力を受けることは、力学的な反作用として期待されたことであり、すでにエルステッドによって証明されていた。アンペールは、電流が磁石に似たふるまいをすることにもとづいて、電流相互の相互作用を推測した。軟鉄片は磁石に対しては磁石としてふるまうが、互いに対しては無関心にふるまうので、その推測は彼自身にも大胆に思われた。しかし実験は彼が正しいことを示した。ニュートンの遠隔作用する素力という表象に強く影響された彼の数学的理論<a class="fr" href="#n30">30</a>は、今日の批判には耐えられないとしても、彼は、その作用においてすべての電流を磁石によって、すべての磁石を電流によって置き換えて考えることができることを示した。彼は当時の物理学に、きわめて短期間に、みごとな仕方で、さらなる研究のすぐれた手段をつくり出したのである。</p>
+  <ol class="notes"><li id="n30"><span class="nn">30</span><p class="de" lang="de">Ampère, Théorie des Phén. électrodynamiques. Paris 1826.</p><p class="jp" lang="ja">アンペール『電気力学的現象の理論』パリ、1826年。</p></li></ol>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;295</span></span></aside>
+  <p class="de" lang="de">7. Wenn Ströme sich Magneten gegenüber als Magnete verhalten, darf man erwarten, daß sie Eisen und Stahl gegenüber sich ebenso verhalten werden. Doch scheint Arago<a class="fr" href="#n31">31</a> nicht durch diese Überlegung allein, sondern auch durch eine zufällige Beobachtung zur Entdeckung des Elektromagnetismus geleitet worden zu sein. Ein stromführender in Eisenfeile tauchender Draht umhüllte sich mit Spänen bis zur Dicke eines Federkieles und ließ bei Stromunterbrechung die Späne wieder fallen. Dies veranlaßte ihn, Eisenstäbchen und Stahlnadeln durch den quer darüber gehaltenen Stromleiter, erstere temporär, letztere dauernd zu magnetisieren. Auf Ampères Vorschlag legte Arago dann die Stäbchen in stromleitende Spulen. Eine andere Entdeckung verdankte Arago<a class="fr" href="#n32">32</a> der zufälligen Beobachtung der starken Dämpfung einer ober einer Kupferplatte schwingenden Magnetnadel.</p>
+  <p class="jp" lang="ja">7. 電流が磁石に対して磁石としてふるまうならば、鉄や鋼に対しても同じようにふるまうであろうと期待してよい。しかしアラゴ<a class="fr" href="#n31">31</a>は、この考察だけでなく、偶然の観察によっても電磁石の発見に導かれたようである。電流の流れる導線を鉄粉に浸すと、それは羽ペンの軸ほどの太さまで削りくずに包まれ、電流を断つとくずを落とした。このことが彼に、上に横に保った導線によって鉄の棒と鋼の針を、前者は一時的に、後者は持続的に磁化させるきっかけを与えた。アンペールの提案で、アラゴは次に棒を電流の流れる線輪のなかに入れた。もう一つの発見をアラゴ<a class="fr" href="#n32">32</a>は、銅板の上で振動する磁針の強い制動を偶然観察したことに負っている。</p>
+  <ol class="notes"><li id="n31"><span class="nn">31</span><p class="de" lang="de">Ann. de chimie et de physique. 1820. T. XV, p. 94.</p><p class="jp" lang="ja">『化学物理学年報』1820年、第15巻、94頁。</p></li><li id="n32"><span class="nn">32</span><p class="de" lang="de">Ann. de chimie et de physique. 1825. T. XXVIII, p. 325.</p><p class="jp" lang="ja">『化学物理学年報』1825年、第28巻、325頁。</p></li></ol>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;295</span></span></aside>
+  <p class="de" lang="de">Die Annahme der Gegenwirkung veranlaßte ihn, die Kupferscheibe in rasche Rotation zu versetzen, wobei die Magnetnadel mitrotierte, das Kupfer also (scheinbar) „Rotationsmagnetismus“ zeigte. - Die Aufgabe, durch einen Strom aus weichem Eisen einen Magnet zu erzeugen, war gelöst. Faraday<a class="fr" href="#n33">33</a> versuchte lange vergebens, durch Magnete Ströme zu erzeugen, bis ihm ein glücklicher Zufall auf die Spur half. Er beobachtete während des Einschiebens und Herausnehmens des magnetischen Kerns einer Spule an dem in letztere eingeschalteten Galvanometer einen momentanen Ausschlag. Die Entdeckung der Induktion war hiermit gesichert, und bald kannte Faraday alle ihre Formen und Regeln. Es war ihm nun leicht, in Aragos rotierender Scheibe Ströme nachzuweisen, welche natürlich auch magnetisch wirkten. Dies hatte niemand vorher versucht, obgleich es nach dem Ampèreschen Prinzip der Äquivalenz von Strömen und Magneten recht nahe lag.</p>
+  <p class="jp" lang="ja">反作用の想定が彼に銅の円板をすばやく回転させるよう促し、そのとき磁針も一緒に回転した。つまり銅は（見かけ上）「回転磁気」を示したのである。——電流によって軟鉄から磁石をつくるという課題は解かれた。ファラデー<a class="fr" href="#n33">33</a>は長いあいだむなしく磁石によって電流を生み出そうと試みたが、ついに幸運な偶然が彼を手がかりへと導いた。彼は線輪の磁性の芯を差しこんだり抜いたりするあいだ、その線輪に接続した検流計に瞬間的な振れを観察した。それによって誘導の発見は確かなものとなり、まもなくファラデーはそのあらゆる形と規則を知った。いまや彼にとって、アラゴの回転円板のなかに電流を証明することは容易であり、その電流は当然磁気的にも作用した。アンペールの電流と磁石の等価性の原理からすればまことに手近であったにもかかわらず、それ以前には誰もこれを試みていなかった。</p>
+  <ol class="notes"><li id="n33"><span class="nn">33</span><p class="de" lang="de">Philos. Transact. 1832.</p><p class="jp" lang="ja">『フィロソフィカル・トランザクションズ』1832年。</p></li></ol>
+</article>
+<article class="row" id="p7.3">
+  <aside class="mg"><a class="pid" href="#p7.3">7.3</a><span class="pg"><span>S.&nbsp;295</span><span>S.&nbsp;296</span></span></aside>
+  <p class="de" lang="de">Man sieht aus letzterem Falle, daß bei weitem nicht alle möglichen oder auch nur naheliegenden Gedankenwege eingeschlagen werden. Je größer aber die Zahl der Forschenden, desto mehr garantiert die Verschiedenheit der Individuen die Erschöpfung der psychologischen Möglichkeiten, und desto rascher ist der wissenschaftliche Fortschritt. <span class="pb" title="Leipzig 1906, S. 296">296</span>Natürlich hätte die allseitige Untersuchung der Aragoschen rotierenden Scheibe 7 Jahre früher zur Entdeckung der Induktion führen müssen. Letztere Entdeckung ist aber noch in anderer Beziehung merkwürdig. Es wiederholt sich, wie man jetzt ohne Schwierigkeit sieht, in derselben nahezu die Oerstedtsche intellektuelle Situation. Ein A verhält sich gleichgültig gegen ein B, nicht aber gegen eine Änderung von B. Im ersten Fall ist B der statische Zustand, im zweiten die stationäre Strömung. Ein Genie wie Faraday denkt erst recht nicht nach einer solchen Formel, die sich ja nachträglich leicht abstrahieren läßt.</p>
+  <p class="jp" lang="ja">この最後の場合から、可能な、あるいは手近な思考の道でさえ、そのすべてがたどられるわけではまったくないことが分かる。しかし研究する者の数が多ければ多いほど、個人の多様性は心理学的可能性が汲み尽くされることを保証し、科学の進歩はそれだけ速くなる。もちろん、アラゴの回転円板をあらゆる面から研究していれば、七年早く誘導の発見に導いたはずであった。しかしこの後者の発見は、さらに別の点でも注目に値する。いまでは難なく分かるように、そこではエルステッドの知的状況がほぼ繰り返されている。ある A がある B に対しては無関心にふるまうが、B の変化に対してはそうでない。第一の場合には B は静的状態であり、第二の場合には定常的な流れである。ファラデーのような天才は、なおさらこのような公式に従って考えはしない。そのような公式はあとから容易に抽象できるのである。</p>
+</article>
+<article class="row" id="p7.4">
+  <aside class="mg"><a class="pid" href="#p7.4">7.4</a><span class="pg"><span>S.&nbsp;296</span></span></aside>
+  <p class="de" lang="de">Bemerken wir nur kurz, weil diese Darlegung einen breitern Raum beanspruchen würde, daß die Maxwell-Hertzschen<a class="fr" href="#n34">34</a> Gleichungen nur eine vollständigere Klarlegung des Verhältnisses von Elektrizität und Magnetismus enthalten, welche jetzt nur ein untrennbares Ganzes ausmachen, und die daran sind, das Gebiet der Optik zu absorbieren, so haben wir hier ein zweites Beispiel einer wissenschaftlichen Entwicklung, welche von der antiken bis in die moderne Zeit reicht.</p>
+  <p class="jp" lang="ja">この叙述にはより広い紙幅が必要であろうから簡単に述べるにとどめるが、マクスウェル＝ヘルツ<a class="fr" href="#n34">34</a>の方程式が、いまや一つの不可分の全体をなし、光学の領域をも吸収しようとしている電気と磁気との関係のより完全な解明を含んでいるにすぎないことに注目すれば、ここに古代から近代にまで及ぶ科学的発展の第二の例があることになる。</p>
+  <ol class="notes"><li id="n34"><span class="nn">34</span><p class="de" lang="de">Hertz, Werke. Leipzig 1895. I. S. 295. II. S. 208-286.</p><p class="jp" lang="ja">ヘルツ『著作集』ライプツィヒ、1895年、第1巻、295頁、第2巻、208–286頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;296</span></span></aside>
+  <p class="de" lang="de">8. Der eigentümliche Geruch, der während der Wirkung der Elektrisiermaschine namentlich beim Ausströmen der Elektrizität durch Spitzen auftritt, ist von Van Marum<a class="fr" href="#n35">35</a> beobachtet worden. Schönbein hatte 1839 mehrmals Gelegenheit, diesen Geruch bei Blitzschlägen gleichzeitig mit der Entwicklung eines bläulichen Dunstes, und später bei der Elektrolyse von Wasser an dem entwickelten Sauerstoff wahrzunehmen. Die geschäftige, ergänzende Phantasie des Chemikers bezog diesen Geruch auf einen gasförmigen Stoff, denn nur ein solcher konnte das Geruchsorgan affizieren.</p>
+  <p class="jp" lang="ja">8. 起電機がはたらいているあいだ、とりわけ尖端から電気が流れ出るときに現れる独特の臭いは、ファン・マルム<a class="fr" href="#n35">35</a>によって観察された。シェーンバインは1839年に何度か、この臭いを落雷のときに青みがかった靄の発生とともに、のちには水の電気分解の際に発生する酸素において知覚する機会があった。化学者の忙しく補う想像力は、この臭いを気体状の物質に結びつけた。そのようなものだけが嗅覚器官を刺激しうるからである。</p>
+  <ol class="notes"><li id="n35"><span class="nn">35</span><p class="de" lang="de">Van Marum, Déscription d'une très grande machine électrique. 1785.</p><p class="jp" lang="ja">ファン・マルム『きわめて大きな起電機の記述』1785年。</p></li></ol>
+</article>
+<article class="row" id="p8.2">
+  <aside class="mg"><a class="pid" href="#p8.2">8.2</a><span class="pg"><span>S.&nbsp;296</span><span>S.&nbsp;297</span></span></aside>
+  <p class="de" lang="de">Dies geschah um so leichter, als der riechende Stoff eingetauchtes Gold oder Platin rasch negativ polarisierte, Silber und andere Metalle rasch oxydierte, also besondere chemische Eigenschaften aufwies, die derselbe durch Erhitzung wieder verlor. Ebenso natürlich war es, daß Schönbein diesen von ihm Ozon benannten, dem Sauerstoff beigemischten, von diesem verschiedenen Stoff zunächst für eine Verbindung hielt. Die Bemerkung, daß der Phosphor bei lang<span class="pb" title="Leipzig 1906, S. 297">297</span>samem Verbrennen in der Luft den charakteristischen Geruch ebenfalls entwickelt, führt zu chemischen Versuchen, des Ozons habhaft zu werden, die vielfache Kontroversen hervorrufen. De la Rive beweist 1845, daß das Ozon ein allotropischer Sauerstoff ist, wie Marignac vermutet hatte.</p>
+  <p class="jp" lang="ja">臭う物質が、浸した金や白金をすばやく負に分極させ、銀や他の金属をすばやく酸化させ、つまり特別な化学的性質を示し、それを加熱によって再び失うということが、それをいっそう容易にした。同様に自然であったのは、シェーンバインが、彼がオゾンと名づけた、酸素に混じっていながら酸素とは異なるこの物質を、まず化合物とみなしたことである。燐が空気中でゆっくり燃えるときにも特徴的な臭いを発するという所見は、オゾンをつかまえようとする化学的実験へと導き、それは多くの論争を引き起こす。ド・ラ・リーヴは1845年に、マリニャックが推測していたとおり、オゾンが酸素の同素体であることを証明する。</p>
+</article>
+<article class="row" id="p8.3">
+  <aside class="mg"><a class="pid" href="#p8.3">8.3</a><span class="pg"><span>S.&nbsp;297</span></span></aside>
+  <p class="de" lang="de">Welche wichtige Rolle die Phantasie bei Entdeckungen spielt, indem sie die Vergleichung und Zusammenpassung der Wahrnehmungen mit den unter andern Umständen gewonnenen Erfahrungen (Erinnerungen) ermöglicht, ist an diesem Beispiel sehr deutlich.<a class="fr" href="#n36">36</a> Wie verschieden sich dieselbe Sache in verschiedenen Köpfen spiegelt, und wie wichtig und förderlich die Teilnahme verschiedener intellektueller Individualitäten bei Behandlung derselben Frage ist, zeigt ein genaueres Studium der Ozonfrage ebenfalls.<a class="fr" href="#n37">37</a> Endlich liegt hier ein typisches Beispiel der Eröffnung neuer Forschungswege durch eine zufällige Beobachtung vor, die sich einem Individuum darbietet, dessen Interesse dadurch berührt wird.</p>
+  <p class="jp" lang="ja">知覚を他の事情のもとで得られた経験（記憶）と比較し適合させることを可能にすることによって、発見において想像力がどれほど重要な役割を演じるかは、この例できわめてはっきりする<a class="fr" href="#n36">36</a>。同じ事柄が異なる頭脳のなかでいかに異なって映るか、また同じ問いを扱うにあたって異なる知的個性が関与することがいかに重要で有益であるかも、オゾン問題をより詳しく研究すれば分かる<a class="fr" href="#n37">37</a>。最後に、ここには、ある個人に現れて、その関心に触れた偶然の観察によって新しい研究の道が開かれる典型的な例がある。</p>
+  <ol class="notes"><li id="n36"><span class="nn">36</span><p class="de" lang="de">Vgl. die ausführliche Erzählung bei Kahlbaum und Schaer, Ch. F. Schönbein. Ein Blatt zur Geschichte des 19. Jahrhunderts. 1901.</p><p class="jp" lang="ja">カールバウムとシェーアー『Ch. F. シェーンバイン——十九世紀史の一頁』1901年における詳しい物語を参照。</p></li><li id="n37"><span class="nn">37</span><p class="de" lang="de">Ebendaselbst wird auch dargelegt, wie sehr Schönbein den Mitforschenden gegenüber im Nachteil war, weil er die Hilfe der atomistischen Vorstellungen verschmähte.</p><p class="jp" lang="ja">同書ではまた、シェーンバインが原子論的表象の助けを軽蔑したために、共同研究者たちに対していかに不利であったかも述べられている。</p></li></ol>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;297</span></span></aside>
+  <p class="de" lang="de">9. Als Daguerre versuchte, auf jodierten Silberplatten durch Belichtung in der Camera obscura Bilder zu erzeugen, gelang ihm dies nicht, trotz vielfacher Bemühungen. Er verwahrte hierauf die Platten in einem Schrank. Als er jedoch nach Wochen die Platten wieder herausnahm, fand er auf denselben die schönsten Bilder vor, ohne sich erklären zu können, wie sie entstanden waren. Die Entfernung der Apparate und Reagentien aus dem Schrank änderte nichts; die eingebrachten belichteten Platten zeigten nach einigen Stunden immer wieder Bilder. Endlich wurde es klar, daß eine Quecksilber enthaltende Wanne, welche zurückgeblieben war, das Wunder bedingte, indem sich die Quecksilberdämpfe nach Art der Moserschen Hauchbilder an den belichteten Stellen niedergeschlagen hatten.</p>
+  <p class="jp" lang="ja">9. ダゲールが、ヨウ化した銀板にカメラ・オブスクラのなかで露光させることによって像を生み出そうと試みたとき、何度骨を折ってもそれは成功しなかった。そこで彼は板を戸棚にしまっておいた。ところが何週間ものちに板を取り出してみると、どうして生じたのか説明できないまま、板の上に最も美しい像が見いだされた。戸棚から装置や試薬を取り除いても何も変わらなかった。入れておいた露光済みの板は、数時間後にいつも再び像を示した。ついに、残っていた水銀の入った槽がこの奇跡の原因であり、水銀の蒸気がモーザーの息像のように露光された箇所に凝結したのだということが明らかになった。</p>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;297</span><span>S.&nbsp;298</span></span></aside>
+  <p class="de" lang="de">Es gelang ihm, die verwischbaren Bilder durch Vergoldung zu fixieren.<a class="fr" href="#n38">38</a> Hier führte also der Zufall zu einer gesuchten Erfindung und <span class="pb" title="Leipzig 1906, S. 298">298</span>zu einer ungesuchten Entdeckung. Im Wesen der Methode der Variation macht es keinen Unterschied, ob die für den Vorgang maßgebenden Begleitumstände durch physische Variation, oder bei genügend angepaßten Gedanken durch Gedankenexperimente gefunden werden. Um sich zu vergegenwärtigen, in wie mannigfaltiger Weise der physische und der psychische Zufall bei Entdeckungen und Erfindungen beteiligt ist, braucht man nur einige berühmte Namen herzuzählen, wie Bradley, Fraunhofer, Foucault, Galvani, Grimaldi, Hertz, Hooke, Kirchhoff, Malus, J. R. Mayer, Roemer, Röntgen u. a. Fast jeder Forscher hat den Einfluß des Zufalls erfahren.</p>
+  <p class="jp" lang="ja">彼は消えやすい像を金めっきによって定着させることに成功した<a class="fr" href="#n38">38</a>。ここでは偶然が、探していた発明と、探していなかった発見とに導いたのである。変化の方法の本質においては、過程にとって決定的な付随事情が物理的な変化によって見いだされるか、十分に適応した思考がある場合には思考実験によって見いだされるかは、何の違いもない。物理的な偶然と心的な偶然とが、発見と発明にいかに多様な仕方で関与しているかを思い浮かべるには、ブラッドリー、フラウンホーファー、フーコー、ガルヴァーニ、グリマルディ、ヘルツ、フック、キルヒホフ、マリュス、J. R. マイヤー、レーマー、レントゲンらの有名な名前を数え上げるだけでよい。ほとんどどの研究者も偶然の影響を経験してきたのである。</p>
+  <ol class="notes"><li id="n38"><span class="nn">38</span><p class="de" lang="de">Gekürzt erzählt nach Liebig, Induktion und Deduktion. Reden und Abhandlungen. 1874. S. 304-306.</p><p class="jp" lang="ja">リービッヒ「帰納と演繹」『講演と論文』1874年、304–306頁にもとづき、縮めて物語った。</p></li></ol>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;298</span></span></aside>
+  <p class="de" lang="de">10. Der Stamm der Pflanzen wächst im ganzen der Schwere entgegen nach aufwärts, die Wurzel in der Schwererichtung nach abwärts. Es ist also ein natürlicher Gedanke, bei der steten Verbindung dieser beiden Umstände, die Schwere als Bedingung dieser Wachstumsrichtung anzusehen. Zudem hat Du Hamel<a class="fr" href="#n39">39</a> besondere Versuche angestellt, welche zeigen, daß die gewaltsame Richtungsänderung wachsender Pflanzen durch diese selbst immer kompensiert wird, und daß dieselben, immer wieder sich krümmend, in ihre normale Richtung hineinwachsen. Knight<a class="fr" href="#n40">40</a> hat besonders wichtige Experimente hinzugefügt. Er befestigte auf der Achse eines kleinen vertikalen Wasserrades ein zweites Rad von 11 Zoll Durchmesser, welches 150 Umdrehungen in der Minute machte, und auf welchem in den verschiedensten Lagen angebrachte Gartenbohnen keimten und wuchsen.</p>
+  <p class="jp" lang="ja">10. 植物の茎は全体として重力に逆らって上へ、根は重力の方向に下へと成長する。それゆえ、この二つの事情がつねに結びついていることから、重力をこの成長方向の条件とみなすのは自然な考えである。さらにデュアメル<a class="fr" href="#n39">39</a>は特別な実験を行い、成長する植物の方向を無理に変えても、植物自身によってそれがつねに補償され、何度も曲がりながら正常な方向へと伸びていくことを示した。ナイト<a class="fr" href="#n40">40</a>はとりわけ重要な実験を付け加えた。彼は小さな垂直な水車の軸に、毎分150回転する直径11インチの第二の車輪を取りつけ、その上にさまざまな位置で取りつけたインゲンマメを発芽させ成長させた。</p>
+  <ol class="notes"><li id="n39"><span class="nn">39</span><p class="de" lang="de">Du Hamel, La physique des arbres. Paris 1738. T. II. p. 137.</p><p class="jp" lang="ja">デュアメル『樹木の物理学』パリ、1738年、第2巻、137頁。</p></li><li id="n40"><span class="nn">40</span><p class="de" lang="de">Philosophical Transact. 1806.</p><p class="jp" lang="ja">『フィロソフィカル・トランザクションズ』1806年。</p></li></ol>
+</article>
+<article class="row" id="p10.2">
+  <aside class="mg"><a class="pid" href="#p10.2">10.2</a><span class="pg"><span>S.&nbsp;298</span><span>S.&nbsp;299</span></span></aside>
+  <p class="de" lang="de">Die Schwererichtung variierte in Bezug auf die Pflanzen so rasch und regelmäßig, daß sie für die letzteren nicht bestimmend sein konnte. Dagegen richteten sich dieselben jetzt nach der Zentrifugal-Massenbeschleunigung. Die Wurzeln wuchsen nun auswärts, die Stengel aber gegen die Achse zu, überschritten diese und kehrten nach der Achse zu um.<a class="fr" href="#n41">41</a> Auf einem horizontalen Rade von 11 Zoll Durchmesser und 250 Umdrehungen in der <span class="pb" title="Leipzig 1906, S. 299">299</span>Minute setzte die Zentrifugal- und die Schwerebeschleunigung sich zu einer Resultierenden zusammen, deren Richtung nun für das Wachstum maßgebend war.<a class="fr" href="#n42">42</a></p>
+  <p class="jp" lang="ja">重力の方向は植物に対してきわめて速く規則的に変わったので、それは植物にとって決定的ではありえなかった。これに対して植物はいまや遠心的な質量加速度に従って向きを定めた。根は外へと伸び、茎は軸のほうへ伸び、軸を越えて、軸のほうへと引き返した<a class="fr" href="#n41">41</a>。直径11インチ、毎分250回転の水平な車輪の上では、遠心加速度と重力加速度とが合成されて一つの合力となり、その方向がいまや成長にとって決定的であった<a class="fr" href="#n42">42</a>。</p>
+  <ol class="notes"><li id="n41"><span class="nn">41</span><p class="de" lang="de">Die Zentrifugalbeschleunigung bei konstanter Umlaufszeit ist proportional der Entfernung von der Achse. Die Umkehrung tritt also dort ein, wo die Massenbeschleunigung für die Pflanze den Schwellenwert erreicht.</p><p class="jp" lang="ja">一定の公転周期のもとでは、遠心加速度は軸からの距離に比例する。それゆえ逆転は、質量加速度が植物にとって閾値に達するところで起こる。</p></li><li id="n42"><span class="nn">42</span><p class="de" lang="de">Nach den Dimensionen des Rades und den Umlaufszeiten zu urteilen (φ = 4π²r/t²) verwendete Knight Zentrifugalbeschleunigungen, welche am äußern Rande des Rades der Schwerebeschleunigung gleich, drei ein halbmal und fast zehnmal so groß waren als die Schwerebeschleunigung. Das Verhältnis variiert bei einer Umlaufszeit mit der Distanz von der Achse.</p><p class="jp" lang="ja">車輪の寸法と公転周期から判断すると（φ＝4π²r/t²）、ナイトは、車輪の外縁で重力加速度に等しい、三倍半の、そしてほぼ十倍の大きさの遠心加速度を用いた。この比は一つの公転周期については軸からの距離とともに変わる。</p></li></ol>
+</article>
+<article class="row" id="p10.3">
+  <aside class="mg"><a class="pid" href="#p10.3">10.3</a><span class="pg"><span>S.&nbsp;299</span></span></aside>
+  <p class="de" lang="de">Der Klinostat von Sachs,<a class="fr" href="#n43">43</a> der bei sehr geringen Dimensionen und sehr langsamen Umdrehungen die Wirkungen der Schwere aufhebt und keine merkliche Zentrifugalbeschleunigung entwickelt, gestattet den auf demselben befestigten Pflanzen, nach jeder beliebigen Richtung zu wachsen. Mit Unrecht scheint mir aber Sachs<a class="fr" href="#n44">44</a> auf derartige Experimente nur einen geringen Wert zu legen. Es kann ja für den unbefangenen Blick höchst wahrscheinlich sein, daß die Schwere für die Wachstumsrichtung bestimmend ist, und doch kann letztere durch ganz andere übersehene Umstände bestimmt sein. Erst die Experimente von Knight haben durch Variation der Größe und Richtung der Massenbeschleunigung zur Evidenz erwiesen, daß diese maßgebend ist. Erst durch das Experiment ist man auch im stande gewesen, den Einfluß verschiedener Umstände (Licht, Luft, Bodenfeuchtigkeit) von der Schwere zu trennen.</p>
+  <p class="jp" lang="ja">きわめて小さな寸法できわめてゆっくり回転し、重力の作用を打ち消し、感知できる遠心加速度を生じないザックスのクリノスタット<a class="fr" href="#n43">43</a>は、その上に固定された植物があらゆる任意の方向に成長することを許す。しかしザックス<a class="fr" href="#n44">44</a>がこの種の実験にわずかな価値しか認めていないのは不当であるように私には思われる。偏見のない目には、重力が成長方向にとって決定的であることはきわめてありそうに思われるかもしれないが、それでも成長方向はまったく別の見落とされた事情によって規定されていることもありうる。ナイトの実験が、質量加速度の大きさと方向を変化させることによって、はじめてそれが決定的であることを明白に証明したのである。また、実験によってはじめて、さまざまな事情（光、空気、土壌の湿り気）の影響を重力から切り離すことができたのである。</p>
+  <ol class="notes"><li id="n43"><span class="nn">43</span><p class="de" lang="de">Sachs, Vorlesungen über Pflanzen-Physiologie. 1887. S. 721 u. f.</p><p class="jp" lang="ja">ザックス『植物生理学講義』1887年、721頁以下。</p></li><li id="n44"><span class="nn">44</span><p class="de" lang="de">Ebenda. S. 719.</p><p class="jp" lang="ja">同書、719頁。</p></li></ol>
+</article>
+<article class="row" id="p10.4">
+  <aside class="mg"><a class="pid" href="#p10.4">10.4</a><span class="pg"><span>S.&nbsp;299</span></span></aside>
+  <p class="de" lang="de">Mill hat ja sehr gut dargelegt, daß die Methode der Übereinstimmung nie so sicher leiten kann, als die Methode der Differenz oder die Methode der Begleitveränderung. War nun auch die Schwere als das Bestimmende der Wachstumsrichtung erwiesen, so blieb doch die Art dieser Wirkung fast durch ein Jahrhundert noch ein Rätsel. Noll<a class="fr" href="#n45">45</a> war der erste, welcher vermutete, daß durch den Schwerkraftreiz die geotropische Anpassung der Pflanzen in ähnlicher Weise ausgelöst werde, wie letzteres bei den Tieren durch die Statolithen geschieht. Durch die Untersuchungen von Haberlandt und Nemec hat es sich herausgestellt, daß bei den Pflanzen die Stärkekörner die Rolle der Statolithen übernehmen, welche durch besondere Perceptions- oder Auslösungsorgane die geotropische Anpassung bestimmen.<a class="fr" href="#n46">46</a></p>
+  <p class="jp" lang="ja">ミルは、一致法は差異法や共変法ほど確かに導くことはけっしてできないことを、たいへんよく示した。さて重力が成長方向を規定するものであることは証明されたとしても、その作用の仕方はほぼ一世紀のあいだなお謎のままであった。ノル<a class="fr" href="#n45">45</a>は、重力の刺激によって植物の屈地的適応が、動物において平衡石（スタトリス）によって起こるのと似た仕方で引き起こされると推測した最初の人であった。ハーバーラントとネメツの研究によって、植物ではデンプン粒が平衡石の役割を引き受け、それが特別な知覚器官あるいは解発器官を介して屈地的適応を規定することが明らかになった<a class="fr" href="#n46">46</a>。</p>
+  <ol class="notes"><li id="n45"><span class="nn">45</span><p class="de" lang="de">Noll, Über Geotropismus, Jahrb. f. wissensch. Botanik XXXIV. 1900.</p><p class="jp" lang="ja">ノル「屈地性について」『科学的植物学年報』第34巻、1900年。</p></li><li id="n46"><span class="nn">46</span><p class="de" lang="de">Haberlandt, Physiologische Pflanzenanatomie. 1904. S. 523-534.</p><p class="jp" lang="ja">ハーバーラント『生理学的植物解剖学』1904年、523–534頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;300</span></span></aside>
+  <p class="de" lang="de">11. Eine der merkwürdigsten Fragen, welche die Menschen seit jeher beschäftigt hat, ist die nach der Entstehung der organischen Wesen. Aristoteles glaubte an die Urzeugung, an die Entstehung des Organischen aus Unorganischem, und das späte Mittelalter teilte noch seine Meinung. Van Helmont (1577 bis 1644) gibt noch eine Anweisung, Mäuse hervorzubringen. Der Gedanke, den Homunculus in der Retorte herzustellen, mochte damals nicht gar so abenteuerlich erscheinen. Redi (1626-1697), ein Mitglied der Accademia del Cimento, zeigte, daß in faulendem Fleisch keine „Würmer“ auftreten, wenn man die eierlegenden Fliegen durch einen feinen Flor abhält. Als aber durch den Gebrauch des Mikroskops eine Menge sehr kleiner, schwer zu verfolgender Organismen bekannt wurde, mußten derartige Fragen wieder schwer zu entscheiden sein.</p>
+  <p class="jp" lang="ja">11. 人間を昔から悩ませてきた最も奇妙な問いの一つは、有機的存在の起源への問いである。アリストテレスは自然発生、すなわち無機的なものからの有機的なものの発生を信じ、中世後期もなお彼の意見を共有していた。ファン・ヘルモント（1577–1644）は、なおネズミをつくり出す手引きを与えている。レトルトのなかでホムンクルスをつくるという考えも、当時はそれほど奇想天外とは思われなかったであろう。アカデミア・デル・チメントの会員レディ（1626–1697）は、卵を産む蠅を細かい紗で防げば、腐った肉に「虫」は現れないことを示した。しかし顕微鏡の使用によって、追跡しにくいきわめて小さな生物が多数知られるようになると、このような問いは再び決めがたいものとならざるをえなかった。</p>
+</article>
+<article class="row" id="p11.2">
+  <aside class="mg"><a class="pid" href="#p11.2">11.2</a><span class="pg"><span>S.&nbsp;300</span></span></aside>
+  <p class="de" lang="de">Needham<a class="fr" href="#n47">47</a> kam zuerst auf den Gedanken, organische Stoffe in Glasgefäßen zu erhitzen, um alle Keime zu töten, und dieselben nachher hermetisch zu verschließen. Dennoch zeigten sich nach einiger Zeit die eingeschlossenen Flüssigkeiten von Infusorien belebt. Spallanzani<a class="fr" href="#n48">48</a> glaubte durch seine analogen Versuche das Gegenteil erweisen zu können, während Needham einwarf, Spallanzani hätte bei seinem Verfahren auch die zum Leben der Organismen nötige Luft verdorben. Obgleich Appert das Verfahren Spallanzanis mit Erfolg zur Herstellung von Konserven anwandte, und obgleich noch andere Forscher wie Gay-Lussac, Schwann, Schroeder, Dusch u. a. sich an der Untersuchung beteiligten, blieb die Frage wegen nicht vollständiger Aufdeckung der Fehlerquellen dieser schwierigen Experimente doch unentschieden. Pasteur<a class="fr" href="#n49">49</a> wurde durch das Studium der Fermente, in welchen er durchaus organisierte Wesen zu erkennen glaubte, auf die Frage der Urzeugung geleitet.</p>
+  <p class="jp" lang="ja">ニーダム<a class="fr" href="#n47">47</a>は、あらゆる胚種を殺すために有機物質をガラス容器のなかで加熱し、そのあとそれを密封するという考えをはじめて思いついた。それでも、しばらくすると閉じこめた液体には滴虫類が生じていた。スパランツァーニ<a class="fr" href="#n48">48</a>は同様の実験によって反対を証明できると信じたが、ニーダムは、スパランツァーニはその手続きによって生物の生命に必要な空気をも損なったのだと反論した。アペールがスパランツァーニの手続きを缶詰の製造にうまく応用し、ゲイ＝リュサック、シュヴァン、シュレーダー、ドゥシュらのほかの研究者たちも研究に加わったにもかかわらず、この難しい実験の誤差の源泉が完全には明らかにされなかったために、問題は決着しないままであった。パストゥール<a class="fr" href="#n49">49</a>は、彼がまったく組織された存在であると認めた発酵素の研究によって、自然発生の問題へと導かれた。</p>
+  <ol class="notes"><li id="n47"><span class="nn">47</span><p class="de" lang="de">Needham, New microscopical discoveries. London. 1745.</p><p class="jp" lang="ja">ニーダム『顕微鏡による新発見』ロンドン、1745年。</p></li><li id="n48"><span class="nn">48</span><p class="de" lang="de">Spallanzani, Opuscules de Physique animale et végétale. 1777.</p><p class="jp" lang="ja">スパランツァーニ『動物および植物の物理学小論集』1777年。</p></li><li id="n49"><span class="nn">49</span><p class="de" lang="de">Pasteur, Ann. de chimie et de physique. 3. Série. T. LXIV. 1862.</p><p class="jp" lang="ja">パストゥール『化学物理学年報』第3系列、第64巻、1862年。</p></li></ol>
+</article>
+<article class="row" id="p11.3">
+  <aside class="mg"><a class="pid" href="#p11.3">11.3</a><span class="pg"><span>S.&nbsp;300</span><span>S.&nbsp;301</span></span></aside>
+  <p class="de" lang="de">Indem er große Quantitäten Luft durch ein Rohr aspirierte, dessen Lumen durch einen Pfropf von Schießbaumwolle verlegt war, fing er in diesem den Staub der Luft auf. Durch Lösung des Pfropfes in Äther und Alkohol und Auswaschen wurde der Staub gewonnen. Die mikroskopische Untersuchung zeigte einen Gehalt an organischen Keimen, der <span class="pb" title="Leipzig 1906, S. 301">301</span>jedoch, je nachdem man Stadt-, Land- oder Bergluft schöpfte, verschieden und ungleich reich war. Kocht man Wasser, welches Zucker und Eiweiß enthält, einige Minuten in einem Kolben, läßt bei der Abkühlung nur Luft eintreten, welche durch ein glühendes Platinrohr gestrichen ist, und schließt hierauf den Kolben durch Zuschmelzen hermetisch, so kann dieser mehrere Monate bei 25-30°C. stehen bleiben, ohne daß sich in der Flüssigkeit Organismen entwickeln.</p>
+  <p class="jp" lang="ja">彼は、管腔を綿火薬の栓でふさいだ管を通して大量の空気を吸引することによって、その栓に空気中の塵を捕らえた。栓をエーテルとアルコールに溶かし洗い流すことによって、塵が得られた。顕微鏡による検査は有機的な胚種の含有を示したが、それは都市、田舎、山の空気のどれを汲んだかに応じて異なり、多さも等しくなかった。砂糖とタンパク質を含む水をフラスコのなかで数分間煮沸し、冷却の際に赤熱した白金管を通した空気だけを入らせ、それからフラスコを溶封して密閉すると、それは液体のなかに生物が発生することなく、25–30°C で何か月も置いておくことができる。</p>
+</article>
+<article class="row" id="p11.4">
+  <aside class="mg"><a class="pid" href="#p11.4">11.4</a><span class="pg"><span>S.&nbsp;301</span></span></aside>
+  <p class="de" lang="de">Wird nun in einen solchen Ballon unter den nötigen Vorsichten, welche nur den Eintritt geglühter Luft gestatten, nach Abbrechen der zugeschmolzenen Spitze ein in dem Zuleitungsrohr vorbereitetes Röhrchen mit dem staubgefüllten Pfropf in den Kolben geleitet und dieser wieder durch Zuschmelzen des Halses geschlossen, so zeigen sich in demselben nach 24-48 Stunden regelmäßig organische Bildungen. Ausgeglühter Asbest, in den Kolben eingeführt, zeigt nur organische Bildungen, wenn er zuvor mit Staub angesaugt wurde. In offenen Kolben mit mehrfach gekrümmtem dünnen Hals bleibt die gekochte Flüssigkeit auch nach dem Erkalten sehr lange unverändert stehen, da der Staub in den feuchten gekrümmten Röhren festgehalten wird. Versucht man jedoch, statt des Zuschmelzens, die Flüssigkeit durch Umkehren der Mündung nach unten und Eintauchen in Quecksilber abzuschließen, so werden die an der Oberfläche und im Innern des Quecksilbers enthaltenen Keime alsbald lebendig.</p>
+  <p class="jp" lang="ja">さて、そのようなフラスコに、焼いた空気だけが入るよう必要な用心をしながら、溶封した先端を折ったのち、導入管のなかに用意しておいた、塵を満たした栓の入った小管をフラスコのなかに導き入れ、再び首を溶封して閉じると、24–48時間後にそのなかに規則的に有機的形成物が現れる。フラスコに入れた焼いた石綿は、前もって塵を吸わせておいたときにだけ有機的形成物を示す。何度も曲げた細い首をもつ開いたフラスコでは、煮沸した液体は冷めたあともきわめて長く変わらずにとどまる。塵が湿った曲がった管のなかに引き止められるからである。しかし溶封のかわりに、口を下に向けて水銀に浸すことによって液体を閉じこめようとすると、水銀の表面と内部に含まれていた胚種がたちまち生き生きと活動しはじめる。</p>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;301</span><span>S.&nbsp;302</span></span></aside>
+  <p class="de" lang="de">12. Diese auch durch die Aufdeckung der Fehlerquellen wertvollen Experimente beweisen entscheidend, daß die uns bekannten Organismen nur aus organischen Keimen sich entwickeln. Die allgemeine Frage der Urzeugung greift aber zu weit und zu tief, um durch ein einfaches physikalisches Experiment entschieden zu werden. Man kann mit Fechner<a class="fr" href="#n50">50</a> der Meinung sein, daß nicht das Unorganische, sondern das Organische das Primäre sei, daß letzteres in das Unorganische als seinen stabilsten Endzustand übergehen könne, nicht aber umgekehrt. Die Natur ist nicht gebunden, mit dem für unser Verständnis Einfacheren zu beginnen. Nach dieser Ansicht entsteht <span class="pb" title="Leipzig 1906, S. 302">302</span>die Schwierigkeit, den Beginn des Organischen auf der einstmals höher temperierten Erde zu begreifen.</p>
+  <p class="jp" lang="ja">12. 誤差の源泉を明らかにしたことによっても価値あるこれらの実験は、われわれの知っている生物が有機的な胚種からのみ発生することを決定的に証明している。しかし自然発生の一般的な問いは、単純な物理的実験によって決定されるにはあまりに広く深い。フェヒナー<a class="fr" href="#n50">50</a>とともに、無機的なものではなく有機的なものが一次的であり、後者はその最も安定した終末状態としての無機的なものへと移行しうるが、その逆はないという意見をもつこともできる。自然は、われわれの理解にとってより単純なものから始めるように拘束されてはいない。この見解によれば、かつてより高い温度にあった地球の上で有機的なものの始まりを理解するという困難が生じる。</p>
+  <ol class="notes"><li id="n50"><span class="nn">50</span><p class="de" lang="de">Eine Vergleichung der Ansicht Fechners mit der von Boltzmann über den 2. Hauptsatz der Thermodynamik geäußerten s. Prinz. d. Wärmelehre S. 381.</p><p class="jp" lang="ja">フェヒナーの見解と、熱力学の第二法則についてボルツマンが述べた見解との比較は、『熱学の原理』381頁を見よ。</p></li></ol>
+</article>
+<article class="row" id="p12.2">
+  <aside class="mg"><a class="pid" href="#p12.2">12.2</a><span class="pg"><span>S.&nbsp;302</span></span></aside>
+  <p class="de" lang="de">Sollten auch organische Keime durch die Meteoritentrümmer anderer Weltkörper auf die Erde übertragen worden sein, so können wir an eine lebende Übertragung nur bei den niedersten Organismen denken. Nur die höchst entwickelte Descendenzlehre könnte diese Schwierigkeit lösen. Was nötigt uns aber, einen so schroffen Unterschied zwischen dem Organischen und Unorganischen anzunehmen, zu glauben, daß der Übergang von ersterem zu letzterem absolut nicht umkehrbar sei? Vielleicht besteht eine scharfe Grenze überhaupt nicht. Chemie und Physik sind zwar noch weit vom Verständnis des Organischen, doch haben sie darin schon manches geleistet, und leisten täglich mehr.</p>
+  <p class="jp" lang="ja">たとえ有機的な胚種が他の天体の隕石の破片によって地球に運ばれたのだとしても、生きたままの移送は最も下等な生物についてしか考えられない。最も高度に発達した進化論だけがこの困難を解きうるであろう。しかし、有機的なものと無機的なものとのあいだにかくも截然とした区別を想定し、前者から後者への移行が絶対に逆にはならないと信じるよう、何がわれわれに強いるのか。おそらく鋭い境界などそもそも存在しないのであろう。化学と物理学は有機的なものの理解からはまだ遠いが、すでにそこで多くのことを成し遂げており、日ごとにより多くを成し遂げている。</p>
+</article>
+<article class="row" id="p12.3">
+  <aside class="mg"><a class="pid" href="#p12.3">12.3</a><span class="pg"><span>S.&nbsp;302</span></span></aside>
+  <p class="de" lang="de">Pasteur hielt noch alle Fermente für organisiert. Heute wissen wir, daß den Fermentwirkungen analoge katalytische Beschleunigungen möglicher Umsetzungen (Ostwald) auch im Gebiete des Unorganischen anzutreffen sind. Denken wir uns einen Kulturzustand, in dem wir die Natur des Feuers noch sehr wenig kennen, in dem wir das Feuer wohl zu löschen, aber nicht zu erzeugen verstehen, und ganz auf die Benützung natürlich vorkommenden Feuers angewiesen sind. Wir würden da mit Recht sagen: Feuer kann nur von Feuer abstammen. Doch wissen wir es heute besser.<a class="fr" href="#n51">51</a> Wie man auf den Gedanken kommen konnte, die Frage der Urzeugung mit dem Satz der Erhaltung der Energie in Zusammenhang zu bringen, ist mir gänzlich unerfindlich.</p>
+  <p class="jp" lang="ja">パストゥールはなおすべての発酵素が組織化されていると考えていた。今日われわれは、発酵作用に類似した、可能な変換の触媒的促進（オストヴァルト）が、無機的なものの領域にも見いだされることを知っている。われわれがまだ火の本性をほとんど知らず、火を消すことは知っていても起こすことは知らず、まったく自然に生じる火を利用するしかない文化状態を考えてみよう。そこでわれわれは正当にもこう言うであろう。火は火からしか生じえない、と。しかし今日われわれはそれをよりよく知っている<a class="fr" href="#n51">51</a>。自然発生の問いをエネルギー保存の定理と結びつけるという考えに、どうして人が至りえたのか、私にはまったく理解できない。</p>
+  <ol class="notes"><li id="n51"><span class="nn">51</span><p class="de" lang="de">Wie alt und instinktiv naheliegend die Beziehung von Leben und Brennen ist, sehen wir aus dem an eine Missetat des Kambyses anknüpfenden Bericht Herodots (Lib. III, Cap. 16): „Die Ägypter halten das Feuer für ein lebendes Tier, welches alles verzehrt, was es erlangen kann, und das dann mit dem Verzehrten zugleich stirbt.“ Vgl. bei Ostwald (Vorlesungen über Naturphilosophie, 1902, S. 312 u. f.) eine ausführlichere Parallele zwischen der Selbsterhaltung des Lebens und der Flamme. Vgl. ferner W. Roux (Vorträge und Aufsätze über Entwicklungsmechanik, 1905). Besonders ansprechend sind daselbst die Ausführungen über Urzeugung und die Vergleichung der Flamme mit einem organischen Wesen, S. 108 u. f.</p><p class="jp" lang="ja">生命と燃焼の関係がいかに古く、本能的に手近なものであるかは、カンビュセスの悪行に結びついたヘロドトスの報告（第3巻、第16章）から分かる。「エジプト人は火を生きた動物とみなしており、それは手に入るものをすべて食い尽くし、食い尽くしたものとともに死ぬのだという」。生命の自己保存と炎とのより詳しい対比はオストヴァルト（『自然哲学講義』1902年、312頁以下）を参照。さらに W. ルー（『発生機構学についての講演と論文』1905年）参照。とりわけ魅力的なのは、そこでの自然発生についての論述と、炎を有機的存在と比較した箇所である、108頁以下。</p></li></ol>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;302</span><span>S.&nbsp;303</span></span></aside>
+  <p class="de" lang="de">13. Die besprochenen wissenschaftlichen Entwicklungen beginnen meist in weit entlegener Vorzeit mit sehr primitiven Vorstellungen, sind aber in der Gegenwart durchaus nicht abgeschlossen. Statt der gelösten oder als nichtig erkannten Pro<span class="pb" title="Leipzig 1906, S. 303">303</span>bleme sind neue, zahlreichere und meist schwierigere aufgetreten. Die Erkenntnis wird auf sehr mannigfaltig gewundenen Pfaden gewonnen, und die einzelnen Schritte sind zwar durch die vorausgegangenen bedingt, aber auch durch rein zufällige physische und psychische Umstände mitbestimmt. Die moderne Astronomie muß an die antike anknüpfen. Die letztere macht Anleihen bei der Geometrie. Der ersteren kommt die zufällig und ganz unabhängig von derselben entwickelte Physik und namentlich die Dynamik zu Hilfe. Die zufällig und unabhängig entwickelte technische und theoretische Optik begründet ebenfalls einen neuen Aufschwung der Astronomie.</p>
+  <p class="jp" lang="ja">13. 論じてきた科学的発展は、たいてい遠い太古にきわめて原始的な表象とともに始まるが、現在においてもけっして完結していない。解かれた、あるいは取るに足りないと認識された問題のかわりに、新しい、より数多くの、たいていはより難しい問題が現れた。認識はきわめて多様に曲がりくねった小道で得られるのであり、個々の歩みは先行する歩みによって条件づけられているが、まったく偶然的な物理的・心的事情によってもともに規定されている。近代の天文学は古代の天文学に結びつかなければならない。後者は幾何学から借用する。前者を、偶然に、それとはまったく独立に発展した物理学、とりわけ動力学が助ける。同じく偶然に独立に発展した技術的・理論的光学もまた、天文学の新たな飛躍を基礎づける。</p>
+</article>
+<article class="row" id="p13.2">
+  <aside class="mg"><a class="pid" href="#p13.2">13.2</a><span class="pg"><span>S.&nbsp;303</span></span></aside>
+  <p class="de" lang="de">Später treten sogar Astronomie und Chemie sich gegenseitig fördernd in Verbindung. Wie wäre unsere moderne Elektrizitätslehre möglich ohne Hilfe der Glas- und Metalltechnik, der Luftpumpe, der Chemie? Wieviel haben aber auch die großen historischen Zufallsgedanken, wieviel hat die Gravitationstheorie, von welcher die Potentialtheorie ausgegangen, beigetragen! Die Schematisierung der ausgeführten Erkenntnisschritte mag ja die weitere Forschung einigermaßen fördern bei Wiederholung derselben Situationen. Von einer ausgiebig wirksamen Anweisung zur Forschung nach Formeln kann aber nicht die Rede sein. Immer aber bleibt es richtig, daß wir die Gedanken den Tatsachen und die Gedanken untereinander anzupassen bestrebt sind. In der biologischen Entwicklung entspricht dem: die Anpassung der Organismen an die Umgebung und die Anpassung der Teile des Organismus aneinander.</p>
+  <p class="jp" lang="ja">のちには天文学と化学さえ互いに促進し合いながら結びつく。ガラス技術と金属技術、空気ポンプ、化学の助けなしに、われわれの近代の電気学がどうして可能であったろうか。しかしまた、歴史上の大きな偶然の思想、ポテンシャル理論の出発点となった重力理論は、どれほど多く寄与したことか。行われた認識の歩みを図式化することは、同じ状況が繰り返されるときに、さらなる研究をいくらか促進するかもしれない。しかし公式に従った研究への十分に有効な手引きなどということは問題になりえない。しかしつねに正しいのは、われわれが思考を事実に、また思考を互いに適応させようと努めているということである。生物学的発展においてそれに対応するのは、有機体の環境への適応と、有機体の部分相互の適応である。</p>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§2</td><td lang="de">頁内脚注 1)–5)（Hipparch, Ptolemäus, Philolaus, Archytas, Aristarch の年代）が欠落・本文に未連結</td><td lang="de">注1–5 として復元し、章内通し番号に振り直し</td></tr>
+  <tr><td>§2.2–2.3</td><td lang="de">Kopernikus), Kepler') など参照記号の脱落・崩れ</td><td lang="de">注14・15・16 への参照として連結</td></tr>
+  <tr><td>§5.1</td><td lang="de">Dufay・Coulomb の脚注が本文中に混入</td><td lang="de">注21・22 として分離</td></tr>
+  <tr><td>§10.2 注42</td><td lang="de">崩れた数式</td><td lang="de">φ = 4π²r/t²（文脈から復元）</td></tr>
+  <tr><td>各所</td><td lang="de">Beipiel; Perceptionsoder; Schwann Schroeder; circuitu."</td><td lang="de">Beispiel; Perceptions- oder; Schwann, Schroeder; circuitu.“</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_16.html">← 第ⅩⅥ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
