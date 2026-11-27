@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第ⅩⅣ章 仮説</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第ⅩⅣ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a><a href="#s16">§16</a><a href="#s17">§17</a><a href="#s18">§18</a><a href="#s19">§19</a><a href="#s20">§20</a><a href="#s21">§21</a><a href="#s22">§22</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL XIV · 第ⅩⅣ章</div>
+  <h1>仮説</h1>
+  <div class="de-title" lang="de">Die Hypothese</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 232–250　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;232</span></span></aside>
+  <p class="de" lang="de">1. Isolierte Tatsachen gibt es nur infolge der Beschränktheit unserer Sinne und unserer intellektuellen Mittel. Instinktiv und unwillkürlich spinnen die Gedanken eine Beobachtung fort, indem sie die Tatsache in Bezug auf ihre Teile, oder ihre Folgen, oder ihre Bedingungen ergänzen. Der Jäger findet eine Feder, und seine Phantasie führt ihm sofort das Bild des ganzen Vogels, des Nußhähers vor, der dieselbe verloren hat. Eine Meeresströmung führt fremdartige Pflanzen, Tierleichen, kunstvoll geschnitzte Hölzer herbei, und vor Kolumbus zeigt sich das ferne noch unbekannte Land, dem jene Dinge entstammen. Herodot (II, 19-27) beobachtet die regelmäßigen Nilüberschwemmungen und bildet sich die sonderbarsten Vorstellungen über die Vorgänge, mit welchen dieselben zusammenhängen möchten. Selbst den höher entwickelten Tieren ist ein solches Fortspinnen der beobachteten Tatsache in den Vorstellungen ganz geläufig, wenn auch in höchst primitiver Form. Die Katze, welche ihr Spiegelbild hinter dem Spiegel sucht, hat, wenn auch instinktiv und unbewußt, eine Hypothese über dessen Körperlichkeit gemacht, und geht eben daran, dieselbe auf die Probe zu stellen. Hiermit ist aber für sie der Prozeß zu Ende, während der Mensch im analogen Falle gerade erst hier zu staunen und zu denken beginnt.</p>
+  <p class="jp" lang="ja">1. 孤立した事実というものは、われわれの感官と知的手段の限界の結果としてのみ存在する。思考は本能的に、意図せずに、事実をその部分、その結果、あるいはその条件に関して補うことによって、観察をさらに紡いでいく。猟師が一枚の羽根を見つけると、その想像力はただちに、それを落とした鳥全体、ホシガラスの像を目の前に浮かべる。海流が見慣れない植物や動物の死骸や巧みに彫られた木片を運んでくると、コロンブスの前に、それらの物の出所である、遠いまだ知られていない土地が現れる。ヘロドトス（第2巻19–27）は規則的なナイルの氾濫を観察し、それが連関しているかもしれない過程について、きわめて奇妙な表象をつくり上げる。より高度に発達した動物にさえ、観察された事実を表象のうちでこのように紡いでいくことは、きわめて原始的な形においてではあれ、まったくなじみのものである。鏡の裏に自分の鏡像を探す猫は、本能的・無意識的にではあれ、その物体性についての仮説を立て、まさにそれを試そうとしているのである。しかし猫にとってはそれで過程は終わるのに対して、人間は類似の場合に、まさにそこから驚き考えはじめるのである。</p>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;232</span><span>S.&nbsp;233</span></span></aside>
+  <p class="de" lang="de">2. In der Tat ist die naturwissenschaftliche Hypothesenbildung nur eine weitere Entwicklungsstufe des instinktiven primitiven Denkens, und wir können zwischen diesem und jener alle Übergänge aufweisen.<a class="fr" href="#n1">1</a> In einem sehr gut bekannten Tatsachengebiete werden auch nur sehr geläufige naheliegende <span class="pb" title="Leipzig 1906, S. 233">233</span>Vermutungen auftreten, welchen man die Hypothesennatur kaum anmerkt, obwohl von einem qualitativen Unterschiede nicht die Rede sein kann. So verhält es sich in den oben angeführten Beispielen. Ob Kolumbus im Westen ein Land, oder Leverrier in einer gewissen Richtung einen störenden, dorthin ablenkenden Planeten vermutet, in beiden Fällen wird eine Beobachtung nur in ganz geläufiger Weise nach der täglichen Erfahrung des Beobachters durch die Vermutung ergänzt. Je mehr die Beobachtungen, an die wir anknüpfen, neu, ungewöhnlich und uns fremd sind, desto sonderbarer, ungewöhnlicher sind auch die Vermutungen.</p>
+  <p class="jp" lang="ja">2. 実際、自然科学における仮説の形成は、本能的で原始的な思考のさらなる発展段階にすぎず、両者のあいだにあらゆる移行を示すことができる<a class="fr" href="#n1">1</a>。きわめてよく知られた事実領域では、仮説の性質がほとんど感じられないような、ごくなじんだ手近な推測しか現れない。もっとも質的な違いは問題になりえない。上に挙げた例はそうである。コロンブスが西に陸地を推測するにせよ、ルヴェリエがある方向に、そちらへと引き寄せる攪乱する惑星を推測するにせよ、どちらの場合にも観察は、観察者の日々の経験に従って、まったくなじんだ仕方で推測によって補われているにすぎない。われわれが手がかりとする観察が新しく、異常で、見慣れないものであればあるほど、推測もそれだけ奇妙で異常なものとなる。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Vgl. Populär-wissenschaftliche Vorlesungen. 3. Aufl. S. 256.</p><p class="jp" lang="ja">『通俗科学講義』第3版、256頁参照。</p></li></ol>
+</article>
+<article class="row" id="p2.2">
+  <aside class="mg"><a class="pid" href="#p2.2">2.2</a><span class="pg"><span>S.&nbsp;233</span></span></aside>
+  <p class="de" lang="de">Doch müssen auch die hier auftretenden Vorstellungen dem Stoffe der Erfahrung entnommen sein, so wunderlich dieselben auch kombiniert sein mögen. Ein Blitzschlag und der noch seltener auftretende Meteoritenfall erzeugt den Gedanken eines geschleuderten Donnerkeils und werfender Titanen. Die Mammutfunde in Sibirien führten die Einwohner zu der Vermutung, daß man es hier mit einer riesigen in der Erde wühlenden Ratte (Mäusemutter, Wühlochse, Fen-schu der Chinesen) zu tun habe, welche sterbe, sobald sie an die Luft komme. Für Vogelklauen gehaltene Rhinoceroshörner in goldreicher, unwirtlicher Gegend gaben Anlaß zur Vorstellung der goldbewachenden Greifen, des Vogels Roch u. s. w. In bedeutender Höhe gefundene Muschellager legen die Vorstellung der Sintflut nahe.<a class="fr" href="#n2">2</a></p>
+  <p class="jp" lang="ja">しかしここで現れる表象もまた、どれほど奇妙に組み合わされていようとも、経験の素材から取られたものでなければならない。落雷や、さらにまれに起こる隕石の落下は、投げつけられた雷の矢と投げる巨人たちという考えを生む。シベリアでのマンモスの発見は、住民たちを、ここで問題なのは地中を掘り進む巨大なネズミ（ネズミの母、掘る牛、中国人の言う「フェンシュー」）であり、それは空気に触れるとすぐに死ぬのだ、という推測に導いた。金の豊かな、人の住みにくい地方で鳥の爪とみなされたサイの角は、金を守るグリフィンや怪鳥ロックなどの表象のきっかけとなった。かなりの高所で見つかった貝の層は、大洪水の表象を示唆する<a class="fr" href="#n2">2</a>。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">Vgl. Tylor, Urgeschichte. S. 398-403.</p><p class="jp" lang="ja">タイラー『人類の原始史』398–403頁参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;233</span><span>S.&nbsp;234</span></span></aside>
+  <p class="de" lang="de">3. Die wissenschaftlichen Ansichten knüpfen unmittelbar an die volkstümlichen an, von welchen sie anfänglich überhaupt nicht zu trennen sind, und entwickeln sich allmählich aus diesen. Der Himmel erscheint uns aus physiologischen Gründen als eine Kugel von einem bestimmten nicht einmal sehr großen Radius. Das ist die volkstümliche und auch die erste wissenschaftliche Ansicht. Der nächtliche Anblick führt uns dazu, dieser Kugel eine Drehung zuzuschreiben, und die Sterne an derselben für befestigt und vor dem Fallen geschützt zu halten. Die ungleichen Bewegungen, die nun bei näherem Zusehen an den Planeten, an dem Monde und an der Sonne bemerkt werden, führen zur Annahme mehrerer durchsichtiger ineinander ge<span class="pb" title="Leipzig 1906, S. 234">234</span>schachtelter Sphären mit verschiedenen Drehungen. So entwickelt sich allmählich die Epicykeltheorie, das ptolemäische, das antike heliozentrische und das kopernikanische System. Der Mond steht in einer Beziehung zur Flutwelle, das entgeht auch dem Volke nicht. Solange die Forscher nur mit Druck und Stoß als Bewegungsursachen vertraut sind, glauben sie an eine Luftdruckwelle, die der Mond unter sich hertreibt. Bei Vertrautheit mit Fernwirkungen wird der Druck durch einen Zug abgelöst.</p>
+  <p class="jp" lang="ja">3. 科学的見解は民衆的見解に直接結びついており、はじめはそもそもそれから切り離すことができず、しだいにそこから発展してくる。天は生理学的な理由から、ある定まった、それほど大きくもない半径をもつ球として現れる。これが民衆の見解であり、また最初の科学的見解でもある。夜の眺めは、この球に回転を認め、星をそれに固定されて落ちないように守られたものとみなすことへとわれわれを導く。さらに詳しく見ると惑星や月や太陽に気づかれる不等な運動は、異なる回転をもついくつもの透明な、入れ子になった天球の想定へと導く。こうしてしだいに周転円の理論、プトレマイオスの体系、古代の太陽中心説、コペルニクスの体系が発展する。月が潮の波と関係していることは、民衆にも見逃されない。研究者たちが運動の原因として圧力と衝突しか知らないあいだは、彼らは、月が自分の下に押し進める空気の圧力の波を信じる。遠隔作用になじむと、圧力は引力に取って代わられる。</p>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;234</span></span></aside>
+  <p class="de" lang="de">4. Die Wirkung der vorläufigen Ergänzung der Tatsache in Gedanken ist zunächst eine raschere Erweiterung der Erfahrung. Der Seemann, in dessen Phantasie durch die an die Küste getriebenen Objekte das Bild des fernen Landes mit sinnlicher Lebendigkeit auftaucht, sucht nach demselben. Ob er es findet oder nicht, ob dessen Lage und Natur seiner Vorstellung entspricht, oder nicht, ob er auch statt der vermuteten indischen oder chinesischen Küste eine neue findet, auf jeden Fall hat er seine Erfahrung erweitert. Wer Körperlichkeit des Spiegelbildes erwartend dieser nachgeht, ohne sie zu finden, kennt von nun an eine neue Art von Gesichtsobjekten, welchen zwar die Körperlichkeit fehlt, deren Bedingung aber das Vorhandensein anderer körperlicher Objekte ist.</p>
+  <p class="jp" lang="ja">4. 事実を思考のなかで暫定的に補うことの作用は、まず経験のより速い拡張である。岸に打ち寄せられた物によって、想像のなかに遠い陸地の像が感性的な生き生きとした姿で浮かんだ船乗りは、それを探し求める。それを見つけるにせよ見つけないにせよ、その位置や性質が表象に対応するにせよしないにせよ、推測したインドや中国の海岸のかわりに新しい海岸を見いだすにせよ、いずれにせよ彼は経験を広げたのである。鏡像に物体性を期待して追い求め、それを見いださない者は、以後、物体性は欠けているが、その条件は他の物体的対象の存在であるような、新しい種類の視覚的対象を知るのである。</p>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;234</span></span></aside>
+  <p class="de" lang="de">Selbst in jenen Fällen, in welchen die gedankliche Ergänzung keine neuen Erfahrungen auszulösen vermag, bringt sie doch die schon gesammelten in einen übersichtlichen Zusammenhang. So verhält es sich mit der Vorstellung über das Mammut. Daß es in der Erde gefunden wird, daß sein Fleisch noch frisch ist, daß es nur tot gefunden wird, folgt alles aus der Vorstellung, die man sich über dasselbe gebildet hat. Dasselbe läßt sich an dem astronomischen Beispiel erläutern. Wenn die Ergänzung mit lebhafter sinnlicher Anschaulichkeit auftritt, und zugleich mit der Überzeugung der Auffindbarkeit des Hinzugedachten, ist sie besonders geeignet, die zur Erweiterung der Erfahrung nötige Tätigkeit hervorzurufen. Die gedankliche Ergänzung ist eine Gedankenerfahrung, welche zur Erprobung durch die physische Erfahrung antreibt.</p>
+  <p class="jp" lang="ja">思考による補完が新しい経験を引き起こすことのできない場合でさえ、それはすでに集められた経験を見通しのよい連関へともたらす。マンモスについての表象がそうである。それが地中で見つかること、その肉がまだ新鮮であること、死んだ状態でしか見つからないことは、すべて人々がそれについてつくり上げた表象から帰結する。同じことを天文学の例で説明することができる。補完が生き生きとした感性的直観性をもって現れ、同時に、付け加えて考えたものが見つかりうるという確信をともなうとき、それは経験の拡張に必要な活動を呼び起こすのにとりわけ適している。思考による補完は思考上の経験であり、それが物理的経験による検証へと駆り立てるのである。</p>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;234</span><span>S.&nbsp;235</span></span></aside>
+  <p class="de" lang="de">5. Wenn wir nun die naturwissenschaftliche Hypothese näher ins Auge fassen, so sehen wir zunächst, daß alles, was durch <span class="pb" title="Leipzig 1906, S. 235">235</span>die Beobachtung noch nicht unmittelbar festgestellt werden konnte, Gegenstand einer gedanklichen Ergänzung, Vermutung, Annahme, Voraussetzung oder Hypothese sein kann. Wir können nicht direkt beobachtete Teile der Tatsache als vorhanden annehmen; der Geologe und Paläontologe wird sehr häufig in die Lage kommen, dies zu tun. Es können über die Folgen einer Tatsache Annahmen gemacht werden, wenn dieselben nicht unmittelbar eintreten, oder nicht direkt beobachtet sind. Die Formen der Gesetze einer Tatsache sind oft Gegenstand einer Annahme, da ja eigentlich nur unendlich viele Beobachtungen mit Ausschluß aller störenden Umstände das Gesetz liefern könnten.</p>
+  <p class="jp" lang="ja">5. さて自然科学の仮説をもっと詳しく見ると、まず、観察によってまだ直接に確定できなかったものはすべて、思考による補完、推測、想定、前提、すなわち仮説の対象となりうることが分かる。直接に観察されていない事実の部分が存在すると想定することができる。地質学者や古生物学者はきわめて頻繁にそうせざるをえなくなるであろう。事実の結果が直接には生じない場合や、直接に観察されていない場合には、それについて想定を立てることができる。事実の法則の形はしばしば想定の対象となる。というのも本来は、あらゆる攪乱的な事情を除いた無限に多くの観察だけが法則を与えうるからである。</p>
+</article>
+<article class="row" id="p5.2">
+  <aside class="mg"><a class="pid" href="#p5.2">5.2</a><span class="pg"><span>S.&nbsp;235</span></span></aside>
+  <p class="de" lang="de">Die Annahmen aber, die man vorzugsweise als Hypothesen bezeichnet, beziehen sich auf die Bedingungen einer Tatsache, welche dieselben verständlich machen, es sind die Erklärungshypothesen. Diese wollen wir jetzt ausschließlich betrachten. „Hypothesis“ heißt, altem Gebrauch entsprechend, die Summe der Bedingungen, unter welchen ein mathematischer Satz, die Thesis gilt, und aus der Hypothesis abgeleitet, d. h. demonstriert, bewiesen werden kann. Hier ist die „Hypothesis“ das Gegebene, welches zudem an gar keine andere Bedingung, als die mathematische und logische Möglichkeit, gebunden ist; die Thesis ist das Erschlossene. In der Naturwissenschaft haben wir umgekehrt von der gegebenen sicheren Tatsache auszugehen, den regressiven, analytischen, unbestimmten Schluß auf die Bedingungen auszuführen.</p>
+  <p class="jp" lang="ja">しかし、とりわけ仮説と呼ばれる想定は、事実を理解できるものにする、その事実の条件に関わるもの、すなわち説明仮説である。いまからはこれだけを考察することにしよう。「ヒュポテシス」とは、古い用法に従えば、数学的命題すなわちテシスが成り立ち、ヒュポテシスから導き出す、すなわち論証し証明することのできる条件の総和を意味する。ここではヒュポテシスが与えられたものであり、しかもそれは数学的・論理的な可能性以外のどんな条件にも結びついていない。テシスが推論されたものである。自然科学では逆に、われわれは与えられた確かな事実から出発し、条件への遡行的、分析的、不確定な推論を行わなければならない。</p>
+</article>
+<article class="row" id="p5.3">
+  <aside class="mg"><a class="pid" href="#p5.3">5.3</a><span class="pg"><span>S.&nbsp;235</span><span>S.&nbsp;236</span></span></aside>
+  <p class="de" lang="de">Viele Möglichkeiten bieten sich in diesem Falle dar, und dieselben sind desto zahlreicher, je unvollständiger noch die Erfahrung ist, die in diesem Gebiet noch neben der Logik viel mehr mitzusprechen hat, als in der Mathematik. Eine vorläufige versuchsweise Annahme zum Zwecke des leichteren Verständnisses von Tatsachen, welche aber dem tatsächlichen Nachweis sich noch entzieht, nennen wir eine Hypothese.<a class="fr" href="#n3">3</a> Die Vorläufigkeit kann von sehr verschiedener <span class="pb" title="Leipzig 1906, S. 236">236</span>Dauer sein, einen Augenblick währen, wie in dem Beispiel des Spiegelbildes, oder ein Jahrhundert und ein Jahrtausend, wie im Fall der Emissionshypothese des Lichtes und des ptolemäischen Systems. Das psychologisch-logische Wesen der Hypothese wird hierdurch nicht geändert.</p>
+  <p class="jp" lang="ja">この場合には多くの可能性が現れ、それは経験が不完全であればあるほど多い。この領域では、経験は論理と並んで、数学におけるよりもはるかに多く発言しなければならないのである。事実のより容易な理解のための暫定的な試みの想定でありながら、なお事実による証明を免れているものを、われわれは仮説と呼ぶ<a class="fr" href="#n3">3</a>。暫定性の長さはきわめてさまざまでありうる。鏡像の例のように一瞬のこともあれば、光の放射仮説やプトレマイオスの体系の場合のように一世紀、さらに一千年に及ぶこともある。それによって仮説の心理学的・論理的本質が変わるわけではない。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">Ich nehme hier mit einer geringen Modifikation den Ausdruck an, den P. Biedermann, Die Bedeutung der Hypothese, Dresden 1894, S. 10 gebraucht: „Solche Voraussetzungen nun, welche um der Tatsachen willen gemacht werden, aber selbst der tatsächlichen Nachweisung sich entziehen, nennen wir Hypothesen.“ In dieser vortrefflichen Abhandlung ist die nahe Verwandtschaft zwischen dem, was im wissenschaftlichen Denken Hypothese, im volkstümlichen Denken aber Vermutung heißt, sehr klar dargelegt. - Unter allen Umständen können wir von einer Ergänzung der Tatsachen in der Vorstellung oder in Gedanken sprechen, geschieht dieselbe absichtlich und bewußt, so ist der Ausdruck Vermutung oder Annahme passender.</p><p class="jp" lang="ja">ここで私は、P. ビーダーマン『仮説の意義』ドレスデン、1894年、10頁が用いている表現を、わずかに修正して採用する。「事実のためになされるが、それ自身は事実による証明を免れているような前提を、われわれは仮説と呼ぶ」。このすぐれた論文では、科学的思考において仮説と呼ばれ、民衆の思考においては推測と呼ばれるものとの近い類縁関係が、きわめて明瞭に述べられている。——どんな事情のもとでも、表象あるいは思考における事実の補完について語ることができる。それが意図的かつ意識的に行われるのであれば、推測あるいは想定という表現のほうがふさわしい。</p></li></ol>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;236</span></span></aside>
+  <p class="de" lang="de">6. Eine entschiedene Abneigung gegen Hypothesen hat Newton an den Tag gelegt. Seine erste philosophische oder Forschungsregel lautet: „An Ursachen zur Erklärung der Natur nicht mehr zuzulassen, als wirklich sind, und zur Erklärung der Erscheinungen ausreichen.“<a class="fr" href="#n4">4</a> Sie enthält eine deutliche Mahnung, keine Erklärungen zu erdichten, wenn das tatsächlich Bekannte zum Verständnis ausreicht. In derselben Schrift findet sich noch eine zweite für Newtons Haltung charakteristische Stelle. „Rationem vero harum gravitatis proprietatum ex phaenomenis nondum potui deducere, et hypotheses non fingo. Quidquid enim ex phaenomenis non deducitur, hypothesis vocanda est, et hypotheses seu metaphysicae, seu physicae, seu qualitatum occultarum, seu mechanicae, in philosophia experimentali locum non habent.</p>
+  <p class="jp" lang="ja">6. 仮説に対する断固とした嫌悪を示したのはニュートンである。彼の第一の哲学的規則すなわち研究規則はこうである。「自然を説明するための原因としては、真実であり、かつ現象を説明するのに十分である以上のものを認めてはならない」<a class="fr" href="#n4">4</a>。それは、事実として知られていることで理解に十分であるならば、説明をでっち上げてはならないという明らかな戒めを含んでいる。同じ著作に、ニュートンの態度に特徴的なもう一つの箇所がある。「しかし重力のこれらの性質の理由を、私はまだ現象から導き出すことができなかった。そして私は仮説をつくらない。というのも、現象から導き出されないものはすべて仮説と呼ばれるべきであり、仮説は、形而上学的なものであれ、物理的なものであれ、隠れた性質のものであれ、機械論的なものであれ、実験哲学においては場所をもたないからである。</p>
+  <ol class="notes"><li id="n4"><span class="nn">4</span><p class="de" lang="de">Philosophiae naturalis Principia mathematica. Lib. III. Regulae philosophandi. Reg. 1.</p><p class="jp" lang="ja">『自然哲学の数学的原理』第3巻、哲学することの規則、規則1。</p></li></ol>
+</article>
+<article class="row" id="p6.2">
+  <aside class="mg"><a class="pid" href="#p6.2">6.2</a><span class="pg"><span>S.&nbsp;236</span></span></aside>
+  <p class="de" lang="de">In hac philosophia propositiones deducuntur ex phaenomenis, et redduntur generales per inductionem.“<a class="fr" href="#n5">5</a> In diesem Zusammenhange kann das vielzitierte „hypotheses non fingo“ zunächst, und zwar mit Recht, auf eine weitere Erklärung der Schwere bezogen werden. Newton hat die tatsächlich bestehende verkehrt quadratische Schwerebeschleunigung nachgewiesen, aus den Erscheinungen abgeleitet. Diese ist also keine Hypothese. Woher aber diese Eigenschaften der Schwere kommen, weiß er nicht, vermag es den Erscheinungen nicht zu entnehmen, und lehnt es ab, eine erdichtete Erklärung vorzubringen. Dies geht mit voller Deutlichkeit aus den zwei folgenden Stellen der Briefe Newtons an Bentley hervor. Newton schreibt:</p>
+  <p class="jp" lang="ja">この哲学においては、命題は現象から導き出され、帰納によって一般化されるのである」<a class="fr" href="#n5">5</a>。この連関において、よく引用される「私は仮説をつくらない（hypotheses non fingo）」は、まずは、しかも正当に、重力のさらなる説明に関係づけることができる。ニュートンは、事実として存在する逆二乗の重力加速度を証明し、現象から導き出した。したがってこれは仮説ではない。しかし重力のこれらの性質がどこから来るのかを、彼は知らず、現象からそれを取り出すことができず、でっち上げた説明を持ち出すことを拒むのである。このことは、ニュートンのベントリー宛の手紙の次の二つの箇所から完全に明らかである。ニュートンはこう書いている。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">Ebendaselbst. Lib. III, Sect. V.</p><p class="jp" lang="ja">同書、第3巻、第5節。</p></li></ol>
+</article>
+<article class="row" id="p6.3">
+  <aside class="mg"><a class="pid" href="#p6.3">6.3</a><span class="pg"><span>S.&nbsp;237</span></span></aside>
+  <p class="de" lang="de">„You sometimes speak of gravity as essential and inherent to matter. Pray do not ascribe that notion to me; for the cause of gravity is what I do not pretend to know, and therefore would take more time to consider of it.“ (Jan. 17, 1692-1693.) „It is inconceivable, that inanimate brute matter should, without the mediation of something else, which is not material, operate upon, and affect other matter without mutual contact; as it must do, if gravitation, in the sense of Epicurus, be essential and inherent in it. And this is one reason, why I desired you would not ascribe innate gravity to me. That gravity should be innate, inherent and essential to matter, so that one body may act upon another at a distance through a vacuum, without the mediation of any thing else, by and through which their action and force may be conveyed from one to another, is to me so great an absurdity, that I believe no man who has in philosophical matters a competent faculty of thinking, can ever fall into it. Gravity must be caused by an agent acting constantly according to certain laws; but whether this agent be material or immaterial, I have left to the consideration of my readers.“ (Febr. 25. 1692-1693.)<a class="fr" href="#n6">6</a></p>
+  <p class="jp" lang="ja">「あなたはときどき、重力を物質に本質的で内在的なものとして語られます。どうかその考えを私のものとしないでください。重力の原因は、私が知っているとは主張しないものであり、それゆえそれを考えるにはもっと時間をかけたいのです」（1692–1693年1月17日）。「生命のない粗野な物質が、物質的でない何か他のものの媒介なしに、相互の接触なしに他の物質に作用し影響を与えるということは、考えられないことです。もし重力がエピクロスの意味で物質に本質的で内在的なものであるならば、物質はそうしなければならないことになるでしょう。そしてこれが、生得の重力を私のものとしないでいただきたいとお願いした一つの理由です。重力が物質に生得的、内在的、本質的であって、ある物体が他の物体に、真空を通じて、その作用と力を一方から他方へ伝える何か他のものの媒介なしに、遠くから作用しうるということは、私にとってはあまりに大きな不合理であり、哲学的な事柄について十分な思考能力をもつ人なら誰一人そこに陥ることはありえないと私は信じます。重力は、ある法則に従って恒常的に作用する作用者によって引き起こされているにちがいありません。しかしこの作用者が物質的であるか非物質的であるかは、読者の考察に委ねておきました」（1692–1693年2月25日）<a class="fr" href="#n6">6</a>。</p>
+  <ol class="notes"><li id="n6"><span class="nn">6</span><p class="de" lang="de">Newtoni Opera. Ed. Horseley. London 1782. Tom. IV, p. 437-438. In dem Briefwechsel mit Bentley handelt es sich für Newton darum, aus der Anordnung des Weltsystems Beweise für das Walten einer göttlichen Weisheit zu gewinnen. Der Ausdruck „inanimate brute matter“ zeigt deutlich, daß Newton die beseelte Materie für etwas wesentlich anderes hält, und ihr mehr zutraut, als der rohen toten Materie. Der Dualismus, der uns von unseren wilden Urvätern her so fest in den Knochen steckt, ist auch heute nicht überwunden. Auch W. Thomson in seiner Arbeit „on the dynamical theory of heat“ (1852) findet es notwendig zu sagen: „It is impossible, by means of inanimate material agency, to derive mechanical effect from any portion of matter by cooling it below the temperature of the coldest of the surrounding objects.“ Und auch H. Hertz (Die Prinzipien der Mechanik 1894), welcher annimmt, daß die gesamte Physik mechanisch-atomistisch zu ergründen sei, hält es doch für nötig - 200 Jahre nach Newton - diese Auffassung (S. 165) ausdrücklich auf die unbelebte Natur zu beschränken. Boltzmann endlich behandelt (1897) die Frage nach der objektiven Existenz der Vorgänge in der unbelebten Natur“. Ich gestehe offen, daß mir die „leblose“ Materie nicht weniger rätselhaft scheint als die belebte, und daß ich die gegenteilige Auffassung für den Rest eines alten Aberglaubens halte. Solange man glaubt, die ganze Physik durch Mechanik erschöpfen zu können, und solange man die Mechanik selbst durch die bisher bekannten einfachen Lehren für erschöpft hält, muß das Leben wirklich als etwas hyperphysikalisches erscheinen. Beiden Auffassungen kann ich mich aber nicht anschließen.</p><p class="jp" lang="ja">『ニュートン著作集』ホースリー編、ロンドン、1782年、第4巻、437–438頁。ベントリーとの往復書簡においてニュートンにとって問題なのは、世界体系の配置から神の知恵の支配の証拠を得ることである。「生命のない粗野な物質（inanimate brute matter）」という表現は、ニュートンが魂をもつ物質を本質的に別のものとみなし、粗野な死んだ物質より多くのことをそれに期待していることをはっきり示している。われわれの未開の祖先から骨の髄までしみこんでいる二元論は、今日でも克服されていない。W. トムソンもその論文「熱の動力学的理論について」（1852年）で、「生命のない物質的作用によって、物質のどの部分からも、それを周囲の対象のうち最も冷たいものの温度以下に冷やすことによって力学的効果を引き出すことは不可能である」と言う必要があると考えている。また、物理学全体を力学的・原子論的に究明すべきであると想定している H. ヘルツ（『力学の原理』1894年）も、ニュートンから二百年後に、なおこの把握（165頁）を明示的に生命のない自然に限る必要があると考えている。最後にボルツマンは（1897年）「生命のない自然における過程の客観的存在」の問題を扱っている。率直に告白すれば、私には「生命のない」物質も生命ある物質に劣らず謎めいて見え、反対の把握は古い迷信の名残りだと思う。物理学全体を力学によって汲み尽くせると信じ、力学そのものをこれまで知られている単純な教えによって汲み尽くされたものとみなすかぎり、生命は本当に何か超物理的なものに見えざるをえない。しかし私はどちらの把握にも加わることができない。</p></li></ol>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;238</span></span></aside>
+  <p class="de" lang="de">7. Newtons Forschungsweg und Stellung scheint also ganz klar. Er wurde zu der Annahme geführt, daß die Massen Fernwirkungen aufeinander ausüben, analog jener der Erde auf die zur selben fallenden Körper. Er nahm ferner an, daß diese Fernwirkung verkehrt proportional dem Quadrate der Entfernung sei. Als es sich aber durch die analytische Untersuchung zeigte, daß durch diese Annahmen alle Bewegungen im Planetensystem und auf der Erde wirklich dargestellt werden, hörte diese Vorstellung auf für ihn Hypothese zu sein. Sie war für Newton ein Ergebnis der Analyse der Erscheinungen. Er trennte dies scharf von der Frage, ob die Fernwirkung selbst weiter auf Einfacheres zurückgeführt, erklärt werden könne. Dies letztere allein blieb für ihn Gegenstand der Spekulation oder „Hypothese“. Es wäre gewiß eine schwere Schädigung des wissenschaftlichen Fortschritts gewesen, diese beiden Dinge als gleichwertig zu betrachten, dieselben zu konfundieren, oder die Annahme der Fernwirkung wegen ihrer wirklichen oder scheinbaren Unerklärbarkeit unausgesprochen zu lassen.</p>
+  <p class="jp" lang="ja">7. それゆえニュートンの研究の道と立場はまったく明らかであるように思われる。彼は、質量どうしが、地球がそこへ落ちる物体に及ぼす作用と類似の遠隔作用を互いに及ぼし合うという想定へと導かれた。さらに彼は、この遠隔作用が距離の二乗に反比例すると想定した。しかし分析的研究によって、これらの想定によって惑星系と地上のすべての運動が実際に表されることが示されたとき、この表象は彼にとって仮説であることをやめた。それはニュートンにとって現象の分析の成果であった。彼はこれを、遠隔作用そのものがさらにより単純なものに帰着され、説明されうるかどうかという問いから鋭く切り離した。この後者だけが彼にとって思弁あるいは「仮説」の対象にとどまったのである。この二つの事柄を同等とみなし、混同すること、あるいは遠隔作用の想定を、その実際の、あるいは見かけ上の説明不可能性のゆえに口に出さないでおくことは、確かに科学の進歩を大きく損なったであろう。</p>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;238</span><span>S.&nbsp;239</span></span></aside>
+  <p class="de" lang="de">Die Auffassung aber, als ob Newtons Ablehnung von Hypothesen sich nur auf das Gebiet der Mechanik und Gravitation bezöge, ist jedoch nicht aufrecht zu halten. Denn im Gebiete der Optik, in welcher er selbst reichlich Hypothesen entwickelt, die er aber auch immer sorgfältig von dem Tatsächlichen trennt, und als solche bezeichnet, spricht er sich ebenfalls sehr abfällig über den Wert der Hypothesen aus.<a class="fr" href="#n7">7</a> „Quemadmodum in mathematica, ita etiam in physica, investigatio rerum difficilium ea methodo, quae vocatur analytica, semper antecedere debet eam quae appellatur synthetica. Methodus analytica est, experimenta capere, phaenomena observare; indeque conclusiones generales inductione inferre, nec ex adverso ullas objectiones admittere, nisi quae vel ab experimentis vel ab <span class="pb" title="Leipzig 1906, S. 239">239</span>aliis certis veritatibus desumantur. Hypotheses enim, in philosophia quae circa experimenta versatur, pro nihilo sunt habendae.“<a class="fr" href="#n8">8</a></p>
+  <p class="jp" lang="ja">しかし、ニュートンの仮説の拒否が力学と重力の領域にのみ関係するかのような把握は維持できない。というのも光学の領域でも——そこでは彼自身豊かに仮説を展開しているが、つねにそれを注意深く事実的なものから切り離し、仮説として示している——、彼はやはり仮説の価値についてきわめて否定的に語っているからである<a class="fr" href="#n7">7</a>。「数学におけるように、物理学においても、困難な事柄の探究においては、分析的と呼ばれる方法がつねに、総合的と呼ばれる方法に先行しなければならない。分析的方法とは、実験を行い、現象を観察し、そこから帰納によって一般的な結論を引き出し、実験から、あるいは他の確かな真理から取られたもの以外には、反対からのいかなる異論も認めないことである。というのも、実験に関わる哲学においては、仮説は無とみなされるべきだからである」<a class="fr" href="#n8">8</a>。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">Wer die Opposition Newtons gegen die Hypothesen übertrieben findet, wird dieselbe leichter verstehen, wenn er den Mißbrauch beachtet, welcher in der Descartesschen Zeit mit diesem Forschungsmittel getrieben wurde.</p><p class="jp" lang="ja">ニュートンの仮説への反対を誇張されたものと思う人は、デカルトの時代にこの研究手段がどのように濫用されたかに注目すれば、それをより容易に理解するであろう。</p></li><li id="n8"><span class="nn">8</span><p class="de" lang="de">Newtoni Optice. Londini 1719. p. 412, 413.</p><p class="jp" lang="ja">『ニュートン光学』ロンドン、1719年、412、413頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;239</span></span></aside>
+  <p class="de" lang="de">8. Man hat sich viel Mühe gegeben, Newtons Aussprüche und sein Verhalten in Einklang zu bringen. Wenn dies aber auch nicht ganz gelingen sollte, so wäre dies nicht so schlimm. Auch bedeutende Menschen sprechen und schreiben zuweilen in Stimmungen, in welchen sie etwas mehr behaupten als sie aufrecht zu halten vermögen. Solche Fälle findet man bei Newton mehrere, bei Descartes gewiß viele. Ich glaube jedoch, daß Newtons Worte und sein Verhalten als Forscher sehr wohl verständlich sind. Wollte man das „hypotheses non fingo“ ohne Vorbehalt nehmen, so würde es heißen: „Ich vermute nichts über das hinaus, was ich sehe, ich mache mir über die Beobachtung hinaus gar keine Gedanken.“ Diese Auffassung widerlegt Newton auf jeder Seite seiner Schriften. Er zeichnet sich gerade durch seinen Reichtum an Vermutungen aus. Er weiß auch sehr rasch durch Experimente, die unbrauchbaren, welche die Probe nicht bestehen, auszuscheiden. Was nicht aus den Erscheinungen abgeleitet werden kann, sagt er, ist eine Hypothese.</p>
+  <p class="jp" lang="ja">8. ニュートンの言明とその態度とを調和させるために、多くの労が費やされてきた。しかしそれが完全には成功しないとしても、それほど悪いことではないであろう。重要な人物も、ときに、自分が維持できる以上のことを主張する気分のうちで語り書くことがある。そのような例はニュートンにいくつか、デカルトには確かに多く見いだされる。しかし私は、ニュートンの言葉と研究者としての態度は十分に理解できると思う。「私は仮説をつくらない」を留保なしにとろうとすれば、それは「私は見るもの以上のことを何も推測しない。観察を越えてはまったく何も考えない」という意味になるであろう。この把握をニュートンは、その著作のどのページにおいても反駁している。彼はまさに推測の豊かさによって際立っている。また彼は、試験に耐えない役に立たない推測を、実験によってきわめてすばやく排除するすべを心得ている。現象から導き出せないものは仮説である、と彼は言う。</p>
+</article>
+<article class="row" id="p8.2">
+  <aside class="mg"><a class="pid" href="#p8.2">8.2</a><span class="pg"><span>S.&nbsp;239</span></span></aside>
+  <p class="de" lang="de">Demnach ist das, was aus den Erscheinungen folgt, in seinem Sinn keine Hypothese, sondern, wenn wir uns seine Denkweise aneignen, ein Ergebnis der analytischen Untersuchung. Gebraucht er auch Bilder, um seine Gedanken zu veranschaulichen, so legt er denselben doch keinen besonderen Wert bei. Könnte man ihn etwa fragen, was er an seiner Vorstellung der Lichtpolarisation für wesentlich halte, so würde er wohl sagen, die verschiedenen Seiten des Lichtstrahls, denn diese seien ein Ergebnis der analytischen Untersuchung, die Teilchen aber mit magnetähnlichen Eigenschaften seien ein gleichgültiges veranschaulichendes Bild, das auch durch ein anderes ersetzt werden könnte. Die scharfe prinzipielle Unterscheidung und sehr verschiedene Bewertung des wirklichen, definitiv festgestellten Wissens, und der bloßen Vermutung, bezw. der bildlichen Darstellung, spricht sich bei Newton überall aus. Irrtümer im einzelnen sind dieser Tendenz gegenüber nicht von Belang.</p>
+  <p class="jp" lang="ja">したがって、現象から帰結するものは、彼の意味では仮説ではなく、彼の考え方を自分のものにするならば、分析的研究の成果である。彼は自分の思考を直観化するために像を用いても、それに特別な価値を置かない。たとえば、光の偏光についての自分の表象のうちで何を本質的とみなすかと彼に尋ねることができたなら、彼はおそらく、光線の異なる側面がそうだ、それは分析的研究の成果だから、しかし磁石に似た性質をもつ粒子は、別の像によって置き換えることもできるどうでもよい直観化の像だ、と言うであろう。現実の、確定的に確立された知識と、単なる推測あるいは像による表現とを原理的に鋭く区別し、きわめて異なって評価することは、ニュートンのどこにでも現れている。個々の誤りは、この傾向に比べれば重要ではない。</p>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;240</span></span></aside>
+  <p class="de" lang="de">9. Verschiedene Autoren haben sich bemüht, die Anforderungen, welche an eine gute naturwissenschaftliche Hypothese gestellt werden müssen, zu präzisieren. Sehr weitläufig hat sich J. St. Mill<a class="fr" href="#n9">9</a> darüber ausgesprochen. Seine Forderung, daß die Hypothese sich auf die Annahme einer schon als vorhanden bekannten Ursache für das zu Erklärende, einer wahren Ursache (vera causa im Newtonschen Sinne) aufbauen müsse, hat F. Hillebrand<a class="fr" href="#n10">10</a> eingehend als nicht haltbar dargetan. Man kann Mills Grundsätze, wie Hillebrand gezeigt hat, nicht befolgen, ohne doch fortwährend mit denselben in Widerspruch zu geraten. In der Tat würde man, mit dem Beginn der bewußten Forschung, nach Mills Prinzipien, die augenblickliche Unwissenheit in Permanenz erklären; es könnte von da an, durch Denken wenigstens, keine wesentlich neue Entdeckung mehr gemacht werden.<a class="fr" href="#n11">11</a> Jevons, dessen Ausführungen auf den Naturforscher den angenehmen Eindruck der vollen Vertrautheit mit dem Gegenstande machen, hält es für genügend, daß eine Hypothese mit den Tatsachen in Übereinstimmung sei.<a class="fr" href="#n12">12</a> Beispiele werden dies übrigens besser erläutern, als allgemeine abstrakte Darlegungen.</p>
+  <p class="jp" lang="ja">9. さまざまな著者が、よい自然科学的仮説に課されるべき要求を明確にしようと努めてきた。J. St. ミル<a class="fr" href="#n9">9</a>はこれについてきわめて詳しく述べている。仮説は、説明されるべきものについて、すでに存在することが知られている原因、真の原因（ニュートンの意味での vera causa）の想定の上に立てられなければならない、という彼の要求を、F. ヒレブラント<a class="fr" href="#n10">10</a>は詳しく維持しえないものとして示した。ヒレブラントが示したように、ミルの原則に従おうとすれば、たえずそれと矛盾せざるをえない。実際、意識的な研究の始まりとともにミルの原則に従えば、その時点での無知を永続化することになるであろう。それ以後は、少なくとも思考によっては、本質的に新しい発見はもはやなされえないであろう<a class="fr" href="#n11">11</a>。その論述が、事柄を完全に熟知しているという快い印象を自然研究者に与えるジェヴォンズは、仮説が事実と一致していれば十分であるとみなしている<a class="fr" href="#n12">12</a>。ちなみに、例のほうが一般的で抽象的な論述よりもこのことをよく説明するであろう。</p>
+  <ol class="notes"><li id="n9"><span class="nn">9</span><p class="de" lang="de">Mill, Induktive Logik. Ed. Gomperz. 1885. II. S. 208-225.</p><p class="jp" lang="ja">ミル『帰納論理学』ゴンペルツ編、1885年、第2巻、208–225頁。</p></li><li id="n10"><span class="nn">10</span><p class="de" lang="de">Hillebrand, Zur Lehre von der Hypothesenbildung. Sitzungsber. d. Wiener Akademie. Philos.-histor. Cl. Bd. 134. 1896.</p><p class="jp" lang="ja">ヒレブラント「仮説形成の理論のために」『ウィーン学士院会議報告』哲学史学部門、第134巻、1896年。</p></li><li id="n11"><span class="nn">11</span><p class="de" lang="de">Vgl. auch A. Stöhr, Leitfaden d. Logik, S. 172 u. f.</p><p class="jp" lang="ja">A. シュテール『論理学入門』172頁以下も参照。</p></li><li id="n12"><span class="nn">12</span><p class="de" lang="de">Jevons, The principles of science. London, 1892. S. 510.</p><p class="jp" lang="ja">ジェヴォンズ『科学の原理』ロンドン、1892年、510頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;240</span></span></aside>
+  <p class="de" lang="de">10. Die wesentliche Funktion einer Hypothese besteht darin, daß sie zu neuen Beobachtungen und Versuchen führt, wodurch unsere Vermutung bestätigt, widerlegt oder modifiziert, kurz die Erfahrung erweitert wird. Sehr gesunde Ansichten hierüber äußert schon Priestley in seiner Geschichte der Optik. „The very imperfect views and conclusions of the philosophers of this period exhibit an amusing and instructive prospect; as they demonstrate that it is by no means necessary to have just views, and a true hypothesis, a priori, in order to make real discoveries. Very lame and imperfect theories are sufficient to suggest useful experiments, which serve to correct those theories, and give birth to others more perfect.</p>
+  <p class="jp" lang="ja">10. 仮説の本質的な機能は、それが新しい観察と実験へと導き、それによってわれわれの推測が確証されたり、反駁されたり、修正されたりすること、要するに経験が拡張されることにある。これについてのきわめて健全な見解を、すでにプリーストリーがその光学史で述べている。「この時期の哲学者たちのきわめて不完全な見解と結論は、楽しくも教えられるところの多い眺めを呈している。というのも、それは、本当の発見をするために、ア・プリオリに正しい見解や真の仮説をもつことがけっして必要でないことを示しているからである。きわめて不完全で欠陥のある理論でも、有益な実験を示唆するには十分であり、その実験がそれらの理論を正し、より完全な他の理論を生み出すのである。</p>
+</article>
+<article class="row" id="p10.2">
+  <aside class="mg"><a class="pid" href="#p10.2">10.2</a><span class="pg"><span>S.&nbsp;240</span><span>S.&nbsp;241</span></span></aside>
+  <p class="de" lang="de">These then occasion farther experiments, which bring us still nearer to <span class="pb" title="Leipzig 1906, S. 241">241</span>the truth, and in this method of approximation, we must be content to proceed, and we ought to think ourselves happy, if, in this slow method, we make any real progress“.<a class="fr" href="#n13">13</a> Man kann den Gebrauch der Hypothese am besten durch ein Verfahren erläutern, welches in der Mathematik unter dem Namen der „regula falsi“ bekannt ist. Man will eine numerische Gleichung x⁴ + ax³ + bx² + cx + d = 0 versuchsweise auflösen, und substituiert einen gewissen Wert x₁ für x, d. h. man macht über diesen Wert eine bestimmte Voraussetzung. Das Polynom erhält dadurch den Wert + m₁ statt 0. Eine andere Substitution, x₂, führt etwa zu dem Werte − m₂ des Polynoms. Dann können wir zwischen x₁ und x₂ eine Wurzel der Gleichung suchen. Haben wir aber einen Wert x′ gefunden, welcher das Polynom auf einen kleinen Wert u reduziert, so können wir die Differenzen des x′ von der Wurzel x, also (x − x′), und die Werte u einander proportional setzen, und uns dadurch dem Werte x, der Wurzel, beliebig annähern.<a class="fr" href="#n14">14</a></p>
+  <p class="jp" lang="ja">それがさらなる実験のきっかけとなり、それがわれわれをいっそう真理に近づける。そしてこの近似の方法でわれわれは進むことに満足しなければならず、この緩やかな方法で何らかの本当の進歩をなしとげるならば、自分を幸福だと思うべきである」<a class="fr" href="#n13">13</a>。仮説の使用は、数学で「仮定法（regula falsi）」の名で知られている手続きによって最もよく説明できる。数値方程式 x⁴＋ax³＋bx²＋cx＋d＝0 を試行的に解こうとして、x にある値 x₁ を代入する、すなわちこの値について一定の前提を立てる。それによって多項式は 0 のかわりに値 ＋m₁ をとる。別の代入 x₂ は、たとえば多項式の値 －m₂ に導く。そうすると x₁ と x₂ のあいだに方程式の根を探すことができる。さらに、多項式を小さな値 u に減らす値 x′ が見いだされれば、根 x からの x′ の差、すなわち (x－x′) と値 u とを互いに比例させ、それによって根の値 x に任意に近づくことができる<a class="fr" href="#n14">14</a>。</p>
+  <ol class="notes"><li id="n13"><span class="nn">13</span><p class="de" lang="de">Priestley, History and present state of discoveries relating to vision, light and colours. London, 1772. Vol. I, p. 181.</p><p class="jp" lang="ja">プリーストリー『視覚・光・色に関する発見の歴史と現状』ロンドン、1772年、第1巻、181頁。</p></li><li id="n14"><span class="nn">14</span><p class="de" lang="de">Eine Besprechung des vorliegenden Buches durch Prof. G. Vailati in „Leonardo“ hat mich auf drei kleine Abhandlungen von G. L. Le Sage, „Sur la méthode d'hypothèse“, und zwei Supplemente über die Analogie und die Exklusion aufmerksam gemacht, welche P. Prevost im zweiten Bande seines „Essai de Philosophie“, Genève, An XIII (S. 253-335) abgedruckt hat. Le Sage erläutert den Gebrauch der Hypothese in logischer Beziehung in der Tat sehr gut an mathematischen Beispielen. Die psychologische Bedeutung der Hypothese scheint mir weniger gewürdigt. Für den Deutschen ist auch interessant die Besonnenheit in Prevosts Philosophie, die nie den Kontakt mit den positiven Wissenschaften verliert zu einer Zeit, in welcher der ungezügelte Dämon der Spekulation sich in Deutschland aller Lehrstühle bemächtigt. Ich verdanke Prof. Th. Flournoy in Genf die Einsicht in dieses heute schwer zu beschaffende Buch.</p><p class="jp" lang="ja">G. ヴァイラーティ教授による本書の書評（『レオナルド』誌）によって、私は G. L. ル・サージュの三つの小論文「仮説の方法について」と、類比および排除についての二つの補遺に注意を促された。それらは P. プレヴォがその『哲学試論』第2巻（ジュネーヴ、共和暦13年、253–335頁）に収めたものである。ル・サージュは、論理的な点での仮説の使用を、実際きわめてよく数学的な例によって説明している。仮説の心理学的意義はそれほど評価されていないように私には思われる。ドイツ人にとってはまた、ドイツでは奔放な思弁の悪霊があらゆる講座を占領していた時代に、実証科学との接触をけっして失わないプレヴォの哲学の思慮深さも興味深い。今日では入手困難なこの本を見ることができたのは、ジュネーヴの Th. フルールノワ教授のおかげである。</p></li></ol>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;241</span><span>S.&nbsp;242</span></span></aside>
+  <p class="de" lang="de">11. Als Beispiel betrachten wir zunächst die Wärmestoffhypothese. Dieselbe enthält eine anschauliche Vorstellung, welche als psychisches Phantasie-Merkmal associativ dem sinnlichen Wärmemerkmal eines Körpers hinzugefügt wird. Die Beobachtung des Feuers, der Erwärmung eines Körpers durch einen anderen wärmeren, und auf Kosten des letzteren, hat die Stoff- oder Flüssigkeitsvorstellung in ganz naiver, natürlicher, unwillkürlicher Weise entwickelt. Diese Vorstellung stellt zu<span class="pb" title="Leipzig 1906, S. 242">242</span>nächst die Tatsachen, welche sie erzeugt haben, lebhaft anschaulich dar, erleichtert aber auch die Auffindung neuer: der Richmannschen Mischungsregel, der Verschiedenheit der spezifischen Wärme, der Dampf- und Schmelzwärme, indem sie der Beobachtung auf halbem Wege entgegenkommt.</p>
+  <p class="jp" lang="ja">11. 例として、まず熱素仮説を考察しよう。それは、心的な空想の特徴として、物体の感性的な熱の特徴に連合的に付け加えられる直観的な表象を含んでいる。火の観察、ある物体がより温かい他の物体によって、しかも後者の犠牲において温められることの観察が、物質あるいは流体の表象を、まったく素朴に、自然に、意図せずに発展させた。この表象はまず、それを生み出した事実を生き生きと直観的に表すが、また観察を半ばまで迎えに行くことによって、リッヒマンの混合の規則、比熱の違い、蒸発熱と融解熱という新しい事実の発見をも容易にする。</p>
+</article>
+<article class="row" id="p11.2">
+  <aside class="mg"><a class="pid" href="#p11.2">11.2</a><span class="pg"><span>S.&nbsp;242</span></span></aside>
+  <p class="de" lang="de">Ganz ähnlich entstehen die elektrischen Fluidumsvorstellungen unter Leitung der Tatsachen der Mitteilung des elektrischen Zustandes, der Funkenbildung u. s. w. Die Vorstellung der in dem Leiter beweglichen, in dem Nichtleiter festgehaltenen Flüssigkeiten, an welchen die Anziehungs- und Abstoßungskräfte haften, reproduziert aber nicht nur in anschaulicher Weise die bekannten Tatsachen, sondern fördert auch die Auffindung ganz neuer: der Ladung der Leiter an der Oberfläche, der Verteilung der Ladung nach der Krümmung, der Influenz, ja sogar der quantitativen Coulombschen Gesetze. Wie viel solche Vorstellungen als indirekte Beschreibungen<a class="fr" href="#n15">15</a> noch bleibenden Wert haben, nachdem sie längst überwunden sind, und nicht mehr ernst genommen werden, sieht man z. B. daraus, daß man auch heute die Produktion einer bestimmten Elektrizitätsmenge, entsprechend dem Faradayschen elektrolytischen Grundgesetz, an einen proportionalen Stoffaufwand gebunden denken muß.</p>
+  <p class="jp" lang="ja">まったく同様に、電気の流体の表象が、電気状態の伝達や火花の形成などの事実に導かれて生じる。導体のなかでは動き、不導体のなかでは固定され、引力と斥力がそれに付着しているという流体の表象は、既知の事実を直観的な仕方で再現するばかりでなく、導体の表面への帯電、曲率に応じた電荷の分布、誘導、さらにはクーロンの量的法則といったまったく新しい事実の発見をも促す。このような表象が、とうに克服され、もはや真剣に受け取られなくなったのちにも、間接的記述<a class="fr" href="#n15">15</a>としてなおどれほど持続的な価値をもつかは、たとえば今日でも、ファラデーの電気分解の基本法則に従って、一定の電気量の産出を比例する物質の消費に結びついたものと考えなければならないことから分かる。</p>
+  <ol class="notes"><li id="n15"><span class="nn">15</span><p class="de" lang="de">Vgl. Popul.-wissensch. Vorlesungen. 3. Aufl. S. 267 u. f.</p><p class="jp" lang="ja">『通俗科学講義』第3版、267頁以下参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;242</span></span></aside>
+  <p class="de" lang="de">12. Auch die Emissionshypothese in Bezug auf das Licht gehört zu der Klasse der Stoffhypothesen. Die Beobachtung eines Lichtstrahls, der Verdichtung und Verdünnung von Strahlen mit Vergrößerung und Verkleinerung der Helligkeit führt ganz ohne Absicht dazu, den Strahl als einen Flüssigkeit-, Staub- oder Projektilstrahl aufzufassen, und nur die Flüchtigkeit des Lichtes stellt sich dieser Auffassung gelegentlich wieder in den Weg. Die große Anpassungsfähigkeit der Hypothesen an die Tatsachen zeigt sich darin, daß die Stoffhypothese des Lichtes, welche uns heute als eine so ungelenkige erscheint, Malus nicht verhindert hat, das sogenannte Cosinusquadratgesetz, das Teilungsgesetz des polarisierten Strahls, in zwei zueinander senkrecht polarisierte Komponenten zu finden.</p>
+  <p class="jp" lang="ja">12. 光に関する放射仮説もまた物質仮説の類に属する。光線、光線の集中と発散にともなう明るさの増減の観察は、まったく意図なしに、光線を流体の、塵の、あるいは射出体の流れとして把握することへと導き、ただ光のはかなさだけが、ときおりこの把握の邪魔をする。仮説の事実への大きな適応能力は、今日ではかくも融通のきかないものに見える光の物質仮説が、マリュスがいわゆる余弦二乗則、すなわち偏光した光線が互いに垂直に偏光した二つの成分に分割される法則を見いだすのを妨げなかったことに現れている。</p>
+</article>
+<article class="row" id="p12.2">
+  <aside class="mg"><a class="pid" href="#p12.2">12.2</a><span class="pg"><span>S.&nbsp;242</span><span>S.&nbsp;243</span></span></aside>
+  <p class="de" lang="de">Dasselbe Gesetz, welches Fresnel aus der Erhaltung der lebendigen Kraft des Lichtes ableitete, gewann Malus höchstwahrscheinlich, indem er sich <span class="pb" title="Leipzig 1906, S. 243">243</span>von dem unausgesprochenen Gedanken beherrschen ließ, daß bei der Teilung in Komponenten die Quantität des Lichtstoffes unverändert bleiben müsse, was wieder nur bei Erfüllung des Cosinusquadratgesetzes in einfachster Weise zutrifft. Jevons<a class="fr" href="#n16">16</a> hat Unrecht, derartige Stoffhypothesen als bloß beschreibende aus den eigentlich erklärenden auszuscheiden. Jede Hypothese muß die Tatsache, für welche sie zunächst gemacht ist, darstellen. Dies folgt schon aus der einzigen Forderung, die Jevons selbst an eine Hypothese stellt. Wie weit oder wie wenig eine Hypothese über diese Tatsache hinausreicht, welche zu deren Entstehung Anlaß gegeben hat, ob sie zu vielen oder wenigen Entdeckungen verhilft, das hängt vom Glück ab.</p>
+  <p class="jp" lang="ja">フレネルが光の活力の保存から導き出したのと同じ法則を、マリュスはおそらく、成分への分割の際に光の物質の量は変わらないままでなければならないという、口に出されない考えに支配されることによって得たのであろう。そしてそれはまた、余弦二乗則が満たされるときにのみ最も単純な仕方で成り立つのである。ジェヴォンズ<a class="fr" href="#n16">16</a>が、このような物質仮説を単に記述的なものとして、本来の説明的なものから除外するのは不当である。どの仮説も、それがまずそのためにつくられた事実を表さなければならない。このことはすでに、ジェヴォンズ自身が仮説に課す唯一の要求から帰結する。仮説が、その成立のきっかけとなった事実をどれほど越えて及ぶか、あるいは及ばないか、それが多くの発見を助けるか少しの発見しか助けないかは、運次第である。</p>
+  <ol class="notes"><li id="n16"><span class="nn">16</span><p class="de" lang="de">Jevons, Principles of science. S. 522 u. f.</p><p class="jp" lang="ja">ジェヴォンズ『科学の原理』522頁以下。</p></li></ol>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;243</span></span></aside>
+  <p class="de" lang="de">13. Bei Bildung einer Hypothese sucht man den Eigenschaften einer Tatsache unter den besonderen beschränkten Umständen, welche die Beobachtung eben kennen gelehrt hat, gerecht zu werden, ohne natürlich voraus zu wissen, ob ihr diese Eigenschaften auch noch unter andern allgemeinern Umständen zukommen werden, ob also die Hypothese auch noch unter diesen Umständen passen, und wie weit sie reichen wird. Den Stoff, die Elemente zu den hypothetischen Vorstellungen können wir nur unserer derzeit bekannten sinnlichen Umgebung entlehnen, durch Beachtung von Fällen, welche mit den aktuellen eine Ähnlichkeit oder Analogie darbieten. Ähnlichkeit ist nicht Identität. Ähnlichkeit ist teilweise Gleichheit, teilweise Verschiedenheit. Darin liegt schon, daß eine nach der Analogie aufgestellte Hypothese bei Erweiterung der Erfahrung in manchen Fällen zutreffen, in anderen Fällen gewiß nicht zutreffen wird.</p>
+  <p class="jp" lang="ja">13. 仮説を形成する際には、観察がちょうど教えた特別な限られた事情のもとでの事実の性質を正当に扱おうとする。もちろん、それらの性質がほかのより一般的な事情のもとでも事実にそなわるかどうか、したがってその仮説がそのような事情のもとでもなお適合するかどうか、どこまで及ぶかを、前もって知ることはない。仮説的な表象の素材、要素を、われわれは現在知っている感性的環境から、目下の場合と類似あるいは類比を示す場合に注意を払うことによってのみ借りてくることができる。類似は同一性ではない。類似とは部分的な等しさ、部分的な違いである。そこにすでに、類比に従って立てられた仮説が、経験の拡張に際して、ある場合には当たり、別の場合には確かに当たらないであろうということが含まれている。</p>
+</article>
+<article class="row" id="p13.2">
+  <aside class="mg"><a class="pid" href="#p13.2">13.2</a><span class="pg"><span>S.&nbsp;243</span><span>S.&nbsp;244</span></span></aside>
+  <p class="de" lang="de">Die Hypothese ist also schon ihrer Natur nach dazu bestimmt, im Laufe der Untersuchung geändert, den neuen Erfahrungen angepaßt, ja wieder fallen gelassen, durch eine ganz neue oder durch die volle Kenntnis der Tatsachen ersetzt zu werden. Forscher, die sich das eben Gesagte gegenwärtig halten, werden bei Aufstellung einer Hypothese nicht gar zu ängstlich sein. Etwas Mut bei dieser Gelegenheit ist im Gegenteil sehr förderlich. Die Huygenssche Wellenhypothese paßte durchaus nicht allseitig, und ihre Begründung ließ viel zu wünschen <span class="pb" title="Leipzig 1906, S. 244">244</span>übrig, machte auch noch späten Nachfolgern viel zu schaffen. Hätte aber Huygens um dieser Schwierigkeiten willen die Hypothese fallen gelassen, so wäre viel Vorarbeit für Young und Fresnel ungetan geblieben, und diese Forscher hätten sich wahrscheinlich auf den ersten Anlauf beschränken müssen.</p>
+  <p class="jp" lang="ja">したがって仮説は、すでにその本性上、研究の過程で変更され、新しい経験に適応させられ、それどころか再び捨てられ、まったく新しい仮説によって、あるいは事実の完全な知識によって置き換えられるよう定められているのである。いま述べたことを心にとめている研究者は、仮説を立てる際にあまりにびくびくすることはないであろう。むしろこの機会にはいくらかの勇気がきわめて有益である。ホイヘンスの波動仮説はけっしてあらゆる点で適合したわけではなく、その基礎づけには多くの不満が残り、のちの後継者たちをも大いに悩ませた。しかしホイヘンスがこれらの困難のためにその仮説を捨てていたならば、ヤングとフレネルのための多くの準備作業はなされないままであり、これらの研究者はおそらく最初の取りかかりに限られなければならなかったであろう。</p>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;244</span></span></aside>
+  <p class="de" lang="de">14. Die Emissionshypothese der Optik paßt sich allmählich den neu zuwachsenden Erfahrungen an. Ein gleichmäßiger Emissionsstrom genügt Grimaldi nicht mehr. Seine Beugungsstreifen führen ihn zur Vorstellung eines wellenförmigen Abflusses der Lichtflüssigkeit, wahrscheinlich nach Analogie der Stauungswellen. Für Newton handelt es sich nicht mehr um einen einfachen Emissionsstrom, sondern um eine große Zahl sich deckender, qualitativ verschiedener Emissionsströme. In Newtons Hand wird die Hypothese sogar der Periodizität des Lichts gerecht, wenn auch in unzureichender, ungelenkiger Weise, und auf Grund von teilweise unrichtigen Erfahrungsprämissen.</p>
+  <p class="jp" lang="ja">14. 光学の放射仮説は、新たに加わる経験にしだいに適応していく。グリマルディにはもはや一様な放射の流れでは足りない。彼の回折縞は、おそらくせき止められた波との類比に従って、光の流体の波状の流出という表象へと彼を導く。ニュートンにとって問題なのは、もはや単純な放射の流れではなく、重なり合う、質的に異なる多数の放射の流れである。ニュートンの手のなかで、この仮説は、不十分で融通のきかない仕方で、また部分的に誤った経験的前提にもとづいてではあれ、光の周期性さえ正当に扱うのである。</p>
+</article>
+<article class="row" id="p14.2">
+  <aside class="mg"><a class="pid" href="#p14.2">14.2</a><span class="pg"><span>S.&nbsp;244</span></span></aside>
+  <p class="de" lang="de">Endlich tritt die Wellenhypothese offen an die Stelle der Emissionstheorie. Zunächst nimmt sie in der Huygensschen Form keine Rücksicht auf die Periodizität und Polarisation. Die Hookesche führt zwar das Element der Periodizität ein, weiß dasselbe aber, anderer Unvollkommenheiten nicht zu gedenken, in keine angemessene Beziehung zu den Farben zu setzen. Young und Fresnel endlich vereinigen in ihren Hypothesen die Vorzüge der Huygensschen und Hookeschen; namentlich Fresnel weiß die Mängel beider zu beseitigen und neue Eigenschaften mit Rücksicht auf die Polarisation hinzuzufügen. So arbeitet die Erfahrung unausgesetzt an der Umwandlung und Vervollständigung unserer Vorstellungen.<a class="fr" href="#n17">17</a></p>
+  <p class="jp" lang="ja">ついに波動仮説が公然と放射理論に取って代わる。まずホイヘンスの形では、それは周期性と偏光を顧慮しない。フックのものは周期性の要素を導入するが、他の不完全さは言うまでもなく、それを色と適切な関係に置くすべを知らない。最後にヤングとフレネルは、その仮説においてホイヘンスとフックの長所を結びつける。とりわけフレネルは両者の欠陥を取り除き、偏光を顧慮して新しい性質を付け加えるすべを心得ている。こうして経験はたえずわれわれの表象の変形と補完に取り組んでいるのである<a class="fr" href="#n17">17</a>。</p>
+  <ol class="notes"><li id="n17"><span class="nn">17</span><p class="de" lang="de">Duhem (La Théorie physique, p. 364 u. f.) führt aus, daß Hypothesen vom Forscher nicht so sehr beliebig und willkürlich gewählt werden, als vielmehr im Laufe der historischen Entwicklung unter dem Eindruck der allmählich bekannt werdenden Tatsachen dem Forscher sich aufdrängen. Eine solche Hypothese besteht gewöhnlich aus einem ganzen Komplex von Vorstellungen. Ergibt sich nun, z. B. durch ein „experimentum crucis“, ein mit einer Hypothese unverträglicher Erfolg, so kann man diesen zunächst nur als dem ganzen Vorstellungskomplex widersprechend ansehen. In Bezug auf letzteren Punkt vgl. Duhem, l. c. p. 311 u. f.</p><p class="jp" lang="ja">デュエム（『物理理論』364頁以下）は、仮説は研究者によってそれほど任意に恣意的に選ばれるのではなく、むしろ歴史的発展の過程で、しだいに知られるようになる事実の印象のもとに研究者に迫ってくるのだと論じている。このような仮説はふつう表象の複合体全体からなる。さて、たとえば「決定実験」によって、ある仮説と両立しない結果が生じても、それはさしあたり表象複合体全体に矛盾するとしかみなせない。この後者の点については、デュエム前掲書311頁以下を参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;244</span><span>S.&nbsp;245</span></span></aside>
+  <p class="de" lang="de">15. Aber auch die Vorstellungen, welche wir uns gebildet <span class="pb" title="Leipzig 1906, S. 245">245</span>haben, äußern ihren Einfluß auf den Gang der Erfahrung. Die Grimaldischen Streifen veranlassen uns auch, dem einzelnen Lichtstrahl eine periodische Beschaffenheit zuzuschreiben, obgleich dieselbe an diesem nicht unmittelbar wahrgenommen werden kann, sondern sich nur bei Kombination von Strahlen unter besonders günstigen Bedingungen äußert. Dieser Gedanke wird durch die Wellenhypothese sehr anschaulich und lebendig gestaltet. Indem wir nun die Vorstellung der Periodizität, die in einem Falle gewonnen wurde, in allen Fällen, wo Lichtstrahlen auftreten, festhalten, bereichern wir durch diesen Gedanken jede optische Tatsache.</p>
+  <p class="jp" lang="ja">15. しかしわれわれがつくり上げた表象もまた、経験の歩みに影響を及ぼす。グリマルディの縞は、個々の光線に周期的な性状を認めるようにもわれわれを促す。それは個々の光線において直接に知覚されうるのではなく、光線がとくに好都合な条件のもとで組み合わされたときにのみ現れるのであるが。この考えは波動仮説によってきわめて直観的で生き生きとしたものとなる。さて、ある場合に得られた周期性の表象を、光線が現れるあらゆる場合に保持することによって、われわれはこの考えによってどの光学的事実をも豊かにするのである。</p>
+</article>
+<article class="row" id="p15.2">
+  <aside class="mg"><a class="pid" href="#p15.2">15.2</a><span class="pg"><span>S.&nbsp;245</span></span></aside>
+  <p class="de" lang="de">Wir denken eigentlich zu jedem Fall mehr hinzu als man in demselben sieht, wir bereichern jeden optischen Fall um den Grimaldischen. Der so ausgestattete Physiker wird sich nun, ganz wie jeder Mensch mit reicherer Erfahrung im praktischen Leben, dem Einzelfall gegenüber anders verhalten, als es ohne diese Nebenvorstellungen geschehen würde. Er wird mehr und anderes erwarten, wird seine Versuche anders anlegen. So wird es verständlich, daß Fresnel, der immer die Grimaldische Erfahrung gegenwärtig hat, über die Beugung, die Farben dünner Blättchen, die Reflexion und Polarisation anders denkt und experimentiert als Newton, Huygens und Malus.</p>
+  <p class="jp" lang="ja">われわれは本来、どの場合にも、そこに見える以上のものを付け加えて考えている。どの光学的場合をもグリマルディの場合によって豊かにしているのである。このようにそなえた物理学者は、実生活においてより豊かな経験をもつどんな人とも同じく、個々の場合に対して、これらの副次的表象がない場合とは違ったふるまいをするであろう。彼はより多くのこと、別のことを期待し、実験を違ったふうに設計するであろう。こうして、いつもグリマルディの経験を念頭に置いていたフレネルが、回折、薄膜の色、反射と偏光について、ニュートン、ホイヘンス、マリュスとは違ったふうに考え、実験したことが理解できる。</p>
+</article>
+<h2 class="sec" id="s16"><a href="#s16">§ 16</a></h2>
+<article class="row" id="p16.1">
+  <aside class="mg"><a class="pid" href="#p16.1">16.1</a><span class="pg"><span>S.&nbsp;245</span><span>S.&nbsp;246</span></span></aside>
+  <p class="de" lang="de">16. Außer den Elementen, welche zur Darstellung der Tatsachen, aus der eine Hypothese geschöpft ist, unerläßlich sind, enthält dieselbe immer, oder doch gewöhnlich noch andere, die zu dieser Darstellung nicht notwendig sind. Denn die Hypothese wird nach einer Analogie gebildet, deren Ähnlichkeits- und Differenzpunkte unvollständig bekannt sind, da ja sonst nichts mehr daran zu erforschen wäre. Die Lichtlehre spricht z. B. von Wellen, während nur die Periodizität zum Verständnis der Tatsachen notwendig ist. Diese über die Notwendigkeit hinausgehenden accessorischen Elemente sind es, welche in der Wechselwirkung von Denken und Erfahrung von der Umwandlung ergriffen werden. Dieselben werden allmählich ausgeschieden, und durch notwendige Elemente ersetzt. So bleibt von der Emissionsvorstellung nichts übrig, als die große Fortpflanzungsgeschwindigkeit vieler verschiedener Lichter von verschiedener Periodizität in demselben Strahl. Diese Vorstellung deckt sich <span class="pb" title="Leipzig 1906, S. 246">246</span>in wesentlichen Punkten mit der an ihre Stelle tretenden Wellenhypothese, welche aber ihrerseits ihre accessorischen Elemente, die nach Analogie des Schalles gedachten longitudinalen Schwingungen, wieder fallen lassen muß.</p>
+  <p class="jp" lang="ja">16. 仮説は、それが汲み取られた事実を表すのに欠かせない要素のほかに、つねに、あるいは少なくともふつうは、この表現に必要でない他の要素をも含んでいる。というのも仮説は、その類似点と相違点とが不完全にしか知られていない類比に従って形成されるのであり、そうでなければもはやそこに何も研究すべきものはないであろうからである。たとえば光学は波について語るが、事実の理解に必要なのは周期性だけである。必要性を越えるこれらの付随的な要素こそが、思考と経験との相互作用のなかで変形にとらえられるのである。それらはしだいに除かれ、必要な要素によって置き換えられる。こうして放射の表象からは、同じ光線のなかの異なる周期性をもつ多くの異なる光の大きな伝播速度以外には何も残らない。この表象は、その代わりに現れる波動仮説と本質的な点で一致するが、波動仮説のほうも、音との類比で考えられた縦振動というその付随的な要素を、再び捨てなければならない。</p>
+</article>
+<h2 class="sec" id="s17"><a href="#s17">§ 17</a></h2>
+<article class="row" id="p17.1">
+  <aside class="mg"><a class="pid" href="#p17.1">17.1</a><span class="pg"><span>S.&nbsp;246</span></span></aside>
+  <p class="de" lang="de">17. Die Vorstellungen, die wir uns auf Grund der Beobachtungen gebildet haben, erregen Erwartungen, wirken aktiv und konstruktiv, drängen zu neuen Beobachtungen und Experimenten. Die haltbaren Elemente dieser Vorstellungen werden dadurch gestärkt, die unhaltbaren abgeworfen, modifiziert, gelegentlich auch durch neue ersetzt. Von besonderer Wichtigkeit sind solche Experimente, welche zur Entscheidung zwischen zwei die Tatsachen darstellenden Vorstellungen oder Vorstellungskomplexen nötigen. Die Frage, ob die Farben durch Brechung entstehen, oder schon vor der Brechung vorhanden sind, und nur durch Verschiedenheit des Brechungsexponenten sichtbar werden, hat Newton durch sein experimentum crucis entschieden.</p>
+  <p class="jp" lang="ja">17. 観察にもとづいてつくり上げた表象は、期待を呼び起こし、能動的かつ構成的にはたらき、新しい観察と実験へと駆り立てる。それによってこれらの表象の維持しうる要素は強められ、維持しえない要素は捨てられ、修正され、ときには新しいものによって置き換えられる。事実を表す二つの表象あるいは表象複合体のあいだで決定を迫るような実験は、とりわけ重要である。色が屈折によって生じるのか、それとも屈折以前にすでに存在しており、屈折率の違いによって見えるようになるだけなのかという問いを、ニュートンはその決定実験（experimentum crucis）によって決着させた。</p>
+</article>
+<article class="row" id="p17.2">
+  <aside class="mg"><a class="pid" href="#p17.2">17.2</a><span class="pg"><span>S.&nbsp;246</span></span></aside>
+  <p class="de" lang="de">Es ist dies der von Bacon eingeführte, von Newton angenommene Name für solche zwischen zwei Ansichten entscheidende Experimente. Ein wichtiges derartiges Experiment ist Foucaults Versuch, durch welchen nachgewiesen wird, daß die Lichtgeschwindigkeit im Wasser kleiner ist als in der Luft, wodurch die Emissionstheorie als unhaltbar nachgewiesen und zu Gunsten der Vibrationstheorie entschieden wird. Die Entdeckung der Phasen der Venus durch Galilei entschied für das kopernikanische System, aus welchem diese Erscheinung notwendig folgte. In demselben Sinne wirkte die Beobachtung der von Hooke erwarteten Lotabweichung fallender Körper, sowie der Foucaultsche Pendelversuch.</p>
+  <p class="jp" lang="ja">これは、二つの見解のあいだで決定するこのような実験に対して、ベーコンが導入し、ニュートンが採用した名称である。この種の重要な実験はフーコーの実験であり、それによって水中の光速が空気中より小さいことが証明され、それによって放射理論が維持しえないものと証明され、振動理論に有利な決定が下される。ガリレイによる金星の満ち欠けの発見は、この現象が必然的に帰結するコペルニクスの体系に有利な決定を下した。同じ意味で、フックが期待した落下物体の鉛直線からのずれの観察と、フーコーの振り子の実験がはたらいた。</p>
+</article>
+<h2 class="sec" id="s18"><a href="#s18">§ 18</a></h2>
+<article class="row" id="p18.1">
+  <aside class="mg"><a class="pid" href="#p18.1">18.1</a><span class="pg"><span>S.&nbsp;246</span><span>S.&nbsp;247</span></span></aside>
+  <p class="de" lang="de">18. Eine Hypothese kann in sehr verschiedener Art und in sehr verschiedenem Maße problematisch sein. Zur Erklärung des Saugens wurde die bekannte Hypothese des horror vacui erdacht. Würden wir nirgends in der Welt, unter keinerlei Umständen ein Vakuum antreffen, so könnten wir diese Auffassung festhalten. Eine andere Hypothese führt dieselben Erscheinungen auf den Druck zurück, den die Luft durch ihr Gewicht ausübt. Obgleich nun das Gewicht der Luft zur Zeit der Aufstellung dieser Erklärung bereits tatsächlich nachgewiesen war, so war diese Erklärung doch so lange eine Hypothese, bis <span class="pb" title="Leipzig 1906, S. 247">247</span>durch das Experiment von Torricelli und die Versuche von Pascal, namentlich durch das Bergexperiment, auch der tatsächliche Nachweis geliefert war, daß sich alle fraglichen Erscheinungen ohne Rest erklären lassen, und daß daneben nach einer anderen Erklärung weder ein Bedürfnis besteht, noch auch für dieselbe Raum bleibt.</p>
+  <p class="jp" lang="ja">18. 仮説はきわめてさまざまな仕方で、きわめてさまざまな程度に、問題をはらんだものでありうる。吸い上げることを説明するために、よく知られた「真空嫌悪（horror vacui）」の仮説が考え出された。もし世界のどこにも、どんな事情のもとでも真空に出会わないのであれば、この把握を保持することもできたであろう。別の仮説は、同じ現象を、空気がその重さによって及ぼす圧力に帰着させる。さて、空気の重さはこの説明が立てられた時点ですでに事実として証明されていたが、それでもこの説明は、トリチェリの実験とパスカルの諸実験、とりわけ山の実験によって、問題となる現象がすべて余すところなく説明され、それと並んで別の説明が必要とされることも、それに余地が残ることもないという事実による証明が与えられるまでは、仮説であった。</p>
+</article>
+<article class="row" id="p18.2">
+  <aside class="mg"><a class="pid" href="#p18.2">18.2</a><span class="pg"><span>S.&nbsp;247</span></span></aside>
+  <p class="de" lang="de">Obgleich also die eine Erklärung, um es deutlich auszudrücken, ganz freie Erfindung ist, die andere aber nur mit tatsächlichen Elementen operiert, so haben doch beide zur Zeit ihrer Aufstellung den Charakter der Hypothese. Ein anderes Beispiel ist die Erklärung kosmischer Bewegungen durch die Schwere. Die Vorstellung der tatsächlich gegebenen Schwerebeschleunigung wird mit einer verallgemeinernden Modifikation in das astronomische Gebiet eingeführt. Ich kann darin F. Hillebrand<a class="fr" href="#n18">18</a> nicht beistimmen, daß in der Newtonschen Gravitationstheorie die Hypothese keine Rolle gespielt habe. Es ist ja richtig, in der fertigen Gravitationslehre kommt alles auf zweckmäßige Beschreibung der kosmischen Bewegungen durch Beschleunigungen hinaus. In diesem System geht auch die Beschleunigung eines Massenteilchens einfach ohne Rest in die irdische Schwerebeschleunigung über, wenn wir uns das Teilchen an der Oberfläche der Erde denken. Da ist also jede Hypothese überflüssig, indem sich die Erdschwere als ein spezieller Fall der Gravitation ergibt.</p>
+  <p class="jp" lang="ja">したがって、はっきり言えば一方の説明はまったく自由な創作であり、他方は事実的な要素だけで操作しているにもかかわらず、両者ともその提出の時点では仮説の性格をもっていたのである。もう一つの例は、宇宙の運動を重力によって説明することである。事実として与えられた重力加速度の表象が、一般化する修正を加えて天文学の領域に導入される。ニュートンの重力理論においては仮説はまったく役割を演じなかったという点で、私は F. ヒレブラント<a class="fr" href="#n18">18</a>に同意できない。たしかに完成した重力論においては、すべては宇宙の運動を加速度によって目的にかなうように記述することに帰着する。この体系においては、質量粒子の加速度は、その粒子を地球の表面にあると考えれば、余すところなく地上の重力加速度へと移行する。そこではあらゆる仮説が余計であり、地球の重力は重力の特殊な場合として生じるのである。</p>
+  <ol class="notes"><li id="n18"><span class="nn">18</span><p class="de" lang="de">Hillebrand, a. a. O.</p><p class="jp" lang="ja">ヒレブラント前掲論文。</p></li></ol>
+</article>
+<article class="row" id="p18.3">
+  <aside class="mg"><a class="pid" href="#p18.3">18.3</a><span class="pg"><span>S.&nbsp;247</span><span>S.&nbsp;248</span></span></aside>
+  <p class="de" lang="de">Es ist auch logisch denkbar, daß jemand die Keplersche Bewegung rein phoronomisch analysiert, und darauf verfällt, sie durch Beschleunigungen zu beschreiben, welche den Radien nach der Sonne verkehrt quadratisch proportioniert und nach denselben gerichtet sind. Dieser Vorgang ist aber nach meiner Meinung psychologisch undenkbar. Wie soll jemand ohne leitende physikalische Vorstellung gerade auf die Beschleunigungen verfallen, warum nicht auf die ersten oder dritten Differentialquotienten? Wie soll jemand unter den unendlich vielen möglichen Zerlegungen der Bewegung nach zwei Richtungen gerade auf diejenigen verfallen, welche ein so einfaches Resultat liefern? Ich halte schon die Analyse der parabolischen Wurfbewegung für sehr schwierig, ohne die leitende Vorstellung der Schwere<span class="pb" title="Leipzig 1906, S. 248">248</span>beschleunigung, die nur an einem viel einfacheren Fall gewonnen werden konnte, und die hier verwendet wird.</p>
+  <p class="jp" lang="ja">また、誰かがケプラーの運動を純粋に運動学的に分析し、それを、太陽への動径に沿って向けられ、動径の二乗に反比例する加速度によって記述することを思いつくことも、論理的には考えられる。しかしこの過程は、私の考えでは心理学的には考えられない。導きとなる物理的表象なしに、どうして誰かがまさに加速度を思いつくのか。なぜ一階や三階の微分係数ではないのか。二つの方向への運動の無限に多くの可能な分解のなかから、どうして誰かがまさにこれほど単純な結果を与えるものを思いつくのか。投射の放物運動の分析でさえ、はるかに単純な場合においてのみ得られ、ここで用いられている重力加速度という導きとなる表象なしには、きわめて難しいと私は考える。</p>
+</article>
+<h2 class="sec" id="s19"><a href="#s19">§ 19</a></h2>
+<article class="row" id="p19.1">
+  <aside class="mg"><a class="pid" href="#p19.1">19.1</a><span class="pg"><span>S.&nbsp;248</span></span></aside>
+  <p class="de" lang="de">19. Die werdende Wissenschaft bewegt sich in Vermutungen und Gleichnissen — das läßt sich nicht in Abrede stellen. Je mehr sie sich aber der Vollendung nähert, desto mehr geht sie in bloße direkte Beschreibung des Tatsächlichen über. Die Analogie einer Tatsache zu anderen hilft uns nach neuen Eigenschaften suchen. Ob sich aber neue Übereinstimmungen oder Unterschiede gegen jene Analogie ergeben, jedenfalls gewinnt dabei die Erfahrung. Sowohl die beobachteten Übereinstimmungen, als auch die Differenzen bedeuten ebensoviele neue begriffliche Bestimmungen der Eigenschaften der Tatsachen. Die Anknüpfung der Forscher an die Vorgänger, welche den Verlust bereits erworbener Erfahrung ausschließt, ist für diesen Prozeß ebenso wichtig, wie der Wechsel der forschenden Individuen, Völker und Rassen, welcher die Vielseitigkeit und Unbefangenheit des Blickes verbürgt.</p>
+  <p class="jp" lang="ja">19. 生成しつつある科学は推測と比喩のうちを動く——これは否定できない。しかし完成に近づけば近づくほど、それは事実的なものの単なる直接的記述へと移っていく。ある事実の他の事実との類比は、新しい性質を探すのを助ける。しかしその類比に対して新しい一致が生じるにせよ相違が生じるにせよ、いずれにせよ経験は得るところがある。観察された一致も相違も、事実の性質の同じだけの新しい概念的規定を意味する。すでに獲得された経験の喪失を排除する先人への研究者の結びつきは、この過程にとって、見方の多面性と偏りのなさを保証する研究する個人、民族、人種の交替と同じく重要である。</p>
+</article>
+<h2 class="sec" id="s20"><a href="#s20">§ 20</a></h2>
+<article class="row" id="p20.1">
+  <aside class="mg"><a class="pid" href="#p20.1">20.1</a><span class="pg"><span>S.&nbsp;248</span></span></aside>
+  <p class="de" lang="de">20. Die Hypothese führt also in ihrer selbstzerstörenden Funktion endlich zum begrifflichen Ausdruck der Tatsachen. Erinnern wir uns, durch welche Reihe von Annahmen und Korrekturen man zur Ansicht der transversalen Lichtschwingungen gelangte, die anfänglich als ganz abenteuerlich und ohne Analogie dastehend bedenklich gefunden wurde. Doch ist die Einsicht, daß die periodischen Eigenschaften des Lichtstrahls sich wie geometrisch summierbare Strecken in einem zweidimensionalen Raume (der zur Strahlenrichtung senkrechten Ebene) verhalten, lediglich ein begrifflicher Ausdruck der Tatsachen. Ebenso haben sich die Eigenschaften des Äthers, des lichtfortpflanzenden Raumes, der sich teilweise wie eine Flüssigkeit, teilweise aber wieder wie ein starrer Körper verhält, nach und nach begrifflich bestimmt. Die Auffassungen, welche sich so ergeben haben, sind keine Hypothesen mehr, sondern Forderungen der Denkbarkeit der Tatsachen, Ergebnisse der analytischen Untersuchung.</p>
+  <p class="jp" lang="ja">20. こうして仮説は、その自己破壊的な機能において、ついに事実の概念的表現へと導く。はじめはまったく奇想天外で類比のないものとして懸念された光の横振動という見解に、どのような想定と修正の系列を経て到達したかを思い起こそう。しかし、光線の周期的性質が二次元空間（光線の方向に垂直な平面）における幾何学的に加算できる線分のようにふるまうという洞察は、単に事実の概念的表現にすぎない。同様に、一部は流体のように、一部はまた剛体のようにふるまう、光を伝える空間であるエーテルの性質も、しだいに概念的に規定されてきた。こうして生じた把握はもはや仮説ではなく、事実の思考可能性の要求、分析的研究の成果である。</p>
+</article>
+<article class="row" id="p20.2">
+  <aside class="mg"><a class="pid" href="#p20.2">20.2</a><span class="pg"><span>S.&nbsp;248</span><span>S.&nbsp;249</span></span></aside>
+  <p class="de" lang="de">Wir können an denselben als sicher festhalten, auch wenn wir gar keine Analogie dafür finden, wenn wir sonst nirgends in der Welt transversale Schwingungen oder eine Flüssigkeit, in der solche möglich wären, antreffen. Hätten Young und Fresnel die Annahme der transversalen Wellen wegen der Schwierigkeit <span class="pb" title="Leipzig 1906, S. 249">249</span>der Erklärung derselben verschwiegen, so hätte die Wissenschaft dadurch einen ebenso schweren Verlust erlitten, wie durch die Unterdrückung des Newtonschen Gravitationsgesetzes wegen analoger Bedenken. Wir dürfen vor ungewohnten Auffassungen, wenn sie auf sicheren Grundlagen ruhen, nicht zurückschrecken. Denn die Möglichkeit auf fundamental neue Tatsachen zu treffen hat nicht nur in den früheren Forschungsperioden bestanden, sie besteht auch jetzt noch fort und hat an keinem Tage aufgehört zu bestehen. In den Millschen, die Hypothese beschränkenden Regeln spricht sich eine große Überschätzung des bereits Gefundenen gegenüber dem noch zu Erforschenden aus.</p>
+  <p class="jp" lang="ja">たとえそれに対して何の類比も見いださなくても、世界のどこにも横振動やそれが可能な流体に出会わなくても、われわれはそれを確かなものとして保持することができる。もしヤングとフレネルが、その説明の困難のゆえに横波の想定を黙っていたならば、科学はそれによって、類似の懸念のゆえにニュートンの重力法則を抑えた場合と同じく重大な損失をこうむったであろう。確かな基礎の上に立っているならば、慣れない把握の前でたじろいではならない。というのも、根本的に新しい事実に出会う可能性は、以前の研究時期に存在しただけでなく、いまもなお存続しており、一日たりとも存在することをやめたことはないからである。仮説を制限するミルの規則には、まだ研究されるべきものに対して、すでに見いだされたものを大いに過大評価する態度が表れている。</p>
+</article>
+<h2 class="sec" id="s21"><a href="#s21">§ 21</a></h2>
+<article class="row" id="p21.1">
+  <aside class="mg"><a class="pid" href="#p21.1">21.1</a><span class="pg"><span>S.&nbsp;249</span></span></aside>
+  <p class="de" lang="de">21. Wenn wir abstrakt genug denken würden, so würden wir einer Tatsache nur diejenigen begrifflichen Merkmale zuschreiben, welche ihr notwendig zukommen. Wir hätten dann nichts zurückzunehmen, würden aber auch die Anregung zu neuen Versuchen durch anschauliche Analogien entbehren. Eine solche rein begriffliche Darstellung kann in abgeschlossenen Partien der Wissenschaft angewendet werden, in welchen die Hypothese, die nur in der werdenden Wissenschaft eine fördernde Funktion hat, keinen Raum findet. Der Gebrauch von Bildern, die mit Bewußtsein als solche verwendet werden, ist auch hier nicht nur nicht ausgeschlossen, sondern sehr zweckmäßig. Es gibt Tatsachen, die wir unmittelbar sinnlich wahrnehmen, die wir sozusagen mit einem Blick überschauen.</p>
+  <p class="jp" lang="ja">21. もしわれわれが十分に抽象的に考えるならば、事実には、それに必然的にそなわる概念的特徴だけを帰するであろう。そうすれば何も撤回する必要はないが、直観的な類比による新しい実験への刺激も欠くことになるであろう。このような純粋に概念的な表現は、科学の完結した部分では用いることができる。そこでは、生成しつつある科学においてのみ促進的な機能をもつ仮説は、もはや場所を見いださない。ここでも、意識してそれとして用いられる像の使用は、排除されないばかりか、きわめて目的にかなっている。直接に感性的に知覚し、いわば一目で見渡せる事実がある。</p>
+</article>
+<article class="row" id="p21.2">
+  <aside class="mg"><a class="pid" href="#p21.2">21.2</a><span class="pg"><span>S.&nbsp;249</span></span></aside>
+  <p class="de" lang="de">Andere Tatsachen ergeben sich erst durch ein kompliziertes Beobachtungs- und begriffliches Reaktionssystem. Die Periodizität des Lichtes ist nicht ohne weiteres sichtbar, und deren Erfassung wird noch durch die hypermikroskopische Periodenlänge erschwert. Auch die Polarisation erkennt man nicht unmittelbar. Da wir nun mit anschaulichen sinnlichen Vorstellungen viel vertrauter sind, einfacher und geläufiger mit denselben verkehren, als mit abstrakten Begriffen, die sich doch immer auf anschauliche Vorstellungen als ihre letzten Grundlagen aufbauen; so lehrt uns schon der Instinkt, mit dem Lichtstrahl eine Welle von anschaulicher größerer Wellenlänge, mit bestimmter an die Reflexionsebene des polarisierenden Spiegels gebundener Schwingungsebene vorzustellen, welche sich bei analogen Versuchen ähnlich verhalten würde, wie jener Lichtstrahl.</p>
+  <p class="jp" lang="ja">他の事実は、複雑な観察と概念的反応の体系によってはじめて明らかになる。光の周期性はそのまま見えるわけではなく、その把握は顕微鏡でも見えないほどの周期の長さによってさらに難しくなる。偏光もまた直接には認識されない。さて、われわれは、つねに直観的な表象を最後の基礎としてその上に築かれる抽象的な概念よりも、直観的な感性的表象のほうにはるかになじんでおり、それとより単純になめらかに交わるので、本能がすでに、光線とともに、直観的なより大きな波長をもち、偏光鏡の反射面に結びついた定まった振動面をもつ波を思い浮かべることをわれわれに教える。その波は類似の実験において、あの光線と似たふるまいをするであろう。</p>
+</article>
+<article class="row" id="p21.3">
+  <aside class="mg"><a class="pid" href="#p21.3">21.3</a><span class="pg"><span>S.&nbsp;249</span><span>S.&nbsp;250</span></span></aside>
+  <p class="de" lang="de">Mit Hilfe solcher Vor<span class="pb" title="Leipzig 1906, S. 250">250</span>stellungen übersehen wir rascher und leichter die Lichtphänomene als durch abstrakte Begriffe. Dieselben sind, um einen modifizierten Ausdruck von Hertz zu gebrauchen, Bilder von Tatsachen, deren psychische Folgen wieder Bilder der Folgen der Tatsachen sind. Hat man einmal genau festgestellt, worin das Bild mit der Tatsache begrifflich übereinstimmt, so verbindet dieses den Vorteil der Anschaulichkeit mit dem der begrifflichen Reinheit. Es ist nun geeignet, die durch neue (elektromagnetische, chemische) Tatsachen geforderten weiteren Bestimmungen ohne Widerstreben anzunehmen.</p>
+  <p class="jp" lang="ja">このような表象の助けによって、われわれは抽象的な概念によるよりもすばやく容易に光の現象を見渡す。それは、ヘルツの言葉を少し変えて用いれば、その心的な帰結が再び事実の帰結の像であるような、事実の像である。像が事実と概念的にどこで一致するかをひとたび正確に確定すれば、その像は直観性の利点と概念的純粋さの利点とを結びつける。それはいまや、新しい（電磁気的、化学的）事実によって要求されるさらなる規定を、抵抗なく受け入れるのに適している。</p>
+</article>
+<h2 class="sec" id="s22"><a href="#s22">§ 22</a></h2>
+<article class="row" id="p22.1">
+  <aside class="mg"><a class="pid" href="#p22.1">22.1</a><span class="pg"><span>S.&nbsp;250</span></span></aside>
+  <p class="de" lang="de">22. So sehr die Meinung verbreitet ist, daß in der Mathematik die Hypothese gar keine Funktion hat, so sei hier doch hervorgehoben, daß sie auch hier in der werdenden Wissenschaft eine bedeutende Rolle spielt. Die Mathematik pflegt allerdings die Spuren ihres Entwickelungsganges in der Darstellung mehr als jede andere Wissenschaft zu beseitigen, wodurch allein jene Meinung entstehen konnte. Die vollkommen klare Erkenntnis der mathematischen Sätze ergibt sich aber auch nicht auf einmal, sondern wird durch gelegentliche Bemerkungen, Vermutungen, Gedankenexperimente und auch physische Experimente mit Zählobjekten und geometrischen Gebilden eingeleitet und vorbereitet, wie dies schon erwähnt wurde und noch zur Sprache kommen wird.<a class="fr" href="#n19">19</a></p>
+  <p class="jp" lang="ja">22. 数学においては仮説はまったく機能をもたないという意見がいかに広まっていようとも、ここでも生成しつつある科学においては仮説が重要な役割を演じることを強調しておきたい。もっとも数学は、その発展の歩みの痕跡を叙述のなかで他のどの科学よりも消し去るのがつねであり、それによってのみあの意見が生じえたのである。しかし数学の命題の完全に明晰な認識もまた一挙に生じるのではなく、すでに述べ、またのちに論じるように、ときおりの所見、推測、思考実験、さらには数える対象や幾何学的形成物による物理的実験によって始められ、準備されるのである<a class="fr" href="#n19">19</a>。</p>
+  <ol class="notes"><li id="n19"><span class="nn">19</span><p class="de" lang="de">Ausführliche Darlegungen über die Hypothese im engen Anschluß an die Spezialwissenschaften und deren Entwicklungsstufe s. bei E. Naville, La logique de l'hypothèse. Paris, 2me E. 1895.</p><p class="jp" lang="ja">仮説について、専門諸科学とその発展段階に密接に結びつけた詳しい叙述は、E. ナヴィル『仮説の論理学』パリ、第2版、1895年を見よ。</p></li></ol>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§6, 注3</td><td lang="de">注3（Biedermann）の後半 „im volkstümlichen Denken aber Vermutung heißt …“ が §6 の本文段落として混入</td><td lang="de">注3 に戻す</td></tr>
+  <tr><td>§10.2</td><td lang="de">„Gleichung .r + ar³ + bx² + cx + d = 0 … Wert x, für x … zwischen x₁ und r, … Wert r' … Werter“</td><td lang="de">„x⁴ + ax³ + bx² + cx + d = 0 … Wert x₁ für x … Substitution, x₂, … Werte − m₂ … zwischen x₁ und x₂ … Wert x′ … (x − x′) … dem Werte x“（文意により復元）</td></tr>
+  <tr><td>各所</td><td lang="de">phae-nomenis; nach-gewiesen; 1. c.</td><td lang="de">phaenomenis; nachgewiesen; l. c.</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_13.html">← 第ⅩⅢ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
