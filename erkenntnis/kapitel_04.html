@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第Ⅳ章 反射・本能・意志・自我</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第Ⅳ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a><a href="#s16">§16</a><a href="#s17">§17</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL IV · 第Ⅳ章</div>
+  <h1>反射・本能・意志・自我</h1>
+  <div class="de-title" lang="de">Reflex, Instinkt, Wille, Ich</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 50–69　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;50</span></span></aside>
+  <p class="de" lang="de">1. Bevor wir unsere psycho-physiologischen Betrachtungen fortsetzen, bemerken wir, daß keine der Einzelwissenschaften, deren wir bedürfen, den wünschenswerten Grad der Entwicklung erreicht hat, um als sichere Grundlage für die andern zu gelten. Die beobachtende Psychologie bedarf gar sehr der Stütze der Physiologie oder Biologie. Letztere kann aber von physikalisch-chemischer Seite gegenwärtig nur sehr unvollkommen aufgeklärt werden. Unter diesen Umständen sind alle unsere Überlegungen nur als vorläufige, und deren Ergebnisse als problematische, durch künftige Untersuchungen vielfach zu korrigierende, anzusehen. Das Leben besteht aus Vorgängen, welche sich tatsächlich erhalten, fort und fort wiederholen und ausbreiten, d. h. successive größere Quantitäten von „Materie“ in ihr Bereich ziehen. Die Lebensvorgänge gleichen also einem Brand, mit dem sie auch sonst verwandt, wenn auch nicht so einfach sind.</p>
+  <p class="jp" lang="ja">1. 心理生理学的考察を続ける前に、われわれが必要とする個別科学のいずれもが、他の科学の確かな基礎とみなされるほど望ましい発展段階に達していないことを注意しておこう。観察にもとづく心理学は、生理学ないし生物学の支えをきわめて必要としている。しかし生物学は、現在のところ物理学的・化学的な側からはきわめて不完全にしか解明されえない。こうした事情のもとでは、われわれの考察はすべて暫定的なものにすぎず、その結果は問題をはらんだもの、将来の研究によって多くの点で修正されるべきものとみなされなければならない。生命は、事実として自らを維持し、たえず繰り返され、広がっていく、すなわちしだいにより多くの量の「物質」をその領域に引き入れていく過程から成り立っている。それゆえ生命過程は燃焼に似ており、そう単純ではないにせよ、ほかの点でも燃焼と類縁関係にある。</p>
+</article>
+<article class="row" id="p1.2">
+  <aside class="mg"><a class="pid" href="#p1.2">1.2</a><span class="pg"><span>S.&nbsp;50</span><span>S.&nbsp;51</span></span></aside>
+  <p class="de" lang="de">Die meisten physikalisch-chemischen Prozesse hingegen kommen, wenn sie nicht durch besondere äußere Umstände immer wieder von neuem hervorgerufen oder im Gang erhalten werden, sehr bald zu einem Stillstand. Abgesehen von diesem Hauptunterschied im Charakter, weiß die heutige Physik und Chemie auch den Einzelheiten des Lebensprozesses nur sehr unvollkommen zu folgen. Dem Hauptzug der Selbsterhaltung entsprechend müssen wir erwarten, daß die Teile eines komplizierteren Organismus, einer Symbiose von Organen, auf die Erhaltung des Ganzen abgestimmt sein werden, welche ja sonst sich nicht ergeben könnte. Und auch an den psychischen Vorgängen, die jenen Teil der Lebensvorgänge vorstellen, welche sich im Großhirn abspielen, die somit ins Bewußtsein reichen, wird <span class="pb" title="Leipzig 1906, S. 51">51</span>uns diese Richtung auf Erhaltung des Organismus nicht überraschen können.</p>
+  <p class="jp" lang="ja">これに対して、たいていの物理的・化学的過程は、特別な外的事情によって繰り返し新たに引き起こされたり進行を保たれたりしないかぎり、ほどなく停止してしまう。性格上のこの主要な違いは別としても、今日の物理学と化学は、生命過程の細部をもきわめて不完全にしか追うことができない。自己保存という主要な特徴に応じて、われわれは、より複雑な有機体、すなわち器官の共生体の諸部分は全体の保存へと調律されているであろうと予期しなければならない。そうでなければ全体の保存は生じえないであろうから。そして、大脳において営まれ、したがって意識にまで達する生命過程の部分である心的過程においても、有機体の保存へのこの方向づけが見いだされたとしても、われわれは驚かないであろう。</p>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;51</span></span></aside>
+  <p class="de" lang="de">2. Betrachten wir zunächst einige Tatsachen, welche Goltz<a class="fr" href="#n1">1</a> genau studiert hat. Ein gesunder unverletzter Frosch benimmt sich derart, daß man demselben eine gewisse „Intelligenz“ und „willkürliche“ Bewegung zuschreiben muß. Er bewegt sich aus eigenem Antrieb in unberechenbarer Weise, entflieht dem Feinde, sucht einen neuen Sumpf auf, wenn der alte vertrocknet, entweicht eingefangen durch eine Lücke des Behälters u. s. w. Die Intelligenz ist allerdings nach menschlichem Maß eine sehr beschränkte. Der Frosch schnappt sehr geschickt nach sich bewegenden Fliegen, gelegentlich aber auch nach einem Stückchen roten Tuches und wiederholt erfolglos auch etwa nach den Fühlhörnern einer Schnecke, verhungert aber lieber, statt frisch getötete Fliegen anzunehmen. Das Benehmen des Frosches ist eng begrenzten Lebensumständen angepaßt. Wird der Frosch des Großhirns beraubt, so bewegt er sich nur mehr auf einen äußeren Anlaß.</p>
+  <p class="jp" lang="ja">2. まず、ゴルツ<a class="fr" href="#n1">1</a>が詳しく研究したいくつかの事実を考察しよう。健康で無傷の蛙は、ある程度の「知性」と「随意」運動を認めざるをえないようなふるまいをする。蛙は自発的に予測できない仕方で動き、敵から逃れ、古い沼が干上がると新しい沼を探し、捕らえられると容器の隙間から逃げ出す、等々。もっともその知性は、人間の尺度からすればきわめて限られたものである。蛙は動いている蠅にきわめて巧みに飛びつくが、ときには赤い布切れにも飛びつき、たとえばカタツムリの触角にも何度も無駄に飛びつく。それでいて、殺したばかりの蠅を受けつけるよりは、むしろ餓死するのである。蛙のふるまいは、狭く限られた生活事情に適応している。蛙から大脳を取り去ると、蛙はもはや外的なきっかけがあるときにしか動かない。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Goltz, Die Nervenzentren des Frosches. Berlin 1869.</p><p class="jp" lang="ja">ゴルツ『蛙の神経中枢』ベルリン、1869年。</p></li></ol>
+</article>
+<article class="row" id="p2.2">
+  <aside class="mg"><a class="pid" href="#p2.2">2.2</a><span class="pg"><span>S.&nbsp;51</span></span></aside>
+  <p class="de" lang="de">Ohne denselben sitzt er ruhig da. Er schnappt nicht nach Fliegen, nicht nach dem roten Tuch und reagiert nicht auf Knall. Eine über ihn kriechende Fliege streift er bloß ab. Die in das Maul gebrachte Fliege verschluckt er jedoch. Auf schwachen Hautreiz kriecht er fort, durch starken wird er zu einem Sprunge veranlaßt, wobei er Hindernissen ausweicht, die er also sieht. Wird ein Bein festgenäht, so gelingt es ihm dennoch, das Hindernis kriechend zu vermeiden. Der Frosch ohne Großhirn kompensiert die Drehung, die ihm auf einer horizontalen Drehscheibe erteilt wird. Setzt man ihn auf ein Brett, das man vorn hebt, so kriecht er hinan, um nicht hinabzufallen, und überkriecht sogar die obere Kante, wenn das Brett noch in demselben Sinne weiter gedreht wird. Unverletzte Frösche springen bei diesem Versuch davon.</p>
+  <p class="jp" lang="ja">きっかけがなければ、蛙はじっと座っている。蠅にも赤い布にも飛びつかず、破裂音にも反応しない。体の上を這う蠅は払いのけるだけである。しかし口に入れられた蠅は飲みこむ。弱い皮膚刺激を受けると這って逃げ、強い刺激を受けると跳躍するが、その際障害物をよけるので、それが見えているのである。片脚を縫いつけても、なお這いながら障害物を避けることができる。大脳のない蛙は、水平な回転盤の上で与えられる回転を補償する。前方を持ち上げた板の上に置くと、落ちないように這い上がり、板が同じ向きにさらに回されると上の縁を越えて這っていきさえする。無傷の蛙はこの実験のとき跳んで逃げてしまう。</p>
+</article>
+<article class="row" id="p2.3">
+  <aside class="mg"><a class="pid" href="#p2.3">2.3</a><span class="pg"><span>S.&nbsp;51</span><span>S.&nbsp;52</span></span></aside>
+  <p class="de" lang="de">So wird das, was man Seele oder Intelligenz nennen könnte, durch Abtragung von Hirnteilen auf eine kleinere Sphäre eingeschränkt. Der Frosch mit bloßem Rückenmark, auf den Rücken gelegt, weiß sich nicht aufzurichten. Die Seele - sagt Goltz - ist nichts Einfaches; sie ist teilbar, wie deren Organ. Ein Frosch ohne Großhirn quakt nie spontan. Streicht man <span class="pb" title="Leipzig 1906, S. 52">52</span>aber demselben einmal mit dem feuchten Finger über die Rückenhaut zwischen den Armen, so quakt er ganz regelmäßig reflektorisch einmal. Er verhält sich wie ein Mechanismus. Daß geköpfte Frösche die aufgetropfte Säure mit den Hinterbeinen ganz mechanisch abwischen, ist schon nach älteren Versuchen bekannt. Solche Reflexmechanismen sind für die Lebensführung von Bedeutung. Wie vielfach wichtige Lebensfunktionen, wie die Begattung der Frösche, durch diese Mechanismen gesichert sind, hat Goltz durch ausführliche Untersuchungen gezeigt.<a class="fr" href="#n2">2</a></p>
+  <p class="jp" lang="ja">このように、魂あるいは知性と呼びうるものは、脳の部分を取り除くことによってより小さな領域に限定される。脊髄だけの蛙は、仰向けに置かれると起き上がることができない。ゴルツは言う、魂は単純なものではなく、その器官と同じく分割可能である、と。大脳のない蛙はけっして自発的には鳴かない。しかし湿った指で両腕のあいだの背中の皮膚を一度なでてやると、まったく規則正しく反射的に一度鳴く。蛙は機構のようにふるまうのである。首を切られた蛙が、滴らされた酸を後脚でまったく機械的にぬぐい取ることは、すでに古い実験から知られている。こうした反射機構は生活の営みにとって重要である。蛙の交尾のような重要な生命機能がどれほど多くこれらの機構によって確保されているかを、ゴルツは詳しい研究によって示した<a class="fr" href="#n2">2</a>。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">Goltz, a. a. O. S. 20 u. f.</p><p class="jp" lang="ja">ゴルツ前掲書、20頁以下。</p></li></ol>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;52</span></span></aside>
+  <p class="de" lang="de">3. Wenden wir unsere Betrachtung gleich anderen Lebewesen zu, welchen wohl, wenigstens instinktiv, niemand Intelligenz und Willen zuschreibt — den Pflanzen. Auch hier finden wir zweckmäßige, die Erhaltung des Ganzen fördernde Bewegungsreaktionen. Unter diesen fallen uns zunächst auf die durch Licht und Temperatur bestimmten Schlafbewegungen der Blätter und Blüten, die durch Erschütterungen ausgelösten Reizbewegungen der insektenfressenden Pflanzen. Solche Bewegungen könnten aber als Ausnahmen erscheinen. Ein allgemeines Verhalten liegt dagegen darin, daß der Stamm der Pflanzen der Schwere entgegen nach oben wächst, wo Licht und Luft ihm die Assimilation ermöglichen, während die Wurzel, das Wasser und die darin gelösten Stoffe aufsuchend, nach unten in den Boden eindringt.</p>
+  <p class="jp" lang="ja">3. 少なくとも本能的には誰も知性や意志を認めないであろう別の生物——植物——に、すぐに考察を向けよう。ここでもわれわれは、目的にかなった、全体の保存を促進する運動反応を見いだす。そのなかでまず目につくのは、光と温度によって規定される葉や花の就眠運動、振動によって引き起こされる食虫植物の刺激運動である。しかしこうした運動は例外のように見えるかもしれない。これに対して一般的なふるまいは、植物の茎が、光と空気によって同化作用が可能となる上方へと重力に逆らって伸び、根は水とそこに溶けた物質を求めて下方へと土の中に入りこむことにある。</p>
+</article>
+<article class="row" id="p3.2">
+  <aside class="mg"><a class="pid" href="#p3.2">3.2</a><span class="pg"><span>S.&nbsp;52</span></span></aside>
+  <p class="de" lang="de">Wird ein Teil des Stammes aus seiner vertikalen Richtung gebracht, so krümmen sich die noch im Wachstum befindlichen Teile desselben sofort aufwärts, kehren ihre konvexe Seite der Erde zu, indem die unteren Teile stärker wachsen als die oberen. Hierin spricht sich der „negative Geotropismus“ des Stammes aus, im Gegensatze zu dem umgekehrten Verhalten der Wurzel, die wir als „positiv geotropisch“ bezeichnen. Der Stamm wendet sich in der Regel dem Lichte zu, wobei die noch wachsenden Teile desselben die konvexe Seite dem Dunkeln zuwenden, also an der beschatteten Seite stärker wachsen. Wir nennen den sich so verhaltenden Stamm „positiv heliotropisch“, während die Wurzel in der Regel das entgegengesetzte „negativ heliotropische“ Verhalten zeigt.</p>
+  <p class="jp" lang="ja">茎の一部をその垂直方向から外すと、まだ成長中の部分はただちに上方へと曲がり、凸面を地面に向ける。下側の部分が上側の部分より強く成長するからである。ここに茎の「負の屈地性」が現れており、それは「正の屈地性」と呼ばれる根の逆のふるまいと対照をなす。茎は通常、光のほうへ向かい、その際まだ成長中の部分は凸面を暗いほうへ向ける。つまり陰になった側でより強く成長する。このようにふるまう茎を「正の屈光性」をもつと言い、根は通常その反対の「負の屈光性」のふるまいを示す。</p>
+</article>
+<article class="row" id="p3.3">
+  <aside class="mg"><a class="pid" href="#p3.3">3.3</a><span class="pg"><span>S.&nbsp;52</span><span>S.&nbsp;53</span></span></aside>
+  <p class="de" lang="de">Nach älteren und neueren Untersuchungen (Knight, J. v. Sachs) kann kein <span class="pb" title="Leipzig 1906, S. 53">53</span>Zweifel bestehen, daß die Richtung der Massenbeschleunigung (der Schwere) und die Richtung des Lichtes das geotropische, bezw. heliotropische Verhalten bestimmt. Das entgegengesetzte Verhalten von Stamm und Wurzel deutet auf Teilung der Arbeit im Interesse des Ganzen. Sehen wir die Wurzel steinzerklüftend in die Tiefe dringen, so können wir noch glauben, daß sie dies im eigenen Interesse tut. Dieser Eindruck verschwindet aber, wenn wir die Wurzel auch im Quecksilber, wo sie nichts zu suchen hat, abwärts dringen sehen. Die Vorstellung absichtlicher Zweckmäßigkeit muß hier weichen und jener eines physikalisch-chemisch bestimmten Geschehens Platz machen. Die bestimmenden Umstände müssen wir aber aus der Verbindung von Wurzel und Stamm zu einem Ganzen hervorgehend denken.<a class="fr" href="#n3">3</a></p>
+  <p class="jp" lang="ja">古い研究と新しい研究（ナイト、J. v. ザックス）によれば、質量加速度（重力）の方向と光の方向とが、それぞれ屈地的ないし屈光的なふるまいを規定していることは疑いえない。茎と根との反対のふるまいは、全体の利益のための分業を示している。根が岩を割りながら深みへと入りこむのを見ると、われわれは根が自分のためにそうしているのだと思うこともできる。しかし根が、何も求めるもののない水銀の中でも下へと入りこむのを見ると、この印象は消えてしまう。意図的な合目的性という表象はここで退き、物理的・化学的に規定された出来事という表象に場所を譲らなければならない。ただし、規定する事情は、根と茎とが一つの全体へと結合していることから生じるものと考えなければならない<a class="fr" href="#n3">3</a>。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">J. v. Sachs, Vorlesungen über Pflanzen-Physiologie. Leipzig 1887.</p><p class="jp" lang="ja">J. v. ザックス『植物生理学講義』ライプツィヒ、1887年。</p></li></ol>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;53</span></span></aside>
+  <p class="de" lang="de">4. J. Loeb<a class="fr" href="#n4">4</a> hat in einer Reihe von Arbeiten nachgewiesen, daß sich die Begriffe: Geotropismus, Heliotropismus u. s. w., welche sich auf dem Gebiete der Pflanzenphysiologie ergeben haben, auf die Tierphysiologie übertragen lassen. Selbstverständlich werden sich die betreffenden Erscheinungen dort am einfachsten und klarsten äußern, wo die Tiere unter so einfachen Verhältnissen leben, daß ein hoch entwickeltes psychisches Leben noch unnötig ist und daher nicht störend eingreifen kann. Der eben aus der Puppe geschlüpfte Schmetterling kriecht aufwärts und orientiert sich an der vertikalen Wand, welche er mit Vorliebe wählt, mit dem Kopfe nach oben. Eben ausgeschlüpfte Räupchen kriechen rastlos nach oben.</p>
+  <p class="jp" lang="ja">4. J. ロエブ<a class="fr" href="#n4">4</a>は一連の研究において、植物生理学の領域で生じた屈地性、屈光性などの概念が動物生理学に転用できることを証明した。当然ながら、これらの現象が最も単純かつ明瞭に現れるのは、高度に発達した心的生活がまだ不要であり、それゆえ妨げとして介入しえないような単純な事情のもとで動物が生きている場合である。蛹から出たばかりの蝶は上へと這い上がり、好んで選ぶ垂直な壁に頭を上にして向きを定める。孵ったばかりの毛虫は休みなく上へと這う。</p>
+  <ol class="notes"><li id="n4"><span class="nn">4</span><p class="de" lang="de">Loeb, Orientierung der Tiere gegen das Licht. SB. d. Würzburger ph.-med. Gesellschaft. 1888. - Orient. d. Tiere gegen d. Schwerkraft. Ebenda. 1888. - Heliotropismus d. Tiere. Würzburg 1890. - Geotropismus d. Tiere. Pflügers Archiv. 1891.</p><p class="jp" lang="ja">ロエブ「光に対する動物の定位」『ヴュルツブルク物理学医学協会会議報告』1888年。——「重力に対する動物の定位」同誌、1888年。——『動物の屈光性』ヴュルツブルク、1890年。——「動物の屈地性」『プフリューガー記録』1891年。</p></li></ol>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;53</span><span>S.&nbsp;54</span></span></aside>
+  <p class="de" lang="de">Will man eine Eprouvette mit solchen Räupchen entleeren, so muß man dieselbe, wie ein Gefäß mit Wasserstoff, mit der Mündung nach oben kehren. Küchenschaben suchen mit Vorliebe vertikale Wände auf. Stubenfliegen, deren Schwingkolben oder Flügel man abgeschnitten hat, kriechen an einem vertikalen Brett vertikal aufwärts. Dreht man während dessen das Brett in seiner Ebene, so kompensiert die Fliege jede Drehung. Auf einem schiefen Brett kriecht sie <span class="pb" title="Leipzig 1906, S. 54">54</span>nach der Richtung der steilsten Linie aufwärts. Auch hoch entwickelte Tiere werden von der Richtung der Schwere beeinflußt, sind geotropisch, wie die neueren Untersuchungen über das Ohrlabyrinth und dessen Bedeutung für die Orientierung lehren; nur werden diese Erscheinungen durch das Eingreifen mannigfaltiger anderer überdeckt.</p>
+  <p class="jp" lang="ja">このような毛虫を試験管から出そうとすれば、水素の入った容器と同じく、口を上に向けなければならない。ゴキブリは好んで垂直な壁を探す。平均棍あるいは翅を切り取ったイエバエは、垂直な板を垂直に這い上がる。その間に板をその面内で回転させると、蠅はどの回転も補償する。傾いた板の上では、蠅は最も急な線の方向に這い上がる。高度に発達した動物も、内耳の迷路とその定位にとっての意義についての新しい研究が教えるように、重力の方向の影響を受け、屈地性をもっている。ただ、これらの現象は多様な他の現象の介入によって覆い隠されているのである。</p>
+</article>
+<article class="row" id="p4.3">
+  <aside class="mg"><a class="pid" href="#p4.3">4.3</a><span class="pg"><span>S.&nbsp;54</span></span></aside>
+  <p class="de" lang="de">Ähnlich verhält es sich mit dem Heliotropismus. Wie bei den Pflanzen ist auch bei den Tieren die Richtung des Lichtes maßgebend. Unsymmetrische Reizung durch das Licht bewirkt Änderung der Orientierung des Tieres, welche mit der Einstellung der Lichtrichtung in die Symmetrieebene zur Ruhe kommt. Nun wendet das Tier entweder den oralen oder den aboralen Pol dem Lichte zu und bewegt sich entweder dem Lichte zu oder von diesem weg; es ist positiv oder negativ heliotropisch. Die Motte ist positiv, der Regenwurm, die Muscidenlarve ist negativ heliotropisch. Wenn eine positiv heliotropische Larve auf einer Ebene sich bewegt, so kriecht sie nach der Komponente der Lichtrichtung, welche in diese Ebene entfällt. Indem sie so dem einfallenden Lichte entgegen sich bewegt, kann sie ganz wohl von einer helleren in eine weniger helle Beleuchtung kommen. Ohne in weitere Einzelheiten einzugehen, bemerken wir, daß in Bezug auf die Tropismen volle Übereinstimmung zwischen den Ergebnissen der pflanzenphysiologischen Studien von J. v. Sachs und jenen der tierphysiologischen Versuche von Loeb besteht.<a class="fr" href="#n5">5</a></p>
+  <p class="jp" lang="ja">屈光性についても事情は似ている。植物と同じく動物においても、光の方向が決定的である。光による非対称な刺激は動物の向きの変化を引き起こし、その変化は光の方向が対称面に入ったときに静止する。そこで動物は口のある極か口と反対の極のどちらかを光に向け、光に向かって、あるいは光から遠ざかるように動く。すなわち正あるいは負の屈光性をもつ。蛾は正の屈光性を、ミミズやイエバエ科の幼虫は負の屈光性をもつ。正の屈光性をもつ幼虫がある平面上を動くとき、それはその平面に落ちる光の方向の成分に沿って這う。こうして入射する光に向かって動くことによって、幼虫はより明るい照明からより暗い照明へと移ることも十分ありうる。これ以上細部に立ち入ることなく、屈性に関しては J. v. ザックスの植物生理学的研究の成果とロエブの動物生理学的実験の成果とのあいだに完全な一致があることを指摘しておこう<a class="fr" href="#n5">5</a>。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">Vgl. die oben zitierten Schriften von Sachs und Loeb.</p><p class="jp" lang="ja">上に引用したザックスとロエブの著作を参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;54</span><span>S.&nbsp;55</span></span></aside>
+  <p class="de" lang="de">5. In neuester Zeit hat sich in Bezug auf die Auffassung der Insekten ein starker Gegensatz herausgebildet. Manche Forscher wollen dieselben als reine Reflexmaschinen ansehen, während andere ihnen ein reiches psychisches Leben zuschreiben. Dieser Gegensatz beruht auf der Abneigung gegen bezw. Neigung für das Mystische, indem man, alles Psychische für ein Mystisches haltend, dieses womöglich ganz zu beseitigen oder zu retten strebt. Auf unserem Standpunkte ist das Psychische nicht mehr und nicht weniger rätselhaft als das Physische und überhaupt von letzterem nicht wesentlich verschieden. Wir haben daher gar keinen Grund, in dieser Frage parteiisch zu sein, und nehmen <span class="pb" title="Leipzig 1906, S. 55">55</span>eine neutrale Stellung ein, die etwa jener von A. Forel<a class="fr" href="#n6">6</a> entspricht.</p>
+  <p class="jp" lang="ja">5. ごく最近、昆虫の把握に関して強い対立が生じた。一部の研究者は昆虫を純粋な反射機械とみなそうとし、他の研究者は昆虫に豊かな心的生活を認めようとする。この対立は神秘的なものへの嫌悪ないし好みにもとづいている。すなわち、心理的なものをすべて神秘的なものとみなして、それをできればすっかり除去しようとするか、救い出そうとするのである。われわれの立場では、心理的なものは物理的なものと比べて謎めいてもいなければ謎めいていなくもなく、そもそも物理的なものと本質的に異なってはいない。それゆえこの問題で党派的になる理由はわれわれにはまったくなく、A. フォレル<a class="fr" href="#n6">6</a>の立場にほぼ相当する中立的な立場をとる。</p>
+  <ol class="notes"><li id="n6"><span class="nn">6</span><p class="de" lang="de">A. Forel, Psychische Fähigkeiten der Ameisen. Verh. d. 5. internat. Zoologenkongresses. Jena 1902. Geruchsinn bei den Insekten. Ebenda. 1902. Expériences et remarques critiques sur les sensations des Insectes, 1-5 partie. Rivista di scienze biologiche. Como 1900-1901.</p><p class="jp" lang="ja">A. フォレル「蟻の心的能力」『第5回国際動物学会議報告』イェーナ、1902年。「昆虫の嗅覚」同、1902年。「昆虫の感覚についての実験と批判的所見」第1–5部、『生物科学雑誌』コモ、1900–1901年。</p></li></ol>
+</article>
+<article class="row" id="p5.2">
+  <aside class="mg"><a class="pid" href="#p5.2">5.2</a><span class="pg"><span>S.&nbsp;55</span></span></aside>
+  <p class="de" lang="de">Wenn wir z. B. eine Spinne sehr oft durch Berührung ihres Netzes mit einer schwingenden Stimmgabel irre führen können, so beweist dies die Stärke ihres Reflexmechanismus. Wenn sie aber endlich dennoch den Betrug merkt und nicht mehr erscheint, so dürfen wir ihr doch Erinnerung nicht mehr absprechen. Die am halb offenen Fenster ratlos an der Glasscheibe summenden, dem Licht und der Luft zustrebenden Stallfliegen, welche dennoch durch den schmalen Rahmen der Glasscheibe verhindert werden, ihren Weg hinaus zu finden, machen in der Tat den Eindruck von Automaten.</p>
+  <p class="jp" lang="ja">たとえば、振動する音叉で網に触れることによって蜘蛛を非常に何度も欺くことができるとすれば、それは蜘蛛の反射機構の強さを証明している。しかしそれでも蜘蛛が最後には欺瞞に気づいて、もはや出てこなくなるとすれば、われわれは蜘蛛に記憶を否定することはもはやできない。半ば開いた窓のガラス板のところで途方にくれて羽音を立て、光と空気を目指しながら、ガラス板の狭い枠に妨げられて外への道を見つけられない厩舎の蠅は、まったく自動機械という印象を与える。</p>
+</article>
+<article class="row" id="p5.3">
+  <aside class="mg"><a class="pid" href="#p5.3">5.3</a><span class="pg"><span>S.&nbsp;55</span></span></aside>
+  <p class="de" lang="de">Wenn aber ein denselben so nahestehendes Wesen, wie die grazilere Stubenfliege, sich weitaus klüger benimmt, so müssen wir doch bei beiden, wenn auch in geringem Grade, die Fähigkeit voraussetzen, bescheidene Erfahrungen zu machen. So scheinen mir der topochemische Geruchsinn der Ameisen und das topochemische Gedächtnis, welches ihnen Forel zuschreibt, doch glücklichere Annahmen, als die polarisierte Geruchsspur Bethes.<a class="fr" href="#n7">7</a> Forel will sogar einen Wasserkäfer, der sonst nur im Wasser frißt, zum Fressen außer dem Wasser dressiert haben. Der kann also kein reiner Automat im gewöhnlichen engeren Sinne sein. Die Unterscheidung und das Gedächtnis für Farbe und Geschmack bei Wespen und Bienen hat Forel in den zitierten Schriften nachgewiesen.</p>
+  <p class="jp" lang="ja">しかし、これとごく近い存在である、より華奢なイエバエがはるかに賢くふるまうとすれば、われわれは両者に、程度は低いにせよ、ささやかな経験をする能力を前提しなければならない。それゆえ私には、フォレルが蟻に認める場所化学的（トポケミカル）嗅覚と場所化学的記憶のほうが、ベーテの極性をもった匂いの跡よりも適切な想定であるように思われる<a class="fr" href="#n7">7</a>。フォレルは、ふだんは水中でしか食べない水生甲虫を、水の外で食べるように調教したとさえ言っている。それならばこの甲虫は、ふつうの狭い意味での純粋な自動機械ではありえない。スズメバチや蜜蜂における色と味の区別と記憶を、フォレルは引用した著作で証明している。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">Durch das topochemische Gedächtnis soll eine Art räumlichen Geruchsbildes der durchwanderten Gegend zu stande kommen, wie dies dem Hunde kaum abzusprechen sein wird. An der polarisierten Geruchsspur soll die Ameise erkennen, ob der Weg zum Nest oder vom Nest führt. Es müßte also an der Spur rechts und links durch den Geruch unterscheidbar sein.</p><p class="jp" lang="ja">場所化学的記憶によって、通過した地域の一種の空間的な匂いの像が成立するという。これは犬にはほとんど否定できないであろう。極性をもった匂いの跡によって、蟻は道が巣へ向かうのか巣から出るのかを見分けるという。そうだとすれば、跡の右と左が匂いによって区別できなければならないことになる。</p></li></ol>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;55</span><span>S.&nbsp;56</span></span></aside>
+  <p class="de" lang="de">6. Es ist nicht wertlos, die großen gemeinsamen Züge des organischen Lebens durch die Tier- und Pflanzenwelt zu verfolgen. Bei den Pflanzen ist alles einfacher, der Untersuchung zugänglicher, für die Beobachtung offen daliegend und geht langsamer vor sich. Was wir am Tier als Bewegung, Instinkt<span class="pb" title="Leipzig 1906, S. 56">56</span>äußerung, Willkürhandlung wahrnehmen, tritt uns bei den Pflanzen als Wachstumserscheinung in einer Folge von Formen entgegen oder erscheint in den Gestalten der Blätter, Blüten, Früchte, Samen für die dauernde Betrachtung fixiert. Der Unterschied liegt auch großenteils nur in unserem subjektiven Zeitmaß. Denken wir uns die langsamen Bewegungen des Chamäleons noch weiter verlangsamt, hingegen die langsamen Greifbewegungen der Lianen sehr beschleunigt,<a class="fr" href="#n8">8</a> so verwischt sich für den Beobachter durch beide Prozeduren der Unterschied zwischen den tierischen Bewegungen und den pflanzlichen Wachstumserscheinungen ganz bedeutend.</p>
+  <p class="jp" lang="ja">6. 有機的生命の大きな共通の特徴を、動物界と植物界を通して追うことは無価値ではない。植物ではすべてがより単純で、研究に近づきやすく、観察に対して開かれており、よりゆっくりと進行する。動物において運動、本能の発現、随意行為として知覚するものは、植物においては形態の継起における成長現象としてわれわれの前に現れるか、あるいは葉、花、果実、種子の形のうちに、持続的な観察のために固定されて現れる。違いはまた大部分、われわれの主観的な時間尺度のうちにあるにすぎない。カメレオンのゆっくりとした運動をさらに遅くし、逆につる植物のゆっくりとした把握運動を大いに速めてみると考えてみよ<a class="fr" href="#n8">8</a>。この二つの操作によって、観察者にとって動物の運動と植物の成長現象との違いはきわめて著しくぼやけてしまう。</p>
+  <ol class="notes"><li id="n8"><span class="nn">8</span><p class="de" lang="de">Vgl. Haberlandt, Über den tropischen Urwald. Schr. d. Vereins z. Verbr. naturw. Kenntnisse. Wien 1898.</p><p class="jp" lang="ja">ハーバーラント「熱帯原生林について」『自然科学知識普及協会紀要』ウィーン、1898年参照。</p></li></ol>
+</article>
+<article class="row" id="p6.2">
+  <aside class="mg"><a class="pid" href="#p6.2">6.2</a><span class="pg"><span>S.&nbsp;56</span></span></aside>
+  <p class="de" lang="de">Die Versuchung, Vorgänge der Pflanzenwelt psychologisch zu interpretieren, ist nur sehr gering, dagegen der Trieb, dieselben physikalisch aufzufassen, desto stärker. Bei Betrachtung der Tiere verhält es sich gerade umgekehrt. Bei der engen Verwandtschaft beider Erscheinungsgebiete ist aber der Wechsel dieser verschiedenen Betrachtungsweisen sehr lehrreich und ergiebig. Endlich ist auch die Wechselbeziehung von Pflanzen und Tieren, sowohl in chemisch-physikalischer als in morphologisch-biologischer Beziehung unerschöpflich reich an Anregungen. Man denke z. B. an die von Sprengel 1787 entdeckten, von Darwin in seinem Orchideenwerk zu neuem Leben erweckten Entdeckungen der gegenseitigen Anpassung von Blüten und Insekten.<a class="fr" href="#n9">9</a> Hier sind es scheinbar voneinander unabhängige Lebewesen, welche dennoch in ihren Lebensäußerungen fast ebenso durcheinander bestimmt und aufeinander angewiesen sind, wie die Teile eines Tier- oder Pflanzenkörpers aufeinander.</p>
+  <p class="jp" lang="ja">植物界の過程を心理学的に解釈しようという誘惑はごくわずかであり、逆にそれを物理学的に捉えようという衝動はそれだけ強い。動物を考察するときには、ちょうどその逆である。しかし二つの現象領域が緊密に類縁であることからすれば、これらの異なる考察方法を交替させることはきわめて教えられるところが多く、実り豊かである。最後に、植物と動物との相互関係もまた、化学的・物理的な点でも形態学的・生物学的な点でも、尽きることなく豊かな刺激に満ちている。たとえば、1787年にシュプレンゲルによって発見され、ダーウィンによってその蘭についての著作で新たな生命を吹きこまれた、花と昆虫との相互適応の発見を考えてみよ<a class="fr" href="#n9">9</a>。ここでは、見かけ上互いに独立した生物が、それにもかかわらずその生命の発現において、動物や植物の体の部分が互いにそうであるのとほとんど同じくらい相互に規定され、相互に依存しているのである。</p>
+  <ol class="notes"><li id="n9"><span class="nn">9</span><p class="de" lang="de">H. Müller, Befruchtung der Blumen durch Insekten. Leipzig 1873.</p><p class="jp" lang="ja">H. ミュラー『昆虫による花の受粉』ライプツィヒ、1873年。</p></li></ol>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;56</span><span>S.&nbsp;57</span></span></aside>
+  <p class="de" lang="de">7. Die Bewegungen, welche auf bestimmte Reize hin, ohne Mitwirkung des Großhirns, eintreten, nennen wir Reflexbewegungen. Dieselben sind durch die Verbindung der Organe und deren Stimmung vorbereitet. Die Tiere führen auch recht komplizierte Verrichtungen aus, die ein bestimmtes Ziel, einen Zweck anzustreben scheinen, dessen Kenntnis oder absichtliche Verfolgung wir aber denselben unmöglich zutrauen können. Wir nennen diese Verrichtungen Instinkthandlungen. Solche Instinkthand<span class="pb" title="Leipzig 1906, S. 57">57</span>lungen lassen sich am besten als eine Kette von Reflexbewegungen verstehen, von denen jedes folgende Glied durch das vorausgehende ausgelöst wird.<a class="fr" href="#n10">10</a> Ein einfacher Fall dieser Art ist folgender. Der Frosch schnappt nach einer ihn umsummenden Fliege und verschluckt sie. Daß hier der erste Akt durch den optischen oder akustischen Reiz ausgelöst wird, liegt auf der Hand.</p>
+  <p class="jp" lang="ja">7. 大脳の関与なしに一定の刺激に応じて生じる運動を、われわれは反射運動と呼ぶ。反射運動は器官の結合とその調律によって準備されている。動物はまた、ある一定の目標、目的を目指しているように見えながら、その目的を知っているとか意図的に追求しているとはとうてい考えられないような、かなり複雑な営みをも行う。われわれはこれらの営みを本能行為と呼ぶ。このような本能行為は、各項が先行する項によって引き起こされる反射運動の連鎖として理解するのが最もよい<a class="fr" href="#n10">10</a>。この種の単純な例は次のものである。蛙は自分のまわりで羽音を立てる蠅に飛びつき、それを飲みこむ。ここで最初の行為が視覚的あるいは聴覚的な刺激によって引き起こされていることは明らかである。</p>
+  <ol class="notes"><li id="n10"><span class="nn">10</span><p class="de" lang="de">Loeb, Vergleichende Gehirnphysiologie. Leipzig 1899.</p><p class="jp" lang="ja">ロエブ『比較脳生理学』ライプツィヒ、1899年。</p></li></ol>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;57</span></span></aside>
+  <p class="de" lang="de">Daß das Schlingen aber eine Folge des Schnappens ist, folgern wir, weil der Frosch ohne Großhirn, welcher nicht mehr schnappt, doch die Fliege verschlingt, sobald sie ihm ins Maul gesteckt wird. Ähnlich verhalten sich junge Nestvögel, welche ihre Nahrung noch nicht aufzunehmen wissen. Beim plötzlichen Herannahen ihrer Pfleger sperren sie aber schreiend, vielleicht auch erschreckt, den Schnabel auf und verschlingen die eingebrachte Nahrung. Das Picken und Schnappen kommt erst später hinzu. Das Sammeln der Wintervorräte durch den Hamster wird vielleicht verständlich, wenn man bedenkt, daß man es hier mit einem sehr gefräßigen, unverträglichen und zugleich scheuen Tier zu tun hat, das mehr aufnimmt als es verzehren kann und verscheucht den Überfluß in seinem Schlupfwinkel wieder ablegt. Die wiederholte Instinkthandlung, etwa im nächsten Jahr, brauchen wir nicht mehr als unbeeinflußt vom individuellen Gedächtnis aufzufassen.</p>
+  <p class="jp" lang="ja">しかし飲みこむことが飛びつくことの結果であると推論するのは、もはや飛びつかない大脳のない蛙でも、蠅を口に入れてやればそれを飲みこむからである。まだ自分で餌をとることを知らない巣の中の若い鳥も同じようにふるまう。しかし世話をする親鳥が急に近づくと、鳴きながら、おそらくは驚いてもいるのであろうが、くちばしを開き、差し入れられた食物を飲みこむ。ついばむことや飛びつくことはのちになって加わる。ハムスターが冬の蓄えを集めることは、ここで問題なのがきわめて大食いで協調性がなく、同時に臆病な動物であり、食べきれる以上のものを取りこんで、驚くと余分を隠れ家にまた吐き出すのだということを考えれば、おそらく理解できるであろう。たとえば翌年に繰り返される本能行為を、もはや個体的記憶の影響を受けないものと解する必要はない。</p>
+</article>
+<article class="row" id="p7.3">
+  <aside class="mg"><a class="pid" href="#p7.3">7.3</a><span class="pg"><span>S.&nbsp;57</span><span>S.&nbsp;58</span></span></aside>
+  <p class="de" lang="de">Im Gegenteil kann bei höherer psychischer Entwicklung die Instinkthandlung unter dem Einfluß des Intellektes modifiziert oder sogar die Wiederholung durch den Intellekt hervorgerufen werden.<a class="fr" href="#n11">11</a> Nach dem Prinzip der Kettenreflexe <span class="pb" title="Leipzig 1906, S. 58">58</span>wird man wohl auch äußerst komplizierte Instinkthandlungen dem Verständnis näher bringen können. Bedenken wir, daß ein Instinkt die Erhaltung der Art sichert, wenn derselbe nur in der Mehrzahl der Fälle (also wahrscheinlich) zum Ziele führt, so werden wir nicht nötig haben, die Form des Instinktes im ganzen und in den einzelnen Gliedern für genau bestimmt und absolut unveränderlich zu halten. Vielmehr werden wir den Eintritt von Variationen desselben, welche durch zufällige Umstände bedingt sind, erwarten, sowohl bei der Art im Laufe der Zeit, als auch bei gleichzeitigen Individuen derselben Art.<a class="fr" href="#n12">12</a></p>
+  <p class="jp" lang="ja">むしろ反対に、より高度な心的発達においては、本能行為は知性の影響のもとで修正されることもあり、さらには繰り返しが知性によって引き起こされることさえある<a class="fr" href="#n11">11</a>。連鎖反射の原理によって、きわめて複雑な本能行為でもおそらく理解に近づけることができるであろう。本能は、たとえ大多数の場合に（つまり確率的に）しか目的に導かないとしても種の保存を確保するのだということを考えるならば、本能の形態を全体においても個々の項においても正確に規定され、絶対に不変であるとみなす必要はないであろう。むしろわれわれは、偶然の事情によって条件づけられた本能の変異が生じることを期待するであろう。時の経過のなかでの種においても、同じ種の同時代の個体においても<a class="fr" href="#n12">12</a>。</p>
+  <ol class="notes"><li id="n11"><span class="nn">11</span><p class="de" lang="de">Die ersten Male treten bei dem Gefühl von Hunger oder Durst Reflexbewegungen ein, welche unter geeigneten Umständen zur Befriedigung des Bedürfnisses führen. Man denke an das Verhalten der Säuglinge. Je reifer der Mensch ist, desto klarere und deutlichere Erinnerungen helfen bei Befriedigung der Bedürfnisse mit, sich an die Empfindungen vor und nach der Befriedigung knüpfend und ihm die Wege weisend. Die Mischung des Bewußten und Instinktiven kann übrigens in den verschiedensten Verhältnissen eintreten. Vor einigen Jahren litt ich an einer heftigen Neuralgie im Bein, welche pünktlich um 3 Uhr nachts einsetzte und mich bis zum Morgen quälte. Da bemerkte ich einmal, daß es mir sehr schwer wurde, den Morgenkaffee zu erwarten. Ich kam auf den Einfall, um 3 Uhr nachts Kaffee zu nehmen, und unterdrückte so in der Tat die Neuralgie. Dieser Erfolg, der nahe an die für wunderbar gehaltene Selbstordination hypersensibler somnambuler Personen streift, überraschte mich anfangs selbst. Der aufmerksamen Erwägung kann aber die Mystik nicht standhalten. Die Schmerzen hatten eben bald nach dem Frühstück sich regelmäßig sehr gemildert, und das hierauf eintretende Gefühl der Behaglichkeit hatte sich mit der Vorstellung „Kaffee“ associiert, ohne daß es mir noch klar bewußt war.</p><p class="jp" lang="ja">最初のうちは、飢えや渇きの感覚にともなって反射運動が生じ、それが適当な事情のもとで欲求の満足へと導く。乳児のふるまいを考えてみよ。人間が成熟するにつれて、満足の前後の感覚に結びつき、道を示してくれる、より明瞭ではっきりとした記憶が、欲求の満足を助けるようになる。ちなみに、意識的なものと本能的なものとの混合は、きわめてさまざまな割合で生じうる。数年前、私は脚の激しい神経痛に悩んでいた。それは夜中の三時きっかりに始まり、朝まで私を苦しめた。あるとき私は、朝のコーヒーを待つのがひどくつらいことに気づいた。私は夜中の三時にコーヒーを飲むことを思いつき、実際にそれによって神経痛を抑えた。この成功は、驚くべきものとされている過敏な夢遊病者の自己処方にも近いもので、はじめは私自身を驚かせた。しかし注意深く考えてみれば、神秘は持ちこたえられない。痛みは朝食のあとまもなく規則的にかなり和らいでいたのであり、そのあとに生じる心地よさの感覚が、もはや私にははっきり意識されないまま、「コーヒー」という表象と連合していたのである。</p></li><li id="n12"><span class="nn">12</span><p class="de" lang="de">Variationen in den geschlechtlichen Instinkten beruhen wohl auf zufälligen Umständen der erstmaligen Erregung. Es wird kaum gerechtfertigt sein, aus jeder „Perversität“ eine besondere Species der „psychopathia sexualis“ (!) zu machen und dieselbe sogar für anatomisch begründet zu halten. Man denke nur an die antiken Gymnasien, die relative Abgeschlossenheit der Frauen und die Päderastie.</p><p class="jp" lang="ja">性的本能における変異は、おそらく最初の興奮の偶然的な事情にもとづいている。あらゆる「倒錯」から「性的精神病質（psychopathia sexualis）」(!) の特別な種をつくり、それをさらに解剖学的に基礎づけられたものとみなすことは、ほとんど正当化されないであろう。古代のギュムナシオン、女性の相対的な隔離、少年愛を考えてみればよい。</p></li></ol>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;58</span></span></aside>
+  <p class="de" lang="de">8. Das einige Monate alte Kind greift nach allem, was seine Sinne reizt und führt das Ergriffene in der Regel in den Mund, so wie das Hühnchen nach allem pickt. Es greift auch ebenso reflektorisch nach einer etwa durch eine Fliege gereizten Hautstelle, wie dies der Frosch tut. Der Reflexmechanismus ist nur bei dem neugeborenen Kinde noch weniger reif und entwickelt, als bei den genannten Tieren. Aber die unwillkürlich eintretenden Bewegungen unserer Glieder sind ebenso mit Empfindungen und zwar mit optischen und haptischen Empfindungen verknüpft, wie die Vorgänge in unserer Umgebung; sie hinterlassen Erinnerungsspuren, optische und haptische Bewegungsbilder. Diese Erinnerungsspuren der Bewegungen verknüpfen sich associativ mit andern zugleich auftretenden angenehmen oder unangenehmen Empfindungen.</p>
+  <p class="jp" lang="ja">8. 生後数か月の子どもは、その感官を刺激するものすべてに手を伸ばし、つかんだものをたいてい口に運ぶ。ちょうどひよこが何でもついばむように。子どもはまた、たとえば蠅に刺激された皮膚の箇所に、蛙がするのと同じく反射的に手を伸ばす。反射機構は、生まれたばかりの子どもでは、上に挙げた動物よりもまだ未熟で未発達であるにすぎない。しかし、われわれの四肢の不随意に生じる運動は、われわれの環境における出来事と同じく、感覚と、しかも視覚的および触覚的な感覚と結びついている。それらは記憶痕跡、すなわち視覚的・触覚的な運動像を残す。運動のこれらの記憶痕跡は、同時に現れる他の快いあるいは不快な感覚と連合的に結びつく。</p>
+</article>
+<article class="row" id="p8.2">
+  <aside class="mg"><a class="pid" href="#p8.2">8.2</a><span class="pg"><span>S.&nbsp;58</span><span>S.&nbsp;59</span></span></aside>
+  <p class="de" lang="de">Wir merken uns, daß Lecken am Zucker mit der Empfindung „süß“, Greifen in die Flamme oder Stoßen gegen einen harten Körper oder gegen den eigenen Leib<a class="fr" href="#n13">13</a> mit „Schmerzempfindung“ verknüpft ist. So sammeln wir Erfahrungen so<span class="pb" title="Leipzig 1906, S. 59">59</span>wohl über die Vorgänge in unserer Umgebung, als auch über die Vorgänge in unserem Leibe, insbesondere über dessen Bewegungen. Die letzteren Vorgänge stehen uns am nächsten, sind für uns am wichtigsten und bieten sich der Beobachtung fortwährend dar. Es ist also natürlich, daß uns diese Erfahrungen schnell am geläufigsten werden. Ein Kind hat reflektorisch ein Stück Zucker ergriffen und in den Mund geführt, ein andres Mal aber nach einer Flamme gegriffen und ebenso reflektorisch die Hand zurückgezogen.</p>
+  <p class="jp" lang="ja">われわれは、砂糖をなめることが「甘い」という感覚と、炎に手を入れることや硬い物体あるいは自分自身の身体にぶつかること<a class="fr" href="#n13">13</a>が「痛みの感覚」と結びついていることを覚える。こうしてわれわれは、環境における出来事についても、自分の身体における出来事、とくにその運動についても経験を集める。後者の出来事はわれわれに最も近く、われわれにとって最も重要であり、たえず観察に供されている。それゆえ、これらの経験がすぐに最もなじみ深いものとなるのは当然である。ある子どもが反射的に砂糖のかけらをつかんで口に運び、また別のときには炎に手を伸ばし、同じく反射的に手を引っこめたとしよう。</p>
+  <ol class="notes"><li id="n13"><span class="nn">13</span><p class="de" lang="de">Preyer, Die Seele des Kindes. Leipzig 1882.</p><p class="jp" lang="ja">プライアー『子どもの心』ライプツィヒ、1882年。</p></li></ol>
+</article>
+<article class="row" id="p8.3">
+  <aside class="mg"><a class="pid" href="#p8.3">8.3</a><span class="pg"><span>S.&nbsp;59</span></span></aside>
+  <p class="de" lang="de">Wenn das Kind später wieder den Zucker oder die Flamme erblickt, so ist dessen Verhalten schon durch die Erinnerung modifiziert. Im ersteren Falle wird die Greifbewegung gefördert, im zweiten durch die Erinnerung an den Schmerz gehemmt. Die Schmerzerinnerung wirkt nämlich ganz ähnlich wie der Schmerz selbst und erregt die zur Greifbewegung entgegengesetzte Bewegung. Die „willkürliche“ Bewegung ist eine durch die Erinnerung beeinflußte Reflexbewegung. Wir können keine willkürliche Bewegung ausführen, welche nicht als Ganzes oder in ihren Teilen schon als Reflexbewegung oder Instinkthandlung aufgetreten und von uns als solche wäre erfahren worden. Wenn wir uns bei Bewegungen beobachten, merken wir, daß wir uns einer vorher schon ausgeführten Bewegung lebhaft erinnern und daß hierbei diese Bewegung wirklich erfolgt.</p>
+  <p class="jp" lang="ja">その子どもがのちに再び砂糖や炎を目にすると、そのふるまいはすでに記憶によって修正されている。前者の場合にはつかむ運動が促進され、後者の場合には痛みの記憶によって抑制される。つまり痛みの記憶は痛みそのものとまったく同様に作用し、つかむ運動とは反対の運動を引き起こすのである。「随意」運動とは、記憶によって影響された反射運動である。全体として、あるいはその部分において、すでに反射運動あるいは本能行為として現れ、そのようなものとしてわれわれに経験されていなかったような随意運動を、われわれは行うことはできない。運動しているときの自分を観察すると、以前にすでに行った運動を生き生きと思い出しており、そのときにこの運動が実際に生じていることに気づく。</p>
+</article>
+<article class="row" id="p8.4">
+  <aside class="mg"><a class="pid" href="#p8.4">8.4</a><span class="pg"><span>S.&nbsp;59</span></span></aside>
+  <p class="de" lang="de">Genauer gesagt: wir stellen uns den zu ergreifenden oder zu beseitigenden Körper, also auch dessen Ort und die optischen und haptischen Empfindungen beim Greifen dahin vor, welche Vorstellungen die Bewegung selbst sofort nach sich ziehen. Sehr geläufige Bewegungen kommen uns jedoch kaum mehr als besondere Vorstellungen zum Bewußtsein. Indem wir an den Laut eines Wortes denken, ist es schon ausgesprochen, indem wir das Schriftbild desselben uns vorstellen, ist es schon geschrieben, ohne daß uns die vermittelnden Sprach- und Schreibbewegungen deutlich vorgeschwebt hätten. Die lebhafte Vorstellung des Zieles oder Ergebnisses einer Bewegung löst hier in rascher Folge eine Reihe psycho-physiologischer Vorgänge aus, welche in der Bewegung selbst endigt.</p>
+  <p class="jp" lang="ja">より正確に言えば、われわれはつかもうとする、あるいは取り除こうとする物体を、したがってその場所と、そこへつかみにいくときの視覚的・触覚的感覚とを表象するのであり、これらの表象が運動そのものをただちに引き起こすのである。しかし、きわめて慣れた運動は、もはやほとんど特別な表象として意識に上らない。語の音を思うと、それはすでに発音されており、その文字像を表象すると、それはすでに書かれている。媒介する発話運動や書く運動がはっきりと念頭に浮かんでいたわけではないのに。運動の目標あるいは結果の生き生きとした表象が、ここでは心理生理学的過程の系列をすばやく次々に引き起こし、それが運動そのもので終わるのである。</p>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;59</span><span>S.&nbsp;60</span></span></aside>
+  <p class="de" lang="de">9. Was wir Willen nennen, ist nur eine besondere Form des Eingreifens der temporär erworbenen Associationen in den voraus gebildeten festen Mechanismus des Leibes. Unter einfachen <span class="pb" title="Leipzig 1906, S. 60">60</span>Lebensumständen genügt der angeborene Mechanismus des Leibes fast allein, um die Zusammenwirkung der Teile zur Erhaltung des Lebens zu sichern. Bei größerer zeitlicher und räumlicher Variation der Lebensumstände sind aber die Reflexmechanismen nicht mehr zureichend. Ein gewisser Spielraum ihrer Funktion und eine gewisse Modifikation von Fall zu Fall wird nötig. Diese immerhin geringe Modifikation besorgt nun die Association, in welcher die relative Stabilität, die begrenzte Variation der Lebensumstände zum Ausdruck kommt.</p>
+  <p class="jp" lang="ja">9. われわれが意志と呼ぶものは、一時的に獲得された連合が、身体のあらかじめ形成された固定的な機構に介入する特別な形式にすぎない。単純な生活事情のもとでは、身体の生得的な機構だけで、生命の維持のための諸部分の協働を確保するのにほとんど十分である。しかし生活事情の時間的・空間的変化が大きくなると、反射機構だけではもはや十分ではない。その機能のある程度の余地と、場合ごとのある程度の修正が必要となる。このやはりわずかな修正を担うのが連合であり、そこには生活事情の相対的な安定性、限られた変化が表現されている。</p>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;60</span></span></aside>
+  <p class="de" lang="de">Die Modifikation der Reflexvorgänge, welche durch die im Bewußtsein auftretenden Erinnerungsspuren bestimmt ist, nennen wir Willen. Ohne Reflex und Instinkt gibt es auch keine Nuancierung derselben, keinen Willen. Erstere bleiben immer der Kern der Lebensäußerungen. Nur wo diese zur Lebenserhaltung nicht mehr ausreichen, tritt die Modifikation, ja auch die zeitweilige Unterdrückung dieser natürlichen Akte ein, und es wird auf einem oft langen Umwege erreicht, was unmittelbar nicht erlangt werden konnte. Ein solcher Fall ist es, wenn ein Tier eine Beute mit List anschleicht und im Sprunge hascht, die eben nicht anders zu gewinnen ist, wenn der Mensch Hütten baut und Feuer macht, um sich gegen Kältegrade zu schützen, die er vermöge seiner bloßen Organisation nicht mehr ertragen kann.</p>
+  <p class="jp" lang="ja">意識に現れる記憶痕跡によって規定される反射過程の修正を、われわれは意志と呼ぶ。反射と本能がなければ、それらの微妙な変化もなく、意志もない。反射と本能はつねに生命の発現の核心であり続ける。それらがもはや生命の維持に足りないところでのみ、これらの自然な行為の修正、さらには一時的な抑制が生じ、直接には得られなかったものが、しばしば長い回り道によって達成される。動物が、ほかの方法では手に入らない獲物に策略を用いて忍び寄り、跳びかかって捕らえるとき、また人間が、自分の生体の組織だけではもはや耐えられない寒さから身を守るために小屋を建て火を起こすとき、それはこうした場合である。</p>
+</article>
+<article class="row" id="p9.3">
+  <aside class="mg"><a class="pid" href="#p9.3">9.3</a><span class="pg"><span>S.&nbsp;60</span></span></aside>
+  <p class="de" lang="de">Was der Mensch in seinem Vorstellungsleben und demnach auch im Handeln vor dem Tier, der kultivierte Mensch vor dem unkultivierten voraus hat, ist nur die Länge des Umweges zu demselben Ziel, die Fähigkeit, solche Umwege aufzufinden und einzuschlagen. Die ganze technische und wissenschaftliche Kultur kann als ein solcher Umweg angesehen werden. Wächst nun auch im Dienste der Kultur die Kraft des Intellektes (des Vorstellungslebens) so, daß dieser sich endlich seine eigenen Bedürfnisse schafft und die Wissenschaft um ihrer selbst willen treibt, so sieht man doch, daß diese Erscheinung nur ein Produkt der sozialen Kultur sein kann, welche eine so weit gehende Teilung der Arbeit ermöglicht. Außerhalb der Gesellschaft wäre der in seine Gedanken ganz vertiefte Forscher eine biologisch unhaltbare pathologische Erscheinung.</p>
+  <p class="jp" lang="ja">人間がその表象生活において、したがってまた行為において動物に勝っており、文化をもつ人間が文化をもたない人間に勝っているのは、ただ同じ目標への回り道の長さ、そのような回り道を見つけ出し、それをたどる能力だけである。技術的・科学的な文化全体が、そのような回り道とみなすことができる。さて、文化に仕えるうちに知性（表象生活）の力が増して、ついには知性が自分自身の欲求をつくり出し、科学をそれ自体のために営むようになるとしても、この現象は、それほどまでに進んだ分業を可能にする社会的文化の産物でしかありえないことが分かる。社会の外では、自分の思考にすっかり没頭している研究者は、生物学的に維持しがたい病理的現象であろう。</p>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;60</span><span>S.&nbsp;61</span></span></aside>
+  <p class="de" lang="de">10. Joh. Müller<a class="fr" href="#n14">14</a> hat noch als möglich angenommen, daß <span class="pb" title="Leipzig 1906, S. 61">61</span>die Bewegungsimpulse, Innervationen, welche vom Hirn aus zu den Muskeln abgehen, unmittelbar als solche empfunden werden, ebenso wie die peripherischen Nervenerregungen, sich zum Hirn fortpflanzend, Empfindungen bedingen. Diese Ansicht, welche bis in die neuere Zeit noch vertreten wurde, hat sich, gegenüber dem genaueren Studium der Willensfrage, von psychologischer Seite vorzüglich durch W. James<a class="fr" href="#n15">15</a> und Münsterberg,<a class="fr" href="#n16">16</a> von physiologischer Seite besonders durch Hering<a class="fr" href="#n17">17</a> als nicht haltbar erwiesen. Der aufmerksame Beobachter muß zugeben, daß solche Innervationsempfindungen nicht wahrzunehmen sind, daß man nicht weiß, wie man eine Bewegung ausführt, welche Muskeln ins Spiel kommen, mit welchen Spannungen sich dieselben beteiligen u. s. w. Alles dies ist durch die Organisation bedingt.</p>
+  <p class="jp" lang="ja">10. ヨハネス・ミュラー<a class="fr" href="#n14">14</a>は、脳から筋肉へと送られる運動衝撃、神経支配（インネルヴァツィオーン）が、末梢の神経興奮が脳へと伝わって感覚を生じるのと同じく、それ自体として直接に感じられることを、なお可能なこととみなしていた。近年まで主張されていたこの見解は、意志の問題をより詳しく研究するにつれて、心理学の側からはとくに W. ジェイムズ<a class="fr" href="#n15">15</a>とミュンスターベルク<a class="fr" href="#n16">16</a>によって、生理学の側からはとくにヘーリング<a class="fr" href="#n17">17</a>によって、維持しえないことが示された。注意深い観察者は、そのような神経支配の感覚は知覚されないこと、ある運動をどのように行うのか、どの筋肉がはたらき、それらがどのような緊張で関与するのかなどを、人は知らないということを認めざるをえない。これらはすべて生体の組織によって条件づけられている。</p>
+  <ol class="notes"><li id="n14"><span class="nn">14</span><p class="de" lang="de">J. Müller, Handbuch der Physiologie. Koblenz 1840. II. S. 500.</p><p class="jp" lang="ja">J. ミュラー『生理学ハンドブック』コブレンツ、1840年、第2巻、500頁。</p></li><li id="n15"><span class="nn">15</span><p class="de" lang="de">W. James, The feeling of effort. Boston 1880. Principles of Psychology. New York 1890. II. S. 486 u. f.</p><p class="jp" lang="ja">W. ジェイムズ『努力の感情』ボストン、1880年。『心理学原理』ニューヨーク、1890年、第2巻、486頁以下。</p></li><li id="n16"><span class="nn">16</span><p class="de" lang="de">Münsterberg, Die Willenshandlung. Freiburg i. B. 1888.</p><p class="jp" lang="ja">ミュンスターベルク『意志行為』フライブルク・イム・ブライスガウ、1888年。</p></li><li id="n17"><span class="nn">17</span><p class="de" lang="de">Hering in Hermanns Handb. d. Physiol. III, 1. S. 547, 548.</p><p class="jp" lang="ja">ヘーリング、ヘルマン編『生理学ハンドブック』第3巻第1部、547、548頁。</p></li></ol>
+</article>
+<article class="row" id="p10.2">
+  <aside class="mg"><a class="pid" href="#p10.2">10.2</a><span class="pg"><span>S.&nbsp;61</span></span></aside>
+  <p class="de" lang="de">Wir stellen uns nur das Ziel der Bewegung vor und erfahren durch peripherische Empfindungen der Haut, der Muskel, Bänder u. s. w. erst von der ausgeführten Bewegung. So wie sich also Vorstellungen durch Vorstellungen associativ im Bewußtsein ergänzen, so können sich auch Erinnerungen an sinnliche Empfindungen durch die zugehörigen motorischen Prozesse associativ ergänzen, wobei aber diese letzteren nicht mehr ins Bewußtsein fallen, sondern nur wieder mit deren Folgen hineinreichen. Daß das Prinzip der Association, oder der Verbindung durch Gewohnheit, im ganzen Nervensystem wirksam ist, kann man nach der Gleichartigkeit des letzteren wohl annehmen. Auf die besonderen Nervenverbindungen mit dem Großhirn wird es ankommen, welche Glieder der Associationsketten ins Bewußtsein fallen.</p>
+  <p class="jp" lang="ja">われわれは運動の目標を表象するだけであり、皮膚、筋肉、靱帯などの末梢の感覚によってはじめて、行われた運動を知るのである。したがって、表象が表象によって意識のうちで連合的に補われるのと同じく、感性的感覚の記憶もまた、それに属する運動過程によって連合的に補われうる。ただしこの後者はもはや意識には上らず、その結果によってのみ再び意識に及ぶのである。連合の原理、すなわち習慣による結合の原理が神経系全体においてはたらいていることは、神経系の同質性からしておそらく想定してよいであろう。連合の連鎖のどの項が意識に上るかは、大脳との特別な神経結合にかかっているであろう。</p>
+</article>
+<article class="row" id="p10.3">
+  <aside class="mg"><a class="pid" href="#p10.3">10.3</a><span class="pg"><span>S.&nbsp;61</span><span>S.&nbsp;62</span></span></aside>
+  <p class="de" lang="de">Als Beispiele der Erregung verschiedener leiblicher Prozesse durch Vorstellungen erwähnen wir, daß Erbrechen bei empfindlichen Personen leicht durch die Vorstellung des Erbrechens ausgelöst wird. Wer leicht an den Händen schwitzt, wer in der Verlegenheit leicht errötet, darf an diese Vorgänge nicht denken, ohne daß sie sofort eintreten. Die Speicheldrüsen des Feinschmeckers reagieren prompt auf dessen Geschmacksphantasien. Als ich einmal längere Zeit an Malaria <span class="pb" title="Leipzig 1906, S. 62">62</span>litt, erwarb ich mir die unangenehme Fertigkeit, durch den bloßen Gedanken an Schüttelfrost diesen selbst hervorzurufen, welche Fertigkeit mir viele Jahre verblieb. Die hier dargelegte Auffassung wird noch durch andere Tatsachen bestätigt.</p>
+  <p class="jp" lang="ja">表象によってさまざまな身体的過程が引き起こされる例として、敏感な人では嘔吐の表象によって容易に嘔吐が引き起こされることを挙げよう。手に汗をかきやすい人、困ったときに赤面しやすい人は、そのことを考えただけで、すぐさまそれが起こってしまう。美食家の唾液腺は、その味覚の空想にすばやく反応する。私はかつて長いあいだマラリアに苦しんでいたとき、悪寒戦慄のことを考えるだけでそれそのものを引き起こすという不愉快な技能を身につけてしまい、その技能は何年も私のもとにとどまった。ここで述べた見解は、さらに他の事実によっても確証される。</p>
+</article>
+<article class="row" id="p10.4">
+  <aside class="mg"><a class="pid" href="#p10.4">10.4</a><span class="pg"><span>S.&nbsp;62</span></span></aside>
+  <p class="de" lang="de">Wenn eine Muskelkontraktion nicht „zentral“, nicht durch den „Willen“, sondern durch den Induktionsstrom ausgelöst wird, so empfinden wir diese Kontraktion ganz ebenso als Anstrengung wie die willkürliche; diese Empfindung ist also peripherisch ausgelöst. Am interessantesten sind aber die Beobachtungen Strümpells<a class="fr" href="#n18">18</a> über das Verhalten eines Knaben, der bloß mit dem rechten Auge sah und mit dem linken Ohre hörte, der aber sonst ganz empfindungslos war. Bei verbundenen Augen konnten dessen Glieder in die ungewöhnlichsten Stellungen gebracht werden, ohne daß er es merkte. Auch das Gefühl der Ermüdung fehlte gänzlich. Verlangte man, daß er den Arm erhebe und erhoben halte, so tat er dies, aber nach 1-2 Minuten begann dieser zu zittern und zu sinken, obgleich der Patient behauptete, denselben erhoben zu halten. Ebenso glaubte derselbe die Hand zu schließen und zu öffnen, während man diese fest hielt.<a class="fr" href="#n19">19</a></p>
+  <p class="jp" lang="ja">筋肉の収縮が「中枢」から、つまり「意志」によってではなく、誘導電流によって引き起こされるとき、われわれはこの収縮を随意的なものとまったく同様に努力として感じる。したがってこの感覚は末梢的に引き起こされているのである。しかし最も興味深いのは、右目だけで見て左耳だけで聞き、その他の点ではまったく感覚のない少年のふるまいについてのシュトリュンペル<a class="fr" href="#n18">18</a>の観察である。目隠しをすると、少年の手足をこのうえなく異常な姿勢にしても、彼はそれに気づかなかった。疲労の感覚もまったく欠けていた。腕を上げて上げたままにしているよう求めると、彼はそうしたが、一、二分後に腕は震えだして下がりはじめた。それでも患者は腕を上げたままにしていると主張した。同様に、手をしっかり押さえられているのに、彼は手を閉じたり開いたりしていると思っていた<a class="fr" href="#n19">19</a>。</p>
+  <ol class="notes"><li id="n18"><span class="nn">18</span><p class="de" lang="de">Strümpell, Deutsch. Archiv f. klin. Medic. XXII. S. 321.</p><p class="jp" lang="ja">シュトリュンペル『ドイツ臨床医学記録』第22巻、321頁。</p></li><li id="n19"><span class="nn">19</span><p class="de" lang="de">Ich selbst konnte mich einige Zeit von der Müllerschen Ansicht nicht losmachen. Die Beobachtungen (Analyse 4. Aufl. S. 135) an meiner eigenen apoplektisch gelähmten, aber sensiblen Hand, an welcher keine Bewegung zu sehen ist, während ich doch ein Schließen und Öffnen in geringem Ausmaß zu fühlen glaube, weiß ich auch in den Rahmen der neuen Theorie nicht recht einzupassen.</p><p class="jp" lang="ja">私自身もしばらくのあいだ、ミュラーの見解から離れることができなかった。私自身の、卒中で麻痺しているが感覚はある手——そこには何の運動も見られないのに、私はわずかな程度の閉じたり開いたりを感じると思う——についての観察（『感覚の分析』第4版、135頁）を、新しい理論の枠にどう組み入れたらよいのか、私にもよく分からない。</p></li></ol>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;62</span><span>S.&nbsp;63</span></span></aside>
+  <p class="de" lang="de">11. Bewegung, Empfindung und Vorstellung stehen überhaupt in einem sehr innigen Zusammenhang. Wir dürfen uns über das Bestehen desselben durch die notwendigen Einteilungen und das Schematisieren der Psychologie nicht täuschen lassen. Wenn eine Wildkatze durch ein leises Geräusch erregt, sich des Tieres erinnert, welches dieses Geräusch bewirken könnte, so richtet sie die Augen auf den Ort des Geräusches und stellt sich sprungbereit. Die associierte Vorstellung hat hier Bewegungen ausgelöst, welche eine deutlichere optische Empfindung des erwarteten interessanten, zur Nahrung dienenden Objektes bedingen, das nun mit gut bemessenem Sprunge eingefangen werden kann.<a class="fr" href="#n20">20</a> Dagegen sind die Augen der Katze jetzt ganz von der Beute <span class="pb" title="Leipzig 1906, S. 63">63</span>in Anspruch genommen und eben deshalb zur Aufnahme von anderwärts herkommenden Eindrücken wenig geeignet, weswegen das lauernde Tier dem Jäger leicht zum Opfer fällt.</p>
+  <p class="jp" lang="ja">11. 運動、感覚、表象は、そもそもきわめて緊密な連関のうちにある。心理学に必要な区分や図式化によって、この連関の存在について欺かれてはならない。山猫がかすかな物音に興奮して、その物音を立てうる動物を思い出すと、山猫は目を物音の場所に向け、跳びかかる構えをとる。連合された表象がここで運動を引き起こし、それが、期待されている興味深い、食物となる対象のより明瞭な視覚的感覚をもたらし、その対象をいまやよく測った跳躍によって捕らえることができるのである<a class="fr" href="#n20">20</a>。その反面、猫の目はいまやすっかり獲物に奪われており、まさにそのために他の方向から来る印象を受け取るにはあまり適していない。それゆえ待ち伏せしている動物は容易に猟師の餌食となるのである。</p>
+  <ol class="notes"><li id="n20"><span class="nn">20</span><p class="de" lang="de">Groos, Die Spiele der Tiere. Jena 1896. S. 210 u. f.</p><p class="jp" lang="ja">グロース『動物の遊び』イェーナ、1896年、210頁以下。</p></li></ol>
+</article>
+<article class="row" id="p11.2">
+  <aside class="mg"><a class="pid" href="#p11.2">11.2</a><span class="pg"><span>S.&nbsp;63</span></span></aside>
+  <p class="de" lang="de">Wir sehen, wie hier Empfindung, Vorstellung und Bewegung ineinandergreifen, um den Zustand zu bestimmen, den wir Aufmerksamkeit nennen. Ähnlich jener Katze verhalten wir uns, wenn wir über etwas, das unmittelbar unsere Lebenserhaltung betrifft oder aus irgend einem andern Grunde für uns von Interesse ist, nachdenken.<a class="fr" href="#n21">21</a> Wir überlassen uns da nicht beliebigen Einfällen. Zunächst wenden wir den Blick von allen gleichgültigen Vorkommnissen ab, achten nicht auf Geräusche in unserer Umgebung oder suchen dieselben abzuhalten. Wir setzen uns wohl gar an unseren Arbeitstisch und entwerfen eine Konstruktion oder fangen an, eine Formel zu entwickeln. Wir werfen den Blick wiederholt auf die Konstruktion oder die Formel. Nur jene Associationen, welche zur Aufgabe in Beziehung stehen, treten auf. Kommen andere zum Vorschein, so werden sie bald wieder von ersteren verdrängt.</p>
+  <p class="jp" lang="ja">ここでは、われわれが注意と呼ぶ状態を規定するために、感覚、表象、運動がどのように互いにかみ合っているかが分かる。われわれの生命の維持に直接関わること、あるいは何か他の理由でわれわれにとって関心のあることについて熟考するとき、われわれはあの猫と似たふるまいをする<a class="fr" href="#n21">21</a>。そのときわれわれは任意の思いつきに身を委ねはしない。まず、どうでもよいあらゆる出来事から目をそらし、周囲の物音に注意を払わないか、それを遠ざけようとする。おそらくは仕事机に向かいさえして、作図を描いたり、式を展開しはじめたりする。われわれは繰り返し作図や式に目をやる。課題と関係のある連合だけが現れる。他の連合が現れても、まもなく前者によって再び押しのけられる。</p>
+  <ol class="notes"><li id="n21"><span class="nn">21</span><p class="de" lang="de">Vgl. S. 40.</p><p class="jp" lang="ja">40頁参照。</p></li></ol>
+</article>
+<article class="row" id="p11.3">
+  <aside class="mg"><a class="pid" href="#p11.3">11.3</a><span class="pg"><span>S.&nbsp;63</span></span></aside>
+  <p class="de" lang="de">Bewegungen, Empfindungen und Associationen wirken im Falle des Nachdenkens gerade so zusammen, den Zustand der intellektuellen Aufmerksamkeit zu schaffen, wie sie in dem Fall der Katze die sinnliche Aufmerksamkeit hergestellt haben. Wir glauben unser Denken „willkürlich“ zu leiten, aber in Wahrheit ist dasselbe bestimmt durch den immer wiederkehrenden Gedanken des Problems, das mit 1000 Associationsfäden unmittelbar oder mittelbar an den Interessen unseres Lebens hängt, die uns nicht los lassen.<a class="fr" href="#n22">22</a> Wie in dem Fall der sinnlichen Aufmerksamkeit der auf ein bestimmtes Objekt eingestellte Sinn eben dadurch relativ blind oder taub wird für jedes andere Objekt, so werden auch durch die auf das Problem bezüglichen Associationen den andern die Bahnen verschlossen.<a class="fr" href="#n23">23</a> Die Katze merkt das Herannahen des Jägers nicht, der spekulierende Sokrates überhört „zerstreut“ die Fragen seiner Xanthippe und der konstruierende Archimedes büßt seine mangelhafte biologische Anpassung an die augenblicklichen Umstände mit dem Leben.</p>
+  <p class="jp" lang="ja">熟考の場合には、運動、感覚、連合が、猫の場合に感性的注意を生み出したのとまったく同じように協働して、知的注意の状態をつくり出す。われわれは自分の思考を「随意に」導いていると信じているが、実際には思考は、問題のたえず繰り返し浮かぶ考えによって規定されているのであり、その問題は千本もの連合の糸によって直接あるいは間接に、われわれを離そうとしない生命の利害に結びついているのである<a class="fr" href="#n22">22</a>。感性的注意の場合に、ある特定の対象に向けられた感官がまさにそのことによって他のあらゆる対象に対して相対的に盲目あるいは聾になるのと同じく、問題に関係する連合によって、他の連合への道が閉ざされる<a class="fr" href="#n23">23</a>。猫は猟師が近づくのに気づかず、思弁にふけるソクラテスは「うわの空で」クサンティッペの問いを聞き流し、作図にふけるアルキメデスは、その時々の事情への生物学的適応の欠如を命をもって償うのである。</p>
+  <ol class="notes"><li id="n22"><span class="nn">22</span><p class="de" lang="de">Vgl. Popul. Vorlesungen, 3. Aufl. S. 287 u. f.</p><p class="jp" lang="ja">『通俗科学講義』第3版、287頁以下参照。</p></li><li id="n23"><span class="nn">23</span><p class="de" lang="de">Vgl. Zur Theorie des Gehörorgans. Sitzb. d. Wiener Akademie. Bd. 48, Juli 1863. Daselbst schon eine mehr biologische Auffassung der Aufmerksamkeit.</p><p class="jp" lang="ja">「聴覚器官の理論について」『ウィーン学士院会議報告』第48巻、1863年7月参照。そこですでに、注意についてのより生物学的な把握が示されている。</p></li></ol>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;64</span></span></aside>
+  <p class="de" lang="de">12. Es gibt keinen Willen und keine Aufmerksamkeit als besondere psychische Mächte. Dieselbe Macht, die den Leib bildet, führt auch die besonderen Formen der Zusammenwirkung der Teile des Leibes herbei, für welche wir die Kollektivnamen „Wille“ und „Aufmerksamkeit“ angenommen haben. Wille und Aufmerksamkeit sind so nahe verwandt, daß es schwer ist, dieselben gegeneinander abzugrenzen.<a class="fr" href="#n24">24</a> Im Willen und in der Aufmerksamkeit liegt eine „Wahl“, ebenso wie im Geotropismus und Heliotropismus der Pflanzen und in dem Fall des Steines zur Erde. Alle sind in gleicher Weise rätselhaft oder in gleicher Weise verständlich.<a class="fr" href="#n25">25</a> Der Wille besteht in der Unterordnung der weniger wichtigen oder nur zeitweilig wichtigen Reflexakte unter die die Lebensfunktion leitenden Vorgänge. Diese leitenden Vorgänge sind aber die Empfindungen und Vorstellungen, welche die Lebensbedingungen registrieren.</p>
+  <p class="jp" lang="ja">12. 特別な心的な力としての意志や注意は存在しない。身体を形成するのと同じ力が、身体の諸部分の協働の特別な形式をも生み出すのであり、その形式に対してわれわれは「意志」と「注意」という集合名を採用したのである。意志と注意はきわめて近い類縁関係にあるので、両者を互いに区切るのは難しい<a class="fr" href="#n24">24</a>。意志と注意のうちには「選択」がある。植物の屈地性や屈光性のうちに、また石が地面に落ちることのうちにあるのと同じように。それらはすべて同じように謎めいているか、あるいは同じように理解可能である<a class="fr" href="#n25">25</a>。意志は、それほど重要でない、あるいは一時的にのみ重要な反射行為を、生命機能を導く過程に従属させることのうちに成り立つ。しかしこの導く過程とは、生命の条件を記録する感覚と表象なのである。</p>
+  <ol class="notes"><li id="n24"><span class="nn">24</span><p class="de" lang="de">Vgl. J. C. Kreibig, Die Aufmerksamkeit als Willenserscheinung. Wien 1897.</p><p class="jp" lang="ja">J. C. クライビヒ『意志現象としての注意』ウィーン、1897年参照。</p></li><li id="n25"><span class="nn">25</span><p class="de" lang="de">Vgl. Schopenhauer, Über den Willen in der Natur.</p><p class="jp" lang="ja">ショーペンハウアー『自然における意志について』参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;64</span></span></aside>
+  <p class="de" lang="de">13. Manche Bewegungen, deren unausgesetzte Fortdauer für die Erhaltung des Lebens notwendig ist, wie die Herzbewegung, die Atmung, die peristaltische Bewegung des Darms u. s. w., sind vom „Willen“ unabhängig oder werden höchstens in sehr beschränktem Maße von psychischen Vorgängen (Gemütsbewegungen) beeinflußt. Die Grenze zwischen willkürlichen und unwillkürlichen Bewegungen ist aber keine absolut feststehende, sondern variiert etwas von Individuum zu Individuum. Bei einzelnen Menschen gehorchen manche Muskeln dem Willen, welche bei anderen dem Einfluß desselben ganz entzogen sind. So soll Fontana im stande gewesen sein, die Pupillen willkürlich zu verengern, und E. F. Weber hätte sogar die Fähigkeit gehabt, die Herzbewegung willkürlich zu unterdrücken.<a class="fr" href="#n26">26</a></p>
+  <p class="jp" lang="ja">13. 心臓の運動、呼吸、腸の蠕動運動など、その絶え間ない継続が生命の維持に必要ないくつかの運動は、「意志」から独立しているか、せいぜいきわめて限られた程度に心的過程（情動）によって影響を受けるにすぎない。しかし随意運動と不随意運動との境界は絶対的に確定したものではなく、個人によっていくらか異なる。ある人々においては、他の人々では意志の影響からまったく免れている筋肉が意志に従う。たとえばフォンタナは瞳孔を随意に縮めることができたといい、E. F. ヴェーバーにいたっては心臓の運動を随意に止める能力さえもっていたという<a class="fr" href="#n26">26</a>。</p>
+  <ol class="notes"><li id="n26"><span class="nn">26</span><p class="de" lang="de">Ribot, Maladies de la volonté. Paris 1888. S. 27.</p><p class="jp" lang="ja">リボー『意志の病』パリ、1888年、27頁。</p></li></ol>
+</article>
+<article class="row" id="p13.2">
+  <aside class="mg"><a class="pid" href="#p13.2">13.2</a><span class="pg"><span>S.&nbsp;64</span><span>S.&nbsp;65</span></span></aside>
+  <p class="de" lang="de">Wenn die Innervation eines Muskels zufällig gelingt, und man kann die hierbei auftretenden Empfindungen in der Erinnerung reproduzieren, so tritt hierbei die Kontraktion des Muskels in der Regel wieder ein, und derselbe bleibt der Herrschaft des Willens unter<span class="pb" title="Leipzig 1906, S. 65">65</span>worfen.<a class="fr" href="#n27">27</a> Die Grenze der Willkürbewegung kann also durch glückliche Versuche und Übung erweitert werden. — In krankhaften Zuständen kann die Beziehung zwischen dem Vorstellungsleben und der Bewegung bedeutende Veränderungen erfahren, was nur durch einige Beispiele erläutert werden soll.<a class="fr" href="#n28">28</a> Th. de Quincey erfuhr nach seinem eigenen Geständnis durch den Gebrauch des Opiums eine solche Schwächung des Willens, daß er eingelangte wichtige Briefe durch Monate unbeantwortet liegen ließ und es dann noch schwer über sich gewann, eine Antwort von wenigen Worten zu schreiben. Ein kräftiger, intelligenter Mann, Notar, verfiel in Melancholie.</p>
+  <p class="jp" lang="ja">ある筋肉の神経支配が偶然うまくいき、そのとき現れる感覚を記憶のうちに再生できると、通常その筋肉の収縮は再び生じ、その筋肉は意志の支配に服したままになる<a class="fr" href="#n27">27</a>。したがって随意運動の境界は、うまくいった試みと練習によって広げることができる。——病的な状態においては、表象生活と運動との関係が著しい変化をこうむることがありうる。これをいくつかの例によって説明するだけにしよう<a class="fr" href="#n28">28</a>。Th. ド・クインシーは、本人の告白によれば、阿片の使用によって意志がひどく弱まり、届いた重要な手紙を何か月も返事をせずに放置し、そのうえ数語の返事を書くことさえなかなか自分に強いることができなかった。たくましく聡明な男である公証人が、憂鬱症に陥った。</p>
+  <ol class="notes"><li id="n27"><span class="nn">27</span><p class="de" lang="de">Hering, Die Lehre vom binocularen Sehen. Leipzig 1868. S. 27.</p><p class="jp" lang="ja">ヘーリング『両眼視の理論』ライプツィヒ、1868年、27頁。</p></li><li id="n28"><span class="nn">28</span><p class="de" lang="de">Ribot, a. a. O. S. 40—48.</p><p class="jp" lang="ja">リボー前掲書、40–48頁。</p></li></ol>
+</article>
+<article class="row" id="p13.3">
+  <aside class="mg"><a class="pid" href="#p13.3">13.3</a><span class="pg"><span>S.&nbsp;65</span></span></aside>
+  <p class="de" lang="de">Er sollte eine Reise nach Italien antreten, erklärte wiederholt, es sei ihm unmöglich, leistete aber seinem Begleiter nicht den geringsten Widerstand. Eine Vollmacht, die er ausstellte, unterzeichnete er, konnte aber durch drei Viertelstunden nicht dazu gelangen, den Namen durch den üblichen Zug zu ergänzen. Nachdem sich noch in vielen ähnlichen Fällen seine Willensschwäche geäußert hatte, gewann er seine Energie wieder beim Anblick einer von den Pferden zu Boden geworfenen Frau. Er sprang rasch aus dem Wagen, um ihr Hilfe zu leisten. Die „Abulie“ wurde also hier durch einen starken Affekt überwunden. Anderseits können bloße Vorstellungen so impulsiv werden, daß sie drohen in die Tat auszubrechen. Ein Mensch wird z. B. von dem Gedanken beherrscht, eine bestimmte Person oder sich selbst ermorden zu müssen, und läßt sich freiwillig fesseln, um sich vor den Folgen dieses furchtbaren Triebes zu schützen.</p>
+  <p class="jp" lang="ja">彼はイタリアへ旅に出ることになっていたが、それは自分には不可能だと繰り返し言明しながら、同行者にはまったく何の抵抗もしなかった。彼は自分が作成した委任状に署名したが、四十五分ものあいだ、いつもの筆の運びで名前を書き終えることができなかった。さらに多くの同様な場合に意志の弱さが現れたのち、彼は馬に地面に投げ倒された女性を目にして、気力を取り戻した。彼は彼女を助けるためにすばやく馬車から飛び降りたのである。つまりここでは「無為症（アブリア）」が強い情動によって克服されたのである。他方、単なる表象がきわめて衝動的になり、行為となって噴き出すおそれがあることもある。たとえばある人が、ある特定の人物あるいは自分自身を殺さなければならないという考えに支配され、この恐ろしい衝動の結果から身を守るために、自ら進んで縛られる。</p>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;65</span><span>S.&nbsp;66</span></span></aside>
+  <p class="de" lang="de">14. Schon eine vorausgehende Überlegung hat gezeigt, daß die Abgrenzung des Ich gegen die Welt etwas schwierig und von Willkürlichkeit nicht frei ist. Betrachten wir die Gesamtheit der miteinander zusammenhängenden Vorstellungen, also dasjenige, was nur für uns allein unmittelbar vorhanden ist, als das Ich. Dann besteht das Ich aus den Erinnerungen unserer Erlebnisse, mit den durch diese selbst bedingten Associationen. Dieses ganze Vorstellungsleben ist aber an die historischen Schicksale des Großhirns gebunden, welches ein Teil der physischen Welt ist, den wir nicht ausscheiden können. Nun haben wir aber kein <span class="pb" title="Leipzig 1906, S. 66">66</span>Recht, die Empfindungen aus der Reihe der psychischen Elemente auszuschalten.</p>
+  <p class="jp" lang="ja">14. すでに先の考察が示したように、自我を世界に対して区切ることはいくらか難しく、恣意性を免れない。互いに連関しあう表象の総体、つまりわれわれだけに直接に存在するものを、自我とみなすことにしよう。すると自我は、われわれの体験の記憶と、それらの体験そのものによって条件づけられた連合とから成り立つ。しかしこの表象生活全体は、物理的世界の一部であり、われわれが排除することのできない大脳の歴史的運命に結びついている。ところで、われわれには感覚を心的要素の系列から除外する権利はない。</p>
+</article>
+<article class="row" id="p14.2">
+  <aside class="mg"><a class="pid" href="#p14.2">14.2</a><span class="pg"><span>S.&nbsp;66</span></span></aside>
+  <p class="de" lang="de">Beschränken wir uns zunächst auf die Organempfindungen (Gemeingefühle), welche von dem Lebensprozeß aller Körperteile herrühren, der in das Großhirn ausstrahlt und als Hunger, Durst u. s. w. die Grundlage der Triebe wird, die vermöge eines im embryonalen Leben erworbenen Mechanismus unsere Bewegungen, Reflexe und Instinkthandlungen auslösen, die durch das später entwickelte Vorstellungsleben nur modifiziert werden können. Dieses weitere Ich hängt schon mit unserem ganzen Leib, ja nicht minder mit dem Leib unserer Eltern untrennbar zusammen. Endlich können wir auch die von der gesamten physischen Umgebung ausgelösten Sinnesempfindungen zum Ich im weitesten Sinn rechnen, und dieses ist dann von der ganzen Welt nicht mehr trennbar. Dem erwachsenen denkenden Menschen, welcher sein Ich analysiert, fällt das Vorstellungsleben vermöge seiner Stärke und Klarheit als der wichtigste Inhalt des Ich auf.</p>
+  <p class="jp" lang="ja">まず器官感覚（一般感覚）に限ってみよう。それは身体のすべての部分の生命過程に由来し、その過程は大脳へと放射し、飢えや渇きなどとして衝動の基礎となる。衝動は、胎生期に獲得された機構によってわれわれの運動、反射、本能行為を引き起こし、それらはのちに発達する表象生活によって修正されうるにすぎない。このより広い自我は、すでにわれわれの身体全体と、それどころか両親の身体とも不可分に連関している。最後に、物理的環境全体によって引き起こされる感官の感覚をも最広義の自我に数えることができ、そうするとこの自我はもはや世界全体から切り離せない。自分の自我を分析する成人の考える人間には、表象生活がその強さと明晰さのゆえに自我の最も重要な内容として目につく。</p>
+</article>
+<article class="row" id="p14.3">
+  <aside class="mg"><a class="pid" href="#p14.3">14.3</a><span class="pg"><span>S.&nbsp;66</span></span></aside>
+  <p class="de" lang="de">Anders ist es, wenn wir ein Individuum in der Entwicklung betrachten. Das einige Monate alte Kind wird noch ganz von seinen Organempfindungen beherrscht. Der Ernährungstrieb ist am mächtigsten wirksam. Sehr allmählich entwickelt sich das Sinnesleben und später das Vorstellungsleben. Erst spät kommt der Geschlechtstrieb hinzu und wandelt bei gleichzeitigem Wachstum des Vorstellungslebens die ganze Persönlichkeit um. So entwickelt sich ein Weltbild, in dem als deutlich abgegrenztes und wichtigstes Zentralglied der eigene Leib sich abhebt; die stärksten Vorstellungen zielen mit ihren Associationen auf Befriedigung der Triebe ab, sind auf dieselbe abgestimmt, sozusagen nur Zwischenmittel zur Befriedigung derselben.</p>
+  <p class="jp" lang="ja">発達しつつある個人を考察すると、事情は異なる。生後数か月の子どもはまだまったく器官感覚に支配されている。栄養衝動が最も強力にはたらいている。感官の生活はきわめて徐々に、そしてのちに表象生活が発達する。ずっと遅れて性衝動が加わり、表象生活の同時的な成長とともに人格全体を変容させる。こうして一つの世界像が発達し、そこでは自分の身体が、はっきりと区切られた最も重要な中心項として際立つ。最も強い表象は、その連合とともに衝動の満足を目指し、それへと調律されており、いわば衝動を満足させるための中間手段にすぎない。</p>
+</article>
+<article class="row" id="p14.4">
+  <aside class="mg"><a class="pid" href="#p14.4">14.4</a><span class="pg"><span>S.&nbsp;66</span><span>S.&nbsp;67</span></span></aside>
+  <p class="de" lang="de">Das Zentralglied dieses Weltbildes hat der Mensch mit den höheren Tieren gemein, nur tritt das Vorstellungsleben desto mehr zurück, je einfachere Organismen wir betrachten. Beim sozialen Menschen, dessen Leben teilweise entlastet ist, können die Vorstellungen, welche mit dessen Beruf, Stellung, Lebensaufgabe u. s. w. zusammenhängen, obgleich sie ursprünglich nur Zwischenmittel zur Befriedigung zunächst der eigenen und nebenher und mittelbar der fremden Triebe waren, doch eine solche Stärke und einen solchen Wert gewinnen, daß alles übrige daneben unbedeutend erscheint. So entsteht das, <span class="pb" title="Leipzig 1906, S. 67">67</span>was Meynert<a class="fr" href="#n29">29</a> das sekundäre Ich genannt hat im Gegensatz zum primären Ich, in welchem letzteren vor allem das animale Leben des Leibes sich hervorhebt.</p>
+  <p class="jp" lang="ja">この世界像の中心項を、人間は高等動物と共有している。ただ、より単純な有機体を考察するほど、表象生活はますます後退していく。生活の負担が部分的に軽減された社会的人間においては、職業、地位、人生の課題などと連関する表象が、もとはまず自分の衝動の、そして副次的・間接的に他人の衝動の満足のための中間手段にすぎなかったにもかかわらず、それと並ぶ他のすべてのものが取るに足らなく見えるほどの強さと価値を獲得しうる。こうして、マイネルト<a class="fr" href="#n29">29</a>が一次的自我——そこではとりわけ身体の動物的生命が際立つ——に対して二次的自我と呼んだものが生じるのである。</p>
+  <ol class="notes"><li id="n29"><span class="nn">29</span><p class="de" lang="de">Meynert, Populäre Vorträge. Wien 1892. S. 36 u. f.</p><p class="jp" lang="ja">マイネルト『通俗講演集』ウィーン、1892年、36頁以下。</p></li></ol>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;67</span></span></aside>
+  <p class="de" lang="de">15. Bei dem wichtigen Beitrag, den die Organempfindungen zur Bildung des Ich liefern, ist es begreiflich, daß Störungen dieser Organempfindungen auch das Ich alterieren. Ribot<a class="fr" href="#n30">30</a> hat die interessantesten Fälle dieser Art beschrieben. Ein in der Schlacht von Austerlitz schwer verwundeter Soldat hielt sich seither für tot. Wurde er um sein Befinden gefragt, so antwortete er: Ihr wollt wissen, wie es Vater Lambert geht? Er ist nicht mehr, eine Kanonenkugel hat ihn mitgenommen. Das, was ihr hier seht, ist eine schlechte Maschine, die ihm ähnlich ist. Man sollte eine andere machen. Indem er von sich sprach, sagte er nie „ich“, sondern „dieses da“. Seine Haut war empfindungslos, und oft verfiel er in vollständige Bewußtlosigkeit und Unbeweglichkeit, welche mehrere Tage währte. - Die monströsen Zwillinge mit teilweise gemeinschaftlichem Leib, wie die bekannten siamesischen Zwillinge oder die zu Szongy in Ungarn geborenen Schwestern Helene und Judith, haben auch ein teilweise gemeinschaftliches Ich und fallen, wie natürlich, durch Ähnlichkeit, ja Identität des Charakters auf.</p>
+  <p class="jp" lang="ja">15. 器官感覚が自我の形成に重要な寄与をしていることからすれば、器官感覚の障害が自我をも変化させることは理解できる。リボー<a class="fr" href="#n30">30</a>はこの種の最も興味深い例を記述している。アウステルリッツの戦いで重傷を負った兵士は、それ以来自分を死んだものと思っていた。具合を尋ねられると、彼はこう答えた。「ランベール親父の具合を知りたいのかね。彼はもういない。砲弾が持っていってしまった。ここに見えているのは、彼に似たできの悪い機械だ。別のをこしらえるべきだろう」。自分のことを話すとき、彼はけっして「私」とは言わず、「これ」と言った。彼の皮膚は無感覚で、しばしば数日続く完全な意識喪失と不動状態に陥った。——体の一部を共有する奇形の双生児、たとえば有名なシャム双生児や、ハンガリーのソーニで生まれた姉妹ヘレーネとユーディットは、部分的に共有する自我をももっており、当然のことながら、性格の類似、それどころか同一性によって目を引く。</p>
+  <ol class="notes"><li id="n30"><span class="nn">30</span><p class="de" lang="de">Ribot, Les maladies de la personnalité. Paris 1888.</p><p class="jp" lang="ja">リボー『人格の病』パリ、1888年。</p></li></ol>
+</article>
+<article class="row" id="p15.2">
+  <aside class="mg"><a class="pid" href="#p15.2">15.2</a><span class="pg"><span>S.&nbsp;67</span><span>S.&nbsp;68</span></span></aside>
+  <p class="de" lang="de">Dies geht so weit, daß im Gespräch oft die von einem Teil begonnene Phrase von dem andern vollendet wird.<a class="fr" href="#n31">31</a> Übrigens zeigen organisch zusammenhängende Zwillinge nur in gesteigertem Maß die physische und psychische Ähnlichkeit der organisch getrennten Zwillinge, welche in antiker und moderner Zeit dankbare Lustspielstoffe geliefert hat.<a class="fr" href="#n32">32</a> - Wenn die Organisation für das primäre Ich bestimmend ist, so haben die Erlebnisse auf das sekundäre Ich bedeutenden Einfluß. In der Tat kann plötzlicher oder dauernder Wechsel der Umgebung das sekundäre Ich mächtig alterieren. Dies wird in treffender Weise illustriert <span class="pb" title="Leipzig 1906, S. 68">68</span>durch die Erzählung „vom Schlafenden und Wachenden“ in der arabischen Märchenerzählung „Tausend und eine Nacht“, sowie in dem bekannten Zwischenspiel Shakespeares in „Zähmung einer Widerspenstigen“.</p>
+  <p class="jp" lang="ja">それは、会話において一方が始めた言い回しをしばしば他方が完成させるほどにまで及ぶ<a class="fr" href="#n31">31</a>。ちなみに、有機的に結合した双生児は、有機的に分離した双生児の身体的・心的類似性を高めた程度で示しているにすぎない。この類似性は、古代においても近代においても喜劇の格好の題材を提供してきた<a class="fr" href="#n32">32</a>。——生体の組織が一次的自我にとって決定的であるとすれば、二次的自我には体験が大きな影響を与える。実際、突然のあるいは持続的な環境の変化は、二次的自我を強力に変化させうる。このことは、アラビアの物語集『千夜一夜物語』の「眠る者と目覚める者」の話や、シェイクスピアの『じゃじゃ馬ならし』のよく知られた序幕によって的確に示されている。</p>
+  <ol class="notes"><li id="n31"><span class="nn">31</span><p class="de" lang="de">Vaschide et Vurpas, Essai sur la Psycho-Physiologie des Monstres humains. Paris (ohne Jahreszahl).</p><p class="jp" lang="ja">ヴァシード／ヴュルパ『人間の奇形の心理生理学試論』パリ（刊年なし）。</p></li><li id="n32"><span class="nn">32</span><p class="de" lang="de">Man vergleiche des Plautus „Menaechmi“ oder Shakespeares „Komödie der Irrungen“. - Galtons „History of Twins“ ist in Bezug auf die Tatsachen lehrreich.</p><p class="jp" lang="ja">プラウトゥスの『メナエクムス兄弟』やシェイクスピアの『間違いの喜劇』を参照。——ゴールトンの『双生児の歴史』は事実に関して教えられるところが多い。</p></li></ol>
+</article>
+<h2 class="sec" id="s16"><a href="#s16">§ 16</a></h2>
+<article class="row" id="p16.1">
+  <aside class="mg"><a class="pid" href="#p16.1">16.1</a><span class="pg"><span>S.&nbsp;68</span></span></aside>
+  <p class="de" lang="de">16. Merkwürdig sind die Fälle, in welchen sich zugleich zwei verschiedene Persönlichkeiten in einem Körper äußern. Ein Mann, welcher bewußtlos im Typhus liegt, erwacht eines Tages, glaubt aber zwei Körper zu haben, die in zwei verschiedenen Betten liegen, von denen der eine genesen ist und einer köstlichen Ruhe genießt, während der andere sich elend befindet. — Ein Polizeisoldat, welcher durch mehrere Schläge auf den Kopf eine Gedächtnisschwächung erfuhr, glaubte aus zwei Personen von verschiedenem Charakter und Willen zu bestehen, welche beziehungsweise in der rechten und linken Körperhälfte ihren Sitz hatten. — Die Fälle von sogenannter Besessenheit, in welchen sich in dem Leib einer Person eine zweite, kontrollierende oder befehlende, oft mit fremder Stimme herausschreiende breit zu machen scheint, gehören auch hierher.</p>
+  <p class="jp" lang="ja">16. 一つの身体のうちに同時に二つの異なる人格が現れる場合は奇妙である。チフスで意識を失って横たわっていたある男が、ある日目を覚ましたが、自分には二つの体があり、それが二つの別々のベッドに寝ていて、一方は回復して心地よい休息を楽しんでいるのに、他方はみじめな状態にあると思いこんでいた。——頭を何度も殴られて記憶が弱まったある巡査は、自分が性格と意志の異なる二人の人物から成り立っており、それぞれが体の右半分と左半分に座を占めていると思っていた。——一人の人物の身体のうちに、統制し命令する第二の人物が、しばしば見知らぬ声で叫びながら幅をきかせているように見える、いわゆる憑依の事例もここに属する。</p>
+</article>
+<article class="row" id="p16.2">
+  <aside class="mg"><a class="pid" href="#p16.2">16.2</a><span class="pg"><span>S.&nbsp;68</span></span></aside>
+  <p class="de" lang="de">Es ist nicht zu verwundern, daß der furchtbare unheimliche Eindruck solcher Vorkommnisse eine dämonologische Auffassung derselben veranlaßt hat.<a class="fr" href="#n33">33</a> — Häufiger äußern sich verschiedene Persönlichkeiten in einem Leib nacheinander oder alternieren miteinander. Eine bekehrte Prostituierte wurde in ein Kloster aufgenommen, verfiel in religiösen Wahnsinn, worauf Stupidität folgte. Dann folgt eine Zeit, in welcher sie abwechselnd Nonne und Prostituierte zu sein glaubt und sich dementsprechend benimmt. Es sind sogar Fälle des Wechsels von drei verschiedenen Persönlichkeiten beobachtet worden.</p>
+  <p class="jp" lang="ja">こうした出来事の恐ろしく不気味な印象が、それを悪魔論的に解釈させてきたことは驚くにあたらない<a class="fr" href="#n33">33</a>。——より頻繁には、一つの身体のうちで異なる人格が次々に現れたり、交替したりする。改心した娼婦が修道院に受け入れられ、宗教的狂気に陥り、そのあと痴呆が続いた。それから、自分を交互に修道女だと思ったり娼婦だと思ったりし、それに応じてふるまう時期が続く。三つの異なる人格が交替する例さえ観察されている。</p>
+  <ol class="notes"><li id="n33"><span class="nn">33</span><p class="de" lang="de">In Bezug auf die dämonologische Auffassung vergleiche man: Ennemoser, Geschichte der Magie. Leipzig 1844. — Roskoff, Geschichte des Teufels. Leipzig 1869. — Hecker, Die großen Volkskrankheiten des Mittelalters. Berlin 1865. — Pathologische Erscheinungen, psychische Störungen, insbesondere Hallucinationen, seien sie nun dauernd (wie z. B. im Verfolgungswahn) oder temporär durch Gifte (Hexensalbe) hervorgebracht, stützen, bei mangelhafter wissenschaftlicher Kritik, den Dämonen- und Hexenglauben, sowohl bei den Betroffenen wie bei den Beobachtern. Vgl. P. Max Simon, Le Monde des Rêves. Paris 1888. — Interessante Daten auch bei Walter Scott, Letters on Demonology and Witchcraft, 4th edit, London 1898.</p><p class="jp" lang="ja">悪魔論的把握については、次を参照。エンネモーザー『魔術の歴史』ライプツィヒ、1844年。——ロスコフ『悪魔の歴史』ライプツィヒ、1869年。——ヘッカー『中世の大流行病』ベルリン、1865年。——病理的現象、心的障害、とりわけ幻覚は、それが持続的なもの（たとえば迫害妄想におけるような）であれ、毒物（魔女の軟膏）によって一時的に引き起こされたものであれ、科学的批判が欠けている場合には、当事者においても観察者においても、悪魔信仰や魔女信仰を支える。P. マックス・シモン『夢の世界』パリ、1888年参照。——ウォルター・スコット『悪魔論と魔術についての書簡』第4版、ロンドン、1898年にも興味深い資料がある。</p></li></ol>
+</article>
+<article class="row" id="p16.3">
+  <aside class="mg"><a class="pid" href="#p16.3">16.3</a><span class="pg"><span>S.&nbsp;68</span><span>S.&nbsp;69</span></span></aside>
+  <p class="de" lang="de">Wenn man sich mit Berücksichtigung sämtlicher Momente, die bei der Bildung des Ich mitwirken, über die angeführten <span class="pb" title="Leipzig 1906, S. 69">69</span>Fälle eine naturwissenschaftliche Ansicht bilden will, so hat man sich etwa zu denken, daß an die wechselnden Organgefühle sich mit diesen fest verbundene Associationskreise knüpfen, die untereinander nicht zusammenhängen. Mit dem Wechsel der Organempfindungen, etwa durch Krankheit, wechseln dann auch die Erinnerungen und die ganze Persönlichkeit. Im Übergangszustande aber, wenn derselbe von genügender Dauer ist, tritt die doppelte Persönlichkeit auf. Wer im Traume im stande ist, sich zu beobachten, dem sind solche Zustände nicht ganz fremd und keineswegs unvorstellbar.</p>
+  <p class="jp" lang="ja">自我の形成に関与するすべての契機を考慮して、上に挙げた事例について自然科学的な見解をつくろうとするならば、おおよそ次のように考えなければならない。すなわち、変化する器官感覚に、それと固く結びついた連合の圏域が結びつき、それらの圏域は互いに連関していない。器官感覚が、たとえば病気によって変化すると、記憶も人格全体も変化する。しかし移行状態においては、それが十分に長く続けば、二重人格が現れる。夢のなかで自分を観察することのできる人には、このような状態はまったく見知らぬものではなく、けっして想像できないものでもない。</p>
+</article>
+<h2 class="sec" id="s17"><a href="#s17">§ 17</a></h2>
+<article class="row" id="p17.1">
+  <aside class="mg"><a class="pid" href="#p17.1">17.1</a><span class="pg"><span>S.&nbsp;69</span></span></aside>
+  <p class="de" lang="de">17. Die Teile des menschlichen Leibes stehen in einem sehr engen Zusammenhang, und fast alle Lebensvorgänge ragen in irgend einer Weise ins Großhirn, also ins Bewußtsein hinein. Dies ist keineswegs bei allen Organismen der Fall. Wenn wir eine Raupe beobachten, welche, am Hinterteil verwundet, sich von rückwärts aufzufressen beginnt,<a class="fr" href="#n34">34</a> wenn eine Wespe sich durch Abschneiden des Abdomens nicht im Honigsaugen stören läßt, wenn ein Regenwurm, mitten entzwei geschnitten, nach Verbindung beider Teile durch einen Faden fast wie ein unverletzter weiterkriecht, so müssen wir annehmen, daß bei diesen Tieren nicht unmittelbar sich berührende Teile in keiner so innigen Wechselbeziehung stehen wie beim Menschen. Es wirkt z. B. beim Wurm ein Leibesring erregend auf den folgenden, weshalb er auch fortkriecht, wenn der vorhergehende Ring durch den Faden den folgenden reizt. Aber von einer Zentralisierung des ganzen Lebens in einem Hirn und einer entsprechenden Ich-Bildung kann kaum die Rede sein.</p>
+  <p class="jp" lang="ja">17. 人間の身体の諸部分はきわめて緊密な連関のうちにあり、ほとんどすべての生命過程が何らかの仕方で大脳に、つまり意識のなかに入りこんでいる。これはけっしてすべての有機体に当てはまるわけではない。後部を傷つけられた毛虫が後ろから自分を食べはじめるのを観察するとき<a class="fr" href="#n34">34</a>、腹部を切り取られてもスズメバチが蜜を吸うのを妨げられないとき、真ん中で二つに切られたミミズが、両方の部分を糸でつなぐと無傷のミミズとほとんど同じように這い続けるとき、われわれは、これらの動物においては直接に接していない部分どうしが、人間におけるほど緊密な相互関係にはないと想定しなければならない。たとえばミミズでは、一つの体節が次の体節を興奮させるのであり、それゆえ前の体節が糸を介して次の体節を刺激すれば、ミミズは這い続けるのである。しかし、生命全体が一つの脳に中央集権化され、それに応じた自我が形成されるということは、ほとんど問題になりえない。</p>
+  <ol class="notes"><li id="n34"><span class="nn">34</span><p class="de" lang="de">Dieser Vorgang wird in biologischen Schriften erwähnt. Meine Schwester, welche sich viele Jahre mit der Aufzucht von Yama Mai im freien Eichenwald beschäftigt hat, wo häufig genug Verletzungen von Raupen, aber auch Heilungen vorkamen, bestreitet die Richtigkeit der Beobachtung. Die Raupen scheinen die Wunde zu untersuchen und bestreben sich vielleicht, dieselbe zu schließen.</p><p class="jp" lang="ja">この現象は生物学の文献で言及されている。何年ものあいだ野外のナラの森でヤママユの飼育に携わってきた私の姉（妹）は、毛虫の負傷もその治癒もかなり頻繁に起きたが、この観察の正しさを否定している。毛虫は傷を調べ、おそらくそれをふさごうと努めているように見える。</p></li></ol>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§1.1</td><td lang="de">physikalischchemischer</td><td lang="de">physikalisch-chemischer</td></tr>
+  <tr><td>§11.3</td><td lang="de">„… mangelhafte bio-1) Vgl. S. 40.“ / „logische Anpassung …“（S. 63 の脚注が本文に混入）</td><td lang="de">„… mangelhafte biologische Anpassung …“ と接続し、„Vgl. S. 40.“ を注21 として分離</td></tr>
+  <tr><td>注参照</td><td lang="de">Insekten. 2), werden. 2), Leib ²), nachdenken.¹)</td><td lang="de">それぞれ注9・11・13・21 への参照</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_03.html">← 第Ⅲ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
