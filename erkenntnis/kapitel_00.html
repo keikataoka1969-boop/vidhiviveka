@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mach 認識と誤謬 序文</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">序文</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">序文</a><a href="#s2">第二版への序文</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">VORWORT · 序文</div>
+  <h1>序文</h1>
+  <div class="de-title" lang="de">Vorwort</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. III–XI　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<article class="row" id="p0.1">
+  <aside class="mg"><a class="pid" href="#p0.1">0.1</a><span class="pg"><span>S.&nbsp;III</span></span></aside>
+  <p class="de" lang="de">WILHELM SCHUPPE IN HERZLICHER VEREHRUNG GEWIDMET.</p>
+  <p class="jp" lang="ja">心からの敬愛をこめてヴィルヘルム・シュッペに捧ぐ。</p>
+</article>
+<h2 class="sec" id="s1"><a href="#s1">序文</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;V</span></span></aside>
+  <p class="de" lang="de">Ohne im geringsten Philosoph zu sein oder auch nur heißen zu wollen, hat der Naturforscher ein starkes Bedürfnis, die Vorgänge zu durchschauen, durch welche er seine Kenntnisse erwirbt und erweitert. Der nächstliegende Weg hierzu ist, das Wachstum der Erkenntnis im eigenen Gebiet und in den ihm leichter zugänglichen Nachbargebieten aufmerksam zu betrachten, und vor allem die einzelnen den Forscher leitenden Motive zu erspähen. Diese müssen ja ihm, welcher den Problemen so nahe gestanden, die Spannung vor der Lösung und die Entlastung nach derselben so oft miterlebt hat, leichter als einem andern sichtbar sein. Das Systematisieren und Schematisieren wird ihm, der fast an jeder größeren Problemlösung immer noch Neues erblickt, schwerer, erscheint ihm immer noch verfrüht, und er überläßt es gern den darin geübteren Philosophen. Der Naturforscher kann zufrieden sein, wenn er die bewußte psychische Tätigkeit des Forschers als eine methodisch geklärte, verschärfte und verfeinerte Abart der instinktiven Tätigkeit der Tiere und Menschen wiedererkennt, die im Natur- und Kulturleben täglich geübt wird.</p>
+  <p class="jp" lang="ja">いささかも哲学者であるわけではなく、哲学者と呼ばれたいとさえ思わないとしても、自然研究者は、自分が知識を獲得し拡張していく過程を見通したいという強い欲求をもっている。そのための最も手近な道は、自分自身の領域と、自分にとって近づきやすい隣接領域とにおける認識の成長を注意深く考察し、とりわけ研究者を導く個々の動機をうかがい知ることである。問題のすぐそばに立ち、解決の前の緊張と解決のあとの安堵とをかくもしばしばともに体験してきた者には、それは他の人よりも見えやすいにちがいない。体系化と図式化は、ほとんどどの大きな問題の解決にもなお新しいものを見いだす彼にとってはより難しく、いつもまだ時期尚早に思われるので、彼はそれを、その道に練達した哲学者たちに喜んで委ねる。自然研究者は、研究者の意識的な心的活動を、自然生活と文化生活のなかで日々行われている動物と人間の本能的活動の、方法的に解明され、鋭くされ、洗練された変種として再認できれば満足してよい。</p>
+</article>
+<article class="row" id="p1.2">
+  <aside class="mg"><a class="pid" href="#p1.2">1.2</a><span class="pg"><span>S.&nbsp;V</span><span>S.&nbsp;VI</span></span></aside>
+  <p class="de" lang="de">Die Arbeit der Schematisierung und Ordnung der methodologischen Kenntnisse, wenn sie im geeigneten Entwicklungsstadium des Wissens und in zureichender Weise ausgeführt wird, dürfen wir nicht unterschätzen.<a class="fr" href="#n1">1</a> Es ist aber zu betonen, daß <span class="pb" title="Leipzig 1906, S. VI">VI</span>die Übung im Forschen, sofern sie überhaupt erworben werden kann, viel mehr gefördert wird durch einzelne lebendige Beispiele, als durch abgeblaßte abstrakte Formeln, welche doch wieder nur durch Beispiele konkreten, verständlichen Inhalt gewinnen.</p>
+  <p class="jp" lang="ja">方法論的知識の図式化と秩序づけの仕事は、それが知識の適切な発達段階において十分な仕方で行われるならば、過小評価してはならない<a class="fr" href="#n1">1</a>。しかし強調しておかなければならないのは、研究の練習は、そもそもそれが獲得されうるかぎりにおいて、色あせた抽象的な定式によってよりも、個々の生きた実例によってはるかによく促進されるということである。そのような定式も、結局は実例によってはじめて具体的で理解できる内容を得るのである。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Eine systematische Darstellung, welcher ich in allem Wesentlichen zustimmen kann, in welcher auch strittige psychologische Fragen, deren Entscheidung für die Erkenntnistheorie nicht dringend und nicht unbedingt nötig ist, sehr geschickt ausgeschaltet sind, gibt Prof. Dr. H. Kleinpeter (Die Erkenntnistheorie der Gegenwart. Leipzig, J. A. Barth, 1905).</p><p class="jp" lang="ja">私が本質的なすべての点で同意でき、認識論にとって決定が急を要さず無条件には必要でない、争いのある心理学的問題もたいへん巧みに除外されている体系的な叙述を、H. クラインペーター教授が与えている（『現代の認識論』ライプツィヒ、J. A. バルト、1905年）。</p></li></ol>
+</article>
+<article class="row" id="p1.3">
+  <aside class="mg"><a class="pid" href="#p1.3">1.3</a><span class="pg"><span>S.&nbsp;VI</span></span></aside>
+  <p class="de" lang="de">Deshalb waren es auch besonders Naturforscher, wie Kopernikus, Gilbert, Kepler, Galilei, Huygens, Newton, unter den neueren J. F. W. Herschel, Faraday, Whewell, Maxwell, Jevons u. a., welche dem Jünger der Naturforschung mit ihren Anleitungen wirkliche Dienste geleistet haben. Hochverdienten Männern, wie J. F. Fries und E. F. Apelt, denen manche Teile der naturwissenschaftlichen Methodik so ausgiebige Förderung verdanken, ist es nicht gelungen, sich von vorgefaßten philosophischen Ansichten ganz zu befreien. Diese Philosophen, wie selbst der Naturforscher Whewell, sind durch ihre Anhänglichkeit an Kantsche Gedanken zu recht wunderlichen Auffassungen sehr einfacher naturwissenschaftlicher Fragen gedrängt worden. Die folgenden Blätter werden darauf zurückkommen. Unter den älteren deutschen Philosophen ist vielleicht nur F. E. Beneke als derjenige zu nennen, welcher sich von solchen vorgefaßten Meinungen ganz frei zu machen wußte. Rückhaltlos bekennt er seine Dankesschuld an die englischen Naturforscher.</p>
+  <p class="jp" lang="ja">それゆえ、学ぶ者にその手引きによって本当に役立ってきたのも、とりわけ自然研究者たち、すなわちコペルニクス、ギルバート、ケプラー、ガリレイ、ホイヘンス、ニュートン、近年の人々ではJ. F. W. ハーシェル、ファラデー、ヒューウェル、マクスウェル、ジェヴォンズらであった。自然科学の方法論のいくつかの部分がかくも豊かな促進を負っている、J. F. フリースやE. F. アペルトのような功績の大きい人々も、先入見となった哲学的見解から完全に自由になることには成功しなかった。これらの哲学者たちは、自然研究者ヒューウェルでさえそうであるように、カントの思想への執着によって、きわめて単純な自然科学上の問いについて、たいへん奇妙な把握へと追いやられた。以下の頁でそのことに立ち戻るであろう。古いドイツの哲学者のなかでは、そのような先入見から完全に自由になることを知っていた者として、おそらくF. E. ベネケだけを挙げることができよう。彼はイギリスの自然研究者たちへの恩義を包み隠さず告白している。</p>
+</article>
+<article class="row" id="p1.4">
+  <aside class="mg"><a class="pid" href="#p1.4">1.4</a><span class="pg"><span>S.&nbsp;VI</span></span></aside>
+  <p class="de" lang="de">Im Winter 1895/96 hielt ich eine Vorlesung über „Psychologie und Logik der Forschung“, in welcher ich den Versuch machte, die Psychologie der Forschung nach Möglichkeit auf autochthone Gedanken der Naturwissenschaft zurückzuführen. Die vorliegenden Blätter enthalten im wesentlichen eine Auswahl des dort behandelten Stoffes in freier Bearbeitung. Ich hoffe hiermit jüngeren Fachgenossen, insbesondere Physikern, manche Anregung zu weiteren Gedanken zu bringen, und dieselben zugleich auf von ihnen wenig kultivierte Nachbargebiete hinzuweisen, deren Beachtung doch jedem Forscher über das eigene Denken reiche Aufklärung bietet.</p>
+  <p class="jp" lang="ja">1895/96年の冬に、私は「研究の心理学と論理学」についての講義を行い、そこで研究の心理学をできるかぎり自然科学に固有の思想に帰着させる試みをした。本書は本質的に、そこで扱った素材からの選択を自由に書き改めたものである。これによって私は、若い同学の人々、とりわけ物理学者に、さらなる思索への多少の刺激を与え、同時に、彼らがあまり耕してこなかった隣接領域——それに注目することは、どの研究者にも自分自身の思考について豊かな解明を与えるのだが——を指し示したいと願っている。</p>
+</article>
+<article class="row" id="p1.5">
+  <aside class="mg"><a class="pid" href="#p1.5">1.5</a><span class="pg"><span>S.&nbsp;VI</span><span>S.&nbsp;VII</span></span></aside>
+  <p class="de" lang="de">Die Durchführung wird natürlich mit mancherlei Mängeln behaftet sein. Obgleich ich mich nämlich stets für die Nachbargebiete meines Spezialfaches und auch für Philosophie lebhaft interessierte, so konnte ich selbstverständlich manche dieser Gebiete, und so besonders das letztgenannte, doch nur als <span class="pb" title="Leipzig 1906, S. VII">VII</span>Sonntagsjäger durchstreifen. Wenn ich hierbei das Glück hatte, mit meinem naturwissenschaftlichen Standpunkt namhaften Philosophen, wie Avenarius, Schuppe, Ziehen u. a., deren jüngeren Genossen Cornelius, Petzoldt, v. Schubert-Soldern u. a., auch einzelnen hervorragenden Naturforschern recht nahe zu kommen, so mußte ich mich hiermit von andern bedeutenden Philosophen, wie es die Natur der gegenwärtigen Philosophie notwendig mit sich bringt, wieder sehr entfernen.<a class="fr" href="#n2">2</a></p>
+  <p class="jp" lang="ja">その遂行はもちろんさまざまな欠陥を免れないであろう。私はつねに自分の専門の隣接領域にも哲学にも生き生きとした関心を抱いてきたが、それでもこれらの領域のいくつか、とりわけ最後に挙げたものは、もちろん日曜猟師としてしか歩き回ることができなかった。その際、私の自然科学的立場によって、アヴェナリウス、シュッペ、ツィーエンらの著名な哲学者たち、その若い仲間であるコルネリウス、ペッツォルト、v. シューベルト＝ゾルデルンら、また何人かの卓越した自然研究者たちにかなり近づくという幸運に恵まれたとしても、それによって私は、現代哲学の本性が必然的にもたらすように、他の重要な哲学者たちからは再び大きく遠ざからざるをえなかった<a class="fr" href="#n2">2</a>。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">In je einem Kapitel der „Mechanik“ und der „Analyse“ habe ich die mir bekannt gewordenen Einwendungen gegen meine Ansichten beantwortet. Hier muß ich nur einige Bemerkungen über Hönigswalds „Zur Kritik der Machschen Philosophie“ (Berlin 1903) einfügen. Es gibt vor allem keine Machsche Philosophie, sondern höchstens eine naturwissenschaftliche Methodologie und Erkenntnispsychologie, und beide sind, wie alle naturwissenschaftlichen Theorien vorläufige, unvollkommene Versuche. Für eine Philosophie, die man mit Hilfe fremder Zutaten aus diesen konstruieren kann, bin ich nicht verantwortlich. Daß meine Ansichten mit den Kantschen Ergebnissen nicht stimmen können, mußte, bei der Verschiedenheit der Ansätze, die sogar einen gemeinsamen Boden für die Diskussion ausschließen (vgl. Kleinpeters „Erkenntnistheorie“ und auch die vorliegende Schrift), für jeden Kantianer und auch für mich von vornherein feststehen. Ist denn aber die Kantsche Philosophie die alleinige unfehlbare Philosophie, daß es ihr zusteht, die Spezialwissenschaften zu warnen, daß sie ja nicht auf eigenem Gebiet, auf eigenen Wegen zu leisten versuchen, was sie selbst vor mehr als hundert Jahren denselben zwar versprochen, aber nicht geleistet hat? Ohne also im mindesten an der guten redlichen Absicht von Hönigswald zu zweifeln, glaube ich doch, daß eine Auseinandersetzung etwa mit den „Empiriokritikern“ oder mit den „Immanenten“, mit welchen er doch noch mehr Berührungspunkte finden konnte, für ihn und andere bessere Früchte getragen hätte. Sind die Philosophen einmal untereinander einig, so wird die Verständigung mit den Naturforschern nicht mehr so schwer fallen.</p><p class="jp" lang="ja">『力学』と『感覚の分析』のそれぞれの一章で、私は自分の見解に対して知るにいたった異論に答えた。ここではただ、ヘーニヒスヴァルトの『マッハ哲学の批判のために』（ベルリン、1903年）についていくつかの所見を挿入しなければならない。何よりもまず、マッハ哲学なるものは存在せず、せいぜい自然科学的な方法論と認識心理学があるだけであり、両者は、すべての自然科学の理論と同じく、暫定的で不完全な試みである。他人の付け足しの助けを借りてそれらから構成されうる哲学について、私は責任を負わない。私の見解がカントの結果と一致しえないことは、議論のための共通の地盤さえ排除するほどの出発点の違いを考えれば（クラインペーターの『認識論』と本書を参照）、どのカント主義者にとっても私にとっても、はじめから確定していたにちがいない。しかし、カントの哲学は唯一無謬の哲学であって、専門諸科学に対し、それらが自身の領域で自身の道によって、カント哲学自身が百年以上前に約束しながら果たさなかったことを成し遂げようとなどしないよう警告する権利をもつというのであろうか。それゆえ私は、ヘーニヒスヴァルトの善良で誠実な意図をいささかも疑うことなく、それでも、たとえば「経験批判論者」や「内在論者」——彼はそれとのほうがなお多くの接点を見いだせたであろう——との対決のほうが、彼にとっても他の人々にとってもよりよい果実をもたらしたであろうと信じる。哲学者たちが互いにいったん一致すれば、自然研究者との了解ももはやそれほど難しくはないであろう。</p></li></ol>
+</article>
+<article class="row" id="p1.6">
+  <aside class="mg"><a class="pid" href="#p1.6">1.6</a><span class="pg"><span>S.&nbsp;VII</span><span>S.&nbsp;VIII</span></span></aside>
+  <p class="de" lang="de">Ich muß mit Schuppe sagen: Das Land des Transscendenten ist mir verschlossen. Und wenn ich noch das offene Bekenntnis hinzufüge, daß dessen Bewohner meine Wißbegierde gar nicht zu reizen vermögen, so kann man die weite Kluft ermessen, welche zwischen vielen Philosophen und mir besteht. Ich habe schon deshalb ausdrücklich erklärt, daß ich gar kein Philosoph, sondern nur Naturforscher bin. Wenn man mich trotzdem zuweilen, und in etwas lauter Weise, zu den ersteren gezählt hat, so bin ich hierfür nicht verantwortlich. Selbstverständlich will ich aber auch kein Naturforscher sein, der sich blind der Führung eines <span class="pb" title="Leipzig 1906, S. VIII">VIII</span>einzelnen Philosophen anvertraut, so wie dies etwa ein Molièrescher Arzt von seinem Patienten erwartet und fordert.</p>
+  <p class="jp" lang="ja">私はシュッペとともにこう言わなければならない。超越的なものの国は私には閉ざされている、と。そして、その国の住人たちは私の知識欲をまったくそそらない、という率直な告白を付け加えるならば、多くの哲学者と私とのあいだにある広い溝を推し量ることができよう。それゆえにも私は、自分はまったく哲学者ではなく、ただ自然研究者にすぎないと明言してきたのである。それにもかかわらず、ときに、しかもいくぶん声高に、私が前者に数えられてきたとしても、それについて私に責任はない。しかしもちろん私は、ちょうどモリエールの医者が患者に期待し要求するように、一人の哲学者の導きに盲目的に身を委ねる自然研究者でありたいとも思わない。</p>
+</article>
+<article class="row" id="p1.7">
+  <aside class="mg"><a class="pid" href="#p1.7">1.7</a><span class="pg"><span>S.&nbsp;VIII</span></span></aside>
+  <p class="de" lang="de">Die Arbeit, welche ich im Interesse der naturwissenschaftlichen Methodologie und Erkenntnispsychologie auszuführen versucht habe, besteht in folgendem. Zunächst habe ich getrachtet, nicht etwa eine neue Philosophie in die Naturwissenschaft einzuführen, sondern eine alte abgestandene aus derselben zu entfernen, ein Bestreben, das übrigens auch von manchen Naturforschern recht übelgenommen wird. Unter den vielen Philosophemen, die im Laufe der Zeit aufgetreten sind, befinden sich nämlich manche, welche die Philosophen selbst als Irrtümer erkannt oder doch so durchsichtig dargelegt haben, daß sie von jedem Unbefangenen leicht als solche erkannt werden konnten. Diese haben sich in der Naturwissenschaft, wo sie einer weniger aufmerksamen Kritik begegneten, länger lebend gehalten, so wie eine wehrlose Tierspecies auf einer abgelegenen Insel von Feinden verschont bleibt. Solche Philosopheme, welche in der Naturwissenschaft nicht nur nutzlos sind, sondern schädliche müßige Pseudoprobleme erzeugen, haben wohl nichts Besseres verdient, als beseitigt zu werden.</p>
+  <p class="jp" lang="ja">自然科学の方法論と認識心理学のために私が行おうと試みた仕事は、次のことにある。まず私は、自然科学に新しい哲学を導入するのではなく、むしろ古い気の抜けた哲学をそこから取り除こうと努めた。ちなみにこの努力は、少なからぬ自然研究者にもひどく悪く取られている。時の流れのなかで現れた多くの哲学説のなかには、哲学者たち自身が誤謬と認めたもの、あるいは少なくとも、偏見のない人なら誰でも容易にそれと認めうるほど見通しよく示したものがいくつもある。それらは、より不注意な批判にしか出会わなかった自然科学のなかで、ちょうど無防備な動物の種が人里離れた島で敵を免れて生き残るように、より長く生き延びてきた。自然科学において無用であるばかりでなく、有害で無益な擬似問題を生み出すそのような哲学説は、取り除かれる以外の何ものにも値しないであろう。</p>
+</article>
+<article class="row" id="p1.8">
+  <aside class="mg"><a class="pid" href="#p1.8">1.8</a><span class="pg"><span>S.&nbsp;VIII</span></span></aside>
+  <p class="de" lang="de">Habe ich damit etwas Gutes getan, so ist dies eigentlich das Verdienst der Philosophen. Sollten sie dieses von sich weisen, so wird die künftige Generation vielleicht gegen sie gerechter sein, als sie selbst es sein wollten. Ferner habe ich im Verlauf von mehr als 40 Jahren, als von keinem System befangener naiver Beobachter, im Laboratorium und Lehrsaal Gelegenheit gehabt, die Wege zu erschauen, auf welchen die Erkenntnis fortschreitet. Ich habe versucht, dieselben in verschiedenen Schriften darzulegen. Aber auch, was ich da erblickt habe, ist nicht mein ausschließliches Eigentum. Andere aufmerksame Forscher haben oft dasselbe oder sehr Naheliegendes wahrgenommen.</p>
+  <p class="jp" lang="ja">それによって私が何か善いことをしたとすれば、それは本来哲学者たちの功績である。彼らがそれを拒むならば、未来の世代は、彼ら自身がそうありたいと望んだよりも、彼らに対して公正であるかもしれない。さらに私は、四十年以上にわたって、どの体系にもとらわれない素朴な観察者として、実験室と講堂のなかで、認識が進んでいく道を見る機会をもった。私はそれをさまざまな著作のなかで示そうと試みた。しかし私がそこで見たものもまた、私だけの所有物ではない。他の注意深い研究者たちも、しばしば同じもの、あるいはきわめて近いものを知覚してきた。</p>
+</article>
+<article class="row" id="p1.9">
+  <aside class="mg"><a class="pid" href="#p1.9">1.9</a><span class="pg"><span>S.&nbsp;VIII</span><span>S.&nbsp;IX</span></span></aside>
+  <p class="de" lang="de">Wäre die Aufmerksamkeit der Naturforscher nicht so sehr von den sich drängenden Einzelaufgaben der Forschung in Anspruch genommen gewesen, so daß manche methodologische Funde wieder in Vergessenheit geraten konnten, so müßte, was ich an Erkenntnispsychologie zu bieten vermag, seit langer Zeit schon in gesichertem Besitz der Naturforscher sich befinden. Eben darum glaube ich, daß meine Arbeit nicht verloren sein wird. Vielleicht erkennen sogar <span class="pb" title="Leipzig 1906, S. IX">IX</span>die Philosophen einmal in meinem Unternehmen eine philosophische Läuterung der naturwissenschaftlichen Methodologie und kommen ihrerseits einen Schritt entgegen. Wenn dies aber auch nicht geschieht, hoffe ich doch den Naturforschern genützt zu haben.</p>
+  <p class="jp" lang="ja">もし自然研究者の注意が、押し寄せる研究の個々の課題にこれほどまでに奪われておらず、そのためにいくつかの方法論的な発見が再び忘れられるということがなかったならば、私が認識心理学について提供しうるものは、とうの昔に自然研究者の確かな所有物となっていたにちがいない。まさにそれゆえに、私は自分の仕事がむだにはならないと信じる。おそらく哲学者たちでさえ、いつか私の企てのうちに自然科学の方法論の哲学的な浄化を認め、彼らの側から一歩歩み寄ってくれるであろう。しかしそれが起こらないとしても、私は自然研究者たちの役には立ったと願っている。</p>
+</article>
+<article class="row" id="p1.10">
+  <aside class="mg"><a class="pid" href="#p1.10">1.10</a><span class="pg"><span>S.&nbsp;IX</span></span></aside>
+  <p class="de" lang="de">Herr Dr. W. Pauli, Privatdocent für interne Medizin, hatte die besondere Freundlichkeit, eine Korrektur zu lesen, wofür ich ihm hiermit meinen herzlichen Dank ausspreche.<br>Wien, im Mai 1905. — D. V.</p>
+  <p class="jp" lang="ja">内科学私講師W. パウリ博士は、ことのほかのご厚意により校正刷りを読んでくださった。ここに心からの感謝を申し上げる。<br>ウィーン、1905年5月。——著者</p>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">第二版への序文</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;X</span></span></aside>
+  <p class="de" lang="de">Der Text der zweiten Auflage unterscheidet sich nur unwesentlich von jenem der ersten. Zu eingreifender Umarbeitung fehlte sowohl die Zeit als der Anlaß. Manche kritische Bemerkungen wurden mir auch zu spät bekannt, um dieselben noch berücksichtigen zu können.</p>
+  <p class="jp" lang="ja">第二版の本文は、第一版のそれと本質的でない点でしか違わない。立ち入った改訂を行うには、時間も機会も欠けていた。いくつかの批判的な所見は、考慮に入れるにはあまりに遅く私の知るところとなった。</p>
+</article>
+<article class="row" id="p2.2">
+  <aside class="mg"><a class="pid" href="#p2.2">2.2</a><span class="pg"><span>S.&nbsp;X</span></span></aside>
+  <p class="de" lang="de">Verweisungen auf Schriften verwandten Inhalts, welche gleichzeitig mit oder unmittelbar nach der ersten Auflage dieses Buches erschienen sind, habe ich in Form von Anmerkungen hinzugefügt. Eine nähere Verwandtschaft meiner Grundansichten zu jenen Jerusalems offenbart sich durch dessen Buch „Der kritische Idealismus und die reine Logik“ (1905); dieselbe ist wohl enger, als wir beide, auf verschiedenem spezialwissenschaftlichen Boden stehend, vorher annehmen konnten; sie dürfte auf die gemeinsame Anregung durch die Biologie, insbesondere durch die Entwicklungslehre zurückzuführen sein. Manche Berührungspunkte und reiche Anregung fand ich auch in Stöhrs origineller Arbeit „Leitfaden der Logik in psychologisierender Darstellung“ (1905).</p>
+  <p class="jp" lang="ja">本書の初版と同時に、あるいはその直後に出た、内容の近い著作への参照は、注の形で付け加えた。私の根本見解とイェルーザレムのそれとのより近い親縁関係が、彼の書物『批判的観念論と純粋論理学』（1905年）によって明らかになった。それは、異なる専門科学の地盤に立つわれわれ二人が前もって想定できたよりも、おそらく緊密なものである。それはおそらく、生物学、とりわけ発展論による共通の刺激に帰せられるであろう。シュテールの独創的な仕事『心理学的叙述による論理学要綱』（1905年）にも、私はいくつかの接点と豊かな刺激とを見いだした。</p>
+</article>
+<article class="row" id="p2.3">
+  <aside class="mg"><a class="pid" href="#p2.3">2.3</a><span class="pg"><span>S.&nbsp;X</span><span>S.&nbsp;XI</span></span></aside>
+  <p class="de" lang="de">Sehr erfreut war ich durch Duhems Werk „La théorie physique, son objet et sa structure“ (1906). So weit gehende Übereinstimmung hoffte ich bei Physikern noch nicht zu finden. Duhem weist jede metaphysische Auffassung physikalischer Fragen ab; er sieht in der begrifflich-ökonomischen Fixierung des Tatsächlichen das Ziel der Physik; er hält die historisch-genetische Darstellung der Theorien für die einzig richtige und didaktisch zweckmäßige. Das sind Ansichten, die ich in Bezug auf Physik seit reichlich drei Decennien vertrete. Die Übereinstimmung ist mir um so wertvoller, als Duhem ganz unabhängig zu denselben Ergebnissen gelangt ist. Während <span class="pb" title="Leipzig 1906, S. XI">XI</span>ich aber, wenigstens in dem vorliegenden Buch, hauptsächlich die Verwandtschaft des vulgären und des wissenschaftlichen Denkens hervorhebe, beleuchtet Duhem besonders die Unterschiede des vulgären und des kritisch-physikalischen Beobachtens und Denkens, so daß ich sein Buch meinen Lesern als ergänzende und aufklärende Lektüre wärmstens empfehlen möchte. In dem Folgenden werde ich oft auf Duhems Äußerungen zu verweisen und nur selten, in untergeordneten Punkten, eine Meinungsdifferenz zu bemerken haben.</p>
+  <p class="jp" lang="ja">デュエムの著作『物理理論——その目的と構造』（1906年）は私を大いに喜ばせた。これほど広範な一致を、私は物理学者のもとにまだ見いだせるとは思っていなかった。デュエムは物理学的問題のあらゆる形而上学的把握を退ける。彼は事実的なものの概念的・経済的な固定のうちに物理学の目標を見る。彼は理論の歴史的・発生的な叙述を唯一正しく、教育的に目的にかなったものとみなす。これらは、私が物理学に関してたっぷり三十年来主張してきた見解である。デュエムがまったく独立に同じ結果に達したのであるから、この一致は私にとってそれだけ貴重である。しかし私が、少なくとも本書においては、主として通俗的思考と科学的思考との親縁関係を強調するのに対して、デュエムはとりわけ通俗的な観察・思考と批判的・物理学的な観察・思考との違いを照らし出しているので、私は彼の書物を、補い解明する読み物として読者に心から推薦したい。以下で私はしばしばデュエムの言葉を参照し、従属的な点でまれに意見の相違を指摘することになるだけであろう。</p>
+</article>
+<article class="row" id="p2.4">
+  <aside class="mg"><a class="pid" href="#p2.4">2.4</a><span class="pg"><span>S.&nbsp;XI</span></span></aside>
+  <p class="de" lang="de">Herr Dr. James Moser, Privatdocent an der hiesigen Universität, hatte die besondere Freundlichkeit, eine Korrektur zu lesen, wofür ich ihm auch hier herzlich danke.<br>Wien, im April 1906. — D. V.</p>
+  <p class="jp" lang="ja">当地の大学の私講師ジェイムズ・モーザー博士は、ことのほかのご厚意により校正刷りを読んでくださった。ここでも心から感謝する。<br>ウィーン、1906年4月。——著者</p>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>序文（S. V–IX）と第二版への序文（S. X–XI）、および献辞（S. III）は、当初の OCR テキストに含まれていなかった。ここでは、別途提供された序文頁のテキスト（他の OCR エンジンによる、版面の行どおりの転写）にもとづいて本文を立てた。</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>処理</th></tr></thead><tbody>
+  <tr><td>全体</td><td>行末ハイフンによる分綴（er-wirbt, Vor-gänge など）を結合し、頁替えを ⟦S. VI⟧ 等で標示した。綴り（Transscendenten, Privatdocent, Decennien, Tierspecies）は底本どおりとした。</td></tr>
+  <tr><td>注</td><td>各頁で「1.」と付番された二つの脚注（Kleinpeter; Hönigswald）を、本文中の ¹) の位置に連結し、通し番号の注1・注2とした。</td></tr>
+  <tr><td>署名</td><td>「D. V.」（Der Verfasser）は「著者」と訳した。</td></tr>
+  </tbody></table></div>
+  <p>この序文テキストは当初の OCR と同じ底本の頁画像から別に起こされたものであり、本書の他の章と同じ方法では照合していない。誤読が残っている可能性がある。</p>
+
+</details>
+
+<nav class="pager"><span></span><a href="index.html">目次</a><a href="kapitel_01.html">第Ⅰ章 →</a></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
