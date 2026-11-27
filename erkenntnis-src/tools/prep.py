@@ -81,8 +81,12 @@ def strip_head(lines, page, chap):
         n = norm(l)
         if re.fullmatch(r'\d{1,3}', l):
             out.pop(0); removed += 1; continue
-        if n and (n == title or (len(n) > 4 and title.startswith(n)) or (len(n) > 4 and n in title and len(l) < 90)):
+        n2 = re.sub(r'etc$', '', n)
+        if n and (n == title or (len(n2) > 4 and title.startswith(n2)) or (len(n) > 4 and n in title and len(l) < 90)):
             out.pop(0); removed += 1; continue
+        mg = re.match(r'^(\d{1,3}\s+)?(.{8,90}?\s(?:u\.\s*s\.\s*w\.|etc\.))(\s+\d{1,3})?\s+(.*)$', l)
+        if mg and len(re.sub(r'(etc|usw)$', '', norm(mg.group(2)))) > 10 and title.startswith(re.sub(r'(etc|usw)$', '', norm(mg.group(2)))):
+            out[0] = mg.group(4); removed += 1; continue
         # head glued to paragraph in reflowed pages: "462 Sinn und Wert der Naturgesetze. geeignet ..."
         m = re.match(r'^(\d{1,3}\s+)?([^.]{3,90}\.)(\s+\d{1,3})?\s+(.*)$', l)
         if m and norm(m.group(2)) == title:
