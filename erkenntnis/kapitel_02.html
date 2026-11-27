@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第Ⅱ章 心理生理学的考察</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第Ⅱ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL II · 第Ⅱ章</div>
+  <h1>心理生理学的考察</h1>
+  <div class="de-title" lang="de">Eine psycho-physiologische Betrachtung</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 20–30　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;20</span></span></aside>
+  <p class="de" lang="de">1. Die Erfahrung wächst durch fortschreitende Anpassung der Gedanken an die Tatsachen. Durch Anpassung der Gedanken aneinander entsteht das übersichtlich geordnete, vereinfachte, widerspruchlose Gedankensystem, welches uns als Ideal der Wissenschaft vorschwebt. Meine Gedanken sind unmittelbar nur mir zugänglich, wie die meines Nachbars nur ihm direkt bekannt sind. Dieselben gehören dem psychischen Gebiet an. Erst durch deren Zusammenhang mit Physischem: Geberden, Mienen, Worten, Taten, kann ich auf Grund meiner Physisches und Psychisches umfassenden Erfahrung einen mehr oder weniger sicheren Analogieschluß auf die Gedanken des Nachbars wagen. Anderseits lehrt mich dieselbe Erfahrung auch meine Gedanken, mein Psychisches, als abhängig von der physischen Umgebung mit Einschluß meines Leibes und des Verhaltens meiner Nachbarn erkennen. Die Betrachtung des Psychischen durch „Introspektion“ ist nicht erschöpfend; sie muß mit der Untersuchung des Physischen Hand in Hand gehen.</p>
+  <p class="jp" lang="ja">1. 経験は、思考を事実へとしだいに適応させていくことによって成長する。思考を互いに適応させることによって、科学の理想としてわれわれの念頭に浮かぶ、見通しよく秩序づけられ、単純化され、矛盾のない思考体系が生じる。私の思考は直接には私だけに近づきうるものであり、それは隣人の思考が直接には彼にだけ知られているのと同じである。思考は心理的領域に属する。身ぶり、表情、言葉、行為といった物理的なものとの連関を通じてはじめて、私は物理的なものと心理的なものの両方を含む自分の経験にもとづいて、隣人の思考について多少とも確かな類推推理をあえて行うことができる。他方、同じ経験は、私の思考、私の心理的なものもまた、私の身体と隣人たちのふるまいを含めた物理的環境に依存していることを私に教える。「内観」による心理的なものの考察は網羅的ではない。それは物理的なものの研究と手を携えて進まなければならない。</p>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;20</span><span>S.&nbsp;21</span></span></aside>
+  <p class="de" lang="de">2. Wie Mannigfaltiges finde ich „in mir“ vor, z. B. auf einem Gang zur Vorlesung! Meine Beine bewegen sich, ein Schritt löst den andern aus, ohne daß ich etwas Besonderes dazu tue, außer wenn es etwa ein Hindernis zu umgehen gilt. Ich komme an den Anlagen des Stadtparks vorbei, erblicke und erkenne das Rathaus, das mich an gotische und maurische Bauten erinnert, ebenso wie an den mittelalterlichen Geist, der in dessen Räumen herrscht. In der Hoffnung auf kulturwürdigere Zustände will ich mir eben die Zukunft ausphantasieren, als beim Überschreiten der Straße ein dahersausender Radfahrer mich streift und meinen unwillkürlichen Seitensprung auslöst. Ein leiser Groll gegen diese rücksichtslosen Geschwindigkeitsidealisten <span class="pb" title="Leipzig 1906, S. 21">21</span>tritt an die Stelle meiner Zukunftsphantasien. Der Anblick der Rampe des Universitätsgebäudes bringt mir nun mein Ziel, die Aufgabe der nächsten Stunde, nochmals in Erinnerung und beschleunigt meine Schritte.</p>
+  <p class="jp" lang="ja">2. たとえば講義に向かう途中、私は「自分のうちに」なんと多様なものを見いだすことだろう。私の脚は動き、一歩が次の一歩を引き起こすが、私はそのために何も特別なことはしない。たとえば障害物を避ける必要でもあれば別であるが。私は市立公園の植え込みのそばを通りすぎ、市庁舎を目にし、それと認める。市庁舎は私にゴシック様式やムーア様式の建物を思い起こさせ、またその部屋部屋に支配している中世的な精神をも思い出させる。もっと文化にふさわしい状態を望みながら、まさに未来を空想しようとしていたとき、通りを渡る私を疾走してきた自転車乗りがかすめ、私は思わず横に飛びのく。こうした無遠慮な速度の理想主義者たちに対するかすかな憤りが、私の未来の空想に取って代わる。大学の建物の斜路が目に入ると、私の目的、すなわち次の時間の課題が改めて思い出され、私は足を速める。</p>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;21</span></span></aside>
+  <p class="de" lang="de">3. Lösen wir dieses psychische Erlebnis in seine Bestandteile auf. Da finden wir zunächst diejenigen, welche in ihrer Abhängigkeit von unserm Leib: Offensein der Augen, Richtung der Augenachsen, normaler Beschaffenheit und Erregung der Netzhaut u.s.w. „Empfindungen“ heißen, in ihrer Abhängigkeit von anderem Physischem: Anwesenheit der Sonne, greifbarer Körper u. s. w. Merkmale, „Eigenschaften“ des Physischen sind. Ich meine das Grün des Stadtparks, das Grau und die Formen des Rathauses, den Widerstand des Bodens, auf welchen ich trete, die streifende Berührung des Radfahrers u. s. w. Bleiben wir für die psychologische Analyse bei dem Ausdruck Empfindung. Gegenüber den Empfindungen, wie Heiß, Kalt, Hell, Dunkel, einer lebhaften Farbe, Ammoniakgeruch, Rosenduft u. s. w. verhalten wir uns in der Regel nicht indifferent.</p>
+  <p class="jp" lang="ja">3. この心的体験をその構成要素に分解してみよう。そこで最初に見いだされるのは、われわれの身体——目が開いていること、眼軸の方向、網膜の正常な状態と興奮など——への依存においては「感覚」と呼ばれ、他の物理的なもの——太陽の存在、手でつかめる物体の存在など——への依存においては物理的なものの特徴、「性質」であるような構成要素である。私が言っているのは、市立公園の緑、市庁舎の灰色とその形、私が踏む地面の抵抗、自転車乗りがかすめた接触などのことである。心理学的分析のためには、感覚という表現を用いることにしよう。熱い、冷たい、明るい、暗い、鮮やかな色、アンモニアの臭い、バラの香りなどの感覚に対して、われわれはふつう無関心ではいない。</p>
+</article>
+<article class="row" id="p3.2">
+  <aside class="mg"><a class="pid" href="#p3.2">3.2</a><span class="pg"><span>S.&nbsp;21</span></span></aside>
+  <p class="de" lang="de">Sie sind uns angenehm oder unangenehm, d. h. unser Leib reagiert gegen dieselben mit mehr oder weniger intensiven Annäherungs- oder Entfernungsbewegungen, welche selbst wieder der Introspektion als Komplexe von Empfindungen sich darstellen. Im Beginn des psychischen Lebens lassen nur die Empfindungen deutliche, starke Erinnerungen zurück, an welche eine starke Reaktion geknüpft war. Mittelbar können aber auch andere Empfindungen im „Gedächtnis“ bleiben. Der an sich recht gleichgültige Anblick der Flasche, welche Ammoniak enthielt, ruft die Erinnerung des Geruches hervor und hört dadurch auf, indifferent zu sein. Das ganze vorausgehende Empfindungsleben, soweit es in der Erinnerung aufbewahrt ist, wirkt nun bei jedem neuen Empfindungserlebnis mit.</p>
+  <p class="jp" lang="ja">それらはわれわれにとって快いか不快である。すなわち、われわれの身体はそれらに対して多少とも強い接近または遠ざかりの運動によって反応するのであり、この運動そのものもまた内観にとっては感覚の複合体として現れる。心的生活の初めには、強い反応が結びついていた感覚だけが、はっきりとした強い記憶を残す。しかし間接的には、ほかの感覚も「記憶」のうちにとどまりうる。それ自体としてはまったくどうでもよいアンモニアの入っていた瓶の光景が、その臭いの記憶を呼び起こし、そのことによって無関心なものでなくなる。こうして、記憶のうちに保存されているかぎりでの先行する感覚生活の全体が、新たな感覚体験のたびにともに作用するのである。</p>
+</article>
+<article class="row" id="p3.3">
+  <aside class="mg"><a class="pid" href="#p3.3">3.3</a><span class="pg"><span>S.&nbsp;21</span><span>S.&nbsp;22</span></span></aside>
+  <p class="de" lang="de">Das Rathaus, an dem ich vorbei gehe, wäre für mich nur eine räumliche Anordnung von farbigen Flecken, wenn ich nicht schon viele Gebäude gesehen, deren Gänge durchschritten, deren Treppen erstiegen hätte. Erinnerungen an mannigfaltige Empfindungen verweben sich hier mit der optischen Empfindung zu einem viel reicher ausgestatteten Komplex, der Wahrnehmung, von welcher wir die bloße augenblickliche Empfindung nur mit Mühe trennen. Wenn mehreren Personen dasselbe optische <span class="pb" title="Leipzig 1906, S. 22">22</span>Gesichtsfeld geboten wird, so wird die „Aufmerksamkeit“ einer jeden in einer besonderen Richtung erregt, d. h. das psychische Leben derselben durch individuelle starke Erinnerungen in besondere Bewegung gesetzt. Ein älterer Herr, Ingenieur, macht in Begleitung eines 18jährigen Sohnes und eines 5jährigen Knaben einen Spaziergang durch eine Wiener Straße. Ihre Augen haben dieselben Bilder aufgenommen.</p>
+  <p class="jp" lang="ja">私がそのそばを通りすぎる市庁舎は、もし私がすでに多くの建物を見、その廊下を通り抜け、その階段を上ったことがなかったならば、私にとっては色のついた斑点の空間的な配列にすぎないであろう。ここでは多様な感覚の記憶が視覚的感覚と織り合わされて、はるかに豊かな内容をもつ複合体、すなわち知覚となるのであり、われわれはその知覚から単なる瞬間的な感覚をやっとのことで切り離すにすぎない。複数の人に同じ視野が提示されると、各人の「注意」はそれぞれ特別な方向に喚起される。すなわち、その人々の心的生活は個人的な強い記憶によって特別な動きへと置かれる。年配の紳士である技師が、十八歳の息子と五歳の男の子を連れてウィーンの通りを散歩する。三人の目は同じ像を受け取った。</p>
+</article>
+<article class="row" id="p3.4">
+  <aside class="mg"><a class="pid" href="#p3.4">3.4</a><span class="pg"><span>S.&nbsp;22</span></span></aside>
+  <p class="de" lang="de">Der Ingenieur hat aber fast nur die Straßenbahn, der Jüngling besonders die hübschen Mädchen und der Knabe vielleicht nur die Spielzeuge in den Auslagen der Mechaniker beachtet. Angeborene und erworbene organische Umstände spielen hier mit. Die Erinnerungsspuren älterer Empfindungserlebnisse, welche das psychische Schicksal neu eintretender Empfindungskomplexe wesentlich mitbestimmen, sich mit letzteren unvermerkt verweben und, an das Empfindungserlebnis anknüpfend, dieses weiterspinnend sich anschließen, wollen wir Vorstellungen nennen. Dieselben unterscheiden sich von den Empfindungen nur durch ihre geringere Kraft und durch ihre größere Flüchtigkeit und Veränderlichkeit, sowie durch die Art der Verknüpfung miteinander (Association). Eine neue Art von Elementen stellen sie den Empfindungen gegenüber nicht vor; sie scheinen vielmehr von derselben Natur zu sein wie diese.<a class="fr" href="#n1">1</a></p>
+  <p class="jp" lang="ja">しかし技師はほとんど路面電車だけに、若者はとくにかわいい娘たちに、男の子はおそらく機械屋の陳列窓のおもちゃだけに注意を払ったのである。ここでは生得的および後天的な有機的事情がはたらいている。以前の感覚体験の記憶痕跡は、新たに入ってくる感覚複合体の心的な運命を本質的にともに規定し、それと気づかれずに織り合わされ、感覚体験に結びつき、それをさらに紡ぎ出しながらつながっていく。これをわれわれは表象（Vorstellungen）と呼ぶことにしよう。表象が感覚と異なるのは、ただその力がより弱いこと、より移ろいやすく変わりやすいこと、そして互いの結びつき方（連合、Association）によってだけである。表象は感覚に対して新しい種類の要素をなすものではなく、むしろ感覚と同じ性質のものであるように思われる<a class="fr" href="#n1">1</a>。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Vgl. Analyse der Empfindungen. 4. Aufl., S. 159.</p><p class="jp" lang="ja">『感覚の分析』第4版、159頁参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;22</span><span>S.&nbsp;23</span></span></aside>
+  <p class="de" lang="de">4. Neue Elemente scheinen auf den ersten Blick die Gefühle, Affekte, Stimmungen: Liebe, Haß, Zorn, Furcht, Niedergeschlagenheit, Trauer, Fröhlichkeit u. s. w. darzubieten. Betrachten wir aber diese Zustände genauer, so finden wir weniger analysierte Empfindungen, die mit weniger bestimmten, diffusen, unscharf lokalisierten Raumelementen innerhalb U verbunden sind, und die eine gewisse, aus der Erfahrung bekannte Reaktionsstimmung unseres Leibes von bestimmter Richtung kennzeichnen, welche bei genügender Stärke wirklich in Angriffs- oder Fluchtbewegungen ausbricht. Der Umstand, daß diese Zustände für die Gesamtheit ein viel geringeres Interesse haben, als für den einzelnen, und daß selbst für diesen deren Beobachtung viel schwieriger ist, weil die Elemente des Leibes nicht so offen für die Untersuchung daliegen, wie die allgemein zugäng<span class="pb" title="Leipzig 1906, S. 23">23</span>lichen äußeren Objekte und die Sinnesorgane, bedingt eine geringere Kenntnis, eine schwierigere Beschreibung und eine unvollkommene Nomenklatur derselben.</p>
+  <p class="jp" lang="ja">4. 一見すると、感情、情動、気分——愛、憎しみ、怒り、恐れ、意気消沈、悲しみ、陽気さなど——は、新しい要素を呈示しているように見える。しかしこれらの状態をもっと詳しく考察すると、われわれが見いだすのは、あまり分析されていない感覚であって、それは U の内部の、あまり明確でない、拡散した、はっきりと定位されない空間要素と結びついており、経験から知られている、ある特定の方向をもったわれわれの身体の反応の構え（Reaktionsstimmung）を特徴づけるものである。この構えは十分に強ければ、実際に攻撃または逃走の運動となって噴き出す。これらの状態は、個人にとってよりも全体にとってはるかに関心が薄く、また個人にとってさえその観察ははるかに難しい。身体の要素は、誰にでも近づきうる外的対象や感覚器官のようには研究に対して開かれていないからである。こうした事情が、これらの状態についての知識の乏しさ、記述の難しさ、命名法の不完全さをもたらしている。</p>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;23</span></span></aside>
+  <p class="de" lang="de">Gefühle können sowohl mit Vorstellungen als auch mit (außerhalb U lokalisierten) Empfindungen verknüpft sein. Bricht eine Reaktionsstimmung in eine durch einen Empfindungskomplex bestimmte bewußte Angriffs- oder Abwehrbewegung von voraus bekanntem Ziel aus, so sprechen wir von einem Willensakt. Wenn ich von einem <i>Gang zur Vorlesung</i> spreche, wenn man mir den Besuch eines <i>fremden Gelehrten</i> ankündigt, wenn ein Mann als <i>gerecht</i> bezeichnet wird, so vermag ich die gesperrt ausgesetzten Worte zwar nicht als einen bestimmten Komplex von Empfindungen oder Vorstellungen zu deuten; dieselben haben aber durch ihren vielfachen mannigfaltigen Gebrauch doch die Eigenschaft gewonnen, die betreffenden Komplexe, welche sie bezeichnen können, so zu umschreiben und zu umgrenzen, daß jedenfalls mein Verhalten, meine Reaktionsweise gegenüber diesen Komplexen hierdurch bestimmt ist.</p>
+  <p class="jp" lang="ja">感情は、表象とも、（U の外に定位される）感覚とも結びつきうる。反応の構えが、ある感覚複合体によって規定された、あらかじめ知られた目標をもつ意識的な攻撃または防御の運動へと噴き出すとき、われわれは意志行為について語る。私が<i>講義に向かう道</i>について語るとき、<i>見知らぬ学者</i>の訪問を告げられるとき、ある男が<i>正しい</i>と呼ばれるとき、私はこれらの強調した語を、たしかに一定の感覚や表象の複合体として解釈することはできない。しかしそれらの語は、何度もさまざまに用いられることによって、それが指示しうる当該の複合体を、少なくともそれらの複合体に対する私のふるまい、私の反応の仕方がそれによって規定されるように、言い表し、境界づけるという性質を獲得しているのである。</p>
+</article>
+<article class="row" id="p4.3">
+  <aside class="mg"><a class="pid" href="#p4.3">4.3</a><span class="pg"><span>S.&nbsp;23</span></span></aside>
+  <p class="de" lang="de">Worte, welche gar keine Komplexe von sinnlichen Erlebnissen bezeichnen könnten, wären eben unverständlich, ohne Bedeutung. Auch wenn ich die Worte: Rot, Grün, Rose gebrauche, hat die deckende Vorstellung schon einen beträchtlichen Spielraum. Derselbe erweitert sich in den oben angeführten Beispielen, noch mehr aber im wissenschaftlichen begrifflichen Denken, indem zugleich die Schärfe der Umgrenzung, welche unsere Reaktionsweise gegenüber den betreffenden Komplexen bestimmt, zunimmt. Der Übergang von den bestimmtesten sinnlichen Vorstellungen durch das vulgäre Denken bis zu dem abstraktesten wissenschaftlichen Denken ist ein ganz kontinuierlicher. Auch diese Entwicklung, welche durch den Gebrauch der Sprache ermöglicht ist, vollzieht sich zunächst ganz instinktiv, und ihr Ergebnis findet erst in der wissenschaftlichen Begriffsdefinition und der terminologischen Bezeichnung bewußte methodische Anwendung.</p>
+  <p class="jp" lang="ja">感性的な体験の複合体をまったく指示しえないような語は、まさに理解不可能で、意味をもたないであろう。赤、緑、バラという語を用いるときでさえ、それに対応する表象はすでにかなりの幅をもっている。この幅は上に挙げた例ではさらに広がり、科学的な概念的思考ではいっそう広がるが、同時に、当該の複合体に対するわれわれの反応の仕方を規定する境界づけの鋭さも増していく。最も確定的な感性的表象から、通俗的思考を経て、最も抽象的な科学的思考にいたるまでの移行は、まったく連続的なものである。言語の使用によって可能となるこの発展もまた、まずはまったく本能的に進行し、その成果ははじめて科学的な概念定義と術語による表示において意識的・方法的に適用されるのである。</p>
+</article>
+<article class="row" id="p4.4">
+  <aside class="mg"><a class="pid" href="#p4.4">4.4</a><span class="pg"><span>S.&nbsp;23</span><span>S.&nbsp;24</span></span></aside>
+  <p class="de" lang="de">Über die Kontinuität zwischen Individualvorstellung und Begriff und über die Empfindungen als Grundelemente alles psychischen Lebens kann uns der scheinbar weite Abstand von konkreter sinnlicher Vorstellung und Begriff nicht täuschen. Es gibt also kein isoliertes Fühlen, Wollen und Denken. <span class="pb" title="Leipzig 1906, S. 24">24</span>Das Empfinden, welches zugleich physisch und psychisch ist, bildet die Grundlage alles psychischen Lebens. Die Empfindungen sind stets auch mehr oder weniger aktiv, indem sie bei den niederen Tieren unmittelbar, bei den höheren auf einem Umwege durch das Großhirn die verschiedensten Reaktionen des Leibes auslösen.<a class="fr" href="#n2">2</a> Die bloße Introspektion ohne stete Rücksicht auf den Leib und demnach auf das gesamte Physische, von dem der Leib einen unabtrennbaren Teil ausmacht, vermag keine zureichende Psychologie zu begründen. Betrachten wir also einmal das organische, insbesondere das tierische Leben als Ganzes, bald mehr die physische, bald mehr die psychische Seite beachtend. Wählen wir auch solche Beispiele, in welchen dieses Leben sich in besonders einfachen Formen offenbart.</p>
+  <p class="jp" lang="ja">具体的な感性的表象と概念とのあいだの見かけ上の大きな隔たりも、個別表象と概念とのあいだの連続性について、またあらゆる心的生活の基本要素としての感覚について、われわれを欺くことはできない。したがって、孤立した感じること、意志すること、考えることというものは存在しない。物理的であると同時に心理的でもある感覚することが、あらゆる心的生活の基礎をなす。感覚はつねに多少とも能動的でもある。感覚は、下等動物においては直接に、高等動物においては大脳を経由する回り道を通って、身体のきわめてさまざまな反応を引き起こすからである<a class="fr" href="#n2">2</a>。身体への、したがって身体がその不可分の一部をなしている物理的なもの全体への、たえざる顧慮を欠いた単なる内観は、十分な心理学を基礎づけることはできない。それゆえ、有機的生命、とくに動物の生命を全体として、あるときはより物理的な側面に、あるときはより心理的な側面に注意しながら考察してみよう。またその際、この生命がとくに単純な形で現れているような例を選ぶことにしよう。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">Vgl. A. Fouillée, La Psychologie des idées-forces. Paris 1893. Dieser richtige und wichtige Gedanke ist dort nur etwas breit in zwei Bänden durchgeführt.</p><p class="jp" lang="ja">A. フイエ『観念力の心理学』パリ、1893年参照。この正しく重要な思想は、そこでは二巻にわたっていささか冗長に展開されている。</p></li></ol>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;24</span></span></aside>
+  <p class="de" lang="de">5. Der Falter, der auf prächtigen Schwingen von Blume zu Blume schwebt, die Biene, welche den eifrig gesammelten Honig der heimatlichen Vorratskammer zuführt, der bunte erzglänzende Sandläufer, der klug der haschenden Hand entwischt, bietet uns ein wohlvertrautes Bild überlegten, bedächtigen Handelns. Wir fühlen uns diesen kleinen Wesen verwandt. Sehen wir aber den Falter wiederholt sich versengend immer wieder in die Flamme fliegen, beobachten wir, wie die Biene am halb offenen Fenster ratlos summend stets gegen das undurchdringliche Glas anstürmt, sehen wir deren verzweifelte Verlegenheit bei geringer Verschiebung des Fluglochs, jagen wir als harmlose Spaziergänger durch unsern vorauseilenden Schatten den Sandläufer, ihn immer wieder aufscheuchend, kilometerweit auf unserm Wege vor uns her, während er doch so leicht ausweichen könnte, so wird es uns verständlich, wie Descartes darauf verfallen konnte, die Tiere als Maschinen, als eine Art wunderbarer oder unheimlicher Automaten anzusehen. Die treffende burschikose ironische Bemerkung der jungfräulichen Königin Christine, daß die Fortpflanzung der Uhren doch etwas Unerhörtes sei, war übrigens wohl geeignet, den Philosophen auf die Mängel seiner Auffassung hinzuweisen und ihn zur Vorsicht zu mahnen.</p>
+  <p class="jp" lang="ja">5. 華やかな翅で花から花へと漂う蝶、熱心に集めた蜜を故郷の貯蔵庫へ運ぶ蜜蜂、捕まえようとする手から巧みに逃れる、色とりどりの金属光沢をもつハンミョウは、思慮深く慎重な行為のなじみ深い姿をわれわれに示している。われわれはこれらの小さな生き物に親近感を覚える。しかし、蝶が何度も身を焦がしながら繰り返し炎に飛びこむのを見るとき、蜜蜂が半ば開いた窓のところで途方にくれて羽音を立てながら、通り抜けられないガラスにいつまでも突進するのを観察するとき、巣の出入口をわずかにずらしただけで蜜蜂がどうしてよいか分からなくなるのを見るとき、またわれわれが罪のない散歩者として、前を行く自分の影によってハンミョウを何度も追い立て、それがいとも簡単に脇へよけられるのに、何キロメートルもわれわれの道の前を追いやってしまうとき、デカルトが動物を機械、一種の驚くべき、あるいは不気味な自動機械（オートマトン）とみなすようになったのも理解できる。ついでに言えば、時計の繁殖などというのは前代未聞だという処女王クリスティーナの、的を射た、学生風の皮肉な言葉は、この哲学者に彼の見解の欠陥を気づかせ、慎重であるよう戒めるのにまことにふさわしいものであった。</p>
+</article>
+<article class="row" id="p5.2">
+  <aside class="mg"><a class="pid" href="#p5.2">5.2</a><span class="pg"><span>S.&nbsp;24</span><span>S.&nbsp;25</span></span></aside>
+  <p class="de" lang="de">Betrachten wir nun aber genauer die beiden gegensätzlichen <span class="pb" title="Leipzig 1906, S. 25">25</span>Züge des tierischen Lebens, welche uns so widersprechend anmuten, so finden wir sie beide deutlich in unserer eigenen Natur ausgeprägt. Die Pupillen unserer Augen verengern sich maschinenmäßig bei hellerer Beleuchtung und erweitern sich ebenso regelmäßig entsprechend den Graden der Dunkelheit, ohne unser Wissen und Wollen, ganz so wie die Funktionen der Verdauung, der Ernährung und des Wachstums ohne unser bewußtes Tun sich vollziehen. Unser Arm hingegen, der sich streckt und die Lade des Tisches öffnet, wenn wir uns des darin liegenden Maßstabes erinnern, dessen wir augenblicklich bedürfen, scheint ganz ohne äußern Anstoß nur unserem wohl erwogenen Befehl zu gehorchen. Doch zieht sich die zufällig gebrannte Hand, der an der Sohle gekitzelte Fuß auch ohne Absicht und Überlegung, auch beim schlafenden und sogar beim apoplektisch gelähmten Menschen zurück. In der Bewegung der Augenlider, die sich bei plötzlicher Annäherung eines Gegenstandes unwillkürlich schließen, die aber auch willkürlich geschlossen und geöffnet werden, sowie in unzähligen andern Bewegungen, z. B. jenen des Atmens und Gehens, wechseln und mischen sich unausgesetzt beide Charakterzüge.</p>
+  <p class="jp" lang="ja">しかし、われわれにかくも矛盾したものに感じられる動物の生命のこの二つの対立する特徴をもっと詳しく考察してみると、われわれは両方がわれわれ自身の本性のうちにはっきりと刻みこまれているのを見いだす。われわれの目の瞳孔は、照明が明るくなると機械的に収縮し、暗さの度合いに応じて同じく規則的に拡大する。それはわれわれの知も意志もなしに起こるのであって、消化や栄養や成長の機能がわれわれの意識的な行為なしに行われるのとまったく同じである。これに対して、いますぐ必要な物差しが机の引き出しにあることを思い出して、腕が伸びて引き出しを開けるとき、その腕は外からの刺激なしに、ただわれわれのよく考えた命令にだけ従っているように見える。しかし、たまたま火傷をした手や、足の裏をくすぐられた足は、意図も熟慮もなしに、眠っている人においても、さらには卒中で麻痺した人においてさえ引っこめられる。物が急に近づくと思わず閉じるが、意のままに閉じたり開いたりすることもできる瞼の運動において、また無数の他の運動、たとえば呼吸や歩行の運動において、この二つの性格特徴はたえず入れ替わり、混じり合っている。</p>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;25</span></span></aside>
+  <p class="de" lang="de">6. Die genaue Selbstbeobachtung der Vorgänge, die wir Erwägung, Entschluß, Willen nennen, lehrt uns einen einfachen Tatbestand kennen. An ein sinnliches Erlebnis, z. B. die Begegnung eines Freundes, der uns einlädt, ihn zu besuchen, ihn in seine Wohnung zu begleiten, knüpfen sich mannigfaltige Erinnerungen. Diese Erinnerungen werden nacheinander lebendig, wechseln und verdrängen sich gegenseitig. In der Erinnerung vernehmen wir die geistvolle Unterhaltung des Freundes, sehen wir sein Klavier in seinem Zimmer stehen, hören wir sein vorzügliches Spiel; jetzt fällt uns aber ein, daß heute Dienstag ist und daß ein zänkischer Herr an diesem Tage unsern Freund zu besuchen pflegt; wir lehnen die Begleitung dankend ab und entfernen uns. Wie auch unsere Entscheidung ausfallen mag, in den einfachsten wie in den verwickeltsten Fällen beeinflussen die zur Wirkung gelangenden Erinnerungen unsere Bewegungen gerade so bestimmt, lösen gerade dieselben Annäherungs- oder Entfernungsbewegungen aus, wie die betreffenden sinnlichen Erlebnisse, deren Spuren sie sind.</p>
+  <p class="jp" lang="ja">6. われわれが熟慮、決心、意志と呼ぶ過程を精密に自己観察すると、ある単純な事態が分かる。ある感性的体験、たとえば友人に出会って、訪ねてきてくれ、家まで一緒に来てくれと誘われるという体験に、多様な記憶が結びつく。これらの記憶は次々に生き生きとし、入れ替わり、互いに押しのけ合う。記憶のなかでわれわれは友人の才気ある会話を聞き、彼の部屋にピアノが置かれているのを見、彼のすばらしい演奏を聴く。ところがいま、今日は火曜日で、この日には口論好きのある紳士が友人を訪ねる習慣であることを思い出す。われわれは同行を丁重に断って立ち去る。われわれの決定がどのようになろうとも、最も単純な場合にも最も錯綜した場合にも、作用するにいたった記憶は、それが痕跡であるところの当該の感性的体験とまったく同じように確実にわれわれの運動に影響し、まったく同じ接近または遠ざかりの運動を引き起こすのである。</p>
+</article>
+<article class="row" id="p6.2">
+  <aside class="mg"><a class="pid" href="#p6.2">6.2</a><span class="pg"><span>S.&nbsp;25</span><span>S.&nbsp;26</span></span></aside>
+  <p class="de" lang="de">Wir sind nicht Herren <span class="pb" title="Leipzig 1906, S. 26">26</span>darüber, welche Erinnerungen uns auftauchen und welche den Sieg davon tragen.<a class="fr" href="#n3">3</a> In unsern „Willkürhandlungen“ sind wir nicht minder Automaten als die einfachsten Organismen. Doch ist von diesen Automaten ein Teil des Mechanismus, der durch das Leben selbst fortdauernd kleine Veränderungen erfährt, nur für uns selbst sichtbar, bleibt dem fremden Beobachter verborgen, und die feineren Züge desselben können selbst unserer eigenen gespanntesten Aufmerksamkeit entgehen. So ist es also ein viel größerer, viel weniger durchsichtiger und übersichtlicher Ausschnitt des Weltgeschehens, ein räumlich und zeitlich viel weiter reichender Weltzusammenhang, der in unsern Willkürhandlungen zu Tage tritt, und deshalb erscheinen dieselben unberechenbar.</p>
+  <p class="jp" lang="ja">どの記憶が浮かび上がり、どの記憶が勝利を収めるかについて、われわれは主人ではない<a class="fr" href="#n3">3</a>。われわれの「随意行為」において、われわれは最も単純な有機体に劣らず自動機械なのである。ただし、これらの自動機械にあっては、生命そのものによってたえず小さな変化をこうむるメカニズムの一部が、われわれ自身にだけ見え、他の観察者には隠されたままであり、またその微妙な特徴は、われわれ自身の最も張りつめた注意からさえ逃れうる。こうして、われわれの随意行為において現れているのは、世界の出来事のはるかに大きな、はるかに見通しにくく概観しにくい断面であり、空間的・時間的にはるかに遠くまで及ぶ世界連関なのである。それゆえ随意行為は予測不可能に見える。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">Aus dem Verkennen dieses Sachverhalts bei nachträglicher Überlegung ergibt sich die Reue, die nur einen Sinn und eine Bedeutung hat für künftige Wiederholungen derselben oder ähnlicher Situationen. Und da ist nicht Buße oder Sühne von Wert, sondern allein die Sinnesänderung. Die Frage der Freiheit und der Zurechnung kann sich nur darauf beziehen, ob das Individuum psychisch hinreichend entwickelt ist, um bei seinen Entschlüssen die Folgen seiner Handlungen für sich und andere in Betracht zu ziehen. Man vergleiche die Ansichten, die A. Menger in seinem bemerkenswerten Buch „Neue Sittenlehre“ (Jena, 1905) vertritt. Der Mut der Wahrhaftigkeit, den Menger in allen seinen Schriften bekundet, verdient alle Hochachtung.</p><p class="jp" lang="ja">あとから考え直す際にこの事態を見誤ることから、後悔が生じる。後悔は、同じあるいは類似の状況が将来繰り返される場合にとってのみ意味と意義をもつ。そしてそこで価値があるのは、贖罪や償いではなく、ただ心を改めることだけである。自由と責任の問題は、ただ、個人が決心に際して自分と他人に対する自分の行為の結果を考慮に入れるほど心理的に十分発達しているかどうかに関わりうるにすぎない。A. メンガーがその注目すべき著書『新倫理学』（イェーナ、1905年）で主張している見解を参照されたい。メンガーがそのすべての著作において示している誠実さの勇気は、あらゆる尊敬に値する。</p></li></ol>
+</article>
+<article class="row" id="p6.3">
+  <aside class="mg"><a class="pid" href="#p6.3">6.3</a><span class="pg"><span>S.&nbsp;26</span></span></aside>
+  <p class="de" lang="de">Die Organe der niederen Tiere reagieren in verhältnismäßig regelmäßiger und einfacher Weise auf die Reize, die offen vor uns liegen. Alle maßgebenden Umstände scheinen fast auf einen Raum- und Zeitpunkt zusammengedrängt. Der Eindruck des Automatischen tritt hier besonders leicht hervor. Doch lehrt die feinere Beobachtung auch hier individuelle, teils angeborene, teils erworbene Unterschiede kennen. Große Verschiedenheit zeigt ja das Gedächtnis der Tiere je nach Genus und Spezies, kleinere auch nach dem Individuum. Von dem Hunde des Odysseus, der verendend und schon unfähig sich zu erheben, den nach 20 Jahren wiederkehrenden Herrn noch erkennt und wedelnd begrüßt, bis zur Taube, deren Gedächtnis für eine Wohltat kaum einen Tag vorhält und zur Biene, welche den Ort, der Futter bot, eben noch wiederfindet – welch ein Abstand! Ob wohl bei den niedersten Organismen das Gedächtnis gänzlich fehlt?</p>
+  <p class="jp" lang="ja">下等動物の器官は、われわれの前に明らかに示されている刺激に対して、比較的規則的かつ単純な仕方で反応する。決定的な事情はすべて、ほとんど一つの空間的・時間的な点に押し縮められているように見える。ここでは自動的なものという印象がとくに容易に生じる。しかしより精密な観察は、ここでも、一部は生得的、一部は後天的な個体差のあることを教える。動物の記憶は属や種によって大きな違いを示し、個体によってもより小さな違いを示す。死にかけてもはや起き上がることもできないのに、二十年ぶりに帰ってきた主人をそれと認め、尾を振って迎えるオデュッセウスの犬から、恩恵についての記憶がほとんど一日ももたない鳩、餌を与えてくれた場所をかろうじてもう一度見つけ出す蜜蜂にいたるまで——なんという隔たりであろう。最も下等な有機体には、記憶はまったく欠けているのであろうか。</p>
+</article>
+<article class="row" id="p6.4">
+  <aside class="mg"><a class="pid" href="#p6.4">6.4</a><span class="pg"><span>S.&nbsp;26</span><span>S.&nbsp;27</span></span></aside>
+  <p class="de" lang="de"><span class="pb" title="Leipzig 1906, S. 27">27</span>— Daß wir Menschen uns für etwas so ganz anderes zu halten geneigt sind, als die einfachst organisierten Tiere, liegt bloß an der Verwicklung und Mannigfaltigkeit der Äußerungen unseres psychischen Lebens im Gegensatz zu denen jener Tiere. Die Fliege, deren Bewegungen durch Licht, Schatten, Geruch u. s. w. unmittelbar bestimmt und geleitet zu sein scheinen, setzt sich zehnmal verjagt immer wieder auf dieselbe Stelle des Gesichtes. Sie kann nicht nachgeben, bis sie erschlagen am Boden liegt. Der arme Hausierer, der in der Sorge um den Pfennig, welcher das Leben des Tages sichern soll, den behaglich hindämmernden Bourgeois wiederholt in seiner Ruhe stört, bis er mit einem kräftigen Fluch abgewiesen ist, hat sich nicht minder als Automat verhalten, wie der letztere; nur sind beide etwas weniger einfache Automaten.</p>
+  <p class="jp" lang="ja">——われわれ人間が自分たちを、最も単純に組織された動物とはまったく別物だと考えがちなのは、ただ、それらの動物の心的生活の発現に比べて、われわれの心的生活の発現が錯綜し多様であるからにすぎない。光や影や匂いなどによってその運動が直接に規定され導かれているように見える蠅は、十度追い払われても、何度でも顔の同じ場所にとまる。蠅は、叩きつぶされて床に横たわるまで、あきらめることができないのである。その日の暮らしを支えるはずの一文を案じて、心地よくまどろんでいるブルジョワの休息を何度も妨げ、ついに力のこもった悪態とともに追い払われる貧しい行商人も、ブルジョワと同じく自動機械としてふるまったのである。ただ両者とも、いくらか単純でない自動機械であるにすぎない。</p>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;27</span></span></aside>
+  <p class="de" lang="de">7. Das fest Bestimmte, Regelmäßige, Automatische ist der Grundzug des tierischen und menschlichen Verhaltens, der uns nur in beiden Fällen in so verschiedenen Graden der Entwicklung und Komplikation entgegentritt, daß wir glauben können, zwei ganz verschiedene Grundmotive wahrzunehmen. Für das Verständnis unserer eigenen Natur ist es nun von der größten Wichtigkeit, den Zug von Bestimmtheit so weit zu verfolgen, als uns dies nur immer gelingen mag. Denn die Wahrnehmung einer Regellosigkeit bietet weder praktischen noch wissenschaftlichen Gewinn. Vorteil und Einsicht ergeben sich erst durch Auffindung der Regel in dem bisher für gesetzlos Gehaltenen. Die Annahme einer frei und gesetzlos wirkenden Seele wird sich immer schwer widerlegen lassen, da die Erfahrung immer einen undurchschauten Rest von Tatsachen aufweisen wird.</p>
+  <p class="jp" lang="ja">7. 確固として規定されたもの、規則的なもの、自動的なものこそが、動物と人間のふるまいの根本特徴である。ただそれは、両者においてきわめて異なった発達と複雑さの程度でわれわれの前に現れるので、われわれはまったく異なる二つの根本動機を知覚していると信じかねないのである。さて、われわれ自身の本性を理解するためには、この規定性の特徴を、およそできるかぎり遠くまで追跡することがきわめて重要である。なぜなら、無規則性を知覚することは、実践的にも科学的にも何の利益ももたらさないからである。利益と洞察は、これまで無法則とみなされていたもののうちに規則を見いだすことによってはじめて得られる。自由に、法則なしにはたらく魂という想定は、つねに反駁しがたいであろう。経験はつねに、見通されていない事実の残余を示すであろうから。</p>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;27</span><span>S.&nbsp;28</span></span></aside>
+  <p class="de" lang="de">Aber die freie Seele als wissenschaftliche Hypothese, und gar ein Forschen nach derselben ist meines Erachtens eine methodologische Verkehrtheit.<a class="fr" href="#n4">4</a> Was uns insbesondere an den Menschen als frei, willkürlich, unberechenbar erscheint, schwebt nur wie ein leichter Schleier, wie ein Hauch, wie ein verhüllender Nebel über dem Automatischen. Wir sehen die menschlichen Individuen sozusagen aus zu großer Nähe. Das Bild ist daher mit zu vielen verwirrenden, <span class="pb" title="Leipzig 1906, S. 28">28</span>nicht sofort zu durchschauenden Einzelheiten überladen. Könnten wir die Menschen aus größerer Entfernung, aus der Vogelperspektive, vom Monde aus beobachten, so würden die feineren Einzelheiten mit den von individuellen Erlebnissen herrührenden Einflüssen für uns verschwinden, und wir würden nichts wahrnehmen, als Menschen, die mit großer Regelmäßigkeit wachsen, sich nähren, sich fortpflanzen. Eine Beobachtungsweise, welche das Individuelle absichtlich verwischt, ignoriert und nur die wesentlichsten, am stärksten zusammenhängenden Umstände ins Auge faßt, wird in der Statistik wirklich angewendet.</p>
+  <p class="jp" lang="ja">しかし、科学的仮説としての自由な魂、ましてやそれを探究することは、私の考えでは方法論上の倒錯である<a class="fr" href="#n4">4</a>。とりわけ人間において自由で、恣意的で、予測不可能なものと見えるものは、自動的なものの上に、薄いヴェールのように、息吹のように、覆い隠す霧のように漂っているにすぎない。われわれは人間の個人をいわば近すぎるところから見ているのである。それゆえその像は、すぐには見通せない、混乱させる細部をあまりに多く負わされている。もし人間をもっと遠くから、鳥瞰的に、月から観察することができたなら、より微細な細部は、個人的な体験に由来する影響とともにわれわれの目から消え、われわれが知覚するのは、きわめて規則正しく成長し、栄養をとり、繁殖する人間たちだけであろう。個人的なものを意図的にぼかし、無視して、最も本質的で最も強く連関した事情だけに目を向けるこの観察方法は、統計学において実際に用いられている。</p>
+  <ol class="notes"><li id="n4"><span class="nn">4</span><p class="de" lang="de">Aus einer gänzlich verschiedenen philosophischen Grundstimmung gehen die Ansichten hervor, die H. Driesch in seinen Schriften vertritt.</p><p class="jp" lang="ja">まったく異なる哲学的な根本気分から生じているのが、H. ドリーシュがその著作で主張している見解である。</p></li></ol>
+</article>
+<article class="row" id="p7.3">
+  <aside class="mg"><a class="pid" href="#p7.3">7.3</a><span class="pg"><span>S.&nbsp;28</span></span></aside>
+  <p class="de" lang="de">In der Tat zeigen sich dann die Willkürhandlungen der Menschen von einer ebenso bestimmten Regelmäßigkeit, wie irgend ein vegetativer oder selbst ein mechanischer Vorgang, bei welchem niemand an einen psychischen Einfluß, an den Einfluß eines Willens zu denken pflegt. Die Zahl der jährlichen Eheschließungen und Selbstmorde in einem Lande schwankt ebensowenig, oder noch weniger, als die Zahl der Geburten und der natürlichen Todesfälle, obgleich bei den ersteren der Wille gar sehr in Betracht kommt, bei den letzteren aber gar nicht. Wenn aber bei diesen Massenerscheinungen auch nur ein Element ohne Regel mitbestimmend wäre, so könnte auch in der größten Zahl der Fälle keine Regel mehr hervortreten.<a class="fr" href="#n5">5</a> Nur einen kleinen Schritt hatte also Descartes zu tun, und nicht nur die Tiere, sondern auch die Menschen wären ihm als Automaten erschienen. Der große Zweifler gegenüber allem Geltenden hatte ja die beste Absicht, die ganze Welt zu mechanisieren, oder genauer gesagt, zu geometrisieren.</p>
+  <p class="jp" lang="ja">実際、そうすると人間の随意行為は、誰も心的な影響や意志の影響を考えないような何らかの植物的な過程や、さらには機械的な過程と同じく確定した規則性を示すのである。ある国における年間の結婚や自殺の数は、出生や自然死の数と同じ程度にしか、あるいはそれ以下にしか変動しない。前者においては意志が大いに関与し、後者においてはまったく関与しないにもかかわらず、である。しかし、もしこうした大量現象において、たった一つでも規則なしにともに規定する要素があったとすれば、どれほど多数の事例においても、もはや規則は現れえないであろう<a class="fr" href="#n5">5</a>。それゆえデカルトはほんの一歩を踏み出しさえすればよかったのであり、そうすれば動物ばかりでなく人間も彼には自動機械と見えたであろう。あらゆる通用しているものに対する偉大な懐疑家は、全世界を機械化しよう、より正確に言えば幾何学化しようという、このうえない意図をもっていたのであるから。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">Über diesen Punkt habe ich schon einige Bemerkungen gemacht: Vorlesungen über Psychophysik. Zeitschr. f. praktische Heilkunde. Wien. 1863. S. 148, 168, 169.</p><p class="jp" lang="ja">この点については、すでにいくつかの所見を述べたことがある。「精神物理学講義」『実地医学雑誌』ウィーン、1863年、148、168、169頁。</p></li></ol>
+</article>
+<article class="row" id="p7.4">
+  <aside class="mg"><a class="pid" href="#p7.4">7.4</a><span class="pg"><span>S.&nbsp;28</span><span>S.&nbsp;29</span></span></aside>
+  <p class="de" lang="de">Hier aber mochte ihm, angesichts der Macht der Inquisition und wohl auch angesichts der Macht seiner eigenen überkommenen Meinungen, die ja in seinem Dualismus lauten Ausdruck finden, der Mut des Zweifels abhanden gekommen sein. Von dieser Inkonsequenz kam schon Spinoza zurück. Unter den späteren ist Lamettrie<a class="fr" href="#n6">6</a> wegen seiner homogenen Auffassung der Menschen <span class="pb" title="Leipzig 1906, S. 29">29</span>und der Tiere hervorzuheben, die in seiner Schrift „l'homme machine“ 1748, sowie in dessen Abhandlungen „l'homme plante“ und „les animaux plus que machines“ hervortritt. Eine tiefe Philosophie darf man bei Lamettrie nicht suchen. Seine Schriften, wichtig für ihre Zeit, sind heute eine recht öde Lektüre. Das Gegenteil gilt von den Ausführungen seines Zeitgenossen Diderot, der in seinem geistvollen Artikel „Entretien entre D'Alembert et Diderot. Le rêve de D'Alembert“ die modernen biologischen Ideen vorweg nimmt.</p>
+  <p class="jp" lang="ja">しかしここで彼は、異端審問の権力を前にして、またおそらくは——彼の二元論のうちにはっきりと表現されている——伝来の自分自身の意見の力を前にして、懐疑する勇気を失ったのであろう。この不徹底からはすでにスピノザが立ち戻った。後代の人々のなかでは、ラ・メトリ<a class="fr" href="#n6">6</a>が、人間と動物についての同質的な把握のゆえに特筆されるべきである。その把握は、1748年の著作『人間機械論（l'homme machine）』や、論文『人間植物論（l'homme plante）』『動物は機械以上のもの（les animaux plus que machines）』に現れている。ラ・メトリに深い哲学を求めてはならない。彼の著作は当時にとっては重要であったが、今日ではかなり退屈な読み物である。その反対のことが言えるのは、彼の同時代人ディドロの論述であって、ディドロはその才気あふれる文章「ダランベールとディドロの対話」「ダランベールの夢」において、近代の生物学的思想を先取りしている。</p>
+  <ol class="notes"><li id="n6"><span class="nn">6</span><p class="de" lang="de">Lamettrie, Oeuvres philosophiques, précédées de son éloge par Frédéric II. Berlin. 1796.</p><p class="jp" lang="ja">ラ・メトリ『哲学著作集』、フリードリヒ二世による頌辞を付す。ベルリン、1796年。</p></li></ol>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;29</span><span>S.&nbsp;30</span></span></aside>
+  <p class="de" lang="de">8. Der Reiz, lebende Wesen durch Automaten, durch Maschinen nachzuahmen und das Streben, dieselben hierdurch wenigstens teilweise zu verstehen, hat überall gewirkt, wo und wann man die Natur denkend zu erfassen suchte. Einer der ältesten Automaten, von dem wir mehr als fabelhafte Nachrichten haben, ist die fliegende Taube des Archytas von Tarent. Auch Heron von Alexandrien<a class="fr" href="#n7">7</a> hat sich viel mit Konstruktion von Automaten beschäftigt und diese Bestrebungen wurden in späterer Zeit besser verstanden, als die allerdings bescheidenen Reste antiker Wissenschaft, welche in seinen Schriften überliefert sind. Im 16. Jahrhundert sehen wir die kunstvollen Uhren mit beweglichen Menschen- und Tierfiguren in Straßburg, Prag, Nürnberg u. s. w. entstehen, im 18. Jahrhundert Vaucansons schwimmende und fressende Ente, dessen Flötenspieler, dann Droz' zeichnenden Knaben und seine Klavierspielerin. So sehr man geneigt sein kann, derartige Versuche als bloße Spielerei zu betrachten, darf man doch nicht vergessen, daß die hierbei erworbenen Kenntnisse bei wissenschaftlichen Untersuchungen, wie sie Borelli in seinem Buche „de motu animalium“ (1680) niedergelegt hat, unmittelbar verwertet werden können. Auch W. Kempelen macht mit seiner Sprechmaschine (beschrieben unter dem Titel: „Mechanismus der menschlichen Sprache, nebst Beschreibung einer sprechenden Maschine“, Wien 1791) einen wesentlichen, wissenschaftlichen Fortschritt.<a class="fr" href="#n8">8</a> Ein guter Teil der wissenschaftlichen Physiologie kann als Fortsetzung der Arbeit der Auto<span class="pb" title="Leipzig 1906, S. 30">30</span>matenverfertiger angesehen werden.</p>
+  <p class="jp" lang="ja">8. 生物を自動機械、機械によって模倣しようという魅力と、そうすることによって生物を少なくとも部分的に理解しようという努力とは、自然を思考によって捉えようとした所ではどこでもいつでも働いてきた。われわれが伝説以上の知らせをもっている最古の自動機械の一つは、タレントゥムのアルキュタスの飛ぶ鳩である。アレクサンドリアのヘロン<a class="fr" href="#n7">7</a>も自動機械の製作に大いに取り組んだが、こうした努力は後の時代に、彼の著作のうちに伝えられた、もっとも控えめな古代科学の名残りよりもよく理解された。十六世紀には、シュトラスブルク、プラハ、ニュルンベルクなどで、動く人間や動物の像をそなえた精巧な時計が生まれ、十八世紀にはヴォーカンソンの泳いで餌を食べる鴨や笛吹き人形、さらにドローの絵を描く少年やピアノを弾く女性人形が現れる。こうした試みを単なる遊びとみなしたくなるとしても、そこで獲得された知識が、ボレリがその著書『動物の運動について（de motu animalium）』（1680年）に記したような科学的研究に直接利用されうることを忘れてはならない。W. ケンペレンもまた、その発話機械（『人間の言語のメカニズム、ならびに話す機械の記述』ウィーン、1791年の題で記述されている）によって、本質的な科学的進歩を成し遂げている<a class="fr" href="#n8">8</a>。科学的生理学のかなりの部分は、自動機械製作者の仕事の継続とみなすことができるのである。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">Herons Werke herausg. von W. Schmidt. Leipzig. 1896. Bd. I.</p><p class="jp" lang="ja">『ヘロン著作集』W. シュミット編、ライプツィヒ、1896年、第1巻。</p></li><li id="n8"><span class="nn">8</span><p class="de" lang="de">Was von der Kempelenschen Sprechmaschine noch vorhanden ist, befindet sich in der physikalischen Sammlung der Wiener technischen Hochschule. (Mitteilung von Prof. Dr. A. Lampa.)</p><p class="jp" lang="ja">ケンペレンの発話機械のうち現存するものは、ウィーン工科大学の物理学標本室にある。（A. ランパ教授の教示による。）</p></li></ol>
+</article>
+<article class="row" id="p8.2">
+  <aside class="mg"><a class="pid" href="#p8.2">8.2</a><span class="pg"><span>S.&nbsp;30</span></span></aside>
+  <p class="de" lang="de">Kempelen mit seinem automatischen Schachspieler, in welchem er einen Menschen verbergen mußte, liefert anderseits den allerdings überflüssigen Beweis, daß die Intelligenz nicht auf diese einfache, mechanische Weise ersetzt werden kann. Die Lebewesen sind eben Automaten, auf welche die ganze Vergangenheit Einfluß geübt hat, die sich im Laufe der Zeit noch fortwährend ändern, die aus andern ähnlichen entstanden sind und wieder solche zu erzeugen vermögen. Es besteht eine natürliche Neigung, daß man nachzuahmen, zu reproduzieren versucht, was man verstanden hat. Wieweit dies gelingt, ist wieder eine gute Probe des Verständnisses. Wenn wir den Nutzen betrachten, welchen der moderne Maschinenbau aus der Automatenkonstruktion gezogen hat, wenn wir die Rechenmaschinen, die Kontrollapparate, die Verkaufsautomaten betrachten, so dürfen wir noch weitere Fortschritte der technischen Kultur erwarten.</p>
+  <p class="jp" lang="ja">他方ケンペレンは、中に人間を隠さねばならなかったその自動チェス指しによって、知性はこのような単純な機械的仕方では置き換えられないという——もっとも不要な——証明を提供している。生物とはまさに、過去全体が影響を及ぼしてきた自動機械であり、時の経過のなかでなおたえず変化し、他の類似のものから生じ、また再びそのようなものを生み出すことのできる自動機械なのである。理解したものを模倣し、再現しようと試みる自然な傾向がある。それがどこまで成功するかは、これまた理解の良い試金石である。近代の機械製作が自動機械の製作から引き出してきた利益を考えるとき、計算機や検査装置や自動販売機を考えるとき、われわれは技術的文化のさらなる進歩を期待してよい。</p>
+</article>
+<article class="row" id="p8.3">
+  <aside class="mg"><a class="pid" href="#p8.3">8.3</a><span class="pg"><span>S.&nbsp;30</span></span></aside>
+  <p class="de" lang="de">Ein absolut verläßlicher automatischer Postbeamter, der eingeschriebene Briefe übernimmt, scheint durchaus nicht unmöglich, als erfreuliche Entlastung, der durch mechanische Manipulationen gequälten menschlichen Intelligenz. Auf unserm Standpunkt haben wir keinen Grund, uns weiter mit dem Gegensatz des Physischen und Psychischen zu beschäftigen. Was uns allein interessieren kann, ist die Erkenntnis der Abhängigkeit der Elemente voneinander. Daß diese Abhängigkeit eine feste, wenn auch komplizierte und schwer ermittelbare sei, setzen wir vernünftigerweise voraus, wenn wir an die Erforschung gehen. Die bisherige Erfahrung hat uns diese Voraussetzung an die Hand gegeben, und jeder neue Forschungserfolg bestärkt uns in derselben, wie dies aus den folgenden Einzeluntersuchungen noch deutlicher hervorgehen wird.</p>
+  <p class="jp" lang="ja">書留郵便を受け付ける、絶対に信頼できる自動郵便局員も、機械的な操作に苦しめられている人間の知性の喜ばしい負担軽減として、けっして不可能とは思われない。われわれの立場からは、物理的なものと心理的なものとの対立にこれ以上かかずらう理由はない。われわれにとって関心をひきうるのは、ただ要素相互の依存関係の認識だけである。この依存関係が、複雑で確定しにくいとしても確固としたものであることを、われわれは研究に取りかかるとき理性的に前提している。これまでの経験がこの前提をわれわれに与えてくれたのであり、研究が新たに成功するたびに、われわれはこの前提を強められる。このことは、以下の個別研究からいっそう明らかになるであろう。</p>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§8.1</td><td lang="de">„Im“ / „16. Jahrhundert“ が新しい節 16 と誤認</td><td lang="de">§8 の本文として接続（Im 16. Jahrhundert …）</td></tr>
+  <tr><td>§8.1</td><td lang="de">Fortschritt.*)</td><td lang="de">注8 への参照</td></tr>
+  <tr><td>§3.1</td><td lang="de">greifbarer Körpern</td><td lang="de">greifbarer Körper</td></tr>
+  <tr><td>§4.2</td><td lang="de">Angriffsoder</td><td lang="de">Angriffs- oder</td></tr>
+  <tr><td>§4.2</td><td lang="de">Gang zur Vorlesung, fremden Gelehrten, gerecht（隔字体）</td><td lang="de">斜体で表示</td></tr>
+  <tr><td>§4.4</td><td lang="de">des tierische Leben</td><td lang="de">das tierische Leben</td></tr>
+  <tr><td>§7.3</td><td lang="de">Decartes</td><td lang="de">Descartes</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_01.html">← 第Ⅰ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
