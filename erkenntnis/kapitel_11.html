@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第ⅩⅠ章 思考実験について</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第ⅩⅠ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL XI · 第ⅩⅠ章</div>
+  <h1>思考実験について</h1>
+  <div class="de-title" lang="de">Über Gedankenexperimente</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 183–200　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;183</span></span></aside>
+  <p class="de" lang="de">1.<a class="fr" href="#n1">1</a> Der Mensch sammelt Erfahrungen durch Beobachtung der Veränderungen in seiner Umgebung. Die für ihn interessantesten und lehrreichsten Veränderungen sind jedoch jene, welche er durch sein Eingreifen, durch seine willkürlichen Bewegungen beeinflussen kann. Diesen gegenüber hat er nicht nötig, sich rein passiv zu verhalten, er kann sie aktiv seinen Bedürfnissen anpassen; dieselben haben für ihn auch die größte ökonomische, praktische und intellektuelle Wichtigkeit. Darin ist der Wert des Experimentes begründet.</p>
+  <p class="jp" lang="ja">1.<a class="fr" href="#n1">1</a> 人間は環境の変化を観察することによって経験を集める。しかし人間にとって最も興味深く教えられるところの多い変化は、自分の介入によって、自分の随意運動によって影響を与えることのできる変化である。それに対して人間は純粋に受動的にふるまう必要はなく、それを能動的に自分の欲求に適応させることができる。またそれは人間にとって経済的にも、実践的にも、知的にも最大の重要性をもつ。ここに実験の価値の根拠がある。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Teile dieses Artikels wurden schon publiziert in Poskes Zeitschr. f. physik. u. chem. Unterricht. 1897. Januarheft.</p><p class="jp" lang="ja">この論文の一部は、すでにポスケの『物理化学教育雑誌』1897年1月号に発表された。</p></li></ol>
+</article>
+<article class="row" id="p1.2">
+  <aside class="mg"><a class="pid" href="#p1.2">1.2</a><span class="pg"><span>S.&nbsp;183</span></span></aside>
+  <p class="de" lang="de">Wenn wir beobachten, wie ein Kind, welches die erste Stufe der Selbständigkeit erreicht hat, die Empfindlichkeit seiner eigenen Glieder prüft, wie es von seinem Spiegelbilde, oder von seinem eigenen Schatten im hellen Sonnenschein befremdet, durch Bewegungen die Bedingungen desselben zu ermitteln sucht, wie es sich im Werfen nach einem Ziele übt; so müssen wir sagen, daß die instinktive Neigung zum Experimentieren dem Menschen angeboren ist, und daß er ebenso die Grundmethode des Experiments, die Methode der Variation, ohne viel nach derselben zu suchen, in sich vorfindet. Wenn diese Schätze dem Erwachsenen zeitweilig wieder abhanden kommen und sozusagen wieder neu entdeckt werden müssen, so wird dies dadurch verständlich, daß dieser meist für einen engeren Interessenkreis durch die Gesellschaft erzogen, in denselben gebannt ist und gleichzeitig eine Menge fertiger und vermeintlich über die Prüfung erhabener Ansichten, um nicht zu sagen Vorurteile, übernommen hat.</p>
+  <p class="jp" lang="ja">自立の最初の段階に達した子どもが、自分の手足の感覚を試し、自分の鏡像に、あるいは明るい日差しのなかの自分の影に戸惑って、動いてみることによってその条件を探り出そうとし、目標に向かって投げる練習をするのを観察するならば、実験への本能的な傾向は人間に生まれつきそなわっており、人間は実験の根本方法である変化（変分）の方法をも、それほど探し求めることなく自分のうちに見いだす、と言わなければならない。これらの宝が大人にとって一時的に失われ、いわば改めて発見されなければならなくなるとすれば、それは、大人がたいてい社会によってより狭い関心の範囲へと教育され、そこに閉じこめられており、同時に、できあがった、吟味を越えていると思われている多くの見解——先入見とは言わないまでも——を受け継いでいることによって理解できる。</p>
+</article>
+<article class="row" id="p1.3">
+  <aside class="mg"><a class="pid" href="#p1.3">1.3</a><span class="pg"><span>S.&nbsp;184</span></span></aside>
+  <p class="de" lang="de">Der Intellekt kann beim Experimentieren in verschiedenem Grade beteiligt sein. Ich konnte dies beobachten, als ich vor Jahren, von einer Lähmung der rechten Hand betroffen, vieles, was man sonst mit beiden Händen tut, mit einer Hand verrichten mußte, wenn ich nicht unausgesetzt von fremder Hilfe abhängig sein wollte. Indem ich die Bewegungen mit der Richtung auf ein bestimmtes Ziel, wohl auch planlos und ungestüm, variierte, befand ich mich bald ohne viel Nachdenken, nur durch Festhalten, Angewöhnen des Förderlichen, im Besitze einer Menge kleiner Erfindungen. So lernte ich das Aufschneiden der Bücher und anderes. Entschieden durch Nachdenken aber fand ich ein Verfahren mit Zirkel, Lineal und mit Hilfe eines Gewichtes, als Ersatz der zweiten Hand, geometrische Zeichnungen auszuführen, sowie alle jene Kunstgriffe, für welche die Bewegungen meiner Hand überhaupt nicht ausreichten.</p>
+  <p class="jp" lang="ja">知性は実験においてさまざまな程度に関与しうる。私はこれを、何年も前に右手の麻痺に見舞われ、たえず他人の助けに頼りたくなければ、ふだん両手でする多くのことを片手で行わなければならなかったときに観察することができた。一定の目標に向けて、またおそらく無計画に激しく、動作を変化させているうちに、私はほどなく、あまり考えることもなく、ただ有利なことを保持し習慣にすることによって、多くの小さな発明を手にしていた。こうして私は本のページを切り開くことなどを覚えた。しかし、もう一方の手の代わりにコンパスと定規とおもりの助けを借りて幾何学的な図を描く方法や、そもそも私の手の動きでは足りないあらゆる工夫を見いだしたのは、はっきりと熟考によってであった。</p>
+</article>
+<article class="row" id="p1.4">
+  <aside class="mg"><a class="pid" href="#p1.4">1.4</a><span class="pg"><span>S.&nbsp;184</span></span></aside>
+  <p class="de" lang="de">Es ist kaum zu zweifeln, daß die Grenze zwischen dem instinktiven und dem durch Denken geleiteten Experiment keine scharfe ist. Hauptsächlich Ergebnisse des ersteren sind wohl die meisten in die prähistorische Zeit zurückreichenden Erfindungen, welche, wie Spinnen, Flechten, Weben, Knotenschlingen u. s. w. den Eindruck des Tiefdurchdachten machen und als deren biologische Vorläufer wir den Nestbau der Vögel und Affen ansehen können. Dieselben rühren wahrscheinlich größtenteils von Frauen her, und sind vermutlich halb spielend gewonnen worden, indem das zufällig sich ergebende Vorteilhafte oder Gefällige erst nachträglich mit Absicht festgehalten wurde. Ist einmal ein Anfang gemacht, so führt Denken und Vergleichung leicht zu vollkommeneren Versuchen.<a class="fr" href="#n2">2</a></p>
+  <p class="jp" lang="ja">本能的な実験と思考によって導かれた実験との境界が鋭いものでないことは、ほとんど疑いえない。紡ぐこと、編むこと、織ること、結び目を結ぶことなど、深く考え抜かれたという印象を与え、その生物学的な先駆として鳥や猿の巣づくりを見ることのできる、先史時代にまでさかのぼる発明の大部分は、おそらく主として前者の成果であろう。それらはおそらく大部分が女性に由来し、半ば遊びながら得られたのであろう。偶然生じた有利なものや好ましいものが、あとになって意図的に保持されたのである。ひとたび始まりがつくられると、思考と比較が容易により完全な試みへと導く<a class="fr" href="#n2">2</a>。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">Recht zweckmäßige Mittel ergeben sich mitunter durch das bloße Probieren. Ich sah einem Dienstmädchen zu, welches einen großen Teppich unter einen schweren Speisetisch legen sollte, der von einer Person nicht getragen werden konnte. Im Augenblick stand der Tisch auf dem Teppich, ohne verschoben worden zu sein. Das Mädchen behauptete nicht nachgedacht zu haben. Der Teppich wurde fast ganz zusammengerollt vor den Tisch gelegt, der Tisch an dieser Seite gehoben, und während das aufgerollte Ende des Teppichs mit einem Fuße festgehalten wurde, erhielt die Rolle durch den andern Fuß einen Stoß, so daß sie unter den Tisch bis zur Gegenseite rollend sich aufwickelte. Eine analoge Prozedur an der andern Seite vollendete die Aufgabe. Als ich, auf den Gebrauch einer Hand angewiesen, den Fenstervorhang aufziehen wollte, konnte dies wegen der Länge der Schnur nur in mehreren Absätzen geschehen. Plötzlich befand ich mich aber, ohne mit Bewußtsein und Absicht nachgedacht zu haben, im Besitz eines bequemeren Verfahrens. Meine Hand kletterte an der Schnur ein Stück in die Höhe, indem sie die Schnur abwechselnd mit Daumen und Zeigefinger einerseits faßte, und dann wieder mit den drei übrigen Fingern umschlang. War die größtmögliche Höhe erreicht, so wurde die Schnur herabgezogen und die Operation wiederholt.</p><p class="jp" lang="ja">まったく目的にかなった手段が、ときに単なる試行によって得られることがある。私は、一人では運べない重い食卓の下に大きな絨毯を敷かなければならない女中を見ていた。あっという間に、食卓は動かされることなく絨毯の上に立っていた。女中は考えなかったと言い張った。絨毯をほとんどすっかり巻いて食卓の前に置き、食卓をこちら側で持ち上げ、絨毯の巻いた端を片足で押さえておきながら、もう一方の足でロールを突くと、それは食卓の下を反対側まで転がりながら広がった。反対側で同様の手順を行うと課題は完了した。片手しか使えなかった私が窓のカーテンを引き上げようとしたとき、紐が長いために何度かに分けてしか行えなかった。しかし突然、意識して意図的に考えたわけでもないのに、私はより楽な方法を手にしていた。私の手は、紐を一方では親指と人差し指で交互につかみ、次に他の三本の指で巻きつけながら、紐を少しずつよじ登っていったのである。できるかぎりの高さに達すると、紐を引き下ろし、この操作を繰り返した。</p></li></ol>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;185</span></span></aside>
+  <p class="de" lang="de">2. Das Experiment ist nicht ausschließliches Eigentum des Menschen. Man kann auch Experimente der Tiere beobachten, und zwar in verschiedenen Stufen der Entwicklung. Die ungestümen Bewegungen eines Hamsters, die den Deckel einer Büchse, in welcher er Futter wittert, bei aller Planlosigkeit endlich doch zum Fallen bringen, stellen wohl die roheste Stufe vor. Interessanter sind schon die Hunde C. Lloyd Morgans, welche nach mehreren Versuchen einen Stock mit schwerem Knopf zu tragen, denselben nicht mehr in der Mitte, sondern nahe am schweren Ende (im Schwerpunkt) fassen, und ebenso nach fruchtlosen Anstrengungen den in der Mitte gefaßten Stock durch eine schmale Tür zu bringen, denselben an einem Ende packen und hindurchziehen. Diese Tiere zeigen aber dennoch wenig Fähigkeit, die Erfahrung eines Falles für den nächsten gleichartigen zu verwerten.</p>
+  <p class="jp" lang="ja">2. 実験は人間だけの所有物ではない。動物の実験も、しかもさまざまな発達段階で観察することができる。餌の匂いがする缶の蓋を、まったく無計画ながらついには落とすハムスターの激しい動きは、おそらく最も粗い段階を表している。すでにより興味深いのは C. ロイド・モーガンの犬たちである。彼らは重い握りのついた棒を運ぼうと何度か試みたのち、もはや真ん中ではなく重い端の近く（重心）をくわえるようになり、また真ん中をくわえた棒を狭い戸口に通そうとしてむなしく骨を折ったのち、一端をくわえて引き通すようになる。しかしこれらの動物は、ある場合の経験を次の同種の場合に活かす能力をほとんど示さない。</p>
+</article>
+<article class="row" id="p2.2">
+  <aside class="mg"><a class="pid" href="#p2.2">2.2</a><span class="pg"><span>S.&nbsp;185</span></span></aside>
+  <p class="de" lang="de">Kluge Pferde sah ich durch Stampfen sorgfältig einen bedenklichen Steg untersuchen, und Katzen die Wärme der dargebotenen dampfenden Milch durch Eintauchen der Pfote erproben. Vom bloßen Prüfen durch die Sinnesorgane, dem Wenden der Körper, Wechsel des Standpunktes bis zu wesentlicher Änderung der Umstände, von der passiven Beobachtung zum Experiment, ist der Übergang ein ganz allmählicher. Was die Tiere vom Menschen hier unterscheidet, ist vor allem die Enge des Interessenkreises. Eine junge Katze untersucht neugierig ihr Spiegelbild, sieht wohl auch hinter dem Spiegel nach, wird aber sofort gleichgültig, sobald sie merkt, daß sie nicht mit einer körperlichen Katze zu tun hat. Das Turteltauben-Männchen erreicht nicht einmal diese Stufe. Es ist im stande, wie ich oft beobachtet habe, viertelstundenlang vor seinem eigenen Spiegelbild zu gurren und Komplimente mit den zwei etikettemäßigen Schritten auszuführen, ohne die Täuschung zu merken.</p>
+  <p class="jp" lang="ja">賢い馬が危なっかしい小橋を足で踏み鳴らして注意深く調べたり、猫が差し出された湯気の立つミルクの温かさを前足を浸して確かめたりするのを、私は見たことがある。感覚器官による単なる吟味、物体の向きを変えること、立脚点を変えることから、事情の本質的な変化にいたるまで、受動的な観察から実験への移行はまったく漸次的である。ここで動物を人間から区別するのは、何よりも関心の範囲の狭さである。若い猫は自分の鏡像を好奇心をもって調べ、おそらく鏡の裏をのぞきもするが、身体をもった猫と関わっているのではないと気づくやいなや、たちまち無関心になる。キジバトの雄はこの段階にさえ達しない。私がしばしば観察したように、それは自分の鏡像の前で十五分もクークーと鳴き、作法どおりの二歩で求愛のお辞儀をしつづけ、欺かれていることに気づかないのである。</p>
+</article>
+<article class="row" id="p2.3">
+  <aside class="mg"><a class="pid" href="#p2.3">2.3</a><span class="pg"><span>S.&nbsp;185</span><span>S.&nbsp;186</span></span></aside>
+  <p class="de" lang="de">Welche Niveaudifferenz! wenn man dann ein vierjähriges Kind beobachtet, welches spontan mit Verwunderung und Interesse bemerkt, daß <span class="pb" title="Leipzig 1906, S. 186">186</span>eine zur Kühlung ins Wasser versenkte Weinflasche verkürzt erscheint. Ein anderes Kind in nahe gleichem Alter verwunderte sich über die stereoskopischen Erscheinungen, die sich beim zufälligen Schielen vor einer Tapete ergaben.<a class="fr" href="#n3">3</a> Das durch Denken geleitete Experiment begründet die Wissenschaft, erweitert mit Bewußtsein und Absicht die Erfahrung. Man darf aber deshalb die Funktion von Instinkt und Gewohnheit im Experiment nicht unterschätzen. Man kann die Menge der Umstände, die bei einem Versuch mitspielen, unmöglich sogleich denkend überschauen.</p>
+  <p class="jp" lang="ja">そのあとで、冷やすために水に沈めた葡萄酒の瓶が短く見えることに、自発的に驚きと関心をもって気づく四歳の子どもを観察すると、なんという水準の違いであろう。ほぼ同じ年齢の別の子どもは、壁紙の前で偶然寄り目をしたときに生じた立体視の現象に驚いた<a class="fr" href="#n3">3</a>。思考によって導かれた実験は科学を基礎づけ、意識と意図をもって経験を拡張する。しかしだからといって、実験における本能と習慣のはたらきを過小評価してはならない。ある試みに関与する事情の多さを、すぐさま思考によって見渡すことはとうていできない。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">Die Weite des Interessenkreises ist es vor allem, welche nach meiner Meinung die Überlegenheit der Intelligenz eines 3-4 jährigen Kindes über jene des klügsten Tieres bedingt. Ich kann es kaum verstehen, wie jemand, der mit Kindern und Tieren verkehrt hat, an wirkliche Zahlbegriffe, an wirkliches Rechnen eines Pferdes denken kann. Vgl. die S. 72 erwähnte Schrift von Th. Zell.</p><p class="jp" lang="ja">私の考えでは、三、四歳の子どもの知性が最も賢い動物の知性にまさっているのは、何よりも関心の範囲の広さによる。子どもや動物と交わったことのある人が、どうして馬の本当の数概念や本当の計算を考えることができるのか、私にはほとんど理解できない。72頁で挙げた Th. ツェルの著作を参照。</p></li></ol>
+</article>
+<article class="row" id="p2.4">
+  <aside class="mg"><a class="pid" href="#p2.4">2.4</a><span class="pg"><span>S.&nbsp;186</span></span></aside>
+  <p class="de" lang="de">Wem die Fähigkeit fehlt, das Ungewöhnliche festzuhalten, und die Bewegungen der Hand dem Bedürfnis rasch anzupassen, wird schlechten Erfolg haben bei den Verrichtungen, welche die Vorstufe eines planmäßig eingeleiteten Experimentes begründen. Man experimentiert ganz anders auf einem Gebiete, mit dem man durch längere Beschäftigung vertraut geworden. Wenn man nach einer längeren Pause auf dieses Gebiet zurückkehrt, so kann man bemerken, wie das meiste von dem, was nicht begrifflich fixiert wurde, das feine Gefühl für die Bedeutung der Nebenumstände, die Geschicklichkeit der Hand, meist wieder neu erworben werden muß.</p>
+  <p class="jp" lang="ja">見慣れないものをしっかりととらえ、手の動きを必要にすばやく適応させる能力を欠く者は、計画的に始められる実験の前段階をなす作業において、うまくいかないであろう。長く取り組んでなじんだ領域では、まったく違ったふうに実験するものである。長い中断ののちにその領域に戻ると、概念的に固定されなかったことの大部分、すなわち副次的事情の意義についての繊細な感覚や手の器用さを、たいてい改めて身につけなければならないことに気づく。</p>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;186</span></span></aside>
+  <p class="de" lang="de">3. Außer dem physischen Experiment gibt es noch ein anderes, welches auf höherer intellektueller Stufe in ausgedehntem Maße geübt wird — das Gedankenexperiment. Der Projektenmacher, der Erbauer von Luftschlössern, der Romanschreiber,<a class="fr" href="#n4">4</a> der Dichter sozialer oder technischer Utopien experimentiert in Gedanken.</p>
+  <p class="jp" lang="ja">3. 物理的実験のほかに、より高い知的段階で広く行われているもう一つの実験がある。思考実験である。企画屋、空中楼閣の建築者、小説家<a class="fr" href="#n4">4</a>、社会的あるいは技術的ユートピアの作者は、思考のなかで実験している。</p>
+  <ol class="notes"><li id="n4"><span class="nn">4</span><p class="de" lang="de">Vgl. E. Zola, Le Roman expérimental. Paris 1898.</p><p class="jp" lang="ja">E. ゾラ『実験小説論』パリ、1898年参照。</p></li></ol>
+</article>
+<article class="row" id="p3.2">
+  <aside class="mg"><a class="pid" href="#p3.2">3.2</a><span class="pg"><span>S.&nbsp;186</span></span></aside>
+  <p class="de" lang="de">Aber auch der solide Kaufmann, der ernste Erfinder oder Forscher tut dasselbe. Alle stellen sich Umstände vor, und knüpfen an diese Vorstellung die Erwartung, Vermutung gewisser Folgen; sie machen eine Gedankenerfahrung. Während aber die ersteren in der Phantasie Umstände kombinieren, die in Wirklichkeit nicht zusammentreffen, oder diese Umstände von Folgen begleitet denken, welche nicht an dieselben gebunden sind, werden letztere, deren Vorstellungen gute Abbilder der Tatsachen sind, in ihrem Denken der Wirklichkeit sehr nahe bleiben. Auf der mehr oder weniger genauen unwillkürlichen Abbildung der Tatsachen in unseren Vorstellungen beruht ja die Möglichkeit der Gedankenexperimente. Wir können ja in der Erinnerung noch Einzelheiten finden, die wir bei unmittelbarer Beobachtung der Tatsache keiner Aufmerksamkeit gewürdigt haben. Wie wir in der Erinnerung einen Zug entdecken, der uns den bisher verkannten Charakter eines Menschen plötzlich entschleiert, so bietet uns das Gedächtnis auch neue bisher unbemerkte Eigenschaften von physikalischen Tatsachen, und verhilft uns zu Entdeckungen.</p>
+  <p class="jp" lang="ja">しかし堅実な商人も、真剣な発明家や研究者も、同じことをしている。皆、事情を思い浮かべ、その表象に一定の結果への期待、推測を結びつける。彼らは思考上の経験をするのである。しかし前者が想像のなかで、現実には一緒に生じない事情を組み合わせたり、それらの事情に結びついていない結果をともなうものとして考えたりするのに対して、表象が事実のよい写しである後者は、その思考において現実のすぐ近くにとどまるであろう。思考実験の可能性は、事実がわれわれの表象のうちに多少とも正確に、意図せずに写し取られていることにもとづいている。実際、事実を直接に観察したときには何の注意も払わなかった細部を、記憶のなかでなお見いだすことができる。記憶のなかで、ある人のそれまで見誤っていた性格を突然明らかにするような特徴を発見するのと同じく、記憶は物理的事実についても、これまで気づかなかった新しい性質を差し出し、発見を助けてくれるのである。</p>
+</article>
+<article class="row" id="p3.3">
+  <aside class="mg"><a class="pid" href="#p3.3">3.3</a><span class="pg"><span>S.&nbsp;187</span></span></aside>
+  <p class="de" lang="de">Unsere Vorstellungen haben wir leichter und bequemer zur Hand, als die physikalischen Tatsachen. Wir experimentieren mit den Gedanken sozusagen mit geringeren Kosten. So dürfen wir uns also nicht wundern, daß das Gedankenexperiment vielfach dem physischen Experiment vorausgeht, und dasselbe vorbereitet. So sind ja die physikalischen Untersuchungen des Aristoteles großenteils Gedankenexperimente, in welchen die in der Erinnerung und namentlich in der Sprache, aufbewahrten Erfahrungsschätze verwertet werden. Das Gedankenexperiment ist aber auch eine notwendige Vorbedingung des physischen Experimentes. Jeder Experimentator, jeder Erfinder muß die auszuführende Anordnung im Kopfe haben, bevor er dieselbe in die Tat übersetzt.</p>
+  <p class="jp" lang="ja">われわれは物理的事実よりも自分の表象のほうを、より容易に、より手軽に手もとにもっている。思考による実験は、いわばより安い費用で行えるのである。それゆえ思考実験がしばしば物理的実験に先行し、それを準備することに驚くべきではない。アリストテレスの物理学的研究の大部分は思考実験であり、そこでは記憶のうちに、とりわけ言語のうちに保存された経験の宝が活用されている。しかし思考実験はまた物理的実験の必要な前提条件でもある。どの実験家も、どの発明家も、行うべき配置を実行に移す前に、それを頭のなかにもっていなければならない。</p>
+</article>
+<article class="row" id="p3.4">
+  <aside class="mg"><a class="pid" href="#p3.4">3.4</a><span class="pg"><span>S.&nbsp;187</span></span></aside>
+  <p class="de" lang="de">Kennt Stephenson auch den Wagen, die Schienen, die Dampfmaschine aus Erfahrung, so muß er doch die Kombination des auf Schienen ruhenden, durch die Dampfmaschine getriebenen Wagens in Gedanken vorgebildet haben, bevor er an die Ausführung schreiten kann. Nicht minder muß Galilei die Anordnung zur Untersuchung der Fallbewegung in der Phantasie vor sich sehen, bevor er dieselbe verwirklicht. Jeder Anfänger im Experimentieren erfährt, daß ein ungenügender Voranschlag, Nichtbeachtung der Fehlerquellen u. s. w. für ihn nicht minder tragikomische Folgen hat, als das sprichwörtliche „Vorgetan und Nachbedacht“ im praktischen Leben.</p>
+  <p class="jp" lang="ja">スティーヴンソンが車両もレールも蒸気機関も経験から知っていたとしても、実行に取りかかる前に、レールの上に載り蒸気機関によって動かされる車両という組み合わせを思考のなかで予め形づくっていなければならなかった。同じくガリレイも、落下運動を研究するための配置を、それを実現する前に想像のなかで目の前に見ていなければならなかった。実験の初心者は誰でも、不十分な見積もりや誤差の源泉の見落としなどが、実生活における諺の「先にやって後から考える」に劣らず、悲喜劇的な結果をもたらすことを経験する。</p>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;187</span><span>S.&nbsp;188</span></span></aside>
+  <p class="de" lang="de">4. Wenn die physische Erfahrung reicher geworden ist, und dieselben sinnlichen Elemente zahlreiche mannigfaltigere und dafür schwächere psychische Associationen gewonnen haben, so kann <span class="pb" title="Leipzig 1906, S. 188">188</span>das Spiel der Phantasie beginnen, in welchem über die wirklich eintretenden Associationen durch die ausschlaggebende momentane Stimmung, Umgebung und Gedankenrichtung entschieden wird. Wenn sich nun der Physiker fragt, was unter mannigfaltig kombinierten Umständen im möglichst genauen Anschluß an die physische Erfahrung zu erwarten ist, so kann dies natürlich nicht wesentlich neu und verschieden sein, von dem was die physische Einzelerfahrung bieten könnte. Indem der Physiker immer auf die Wirklichkeit reflektiert, unterscheidet sich ja seine Tätigkeit von der freien Dichtung. Aber der einfachste Gedanke des Physikers, welcher irgend eine physische sinnliche Einzelerfahrung betrifft, deckt diese nicht genau. Er enthält gewöhnlich weniger als die Erfahrung, welche derselbe nur schematisch nachbildet, zuweilen auch eine unabsichtliche Zutat.</p>
+  <p class="jp" lang="ja">4. 物理的経験が豊かになり、同じ感性的要素がより多くの多様な、そのかわりより弱い心的連合を得ると、想像力の遊びが始まりうる。そこでは、実際に生じる連合について、そのときの決定的な気分、環境、思考の方向が決める。さて、物理学者が、多様に組み合わされた事情のもとで、物理的経験にできるかぎり正確に従うならば何が期待されるかと自問するとき、それはもちろん、物理的な個別経験が提供しうるものから本質的に新しく異なったものではありえない。物理学者はつねに現実を顧みるという点で、その活動は自由な創作から区別されるのである。しかし、何らかの物理的な感性的個別経験に関わる物理学者の最も単純な思考も、その経験を正確には覆わない。それはふつう、それが図式的にのみ模写する経験よりも少ないものを含み、ときには意図しない付け加えも含む。</p>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;188</span></span></aside>
+  <p class="de" lang="de">Die Umschau in der Erinnerung an die Erfahrungen und die Fiktion neuer Kombinationen von Umständen wird also darüber belehren können, wie genau die Erfahrungen durch die Gedanken dargestellt werden, und wie weit diese Gedanken untereinander übereinstimmen. Es handelt sich hier um einen logisch-ökonomischen Läuterungsprozeß, um Klärung des gedanklich geformten Inhalts der Erfahrungen. Welche Umstände bei einem Erfolg maßgebend sind, was zusammenhängt, welche Umstände voneinander unabhängig sind, wird durch eine solche Umschau viel klarer, als es durch die Einzelerfahrung werden kann. Es wird uns hierbei deutlich, auf welche Weise wir unsere Bequemlichkeit mit der Notwendigkeit, den Erfahrungen gerecht zu werden, vereinigen können, welche Gedanken die einfachsten sind, die zugleich mit sich selbst und mit der Erfahrung in umfassendster Weise in Übereinstimmung gebracht werden können. Dies erreichen wir durch Variation der Tatsachen in Gedanken.</p>
+  <p class="jp" lang="ja">それゆえ、経験の記憶を見わたし、事情の新しい組み合わせを虚構することによって、経験がどれほど正確に思考によって表されているか、またそれらの思考が互いにどこまで一致しているかを知ることができる。ここで問題となっているのは、論理的・経済的な純化の過程、経験の思考によって形づくられた内容を明らかにすることである。ある成果にとってどの事情が決定的であるか、何が連関しているか、どの事情が互いに独立であるかは、そのような見わたしによって、個別の経験によるよりもはるかに明らかになる。そのときわれわれには、自分の楽さと経験を正当に扱う必要とをどのように結びつけることができるか、どの思考が最も単純で、同時に自分自身とも経験とも最も包括的な仕方で一致させられるかが明らかになる。これをわれわれは、事実を思考のなかで変化させることによって達成するのである。</p>
+</article>
+<article class="row" id="p4.3">
+  <aside class="mg"><a class="pid" href="#p4.3">4.3</a><span class="pg"><span>S.&nbsp;188</span><span>S.&nbsp;189</span></span></aside>
+  <p class="de" lang="de">Der Ausfall eines Gedankenexperimentes, die Vermutung, die wir an die in Gedanken variierten Umstände knüpfen, kann so bestimmt und entschieden sein, daß dem Autor — mit Recht oder Unrecht — jede weitere Prüfung durch das physische Experiment unnötig scheint.<a class="fr" href="#n5">5</a> Je schwankender, unbestimmter aber <span class="pb" title="Leipzig 1906, S. 189">189</span>dieser Ausfall ist, desto mehr drängt das Gedankenexperiment zu dem physischen Experiment als seiner natürlichen Fortsetzung, welche nun ergänzend, bestimmend einzugreifen hat. Auf Fälle der letzteren Art kommen wir noch zurück. Hier sollen zunächst einige Beispiele der ersteren Art betrachtet werden.</p>
+  <p class="jp" lang="ja">思考実験の結果、すなわち思考のなかで変化させた事情に結びつける推測は、きわめて確定的で決定的なものでありうるので、著者には——正しくか誤ってか——物理的実験によるさらなる検証はまったく不要に見えることがある<a class="fr" href="#n5">5</a>。しかしこの結果が揺らいでいて不確定であればあるほど、思考実験はその自然な継続としての物理的実験へといっそう強く駆り立て、物理的実験はいまや補い、規定するように介入しなければならない。後者の種類の場合にはまたあとで立ち返る。ここではまず、前者の種類のいくつかの例を考察しよう。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">Mit Recht warnt Duhem (Théorie physique, S. 331) davor, Gedankenexperimente so darzustellen, als ob es physische Experimente wären, also Postulate für Tatsachen auszugeben.</p><p class="jp" lang="ja">デュエム（『物理理論』331頁）が、思考実験をあたかも物理的実験であるかのように示すこと、すなわち要請を事実として提示することを戒めているのは正しい。</p></li></ol>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;189</span></span></aside>
+  <p class="de" lang="de">5. Umstände, die man in Bezug auf einen gewissen Erfolg als einflußlos erkannt hat, kann man in Gedanken beliebig variieren, ohne diesen Erfolg zu ändern. Man gelangt aber durch geschickte Handhabung dieses Verfahrens zu Fällen, welche auf den ersten Blick von dem Ausgangsfall wesentlich verschieden scheinen, also zur Verallgemeinerung der Auffassung. Stevin und Galilei üben dieses Verfahren meisterhaft bei ihrer Behandlung des Hebels und der schiefen Ebene. Auch Poinsot<a class="fr" href="#n6">6</a> benutzt diese Methode in der Mechanik. Er fügt einem Kraftsystem A ein System B und C hinzu, wobei aber C so gewählt wird, daß es sowohl A als auch B das Gleichgewicht hält.</p>
+  <p class="jp" lang="ja">5. ある成果に関して影響がないと認識された事情は、その成果を変えることなく、思考のなかで任意に変化させることができる。しかしこの手続きを巧みに扱うことによって、一見したところ出発点の場合とは本質的に異なるように見える場合に、すなわち把握の一般化に到達する。ステヴィンとガリレイは、てこと斜面を扱う際にこの手続きを名人芸のように用いている。ポアンソ<a class="fr" href="#n6">6</a>もまた力学においてこの方法を用いている。彼は力の系 A に系 B と C を加えるが、その際 C は、A とも B とも釣り合うように選ばれる。</p>
+  <ol class="notes"><li id="n6"><span class="nn">6</span><p class="de" lang="de">Poinsot, Élémens de Statique. 10me édit. Paris 1861.</p><p class="jp" lang="ja">ポアンソ『静力学原論』第10版、パリ、1861年。</p></li></ol>
+</article>
+<article class="row" id="p5.2">
+  <aside class="mg"><a class="pid" href="#p5.2">5.2</a><span class="pg"><span>S.&nbsp;189</span></span></aside>
+  <p class="de" lang="de">Die Überlegung nun, daß es auf die Auffassung des Beschauers nicht ankommt, führt dazu, A und B als äquivalent zu erkennen, obgleich sie sonst sehr verschieden sein können. Huygens' den Stoß betreffende Entdeckungen beruhen auf Gedankenexperimenten. Von der Erkenntnis ausgehend, daß die Bewegung der umgebenden Körper für die Stoßenden so gleichgültig sei, wie der Standpunkt des Beschauers, ändert er diesen und die (relative) Bewegung der Umgebung. Er gelangt auf diese Weise, von dem einfachsten, speziellsten Fall ausgehend, zu bedeutenden Verallgemeinerungen. Ein Beispiel dieses Verfahrens bieten ferner die Betrachtungen der Dioptrik, wobei ein Strahl bald als diesem, bald als jenem Bündel von bekannten Eigenschaften angehörig aufgefaßt wird.</p>
+  <p class="jp" lang="ja">そこで、観察者の把握はどうでもよいという考察から、A と B とは、ほかの点ではきわめて異なりうるにもかかわらず、等価であると認識されるにいたる。衝突に関するホイヘンスの発見は思考実験にもとづいている。周囲の物体の運動は、衝突する物体にとって観察者の立脚点と同じくどうでもよいという認識から出発して、彼はこの立脚点と周囲の（相対）運動を変化させる。こうして彼は、最も単純で最も特殊な場合から出発して、重要な一般化に到達する。この手続きのもう一つの例は屈折光学の考察であり、そこでは一本の光線が、あるときはこの、あるときはあの既知の性質をもつ光束に属するものとして把握される。</p>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;189</span><span>S.&nbsp;190</span></span></aside>
+  <p class="de" lang="de">6. Auch die für einen Erfolg maßgebenden Umstände in Gedanken zu variieren ist nützlich, und am ergiebigsten ist die kontinuierliche Variation, welche uns eine vollständige Übersicht der möglichen Fälle verschafft. Es ist kein Zweifel, daß Gedankenexperimente dieser Art die größten Umwandlungen in unserem Denken herbeigeführt, und die bedeutendsten Forschungswege eröffnet haben. Wenn auch die Legende von Newtons <span class="pb" title="Leipzig 1906, S. 190">190</span>fallendem Apfel, die Euler noch für richtig hält, nicht buchstäblich zu nehmen ist, so waren es doch Gedankenprozesse ganz ähnlich denjenigen, die Euler<a class="fr" href="#n7">7</a> und auch Gruithuisen<a class="fr" href="#n8">8</a> so vortrefflich darzulegen weiß, welche allmählich von der Auffassung des Kopernikus zu jener Newtons übergeleitet haben, und die Elemente derselben lassen sich, wenn auch bei verschiedenen Personen, und in weit voneinander entlegenen Zeiten, sogar historisch nachweisen.</p>
+  <p class="jp" lang="ja">6. ある成果にとって決定的な事情を思考のなかで変化させることも有益であり、最も実り豊かなのは、可能な場合の完全な見通しを与えてくれる連続的な変化である。この種の思考実験がわれわれの思考に最大の変革をもたらし、最も重要な研究の道を開いてきたことは疑いない。オイラーがなお正しいとみなしていたニュートンの落ちるリンゴの伝説は文字どおりにとるべきではないとしても、コペルニクスの把握からニュートンの把握へとしだいに導いたのは、オイラー<a class="fr" href="#n7">7</a>やグルイトゥイゼン<a class="fr" href="#n8">8</a>もまたみごとに述べているのとまったく似た思考過程であったのであり、その要素は、たとえ異なる人物において、互いに遠く隔たった時代においてであれ、歴史的にさえ証明できるのである。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">Euler, Lettres à une Princesse d'Allemagne. London 1775.</p><p class="jp" lang="ja">オイラー『ドイツの王女への手紙』ロンドン、1775年。</p></li><li id="n8"><span class="nn">8</span><p class="de" lang="de">F. Gruithuisen, Die Naturgeschichte im Kreise der Ursachen und Wirkungen. München 1810.</p><p class="jp" lang="ja">F. グルイトゥイゼン『原因と結果の連関のなかの博物学』ミュンヘン、1810年。</p></li></ol>
+</article>
+<article class="row" id="p6.2">
+  <aside class="mg"><a class="pid" href="#p6.2">6.2</a><span class="pg"><span>S.&nbsp;190</span></span></aside>
+  <p class="de" lang="de">Der Stein fällt zur Erde. Lassen wir dessen Entfernung von der Erde wachsen. Wir müßten uns Gewalt antun, um diesem kontinuierlichen Wachstum eine Diskontinuität der Erwartung entgegenzusetzen. Auch in der Entfernung des Mondes wird der Stein nicht plötzlich sein Fallbestreben verlieren. Der große Stein fällt so wie der kleine. Der Stein werde so groß wie der Mond. Auch der Mond strebt zur Erde zu fallen. Der Mond möge wachsen bis er so groß wird, wie die Erde. Nun würde unsere Vorstellung die zureichende Bestimmtheit verlieren, wenn wir annehmen wollten, daß nur das eine zum andern gezogen wird, nicht aber umgekehrt. Die Anziehung ist also gegenseitig. Sie bleibt aber auch gegenseitig bei ungleichen Körpern, denn der eine Fall geht in den andern kontinuierlich über. Man sieht, daß hier nicht bloß logische Momente wirksam sind. Logisch wären die angedeuteten Diskontinuitäten ganz wohl denkbar.</p>
+  <p class="jp" lang="ja">石が地面に落ちる。その石の地球からの距離を大きくしていこう。この連続的な増大に期待の不連続を対置するには、われわれは無理をしなければならないであろう。月の距離においても、石が突然その落下の傾向を失うことはないであろう。大きな石も小さな石と同じように落ちる。石が月ほどの大きさになったとしよう。月もまた地球へと落ちようとしている。月が大きくなって地球と同じ大きさになったとしよう。そこで、一方だけが他方に引かれて逆はないと想定しようとすれば、われわれの表象は十分な規定性を失ってしまうであろう。したがって引力は相互的である。しかし等しくない物体のあいだでも相互的なままである。一方の場合は他方の場合へと連続的に移っていくからである。ここではたらいているのが単に論理的な契機だけではないことが分かる。上に示した不連続は、論理的にはまったく考えうるであろう。</p>
+</article>
+<article class="row" id="p6.3">
+  <aside class="mg"><a class="pid" href="#p6.3">6.3</a><span class="pg"><span>S.&nbsp;190</span><span>S.&nbsp;191</span></span></aside>
+  <p class="de" lang="de">Aber wie unwahrscheinlich ist es, daß ihr Bestehen sich nicht durch irgend welche Erfahrung verraten hätte. Wir ziehen auch die Auffassung vor, die uns eine geringere psychische Anstrengung bereitet, wenn sie mit der Erfahrung vereinbar ist. Ein Stein fällt neben den andern. Der Mond besteht aus Steinen. Die Erde besteht aus Steinen. Jeder Teil zieht jeden andern an. Einfluß der Massen. Mond und Erde sind nicht wesentlich verschieden von anderen Weltkörpern. Die Gravitation ist allgemein. Die Keplersche Bewegung ist eine Wurfbewegung, aber mit von der Entfernung abhängiger Fallbeschleunigung. Die Fallbeschleunigung, auch die irdische, ist überhaupt von der Entfernung abhängig. Die Keplerschen Gesetze <span class="pb" title="Leipzig 1906, S. 191">191</span>sind nur ideale Fälle (Störungen). Hier tritt das begrifflich-logische Moment, die Forderung der Übereinstimmung der Gedanken mit sich selbst hervor.</p>
+  <p class="jp" lang="ja">しかし、その存在が何らかの経験によって露見しなかったということは、なんとありそうもないことか。われわれはまた、経験と両立しうるならば、より少ない心的努力ですむ把握を好む。一つの石が他の石のそばに落ちる。月は石からできている。地球は石からできている。どの部分も他のどの部分をも引く。質量の影響。月と地球は他の天体と本質的に異ならない。重力は普遍的である。ケプラーの運動は投射運動であるが、距離に依存する落下加速度をともなう。落下加速度は、地上のそれも含めて、そもそも距離に依存する。ケプラーの法則は理想的な場合にすぎない（摂動）。ここでは概念的・論理的な契機、すなわち思考の自己一致の要求が現れている。</p>
+</article>
+<article class="row" id="p6.4">
+  <aside class="mg"><a class="pid" href="#p6.4">6.4</a><span class="pg"><span>S.&nbsp;191</span></span></aside>
+  <p class="de" lang="de">Wie man sieht, ist die Grundmethode des Gedankenexperimentes, ebenso wie jene des physischen Experimentes, die Methode der Variation. Durch wenn möglich kontinuierliche Variation der Umstände wird das Geltungsbereich einer an dieselben geknüpften Vorstellung (Erwartung) erweitert; durch Modifikation und Spezialisierung der ersteren wird die Vorstellung modifiziert, spezialisiert, bestimmter gestaltet; und diese beiden Prozesse wechseln.</p>
+  <p class="jp" lang="ja">見てのとおり、思考実験の根本方法は、物理的実験のそれと同じく、変化（変分）の方法である。事情を、できれば連続的に変化させることによって、それに結びついた表象（期待）の妥当範囲が拡張される。前者の修正と特殊化によって、表象が修正され、特殊化され、より確定的に形づくられる。そしてこの二つの過程が交替する。</p>
+</article>
+<article class="row" id="p6.5">
+  <aside class="mg"><a class="pid" href="#p6.5">6.5</a><span class="pg"><span>S.&nbsp;191</span></span></aside>
+  <p class="de" lang="de">Galilei ist in dieser Art von Gedankenexperimenten Meister. Das Schweben spezifisch sehr schweren Staubes in der Luft und im Wasser klärt er auf, indem er einen Würfel durch drei Schnitte in 8 kleinere Würfel geteilt denkt, wobei das treibende Gewicht gleich bleibt, aber der Querschnitt und mit diesem der Widerstand verdoppelt wird, so daß letzterer bei mehrmaliger Wiederholung der Operation ungeheuer vergrößert wird. Ähnlich denkt sich Galilei ein Tier mit Beibehaltung der geometrischen Ähnlichkeit in allen Dimensionen gleichmäßig vergrößert, um zu zeigen, daß dieses unter seinem im kubischen Verhältnisse wachsenden Gewicht zusammenbrechen müßte, indem die Festigkeit der Knochen in einem viel geringeren Verhältnis steigt.</p>
+  <p class="jp" lang="ja">ガリレイはこの種の思考実験の名人である。比重のきわめて大きい塵が空気中や水中に浮かんでいることを、彼は、一つの立方体を三つの切断によって八つの小さな立方体に分けたと考えることによって解明する。そのとき推進する重さは同じままであるが、断面積とともに抵抗は倍になり、操作を何度も繰り返すと抵抗はとてつもなく大きくなる。同様にガリレイは、ある動物を、幾何学的相似を保ったまますべての次元において一様に拡大したと考え、それが立方の比で増える自分の重さのもとで崩れ落ちるにちがいないことを示す。骨の強さははるかに小さい比でしか増えないからである。</p>
+</article>
+<article class="row" id="p6.6">
+  <aside class="mg"><a class="pid" href="#p6.6">6.6</a><span class="pg"><span>S.&nbsp;191</span></span></aside>
+  <p class="de" lang="de">Das bloße Gedankenexperiment genügt oft, um eine nach dem Augenschein vermeintlich erschaute Regel ad absurdum zu führen. Wenn der Körper von größerem Gewicht wirklich die Eigenschaft hätte rascher zu fallen, so müßte nach Galilei die Verbindung eines schwereren mit einem leichteren Körper, wodurch ein noch schwererer Körper entsteht, wieder langsamer fallen, weil der schwerere Körper durch den leichteren verzögert würde. Die vermeintliche Regel ist also nicht haltbar, indem sie sich selbst widerspricht. Derartige Überlegungen spielen in der Wissenschaft eine große historische Rolle.</p>
+  <p class="jp" lang="ja">見かけ上見て取ったと思われた規則を不合理に帰するには、しばしば単なる思考実験で十分である。もし重さの大きい物体が本当により速く落ちる性質をもつとすれば、ガリレイによれば、重い物体と軽い物体とを結合すると、それによってさらに重い物体ができるのに、重い物体が軽い物体によって遅らされるので、かえってゆっくり落ちるはずである。したがってその思いこまれた規則は、自己矛盾するので維持できない。このような考察は科学において大きな歴史的役割を演じている。</p>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;191</span><span>S.&nbsp;192</span></span></aside>
+  <p class="de" lang="de">7. Betrachten wir einen andern Prozeß dieser Art. Körper von gleicher Temperatur ändern diese durch gegenseitige Einwirkung nicht. Der wärmere Körper A (eine glühende Eisenkugel) erwärmt den kälteren B (ein Thermometer) auch auf Distanz durch Strahlung, z. B. bei dem bekannten Versuch mit <span class="pb" title="Leipzig 1906, S. 192">192</span>den conaxialen Hohlspiegeln. Setzt man mit Pictet statt A ein Blechkästchen mit einer Kältemischung, so wird B abgekühlt. Das ist ein physisches Experiment, an welches Gedankenexperimente anknüpfen. Gibt es auch Kältestrahlen? Ist der neue Fall nicht derselbe, wie der vorige, nur daß A und B ihre Rolle getauscht haben? In beiden Fällen erwärmt der wärmere Körper den kälteren.</p>
+  <p class="jp" lang="ja">7. この種の別の過程を考察しよう。同じ温度の物体は相互作用によってその温度を変えない。より温かい物体 A（赤熱した鉄球）は、より冷たい物体 B（温度計）を、放射によって離れていても温める。たとえば同軸の凹面鏡を用いるよく知られた実験においてである。ピクテとともに A のかわりに寒剤を入れたブリキの小箱を置くと、B は冷やされる。これは物理的実験であり、そこに思考実験が結びつく。冷たさの放射というものもあるのか。新しい場合は前の場合と同じで、ただ A と B が役割を入れ替えただけではないのか。どちらの場合にも、より温かい物体がより冷たい物体を温めるのである。</p>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;192</span></span></aside>
+  <p class="de" lang="de">Es sei A wärmer als B, die Temperaturen mögen dann gleich werden und endlich nehme A eine niedere Temperatur an als B. Welcher Körper strahlt in dem Mittelfall dem andern Wärme zu? Ändert sich das Verhalten der Körper plötzlich beim Durchgang durch die Temperaturgleichheit? Beide Körper strahlen unabhängig voneinander und nehmen unabhängig voneinander auf. Bewegliches Wärmegleichgewicht (Prevost). Verschiedene Körper von gleicher Temperatur strahlen nach den Versuchen Leslies und Rumfords ungleiche Wärmemengen aus. Soll das bewegliche Gleichgewicht fortbestehen, wie es in der Tat besteht, so muß der doppelt ausstrahlende auch doppelt aufnehmen.</p>
+  <p class="jp" lang="ja">A が B より温かいとし、それから両者の温度が等しくなり、最後に A が B より低い温度になるとしよう。中間の場合には、どちらの物体が他方に熱を放射するのか。温度が等しくなるところを通過するとき、物体のふるまいは突然変わるのか。両物体は互いに独立に放射し、互いに独立に吸収する。熱の動的平衡（プレヴォ）。レスリーとランフォードの実験によれば、同じ温度の異なる物体は等しくない熱量を放射する。動的平衡が存続すべきであるなら——実際それは存続している——、二倍放射する物体は二倍吸収しなければならない。</p>
+</article>
+<article class="row" id="p7.3">
+  <aside class="mg"><a class="pid" href="#p7.3">7.3</a><span class="pg"><span>S.&nbsp;192</span></span></aside>
+  <p class="de" lang="de">Ein wichtiger Vorgang besteht darin, daß man einen oder mehrere Umstände, welche quantitativ auf ein Ergebnis Einfluß haben, in Gedanken quantitativ vermindert und schließlich zum Verschwinden bringt, so daß die übrigen Umstände als allein maßgebend angesehen werden. Es ist dieser Prozeß physisch oft nicht durchführbar, und man kann denselben daher als Idealisierung oder Abstraktion bezeichnen. Indem man sich den Bewegungswiderstand eines auf horizontaler Bahn angestoßenen Körpers, oder die Verzögerung eines auf wenig geneigter schiefen Ebene aufsteigenden Körpers, bis zum Verschwinden abnehmend denkt, kommt man zu der Vorstellung des ohne Widerstand gleichförmig bewegten Körpers. In Wirklichkeit kann dieser Fall nicht dargestellt werden. Deshalb bemerkt Apelt mit Recht, daß das Gesetz der Trägheit durch Abstraktion entdeckt worden sei.</p>
+  <p class="jp" lang="ja">重要な手続きは、ある結果に量的に影響する一つあるいは複数の事情を思考のなかで量的に減らし、ついには消失させ、残りの事情を唯一決定的なものとみなすことにある。この過程は物理的にはしばしば実行できず、それゆえ理想化あるいは抽象と呼ぶことができる。水平な軌道の上で押された物体の運動抵抗や、わずかに傾いた斜面を上っていく物体の減速が消えるまで減っていくと考えると、抵抗なしに一様に運動する物体の表象に到達する。現実にはこの場合を作り出すことはできない。それゆえアーペルトが、慣性の法則は抽象によって発見されたと述べたのは正しい。</p>
+</article>
+<article class="row" id="p7.4">
+  <aside class="mg"><a class="pid" href="#p7.4">7.4</a><span class="pg"><span>S.&nbsp;192</span><span>S.&nbsp;193</span></span></aside>
+  <p class="de" lang="de">Das Gedankenexperiment, kontinuierliche Variation, hat aber hierzu geführt. Alle allgemeinen physikalischen Begriffe und Gesetze, der Begriff des Strahles, die dioptrischen Gesetze, das Mariottesche Gesetz u. s. w. werden durch Idealisierung gewonnen. Sie nehmen dadurch jene einfache und zugleich allgemeine, wenig bestimmte Gestalt an, welche es ermöglicht, eine <span class="pb" title="Leipzig 1906, S. 193">193</span>beliebige, auch kompliziertere Tatsache durch synthetische Kombination dieser Begriffe und Gesetze zu rekonstruieren, d. h. sie zu verstehen. Solche Idealisierungen sind bei den Carnotschen Betrachtungen der absolut nichtleitende Körper, die volle Temperaturgleichheit der sich berührenden Körper, die nicht umkehrbaren Prozesse, bei Kirchhoff der absolut schwarze Körper u. s. w.</p>
+  <p class="jp" lang="ja">しかしそこへ導いたのは、思考実験、すなわち連続的な変化なのである。光線の概念、屈折光学の法則、マリオットの法則など、すべての一般的な物理学的概念と法則は、理想化によって得られる。それによってそれらは、単純であると同時に一般的で、あまり規定されていない形をとり、それらの概念と法則を総合的に組み合わせることによって、任意の、より複雑な事実をも再構成すること、すなわちそれを理解することが可能になる。カルノーの考察における絶対的な不導体、接触する物体の完全な温度の等しさ、非可逆過程、キルヒホフにおける絶対黒体などが、そのような理想化である。</p>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;193</span></span></aside>
+  <p class="de" lang="de">8. Die unabsichtlich gewonnene instinktive rohe Erfahrung gibt uns wenig bestimmte Bilder der Welt. Sie lehrt uns z. B., daß die schweren Körper nicht von selbst aufwärts steigen, daß gleich warme Körper einander gegenübergestellt gleich warm bleiben u. s. w. Das scheint dürftig, ist aber dafür um so sicherer, steht auf sehr breiter Grundlage. Das planmäßig ausgeführte quantitative Experiment gibt viel reichere Einzelheiten. Die an dem letzteren geschulten quantitativen Vorstellungen gewinnen aber ihre sicherste Stütze, wenn wir sie zu jenen rohen Erfahrungen in Beziehung setzen. So paßt Stevin seine quantitativen Vorstellungen über die schiefe Ebene, und Galilei die seinigen über den Fall, jener Erfahrung über die schweren Körper durch mustergültige Gedankenexperimente an. Fourier wählt jene Strahlungsgesetze und Kirchhoff die Beziehung zwischen Absorption und Emission, welche zu der angeführten Wärmeerfahrung passen.</p>
+  <p class="jp" lang="ja">8. 意図せずに得られた本能的な粗い経験は、われわれにあまり規定されていない世界の像を与える。たとえばそれは、重い物体がひとりでに上がらないこと、同じ温度の物体を向かい合わせても同じ温度のままであることなどを教える。それは乏しく見えるが、そのかわりそれだけいっそう確実であり、きわめて広い基盤の上に立っている。計画的に行われる量的実験は、はるかに豊かな細部を与える。しかし量的実験において訓練された量的表象は、それをあの粗い経験と関係づけるときに最も確かな支えを得る。こうしてステヴィンは斜面についての、ガリレイは落下についての自分の量的表象を、模範的な思考実験によって重い物体についてのあの経験に適応させる。フーリエはあの放射の法則を、キルヒホフは吸収と放出の関係を、上に挙げた熱の経験に適合するように選ぶ。</p>
+</article>
+<article class="row" id="p8.2">
+  <aside class="mg"><a class="pid" href="#p8.2">8.2</a><span class="pg"><span>S.&nbsp;193</span></span></aside>
+  <p class="de" lang="de">Durch solche versuchsweise Anpassung einer quantitativen Vorstellung an die verallgemeinerte Erfahrung über die schweren Körper (das Prinzip des ausgeschlossenen perpetuum mobile) findet S. Carnot seinen folgenreichen Wärmesatz, und stellt hiermit das großartigste Gedankenexperiment an. Seine Methode ist von unerschöpflicher Fruchtbarkeit geworden, seit James Thomson und William Thomson sich derselben zu bemächtigen wußten.</p>
+  <p class="jp" lang="ja">量的表象を、重い物体についての一般化された経験（永久機関の排除の原理）に試みに適応させることによって、S. カルノーはその帰結豊かな熱の定理を見いだし、それによって最も壮大な思考実験を行う。彼の方法は、ジェイムズ・トムソンとウィリアム・トムソンがそれを自分のものにしてから、尽きることのない実り豊かさをもつようになった。</p>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;193</span><span>S.&nbsp;194</span></span></aside>
+  <p class="de" lang="de">9. Von der Art und dem Ausmaß der aufgenommenen Erfahrung hängt es ab, ob ein Gedankenexperiment als solches mit einem bestimmten Ausfall zum Abschluß gebracht werden kann. Der kältere Körper nimmt von dem berührten wärmeren Körper Wärme auf. Ein schmelzender oder siedender Körper befindet sich in diesem Fall, wird aber hierbei doch nicht wärmer. Hiernach ist es für Black nicht zweifelhaft, daß die Wärme bei <span class="pb" title="Leipzig 1906, S. 194">194</span>Umwandlung eines Körpers in Dampf oder Flüssigkeit „latent“ wird. So weit reicht das Gedankenexperiment. Allein die Quantität der latenten Wärme kann Black nur durch ein physisches Experiment bestimmen, wenn dieses auch in der Form sogar sich an das Gedankenexperiment anschließt. Die Existenz des mechanischen Wärmeäquivalents enthüllt sich Mayer und Joule durch Gedankenexperimente.</p>
+  <p class="jp" lang="ja">9. ある思考実験がそれだけで一定の結果をもって完結しうるかどうかは、取り入れられた経験の種類と範囲にかかっている。より冷たい物体は、接しているより温かい物体から熱を受け取る。融解あるいは沸騰している物体はこの場合にあるが、それでもその際より温かくはならない。それゆえブラックにとって、物体が蒸気あるいは液体に変わるとき、熱が「潜在的」になることは疑いない。思考実験が及ぶのはここまでである。しかし潜熱の量は、ブラックは物理的実験によってしか定めることができない。たとえその実験が形式の点で思考実験に結びついているとしても。熱の仕事当量の存在は、マイヤーとジュールに思考実験によって明らかになる。</p>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;194</span></span></aside>
+  <p class="de" lang="de">Den Zahlenwert muß Joule durch ein physisches Experiment ermitteln, während Mayer sogar diesen, sozusagen, aus erinnerten Zahlen abzuleiten vermag. Wenn ein Gedankenexperiment kein bestimmtes Ergebnis hat, d. h. wenn sich an die Vorstellung gewisser Umstände keine sichere eindeutig bestimmte Erwartung eines Erfolges knüpft, so pflegen wir in der Zeit zwischen dem intellektuellen und physischen Experiment uns aufs Raten zu verlegen, d. h. wir nehmen versuchsweise eine nähere zureichende Bestimmung des Erfolges an. Dieses Raten ist kein unwissenschaftliches Verfahren. Wir können vielmehr diesen natürlichen Vorgang an klassischen historischen Beispielen erläutern. Bei näherem Zusehen wird es uns sogar klar, daß dieses Raten oft allein dem physischen Experiment, der natürlichen Fortsetzung des Gedankenexperimentes, die Form zu geben vermag.</p>
+  <p class="jp" lang="ja">その数値はジュールが物理的実験によって確定しなければならないが、マイヤーはそれさえも、いわば記憶された数値から導き出すことができる。ある思考実験が一定の結果をもたない場合、すなわちある事情の表象にある成果についての確かな一義的に規定された期待が結びつかない場合、われわれは知的実験と物理的実験とのあいだの時期に、推測することに頼るのがつねである。すなわち、結果をより詳しく十分に規定することを試みに想定するのである。この推測は非科学的な手続きではない。むしろこの自然な過程を古典的な歴史上の例によって説明することができる。よく見ると、しばしばこの推測だけが、思考実験の自然な継続である物理的実験に形を与えうることさえ明らかになる。</p>
+</article>
+<article class="row" id="p9.3">
+  <aside class="mg"><a class="pid" href="#p9.3">9.3</a><span class="pg"><span>S.&nbsp;194</span></span></aside>
+  <p class="de" lang="de">Bevor Galilei die Fallbewegung experimentell untersucht, von welcher er durch Beobachtung und Überlegung nur weiß, daß die Geschwindigkeit zunimmt, verlegt er sich aufs Raten in Bezug auf die Art der Zunahme. Durch die Prüfung der Folgerungen aus der Annahme wird sein Experiment erst möglich. Es liegt dies daran, daß der analytische Schluß von dem Fallraumgesetz auf das bedingende Geschwindigkeitsgesetz schwieriger war als der umgekehrte synthetische Schluß. Häufig ist ja der analytische Vorgang, wegen seiner Unbestimmtheit, sehr schwierig, und die Situation, in der sich Galilei befand, wiederholt sich bei den späteren Forschern noch oft. Auch die Richmannsche Mischungsregel ist erraten, und durch Experimente nachträglich bestätigt, ebenso die Sinusperiodizität des Lichtes und viele andere wichtige physikalische Auffassungen.</p>
+  <p class="jp" lang="ja">ガリレイは、観察と考察によって速度が増すことしか知らない落下運動を実験的に研究する前に、増え方の種類について推測に頼る。想定からの帰結を検証することによって、彼の実験ははじめて可能になる。それは、落下距離の法則からそれを条件づける速度の法則への分析的推論が、逆の総合的推論よりも難しかったことによる。分析的な手続きはその不確定さのためにしばしばきわめて難しく、ガリレイがいた状況は、のちの研究者においても何度も繰り返される。リッヒマンの混合の規則も推測され、あとから実験によって確証された。光の正弦的周期性や他の多くの重要な物理学的把握も同様である。</p>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;194</span><span>S.&nbsp;195</span></span></aside>
+  <p class="de" lang="de">10. Die Methode, den Erfolg einer Versuchsanordnung erraten zu lassen, hat auch einen hohen didaktischen Wert. Ich hatte als Gymnasiast durch kurze Zeit einen ausgezeichneten Lehrer, <span class="pb" title="Leipzig 1906, S. 195">195</span>H. Phillipp, der durch dieses Verfahren die Aufmerksamkeit aufs höchste zu spannen wußte,<a class="fr" href="#n9">9</a> und auch bei einem andern tüchtigen Schulmann, F. Pisko, habe ich bei Gelegenheit eines Besuches seiner Schule dasselbe Verfahren beobachtet. Nicht nur der Schüler, sondern auch der Lehrer gewinnt ungemein durch diese Methode. Letzterer lernt hierbei seine Schüler besser als auf eine andere Weise kennen. Während einige auf das nächstliegende Wahrscheinlichste raten, vermuten andere ungewöhnliche wunderbare Erfolge.</p>
+  <p class="jp" lang="ja">10. 実験配置の結果を推測させる方法は、高い教育的価値ももっている。ギムナジウムの生徒だったころ、短いあいだであるが、私には H. フィリップというすぐれた先生がいた。彼はこの手続きによって注意を極度に張りつめさせるすべを心得ていた<a class="fr" href="#n9">9</a>。また別の有能な教育者 F. ピスコのもとでも、その学校を訪問した折に同じ手続きを観察した。この方法によって生徒ばかりでなく教師も大いに得るところがある。教師はそれによって、ほかのどんな仕方よりもよく生徒を知るようになる。ある者は手近な最もありそうなことを推測し、別の者は異常な驚くべき結果を推測する。</p>
+  <ol class="notes"><li id="n9"><span class="nn">9</span><p class="de" lang="de">Leider verdarb sich dieser geniale Didaktiker fast seinen ganzen Erfolg durch seine mangelhafte Pädagogik, durch seine beispiellose Ungeduld.</p><p class="jp" lang="ja">残念ながら、この天才的な教授法家は、その不十分な教育学、その比類ない短気によって、自分の成功のほとんどすべてを台なしにしてしまった。</p></li></ol>
+</article>
+<article class="row" id="p10.2">
+  <aside class="mg"><a class="pid" href="#p10.2">10.2</a><span class="pg"><span>S.&nbsp;195</span></span></aside>
+  <p class="de" lang="de">Meist wird auf das geläufige, associativ Naheliegende geraten. So wie der Sklave in Platons „Menon“ glaubt, daß die Verdopplung der Quadratseite auch die Quadratfläche verdoppelt, wird man von dem Elementarschüler leicht hören, daß die Verdopplung der Pendellänge auch die Schwingungsdauer verdoppelt, und der Fortgeschrittene wird weniger auffallende, aber analoge Mißgriffe machen. Durch solche Mißgriffe wird aber das Gefühl für die Unterschiede des logisch, physisch und associativ Bestimmten oder Naheliegenden geschärft, man lernt endlich das Erratbare von überhaupt nicht Erratbarem unterscheiden. Die hier getrennt beschriebenen Prozesse, und die hierbei unterschiedenen Fälle, kommen bei der denkenden Überlegung in reicher Abwechslung nacheinander, wohl auch zugleich kombiniert vor.</p>
+  <p class="jp" lang="ja">たいていは、なじみの、連合的に手近なことが推測される。プラトンの『メノン』の奴隷が、正方形の辺を二倍にすれば正方形の面積も二倍になると信じるように、初級の生徒からは、振り子の長さを二倍にすれば振動の周期も二倍になるという答えを容易に聞くであろうし、上級の者はもっと目立たないが類似の誤りを犯すであろう。しかしそのような誤りによって、論理的に、物理的に、連合的に規定されたもの、あるいは手近なものの違いに対する感覚が研ぎ澄まされ、ついには推測できるものとそもそも推測できないものとを区別することを学ぶ。ここで別々に記述した過程と、その際区別した場合とは、思考による熟慮において、豊かに入れ替わりながら次々に、またおそらく同時に組み合わさって生じるのである。</p>
+</article>
+<article class="row" id="p10.3">
+  <aside class="mg"><a class="pid" href="#p10.3">10.3</a><span class="pg"><span>S.&nbsp;195</span></span></aside>
+  <p class="de" lang="de">Hält man sich gegenwärtig, wieviel die Erinnerung beim Aufbau des Wissens leistet, so wird Platons Ansicht verständlich, welcher meinte, daß alles Nachforschen und Erlernen nichts sei, als ein Erinnern (an ein früheres Leben). Allerdings enthält diese Ansicht neben einer bedeutenden Übertreibung gewisser Momente eine ebenso große Unterschätzung anderer. Auch jede gegenwärtige Einzelerfahrung kann sehr wichtig sein, und wenn wir auch das frühere Leben, nach moderner Auffassung die Stammesgeschichte, welche dem Leib ihre Spuren aufgeprägt hat, nicht für nichts achten, so ist doch noch viel wichtiger die individuelle Erinnerung an das gegenwärtige Leben.</p>
+  <p class="jp" lang="ja">知識の構築において記憶がどれほど多くを成し遂げるかを心にとめるならば、あらゆる探究と学習は（前世の）想起にほかならないと考えたプラトンの見解も理解できる。もっともこの見解は、ある契機を大いに誇張しているのと並んで、他の契機を同じくらい大いに過小評価している。現在のどの個別経験もきわめて重要でありうるし、前世——近代的な把握によれば、身体にその痕跡を刻みつけた系統発生——を取るに足りないものとみなすのでないとしても、現在の生活の個人的記憶のほうがなおはるかに重要なのである。</p>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;195</span><span>S.&nbsp;196</span></span></aside>
+  <p class="de" lang="de">11. Das Experimentieren in Gedanken ist nicht nur für den Forscher von Beruf wichtig, sondern auch der psychischen Ent<span class="pb" title="Leipzig 1906, S. 196">196</span>wicklung überhaupt sehr förderlich. Wie wird dasselbe eingeleitet? Wie kann es sich zu einer mit Absicht, Bewußtsein und Verständnis gebrauchten Methode entwickeln? So wie jede Bewegung, bevor dieselbe eine willkürliche werden konnte, zufällig als Reflexbewegung eintreten mußte, so kommt es auch hier darauf an, daß einmal durch passende Umstände ein unabsichtliches Variieren der Gedanken eingeleitet werde, damit dieses durchschaut, und zu einer bleibenden Gepflogenheit werde. Dies geschieht am natürlichsten durch das Paradoxe.</p>
+  <p class="jp" lang="ja">11. 思考において実験することは、職業的な研究者にとって重要であるばかりでなく、心的発達一般にとってもきわめて有益である。それはどのようにして始められるのか。それはどのようにして、意図と意識と理解をもって用いられる方法へと発展しうるのか。どの運動も随意運動になりうる前に、偶然に反射運動として生じなければならなかったのと同じく、ここでも、ひとたび適当な事情によって思考の意図しない変化が始められ、それが見抜かれて、持続的な習慣となることが肝心である。このことは逆説的なものによって最も自然に起こる。</p>
+</article>
+<article class="row" id="p11.2">
+  <aside class="mg"><a class="pid" href="#p11.2">11.2</a><span class="pg"><span>S.&nbsp;196</span></span></aside>
+  <p class="de" lang="de">Nicht nur lernt man durch das Paradoxe am besten die Natur eines Problems fühlen, welches ja eben durch den paradoxen Gehalt zu einem Problem wird, sondern die widerstreitenden Elemente lassen auch die Gedanken nicht mehr zur Ruhe kommen, und lösen eben den Prozeß aus, den wir als Gedankenexperiment bezeichnet haben. Man denke nur an eine der bekannten Vexierfragen, die man zum ersten Male hört. In ein auf der Wage äquilibriertes Gefäß mit Wasser wird ein von einem besonderen Ständer getragenes Gewicht eingetaucht. Sinkt die Wagschale oder nicht? Eine Fliege sitzt in einem verschlossenen äquilibrierten Kochfläschchen. Was geschieht, wenn sie auffliegt und im Innern des Fläschchens sich schwebend erhält?</p>
+  <p class="jp" lang="ja">逆説的なものによって、人は問題の本性——問題はまさに逆説的な内容によって問題となるのである——を最もよく感じ取ることを学ぶばかりでなく、対立する要素が思考をもはや落ち着かせず、まさにわれわれが思考実験と呼んだ過程を引き起こす。はじめて聞くよく知られた謎かけの一つを考えてみればよい。天秤の上で釣り合わせた水の入った容器に、特別な台に支えられたおもりを浸す。天秤の皿は下がるか、下がらないか。蓋をして釣り合わせたフラスコのなかに一匹の蠅がとまっている。それが飛び立ってフラスコの内部で浮かんでいるとき、何が起こるか。</p>
+</article>
+<article class="row" id="p11.3">
+  <aside class="mg"><a class="pid" href="#p11.3">11.3</a><span class="pg"><span>S.&nbsp;196</span></span></aside>
+  <p class="de" lang="de">Oder man denke an einen wichtigen historischen Fall, den paradoxen Gegensatz, die scheinbare Unvereinbarkeit des Carnotschen und des Mayerschen Wärmesatzes; man denke an die Beziehungen der chromatischen Polarisation zur Interferenz, welche bei vielfacher Übereinstimmung doch wieder unvereinbar schienen. Die verschiedenen Erwartungen, welche sich an die einzelnen in verschiedenen Fällen vereinigten Umstände knüpfen, müssen notwendig beunruhigend und eben dadurch auch klärend und fördernd wirken. Clausius und W. Thomson haben in dem einen, Young und Fresnel in dem andern Falle die Wirkung des Paradoxen empfunden. Durch die Analyse fremder und eigener Arbeiten kann sich jeder überzeugen, wie aller Erfolg und Mißerfolg hauptsächlich davon abhängt, ob an paradoxen Punkten die ganze Kraft angewendet wurde oder nicht.</p>
+  <p class="jp" lang="ja">あるいは重要な歴史上の例、すなわちカルノーの熱の定理とマイヤーの熱の定理との逆説的な対立、見かけ上の両立不可能性を考えてみよ。多くの点で一致しながら、それでもまた両立しないように見えた、色偏光と干渉との関係を考えてみよ。さまざまな場合に結びついた個々の事情に結びつくさまざまな期待は、必然的に不安をかき立て、まさにそのことによって明らかにし、促進するようにはたらかずにはいない。一方の場合にはクラウジウスと W. トムソンが、他方の場合にはヤングとフレネルが、逆説的なものの作用を感じたのである。他人の仕事と自分の仕事を分析すれば、誰でも、あらゆる成功と失敗が主として、逆説的な点に全力が注がれたかどうかにかかっていることを確信できる。</p>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;196</span><span>S.&nbsp;197</span></span></aside>
+  <p class="de" lang="de">12. Die eigentümliche kontinuierliche Variation, welche in einigen der zuvor betrachteten Gedankenexperimente auftritt, erinnert lebhaft an die kontinuierliche Änderung der Gesichts<span class="pb" title="Leipzig 1906, S. 197">197</span>phantasmen, welche J. Müller<a class="fr" href="#n10">10</a> so schön beschrieben hat. Man wird finden, daß entgegen der Ansicht Müllers die kontinuierliche Änderung der Gesichtsphantasmen ganz wohl mit den Associationsgesetzen vereinbar ist, ja zum Teil geradezu als eine Erinnerungserscheinung, Nachahmung der perspektivischen Wandlung der Bilder, aufgefaßt werden kann. Wenn das Auftreten von Tonfolgen, Melodieen und Harmonieen in der Phantasie nicht befremdet, und den Associationsgesetzen nicht widersprechend gefunden wird, so wird es sich wohl mit den Gesichtsphantasmen ebenso verhalten.</p>
+  <p class="jp" lang="ja">12. 先に考察した思考実験のいくつかに現れる独特の連続的な変化は、J. ミュラー<a class="fr" href="#n10">10</a>がみごとに記述した視覚的幻像の連続的な変化を生き生きと思い出させる。ミュラーの見解に反して、視覚的幻像の連続的な変化は連合の法則とまったく両立しうるものであり、それどころか部分的にはまさしく想起の現象、すなわち像の遠近法的な変化の模倣として解しうることが分かるであろう。音の連なり、旋律、和声が想像のなかに現れることが奇妙に思われず、連合の法則に矛盾するとも見られないのなら、視覚的幻像についてもおそらく同様であろう。</p>
+  <ol class="notes"><li id="n10"><span class="nn">10</span><p class="de" lang="de">J. Müller, Die phantastischen Gesichtserscheinungen. Koblenz 1826.</p><p class="jp" lang="ja">J. ミュラー『幻想的な視覚現象』コブレンツ、1826年。</p></li></ol>
+</article>
+<article class="row" id="p12.2">
+  <aside class="mg"><a class="pid" href="#p12.2">12.2</a><span class="pg"><span>S.&nbsp;197</span></span></aside>
+  <p class="de" lang="de">Das spontane hallucinatorische Element soll in allen diesen Fällen nicht in Abrede gestellt werden. Eigenleben der Organe und Anregung durcheinander, Erinnerung, wirken hier wohl zusammen. Übrigens ist zwischen Hallucination und schöpferischer Phantasie der Künstler und Forscher doch noch zu unterscheiden. In der Hallucination mögen sich die Bilder an einen grob sinnlichen Erregungszustand anschließen, bei der schöpferischen Phantasie gruppieren sie sich um einen herrschenden hartnäckig wiederkehrenden Gedanken. Daß das Phantasieren des Künstlers der Hallucination näher steht als jenes des Forschers wurde schon bemerkt.<a class="fr" href="#n11">11</a></p>
+  <p class="jp" lang="ja">自発的な幻覚的要素を、これらすべての場合に否定するつもりはない。器官の固有の生命と相互の刺激、記憶が、ここではおそらく協働しているのであろう。ちなみに、幻覚と、芸術家や研究者の創造的想像力とは、やはり区別しなければならない。幻覚においては像は粗い感性的な興奮状態に結びつくかもしれないが、創造的想像力においては、像は支配的な、しつこく繰り返し現れる思考のまわりに集まる。芸術家の空想が研究者のそれよりも幻覚に近いことは、すでに述べた<a class="fr" href="#n11">11</a>。</p>
+  <ol class="notes"><li id="n11"><span class="nn">11</span><p class="de" lang="de">Ohne übrigens den Wert der Associationsgesetze für die Psychologie zu unterschätzen, kann man doch deren ausschließliche Geltung mit Recht bezweifeln. Es gibt im Nervensystem neben den vom Individuum erworbenen temporären organischen Verkehrswegen auch angeborne bleibende (wenigstens nicht vom Individuum erworbene), wie die Reflexbewegungen lehren, und letztere sind sogar für die nichtindividuellen Funktionen viel wichtiger. Ein Prozeß kann in einem Organ von einem Nachbarorgan aus auf den beiden genannten Wegen eingeleitet werden, wahrscheinlich aber unter Umständen auch spontan in dem Organ auftreten. Ist der Prozeß besonders energisch, so wird er sich vermutlich vom Ursprungsorte auf allen zu Gebote stehenden Wegen ausbreiten. Es scheint mir, daß alles dies sein psychisches Gegenbild haben müßte.</p><p class="jp" lang="ja">ちなみに、連合の法則の心理学にとっての価値を過小評価することなく、その排他的な妥当性を疑うことは正当である。神経系には、個人が獲得した一時的な有機的交通路と並んで、反射運動が教えるように、生得的で持続的な（少なくとも個人が獲得したのではない）交通路もあり、後者は個人を越えた機能にとってはるかに重要である。ある器官における過程は、隣接する器官から上に挙げた二つの道によって引き起こされうるが、おそらく事情によってはその器官のうちで自発的にも生じうる。過程がとくに強力であれば、それはおそらく発生した場所から利用できるあらゆる道を通って広がるであろう。これらすべてがその心的な対応物をもつはずであると私には思われる。</p></li></ol>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;197</span><span>S.&nbsp;198</span></span></aside>
+  <p class="de" lang="de">13. Es ist kaum zu zweifeln, daß das Gedankenexperiment nicht nur im Gebiete der Physik, sondern in allen Gebieten von Wichtigkeit ist, selbst dort, wo der Fernerstehende es am wenigsten vermuten würde, in der Mathematik. Euler mit seiner Forschungsweise, mit deren Fruchtbarkeit die Kritik keineswegs gleichen Schritt hält, macht ganz den Eindruck eines Experimentators, der <span class="pb" title="Leipzig 1906, S. 198">198</span>ein neues Gebiet zum erstenmal sondiert. Auch wenn die Darstellung einer Wissenschaft rein deduktiv ist, darf man sich durch die Form nicht täuschen lassen. Wir haben es hier mit einer Gedankenkonstruktion zu tun, welche an die Stelle der vorausgegangenen Gedankenexperimente getreten ist, nachdem der Erfolg derselben dem Autor vollkommen bekannt und geläufig war. Jede Erklärung, jeder Beweis, jede Deduktion ist ein Ergebnis dieses Vorganges.</p>
+  <p class="jp" lang="ja">13. 思考実験が物理学の領域ばかりでなく、あらゆる領域において重要であること、局外者が最もそうとは思わないところ、すなわち数学においてさえ重要であることは、ほとんど疑いえない。オイラーは、その研究の仕方——その実り豊かさに批判はけっして同じ歩調ではついていかない——によって、新しい領域をはじめて探る実験家のような印象をまったく与える。ある科学の叙述が純粋に演繹的であっても、その形式に欺かれてはならない。ここでわれわれが関わっているのは、先行する思考実験の結果が著者にすっかり知られなじみのものとなったあとで、その思考実験に取って代わった思考の構成物なのである。どの説明も、どの証明も、どの演繹も、この過程の成果である。</p>
+</article>
+<article class="row" id="p13.2">
+  <aside class="mg"><a class="pid" href="#p13.2">13.2</a><span class="pg"><span>S.&nbsp;198</span></span></aside>
+  <p class="de" lang="de">Die Geschichte der Wissenschaft läßt keinen Zweifel darüber aufkommen, daß die Mathematik, Arithmetik und Geometrie, aus der zufälligen Aufsammlung einzelner Erfahrungen an zählbaren und meßbaren körperlichen Objekten sich entwickelt hat. Indem nun die physischen Erfahrungen in Gedanken oft und oft gegeneinander gehalten wurden, ergab sich erst die Einsicht in deren Zusammenhang. Und jedesmal, so oft uns diese Einsicht momentan nicht gegenwärtig ist, hat unser mathematisches Wissen den Charakter einmal erworbener Erfahrung. Auch wird jeder, der einmal forschend Mathematik getrieben oder Aufgaben gelöst, die Integration einer Gleichung versucht hat, zugeben, daß Gedankenexperimente der definitiven Gedankenkonstruktion vorausgehen. Die historisch wichtige und fruchtbare „Methode der unbestimmten Koeffizienten“ ist eigentlich eine experimentelle Methode. Nachdem die Reihen für sin x, cos x, eˣ gefunden waren, ergaben sich durch den Versuch, die symbolischen Ausdrücke für e^(xi) und e^(−xi) in Reihenform zu entwickeln, wie von selbst die Ausdrücke cos x = (e^(xi) + e^(−xi))/2, sin x = (e^(xi) − e^(−xi))/2i, welche lange eine bloß symbolische, aber rechnerisch gut verwertbare Bedeutung behielten, bevor man deren eigentlichen Sinn anzugeben vermochte.</p>
+  <p class="jp" lang="ja">科学の歴史は、数学、すなわち算術と幾何学が、数えられ測られる物体的対象についての個々の経験の偶然的な収集から発展したことを疑う余地なく示している。物理的経験が思考のなかで何度も何度も突き合わされることによって、はじめてその連関への洞察が生じた。そして、この洞察がたまたまわれわれに現前していないときにはいつでも、われわれの数学的知識は、かつて獲得された経験という性格をもつ。また、研究として数学を営んだことのある者、課題を解いたことのある者、方程式の積分を試みたことのある者は誰でも、思考実験が決定的な思考の構成に先行することを認めるであろう。歴史的に重要で実り豊かな「未定係数法」は、本来、実験的な方法である。sin x、cos x、eˣ の級数が見いだされたのち、e^(xi) と e^(−xi) の記号的表現を級数の形に展開しようと試みることによって、いわばおのずから cos x ＝ (e^(xi)＋e^(−xi))/2、sin x ＝ (e^(xi)−e^(−xi))/2i という表現が得られた。これらは、その本来の意味を示すことができるようになるまで、長いあいだ単に記号的な、しかし計算上はよく活用できる意味をもちつづけたのである。</p>
+</article>
+<article class="row" id="p13.3">
+  <aside class="mg"><a class="pid" href="#p13.3">13.3</a><span class="pg"><span>S.&nbsp;198</span><span>S.&nbsp;199</span></span></aside>
+  <p class="de" lang="de">Wer einen Kreis beschreibt bemerkt, daß zu jedem von einer bestimmten Anfangslage nach links geschwenktem Radius ein gleich viel nach rechts geschwenkter Radius existiert, daß der Kreis in Bezug auf jene willkürliche Anfangslage, also allseitig symmetrisch ist. Jeder Durchmesser ist eine Symmetrale; alle von demselben halbierten Sehnen, auch jene von der Länge Null, die Tangente, stehen auf demselben senkrecht. Zwei gegen <span class="pb" title="Leipzig 1906, S. 199">199</span>die Symmetrale gleich geschwenkte Durchmesser bezeichnen mit ihren Enden immer die Ecken eines symmetrisch einschreibbaren Rechteckes. Mit Überraschung mag der antike Forscher oder mancher moderne Anfänger so erfahren haben, daß der Winkel im Halbkreise immer ein rechter ist.</p>
+  <p class="jp" lang="ja">円を描く者は、ある定まった初期位置から左へ回した半径のそれぞれに、同じだけ右へ回した半径が存在すること、円がその任意の初期位置に関して、したがってあらゆる方向に対称であることに気づく。どの直径も対称軸であり、それによって二等分されるすべての弦は、長さゼロのもの、すなわち接線も含めて、それに垂直である。対称軸に対して等しく回した二本の直径は、その端点によってつねに対称的に内接しうる長方形の頂点を示す。古代の研究者や近代のある初心者は、こうして、半円に内接する角がつねに直角であることを驚きとともに経験したかもしれない。</p>
+</article>
+<article class="row" id="p13.4">
+  <aside class="mg"><a class="pid" href="#p13.4">13.4</a><span class="pg"><span>S.&nbsp;199</span></span></aside>
+  <p class="de" lang="de">Einmal auf die Beziehung von Zentri- und Peripheriewinkel aufmerksam, entdeckt man durch Bewegung des Scheitelpunktes in der Peripherie, daß von jedem Punkte derselben derselbe Bogen unter gleichem Gesichtswinkel erscheint, was auch dann noch gilt, wenn der Scheitel von außen oder innen bis an das Ende des Kreisbogens rückt. Der eine Schenkel des Peripheriewinkels wird hierbei zur Sehne, der andere zur Tangente an dem Endpunkte des Bogens. Der Satz, betreffend die Proportionalität der Abschnitte zweier von einem Punkt durch den Kreis gezogener Sekanten, geht in den entsprechenden Tangentensatz über, wenn man die beiden Durchschnittspunkte der einen Sekante gegeneinander rücken und zusammenfallen läßt. Je nachdem man sich den Kreis mit dem Zirkel beschrieben, oder durch einen starren Winkel mit stets durch zwei feste Punkte geführten Schenkeln erzeugt denkt, oder darauf achtet, daß zwei Kreise immer als ähnlich und ähnlich liegend angesehen werden können, ergeben sich immer neue Eigenschaften.</p>
+  <p class="jp" lang="ja">ひとたび中心角と円周角の関係に気づくと、頂点を円周の上で動かすことによって、円周上のどの点からも同じ弧が等しい視角で見えることを発見する。このことは、頂点が外側あるいは内側から弧の端まで動いても成り立つ。そのとき円周角の一方の辺は弦となり、他方の辺は弧の端点における接線となる。一点から円を通して引いた二本の割線の切片の比例に関する定理は、一方の割線の二つの交点を互いに近づけて一致させると、対応する接線の定理へと移る。円をコンパスで描かれたものと考えるか、つねに二つの定点を通るように辺を導かれる固い角によって生み出されるものと考えるか、あるいは二つの円がつねに相似で相似の位置にあるとみなしうることに注目するかに応じて、つねに新しい性質が得られる。</p>
+</article>
+<article class="row" id="p13.5">
+  <aside class="mg"><a class="pid" href="#p13.5">13.5</a><span class="pg"><span>S.&nbsp;199</span></span></aside>
+  <p class="de" lang="de">Die Veränderung, Bewegung der Figuren, kontinuierliche Deformation, Verschwindenlassen und unbegrenzte Vergrößerung einzelner Elemente sind auch hier die Mittel, welche die Forschung beleben, neue Eigenschaften kennen lehren und die Einsicht in deren Zusammenhang fördern. Man muß wohl annehmen, daß gerade auf diesem so einfachen fruchtbaren und leicht zugänglichen Gebiet die Methode des physischen und des Gedankenexperimentes sich zuerst entwickelt und von da aus auf die Naturwissenschaften übertragen hat.</p>
+  <p class="jp" lang="ja">図形の変化、運動、連続的な変形、個々の要素を消失させたり限りなく拡大したりすることが、ここでも研究を活気づけ、新しい性質を教え、その連関への洞察を促す手段である。まさにこのきわめて単純で実り豊かで近づきやすい領域において、物理的実験と思考実験の方法がはじめて発達し、そこから自然科学へと移されたのだと考えなければならないであろう。</p>
+</article>
+<article class="row" id="p13.6">
+  <aside class="mg"><a class="pid" href="#p13.6">13.6</a><span class="pg"><span>S.&nbsp;199</span><span>S.&nbsp;200</span></span></aside>
+  <p class="de" lang="de">Diese Ansicht wäre gewiß viel populärer, wenn der elementarmathematische Unterricht, namentlich der geometrische, sich nicht vorzugsweise in so starren dogmatischen Formen bewegen, wenn der Vortrag nicht in einzelnen abgerissenen Sätzen fortschreiten würde, wobei die Kritik in so monströser Weise hervorgekehrt und die heuristischen Methoden in so unverantwortlicher Art verdeckt werden. Die große scheinbare Kluft zwischen Experiment und Deduktion besteht in Wirklichkeit nicht. <span class="pb" title="Leipzig 1906, S. 200">200</span>Immer handelt es sich um ein Zusammenstimmen der Gedanken mit den Tatsachen und der Gedanken untereinander. Zeigt ein Versuch nicht den erwarteten Ausfall, so mag das für den Erfinder oder für den konstruierenden Techniker sehr nachteilig sein, der Forscher wird darin nur den Beweis erblicken, daß seine Gedanken den Tatsachen nicht genau entsprechen. Gerade eine solche sich deutlich aussprechende Inkongruenz kann zu neuen Aufklärungen und Entdeckungen führen.</p>
+  <p class="jp" lang="ja">もし初等数学の授業、とりわけ幾何学の授業が、かくも硬直した教条的な形式のうちを主として動くのでなければ、講義が個々の切れ切れの定理によって進むのでなければ——その際、批判はかくも怪物的な仕方で前面に押し出され、発見的方法はかくも無責任な仕方で覆い隠されている——、この見解は確かにはるかに広く受け入れられているであろう。実験と演繹とのあいだの見かけ上の大きな隔たりは、実際には存在しない。つねに問題なのは、思考と事実との、そして思考相互の一致である。ある試みが期待した結果を示さないとき、それは発明家や設計する技術者にとってはきわめて不利かもしれないが、研究者はそこに、自分の思考が事実に正確に対応していないことの証明だけを見るであろう。まさにそのようにはっきりと現れる不一致こそが、新しい解明と発見へと導きうるのである。</p>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;200</span></span></aside>
+  <p class="de" lang="de">14. Der enge Anschluß des Denkens an die Erfahrung baut die moderne Naturwissenschaft. Die Erfahrung erzeugt einen Gedanken. Derselbe wird fortgesponnen, und wieder mit der Erfahrung verglichen und modifiziert, wodurch eine neue Auffassung entsteht, worauf der Prozeß sich aufs neue wiederholt. Eine solche Entwicklung kann mehrere Generationen in Anspruch nehmen, bevor sie zu einem relativen Abschluß gelangt. Man hört häufig sagen, das Forschen könne nicht gelehrt werden. Dies ist auch in gewissem Sinne richtig. Die Schablonen der formalen und auch der induktiven Logik können nicht viel nützen, denn die intellektuellen Situationen wiederholen sich nicht genau. Aber die Beispiele der großen Forscher sind sehr anregend, und Übung im Experimentieren in Gedanken nach dem Muster derselben, wozu hier eine kleine Anleitung gegeben wurde, ist gewiß sehr förderlich. Die späteren Generationen haben auch wirklich auf diese Weise eine Förderung der Forschung erfahren, denn Aufgaben, welche früheren Forschern große Schwierigkeiten bereitet haben, werden jetzt mit Leichtigkeit gelöst.</p>
+  <p class="jp" lang="ja">14. 思考が経験に緊密に結びつくことが、近代の自然科学を築く。経験が一つの思考を生み出す。その思考はさらに紡がれ、再び経験と比較されて修正され、それによって新しい把握が生じ、それから過程が新たに繰り返される。このような発展は、相対的な完結に達するまでに、何世代をも要することがある。研究は教えることができない、としばしば言われる。これはある意味では正しい。形式論理学の、また帰納論理学の型紙もあまり役に立たない。知的状況は正確には繰り返されないからである。しかし偉大な研究者の例はきわめて刺激的であり、それを手本として思考において実験する練習——ここにそのための小さな手引きを与えた——は、確かにきわめて有益である。のちの世代は実際にこのようにして研究の促進を経験してきた。以前の研究者に大きな困難をもたらした課題が、いまでは容易に解かれているからである。</p>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§1.1</td><td lang="de">章題への注（Teile dieses Artikels …）</td><td lang="de">注1 として §1 冒頭に付す</td></tr>
+  <tr><td>§2.3–3.2</td><td lang="de">S. 186 の脚注2件（Weite des Interessenkreises … / Zola）が本文に混入; §3 が §2 の段落に連結</td><td lang="de">注3・注4 として分離し、§3 を独立</td></tr>
+  <tr><td>§3.1</td><td lang="de">Projekt enmacher</td><td lang="de">Projektenmacher</td></tr>
+  <tr><td>§4.3</td><td lang="de">daß dem Autor mit Recht oder Unrecht —</td><td lang="de">daß dem Autor — mit Recht oder Unrecht —</td></tr>
+  <tr><td>§13.2</td><td lang="de">ex; exi und e-xi; (exi + e-xi)/2 …</td><td lang="de">eˣ; e^(xi), e^(−xi); (e^(xi) + e^(−xi))/2 …</td></tr>
+  <tr><td>各所</td><td lang="de">physiche; begrifflichlogische; wachsendem Gewicht</td><td lang="de">physische; begrifflich-logische; wachsenden Gewicht</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_10.html">← 第Ⅹ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
