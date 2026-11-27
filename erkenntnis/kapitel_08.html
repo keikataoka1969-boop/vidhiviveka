@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第Ⅷ章 概念</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第Ⅷ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a><a href="#s16">§16</a><a href="#s17">§17</a><a href="#s18">§18</a><a href="#s19">§19</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL VIII · 第Ⅷ章</div>
+  <h1>概念</h1>
+  <div class="de-title" lang="de">Der Begriff</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 126–143　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;126</span></span></aside>
+  <p class="de" lang="de">1. Es ist nun notwendig den Begriff als psychologisches Gebilde näher in Augenschein zu nehmen. Wer sich gegenwärtig hält, daß er sich einen Menschen, der weder jung noch alt, weder groß noch klein ist, kurz einen allgemeinen Menschen nicht vorstellen kann, wer überlegt, daß jedes vorgestellte Dreieck entweder rechtwinklig, spitzwinklig oder stumpfwinklig, demnach kein allgemeines Dreieck ist, der kommt leicht zu dem Gedanken, daß solche psychische Gebilde, die wir Begriffe nennen, nicht existieren, daß es abstrakte Vorstellungen überhaupt nicht gibt, was mit besonderer Lebhaftigkeit insbesondere Berkeley verfochten hat. Diese Überlegung führt auch leicht zu der von Roscellinus vertretenen Ansicht, daß die allgemeinen Begriffe (Universalien) nicht als Sachen bestünden, sondern nur „flatus vocis“ seien, während die Gegner seines „Nominalismus“, die „Realisten“, die allgemeinen Begriffe als in den Dingen begründet ansahen.</p>
+  <p class="jp" lang="ja">1. さて、心理学的形成物としての概念をもっと詳しく見ていく必要がある。若くも年寄りでもなく、大きくも小さくもない人間、要するに一般的な人間というものを表象することはできないということを心にとめ、また表象された三角形はどれも直角か鋭角か鈍角であり、したがって一般的な三角形ではないということをよく考える人は、われわれが概念と呼ぶそのような心的形成物は存在せず、そもそも抽象的表象など存在しないという考えに容易に至る。これはとりわけバークリーがことのほか熱心に主張したことである。この考察はまた、一般概念（普遍）は事物として存在するのではなく、ただ「声の息（flatus vocis）」にすぎないというロスケリヌスの主張した見解にも容易に導く。これに対して彼の「唯名論」の反対者である「実在論者」は、一般概念を事物のうちに基礎づけられたものとみなした。</p>
+</article>
+<article class="row" id="p1.2">
+  <aside class="mg"><a class="pid" href="#p1.2">1.2</a><span class="pg"><span>S.&nbsp;126</span><span>S.&nbsp;127</span></span></aside>
+  <p class="de" lang="de">Daß allgemeine Begriffe nicht bloße Worte seien, wie noch kürzlich ein geachteter Mathematiker behauptet hat, geht deutlich genug daraus hervor, daß sehr abstrakte Sätze verstanden und in konkreten Fällen richtig angewendet werden. Die unzähligen Anwendungen des Satzes: „Die Energie bleibt konstant“ mögen ein Beispiel dafür abgeben. Man würde sich aber vergebens bemühen, beim Sprechen oder Hören dieses Satzes einen momentanen konkreten anschaulichen Vorstellungsinhalt im Bewußtsein zu finden, welcher den Sinn desselben vollständig decken würde. Diese Schwierigkeiten verschwinden, wenn wir dem Umstande Rechnung tragen, daß der Begriff kein Augenblicksgebilde ist, wie eine einfache konkrete sinnliche Vorstellung, wenn wir bedenken, daß jeder Begriff seine zuweilen recht lange und ereignisreiche psychologische Bildungsgeschichte <span class="pb" title="Leipzig 1906, S. 127">127</span>hat, und daß sein Inhalt ebensowenig durch einen Augenblicksgedanken explicite dargelegt werden kann.<a class="fr" href="#n1">1</a></p>
+  <p class="jp" lang="ja">一般概念が、つい最近もある尊敬すべき数学者が主張したように単なる言葉ではないことは、きわめて抽象的な命題が理解され、具体的な場合に正しく適用されることから十分明らかである。「エネルギーは一定にとどまる」という命題の無数の適用がその一例となろう。しかし、この命題を話したり聞いたりするときに、その意味を完全に覆うような瞬間的で具体的な直観的表象内容を意識のうちに見いだそうとしても、むなしい努力に終わるであろう。この困難は、概念が単純で具体的な感性的表象のような瞬間的形成物ではないという事情を考慮し、どの概念にもときにかなり長く出来事に富んだ心理学的な形成史があり、その内容もまた瞬間的な思考によって明示的に示すことはできないのだと考えるならば、消えてしまう<a class="fr" href="#n1">1</a>。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Eine psychologische Theorie des Begriffs habe ich versucht zu geben: Analyse d. Empfindungen. 1886, 4. Aufl. 1903, S. 249-255. Populärwissensch. Vorlesungen. 3. Aufl. 1903, S. 277-280. Prinzipien d. Wärmelehre, 2. Aufl. 1900, S. 415-422. Vgl. ferner: H. Rickert, Zur Theorie der naturwissenschaftlichen Begriffsbildung. Viertelj. f. wiss. Philosoph. Bd. 18, 1894, S. 277. H. Gomperz, Zur Psychologie d. logisch. Grundtatsachen. Wien 1897. - Th. Ribot, L'évolution des Idées générales. Paris 1897. - M. Keibel, Die Abbildtheorie u. ihr Recht in d. Wissenschaftslehre. Zeitschr. f. immanente Philos. Bd. 3, 1898. Endlich möchte ich auf die gleichzeitig mit der ersten Auflage des vorliegenden Buches gedruckte Schrift von A. Stöhr (Leitfaden der Logik in psychologisierender Darstellung, Wien 1905) verweisen. Gleich die ersten Seiten enthalten eine originelle Beleuchtung der Begriffslehre vom Standpunkt der Neuronentheorie.</p><p class="jp" lang="ja">概念の心理学的理論を、私は次の箇所で与えようと試みた。『感覚の分析』1886年、第4版1903年、249–255頁。『通俗科学講義』第3版、1903年、277–280頁。『熱学の原理』第2版、1900年、415–422頁。さらに次を参照。H. リッケルト「自然科学的概念形成の理論のために」『科学的哲学季刊誌』第18巻、1894年、277頁。H. ゴンペルツ『論理的基本事実の心理学のために』ウィーン、1897年。——Th. リボー『一般観念の進化』パリ、1897年。——M. カイベル「模写説と学問論におけるその権利」『内在哲学雑誌』第3巻、1898年。最後に、本書の初版と同時に印刷された A. シュテールの著作（『心理学化した叙述による論理学入門』ウィーン、1905年）を挙げておきたい。その最初の数ページからして、ニューロン説の立場から概念論に独創的な光を当てている。</p></li></ol>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;127</span></span></aside>
+  <p class="de" lang="de">2. Man kann annehmen, daß ein Hase sich bald im Besitze der typischen Vorstellung<a class="fr" href="#n2">2</a> eines Krautkopfes, eines Menschen, eines Hundes oder Rindes befindet, daß er durch den ersten angelockt wird, den zweiten und dritten flieht, gegen das vierte sich gleichgültig verhält, infolge der nächsten Associationen, welche sich an die betreffenden Wahrnehmungen oder die zugehörigen typischen Vorstellungen knüpfen. Je reicher aber die Erfahrung dieses Tieres wird, desto mehr gemeinsame Reaktionen der Objekte je eines dieser Typen werden ihm bekannt, Reaktionen, die nicht alle zugleich in seiner Vorstellung lebendig werden können. Wird das Tier durch ein Objekt angelockt, welches einem Krautkopf ähnlich ist, so wird sofort eine prüfende Tätigkeit ausgelöst; das Tier wird durch Beschnuppern, Benagen u.s.w. sich überzeugen, ob das Objekt wirklich die bekannten erwarteten Reaktionen: Geruch, Geschmack, Konsistenz u. s. w. darbietet.</p>
+  <p class="jp" lang="ja">2. 野ウサギはほどなく、キャベツ、人間、犬、牛の典型的表象<a class="fr" href="#n2">2</a>をもつようになり、最初のものには引き寄せられ、二番目と三番目からは逃げ、四番目には無関心にふるまう、と想定することができる。それは、それぞれの知覚あるいはそれに属する典型的表象に結びつく最も近い連合の結果である。しかしこの動物の経験が豊かになるにつれて、これらの型のそれぞれに属する対象の共通の反応がますます多く知られるようになる。それらの反応は、すべてが同時に表象のうちで生き生きとすることはできない。キャベツに似た対象によって動物が引き寄せられると、ただちに吟味する活動が引き起こされる。動物は匂いをかいだり、かじったりなどして、その対象が本当に知られた期待どおりの反応——匂い、味、硬さなど——を示すかどうかを確かめるであろう。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">Vgl. S. 115.</p><p class="jp" lang="ja">115頁参照。</p></li></ol>
+</article>
+<article class="row" id="p2.2">
+  <aside class="mg"><a class="pid" href="#p2.2">2.2</a><span class="pg"><span>S.&nbsp;127</span><span>S.&nbsp;128</span></span></aside>
+  <p class="de" lang="de">Durch eine menschenähnliche Vogelscheuche im ersten Moment erschreckt, kommt das aufmerksam beobachtende Tier bald zur Einsicht, daß hier wichtige Reaktionen des Typus Mensch, die Bewegung, die Ortsveränderung, das aggressive Verhalten u. s. w. fehlen. Hier knüpfen sich schon an die typische Vorstellung zunächst latent oder potentiell die nach und nach aufgespeicherten Erinnerungen an eine Menge von Erfahrungen oder Reaktionen, welche bei einer prüfenden Tätigkeit auch nur nach und nach ins Bewußtsein treten können. Hierin scheint mir nun das <span class="pb" title="Leipzig 1906, S. 128">128</span>Charakteristische des Begriffs im Gegensatz zu einer individuellen Augenblicksvorstellung zu liegen. Die letztere entwickelt sich durch associative Bereicherung ganz allmählich zu ersterem, so daß wir einen kontinuierlichen Übergang vor uns haben. Ich glaube hiernach, daß man Anfänge der Begriffsbildung den höheren Tieren nicht absprechen kann.<a class="fr" href="#n3">3</a></p>
+  <p class="jp" lang="ja">人間に似たかかしに最初の瞬間には驚かされても、注意深く観察する動物はまもなく、ここには人間という型の重要な反応、すなわち動き、場所の移動、攻撃的なふるまいなどが欠けていることを悟る。ここではすでに、典型的表象に、しだいに蓄えられた多くの経験あるいは反応の記憶が、まずは潜在的あるいは可能的に結びついており、それらは吟味する活動においても次々にしか意識に上りえない。ここにこそ、個別的な瞬間的表象に対する概念の特徴があるように私には思われる。後者は連合による豊富化によってごく徐々に前者へと発展するのであり、われわれの前にあるのは連続的な移行である。それゆえ私は、高等動物に概念形成の端緒を否定することはできないと考える<a class="fr" href="#n3">3</a>。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">Vgl. Wärmelehre S. 416.</p><p class="jp" lang="ja">『熱学』416頁参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;128</span></span></aside>
+  <p class="de" lang="de">3. Der Mensch bildet seine Begriffe in derselben Weise wie das Tier, wird aber durch die Sprache und durch den Verkehr mit den Genossen, welche beiden Mittel dem Tier nur geringe Hilfe leisten, mächtig unterstützt. In dem Wort besitzt er eine sinnlich allgemein faßbare Etikette des Begriffes, auch in Fällen, in welchen die typische Vorstellung unzureichend wird oder überhaupt nicht mehr existiert. Ein Wort deckt allerdings nicht immer einen Begriff. Kinder und jugendliche Völker, die noch einen geringen Vorrat von Wörtern haben, gebrauchen ein Wort zur Bezeichnung einer Sache oder eines Vorganges, bei nächster Gelegenheit aber zur Bezeichnung einer andern Sache oder eines andern Vorganges, welche mit ersteren irgend eine Ähnlichkeit der Reaktion darbieten.<a class="fr" href="#n4">4</a></p>
+  <p class="jp" lang="ja">3. 人間は動物と同じ仕方で概念を形成するが、言語と仲間との交流——この二つの手段は動物にはわずかな助けしか与えない——によって力強く支えられる。語において人間は、典型的表象が不十分になったり、もはやまったく存在しなくなったりした場合にも、概念の感性的で一般に把握可能なラベルを所有している。もっとも語がつねに一つの概念を覆うわけではない。まだわずかな語彙しかもたない子どもや若い民族は、ある語をある物や出来事を示すのに用いるが、次の機会には、前者と何らかの反応の類似性を示す別の物や別の出来事を示すのに用いる<a class="fr" href="#n4">4</a>。</p>
+  <ol class="notes"><li id="n4"><span class="nn">4</span><p class="de" lang="de">Vgl. Analyse S. 250.</p><p class="jp" lang="ja">『感覚の分析』250頁参照。</p></li></ol>
+</article>
+<article class="row" id="p3.2">
+  <aside class="mg"><a class="pid" href="#p3.2">3.2</a><span class="pg"><span>S.&nbsp;128</span></span></aside>
+  <p class="de" lang="de">Dadurch schwankt und wechselt die Bedeutung der Worte. Unter gegebenen Umständen ist aber die Zahl der biologisch wichtigen Reaktionen, auf welche die überwiegende Mehrheit achtet, eine geringe, und dadurch wird der Gebrauch der Worte wieder stabilisiert. Jedes Wort dient dann zur Bezeichnung einer Klasse von Objekten (Sachen oder Vorgängen) bestimmter Reaktion. Die Mannigfaltigkeit der biologisch wichtigen Reaktionen ist viel geringer als die Mannigfaltigkeit des Tatsächlichen. Dadurch wurde der Mensch zuerst in die Lage versetzt, das Tatsächliche begrifflich zu klassifizieren. Dies Verhältnis bleibt bestehen, wenn ein Stand oder ein Beruf einem Tatsachengebiet den Blick zuwendet, welches kein unmittelbares biologisches Interesse mehr darbietet.</p>
+  <p class="jp" lang="ja">そのために語の意味は揺れ動き、変化する。しかし与えられた事情のもとでは、圧倒的多数の人が注意を払う生物学的に重要な反応の数はわずかであり、そのことによって語の使用は再び安定する。そうなると各語は、一定の反応をもつ対象（物あるいは出来事）の一つの類を示すのに役立つ。生物学的に重要な反応の多様性は、事実的なものの多様性よりもはるかに小さい。それによって人間ははじめて、事実的なものを概念的に分類することができるようになった。ある身分や職業が、もはや直接の生物学的関心をもたない事実領域に目を向けるときにも、この関係は存続する。</p>
+</article>
+<article class="row" id="p3.3">
+  <aside class="mg"><a class="pid" href="#p3.3">3.3</a><span class="pg"><span>S.&nbsp;128</span><span>S.&nbsp;129</span></span></aside>
+  <p class="de" lang="de">Auch da ist die Mannigfaltigkeit der für den besonderen Zweck wichtigen Reaktionen geringer als die Mannigfaltigkeit des Tatsächlichen. Die Reaktionen sind aber jetzt andere, als in dem früheren Falle, weshalb jeder Stand oder Beruf seine eigene begriffliche Klassifikation <span class="pb" title="Leipzig 1906, S. 129">129</span>vornimmt. Der Handwerker, der Arzt, der Jurist, der Techniker, der Naturforscher bildet seine eigenen Begriffe, gibt den Worten durch umschreibende Einschränkung (Definition) eine von der Vulgärsprache verschiedene, engere Bedeutung, oder wählt zur Begriffsbezeichnung gar neue Worte. Ein solches, etwa naturwissenschaftliches Begriffswort hat nun den Zweck, an die Verbindung aller in der Definition bezeichneten Reaktionen des definierten Objektes zu erinnern, und diese Erinnerungen wie an einem Faden ins Bewußtsein zu ziehen.</p>
+  <p class="jp" lang="ja">そこでも、特別な目的にとって重要な反応の多様性は、事実的なものの多様性よりも小さい。しかし反応はいまや先の場合とは別のものであり、それゆえ各身分、各職業は独自の概念的分類を行う。手工業者、医者、法律家、技術者、自然研究者は、それぞれ独自の概念を形成し、言い換えによる限定（定義）によって語に通俗語とは異なる狭い意味を与えるか、あるいは概念を示すためにまったく新しい語を選びさえする。このような、たとえば自然科学の概念語は、いまや、定義された対象の、定義のうちに示されたすべての反応の結合を思い出させ、それらの記憶を糸を引くように意識へと引き出すことを目的としている。</p>
+</article>
+<article class="row" id="p3.4">
+  <aside class="mg"><a class="pid" href="#p3.4">3.4</a><span class="pg"><span>S.&nbsp;129</span></span></aside>
+  <p class="de" lang="de">Man denke etwa an die Definition des Wasserstoffes, der Bewegungsquantität eines mechanischen Systems oder des Potentials in einem Punkt. Natürlich kann jede Definition wieder Begriffe enthalten, so daß erst die letzten, untersten begrifflichen Bausteine in sinnenfällige Reaktionen als deren Merkmale aufgelöst werden können. Wie schnell und wie leicht eine solche Auflösung gelingt, hängt von der genauen Kenntnis und Geläufigkeit des Begriffes ab, und wie weit sie notwendig ist, wird durch den verfolgten Zweck bestimmt. Überlegt man, wie diese Begriffe sich gebildet haben, daß Jahre und Jahrhunderte an deren Bildung gearbeitet haben, so wird man sich nicht wundern, daß deren Inhalt nicht durch eine individuelle Augenblicksvorstellung zu erschöpfen ist.</p>
+  <p class="jp" lang="ja">たとえば水素の定義、力学系の運動量の定義、ある点におけるポテンシャルの定義を考えてみればよい。当然ながら、どの定義もまた概念を含みうるので、最後の最も下の概念的な構成要素になってはじめて、その特徴としての感性的に明白な反応へと分解されうる。このような分解がどれほどすばやく容易に成功するかは、概念を正確に知りなじんでいるかどうかにかかっており、それがどこまで必要かは追求している目的によって規定される。これらの概念がどのように形成されたか、何年も何世紀もがその形成に取り組んできたことを考えれば、その内容が個人の瞬間的表象によって汲み尽くされえないことに驚きはしないであろう。</p>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;129</span></span></aside>
+  <p class="de" lang="de">4. Welche Begriffe zu bilden und wie dieselben gegeneinander abzugrenzen sind, darüber hat nur das praktische oder wissenschaftliche Bedürfnis zu entscheiden. In die Definition werden die Reaktionen aufgenommen, welche zur Bestimmung des Begriffes hinreichen. Andere Reaktionen, von denen es schon bekannt und geläufig ist, daß sie an die in den Definitionen enthaltenen unabänderlich gebunden sind, braucht man nicht besonders anzuführen. Die Definition würde dadurch nur mit Überflüssigem belastet. Es kann aber allerdings vorkommen, daß die Auffindung solcher weiterer Reaktionen eine Entdeckung vorstellt. Bestimmen die neuen Reaktionen für sich allein ebenfalls den Begriff, so können dieselben gleichfalls zur Definition dienen. Wir definieren den Kreis als die ebene Kurve, deren sämtliche Punkte von einem bestimmten Punkte gleichen Abstand haben.</p>
+  <p class="jp" lang="ja">4. どのような概念を形成し、それらをどのように互いに区切るべきかについては、ただ実践的あるいは科学的な必要だけが決定する。定義には、概念を規定するのに十分な反応が取り入れられる。定義に含まれる反応に不変に結びついていることがすでに知られなじみとなっている他の反応は、とくに挙げる必要はない。それによって定義は余計なもので重くされるだけであろう。しかし、そのようなさらなる反応を見いだすことが一つの発見となることも、もちろんありうる。新しい反応がそれだけで同じく概念を規定するならば、それもまた定義に役立ちうる。われわれは円を、そのすべての点がある定点から等しい距離にある平面曲線として定義する。</p>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;129</span><span>S.&nbsp;130</span></span></aside>
+  <p class="de" lang="de">Andere Eigenschaften des Kreises zählen wir nicht auf, z. B. die Gleichheit aller Peripheriewinkel über einem beliebigen Bogen, das konstante Verhältnis der Abstände eines <span class="pb" title="Leipzig 1906, S. 130">130</span>jeden Kurvenpunktes von zwei bestimmten Punkten seiner Ebene u. s. w. Jede der beiden genannten Eigenschaften für sich allein definiert aber ebenfalls den Kreis. Dieselbe Tatsache oder Gruppe von Tatsachen kann nach Umständen das Interesse und die Aufmerksamkeit auf verschiedene Reaktionen, auf verschiedene Begriffe leiten. Ein Kreis kann als Durchschnitt projektivischer Büschel, als Kurve von konstanter Krümmung, ein kreisförmiger Faden als Kurve gleicher Spannung, als Umfang der eingeschlossenen Fläche u. s. w. in Betracht kommen. Einen Eisenkörper können wir ansehen als Komplex von Sinnesempfindungen, als Gewicht, als Masse, als Wärme- oder Elektrizitätsleiter, als Magneten, als starren oder elastischen Körper, als chemisches Element u. s. w.</p>
+  <p class="jp" lang="ja">円のほかの性質、たとえば任意の弧の上に立つすべての円周角が等しいこと、曲線の各点からその平面上の二つの定点までの距離の比が一定であることなどを、われわれは数え上げない。しかし挙げた二つの性質のどちらも、それだけで同じく円を定義する。同じ事実あるいは事実の群が、事情に応じて関心と注意を異なる反応へ、異なる概念へと導きうる。円は射影的な線束の交わりとして、一定の曲率をもつ曲線として考察されうるし、円形の糸は等しい張力の曲線として、囲まれた面の周として考察されうる、等々。鉄の物体を、われわれは感官の感覚の複合体として、重さとして、質量として、熱あるいは電気の導体として、磁石として、剛体あるいは弾性体として、化学元素として、等々とみなすことができる。</p>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;130</span></span></aside>
+  <p class="de" lang="de">5. Jeder Beruf hat seine eigenen Begriffe. Der Musiker liest seine Partitur, so wie der Jurist seine Gesetze, der Apotheker seine Rezepte, der Koch sein Kochbuch, der Mathematiker oder Physiker seine Abhandlung liest. Was für den Berufsfremden ein leeres Wort oder Zeichen ist, hat für den Fachmann einen ganz bestimmten Sinn, enthält für ihn die Anweisung zu genau begrenzten psychischen oder physischen Tätigkeiten, welche ein psychisches oder physisches Objekt von ebenso umschriebener Reaktion in der Vorstellung zu erzeugen oder vor die Sinne zu stellen vermag, wenn er die betreffenden Tätigkeiten wirklich ausführt. Hierzu ist es aber unerläßlich, daß er die genannten Tätigkeiten wirklich geübt, und sich in denselben die nötige Geläufigkeit erworben, daß er in dem Beruf mit gelebt hat.<a class="fr" href="#n5">5</a> Bloße Lektüre erzieht ebensowenig einen Fachmann, wie das bloße Anhören einer noch so guten Vorlesung. Es fehlt da jede Nötigung zur Prüfung der aufgenommenen Begriffe auf ihre Richtigkeit, die bei direkter Berührung mit den Tatsachen im Laboratorium durch die empfindlichen begangenen Fehler sich sofort einstellt.</p>
+  <p class="jp" lang="ja">5. どの職業にもそれ固有の概念がある。音楽家は、法律家が法律を、薬剤師が処方箋を、料理人が料理の本を、数学者や物理学者が論文を読むのと同じように、総譜を読む。部外者にとって空虚な語や記号であるものが、専門家にとってはまったく確定した意味をもち、彼にとっては厳密に限られた心的あるいは身体的活動への指示を含んでいる。その活動を実際に行えば、同じく輪郭の定まった反応をもつ心理的あるいは物理的対象を、表象のうちに生み出したり、感官の前に置いたりすることができるのである。しかしそのためには、彼が上に述べた活動を実際に練習し、それに必要な熟練を身につけていること、その職業のなかでともに生きてきたことが欠かせない<a class="fr" href="#n5">5</a>。単なる読書は、どれほどすぐれた講義をただ聞くことと同じく、専門家を育てはしない。そこには、受け取った概念をその正しさについて吟味する必要がまったくない。実験室で事実に直接に触れる場合には、犯した痛い誤りによって、その必要がすぐさま生じるのだが。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">Vgl. Analyse S. 253.</p><p class="jp" lang="ja">『感覚の分析』253頁参照。</p></li></ol>
+</article>
+<article class="row" id="p5.2">
+  <aside class="mg"><a class="pid" href="#p5.2">5.2</a><span class="pg"><span>S.&nbsp;130</span><span>S.&nbsp;131</span></span></aside>
+  <p class="de" lang="de">Begriffe, welche auf durch Hörensagen unvollständig und oberflächlich bekannte Tatsachen gegründet sind, gleichen Gebäuden aus morschem Material, die bei der ersten Störung haltlos zusammenstürzen. Ungeduldiges Drängen zu verfrühter <span class="pb" title="Leipzig 1906, S. 131">131</span>Abstraktion<a class="fr" href="#n6">6</a> beim Unterricht kann deshalb nur schädlich wirken. So entstandene Begriffe enthalten potentiell nur schlecht umschriebene und schattenhafte Individualbilder, die besonders leicht zu Irrtum verführen werden.</p>
+  <p class="jp" lang="ja">伝聞によって不完全かつ表面的に知られた事実にもとづく概念は、腐った材料でできた建物に似ており、最初の揺れで支えを失って崩れ落ちる。それゆえ、授業において早まった抽象<a class="fr" href="#n6">6</a>へとせっかちに駆り立てることは、害しかもたらしえない。そのようにして生じた概念は、輪郭のはっきりしない影のような個別像を潜在的に含んでいるにすぎず、それはとりわけ容易に誤りへと誘うであろう。</p>
+  <ol class="notes"><li id="n6"><span class="nn">6</span><p class="de" lang="de">Ich hatte selbst Gelegenheit mich von der Nutzlosigkeit des Drängens zur Abstraktion zu überzeugen. Kinder, welche recht gut kleine Mengen oder Gruppen von Objekten auffassen und unterscheiden, auch auf die Frage: „wie viele Nüsse sind drei Nüsse und zwei Nüsse?“ rasch und richtig antworten, werden durch die Frage: „wieviel ist zwei und drei?“ in Verlegenheit gesetzt. Einige Tage später tritt die Abstraktion ganz von selbst ein.</p><p class="jp" lang="ja">私自身、抽象へと駆り立てることが無益であることを確かめる機会があった。小さな量や物の群をかなりよく把握し区別し、「三つのクルミと二つのクルミでは何個のクルミになるか」という問いにもすばやく正しく答える子どもたちが、「二と三はいくつか」という問いには困ってしまう。数日後には、抽象はまったくひとりでに生じる。</p></li></ol>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;131</span></span></aside>
+  <p class="de" lang="de">6. Am deutlichsten offenbart sich die Natur des Begriffes demjenigen, der eben anfängt das Gebiet einer Wissenschaft zu beherrschen. Die Kenntnis der zu Grunde liegenden Tatsachen hat er sich nicht instinktiv angeeignet, sondern er hat aufmerksam, sorgfältig und absichtlich beobachtet. Von den Tatsachen zu den Begriffen und umgekehrt hat er den Weg oft zurückgelegt, und dieser ist ihm in lebhafter Erinnerung, so daß er ihn jederzeit zu durchschreiten und auf jedem Punkt zu verweilen im stande ist. Anders verhält es sich mit den weniger bestimmten Begriffen, welche von den Worten der Vulgärsprache bezeichnet werden.<a class="fr" href="#n7">7</a></p>
+  <p class="jp" lang="ja">6. 概念の本性が最もはっきりと現れるのは、ある学問の領域をちょうど支配しはじめた人に対してである。彼は根底にある事実の知識を本能的に身につけたのではなく、注意深く、念入りに、意図的に観察したのである。事実から概念へ、またその逆へと、彼は何度も道をたどっており、その道は生き生きと記憶に残っているので、いつでもそれを歩きとおし、どの地点にもとどまることができる。通俗語の語によって示される、より規定の弱い概念については事情が異なる<a class="fr" href="#n7">7</a>。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">Ich schenkte meinem Jungen im Alter zwischen 4 und 5 Jahren ein Kistchen mit Holzmodellen geometrischer Körper, die ich benannte, aber natürlich nicht definierte. Seine Anschauung wurde dadurch sehr bereichert und seine Phantasie so gestärkt, daß er, ohne das Modell zu sehen, z. B. die Ecken, Kanten und Flächen eines Würfels oder Tetraeders herzählen konnte. Auch zur Beschreibung seiner kleinen Beobachtungen benützte er die neuen Anschauungen und Namen. So nannte er eine Wurst einen krummen Zylinder. Geometrische Begriffe hatte aber der Junge doch noch nicht. Der Zylinder müßte ganz anders als üblich definiert werden, um die Wurstform als Spezialfall zu umfassen.</p><p class="jp" lang="ja">私は四歳と五歳のあいだの息子に、幾何学的立体の木の模型が入った小箱を贈った。私はそれらに名前をつけたが、もちろん定義はしなかった。それによって彼の直観は大いに豊かになり、想像力は強められて、模型を見ずに、たとえば立方体や四面体の頂点、辺、面を数え上げることができるようになった。小さな観察を記述するのにも、彼は新しい直観と名前を用いた。たとえばソーセージを曲がった円柱と呼んだ。しかしこの子はまだ幾何学の概念をもってはいなかった。ソーセージの形を特殊な場合として含むためには、円柱は通常とはまったく違ったふうに定義されなければならないであろう。</p></li></ol>
+</article>
+<article class="row" id="p6.2">
+  <aside class="mg"><a class="pid" href="#p6.2">6.2</a><span class="pg"><span>S.&nbsp;131</span><span>S.&nbsp;132</span></span></aside>
+  <p class="de" lang="de">Hier hat sich alles instinktiv ohne unser absichtliches Zutun ergeben, sowohl die Kenntnis der Tatsachen als auch die Begrenzung der Bedeutung der Worte. Durch vielfache Übung ist uns das Sprechen, Hören und Verstehen der Sprache so geläufig geworden, daß alles beinahe automatisch verläuft. Wir halten uns bei der Analyse der Bedeutung der Worte nicht mehr auf, und die sinnlichen Vorstellungen, welche der Rede zu Grunde liegen, treten kaum in Andeutungen oder gar nicht mehr ins Bewußtsein. Kein Wunder also, daß ein Mensch, plötzlich gefragt, was er bei einem Worte, namentlich von abstrakterer Be<span class="pb" title="Leipzig 1906, S. 132">132</span>deutung, in seinem Bewußtsein vorfindet? sehr oft antwortet: „Nichts als das Wort!“<a class="fr" href="#n8">8</a> Eine Phrase braucht aber nur Zweifel oder Widerspruch zu erregen, so holen wir sofort das an das Wort geknüpfte potentielle Wissen aus der Tiefe der Erinnerung hervor.</p>
+  <p class="jp" lang="ja">ここでは、事実の知識も語の意味の限定も、すべてがわれわれの意図的な関与なしに本能的に生じた。多くの練習によって、言語を話し、聞き、理解することはわれわれにとってすっかりなじみのものとなり、すべてがほとんど自動的に進行する。われわれはもはや語の意味の分析にとどまらず、話の根底にある感性的表象は、かろうじてほのめかされる程度にしか、あるいはまったく意識に上らない。それゆえ、ある人が突然、とくにより抽象的な意味をもつ語について、その語のとき意識のうちに何を見いだすかと問われると、ごく頻繁に「語のほかには何もない！」と答えるとしても不思議ではない<a class="fr" href="#n8">8</a>。しかしある言い回しが疑いや反論を呼び起こしさえすれば、われわれはすぐさま、その語に結びついた潜在的な知識を記憶の深みから取り出してくる。</p>
+  <ol class="notes"><li id="n8"><span class="nn">8</span><p class="de" lang="de">Vgl. die statistische Datensammlung bei Ribot, a. a. O. S. 131-145. - Ribot bringt bezüglich des „type auditif“ S. 139 die ansprechende Hypothese vor, daß derselbe in der Zeit des mittelalterlichen mündlichen Unterrichts und der damals üblichen mündlichen Disputationen vielleicht vorherrschend war, und daß diesem Umstand der Ausdruck „flatus vocis“ seinen Ursprung verdankt.</p><p class="jp" lang="ja">リボー前掲書、131–145頁の統計的資料を参照。——リボーは「聴覚型（type auditif）」について139頁で、それが中世の口頭による授業と当時慣例であった口頭の討論の時代にはおそらく支配的であり、「声の息（flatus vocis）」という表現はこの事情にその起源を負っている、という興味深い仮説を述べている。</p></li></ol>
+</article>
+<article class="row" id="p6.3">
+  <aside class="mg"><a class="pid" href="#p6.3">6.3</a><span class="pg"><span>S.&nbsp;132</span></span></aside>
+  <p class="de" lang="de">Man lernt eben sprechen und die Sprache verstehen, so wie man gehen lernt. Die einzelnen Momente einer geläufigen Tätigkeit werden für das Bewußtsein verwischt. Wenn nun ein tüchtiger Gelehrter den Ausspruch tut: „Ein Begriff ist nur ein Wort“, so beruht dies gewiß auf mangelhafter psychologischer Selbstbeobachtung. Er verwendet die Begriffsworte infolge langer Übung richtig, so wie wir Löffel, Gabel, Schlüssel und Feder richtig verwenden, fast ohne daß uns deren langsam erlernter Gebrauch bewußt wird. Er kann das potentielle Wissen des Begriffs erwecken, ist aber dazu nicht immer genötigt.</p>
+  <p class="jp" lang="ja">人はまさに、歩くことを学ぶのと同じように、話すことと言語を理解することを学ぶのである。なじんだ活動の個々の契機は、意識にとってはぼやけてしまう。それゆえ、有能な学者が「概念は単なる語にすぎない」という言明をするとすれば、それは確かに不十分な心理学的自己観察にもとづいている。彼は長い練習の結果として概念語を正しく用いるのであり、それはわれわれがスプーン、フォーク、鍵、ペンを、ゆっくりと学んだその使い方をほとんど意識することなく正しく用いるのと同じである。彼は概念の潜在的知識を呼び覚ますことができるが、つねにそうせざるをえないわけではない。</p>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;132</span></span></aside>
+  <p class="de" lang="de">7. Betrachten wir nun noch etwas genauer den Prozeß der Abstraktion, durch welchen Begriffe zu stande kommen. Die Dinge (Körper) sind für uns verhältnismäßig stabile Komplexe von aneinander gebundenen, von einander abhängigen Sinnesempfindungen. Nicht alle Elemente dieses Komplexes sind aber von gleicher biologischer Wichtigkeit. Ein Vogel nährt sich z. B. von roten, süßen Beeren. Die für ihn biologisch wichtige Empfindung „süß“, für welche sein Organismus in angeborener Weise eingestellt ist, hat zur Folge, daß derselbe Organismus die associative Einstellung auf das auffallende und fernwirkende Merkmal „rot“ erwirbt.</p>
+  <p class="jp" lang="ja">7. さて、概念がそれによって成立する抽象の過程を、もう少し詳しく考察しよう。物（物体）とは、われわれにとって、互いに結びつき互いに依存しあう感官の感覚の、比較的安定した複合体である。しかしこの複合体のすべての要素が同じ生物学的重要性をもつわけではない。たとえばある鳥は赤い甘い実を食べて生きている。その鳥にとって生物学的に重要な感覚「甘い」——その有機体はこれに対して生得的に調律されている——は、同じ有機体が、目立って遠くまで作用する特徴「赤い」に対する連合的な調律を獲得するという結果をもたらす。</p>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;132</span><span>S.&nbsp;133</span></span></aside>
+  <p class="de" lang="de">Mit anderen Worten: Der Organismus wird für die beiden Elemente süß und rot mit einer viel empfindlicheren Reaktion ausgestattet, es wird denselben vorzugsweise die Aufmerksamkeit zugewendet, dagegen von anderen Elementen des Komplexes Beere abgewendet. In dieser Teilung der Einstellung, des Interesses,<a class="fr" href="#n9">9</a> der Aufmerksamkeit besteht nun wesentlich der Prozeß der Abstraktion. Dieser Prozeß bedingt es, daß in dem <span class="pb" title="Leipzig 1906, S. 133">133</span>Erinnerungsbild Beere nicht alle Empfindungsmerkmale des sinnlich physischen Komplexes Beere in gleicher Stärke ausgeprägt sind, wodurch sich das erstere schon der Eigentümlichkeit des Begriffes nähert.</p>
+  <p class="jp" lang="ja">言い換えれば、有機体は甘いと赤いという二つの要素に対してはるかに敏感な反応をそなえるようになり、これらの要素にとりわけ注意が向けられ、これに対して実という複合体の他の要素からは注意がそらされる。調律の、関心<a class="fr" href="#n9">9</a>の、注意のこの分割のうちに、抽象の過程は本質的に成り立っている。この過程によって、実という記憶像のうちには、実という感性的・物理的複合体のすべての感覚的特徴が同じ強さで刻まれているわけではないことになり、それによって前者はすでに概念の特性に近づくのである。</p>
+  <ol class="notes"><li id="n9"><span class="nn">9</span><p class="de" lang="de">Ich möchte hier nochmals auf die S. 127 erwähnte Schrift von Stöhr hinweisen. Man beachte, was Stöhr „Begriffszentrum“ nennt.</p><p class="jp" lang="ja">ここでもう一度、127頁で挙げたシュテールの著作を指摘しておきたい。シュテールが「概念中心」と呼んでいるものに注意されたい。</p></li></ol>
+</article>
+<article class="row" id="p7.3">
+  <aside class="mg"><a class="pid" href="#p7.3">7.3</a><span class="pg"><span>S.&nbsp;133</span></span></aside>
+  <p class="de" lang="de">Selbst die beiden beachteten sinnlichen Merkmale süß und rot können in dem physischen Komplex Beere noch in sehr beträchtlichem Spielraum variieren — man denke z. B. an die Variation der Wellenlängen und Farben des Spektrums, die wir sämtlich als rot bezeichnen — ohne daß das psychische Gebilde Beere hiervon Notiz nimmt. Wir können eben annehmen, daß alle mit dem Worte rot bezeichneten Empfindungsvariationen oder Empfindungsmischungen durch den einfachen, vielleicht einmal isolierbaren physiologischen Grundempfindungsprozeß rot vorzugsweise charakterisiert sind.<a class="fr" href="#n10">10</a> So entspricht also schon in so primitiven Fällen der unerschöpflichen sinnlich-physischen Mannigfaltigkeit eine sehr eingeschränkte gleichmäßige sinnlich-psychische Reaktion und hiermit eine entschiedene Tendenz zur begrifflichen Schematisierung.</p>
+  <p class="jp" lang="ja">注目される二つの感性的特徴である甘いと赤いでさえ、実という物理的複合体のうちではなおかなりの幅で変動しうる——たとえば、われわれがすべて赤と呼ぶスペクトルの波長と色の変化を考えてみればよい——が、実という心的形成物はそれにほとんど注意を払わない。われわれはまさに、赤という語で示されるすべての感覚の変化あるいは感覚の混合は、単純な、おそらくいつか単離されうる赤という生理学的な基本感覚過程によって主として特徴づけられている、と想定してよい<a class="fr" href="#n10">10</a>。こうして、もっとも原始的な場合においてすでに、汲み尽くしがたい感性的・物理的多様性に、きわめて限られた一様な感性的・心理的反応が対応しており、それとともに概念的な図式化への決然とした傾向がある。</p>
+  <ol class="notes"><li id="n10"><span class="nn">10</span><p class="de" lang="de">Man kann also ganz wohl sagen, daß die einfachen Empfindungen Abstraktionen sind, darf aber darum noch nicht behaupten, daß denselben kein tatsächlicher Vorgang zu Grunde liegt. Vgl. Popul.-wissensch. Vorlesungen. 3. Aufl. S. 122.</p><p class="jp" lang="ja">したがって、単純な感覚は抽象であると言ってもまったく差し支えないが、だからといって、それに事実的な過程が根底にないと主張してはならない。『通俗科学講義』第3版、122頁参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;133</span></span></aside>
+  <p class="de" lang="de">8. Denken wir uns die in einer Gegend wachsenden, genießbaren und ungenießbaren Beerenarten zahlreicher und schwerer unterscheidbar, so müssen die leitenden Erinnerungsbilder an Merkmalen reicher und mannigfaltiger werden. Für den primitiven Menschen schon kann sich sogar die Notwendigkeit ergeben, besondere mit klar bewußter Absicht auszuführende Proben, Prüfungsmittel im Gedächtnis zu behalten, um brauchbare von unbrauchbaren Objekten zu unterscheiden, wenn die bloße sinnliche Betrachtung hierzu nicht mehr ausreicht. Dies ist besonders der Fall, sobald an die Stelle der wenigen einfachen unmittelbaren biologischen Ziele, wie Beschaffung der Nahrung u. s. w., die viel zahlreicheren und mannigfaltigeren technischen und wissenschaftlichen Zwischenziele treten. Hier sehen wir den Begriff von seinem einfachsten Rudiment bis zur höchsten Stufe, dem wissenschaftlichen Begriff, sich entwickeln, wobei jede höhere Stufe die tieferen als Grundlage benützt.</p>
+  <p class="jp" lang="ja">8. ある地方に生えている食べられる実と食べられない実の種類がもっと多く、もっと見分けにくいと考えるならば、導きとなる記憶像は特徴においてより豊かで多様にならなければならない。原始人にとってすでに、単なる感性的な観察ではもはや不十分な場合に、役に立つ対象と役に立たない対象とを区別するために、明瞭に意識された意図をもって行うべき特別な試験、吟味の手段を記憶にとどめておく必要が生じうる。このことはとりわけ、食物の調達などの少数の単純で直接的な生物学的目標のかわりに、はるかに数多く多様な技術的・科学的な中間目標が現れるときに当てはまる。ここでわれわれは、概念がその最も単純な痕跡から最高の段階である科学的概念にまで発展し、各高次の段階が低次の段階を基礎として用いるのを見るのである。</p>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;133</span><span>S.&nbsp;134</span></span></aside>
+  <p class="de" lang="de">9. Auf der höchsten Stufe der Entwicklung ist der Begriff <span class="pb" title="Leipzig 1906, S. 134">134</span>das an das Wort, den Terminus, gebundene Bewußtsein von den Reaktionen, die man von der bezeichneten Klasse von Objekten (Tatsachen) zu erwarten hat. Nur allmählich und nacheinander können aber diese Reaktionen und die oft komplizierten psychischen und physischen Tätigkeiten, durch welche erstere hervorgerufen werden, als anschauliche Vorstellung hervortreten. Man kann eine genießbare Frucht durch Farbe, Geruch und Geschmack erkennen. Daß aber Walfisch und Delphin zur Klasse der Säuger gehören, läßt sich nicht durch den Anblick, sondern nur durch eine eingehende anatomische Untersuchung feststellen. Ein Blick kann oft über den biologischen Wert eines Objektes entscheiden.</p>
+  <p class="jp" lang="ja">9. 発展の最高段階において、概念とは、語すなわち術語に結びついた、示された対象（事実）の類から期待すべき反応についての意識である。しかしこれらの反応と、それを呼び起こすしばしば複雑な心的および身体的活動とは、ただ徐々に、次々にしか直観的表象として現れえない。食べられる果実は色や匂いや味によって認識できる。しかし鯨やイルカが哺乳類の類に属することは、一瞥によってではなく、詳しい解剖学的研究によってはじめて確定できる。一瞥によって対象の生物学的価値がしばしば決まることがある。</p>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;134</span></span></aside>
+  <p class="de" lang="de">Ob aber ein mechanisches System einen Gleichgewichts- oder Bewegungsfall vorstellt, kann nur durch eine komplizierte Tätigkeit entschieden werden. Man mißt alle Kräfte und alle zugehörigen miteinander verträglichen kleinen Verschiebungen im Sinne der Kräfte, multipliziert jede Maßzahl der Kraft mit der Maßzahl der zugehörigen Verschiebung und summiert diese Produkte. Ergibt diese Summe, d. h. die Arbeit, mit Rücksicht auf die Zeichen der Produkte, den Wert Null oder einen negativen Wert, so hat man einen Gleichgewichtsfall vor sich, wenn dies nicht zutrifft, einen Bewegungsfall. Natürlich hat die Entwicklung des Begriffes Arbeit eine lange Geschichte, welche mit dem Studium der einfachsten Fälle (Hebel u. s. w.) beginnt, welche von der naheliegenden Bemerkung ausgeht, daß nicht nur die Gewichte, sondern auch die Verschiebungsgrößen auf den Vorgang von Einfluß sind.</p>
+  <p class="jp" lang="ja">しかしある力学系が釣り合いの場合を表しているのか運動の場合を表しているのかは、複雑な活動によってのみ決定できる。すべての力と、力の向きに沿った、それに属する互いに両立しうるすべての小さな変位を測り、力の測定値のそれぞれにそれに属する変位の測定値を掛け、これらの積を合計する。この合計、すなわち仕事が、積の符号を考慮して、ゼロあるいは負の値になれば、釣り合いの場合であり、そうでなければ運動の場合である。もちろん仕事という概念の発展には長い歴史があり、それは最も単純な場合（てこなど）の研究から始まり、重さだけでなく変位の大きさも過程に影響するという手近な所見から出発している。</p>
+</article>
+<article class="row" id="p9.3">
+  <aside class="mg"><a class="pid" href="#p9.3">9.3</a><span class="pg"><span>S.&nbsp;134</span></span></aside>
+  <p class="de" lang="de">Wer aber das Bewußtsein hat, daß er die genannte Prüfung jederzeit korrekt ausführen kann, wer weiß, daß der Gleichgewichtsfall mit der Summe Null, der dynamische Fall mit einer positiven Summe auf diese Prüfung reagiert, der besitzt den Begriff Arbeit und kann durch denselben den statischen vom dynamischen Fall unterscheiden. So läßt sich jeder physikalische oder chemische Begriff darlegen. Das Objekt entspricht dem Begriff, wenn es auf Ausführung einer Prüfung, die man im Sinne hat, die erwartete Reaktion gibt. Die Prüfung kann je nach den Umständen im bloßen Beschauen oder in einer verwickelten psychischen oder technischen Operation, die hierauf erfolgende Reaktion in einer einfachen Sinnesempfindung oder in einem komplizierten Vorgang bestehen.</p>
+  <p class="jp" lang="ja">しかし、上に述べた吟味をいつでも正しく実行できるという意識をもち、釣り合いの場合はこの吟味に合計ゼロで反応し、動力学的な場合は正の合計で反応することを知っている者は、仕事という概念を所有しており、それによって静力学的な場合を動力学的な場合から区別することができる。どの物理学的あるいは化学的概念も、このように示すことができる。念頭に置いている吟味を実行したときに対象が期待された反応を示すならば、その対象は概念に対応する。吟味は事情に応じて、単に眺めることにも、込み入った心的あるいは技術的操作にもありうるし、そのあとに生じる反応は、単純な感官の感覚にも、複雑な過程にもありうる。</p>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;135</span></span></aside>
+  <p class="de" lang="de">10. Dem Begriff fehlt die unmittelbare Anschaulichkeit aus zwei Gründen. Erstens umfaßt derselbe eine ganze Klasse von Objekten (Tatsachen), deren Individuen nicht auf einmal vorgestellt werden können. Dann sind die gemeinsamen Merkmale der Individuen, um die es sich im Begriff allein handelt, in der Regel solche, zu deren Kenntnis wir im Verlaufe der Zeit nacheinander gelangen und deren anschauliche Vergegenwärtigung ebenfalls beträchtliche Zeit in Anspruch nimmt. Das Gefühl der Geläufigkeit und sicheren Reproduzierbarkeit, der potentiellen Anschaulichkeit muß hier die aktuelle Anschaulichkeit ersetzen.<a class="fr" href="#n11">11</a> Eben diese beiden Umstände machen aber den Begriff wissenschaftlich so wertvoll und geeignet, große Gebiete von Tatsachen in Gedanken zu repräsentieren und symbolisieren. Der Zweck des Begriffes ist es, in der verwirrenden Verwicklung der Tatsachen sich zurecht zu finden.</p>
+  <p class="jp" lang="ja">10. 概念には二つの理由から直接的な直観性が欠けている。第一に、概念は対象（事実）の類全体を包括しており、その個体は一度に表象することができない。次に、概念においてもっぱら問題となる個体の共通の特徴は、通常、われわれが時の経過のなかで次々に知るにいたるようなものであり、その直観的な現前化にもやはりかなりの時間がかかる。ここでは、なじんでいること、確実に再生できること、潜在的な直観性の感情が、現実的な直観性に取って代わらなければならない<a class="fr" href="#n11">11</a>。しかし、まさにこの二つの事情こそが、概念を科学的にきわめて価値あるものとし、事実の広大な領域を思考のうちで代表し象徴するのにふさわしいものとする。概念の目的は、事実の混乱させる錯綜のなかで方向を見いだすことである。</p>
+  <ol class="notes"><li id="n11"><span class="nn">11</span><p class="de" lang="de">Vgl. S. 114 d. vorl. Schr.</p><p class="jp" lang="ja">本書114頁参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;135</span></span></aside>
+  <p class="de" lang="de">11. So wie es biologisch wichtig ist, durch Beobachtung den Zusammenhang von Reaktionen Aussehen einer Frucht und deren Nährwert zu konstatieren, so geht auch jede Naturwissenschaft darauf aus, Beständigkeiten des Zusammenhanges oder der Verbindung der Reaktionen, der Abhängigkeit der Reaktionen voneinander aufzufinden. Eine Klasse von Objekten (ein Tatsachengebiet) A gibt z. B. die Reaktionen a, b, c. Weitere Beobachtung lehrt etwa noch die Reaktionen d, e, f kennen. Wenn es sich nun zeigt, daß a, b, c das Objekt A für sich allein eindeutig charakterisiert, und ebenso d, e, f dasselbe Objekt eindeutig charakterisiert, so ist damit die Verbindung der Reaktion a, b, c mit der Reaktion d, e, f an dem Objekt A festgestellt.</p>
+  <p class="jp" lang="ja">11. 果実の外観とその栄養価という反応の連関を観察によって確認することが生物学的に重要であるのと同じく、どの自然科学もまた、反応の連関あるいは結合の恒常性、反応の相互依存関係を見いだすことを目指している。たとえば対象の類（事実領域）A が反応 a, b, c を示すとしよう。さらなる観察によって、たとえば反応 d, e, f もさらに知られるとする。そこで、a, b, c がそれだけで対象 A を一義的に特徴づけ、同じく d, e, f も同じ対象を一義的に特徴づけることが示されるならば、それによって対象 A における反応 a, b, c と反応 d, e, f との結合が確定されたことになる。</p>
+</article>
+<article class="row" id="p11.2">
+  <aside class="mg"><a class="pid" href="#p11.2">11.2</a><span class="pg"><span>S.&nbsp;135</span><span>S.&nbsp;136</span></span></aside>
+  <p class="de" lang="de">Es verhält sich hier ähnlich wie bei einem Dreieck, das durch die beiden Seiten a, b und den eingeschlossenen Winkel γ, ebensowohl aber durch die dritte Seite c und die beiden Winkel α, β bestimmt sein kann, woraus folgt, daß am Dreieck letztere Trias an erstere gebunden und aus derselben ableitbar ist. Der Zustand einer gegebenen Gasmasse ist durch das Volumen v und den Druck p, aber auch durch das Volumen v und die absolute Temperatur T bestimmt. Demnach besteht zwischen den drei Bestimmungsstücken p, T, v eine Gleichung (pv/T=konst.), <span class="pb" title="Leipzig 1906, S. 136">136</span>welche jede der drei Größen aus den beiden anderen Bestimmungsstücken des Gases abzuleiten erlaubt. Als weitere Beispiele der Abhängigkeit der Reaktionen voneinander mögen die Sätze dienen: „In einem System, das bloße Leitungsvorgänge zuläßt, bleibt die Wärmemenge konstant.“ „In einem mechanischen System ohne Reibung ist die Änderung der lebendigen Kraft in einem Zeitelement durch die in demselben Zeitelement geleistete Arbeit bestimmt.“</p>
+  <p class="jp" lang="ja">ここでの事情は、二辺 a, b とそのあいだの角 γ によっても、第三の辺 c と二つの角 α, β によっても同じく規定されうる三角形の場合に似ている。そこから、三角形において後者の三つ組が前者に結びついており、前者から導き出しうることが帰結する。与えられた気体の質量の状態は、体積 v と圧力 p によっても、また体積 v と絶対温度 T によっても規定される。したがって三つの規定要素 p, T, v のあいだには一つの方程式（pv/T＝一定）が成り立ち、それによって三つの量のどれをも、気体の他の二つの規定要素から導き出すことができる。反応の相互依存のさらなる例として、次の命題が役立つであろう。「単なる伝導過程しか許さない系においては、熱量は一定にとどまる」。「摩擦のない力学系においては、ある時間要素における活力の変化は、同じ時間要素においてなされた仕事によって規定される」。</p>
+</article>
+<article class="row" id="p11.3">
+  <aside class="mg"><a class="pid" href="#p11.3">11.3</a><span class="pg"><span>S.&nbsp;136</span></span></aside>
+  <p class="de" lang="de">„Derselbe Körper, welcher mit Chlor Kochsalz erzeugt, bildet mit Schwefelsäure Glaubersalz.“</p>
+  <p class="jp" lang="ja">「塩素とともに食塩をつくる同じ物体は、硫酸とともにグラウバー塩をつくる」。</p>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;136</span></span></aside>
+  <p class="de" lang="de">12. Die Bedeutung der begrifflichen Fassung für die wissenschaftliche Forschung ergibt sich leicht. Durch Unterordnung einer Tatsache unter einen Begriff vereinfachen wir dieselbe, indem wir alle für den verfolgten Zweck unwesentlichen Merkmale außer acht lassen. Zugleich bereichern wir aber dieselbe durch Zuteilung aller Merkmale der Klasse.<a class="fr" href="#n12">12</a> Die beiden erwähnten ordnenden, vereinfachenden ökonomischen Motive der Permanenz und der zureichenden Differenzierung können erst am begrifflich gegliederten Stoff recht zur Geltung kommen.<a class="fr" href="#n13">13</a></p>
+  <p class="jp" lang="ja">12. 科学的研究にとって概念的把握がもつ意義は容易に明らかになる。事実を概念のもとに包摂することによって、われわれは、追求している目的にとって本質的でないすべての特徴を度外視し、事実を単純化する。しかし同時にわれわれは、類のすべての特徴を割り当てることによって事実を豊かにもする<a class="fr" href="#n12">12</a>。先に述べた、秩序づけ単純化する二つの経済的動機、すなわち恒常性と十分な分化とは、概念的に分節された素材においてはじめて十分に発揮されうるのである<a class="fr" href="#n13">13</a>。</p>
+  <ol class="notes"><li id="n12"><span class="nn">12</span><p class="de" lang="de">Analyse, 4. Aufl. S. 253.</p><p class="jp" lang="ja">『感覚の分析』第4版、253頁。</p></li><li id="n13"><span class="nn">13</span><p class="de" lang="de">A. a. O. S. 248 und S. 112 d. vorliegenden Schrift.</p><p class="jp" lang="ja">前掲書、248頁、および本書112頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;136</span></span></aside>
+  <p class="de" lang="de">13. Wem der Begriff als ein luftiges Idealgebilde erscheint, dem nichts Tatsächliches entspricht, mag folgende Überlegung anstellen. Als selbständige physische „Sachen“ bestehen die abstrakten Begriffe allerdings nicht. Allein wir reagieren tatsächlich auf Objekte derselben Begriffsklasse psycho-physiologisch in gleicher, auf Objekte in verschiedener Klasse in verschiedener Weise, wie dies besonders deutlich wird, wenn es sich um biologisch wichtige Objekte handelt. Die Empfindungselemente, auf welche sich die Begriffsmerkmale in letzter Linie zurückführen lassen, sind physische und psychische Tatsachen. Die Beständigkeit der Verbindung der Reaktionen aber, welche die physikalischen Sätze darlegen, sind die höchste Substanzialität, welche die Forschung bisher enthüllen konnte, beständiger als alles, was man Substanz genannt hat. Der Gehalt der Begriffe an tatsächlichen Elementen darf uns aber doch nicht verführen, diese psychischen Gebilde, welche einer Korrektur immer noch fähig und auch bedürftig sind, mit den darzustellenden Tatsachen selbst zu identifizieren.</p>
+  <p class="jp" lang="ja">13. 概念が、何も事実的なものに対応しない、空気のような観念的形成物に見える人は、次のように考えてみるとよい。抽象概念は、たしかに自立した物理的な「事物」としては存在しない。しかしわれわれは、同じ概念の類に属する対象に対しては心理生理学的に同じ仕方で、異なる類の対象に対しては異なる仕方で実際に反応する。このことは、生物学的に重要な対象が問題となる場合にとりわけはっきりする。概念の特徴が最終的に帰着しうる感覚要素は、物理的および心理的な事実である。そして物理学の命題が述べる反応の結合の恒常性こそ、研究がこれまで明らかにしえた最高の実体性であり、実体と呼ばれてきたあらゆるものより恒常的なのである。しかし概念が事実的な要素を含んでいるからといって、なお修正が可能であり、また修正を必要とするこれらの心的形成物を、表現されるべき事実そのものと同一視するよう惑わされてはならない。</p>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;137</span></span></aside>
+  <p class="de" lang="de">14. Unser Leib, und namentlich unser Bewußtsein, ist ein verhältnismäßig abgeschlossenes, isoliertes System von Tatsachen. Dieses System antwortet auf die Vorgänge in der physikalischen Umgebung nur in einem beschränkteren Spielraum, und nach wenigen Richtungen. Es verhält sich ähnlich wie ein Thermometer, das nur auf Wärmevorgänge, wie ein Galvanometer, das nur auf Stromvorgänge reagiert, kurz ähnlich wie ein nicht sehr vollkommener physikalischer Apparat. Was uns nun auf den ersten Blick als ein Mangel erscheint: die geringe Verschiedenheit der Reaktion auf große und vielseitige Variationen in der physikalischen Umgebung, das ermöglicht die erste rohe begriffliche Klassifikation der Vorgänge in der Umgebung, welche durch fortgesetzte Korrekturen an Feinheit gewinnt. Schließlich lernen wir die Eigentümlichkeiten, die Konstanten und Fehlerquellen des Bewußtseinsapparates ebenso berücksichtigen und eliminieren, wie jene anderer Apparate. Wir sind ebensolche Dinge, wie die Dinge der physikalischen Umgebung, die wir durch uns selbst auch kennen lernen.</p>
+  <p class="jp" lang="ja">14. われわれの身体、とりわけわれわれの意識は、比較的閉じた、孤立した事実の体系である。この体系は物理的環境における出来事に、より限られた幅で、わずかな方向にしか応答しない。それは、熱の過程にだけ反応する温度計や、電流の過程にだけ反応する検流計に、要するにあまり完全でない物理的装置に似たふるまいをする。一見すると欠陥に見えるもの、すなわち物理的環境における大きく多面的な変化に対する反応の違いがわずかであることこそが、環境における出来事の最初の粗い概念的分類を可能にし、それはたえざる修正によって精密さを増していく。最後にわれわれは、意識という装置の特性、定数、誤差の源泉を、他の装置のそれと同じく考慮し、除去することを学ぶ。われわれは物理的環境の物と同じような物であり、それをわれわれは自分自身を通しても知るのである。</p>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;137</span></span></aside>
+  <p class="de" lang="de">15. Die maßgebende Rolle der Abstraktion bei der Forschung liegt auf der Hand. Es ist weder möglich, alle Einzelheiten einer Erscheinung zu beachten, noch hätte dies einen gesunden Sinn. Wir beachten eben die Umstände, die für uns ein Interesse haben und diejenigen, von welchen erstere abhängig zu sein scheinen. Die erste Aufgabe, die sich dem Forscher darbietet, ist es also, durch Vergleichung verschiedener Fälle die voneinander abhängigen Umstände in seinen Gedanken hervorzuheben, und alles, wovon das Untersuchte unabhängig scheint, als für den vorliegenden Zweck nebensächlich oder gleichgültig auszusondern. In der Tat ergeben sich die wichtigsten Entdeckungen durch diesen Prozeß der Abstraktion.</p>
+  <p class="jp" lang="ja">15. 研究において抽象が決定的な役割を果たすことは明らかである。ある現象のすべての細部に注意を払うことは不可能であり、またそれは健全な意味をもたないであろう。われわれはまさに、われわれにとって関心のある事情と、前者がそれに依存しているように見える事情とに注意を払うのである。それゆえ研究者に課される最初の課題は、さまざまな場合を比較することによって、互いに依存し合う事情を思考のうちで際立たせ、研究対象がそれから独立しているように見えるものはすべて、当面の目的にとって副次的あるいはどうでもよいものとして取り除くことである。実際、最も重要な発見はこの抽象の過程によって生じる。</p>
+</article>
+<article class="row" id="p15.2">
+  <aside class="mg"><a class="pid" href="#p15.2">15.2</a><span class="pg"><span>S.&nbsp;137</span><span>S.&nbsp;138</span></span></aside>
+  <p class="de" lang="de">Dies hebt Apelt<a class="fr" href="#n14">14</a> trefflich hervor, indem er sagt: „Das zusammengesetzte Besondere steht immer früher vor unserem Bewußtsein, als das einfachere Allgemeine. In den abgesonderten Besitz des letzteren kommt der Verstand immer erst durch Abstraktion. Die Abstraktion ist daher die Methode der Aufsuchung der Prinzipien.“ Diese Ansicht vertritt Apelt insbesondere in bezug auf das Trägheits<span class="pb" title="Leipzig 1906, S. 138">138</span>gesetz und das Gesetz der Relativität der Bewegung, die wir hier gleich als Beispiele der Entdeckung durch Abstraktion näher betrachten wollen. Zur vollen Erkenntnis des Trägheitsgesetzes ist Galilei sehr spät und durch allerlei Umwege gelangt. Nachdem Apelt<a class="fr" href="#n15">15</a> dies besprochen, sagt er: „Wie und wann aber auch Galilei darauf gekommen sein mag, so ist doch so viel gewiß, daß die Erkenntnis dieses Gesetzes nicht, wie Whewell zu zeigen sich bemüht, der Induktion, sondern der Abstraktion ihren Ursprung verdankt.“</p>
+  <p class="jp" lang="ja">このことをアーペルト<a class="fr" href="#n14">14</a>は的確に強調し、こう言っている。「複合的な特殊なものは、つねに単純な一般的なものより先にわれわれの意識の前に立つ。後者を分離して所有するにいたるのは、悟性にとってつねに抽象によってのみである。それゆえ抽象は原理を探求する方法である」。この見解をアーペルトはとりわけ慣性の法則と運動の相対性の法則に関して主張しているが、われわれもすぐにこれらを抽象による発見の例として詳しく考察しよう。慣性の法則の完全な認識に、ガリレイはきわめて遅く、さまざまな回り道を経て到達した。アーペルト<a class="fr" href="#n15">15</a>はこのことを論じたのち、こう言う。「しかしガリレイがどのように、またいつそれに思い至ったにせよ、この法則の認識が、ヒューウェルが示そうと努めているように帰納にではなく、抽象にその起源を負っていることだけは確かである」。</p>
+  <ol class="notes"><li id="n14"><span class="nn">14</span><p class="de" lang="de">Apelt, Die Theorie der Induktion. Leipzig 1854. S. 59.</p><p class="jp" lang="ja">アーペルト『帰納の理論』ライプツィヒ、1854年、59頁。</p></li><li id="n15"><span class="nn">15</span><p class="de" lang="de">A. a. O. S. 60.</p><p class="jp" lang="ja">前掲書、60頁。</p></li></ol>
+</article>
+<article class="row" id="p15.3">
+  <aside class="mg"><a class="pid" href="#p15.3">15.3</a><span class="pg"><span>S.&nbsp;138</span></span></aside>
+  <p class="de" lang="de">Whewell<a class="fr" href="#n16">16</a> spricht allerdings von der „Induktion, welcher das erste Gesetz der Bewegung seinen Ursprung verdankt“, allein er erwähnt sofort die Kreiselexperimente von Hooke mit successive vermindertem Widerstand, und sagt dann: „Die allgemeine Regel wurde aus dem konkreten Experiment herausgezogen.“ Whewell scheint also trotz des unpassend gewählten Ausdrucks derselben Ansicht zu sein wie Apelt, nur daß er die Wichtigkeit der Bekanntschaft mit verschiedenen Fällen als Vorbedingung zur Betätigung der Abstraktion weit besser hervorhebt als Apelt. Im übrigen nehmen beide a priori gegebene Verstandesbegriffe an, und beide werden dadurch zu sonderbaren, unnötigen, gezwungenen Auffassungen verführt.</p>
+  <p class="jp" lang="ja">たしかにヒューウェル<a class="fr" href="#n16">16</a>は「運動の第一法則がその起源を負っている帰納」について語っているが、彼はすぐに、抵抗をしだいに減らしていったフックの独楽の実験に言及し、そのうえで「一般的規則は具体的な実験から引き出された」と言う。したがってヒューウェルは、不適切に選ばれた表現にもかかわらずアーペルトと同じ見解であるように見える。ただ彼は、抽象をはたらかせる前提条件としてさまざまな場合を知っていることの重要性を、アーペルトよりはるかによく強調している。その他の点では、二人ともア・プリオリに与えられた悟性概念を想定しており、二人ともそれによって奇妙で不必要な無理な把握へと誘われている。</p>
+  <ol class="notes"><li id="n16"><span class="nn">16</span><p class="de" lang="de">Whewell, Geschichte der induktiven Wissenschaften. Deutsch von J. J. v. Littrow. Stuttgart 1840. II. S. 31.</p><p class="jp" lang="ja">ヒューウェル『帰納的諸科学の歴史』J. J. v. リトロウ独訳、シュトゥットガルト、1840年、第2巻、31頁。</p></li></ol>
+</article>
+<article class="row" id="p15.4">
+  <aside class="mg"><a class="pid" href="#p15.4">15.4</a><span class="pg"><span>S.&nbsp;138</span></span></aside>
+  <p class="de" lang="de">Apelt<a class="fr" href="#n17">17</a> scheint das Trägheitsgesetz selbstverständlich (!), es leuchtet von selbst ein, wenn man nur den „richtigen“ Begriff von Materie mitbringt, deren Grundeigenschaft die „Leblosigkeit“ ist, welche Veränderung durch andere als „äußere Einwirkung“ ausschließt. Auch Whewell<a class="fr" href="#n18">18</a> führt das Trägheitsgesetz darauf zurück, daß nichts ohne Ursache (!) geschehen kann. Wäre der Mensch nicht vorzugsweise ein psychologisches, sondern nur ein logisches Wesen, so hätte sich die Abstraktion, welche zum Trägheitsgesetz führt, wie ich anderwärts<a class="fr" href="#n19">19</a> gezeigt habe, in sehr einfacher Weise ergeben. Sind einmal die Kräfte als beschleunigungsbestimmende Umstände erkannt, so folgt sofort, daß ohne Kräfte nur</p>
+  <p class="jp" lang="ja">アーペルト<a class="fr" href="#n17">17</a>には慣性の法則は自明なもの(!)に思われる。物質についての「正しい」概念をたずさえてさえいれば、それはおのずから明らかだというのである。物質の根本性質は「生命のなさ」であり、それは「外からの作用」以外による変化を排除する。ヒューウェル<a class="fr" href="#n18">18</a>もまた、慣性の法則を、何ものも原因なしには(!)起こりえないということに帰着させている。もし人間がとりわけ心理学的な存在ではなく、単に論理的な存在であったならば、慣性の法則へと導く抽象は、私がほかの所で示したように<a class="fr" href="#n19">19</a>、きわめて単純な仕方で生じたであろう。ひとたび力が加速度を規定する事情として認識されれば、力がなければただ</p>
+  <ol class="notes"><li id="n17"><span class="nn">17</span><p class="de" lang="de">Apelt, a. a. O. S. 60, 61.</p><p class="jp" lang="ja">アーペルト前掲書、60、61頁。</p></li><li id="n18"><span class="nn">18</span><p class="de" lang="de">Whewell, The Philosophy of inductive sciences. London 1847. I. S. 216.</p><p class="jp" lang="ja">ヒューウェル『帰納的諸科学の哲学』ロンドン、1847年、第1巻、216頁。</p></li><li id="n19"><span class="nn">19</span><p class="de" lang="de">Die Mechanik in ihrer Entwicklung. 5. Aufl. 1904. S. 140–143.</p><p class="jp" lang="ja">『力学の発展』第5版、1904年、140–143頁。</p></li></ol>
+</article>
+<article class="row" id="p15.5">
+  <aside class="mg"><a class="pid" href="#p15.5">15.5</a><span class="pg"><span>S.&nbsp;139</span></span></aside>
+  <p class="de" lang="de">unbeschleunigte, also geradlinige und gleichförmige Bewegungen denkbar sind. Die Geschichte, und selbst heutige Diskussionen lehren geradezu pleonastisch, daß sich das Denken nicht von selbst in so glatten logischen Bahnen bewegt; gehäufte variierte Fälle, allerlei Schwierigkeiten, bei sich durchkreuzenden und widersprechenden Überlegungen, müssen die Abstraktion beinahe erzwingen. Whewell<a class="fr" href="#n20">20</a> bemerkt richtig, daß ein Bewegungsfall ohne Kräfte in Wirklichkeit nicht vorkommt. Indem also die Wissenschaft abstrahiert, idealisiert sie auch ihre Objekte. Zur Charakteristik von Apelts<a class="fr" href="#n21">21</a> Standpunkt diene noch folgende Stelle: „Niemand ist dem Grundsatze der Relativität aller Bewegung vielleicht näher gekommen als Kepler bei den zahlreichen Umformungen seiner Konstruktionen aus dem einen in das andere Weltsystem, aber das Verdienst, dieses Gesetz zuerst erkannt zu haben, gebührt Galilei.</p>
+  <p class="jp" lang="ja">加速されない、したがって直線的で一様な運動しか考えられないことがただちに帰結する。歴史は、そして今日の議論さえ、思考がひとりでにそのようになめらかな論理の軌道を進むものではないことを、くどいほどに教えている。積み重なった多様な場合、さまざまな困難、交錯し矛盾する考察が、抽象をほとんど強制しなければならないのである。ヒューウェル<a class="fr" href="#n20">20</a>は、力のない運動の場合は現実には生じないと正しく述べている。したがって科学は抽象することによって、その対象を理想化してもいるのである。アーペルト<a class="fr" href="#n21">21</a>の立場を特徴づけるために、さらに次の箇所を挙げておこう。「あらゆる運動の相対性の原則に最も近づいたのは、おそらく、一つの世界体系から他の世界体系へとその構成を何度も変換したケプラーであろう。しかしこの法則を最初に認識した功績はガリレイに帰せられる。</p>
+  <ol class="notes"><li id="n20"><span class="nn">20</span><p class="de" lang="de">Whewell, Geschichte u. s. w. II. S. 31.</p><p class="jp" lang="ja">ヒューウェル『歴史』第2巻、31頁。</p></li><li id="n21"><span class="nn">21</span><p class="de" lang="de">Apelt, a. a. O. S. 61, 62.</p><p class="jp" lang="ja">アーペルト前掲書、61、62頁。</p></li></ol>
+</article>
+<article class="row" id="p15.6">
+  <aside class="mg"><a class="pid" href="#p15.6">15.6</a><span class="pg"><span>S.&nbsp;139</span></span></aside>
+  <p class="de" lang="de">Und wie und wodurch hat er es erkannt? Nicht durch einen Beweis aus Tatsachen, sondern durch bloßes Nachdenken über die Natur der Bewegung (!) und über das Verhältnis unserer Beobachtung der Bewegung zum Raum (!), der selbst zwar ein Gegenstand der reinen Anschauung, aber dennoch kein Gegenstand der Beobachtung für uns ist.“ „Der Grundsatz der Relativität aller Bewegung dagegen kann nur eingesehen, aber nicht bewiesen werden: man ist von seiner Wahrheit unmittelbar überzeugt, sobald man ihn in abstracto gefaßt und verstanden hat, ohne daß er eines anderen Satzes weder zu seinem Verständnis noch zu seiner Begründung bedürfte.“ Deshalb meint Apelt, konnte wohl der abstrahierende Galilei, nicht aber der induzierende Kepler den Grundsatz finden. Ich bin nun der Meinung, daß Galilei den fraglichen Grundsatz allerdings durch Abstraktion erkannt hat, aber durch Vergleichung beobachteter Fälle.</p>
+  <p class="jp" lang="ja">では、彼はどのようにして、何によってそれを認識したのか。事実からの証明によってではなく、運動の本性(!)について、そして空間——それ自身は純粋直観の対象ではあるが、それでもわれわれにとって観察の対象ではない——に対するわれわれの運動の観察の関係(!)について単に熟考することによってである」。「これに対して、あらゆる運動の相対性の原則は洞察されうるだけで、証明されることはできない。それを抽象的に（in abstracto）把握し理解するやいなや、その真理を直接に確信するのであって、それはその理解のためにもその基礎づけのためにも他の命題を必要としない」。それゆえ、とアーペルトは考える、抽象するガリレイはこの原則を見いだすことができたが、帰納するケプラーにはできなかったのだ、と。さて私の考えでは、ガリレイは問題の原則をたしかに抽象によって認識したのであるが、それは観察された場合の比較によってである。</p>
+</article>
+<article class="row" id="p15.7">
+  <aside class="mg"><a class="pid" href="#p15.7">15.7</a><span class="pg"><span>S.&nbsp;139</span><span>S.&nbsp;140</span></span></aside>
+  <p class="de" lang="de">Nachdem er die Bewegung frei fallender Körper durchschaut und analysiert hatte, mußte ihm auffallen, daß die Fallbewegung neben einem ruhenden Turm ebenso vorzugehen scheint, wie die Fallbewegung neben dem Mastbaum eines schnell bewegten Bootes für den Beobachter auf demselben, wodurch sich zunächst die bekannte Auffassung <span class="pb" title="Leipzig 1906, S. 140">140</span>der Wurfbewegung als Kombination einer gleichförmigen Horizontalbewegung mit einer beschleunigten Fallbewegung ergab. Die weiteren Verallgemeinerungen und Anwendungen bereiteten keine Schwierigkeiten mehr. — Apelt<a class="fr" href="#n22">22</a> hat sogar die Neigung, Galileis Entdeckung des Fallgesetzes für eine deduktive zu halten. Aus Galileis Schriften geht aber deutlich hervor, daß er die Form des Fallgesetzes als Hypothese aufgestellt, vermutet, richtig erraten und durch das Experiment bestätigt hat. Eben indem er sich auf die Beobachtung stützt, wird Galilei zum Begründer der modernen Physik.</p>
+  <p class="jp" lang="ja">自由落下する物体の運動を見抜き分析したのち、彼は、静止した塔のそばでの落下運動が、速く動く舟のマストのそばでの落下運動が舟の上の観察者に見えるのと同じように進行するように見えることに気づかずにはいなかった。それによってまず、投射運動を一様な水平運動と加速された落下運動との合成とするよく知られた把握が生じた。さらなる一般化と応用は、もはや何の困難ももたらさなかった。——アーペルト<a class="fr" href="#n22">22</a>はさらに、ガリレイによる落下の法則の発見を演繹的なものとみなす傾向さえもっている。しかしガリレイの著作からは、彼が落下の法則の形を仮説として立て、推測し、正しく言い当て、実験によって確証したことがはっきりと分かる。まさに観察に依拠することによって、ガリレイは近代物理学の創始者となるのである。</p>
+  <ol class="notes"><li id="n22"><span class="nn">22</span><p class="de" lang="de">Apelt, a. a. O. S. 62, 63.</p><p class="jp" lang="ja">アーペルト前掲書、62、63頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s16"><a href="#s16">§ 16</a></h2>
+<article class="row" id="p16.1">
+  <aside class="mg"><a class="pid" href="#p16.1">16.1</a><span class="pg"><span>S.&nbsp;140</span></span></aside>
+  <p class="de" lang="de">16. Newtons in den Prinzipien aufgestellte „leges motus“, auf die wir noch an einem anderen Orte zurückkommen, sind überhaupt vorzügliche Beispiele der Entdeckung durch Abstraktion. Lex I (Trägheitsgesetz) wurde schon berührt. Wenn wir von der Tautologie in Lex II (mutationem motus proportionalem esse vi motrici impressæ) absehen, so steckt hier noch ein nicht ausdrücklich hervorgehobener Inhalt, der gerade die wichtigste durch Abstraktion gewonnene Entdeckung vorstellt. Es ist dies die Voraussetzung, daß alle bewegungsbestimmenden Umstände („Kräfte“) beschleunigungsbestimmend sind. Wie kam man zu dieser Abstraktion, nachdem ein direkter Nachweis durch Galilei nur für die Schwere geliefert war? Woher wußte man, daß dies auch für elektrische und magnetische Kräfte gilt?</p>
+  <p class="jp" lang="ja">16. ニュートンが『原理（プリンキピア）』において立てた「運動の法則（leges motus）」——これについてはまた別の所で立ち返る——は、総じて抽象による発見のすぐれた例である。第一法則（慣性の法則）にはすでに触れた。第二法則（運動の変化は加えられた動力に比例する、mutationem motus proportionalem esse vi motrici impressæ）における同語反復を度外視すると、ここにはなお明示的に強調されていない内容があり、それこそ抽象によって得られた最も重要な発見をなしている。それは、運動を規定するあらゆる事情（「力」）が加速度を規定するものであるという前提である。ガリレイによって直接の証明が重力についてのみ与えられていたのに、どのようにしてこの抽象に至ったのか。電気力や磁気力についてもそれが当てはまることを、どうして知ったのか。</p>
+</article>
+<article class="row" id="p16.2">
+  <aside class="mg"><a class="pid" href="#p16.2">16.2</a><span class="pg"><span>S.&nbsp;140</span><span>S.&nbsp;141</span></span></aside>
+  <p class="de" lang="de">Man mochte wohl denken: Allen Kräften gemeinsam ist der Druck, falls die Bewegung verhindert wird; der Druck wird immer dieselben Folgen haben, woher derselbe auch rühren mag; was für einen Druck gilt, wird auch für den anderen gelten. Diese Doppelvorstellung von der Kraft, als beschleunigungsbestimmend und als Druck, scheint mir auch die psychologische Quelle der Tautologie zu sein in dem Ausdrucke von Lex II. Ich glaube übrigens, daß man solche Abstraktionen nur richtig würdigt, wenn man dieselben als ein intellektuelles Wagnis auffaßt, das durch den Erfolg gerechtfertigt wird. Wer garantiert uns, daß wir bei unseren Abstraktionen die richtigen Umstände beachten, und gerade die gleichgültigen unbeachtet lassen? Der geniale Intellekt unterscheidet sich von dem normalen eben durch die <span class="pb" title="Leipzig 1906, S. 141">141</span>rasche und sichere Voraussicht des Erfolges einer intellektuellen Maßregel. In diesem Zuge gleichen sich große Forscher, Künstler, Erfinder, Organisatoren u. s. w.</p>
+  <p class="jp" lang="ja">おそらくこう考えたのであろう。運動が妨げられた場合の圧力はあらゆる力に共通である。圧力は、それがどこから来ようとつねに同じ結果をもつであろう。ある圧力に当てはまることは、別の圧力にも当てはまるであろう、と。加速度を規定するものとしての、また圧力としての、力についてのこの二重の表象が、第二法則の表現における同語反復の心理学的源泉でもあるように私には思われる。ちなみに私は、このような抽象を、成功によって正当化される知的な冒険とみなすときにはじめて、それを正しく評価することができると考える。われわれの抽象において正しい事情に注意を払い、まさにどうでもよい事情を顧みずにいることを、誰がわれわれに保証してくれるのか。天才的な知性が普通の知性と区別されるのは、まさに知的な処置の成果をすばやく確実に予見することによってである。この特徴において、偉大な研究者、芸術家、発明家、組織者などは互いに似ている。</p>
+</article>
+<article class="row" id="p16.3">
+  <aside class="mg"><a class="pid" href="#p16.3">16.3</a><span class="pg"><span>S.&nbsp;141</span></span></aside>
+  <p class="de" lang="de">Um mit unseren Beispielen nicht bloß auf dem Gebiete der Mechanik zu bleiben, betrachten wir Newtons Entdeckung der Dispersion des Lichtes. Neben der feineren Unterscheidung von Lichtern verschiedener Farbe und ungleicher Brechungsexponenten im weißen Licht, hat Newton das Licht auch zuerst als aus verschiedenen voneinander unabhängigen Strahlungen bestehend erkannt. Der zweite Teil der Entdeckung scheint durch Abstraktion, der erste durch den entgegengesetzten Prozeß gewonnen zu sein; allein beide beruhen auf der Fähigkeit und Freiheit, die Umstände nach Belieben und Zweckmäßigkeit zu beachten oder außer acht zu lassen. Newtons unabhängige Lichtstrahlungen haben eine ähnliche Bedeutung, wie die Unabhängigkeit der Bewegungen voneinander, die Prevotschen unabhängigen Wärmestrahlungen, welche zur Erkenntnis des beweglichen Gleichgewichtes der Wärme führten, und viele andere Auffassungen, welche Volkmann<a class="fr" href="#n23">23</a> als Isolation bezeichnet hat. Solche Auffassungen sind für die Vereinfachung der Wissenschaft sehr wesentlich.</p>
+  <p class="jp" lang="ja">例を力学の領域だけにとどめないために、ニュートンによる光の分散の発見を考察しよう。白色光のなかに、異なる色と等しくない屈折率をもつ光をより細かく区別したことに加えて、ニュートンはまた、光が互いに独立したさまざまな放射からなることを最初に認識した。発見の後半は抽象によって、前半はその反対の過程によって得られたように見える。しかし両者とも、事情を好みと目的にかなうように顧慮したり度外視したりする能力と自由にもとづいている。ニュートンの独立した光の放射は、運動の相互独立性、熱の動的平衡の認識へと導いたプレヴォの独立した熱放射、そしてフォルクマン<a class="fr" href="#n23">23</a>が孤立化（Isolation）と名づけた他の多くの把握と同様の意義をもっている。このような把握は科学の単純化にとってきわめて本質的である。</p>
+  <ol class="notes"><li id="n23"><span class="nn">23</span><p class="de" lang="de">Volkmann, Einführung i. d. Studium d. theoretischen Physik. Leipzig 1900. S. 28.</p><p class="jp" lang="ja">フォルクマン『理論物理学研究入門』ライプツィヒ、1900年、28頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s17"><a href="#s17">§ 17</a></h2>
+<article class="row" id="p17.1">
+  <aside class="mg"><a class="pid" href="#p17.1">17.1</a><span class="pg"><span>S.&nbsp;141</span></span></aside>
+  <p class="de" lang="de">17. Wenn auch Begriffe keine bloßen Worte sind, sondern ihre Wurzeln in den Tatsachen haben, muß man sich doch hüten, Begriffe und Tatsachen für gleichwertig zu halten, dieselben mit einander zu verwechseln. Aus solchen Verwechslungen gehen ebenso schwere Irrtümer hervor, wie aus jenen der anschaulichen Vorstellungen mit Sinnesempfindungen, ja die ersteren sind viel allgemeiner schädlich. Die Vorstellung ist ein Gebilde, an welchem die Bedürfnisse des Einzelmenschen wesentlich mit gebaut haben, während die Begriffe, von den intellektuellen Bedürfnissen der Gesamtmenschheit beeinflußt, das Gepräge der Kultur ihrer Zeit tragen.</p>
+  <p class="jp" lang="ja">17. 概念は単なる語ではなく事実のうちに根をもっているとしても、概念と事実とを同等とみなし、両者を取り違えることには用心しなければならない。そのような取り違えからは、直観的表象を感官の感覚と取り違えることから生じるのと同じく重大な誤りが生じ、それどころか前者はずっと一般的に有害である。表象は個々の人間の欲求が本質的に建造に関与した形成物であるのに対して、概念は人類全体の知的欲求に影響されて、その時代の文化の刻印を帯びている。</p>
+</article>
+<article class="row" id="p17.2">
+  <aside class="mg"><a class="pid" href="#p17.2">17.2</a><span class="pg"><span>S.&nbsp;141</span><span>S.&nbsp;142</span></span></aside>
+  <p class="de" lang="de">Wenn wir Vorstellungen oder Begriffe mit Tatsachen vermengen, so identifizieren wir Ärmeres, bestimmten Zwecken Dienendes, mit Reicherem, ja Unerschöpflichem. Wir lassen wieder die Grenze U außer acht, die wir, falls es <span class="pb" title="Leipzig 1906, S. 142">142</span>sich um Begriffe handelt, als alle beteiligten Menschen umschließend zu denken haben. Die logischen Deduktionen aus unseren Begriffen bleiben aufrecht, solange wir diese Begriffe festhalten; die Begriffe selbst müssen aber stets einer Korrektur durch die Tatsachen gewärtig sein. Endlich darf man nicht annehmen, daß unseren Begriffen absolute Beständigkeiten entsprechen, wo unsere Forschung nur Beständigkeiten der Verbindung der Reaktionen aufzufinden vermag.<a class="fr" href="#n24">24</a></p>
+  <p class="jp" lang="ja">表象や概念を事実と混同するとき、われわれはより貧しく一定の目的に仕えるものを、より豊かな、それどころか汲み尽くしえないものと同一視している。われわれはまたしても境界 U を見落としているのであり、概念が問題になる場合には、この境界は関与するすべての人間を囲むものと考えなければならない。われわれの概念からの論理的演繹は、われわれがその概念を堅持しているかぎり有効である。しかし概念そのものは、つねに事実による修正を覚悟していなければならない。最後に、われわれの研究が反応の結合の恒常性しか見いだしえないところで、われわれの概念に絶対的な恒常性が対応していると想定してはならない<a class="fr" href="#n24">24</a>。</p>
+  <ol class="notes"><li id="n24"><span class="nn">24</span><p class="de" lang="de">Diese Gedanken habe ich in „Erhaltung der Arbeit“ 1872, in „Mechanik“ 1883 und in „Prinzipien d. Wärmelehre“ 1896 in Bezug auf Physik ausführlich dargelegt.</p><p class="jp" lang="ja">これらの思想を、私は『仕事の保存』1872年、『力学』1883年、『熱学の原理』1896年において、物理学に関して詳しく述べた。</p></li></ol>
+</article>
+<h2 class="sec" id="s18"><a href="#s18">§ 18</a></h2>
+<article class="row" id="p18.1">
+  <aside class="mg"><a class="pid" href="#p18.1">18.1</a><span class="pg"><span>S.&nbsp;142</span></span></aside>
+  <p class="de" lang="de">18. J. B. Stallo hat in ausführlicher Darstellung und in anderer Form, unabhängig, im wesentlichen mit dem unmittelbar zuvor Gesagten übereinstimmende Gedanken dargelegt.<a class="fr" href="#n25">25</a> Stallos Ausführungen lassen sich kurz zusammenfassen in folgenden Sätzen: 1. Das Denken beschäftigt sich nicht mit den Dingen, wie sie an sich sind, sondern mit unseren Gedankenvorstellungen (Begriffen) von denselben. 2. Gegenstände sind uns lediglich durch ihre Beziehungen zu anderen Gegenständen bekannt. Die Relativität ist also ein notwendiges Prädikat der Gegenstände der (begrifflichen) Erkenntnis. 3. Ein besonderer Denkakt schließt niemals die Gesamtheit aller erkennbaren Eigenschaften eines Objektes in sich, sondern nur die zu einer besonderen Klasse gehörigen Beziehungen. - Aus der Nichtbeachtung dieser Sätze gehen, wie Stallo weiter ausführt, mehrere sehr verbreitete, natürliche, so zu sagen in unserer geistigen Organisation begründete Irrtümer hervor.</p>
+  <p class="jp" lang="ja">18. J. B. シュタロは、詳細な叙述において、別の形で、独立に、すぐ前に述べたことと本質的に一致する思想を展開した<a class="fr" href="#n25">25</a>。シュタロの論述は次の命題に簡潔にまとめることができる。一、思考は事物そのものを扱うのではなく、それについてのわれわれの思考表象（概念）を扱う。二、対象は、他の対象に対するその関係によってのみわれわれに知られる。したがって相対性は（概念的）認識の対象の必然的な述語である。三、個々の思考作用は、対象のすべての認識可能な性質の総体をけっして含むのではなく、ある特別な類に属する関係だけを含む。——シュタロがさらに詳しく述べるところによれば、これらの命題を顧みないことから、きわめて広まった、自然な、いわばわれわれの精神的組織のうちに基礎をもついくつかの誤りが生じる。</p>
+  <ol class="notes"><li id="n25"><span class="nn">25</span><p class="de" lang="de">J. B. Stallo, The Concepts and Theories of modern Physics. 1882. Deutsch unter dem Titel: Die Begriffe und Theorien der modernen Physik. Herausgegeben von H. Kleinpeter, mit einem Vorwort von E. Mach. Leipzig 1901. Vgl. insbesondere S. 126-212.</p><p class="jp" lang="ja">J. B. シュタロ『近代物理学の概念と理論』1882年。ドイツ語版は『近代物理学の概念と理論』の題で、H. クラインペーター編、E. マッハの序文付き、ライプツィヒ、1901年。とくに126–212頁を参照。</p></li></ol>
+</article>
+<article class="row" id="p18.2">
+  <aside class="mg"><a class="pid" href="#p18.2">18.2</a><span class="pg"><span>S.&nbsp;142</span><span>S.&nbsp;143</span></span></aside>
+  <p class="de" lang="de">Als solche werden aufgezählt: 1. Jeder Begriff ist das Gegenstück einer unterscheidbaren objektiven Realität; es gibt so viele Dinge, als es Begriffe gibt. 2. Die allgemeineren oder umfassenderen Begriffe und die ihnen entsprechenden Realitäten sind früher da, als die weniger allgemeinen; die letzteren Begriffe und Realitäten bilden oder entwickeln sich aus den ersteren durch Hinzufügung von Merkmalen. 3. Die Aufeinanderfolge der Entstehung der Begriffe ist identisch mit der Aufein<span class="pb" title="Leipzig 1906, S. 143">143</span>anderfolge der Entstehung der Dinge. 4. Die Dinge existieren unabhängig von ihren Beziehungen.</p>
+  <p class="jp" lang="ja">そのようなものとして次のものが挙げられる。一、すべての概念は区別可能な客観的実在の対応物である。概念と同じ数だけ物がある。二、より一般的な、あるいはより包括的な概念と、それに対応する実在とは、より一般的でないものより先に存在する。後者の概念と実在は、前者から特徴の付加によって形成ないし発展する。三、概念の成立の順序は、物の成立の順序と同一である。四、物はその関係から独立に存在する。</p>
+</article>
+<article class="row" id="p18.3">
+  <aside class="mg"><a class="pid" href="#p18.3">18.3</a><span class="pg"><span>S.&nbsp;143</span></span></aside>
+  <p class="de" lang="de">In der Entgegensetzung von Materie und Bewegung, Masse und Kraft als besonderer Realitäten sieht Stallo den ersten der bezeichneten Irrtümer, in der Hinzufügung der Bewegung zur trägen Materie den zweiten. Die dynamische Gastheorie wird auf die Theorie der starren Körper gegründet, da wir mit letzteren früher vertraut geworden sind als mit den Gasen. Betrachtet man aber das starre Atom als das ursprünglich Existierende, aus dem alles abzuleiten ist, so unterliegt man der dritten der bezeichneten Täuschungen. Die Eigenschaften der Gase sind in der Tat viel einfacher als jene der Flüssigkeiten und starren Körper, wie schon J. F. Fries<a class="fr" href="#n26">26</a> hervorgehoben hat. Als Beispiele des vierten Fehlers behandelt Stallo die Hypostasierung von Raum und Zeit, wie sie namentlich in Newtons Lehre von dem absoluten Raum und der absoluten Zeit sich offenbart.</p>
+  <p class="jp" lang="ja">物質と運動、質量と力を特別な実在として対置することのうちに、シュタロは上記の誤りの第一を、慣性的な物質に運動を付け加えることのうちに第二を見る。気体の動力学的理論は剛体の理論にもとづけられている。われわれは気体よりも剛体に先になじんだからである。しかし剛体の原子を、すべてがそこから導き出されるべき根源的に存在するものとみなすならば、第三の錯誤に陥ることになる。実際、気体の性質は、すでに J. F. フリース<a class="fr" href="#n26">26</a>が強調したように、液体や固体の性質よりもはるかに単純である。第四の誤りの例として、シュタロは空間と時間の実体化を扱っている。それはとりわけ、絶対空間と絶対時間についてのニュートンの説に現れている。</p>
+  <ol class="notes"><li id="n26"><span class="nn">26</span><p class="de" lang="de">J. F. Fries, Die mathematische Naturphilosophie. Heidelberg 1822. S. 446.</p><p class="jp" lang="ja">J. F. フリース『数学的自然哲学』ハイデルベルク、1822年、446頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s19"><a href="#s19">§ 19</a></h2>
+<article class="row" id="p19.1">
+  <aside class="mg"><a class="pid" href="#p19.1">19.1</a><span class="pg"><span>S.&nbsp;143</span></span></aside>
+  <p class="de" lang="de">19. In dem Vorwort zur deutschen Ausgabe von Stallos Buch habe ich die Übereinstimmungen und auch die Differenzen zwischen seinen und meinen Ansichten bezeichnet. Ich möchte hier nochmals betonen, daß sowohl Stallos als auch meine Ausführungen sich niemals gegen physikalische Arbeitshypothesen, sondern nur gegen erkenntnistheoretische Verkehrtheiten richten. Meine Darlegungen gehen stets von physikalischen Einzelheiten aus und erheben sich von da zu allgemeineren Erwägungen, während Stallo gerade den umgekehrten Weg einschlägt. Er spricht mehr zu den Philosophen, ich zu den Naturforschern.</p>
+  <p class="jp" lang="ja">19. シュタロの本のドイツ語版への序文において、私は彼の見解と私の見解との一致点と相違点を示しておいた。ここでもう一度強調しておきたいのは、シュタロの論述も私の論述も、けっして物理学の作業仮説に向けられたものではなく、ただ認識論上の倒錯に向けられたものだということである。私の叙述はつねに物理学の個別事項から出発し、そこからより一般的な考察へと高まっていくのに対して、シュタロはまさに逆の道をとる。彼はより多く哲学者に向かって語り、私は自然研究者に向かって語っているのである。</p>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§11.3–13.1</td><td lang="de">§12・§13 が §11 の段落内に連結し、S. 136 の脚注（Analyse S. 253 / A. a. O. S. 248 …）が §13 本文末に混入</td><td lang="de">§12・§13 を独立させ、注12・注13 として分離</td></tr>
+  <tr><td>§15.4</td><td lang="de">S. 138 の脚注（A. a. O. S. 60.）が本文に混入; anderwärts)</td><td lang="de">注15 として分離（Apelt¹) への参照）; anderwärts（注19）</td></tr>
+  <tr><td>§11.2</td><td lang="de">absolute Temperatur 7</td><td lang="de">absolute Temperatur T</td></tr>
+  <tr><td>§6.2</td><td lang="de">Wiederspruch</td><td lang="de">Widerspruch</td></tr>
+  <tr><td>§7.3</td><td lang="de">Varation; sinnlichpsychische</td><td lang="de">Variation; sinnlich-psychische</td></tr>
+  <tr><td>§16.3</td><td lang="de">Wissenchaft</td><td lang="de">Wissenschaft</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_07.html">← 第Ⅶ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
