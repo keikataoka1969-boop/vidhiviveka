@@ -29,4 +29,4 @@ Spezialforscher 専門研究者 / Orientierung 方向づけ / Association 連合
 Reflex 反射 / Instinkthandlung 本能行為 / Wille 意志 / Aufmerksamkeit 注意 / Organempfindung 器官感覚
 
 ## 進捗
-第Ⅰ〜Ⅳ章 公開済み。序文（Vorwort）はOCRに含まれていない。
+第Ⅰ〜Ⅶ章 公開済み（以降も同手順で継続）。序文（Vorwort）はOCRに含まれていない。

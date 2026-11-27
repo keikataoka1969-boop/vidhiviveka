@@ -23,7 +23,7 @@ git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit -q -m "$M
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01CRhRi1YqMjsVSu8MvJ585s"
 for i in 1 2 3 4; do git push -q origin HEAD:gh-pages && break; sleep $((2**i)); done
-cd $DEV && rm -rf erkenntnis-src/tools erkenntnis-src/data && mkdir -p erkenntnis-src && cp -r $SRC/tools $SRC/data erkenntnis-src/ && rm -rf erkenntnis-src/tools/__pycache__
+cd $DEV && rm -rf erkenntnis-src/tools erkenntnis-src/data && mkdir -p erkenntnis-src && cp -r $SRC/tools $SRC/data $SRC/README.md erkenntnis-src/ && rm -rf erkenntnis-src/tools/__pycache__
 git add -A erkenntnis-src
 git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit -q -m "$MSG (sources)
 
