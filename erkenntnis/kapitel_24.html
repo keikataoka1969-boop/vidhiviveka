@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第ⅩⅩⅣ章 物理学的に考察した時間と空間</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第ⅩⅩⅣ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a><a href="#s16">§16</a><a href="#s17">§17</a><a href="#s18">§18</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL XXIV · 第ⅩⅩⅣ章</div>
+  <h1>物理学的に考察した時間と空間</h1>
+  <div class="de-title" lang="de">Zeit und Raum physikalisch betrachtet</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 434–448　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;434</span></span></aside>
+  <p class="de" lang="de">1. In physiologischer Beziehung sind Zeit und Raum Systeme von Orientierungsempfindungen, welche nebst den Sinnesempfindungen die Auslösung biologisch zweckmäßiger Anpassungsreaktionen bestimmen. In physikalischer Hinsicht sind Zeit und Raum besondere Abhängigkeiten der physikalischen Elemente voneinander. Dies spricht sich schon darin aus, daß Maßzahlen von Zeit und Raum in allen Gleichungen der Physik vertreten sind, und daß die chronometrischen Begriffe durch Vergleichung der physikalischen Prozesse, die geometrischen Begriffe durch Vergleichung der physikalischen Körper untereinander gewonnen werden. Wir wenden unsere Betrachtung zunächst der physikalischen Zeit zu.</p>
+  <p class="jp" lang="ja">1. 生理学的な関係においては、時間と空間は、感官感覚とともに生物学的に目的にかなった適応反応の解発を規定する方向づけの感覚の体系である。物理学的な観点においては、時間と空間は物理的要素相互の特別な依存関係である。このことは、時間と空間の測定値が物理学のすべての方程式に現れていること、また時間測定の概念が物理的過程の相互比較によって、幾何学的概念が物理的物体の相互比較によって得られることにすでに表れている。まず物理的時間に考察を向けよう。</p>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;434</span></span></aside>
+  <p class="de" lang="de">2. Um die zeitliche Abhängigkeit rein hervortreten zu lassen, fingieren wir das einfache Beispiel eines Vorganges, in dem der Raum sozusagen dadurch eliminiert ist, daß nur Körper in Betracht kommen, welche durchaus in gleichräumlichen Verhältnissen zueinander stehen. Wir denken uns drei gleiche Massen von unendlich großer innerer Wärmeleitungsfähigkeit und gleicher spezifischer Wärme, von welchen jede die beiden andern in einer gleich großen Fläche gleicher äußerer Wärmeleitungsfähigkeit berührt (Fig. 34). Wir schreiben den Massen ungleiche Temperaturen u₁, u₂, u₃ zu und verfolgen die zeitliche Änderung derselben. Unter Festhalten unserer Voraussetzungen bleibt das Mittel, also auch die Summe dieser Temperaturen stets konstant: u₁ + u₂ + u₃ = c.</p>
+  <p class="jp" lang="ja">2. 時間的依存関係を純粋に浮かび上がらせるために、空間がいわば、まったく等しい空間的関係にある物体だけが考慮されることによって除去されている過程の、単純な例を仮構してみよう。無限に大きな内部熱伝導率と等しい比熱をもつ三つの等しい質量を考え、そのどれもが他の二つと、等しい外部熱伝導率をもつ等しい大きさの面で接しているとする（図34）。質量に等しくない温度 u₁、u₂、u₃ を与え、その時間的変化を追う。われわれの前提を保つかぎり、平均、したがってこれらの温度の和もつねに一定のままである。u₁＋u₂＋u₃＝c。</p>
+</article>
+<figure class="fig"><span lang="de">Fig. 34 (S. 434)</span><em>図版は原書を参照</em></figure>
+<article class="row" id="p2.2">
+  <aside class="mg"><a class="pid" href="#p2.2">2.2</a><span class="pg"><span>S.&nbsp;434</span><span>S.&nbsp;435</span></span></aside>
+  <p class="de" lang="de">Für die Änderung von u₁ mit der Zeit t erhält man nach dem Newtonschen Wärmemitteilungsgesetz die Gleichung: <span class="pb" title="Leipzig 1906, S. 435">435</span>du₁/dt = k(c − 3u₁), und durch Vertauschung von u₁ mit u₂ und u₃ ergeben sich noch zwei ganz konforme Gleichungen. Die erste gibt integriert (c − 3u₁) = K · e^(−3kt), und wenn man die Integrationskonstante K durch den Anfangswert U₁ von u₁ bestimmt, und beiderseits durch 3 dividiert: (c/3 − u₁) = (c/3 − U₁) e^(−3kt). Jede der Temperaturen u₁, u₂, u₃ strebt also dem Mittel c/3 zu, welches sie nach unendlich langer Zeit erreicht. Bezeichnen wir die variable Abweichung vom Mittel für den ersten Körper mit v₁, den Anfangswert derselben mit V₁, so schreibt sich die Gleichung, der sich zwei konforme anschließen: v₁ = V₁ e^(−3kt) … 1). Zieht man aus dieser ersten Gleichung e^(−3kt), und setzt es in die beiden anderen konformen ein, so nehmen diese die Gestalt an: v₂ = V₂v₁/V₁, v₃ = V₃v₁/V₁. Beide lassen sich in die dreigliederige Gleichung zusammenfassen: v₁/V₁ = v₂/V₂ = v₃/V₃ … 2).</p>
+  <p class="jp" lang="ja">時間 t による u₁ の変化については、ニュートンの熱伝達の法則に従って方程式 du₁/dt＝k(c−3u₁) が得られ、u₁ を u₂ と u₃ に入れ替えることによって、なお二つのまったく同形の方程式が生じる。第一の方程式を積分すると (c−3u₁)＝K·e^(−3kt) となり、積分定数 K を u₁ の初期値 U₁ によって定め、両辺を 3 で割ると (c/3−u₁)＝(c/3−U₁)e^(−3kt) となる。それゆえ温度 u₁、u₂、u₃ のどれも平均 c/3 へと向かい、無限に長い時間ののちにそれに達する。第一の物体について平均からの変化するずれを v₁、その初期値を V₁ で表すと、方程式は v₁＝V₁e^(−3kt) ……1) と書け、それに二つの同形の方程式が続く。この第一の方程式から e^(−3kt) を取り出し、他の二つの同形の方程式に代入すると、それらは v₂＝V₂v₁/V₁、v₃＝V₃v₁/V₁ の形をとる。両者は三項からなる方程式 v₁/V₁＝v₂/V₂＝v₃/V₃ ……2) にまとめることができる。</p>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;435</span></span></aside>
+  <p class="de" lang="de">3. Betrachten wir zuerst die Gleichung 1), so sehen wir, daß nach dem üblichen Zeitmaß, wonach t dem Drehungswinkel der Erde gegen den Fixsternhimmel proportional ist, die Abweichung vom Temperaturmittel nach dem Gesetz einer geometrischen Progression mit t abnimmt. Drücken wir umgekehrt t durch V₁ und v₁ aus, so ergibt sich t = (1/3k) log (V₁/v₁). Da es nun gänzlich Sache einer zweckmäßigen Übereinkunft ist, welchen Prozeß wir als Vergleichsprozeß der Zeitmessung oder Zeitzählung zu Grunde legen, so könnten wir auch log (V₁/v₁) oder geradezu V₁/v₁ anstatt t als Zeitmaß wählen. Wir würden nur im ersten Fall eine andere Zeiteinheit, im zweiten Fall eine andere (übrigens ebenfalls unendliche) Zeitskale und auch einen andern Anfangspunkt der Zählung erhalten.</p>
+  <p class="jp" lang="ja">3. まず方程式 1) を考察すると、t が恒星天に対する地球の回転角に比例するという通常の時間の尺度によれば、温度の平均からのずれは t とともに等比数列の法則に従って減少することが分かる。逆に t を V₁ と v₁ で表すと、t＝(1/3k)log(V₁/v₁) が得られる。さて、どの過程を時間の測定あるいは時間の計数の比較過程として根底に置くかはまったく目的にかなった取り決めの事柄であるから、われわれは t のかわりに log(V₁/v₁) を、あるいはまさに V₁/v₁ を時間の尺度として選ぶこともできるであろう。そうすれば、第一の場合には別の時間単位を、第二の場合には別の（ちなみにやはり無限の）時間目盛りと別の計数の始点をも得るだけであろう。</p>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;435</span><span>S.&nbsp;436</span></span></aside>
+  <p class="de" lang="de">4. Folgen wir dem letzteren Gedanken und messen wir die Temperaturänderungen aneinander, so sehen wir an dem in Gleichung 2) dargestellten Fall schon das Typische der zeitlichen Abhängigkeit. Die Differenzen können sich nur verkleinern und nicht vergrößern; der zeitliche Ablauf ist einsinnig. Die Abweichungen vom Temperaturmittel erfahren simultane, voneinander abhängige, und zwar bei unmittelbarer Wechselbeziehung der Körper einander proportionale Änderungen. Diese Charakter<span class="pb" title="Leipzig 1906, S. 436">436</span>züge der zeitlichen Abhängigkeit sind ganz wohl verständlich. Jeden Vorgang, soll die Forschung demselben überhaupt beikommen können, müssen wir uns doch durch irgend welche Unterschiede bestimmt denken. Wo uns keine Unterschiede zugänglich sind, wissen wir auch keine Bestimmung zu finden.</p>
+  <p class="jp" lang="ja">4. 後者の考えに従い、温度の変化を互いに測るならば、方程式 2) に表された場合にすでに時間的依存関係の典型的なものが見える。差は小さくなりうるだけで、大きくはなりえない。時間的経過は一方向的である。温度の平均からのずれは、同時的な、互いに依存する、しかも物体が直接に相互関係にある場合には互いに比例する変化を受ける。時間的依存関係のこれらの特徴はよく理解できる。どの過程も、そもそも研究がそれに近づきうるためには、何らかの差によって規定されていると考えなければならない。われわれに差が近づきえないところでは、規定を見いだすすべも知らない。</p>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;436</span></span></aside>
+  <p class="de" lang="de">Denken wir uns aber für einen Augenblick, die Unterschiede würden sich vergrößern, so erkennen wir die Unvereinbarkeit dieser Vorstellung mit den gewöhnlichsten Zügen unseres Weltbildes, das nirgends Veränderungen ins Ziellose zeigt, sondern überall ein Streben nach einem bestimmten Zustand verrät. Zwar kommt es vor, daß gewisse Differenzen sich vergrößern, wenn dafür gewisse andere gewichtigere sich verkleinern, allein eine unkompensierte spontane Vergrößerung einer Differenz kommt nicht vor. Es gibt auch Vorgänge, bei welchen eine Differenz sich ebensowohl vergrößern als verkleinern kann, welche scheinbar in entgegengesetztem Sinne ablaufen können, und zuweilen wirklich in solcher Weise periodisch abzulaufen scheinen. Allein in solchen Fällen handelt es sich nie um unkompensierte Differenzen.</p>
+  <p class="jp" lang="ja">しかし一瞬、差が大きくなっていくと考えてみれば、この表象が、どこにも目標のない変化を示さず、いたるところに一定の状態への傾向をうかがわせるわれわれの世界像の最もありふれた特徴と両立しないことが分かる。たしかに、ある差が大きくなることはあるが、それはそのかわりに他のより重みのある差が小さくなる場合である。補償されない自発的な差の増大は起こらない。差が小さくなることも大きくなることもでき、見かけ上反対の向きに経過しうる過程、そしてときには実際にそのように周期的に経過するように見える過程もある。しかしそのような場合には、補償されない差が問題になることはけっしてない。</p>
+</article>
+<article class="row" id="p4.3">
+  <aside class="mg"><a class="pid" href="#p4.3">4.3</a><span class="pg"><span>S.&nbsp;436</span></span></aside>
+  <p class="de" lang="de">Solche Vorgänge sind auch genau und nicht bloß schematisch betrachtet, wie alle Arten von Schwingungen, nicht rein periodische, sondern enthalten stets nicht umkehrbare Komponenten. Der zweite Charakterzug der zeitlichen Abhängigkeit, die Abmeßbarkeit simultaner Änderungen aneinander, ist im Falle der unmittelbaren Beziehung der Körper zueinander leicht begreiflich. Die Bestimmung der Änderungen durch die Differenzen der Körper ist gegenseitig, da kein Körper vor dem andern einen Vorzug hat, da, wie in unserem Beispiel, der eine Körper empfängt, was der andere verliert. In Fällen vermittelter Abhängigkeit werden wir keine so einfache Abmeßbarkeit der simultanen Änderungen aneinander zu erwarten haben, wie in unserem Beispiel, doch wird auch da jede Änderung jeder andern parallel gehen, wenn die Natur nur homogen ist und nicht unerwartete Störungen in den normalen Verlauf eingreifen.</p>
+  <p class="jp" lang="ja">そのような過程も、図式的にではなく正確に考察すれば、あらゆる種類の振動と同じく、純粋に周期的なものではなく、つねに不可逆的な成分を含んでいる。時間的依存関係の第二の特徴、すなわち同時的変化を互いに測りうることは、物体が直接に関係し合う場合には容易に理解できる。物体の差による変化の規定は相互的である。どの物体も他より優位をもたず、われわれの例のように、一方の物体は他方が失うものを受け取るからである。媒介された依存関係の場合には、われわれの例におけるほど単純に同時的変化を互いに測ることは期待できないであろうが、そこでも、自然が一様でありさえし、思いがけない攪乱が正常な経過に介入しないかぎり、どの変化も他のどの変化とも並行して進むであろう。</p>
+</article>
+<article class="row" id="p4.4">
+  <aside class="mg"><a class="pid" href="#p4.4">4.4</a><span class="pg"><span>S.&nbsp;436</span><span>S.&nbsp;437</span></span></aside>
+  <p class="de" lang="de">Betrachten wir z. B. den Umlauf eines Jupitertrabanten und verwenden wir denselben als Uhr. Obgleich schwerlich jemand daran denken wird, daß diese Bewegung auf irdische Vorgänge irgend einen merklichen Einfluß nimmt, wird sich doch ein Abkühlungsvorgang auf der Erde gleich gut durch die Formel K · e^(−kt), natürlich mit <span class="pb" title="Leipzig 1906, S. 437">437</span>verschiedenem Koeffizienten, darstellen lassen, ob wir das t der Trabantenbewegung oder der Erdbewegung entnehmen. Nur wenn während unserer Beobachtung der Trabant durch den Stoß eines Meteoriten seine Geschwindigkeit ändern würde, würde die Formel aufhören zu gelten, und die nicht unmittelbare Abhängigkeit des Wärmevorganges von der Trabantenbewegung würde offenbar.<a class="fr" href="#n1">1</a></p>
+  <p class="jp" lang="ja">たとえば木星の衛星の公転を考察し、それを時計として用いてみよう。この運動が地上の過程に何か目立った影響を及ぼすと考える人はまずいないであろうが、それでも地上の冷却過程は、t を衛星の運動からとっても地球の運動からとっても、式 K·e^(−kt) によって、もちろん異なる係数をもって、同じようによく表されるであろう。われわれの観察のあいだに衛星が隕石の衝突によってその速度を変えたときにだけ、式は成り立たなくなり、熱過程が衛星の運動に直接には依存していないことが明らかになるであろう<a class="fr" href="#n1">1</a>。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Vgl. Analyse d. Empf. 4. Aufl. S. 272. Ich kann nicht unterlassen zu bemerken, daß ich in diesen Gedanken durch die Einwendungen von Petzoldt (Das Gesetz der eindeutigen Bestimmtheit. Vierteljahrsschr. f. wiss. Philosophie XIX, S. 146 fg.) wesentlich gefördert worden bin.</p><p class="jp" lang="ja">『感覚の分析』第4版、272頁を参照。私はこれらの考えにおいて、ペッツォルト（「一義的決定性の法則」『科学的哲学季刊誌』第19巻、146頁以下）の異論によって本質的に促進されたことを述べずにはいられない。</p></li></ol>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;437</span></span></aside>
+  <p class="de" lang="de">5. Nun wollen wir unser obiges Beispiel so modifizieren, daß der Einfluß verschiedener räumlicher Beziehung in einfachster Weise neben der zeitlichen Abhängigkeit zum Ausdruck kommt. Vier gleiche Massen, von denen je zwei sich unmittelbar berühren, sollen sich zu einem Ring schließen (Fig. 35). Hier gibt es nur zwei verschiedene räumliche Beziehungen: jene der sich berührenden, und jene der sich nicht berührenden, sich gegenüber liegenden Massen. Im übrigen bleiben wir bei den Voraussetzungen des vorigen Falles. Wieder besteht die Gleichung u₁ + u₂ + u₃ + u₄ = c. Für die Änderung von u₁ finden wir du₁/dt = k(c − u₃ − 3u₁). Durch zyklische Vertauschung der u folgen noch drei konforme Gleichungen. Die Zusammenfassung der Gleichungen für u₁ und u₃ gibt d(u₁ + u₃)/dt = k[2c − 4(u₁ + u₃)]. Deren Integrale ist: 2c − 4(u₁ + u₃) = [2c − 4(U₁ + U₃)] e^(−4kt) … a).</p>
+  <p class="jp" lang="ja">5. さて、さまざまな空間的関係の影響が、時間的依存関係と並んで最も単純な仕方で表現されるように、上の例を変更してみよう。そのうち二つずつが直接に接する四つの等しい質量が、閉じて一つの環をなすとする（図35）。ここには二つの異なる空間的関係しかない。すなわち接し合う質量の関係と、接していない、向かい合う質量の関係である。ほかの点では前の場合の前提にとどまる。再び方程式 u₁＋u₂＋u₃＋u₄＝c が成り立つ。u₁ の変化については du₁/dt＝k(c−u₃−3u₁) が得られる。u の巡回的な入れ替えによって、なお三つの同形の方程式が続く。u₁ と u₃ の方程式をまとめると d(u₁＋u₃)/dt＝k[2c−4(u₁＋u₃)] となる。その積分は 2c−4(u₁＋u₃)＝[2c−4(U₁＋U₃)]e^(−4kt) ……a) である。</p>
+</article>
+<figure class="fig"><span lang="de">Fig. 35 (S. 437)</span><em>図版は原書を参照</em></figure>
+<article class="row" id="p5.2">
+  <aside class="mg"><a class="pid" href="#p5.2">5.2</a><span class="pg"><span>S.&nbsp;437</span><span>S.&nbsp;438</span></span></aside>
+  <p class="de" lang="de">Die Buchstaben sind in demselben Sinn zu verstehen, wie in dem vorigen Beispiel. Wir bilden nun die Gleichungen für d(u₁ + u₂)/dt und für d(u₂ + u₃)/dt, ziehen die erste von der zweiten ab und integrieren. Das Integrale ist: 2(u₃ − u₁) = 2(U₃ − U₁) e^(−2kt) … b). Addieren wir zu Gl. a) die mit 2 multiplizierte Gl. b), so ergibt sich für u₁ ein Ausdruck, der sich ohne Mühe auf folgende Form bringen läßt: u₁ = ¼ [c + (U₁ + U₃ − U₂ − U₄) e^(−4kt) + 2(U₁ − U₃) e^(−2kt)]. <span class="pb" title="Leipzig 1906, S. 438">438</span>Für t = ∞ wird u₁ = c/4, für t = 0 erhält man natürlich u₁ = U₁. Während des Temperaturausgleichs nehmen aber die Temperaturen der gegeneinander räumlich ungleich liegenden Körper auch ungleichen Einfluß auf u₁. Durch zyklische Vertauschung ergeben sich auch die Ausdrücke für u₂, u₃, u₄.</p>
+  <p class="jp" lang="ja">文字は前の例と同じ意味に理解すべきである。さて d(u₁＋u₂)/dt と d(u₂＋u₃)/dt の方程式をつくり、前者を後者から引いて積分する。その積分は 2(u₃−u₁)＝2(U₃−U₁)e^(−2kt) ……b) である。式 a) に 2 を掛けた式 b) を加えると、u₁ について、苦もなく次の形にもたらせる式が得られる。u₁＝¼[c＋(U₁＋U₃−U₂−U₄)e^(−4kt)＋2(U₁−U₃)e^(−2kt)]。t＝∞ では u₁＝c/4、t＝0 では当然 u₁＝U₁ が得られる。しかし温度の均衡化のあいだ、互いに空間的に異なる位置にある物体の温度は、u₁ に対して異なる影響も及ぼす。巡回的な入れ替えによって、u₂、u₃、u₄ の式も得られる。</p>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;438</span></span></aside>
+  <p class="de" lang="de">6. Kehren wir nun zu unserem ersten Beispiel zurück, um an dasselbe noch einige Bemerkungen anzuschließen. Anstatt der gleichräumlichen Beziehung dreier Massen hätten wir noch eine solche von vier Massen herstellen können, wenn wir jede mit jeder in den 6 durch den Schwerpunkt und je eine Kante des Tetraeders gelegten Ebenen zur Berührung gebracht, und die so entstandenen Teile des Tetraeders mit diesen Massen ausgefüllt hätten. Eine analoge Teilung des Hexaeders wäre aber für unsern Zweck nicht mehr verwendbar gewesen. Jede Masse würde da vier andere berühren, zu einer fünften aber nur in mittelbarer Beziehung stehen, was schon dem Schema des zweiten Beispiels entsprechen würde. Die physikalische Fiktion einer beliebigen Zahl von in gleicher Wärmeleitungsbeziehung stehenden Massen können wir übrigens immer festhalten, indem wir uns von jeder Masse zu jeder einen Draht von absoluter innerer Leitungsfähigkeit geführt, die Massen aber sonst isoliert denken.</p>
+  <p class="jp" lang="ja">6. さて第一の例に戻って、それについてなおいくつかの所見を付け加えよう。三つの質量の等しい空間的関係のかわりに、四つの質量のそのような関係をつくり出すこともできたであろう。すなわち重心と四面体の各稜を通る六つの平面において、どの質量もどの質量とも接するようにし、こうして生じた四面体の部分をこれらの質量で満たせばよい。しかし六面体の類比的な分割は、われわれの目的にはもはや使えなかったであろう。そこではどの質量も四つの他の質量に接するが、五番目の質量とは媒介された関係にしか立たず、それはすでに第二の例の図式に対応するであろう。ちなみに、等しい熱伝導関係にある任意の数の質量という物理的仮構は、どの質量からもどの質量へも絶対的な内部伝導率をもつ針金が引かれ、質量はほかの点では絶縁されていると考えれば、つねに保つことができる。</p>
+</article>
+<article class="row" id="p6.2">
+  <aside class="mg"><a class="pid" href="#p6.2">6.2</a><span class="pg"><span>S.&nbsp;438</span></span></aside>
+  <p class="de" lang="de">Die Zahl der in gleicher unmittelbarer Beziehung stehenden Massen ändert das Ergebnis unserer Betrachtung nicht. Ein Körper allein kann ja an sich keine Veränderung bestimmen. Zwei Körper genügen aber schon zur Bestimmung einer Veränderung aneinander. Das Bedürfnis nach eindeutiger Bestimmung treibt uns, zunächst auf Erfahrungen zu achten, welche über den zweifachen möglichen (denkbaren) Sinn der Veränderung entscheiden. Ist dies geschehen und ist für die Differenzverkleinerung entschieden, so suchen wir noch den Anteil zu ermitteln, den jeder der Körper an dem Ausgleich nimmt. Die simultanen Temperaturänderungen sind z. B. verkehrt proportional den Wärmekapazitäten, so daß beide Körper zugleich beim zusammengesetzten Temperaturmittel anlangen. In anderen Fällen finden wir analoge Regeln. Wir können sagen, daß es die einfachsten unmittelbaren physikalischen Beziehungen sind, die sich in der zeitlichen Abhängigkeit aussprechen.</p>
+  <p class="jp" lang="ja">等しい直接の関係にある質量の数は、われわれの考察の結果を変えない。一つの物体だけでは、それ自体で何の変化も規定できない。しかし二つの物体があれば、すでに変化を互いに規定するのに十分である。一義的な規定への欲求は、まず変化の二通りの可能な（考えうる）向きについて決定する経験に注意するようわれわれを駆り立てる。それがなされ、差の縮小に決まれば、さらにどの物体が均衡化にどれだけの割合を占めるかを求めようとする。同時的な温度変化は、たとえば熱容量に反比例し、そのため両物体は同時に合成された温度の平均に到達する。ほかの場合にも類比的な規則が見いだされる。時間的依存関係に表れているのは最も単純な直接の物理的関係である、と言うことができる。</p>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;439</span></span></aside>
+  <p class="de" lang="de">7. Betrachten wir jetzt näher den Einfluß der räumlichen Anordnung in unserem zweiten Beispiel. Die regelmäßige Anordnung der vier Massen in einem Ring entspricht einem einfachsten endlichen unbegrenzten linearen Riemannschen Raum aus vier diskreten Elementen. Die Ringform hat uns den Vorteil geboten, größere Übersichtlichkeit durch Anwendung der zyklischen Vertauschung zu erreichen. Wir hätten statt vier Massen, ohne wesentliche Änderung des Ergebnisses, deren hundert oder gar, wie Fourier, einen homogenen Ring mit kontinuierlicher anfänglicher Verteilung der Temperatur betrachten können. Einen zweidimensionalen Riemannschen Raum erhalten wir durch Ausfüllung einer dünnen Kugelschale mit den in dieser angeordneten Massen von beliebiger Zahl. Durch die Fiktion passender leitender Verbindungen könnten wir noch andere räumliche Anordnungen in Bezug auf ihre physikalischen Folgen nachahmen. Das Ergebnis unserer Betrachtung bleibt immer dasselbe. Der Einfluß der vermittelten physikalischen Beziehungen äußert sich später, und wird durch die unmittelbaren oder durch eine geringere Zahl von Zwischengliedern vermittelten Beziehungen verdeckt, verwischt. In den räumlichen Verhältnissen äußert sich die vermittelte physikalische Abhängigkeit.</p>
+  <p class="jp" lang="ja">7. さて第二の例における空間的配置の影響をより詳しく考察しよう。四つの質量を一つの環に規則正しく配置することは、四つの離散的な要素からなる、最も単純な有限で無際限な線形のリーマン空間に対応する。環の形は、巡回的な入れ替えを用いることによってより大きな見通しやすさを得るという利点をわれわれに与えた。四つの質量のかわりに、結果を本質的に変えずに、百個の質量を、あるいはフーリエのように、初期の温度分布が連続的な一様な環を考察することもできたであろう。二次元のリーマン空間は、薄い球殻を、そこに配置された任意の数の質量で満たすことによって得られる。適当な伝導的結合を仮構することによって、さらに他の空間的配置をその物理的帰結に関して模倣することもできよう。われわれの考察の結果はつねに同じままである。媒介された物理的関係の影響はより遅れて現れ、直接の関係や、より少数の中間項によって媒介された関係によって覆われ、ぼかされる。空間的関係のうちに、媒介された物理的依存関係が表れているのである。</p>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;439</span></span></aside>
+  <p class="de" lang="de">8. Wie stimmt nun dieses Ergebnis, welches die Raumfrage nicht löst, aber vielleicht doch einen kleinen Schritt zur Aufklärung derselben bedeutet, zu den gangbaren Ansichten vom Raume? Wenn man eine Vorstellung davon gewinnen will, unter welchen Schwierigkeiten die Abstraktion „Raum“ sich gebildet hat, so geschieht dies wohl am besten durch das Studium des vierten Buches der Physik des Aristoteles.<a class="fr" href="#n2">2</a> Die Fragen, ob der Raum (Ort) ist oder nicht, wie er ist, und was er ist, machen ihm viel zu schaffen. Er kann den Raum nicht als einen Körper ansehen, denn dann wäre ein Körper im andern. Er vermag aber den Raum auch nicht von der Körperlichkeit zu trennen, denn der Ort eines Körpers ist ihm das, was letzteren umgibt, einschließt. Daß wir nach dem Raume nicht fragen würden, wenn keine Bewegung wäre, hebt Aristoteles hervor.</p>
+  <p class="jp" lang="ja">8. さて、空間の問いを解きはしないが、それでもおそらくその解明への小さな一歩を意味するこの結果は、空間についての通常の見解とどのように合うであろうか。「空間」という抽象がどのような困難のもとで形成されたかについて表象を得ようとするならば、アリストテレスの『自然学』第4巻を研究するのがおそらく最もよい<a class="fr" href="#n2">2</a>。空間（場所）があるのかないのか、それはどのようにあるのか、それは何であるのかという問いは、彼を大いに悩ませる。彼は空間を物体とみなすことはできない。そうすれば物体が他の物体のなかにあることになるからである。しかし彼は空間を物体性から切り離すこともできない。彼にとって物体の場所とは、それを取り囲み、包むものだからである。運動がなければわれわれは空間について問わないであろうということを、アリストテレスは強調している。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">Insbesondere Kap. 1-9.</p><p class="jp" lang="ja">とりわけ第1–9章。</p></li></ol>
+</article>
+<article class="row" id="p8.2">
+  <aside class="mg"><a class="pid" href="#p8.2">8.2</a><span class="pg"><span>S.&nbsp;439</span><span>S.&nbsp;440</span></span></aside>
+  <p class="de" lang="de">Alle Schwierigkeiten der Raumauffassung finden sich natürlich <span class="pb" title="Leipzig 1906, S. 440">440</span>in seinen Erklärungen der Bewegung wieder.<a class="fr" href="#n3">3</a> Die Verquickung der Raumvorstellung mit der Körpervorstellung legt natürlich die Undenkbarkeit des Vakuums nahe, die von Aristoteles und vielen andern antiken Denkern vertreten wird.<a class="fr" href="#n4">4</a> Die ein Vakuum annahmen, wie Leukipp, Demokrit, Epikur u. a., hatten also eine der unsrigen näher liegende Raumvorstellung. Der Raum war ihnen eine Art Gefäß, welches erfüllt sein kann, und auch nicht. In der Tat muß die Geometrie, welche von allen körperlichen Eigenschaften außer der starren Begrenzung absieht, dahin leiten. Unterstützt wird diese Entwicklung durch die naive sinnliche Beobachtung der Bewegung der Körper in einem durchsichtigen dünnen Medium, wie die Luft, das wohl gelegentlich auch als nichts, als eine Leere aufgefaßt wird. Eine Stelle bei Guericke legt dies noch nahe.<a class="fr" href="#n5">5</a></p>
+  <p class="jp" lang="ja">空間把握のあらゆる困難は、もちろん彼の運動の説明のうちにも再び現れる<a class="fr" href="#n3">3</a>。空間の表象と物体の表象との混合は、当然ながら真空の考えられなさを示唆し、それはアリストテレスや他の多くの古代の思想家によって主張されている<a class="fr" href="#n4">4</a>。レウキッポス、デモクリトス、エピクロスらのように真空を想定した人々は、それゆえわれわれのものにより近い空間表象をもっていた。空間は彼らにとって、満たされていることもいないこともありうる一種の容器であった。実際、硬い境界以外のすべての物体的性質を度外視する幾何学は、そこへ導かずにはいない。この発展を支えるのは、空気のような透明で希薄な媒質のなかでの物体の運動の素朴な感性的観察であり、その媒質はおそらくときには無として、空虚として把握されたのである。ゲーリケのある箇所もなおこのことを示唆している<a class="fr" href="#n5">5</a>。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">Vgl. Lange, Die geschichtliche Entwicklung des Bewegungsbegriffes. Leipzig 1886.</p><p class="jp" lang="ja">ランゲ『運動概念の歴史的発展』ライプツィヒ、1886年を参照。</p></li><li id="n4"><span class="nn">4</span><p class="de" lang="de">Physik. IV, Kap. 6-9.</p><p class="jp" lang="ja">『自然学』第4巻、第6–9章。</p></li><li id="n5"><span class="nn">5</span><p class="de" lang="de">Guericke, Experimenta Magdeburgica. 1672. III, C. 4, p. 59. Dum distantiam seu intercapedinem duarum turrium seu montium aspicimus, facile cogitandum, illam, corpus illud aereum interpositum, non facere, sed per se esse; ita ut sublato etiam omni aere, montes vel turres hae sibi invicem non fierent contiguae.</p><p class="jp" lang="ja">ゲーリケ『マクデブルクの実験』1672年、第3巻、第4章、59頁。「二つの塔あるいは山のあいだの距離あるいは隔たりを眺めるとき、それをなすのはあいだに置かれた空気の物体ではなく、それはそれ自体で存在するのだと考えるのは容易である。それゆえ空気がすべて取り除かれても、山あるいは塔は互いに接することにはならないであろう」。</p></li></ol>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;440</span><span>S.&nbsp;441</span></span></aside>
+  <p class="de" lang="de">9. Die Unvorstellbarkeit des Vakuums pflanzt sich bis in die moderne Zeit fort. Descartes<a class="fr" href="#n6">6</a> ist noch so von derselben durchdrungen, daß er annimmt, die Wände eines Gefäßes, welches man vollständig entleeren könnte, müßten sich sofort berühren. Wir wissen, welche Arbeit Guericke,<a class="fr" href="#n7">7</a> Boyle<a class="fr" href="#n8">8</a> und Pascal<a class="fr" href="#n9">9</a> hatten, den Zeitgenossen die Existenz des verpönten Vakuums in überzeugender Art nachzuweisen. Allerdings war dies kein Vakuum im Sinne der heutigen Physik. Nachdem Guericke (L. II C. 2 und 3) die antiken und modernen Ansichten über Ort, Zeit, <span class="pb" title="Leipzig 1906, S. 441">441</span>Vakuum besprochen hat, sagt er: „Verum enim vero vacuum in natura dari, lib. seq. pluribus demonstrabimus experimentis.“ In L. III C. 35 und 36 widerlegt Guericke ausführlich die Einwendungen gegen die Existenz des Vakuums und die Bedenken gegen seine Experimente. Er war durch philosophische Studien auf diese Versuche verfallen. Oft hatte sich ihm bei Betrachtung der gewaltigen Himmelsräume die Frage aufgedrängt, ob diese nicht etwa das stets geleugnete Vakuum seien?<a class="fr" href="#n10">10</a></p>
+  <p class="jp" lang="ja">9. 真空の表象できなさは、近代にまで受け継がれる。デカルト<a class="fr" href="#n6">6</a>はなおそれにすっかり浸っていて、完全に空にすることのできる容器の壁はただちに接するはずだと想定している。ゲーリケ<a class="fr" href="#n7">7</a>、ボイル<a class="fr" href="#n8">8</a>、パスカル<a class="fr" href="#n9">9</a>が、忌み嫌われた真空の存在を同時代人に説得的な仕方で証明するのにどれほど骨を折ったかを、われわれは知っている。もっともそれは今日の物理学の意味での真空ではなかった。ゲーリケは（第2巻第2、3章で）場所、時間、真空についての古代と近代の見解を論じたのち、こう言う。「しかしまことに自然のうちに真空が存在することを、次の巻で多くの実験によって証明しよう」。第3巻第35、36章でゲーリケは、真空の存在に対する異論と彼の実験に対する疑念を詳しく反駁している。彼は哲学的研究によってこれらの実験に思い至ったのである。巨大な天空を眺めるとき、それがあのつねに否定されてきた真空ではないのかという問いが、しばしば彼に迫ってきたのであった<a class="fr" href="#n10">10</a>。</p>
+  <ol class="notes"><li id="n6"><span class="nn">6</span><p class="de" lang="de">Descartes, Principia II, 18. Si quaeratur, quid fiet, si Deus auferat omne corpus quod in aliquo vase continetur, et nullum aliud in ablati locum venire permittat? Respondendum est: Vasis latera sibi invicem hoc ipso fore contigua. Wie mußte die gelehrte Welt staunen, als das kaum einem Gott zugetraute Experiment von einem einfachen geschickten Bürgermeister mit ganz entgegengesetztem Erfolg ausgeführt wurde.</p><p class="jp" lang="ja">デカルト『哲学原理』第2部、18。「神が容器に含まれているすべての物体を取り去り、取り去られたものの場所に他のどんな物体も入るのを許さないとしたら何が起こるかと問われるならば、答えなければならない。容器の壁はまさにそれによって互いに接するであろう、と」。神にさえまず期待されなかった実験が、一人の単純な器用な市長によって、まったく反対の結果をもって行われたとき、学者の世界はどれほど驚かずにはいなかったことか。</p></li><li id="n7"><span class="nn">7</span><p class="de" lang="de">Guericke 1. c.</p><p class="jp" lang="ja">ゲーリケ、前掲書。</p></li><li id="n8"><span class="nn">8</span><p class="de" lang="de">Boyle, New experiments, physico-mechanical. Oxford 1660.</p><p class="jp" lang="ja">ボイル『物理学的・機械学的新実験』オックスフォード、1660年。</p></li><li id="n9"><span class="nn">9</span><p class="de" lang="de">Pascal, Nouv. expériences touchant le vuide. Paris 1647.</p><p class="jp" lang="ja">パスカル『真空に関する新実験』パリ、1647年。</p></li><li id="n10"><span class="nn">10</span><p class="de" lang="de">L. c. L. I, Cap. I, p. 55. Unter den verschiedenen Vermutungen über die Erfüllung des Weltraums kommt Guericke zu der Frage: Vel spatium ab omni materia, vacuum scilicet illud semper negatum?</p><p class="jp" lang="ja">前掲書、第1巻、第1章、55頁。宇宙空間の充満についてのさまざまな推測のなかで、ゲーリケは次の問いに達する。「あるいは空間はあらゆる物質から空虚な、すなわちあのつねに否定されてきた真空なのか」。</p></li></ol>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;441</span></span></aside>
+  <p class="de" lang="de">10. Der Nachweis des Vakuums hat, wie kaum bezweifelt werden kann, sehr viel zur Verselbständigung der Raumvorstellung beigetragen. Hierzu kamen aber noch andere wichtige Umstände. Galilei hatte durch Beobachtung irdischer Bewegungen seine dynamischen Gesetze gefunden. Als Hauptvertreter des Kopernikanischen Systems hatte er vielfach Gelegenheit, die gegen dieses System vorgebrachten Einwendungen unter den Gesichtspunkten seiner Dynamik zu erörtern. Hierbei ergab sich nun, wie von selbst und unvermerkt, der Versuch, diese Dynamik, anstatt auf die Erde, auf den als festliegend gedachten Fixsternhimmel zu beziehen. So fand er z. B. seine Theorie der Gezeiten<a class="fr" href="#n11">11</a> als vermeintliche Stütze des Kopernikanischen Systems, die er nur für richtig hielt, weil ihm noch die Möglichkeit fehlte, deren Mängel zu erkennen.</p>
+  <p class="jp" lang="ja">10. 真空の証明は、ほとんど疑いえないことに、空間表象の独立化に大いに寄与した。しかしそれにさらに他の重要な事情が加わった。ガリレイは地上の運動の観察によって彼の動力学の法則を見いだした。コペルニクス体系の主要な代表者として、彼はこの体系に対して持ち出された異論を彼の動力学の観点のもとに論じる機会を何度ももった。その際、おのずから気づかれずに、この動力学を地球にではなく、固定していると考えられた恒星天に関係づける試みが生じた。たとえば彼は、コペルニクス体系の見かけ上の支えとして潮汐の理論<a class="fr" href="#n11">11</a>を見いだしたが、それを正しいと考えたのは、ただその欠陥を認識する可能性がまだ欠けていたからにすぎない。</p>
+  <ol class="notes"><li id="n11"><span class="nn">11</span><p class="de" lang="de">Auch auf diese Theorie kommt Galilei in dem Dialog über die beiden Weltsysteme. Ein kurzes Referat hierüber in meiner Mechanik. 5. Aufl. S. 227-229.</p><p class="jp" lang="ja">ガリレイは二つの世界体系についての対話においてもこの理論に触れている。これについての短い紹介は私の『力学』第5版、227–229頁にある。</p></li></ol>
+</article>
+<article class="row" id="p10.2">
+  <aside class="mg"><a class="pid" href="#p10.2">10.2</a><span class="pg"><span>S.&nbsp;441</span><span>S.&nbsp;442</span></span></aside>
+  <p class="de" lang="de">Newtons Ausbau der Mechanik des Himmels auf Galileischen und Huygensschen Grundlagen machten das neue Bezugsystem, welches sich auch bewährte, geradezu unentbehrlich. Als fruchtbare Grundlage der Himmelsmechanik erschaute Newton die Annahme der von der Entfernung abhängigen Gravitationskräfte. Wenn nun auch Newton sich diesen Raum lieber erfüllt gedacht und die Kräfte durch Vermittelung begriffen hätte, so mußte er doch schließlich vorläufig bei einer Ansicht stehen bleiben, welche den Raum als solchen zur Geltung brachte und die bis über die Mitte des 19. Jahrhunderts in der Physik die fast allein herrschende <span class="pb" title="Leipzig 1906, S. 442">442</span>blieb.</p>
+  <p class="jp" lang="ja">ガリレイとホイヘンスの基礎の上にニュートンが天体力学を築いたことが、新しい、また実証もされた関係系をまさに不可欠のものとした。天体力学の実り豊かな基礎として、ニュートンは距離に依存する重力という想定を看取した。ニュートンはこの空間を満たされたものと考え、力を媒介によって理解したかったであろうが、それでも結局さしあたり、空間をそれとして通用させる見解にとどまらなければならず、その見解は十九世紀の半ばを過ぎるまで、物理学においてほとんど唯一支配的なものであり続けた。</p>
+</article>
+<article class="row" id="p10.3">
+  <aside class="mg"><a class="pid" href="#p10.3">10.3</a><span class="pg"><span>S.&nbsp;442</span></span></aside>
+  <p class="de" lang="de">Wenn man nun bedenkt, daß für die Gravitationsmechanik Newtons auch der Fixsternhimmel nicht mehr als absolut unveränderliches, unbewegliches, starres System gelten konnte, so erscheint sein gewagter Versuch einigermaßen begreiflich, die ganze Dynamik auf einen absoluten Raum und entsprechend auch auf eine absolute Zeit zu beziehen.<a class="fr" href="#n12">12</a> In der Praxis änderte ja diese uns sinnlos erscheinende Annahme nicht die Bezugnahme auf den Fixsternhimmel als Raum- und Zeitkoordinaten; sie blieb deshalb unschädlich und entging lange einer ernsten Kritik. Man kann wohl sagen, daß hauptsächlich seit den Newtonschen Aufstellungen Zeit und Raum jene selbständigen und doch körperlosen Wesen sind, für die sie heute gelten.</p>
+  <p class="jp" lang="ja">さて、ニュートンの重力力学にとっては、恒星天もまた絶対に不変な、不動の、剛な体系とはもはやみなしえなかったことを考えるならば、動力学全体を絶対空間に、またそれに対応して絶対時間に関係づけようとする彼の大胆な試みも、いくぶん理解できるものとなる<a class="fr" href="#n12">12</a>。実際には、われわれには無意味に見えるこの想定も、空間と時間の座標としての恒星天への関係づけを変えはしなかった。それゆえそれは無害なままであり、長いあいだ真剣な批判を免れた。主としてニュートンの立論以来、時間と空間は、今日それとみなされているような、独立でありながら物体をもたない存在となったと言ってよいであろう。</p>
+  <ol class="notes"><li id="n12"><span class="nn">12</span><p class="de" lang="de">Vgl. die ausführliche Darlegung der Stellung der Zeitgenossen zu Newtons Auffassung bei Lange (Die geschichtliche Entwicklung des Bewegungsbegriffes. 1886).</p><p class="jp" lang="ja">ニュートンの把握に対する同時代人の態度の詳しい叙述は、ランゲ（『運動概念の歴史的発展』1886年）を参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;442</span></span></aside>
+  <p class="de" lang="de">11. Newtons Gedanke der Fernkräfte war eine große intellektuelle Tat, welche den Ausbau einer homogenen mathematischen Physik in der Zeit eines Jahrhunderts ermöglichte.<a class="fr" href="#n13">13</a> Diese Tat beruht auf geistiger Weitsichtigkeit. Er sah die tatsächlichen Fernbeschleunigungen, erkannte sie als wichtig; die Vermittelungen zeigten sich ihm verschwommen und er beachtete sie vorläufig nicht. Allein auch die kleinsten Einzelheiten wollen erforscht sein, und hierzu ist scharfsichtige Kurzsichtigkeit förderlicher. Der Blick ins Große und Weite muß mit jenem aufs Nahe, Kleine und Einzelne wechseln, soll unausgesetzter Fortschritt zu stande kommen. Die größten Forscher, unter ihnen vor allem Newton, hatten beide Betrachtungsweisen in ihrer Gewalt. Den von Newton zurückgelassenen Fragen der Nahewirkung, der vermittelten Fernwirkung, hat nun im abgelaufenen Jahrhundert Faraday mit größtem Erfolge sich zugewandt. Seine Gedanken wurden aber den in der Fernwirkungsphysik befangenen Forschern erst verständlich, als Maxwell dieselben in die ihnen geläufige Sprache übersetzte.</p>
+  <p class="jp" lang="ja">11. ニュートンの遠隔力の思想は偉大な知的行為であり、それは一世紀のあいだに同質的な数理物理学の構築を可能にした<a class="fr" href="#n13">13</a>。この行為は精神の遠視にもとづいている。彼は事実上の遠隔加速度を見て、それを重要なものと認識した。媒介は彼にはぼやけて見え、彼はさしあたりそれに注意を払わなかった。しかし最も小さな細部もまた究められることを欲しており、そのためには鋭い近視のほうが役に立つ。大きく遠いものへの眼差しは、近く小さく個別的なものへの眼差しと交替しなければならない。たえざる進歩が成り立つべきならば。最大の研究者たち、とりわけニュートンは、両方の見方を自在に使った。ニュートンが残した近接作用、媒介された遠隔作用の問いに、前世紀にファラデーが大きな成功をもって取り組んだ。しかし彼の思想は、遠隔作用の物理学にとらわれた研究者たちには、マクスウェルがそれを彼らになじみの言葉に翻訳してはじめて理解できるものとなった。</p>
+  <ol class="notes"><li id="n13"><span class="nn">13</span><p class="de" lang="de">Im Kapitel über die Hypothese ist auf den großen Nachteil hingewiesen, der sich ergeben hätte, wenn Newton die Fernwirkung fallen gelassen hätte, weil er sie nicht zu erklären vermochte. (S. 248, 249.)</p><p class="jp" lang="ja">仮説についての章で、ニュートンが遠隔作用を説明できなかったからといってそれを捨てていたならば生じたであろう大きな不利益が指摘されている（248、249頁）。</p></li></ol>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;442</span><span>S.&nbsp;443</span></span></aside>
+  <p class="de" lang="de">12. Der naiven Beobachtung fällt zunächst der enge und starke Zusammenhang der sinnlichen Elemente einer Zeit- und <span class="pb" title="Leipzig 1906, S. 443">443</span>Raumstelle auf, mag man nun Zeit und Raum im physiologischen oder physikalischen Sinne verstehen. Wir nennen diesen Zusammenhang Körper. Soweit wir in der Beobachtung eine Zeit- und Raumstelle in kleinere Teile teilen können, finden wir in diesen kleineren Zeit- und Raumteilen den Zusammenhang der sinnlichen Elemente noch inniger. Die Teile des Körpers sind wieder Körper. Veränderungen treten in der Regel nicht am ganzen Körper zugleich auf, sondern ein Teil nach dem andern wird von denselben ergriffen, z. B. ein Teil nach dem andern wird gelöst, erwärmt u. s. w. Die Veränderung überträgt sich von einem Teil auf den nächstliegenden.</p>
+  <p class="jp" lang="ja">12. 素朴な観察にまず目につくのは、時間と空間の一つの位置の感性的要素の緊密で強い連関である。時間と空間を生理学的な意味で理解するにせよ、物理学的な意味で理解するにせよ、そうである。この連関をわれわれは物体と呼ぶ。観察において時間と空間の位置をより小さな部分に分けることができるかぎり、そのより小さな時間と空間の部分のうちに、感性的要素の連関はいっそう緊密に見いだされる。物体の部分はまた物体である。変化は通常、物体全体に同時に現れるのではなく、ある部分から次の部分へとそれに捉えられていく。たとえばある部分から次の部分へと溶かされ、熱せられる、等々。変化はある部分から最も近くにある部分へと移っていく。</p>
+</article>
+<article class="row" id="p12.2">
+  <aside class="mg"><a class="pid" href="#p12.2">12.2</a><span class="pg"><span>S.&nbsp;443</span></span></aside>
+  <p class="de" lang="de">Was ist natürlicher, als daß wir auch in Fällen der Ausnahme diese nur für scheinbar halten, daß wir plötzliche Veränderungen eines ganzen Körpers (z. B. die Elektrisierung), Einflüsse in die Ferne (Beleuchtung, Gravitationsbeschleunigung) auf eine allmähliche Änderung, Übertragung der Änderung von Teil zu Teil zurückzuführen hoffen. Dieser naiven Auffassung, welche auch der antiken Zeit nahe liegt, hat nun Faraday durch seine großen Erfolge wieder Geltung verschafft. Auf dem Faradayschen Standpunkt wird uns der Satz leicht verständlich: Zeitliche Abhängigkeit ist unmittelbare, räumliche Abhängigkeit ist vermittelte Abhängigkeit.</p>
+  <p class="jp" lang="ja">例外の場合にも、それを見かけだけのものとみなし、物体全体の突然の変化（たとえば帯電）や遠方への影響（照明、重力加速度）を、徐々の変化、部分から部分への変化の伝達に帰着させることを望むのは、きわめて自然なことではないか。古代にも手近であったこの素朴な把握に、ファラデーはその大きな成功によって再び通用力を与えた。ファラデーの立場に立てば、次の命題は容易に理解できる。時間的依存関係は直接の依存関係であり、空間的依存関係は媒介された依存関係である。</p>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;443</span></span></aside>
+  <p class="de" lang="de">13. Auf diesem Standpunkt eröffnet sich nun die Aussicht, zu einem physikalischen Verständnis von Zeit und Raum zu gelangen, dieselben aus den elementarsten physikalischen Tatsachen zu begreifen. Für Newton sind Zeit und Raum etwas Hyperphysikalisches; sie sind nicht unmittelbar zugängliche, wenigstens nicht genau bestimmbare, unabhängige Urvariable, nach welchen sich die ganze Welt richtet, welche durch dieselben regiert wird. So wie der Raum die Bewegung der fernsten Planeten um die Sonne regelt, so hält auch die Zeit die fernsten himmlischen Bewegungen und die unbedeutendsten irdischen Vorgänge in Übereinstimmung. Durch diese Auffassung wird die Welt zu einem Organismus oder, wenn man diesen Ausdruck vorzieht, zu einer Maschine, von der alle Teile in voller Übereinstimmung nach der Bewegung eines Teiles sich richten, gewissermaßen durch einen einheitlichen Willen geleitet werden, nur daß uns das Ziel dieser Bewegung unbekannt bleibt.<a class="fr" href="#n14">14</a></p>
+  <p class="jp" lang="ja">13. この立場に立つと、時間と空間を物理学的に理解し、それらを最も要素的な物理的事実から把握する見通しが開ける。ニュートンにとって時間と空間は何か超物理的なものである。それは直接には近づきえない、少なくとも正確には決定できない、独立した根源変数であり、世界全体がそれに従い、それによって支配されている。空間が最も遠い惑星の太陽のまわりの運動を規制するように、時間もまた最も遠い天体の運動と最もささいな地上の過程とを一致させている。この把握によって世界は一つの有機体、あるいはこの表現を好むなら一つの機械となり、そのすべての部分は一つの部分の運動に従って完全な一致のうちに動き、いわば一つの統一的な意志によって導かれる。ただその運動の目標がわれわれに知られないままであるだけである<a class="fr" href="#n14">14</a>。</p>
+  <ol class="notes"><li id="n14"><span class="nn">14</span><p class="de" lang="de">Vgl. Erhaltung der Arbeit. Prag 1872. S. 35-37.</p><p class="jp" lang="ja">『仕事の保存』プラハ、1872年、35–37頁を参照。</p></li></ol>
+</article>
+<article class="row" id="p13.2">
+  <aside class="mg"><a class="pid" href="#p13.2">13.2</a><span class="pg"><span>S.&nbsp;443</span><span>S.&nbsp;444</span></span></aside>
+  <p class="de" lang="de">Diese Ansicht liegt auch <span class="pb" title="Leipzig 1906, S. 444">444</span>als Nachwirkung Newtons der heutigen Physik zu Grunde, wenn vielleicht auch eine Abneigung besteht, dieselbe offen einzugestehen. Dem Faradayschen Standpunkte entsprechend wird sich dieselbe aber modifizieren müssen. Die Welt bleibt auch ein Ganzes, wenn nur kein Element isoliert ist, wenn alle Teile auch nicht unmittelbar, so doch durch Vermittelung anderer zusammenhängen. Das übereinstimmende Verhalten nicht unmittelbar zusammenhängender Glieder (die Einheit von Zeit und Raum) ergibt sich dann nur scheinbar durch Nichtbeachtung der vermittelnden Glieder. Das Ziel der Weltbewegung bleibt uns nur darum unbekannt, weil der Ausschnitt, den wir betrachten können, seine engen Grenzen hat, über die hinaus unsere Forschung nicht reicht. Diese Ansicht ist weniger poetisch, weniger großartig, dafür aber naiver und nüchterner.</p>
+  <p class="jp" lang="ja">この見解は、それを公然と認めることへのためらいがおそらくあるにしても、ニュートンの余波として今日の物理学の根底にもある。しかしファラデーの立場に対応して、それは変更されなければならないであろう。どの要素も孤立しておらず、すべての部分が直接にではなくとも他の部分の媒介によって連関しているならば、世界はやはり一つの全体であり続ける。直接には連関していない項の一致したふるまい（時間と空間の統一性）は、そうなると媒介する項を顧慮しないことによって見かけ上生じるにすぎない。世界の運動の目標がわれわれに知られないままであるのは、われわれが考察しうる切片に狭い限界があり、われわれの研究がそれを越えては及ばないからにすぎない。この見解は詩的でなく、壮大でもないが、そのかわりより素朴で、より冷静である。</p>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;444</span></span></aside>
+  <p class="de" lang="de">14. Die physikalische Auffassung des Raumes wird begünstigt durch die Fortschritte in der Erkenntnis des „Vakuums“. Für Guericke hatte das Vakuum eigentlich nur negative Eigenschaften. Schon die Luft weist dem naiven Beobachter zunächst nur negative Eigenschaften auf. Dieselbe ist nicht sichtbar. Sie wird erst tastbar durch ausgiebige Bewegung, verrät dann auch ihren Wärmegrad. Durch Einschließen in einen Schlauch oder in ein Gefäß erfahren wir deren Undurchdringlichkeit und Gewicht. Später kommt noch die Sichtbarkeit hinzu, bis endlich alle Charaktere eines Körpers nachgewiesen sind. Ähnlich geht es mit dem Vakuum. Es hat erst keine physikalischen Eigenschaften. Boyle zeigt, daß ein Brennglas und der Magnet hindurchwirkt.</p>
+  <p class="jp" lang="ja">14. 空間の物理学的把握は、「真空」の認識の進歩によって促進される。ゲーリケにとって真空は本来否定的な性質しかもっていなかった。すでに空気が、素朴な観察者にはまず否定的な性質しか示さない。それは見えない。十分に動かすことによってはじめて触れることができ、そのときその温度をも示す。管や容器に閉じこめることによって、その不可入性と重さを知る。のちに可視性も加わり、ついに物体のすべての特徴が証明される。真空についても同様である。それははじめ物理的性質を何ももたない。ボイルは、凸レンズと磁石がそれを通して作用することを示す。</p>
+</article>
+<article class="row" id="p14.2">
+  <aside class="mg"><a class="pid" href="#p14.2">14.2</a><span class="pg"><span>S.&nbsp;444</span><span>S.&nbsp;445</span></span></aside>
+  <p class="de" lang="de">Nach Young und Fresnel muß man sich im vom Licht durchsetzten Vakuum in sehr kleinen Abständen gleichzeitig dieselben physikalischen Zustände denken, und sich vorstellen, daß diese Zustände mit sehr großer Geschwindigkeit in der Lichtrichtung sich verschieben. Durch die Arbeiten von Faraday, Maxwell, Hertz u. a. hat sich die Existenz elektrischer und magnetischer Kräfte im Vakuum ergeben, welche derart zusammenhängen, daß jede Änderung der einen das Auftreten der anderen an derselben Stelle bedingt. Man kann von diesen Kräften im allgemeinen unmittelbar nichts wahrnehmen, ausgenommen im Falle einer sehr raschen periodischen Veränderung, in welchem sie sich als Licht äußern. Auf einem physikalischen <span class="pb" title="Leipzig 1906, S. 445">445</span>Umweg sind diese Kräfte aber leicht nachweisbar und deren gänzliches Fehlen bildet einen sehr seltenen Ausnahmefall. Das Vakuum ist also keineswegs Nichts, sondern hat sehr wichtige physikalische Eigenschaften.</p>
+  <p class="jp" lang="ja">ヤングとフレネルによれば、光に貫かれた真空においては、きわめて小さな間隔で同時に同じ物理的状態があると考え、これらの状態がきわめて大きな速さで光の方向に移っていくと表象しなければならない。ファラデー、マクスウェル、ヘルツらの仕事によって、真空中の電気力と磁気力の存在が明らかになり、それらは一方のどの変化も同じ場所に他方の出現を条件づけるように連関している。これらの力については、一般には直接に何も知覚できない。ただきわめて速い周期的変化の場合は例外で、そのときそれは光として現れる。しかし物理的な回り道をすれば、これらの力は容易に証明でき、それがまったく欠けていることはきわめてまれな例外の場合である。それゆえ真空はけっして無ではなく、きわめて重要な物理的性質をもっているのである。</p>
+</article>
+<article class="row" id="p14.3">
+  <aside class="mg"><a class="pid" href="#p14.3">14.3</a><span class="pg"><span>S.&nbsp;445</span></span></aside>
+  <p class="de" lang="de">Ob man das Vakuum als Körper (Äther) bezeichnen will, ist ohne Belang, daß aber wechselnde, voneinander abhängige Eigenschaften demselben anhaften, wie den Körpern, kann man nicht in Abrede stellen.<a class="fr" href="#n15">15</a></p>
+  <p class="jp" lang="ja">真空を物体（エーテル）と呼ぶかどうかは重要ではない。しかし物体と同じく、変化する、互いに依存する性質がそれに付着していることは否定できない<a class="fr" href="#n15">15</a>。</p>
+  <ol class="notes"><li id="n15"><span class="nn">15</span><p class="de" lang="de">Spontan treten die erwähnten Kräfte im unterschiedlosen Vakuum ebensowenig auf wie an einem anderen Körper, an welchem letzteren sie eben durch einen zweiten Körper oder durch Differenzen der Teile des Körpers gegeneinander bedingt sein müssen.</p><p class="jp" lang="ja">述べた力は、区別のない真空のなかで自発的に現れることはない。それは他の物体においてと同様である。後者においては、それはまさに第二の物体によって、あるいは物体の部分相互の差によって条件づけられていなければならない。</p></li></ol>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;445</span></span></aside>
+  <p class="de" lang="de">15. Lobatschefskij<a class="fr" href="#n16">16</a> bemerkt als Naturforscher der Geometrie, daß man bei jeder Messung Körper anwendet, demnach bei Aufstellung der geometrischen Begriffe auch vom Körper ausgehen müsse. „Die Berührung bildet das unterscheidende Merkmal der Körper, und ihr verdanken sie den Namen: geometrische Körper, sobald wir an ihnen diese Eigenschaft festhalten, während wir alle anderen, mögen sie nun wesentlich sein oder zufällig, nicht in Betracht ziehen.“<a class="fr" href="#n17">17</a> Obwohl diese Stelle an Präzision des Ausdrucks zu wünschen übrig läßt, kann man doch annehmen, daß hier auf die Undurchdringlichkeit und Starrheit der Körper hingewiesen wird, die sich bei Berührung derselben äußert und auf der alle Messung beruht.</p>
+  <p class="jp" lang="ja">15. ロバチェフスキー<a class="fr" href="#n16">16</a>は幾何学の自然研究者として、どの測定にも物体が用いられるのだから、幾何学的概念を立てるにあたっても物体から出発しなければならないと述べている。「接触が物体の区別する徴表をなし、われわれがこの性質を保持し、他のすべての性質を、それが本質的であれ偶然的であれ考慮しないとき、物体はこの接触のおかげで幾何学的物体という名をもつ」<a class="fr" href="#n17">17</a>。この箇所は表現の精確さにおいて不十分なところがあるが、ここでは、物体が接触するときに現れ、すべての測定がそれにもとづいている、物体の不可入性と剛性が指摘されていると想定してよいであろう。</p>
+  <ol class="notes"><li id="n16"><span class="nn">16</span><p class="de" lang="de">F. Engel, N. I. Lobatschefskij. Zwei geometrische Abhandlungen. Leipzig, Teubner, 1899. S. 80, 81. - Lobatschefskij denkt hier wie Leibniz.</p><p class="jp" lang="ja">F. エンゲル『N. I. ロバチェフスキー、二つの幾何学論文』ライプツィヒ、トイプナー、1899年、80、81頁。——ロバチェフスキーはここでライプニッツと同様に考えている。</p></li><li id="n17"><span class="nn">17</span><p class="de" lang="de">A. a. O. S. 83.</p><p class="jp" lang="ja">前掲書、83頁。</p></li></ol>
+</article>
+<article class="row" id="p15.2">
+  <aside class="mg"><a class="pid" href="#p15.2">15.2</a><span class="pg"><span>S.&nbsp;445</span></span></aside>
+  <p class="de" lang="de">Nun stehen aber die Dinge nicht mehr ganz so wie zu Beginn des 19. Jahrhunderts. Wir brauchen zwar noch immer starre Körper zur Konstruktion unserer Apparate, sind aber im stande, mit Hilfe der Lichtinterferenz im scheinbar unterschiedslosen Vakuum Punkte und Strecken viel genauer zu markieren und in Lichtwellenlängen auszumessen, als dies durch aneinanderstoßende, sich berührende, starre Körper möglich wäre. Es ist sogar wahrscheinlich, daß die Lichtwelle im Vakuum der künftigen Physik durch die Länge das Raummaß, durch die Schwingungsdauer das Zeitmaß liefern wird und daß diese beiden Grundmaße an Zweckmäßigkeit und allgemeiner Vergleichbarkeit alle anderen übertreffen werden.</p>
+  <p class="jp" lang="ja">しかし事情はもはや十九世紀の初めとまったく同じではない。われわれは装置を組み立てるためにいまなお剛体を必要とするが、光の干渉の助けを借りて、見かけ上区別のない真空のなかで、点と長さを、接し合う剛体によって可能であろうよりもはるかに正確に標示し、光の波長で測ることができる。それどころか、将来の物理学においては、真空中の光の波が、その長さによって空間の尺度を、その振動周期によって時間の尺度を与え、この二つの基本尺度が目的にかなっていることと一般的な比較可能性においてほかのすべての尺度にまさるであろうことは、ありそうなことである。</p>
+</article>
+<article class="row" id="p15.3">
+  <aside class="mg"><a class="pid" href="#p15.3">15.3</a><span class="pg"><span>S.&nbsp;446</span></span></aside>
+  <p class="de" lang="de">Durch die bezeichneten Wandlungen verlieren aber Zeit und Raum immer mehr ihren hyperphysikalischen Charakter.<a class="fr" href="#n18">18</a></p>
+  <p class="jp" lang="ja">しかし述べた変化によって、時間と空間はますますその超物理的な性格を失っていく<a class="fr" href="#n18">18</a>。</p>
+  <ol class="notes"><li id="n18"><span class="nn">18</span><p class="de" lang="de">Durch die Betrachtungen dieses Kapitels wird es klar, daß Raum und Zeit in der Untersuchung nicht gut getrennt werden können. Vgl. den geistvollen philosophischen Scherz Fechners in „Vier Paradoxen“ und zwar: Der Raum hat vier Dimensionen. Eine ernst gemeinte Ausführung dieser Art gibt M. Palágyi, Neue Theorie des Raumes und der Zeit. Leipzig 1901. Eine der Fechnerschen verwandte Auffassung s. „Analyse“. 1886. S. 156. Die Untrennbarkeit von Raum und Zeit betonte ich in einer kleinen Notiz in Fichtes Zeitschr. f. Philosophie. 1866. Während des Druckes erhielt ich noch: K. C. Schneider, Das Wesen der Zeit. (Wiener klinische Rundschau, 1905, Nr. 11, 12.) Die Schrift enthält Anklänge an Gedanken Fechners und Palágyis, was ich hier eben nur erwähnen kann.</p><p class="jp" lang="ja">この章の考察によって、空間と時間とが研究においてうまく分離できないことが明らかになる。フェヒナーの「四つの逆説」のうち「空間は四次元をもつ」という才気あふれる哲学的冗談を参照。この種の真剣に意図された論述を M. パラーギ『空間と時間の新理論』ライプツィヒ、1901年が与えている。フェヒナーのものに近縁の把握は『感覚の分析』1886年、156頁を見よ。空間と時間の分離不可能性を、私はフィヒテの『哲学雑誌』1866年の小さな覚書で強調した。印刷中に、なお K. C. シュナイダー「時間の本質」（『ウィーン臨床展望』1905年、第11、12号）を受け取った。この論文はフェヒナーとパラーギの思想を思わせるところを含んでいるが、私はここでそれに触れることしかできない。</p></li></ol>
+</article>
+<h2 class="sec" id="s16"><a href="#s16">§ 16</a></h2>
+<article class="row" id="p16.1">
+  <aside class="mg"><a class="pid" href="#p16.1">16.1</a><span class="pg"><span>S.&nbsp;446</span></span></aside>
+  <p class="de" lang="de">16. Wir schreiben dem Raum drei Dimensionen zu, und unsere Geometrie betrachtet diese Dimensionen als indifferent gleichwertig, den Raum in Bezug auf dieselben als isotrop. In der Tat, wenn man nur auf die Undurchdringlichkeit der Körper achtet, ergibt sich keine Differenz. Faßt man aber die Geometrie als eine physikalische Wissenschaft auf, so ist es fraglich, ob es immer zweckmäßig sein wird, diese Auffassung aufrecht zu erhalten, wie denn die Vektorenrechnung schon auf die Ungleichwertigkeit der Richtungen Rücksicht nehmen muß. Ein amorpher oder tesseraler Körper, eine verdünnte Lösung von Schwefelsäure, in welcher sich Zinkpulver löst, u. s. w. zeigen keinen Unterschied nach verschiedenen Richtungen. Für einen triklinen Körper, oder für ein Körperelement, in dem eben ein elektrischer Strom induziert wird, der also auch von magnetischen Kraftlinien in bestimmtem Sinne umkreist wird, sind die drei Dimensionen ungleichwertig.</p>
+  <p class="jp" lang="ja">16. われわれは空間に三つの次元を帰し、われわれの幾何学はこれらの次元を無差別に等価なものとみなし、空間をそれに関して等方的とみなす。実際、物体の不可入性だけに注目するならば、何の違いも生じない。しかし幾何学を物理学的な学問として把握するならば、この把握を保つことがつねに目的にかなうかどうかは疑わしい。ベクトル計算もすでに方向の不等価性を顧慮しなければならないように。非晶質の物体や等軸晶系の物体、亜鉛粉末が溶けている希硫酸の溶液などは、異なる方向による違いを示さない。三斜晶系の物体や、ちょうど電流が誘導され、したがって磁力線によって一定の向きに取り巻かれている物体要素にとっては、三つの次元は等価ではない。</p>
+</article>
+<article class="row" id="p16.2">
+  <aside class="mg"><a class="pid" href="#p16.2">16.2</a><span class="pg"><span>S.&nbsp;446</span><span>S.&nbsp;447</span></span></aside>
+  <p class="de" lang="de">Könnten wir nur die ungeordneten Ströme, welche das sich lösende Zinkpulver erzeugt, ordnen und passend orientieren, so wären die Dimensionen nicht mehr gleichwertig. So scheint also die Gleichwertigkeit der Dimensionen auf einer Verwischung der Ungleichwertigkeit in besonderen oft vorkommenden einfacheren Fällen zu beruhen. Auch physiologisch sind die Dimensionen nicht gleichwertig, da wir sie ja sonst gar nicht unterscheiden könnten. Möglicherweise liegt diese Anisotropie schon in den Elementarorganen, aus welchen sich unser Leib zusammensetzt.<a class="fr" href="#n19">19</a> Wenn wir unsern <span class="pb" title="Leipzig 1906, S. 447">447</span>Leib zur Orientierung in physikalischen Vorgängen verwenden können, wie dies durch Anwendung der Ampèreschen Schwimmerregel und anderer analoger Regeln für elektrodynamische Fälle mit sicherem Erfolg geschieht, so deutet dies auf einen tief liegenden Zusammenhang der physikalischen Umgebung mit unserer physiologischen Konstitution, auf eine gemeinsame Anisotropie beider.<a class="fr" href="#n20">20</a></p>
+  <p class="jp" lang="ja">溶ける亜鉛粉末が生み出す無秩序な電流を秩序づけ、適当に方向づけることさえできれば、次元はもはや等価ではないであろう。それゆえ次元の等価性は、しばしば現れる特別なより単純な場合における不等価性のぼかしにもとづいているように見える。生理学的にも次元は等価ではない。そうでなければわれわれはそれらを区別することがまったくできないであろう。おそらくこの異方性は、すでにわれわれの身体を構成している要素器官のうちにあるのであろう<a class="fr" href="#n19">19</a>。アンペールの泳ぐ人の規則や、電気力学的な場合についての他の類比的な規則を適用することによって確実な成功をもって行われているように、われわれが自分の身体を物理的過程における方向づけに用いることができるとすれば、それは物理的環境とわれわれの生理学的体質との深い連関、両者に共通の異方性を示唆している<a class="fr" href="#n20">20</a>。</p>
+  <ol class="notes"><li id="n19"><span class="nn">19</span><p class="de" lang="de">Über Anisotropie der Pflanzenorgane vgl. Sachs, Vorlesungen über Pflanzen-Physiologie. Leipzig 1887. S. 742-762. Analoge Fragen über Anisotropie der tierischen Elementarorgane behandelt O. zur Straßen, Über die Mechanik der Epithelbildung. Verh. d. D. Zoolog. Gesellsch. 1903.</p><p class="jp" lang="ja">植物器官の異方性については、ザックス『植物生理学講義』ライプツィヒ、1887年、742–762頁を参照。動物の要素器官の異方性についての類比的な問いを、O. ツーア・シュトラッセン「上皮形成の力学について」『ドイツ動物学会議事録』1903年が扱っている。</p></li><li id="n20"><span class="nn">20</span><p class="de" lang="de">Vgl. Analyse, S. 264, 265.</p><p class="jp" lang="ja">『感覚の分析』264、265頁を参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s17"><a href="#s17">§ 17</a></h2>
+<article class="row" id="p17.1">
+  <aside class="mg"><a class="pid" href="#p17.1">17.1</a><span class="pg"><span>S.&nbsp;447</span></span></aside>
+  <p class="de" lang="de">17. Die Zeit- und die Raumanschauung bilden die wichtigsten Grundlagen unserer sinnlichen Weltauffassung und sind als solche nicht zu eliminieren. Dies schließt aber nicht aus, daß wir versuchen, die Mannigfaltigkeit der Ortsempfindungsqualitäten auf eine physiologisch-chemische Mannigfaltigkeit zurückzuführen. Der Betrachtung S. 396 entsprechend würden wir an ein System von Mischungen in allen Verhältnissen von vier chemischen Qualitäten (Prozessen) zu denken haben.<a class="fr" href="#n21">21</a> Sollte ein solcher Versuch einmal Erfolg haben, so würde dies auch zu der Frage führen, ob sich nicht den Herbartschen an Leibniz anknüpfenden Spekulationen, seiner Konstruktion des intelligiblen Raumes, ein physikalischer Sinn abgewinnen läßt, ob der physikalische Raum nicht auf Qualitäts- und Größenbegriffe zurückführbar ist?</p>
+  <p class="jp" lang="ja">17. 時間直観と空間直観は、われわれの感性的な世界把握の最も重要な基礎をなしており、そのようなものとして除去することはできない。しかしこのことは、場所感覚の質の多様体を生理学的・化学的な多様体に帰着させようと試みることを排除しない。396頁の考察に対応して、われわれは四つの化学的な質（過程）のあらゆる比率での混合の系を考えなければならないであろう<a class="fr" href="#n21">21</a>。そのような試みがいつか成功するならば、それはまた、ライプニッツに結びつくヘルバルトの思弁、すなわち彼の叡知的空間の構成から物理的意味を引き出せないかどうか、物理的空間が質と量の概念に帰着できないかどうかという問いにも導くであろう。</p>
+  <ol class="notes"><li id="n21"><span class="nn">21</span><p class="de" lang="de">Vgl. auch Prinzipien der Wärmelehre. 1896. S. 360-361.</p><p class="jp" lang="ja">また『熱学の原理』1896年、360–361頁も参照。</p></li></ol>
+</article>
+<article class="row" id="p17.2">
+  <aside class="mg"><a class="pid" href="#p17.2">17.2</a><span class="pg"><span>S.&nbsp;447</span></span></aside>
+  <p class="de" lang="de">Gewiß kann man gegen die Herbartsche Metaphysik viel einwenden. Seine Jagd auf zum Teil künstlich geschmiedete Widersprüche, seine eleatischen Neigungen sind nicht gerade anmutend, doch wird dieser bedeutende Denker nicht bloß Irrtümer zu Tage gefördert haben. Sein Abbrechen der Raumkonstruktion bei der dritten Dimension ist gänzlich unbegründet, und auf diesen Punkt wäre gerade das Hauptgewicht zu legen.<a class="fr" href="#n22">22</a> Nach einem Jahrhundert können eben solche Fragen eine ganz neue Physiognomie darbieten.</p>
+  <p class="jp" lang="ja">たしかにヘルバルトの形而上学には多くの異論を唱えることができる。一部は人工的にこしらえた矛盾を狩り立てる彼のやり方、彼のエレア派的傾向は、あまり好ましいものではない。しかしこの重要な思想家は、誤謬だけを明るみに出したわけではないであろう。彼が空間の構成を第三の次元で打ち切っていることはまったく根拠がなく、まさにこの点にこそ主要な重点を置くべきであろう<a class="fr" href="#n22">22</a>。一世紀ののちには、このような問いはまったく新しい相貌を示しうるのである。</p>
+  <ol class="notes"><li id="n22"><span class="nn">22</span><p class="de" lang="de">Leibniz meinte ja auch die Unmöglichkeit eines vierdimensionalen Raumes daraus nachweisen zu können, daß es im (dreidimensionalen!) Raume nur drei aufeinander Senkrechte gibt!</p><p class="jp" lang="ja">ライプニッツもまた、（三次元の！）空間には互いに垂直な線が三本しかないことから、四次元空間の不可能性を証明できると考えていたのである！</p></li></ol>
+</article>
+<h2 class="sec" id="s18"><a href="#s18">§ 18</a></h2>
+<article class="row" id="p18.1">
+  <aside class="mg"><a class="pid" href="#p18.1">18.1</a><span class="pg"><span>S.&nbsp;447</span><span>S.&nbsp;448</span></span></aside>
+  <p class="de" lang="de">18. Daß Zeit und Raum physiologisch nur ein scheinbares Kontinuum darstellen und höchstwahrscheinlich aus diskontinuier<span class="pb" title="Leipzig 1906, S. 448">448</span>lichen, aber nicht scharf unterscheidbaren Elementen sich zusammensetzen, soll hier noch hervorgehoben werden. Wie weit in Bezug auf Zeit und Raum in der Physik die Annahme der Kontinuität aufrecht erhalten werden kann, ist nur eine Frage der Zweckmäßigkeit und der Übereinstimmung mit der Erfahrung. Es sind bloße Ansätze zu Gedanken, Gedankenkeime, mit welchen ich hier schließen muß. Ob dieselben entwicklungsfähig sind, vermag ich nicht zu entscheiden.</p>
+  <p class="jp" lang="ja">18. 時間と空間が生理学的には見かけ上の連続体にすぎず、おそらく不連続な、しかし鋭くは区別できない要素から成り立っていることを、ここでなお強調しておきたい。時間と空間に関して物理学において連続性の想定をどこまで保ちうるかは、目的にかなっているかどうか、経験と一致するかどうかの問題にすぎない。私がここで締めくくらなければならないのは、思想への単なる端緒、思想の萌芽である。それが発展しうるものかどうかを、私は決めることができない。</p>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§2</td><td lang="de">図34 の図中文字（3 u, U2）が本文に混入; 数式が断片化（K.e-skt; v₁ = V₁e-skt; V2 =V2V1/V1; v₁/V₁ = V2/V2 = V3/V3 / … / 2).）; 小文字 u と大文字 U の混同</td><td lang="de">e^(−3kt); v₂ = V₂v₁/V₁, v₃ = V₃v₁/V₁; v₁/V₁ = v₂/V₂ = v₃/V₃ … 2); 変数 u・初期値 U・和 c を統一（式は本文の論理に従い検算して復元）</td></tr>
+  <tr><td>§5</td><td lang="de">Hier (44; d (u₁ + 3)/dt; 2 (U3-1₁); Us; e-4kt / e-2kt; 断片化した式番号 a)</td><td lang="de">図35 を標示; d(u₁ + u₃)/dt; 2(u₃ − u₁) = 2(U₃ − U₁) e^(−2kt) … b); U₃; u₁ = ¼ [c + (U₁ + U₃ − U₂ − U₄) e^(−4kt) + 2(U₁ − U₃) e^(−2kt)]（検算済み）</td></tr>
+  <tr><td>§8.2; §9.1</td><td lang="de">vertreten wird.²); nahe.³); Descartes)</td><td lang="de">注4・5・6 への参照</td></tr>
+  <tr><td>§14–15</td><td lang="de">§15 の節番号が §14 段落末尾に連続</td><td lang="de">§15 を独立させた</td></tr>
+  <tr><td>各所</td><td lang="de">Zeitt; anstatt tals; Zeitund; zu erklären“ vermochte</td><td lang="de">Zeit t; anstatt t als; Zeit- und; zu erklären vermochte</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_23.html">← 第ⅩⅩⅢ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
