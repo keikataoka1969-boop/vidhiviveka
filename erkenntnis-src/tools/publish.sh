@@ -4,6 +4,7 @@ set -e
 SRC=/home/user/erkenntnis; PAGES=/home/user/vv-pages; DEV=/home/user/vidhiviveka
 MSG="$1"
 python3 -I $SRC/tools/render.py
+cp $SRC/data/extra/*.html $SRC/site/erkenntnis/
 cp $SRC/site/iast-fonts.css $SRC/site/erkenntnis/; touch $SRC/site/erkenntnis/.nojekyll
 cd $PAGES && git fetch -q origin gh-pages && git reset -q --hard FETCH_HEAD
 rm -rf $PAGES/erkenntnis && cp -r $SRC/site/erkenntnis $PAGES/erkenntnis

@@ -182,6 +182,7 @@ def index_html(meta, done):
     o.append('<header>\n  <div class="book-title-jp">%s</div>\n  <div class="book-title-de">%s</div>\n'
              '  <div class="book-subtitle">%s</div>\n  <div class="book-meta">Ernst Mach &#x7C; %s &#x7C; 独日対訳</div>\n</header>\n\n'
              % (meta['book_jp'], meta['book_de'], meta['subtitle_de'], meta['edition']))
+    o.append('<p style="text-align:center;margin:-1em 0 2em;font-size:.9em"><a href="nyumon.html" style="color:var(--accent)">→ 大学1年生のための入門解説（図表つき）</a></p>\n\n')
     o.append('<div class="toc-label">目次 INHALTSVERZEICHNIS</div>\n\n<nav class="toc">\n')
     titles_de = []
     for n in range(1, 26):

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>マッハ『認識と誤謬』入門</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#f7f4ed; --text:#2a2722; --muted:#6b6560; --accent:#8b7332; --card:#f0ece3; --border:#d4cfc4;
+  --c1:#3a6e8f; --c2:#9a5b2e; --c3:#4f7a3d; --c4:#7a4f86; --c5:#a2403f;
+  --c1s:#dbe7ee; --c2s:#f1e1d3; --c3s:#dfead6; --c4s:#e9dfee; --c5s:#f2dad8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1e1d1a; --text:#d8d4cc; --muted:#9a958d; --accent:#c4a54a; --card:#28261f; --border:#3d3a32;
+    --c1:#7fb3d3; --c2:#d99a6c; --c3:#93c27e; --c4:#c39ad0; --c5:#e08886;
+    --c1s:#23313a; --c2s:#3a2c22; --c3s:#28331f; --c4s:#322838; --c5s:#3b2524;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1e1d1a; --text:#d8d4cc; --muted:#9a958d; --accent:#c4a54a; --card:#28261f; --border:#3d3a32;
+  --c1:#7fb3d3; --c2:#d99a6c; --c3:#93c27e; --c4:#c39ad0; --c5:#e08886;
+  --c1s:#23313a; --c2s:#3a2c22; --c3s:#28331f; --c4s:#322838; --c5s:#3b2524;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;line-height:1.85;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:2.2em 16px 4em}
+header{text-align:center;border-bottom:1px solid var(--border);padding-bottom:1.6em;margin-bottom:2em}
+.kicker{font-family:"Noto Sans JP",sans-serif;font-size:.78em;letter-spacing:.18em;color:var(--accent)}
+h1{font-size:1.75em;letter-spacing:.06em;margin:.3em 0 .2em}
+.sub{color:var(--muted);font-size:.92em}
+.de{font-style:italic;color:var(--accent)}
+nav.toc{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1em 1.3em;margin:1.5em 0 2.5em;font-family:"Noto Sans JP",sans-serif;font-size:.9em}
+nav.toc ol{padding-left:1.5em;columns:2;column-gap:2em}
+nav.toc a{color:var(--text);text-decoration:none;border-bottom:1px dotted var(--muted)}
+h2{font-size:1.3em;margin:2.6em 0 .8em;padding-bottom:.3em;border-bottom:2px solid var(--accent)}
+h2 .n{font-family:"Noto Sans JP",sans-serif;color:var(--accent);margin-right:.5em}
+h3{font-size:1.05em;margin:1.6em 0 .5em;color:var(--accent)}
+p{margin:.7em 0}
+a{color:var(--c1)}
+.point{background:var(--card);border-left:4px solid var(--accent);padding:.8em 1.1em;margin:1.2em 0;border-radius:0 6px 6px 0}
+.point b{color:var(--accent)}
+.quote{border:1px solid var(--border);border-radius:6px;padding:.9em 1.2em;margin:1.2em 0;font-size:.95em}
+.quote .src{display:block;text-align:right;color:var(--muted);font-size:.85em;margin-top:.3em}
+figure{margin:1.6em 0;text-align:center}
+figure svg{width:100%;height:auto;max-width:820px}
+figcaption{font-family:"Noto Sans JP",sans-serif;font-size:.82em;color:var(--muted);margin-top:.4em}
+.tw{overflow-x:auto;margin:1.2em 0}
+table{border-collapse:collapse;width:100%;font-size:.9em;font-family:"Noto Sans JP",sans-serif;line-height:1.6}
+th,td{border:1px solid var(--border);padding:.5em .65em;vertical-align:top;text-align:left}
+th{background:var(--card);font-weight:600}
+td.c{text-align:center;white-space:nowrap}
+.tag{display:inline-block;font-size:.75em;padding:.05em .5em;border-radius:3px;font-family:"Noto Sans JP",sans-serif;white-space:nowrap}
+.t1{background:var(--c1s);color:var(--c1)}.t2{background:var(--c2s);color:var(--c2)}.t3{background:var(--c3s);color:var(--c3)}.t4{background:var(--c4s);color:var(--c4)}.t5{background:var(--c5s);color:var(--c5)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9em;margin:1.2em 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.9em 1em;font-size:.92em}
+.card h4{font-size:1em;margin-bottom:.3em}
+.qa{margin:1em 0}.qa dt{font-weight:600;color:var(--accent)}.qa dd{margin:0 0 .8em 1em}
+footer{margin-top:3em;padding-top:1.2em;border-top:1px solid var(--border);font-size:.85em;color:var(--muted);text-align:center}
+/* svg text */
+svg text{font-family:"Noto Sans JP",sans-serif;fill:var(--text)}
+svg .mut{fill:var(--muted)}
+svg .ln{stroke:var(--muted);stroke-width:1.6;fill:none}
+svg .bx{fill:var(--card);stroke:var(--border);stroke-width:1.2}
+@media (max-width:600px){nav.toc ol{columns:1}h1{font-size:1.4em}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">大学1年生のための入門解説</div>
+  <h1>マッハ『認識と誤謬』を読む</h1>
+  <div class="de">Ernst Mach, Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung (1905, 2. Aufl. 1906)</div>
+  <p class="sub">「科学者はどのように考えて新しいことを見つけるのか」を、物理学者が自分の経験から描いた本。<br>全25章の見取り図を、図と表でやさしく案内します。</p>
+  <p class="sub"><a href="index.html">→ 独日対訳（序文・全25章）の目次へ</a></p>
+</header>
+
+<nav class="toc"><ol>
+  <li><a href="#s1">この本はどんな本か</a></li>
+  <li><a href="#s2">ひとことで言うと</a></li>
+  <li><a href="#s3">全25章の地図</a></li>
+  <li><a href="#s4">土台：心は適応する器官</a></li>
+  <li><a href="#s5">認識と誤謬は同じ泉から</a></li>
+  <li><a href="#s6">二つの適応</a></li>
+  <li><a href="#s7">研究の道具箱</a></li>
+  <li><a href="#s8">実例で見る研究の道筋</a></li>
+  <li><a href="#s9">演繹と帰納を見直す</a></li>
+  <li><a href="#s10">数・空間・時間</a></li>
+  <li><a href="#s11">自然法則とは何か</a></li>
+  <li><a href="#s12">マッハの影響と批判</a></li>
+  <li><a href="#s13">用語集</a></li>
+  <li><a href="#s14">章ごとの一覧と読み方</a></li>
+</ol></nav>
+
+<!-- 1 -->
+<h2 id="s1"><span class="n">1</span>この本はどんな本か</h2>
+<p>エルンスト・マッハ（1838–1916）はオーストリアの物理学者です。音速の何倍かを表す「マッハ数」に名前が残っています。衝撃波の写真撮影に成功したことでも知られ、ニュートン力学の「絶対空間」を批判して若いアインシュタインに影響を与えました。</p>
+<p>『認識と誤謬』は、マッハがウィーン大学で行った講義「研究の心理学と論理学」（1895/96年冬学期）をもとに書いた本です。副題は「研究の心理学についての素描（スケッチ）」です。完成した体系ではなく、研究の現場で見たことを「スケッチ」として描いた、という気持ちがこめられています。</p>
+
+<div class="tw"><table>
+<tr><th>項目</th><th>内容</th></tr>
+<tr><td>著者</td><td>エルンスト・マッハ（物理学者・心理学者。プラハ大学、のちウィーン大学教授）</td></tr>
+<tr><td>初版／第2版</td><td>1905年／1906年（ライプツィヒ、J. A. バルト社）。この対訳は第2版による。</td></tr>
+<tr><td>分量</td><td>序文と25章、約460頁。章ごとに独立して読める論文集に近い。</td></tr>
+<tr><td>献辞</td><td>哲学者ヴィルヘルム・シュッペに捧げられている。</td></tr>
+<tr><td>ねらい</td><td>研究者が新しい知識を得るときの心の働きを、生物学と心理学の言葉で説明する。</td></tr>
+<tr><td>読者</td><td>とくに若い物理学者。哲学の予備知識は前提にしていない。</td></tr>
+</table></div>
+
+<div class="point"><b>マッハの自己紹介：</b>序文で彼は、自分は「まったく哲学者ではなく、ただの自然研究者だ」と強調しています。哲学の体系をつくるのではなく、科学にまぎれこんだ「古い気の抜けた哲学」を取り除くことが目的だ、というのです。</div>
+
+<!-- 2 -->
+<h2 id="s2"><span class="n">2</span>ひとことで言うと</h2>
+<p>この本の中心にある考えは、次の三つにまとめられます。</p>
+
+<figure>
+<svg viewBox="0 0 820 230" role="img" aria-label="この本の三つの柱">
+  <rect x="10" y="20" width="250" height="190" rx="10" fill="var(--c1s)" stroke="var(--c1)"/>
+  <rect x="285" y="20" width="250" height="190" rx="10" fill="var(--c3s)" stroke="var(--c3)"/>
+  <rect x="560" y="20" width="250" height="190" rx="10" fill="var(--c2s)" stroke="var(--c2)"/>
+  <text x="135" y="58" text-anchor="middle" font-size="19" font-weight="600" style="fill:var(--c1)">① 科学は生活の延長</text>
+  <text x="135" y="95" text-anchor="middle" font-size="14">動物が環境に適応するのと</text>
+  <text x="135" y="118" text-anchor="middle" font-size="14">同じ心の働きが、</text>
+  <text x="135" y="141" text-anchor="middle" font-size="14">洗練されて科学になる。</text>
+  <text x="135" y="185" text-anchor="middle" font-size="12" class="mut">第Ⅰ〜Ⅵ章</text>
+  <text x="410" y="58" text-anchor="middle" font-size="19" font-weight="600" style="fill:var(--c3)">② 認識も誤りも同根</text>
+  <text x="410" y="95" text-anchor="middle" font-size="14">正しい知識と誤りは、</text>
+  <text x="410" y="118" text-anchor="middle" font-size="14">同じ心の働きから生まれる。</text>
+  <text x="410" y="141" text-anchor="middle" font-size="14">分けるのは結果だけ。</text>
+  <text x="410" y="185" text-anchor="middle" font-size="12" class="mut">第Ⅶ章（書名の章）</text>
+  <text x="685" y="58" text-anchor="middle" font-size="19" font-weight="600" style="fill:var(--c2)">③ 法則は期待の制限</text>
+  <text x="685" y="95" text-anchor="middle" font-size="14">自然法則は、経験に導かれて</text>
+  <text x="685" y="118" text-anchor="middle" font-size="14">私たちが自分の「期待」に</text>
+  <text x="685" y="141" text-anchor="middle" font-size="14">かける制限である。</text>
+  <text x="685" y="185" text-anchor="middle" font-size="12" class="mut">第ⅩⅩⅤ章（最終章）</text>
+</svg>
+<figcaption>図1　この本を支える三つの柱</figcaption>
+</figure>
+
+<p>マッハにとって科学は、特別な天才だけの神秘的な営みではありません。人間や動物が毎日やっている「環境に合わせて考えを直していく」営みを、方法的に、鋭く、細かくしたものです。だから研究のしかたは、ふつうの思考を観察すれば理解できる、とマッハは考えました。</p>
+
+<!-- 3 -->
+<h2 id="s3"><span class="n">3</span>全25章の地図</h2>
+<p>25章は大きく五つのまとまりに分けられます。前から順に、心の土台、知識の材料、研究の方法、実例と論理、数・空間・時間、と進み、最後に「自然法則とは何か」で締めくくられます。</p>
+
+<figure>
+<svg viewBox="0 0 820 470" role="img" aria-label="全25章を五つのブロックに分けた地図">
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" style="fill:var(--muted)"/></marker></defs>
+  <!-- A -->
+  <rect x="10" y="10" width="390" height="135" rx="10" fill="var(--c1s)" stroke="var(--c1)"/>
+  <text x="25" y="38" font-size="16" font-weight="600" style="fill:var(--c1)">A　心の土台（Ⅰ〜Ⅵ）</text>
+  <text x="25" y="64" font-size="13">Ⅰ 哲学的思考と自然科学的思考</text>
+  <text x="25" y="84" font-size="13">Ⅱ 心理生理学的考察　Ⅲ 記憶・再生・連合</text>
+  <text x="25" y="104" font-size="13">Ⅳ 反射・本能・意志・自我</text>
+  <text x="25" y="124" font-size="13">Ⅴ 個体性の発達　Ⅵ 表象生活の繁茂</text>
+  <!-- B -->
+  <rect x="420" y="10" width="390" height="135" rx="10" fill="var(--c3s)" stroke="var(--c3)"/>
+  <text x="435" y="38" font-size="16" font-weight="600" style="fill:var(--c3)">B　知識の材料（Ⅶ〜Ⅹ）</text>
+  <text x="435" y="64" font-size="13">Ⅶ 認識と誤謬</text>
+  <text x="435" y="84" font-size="13">Ⅷ 概念</text>
+  <text x="435" y="104" font-size="13">Ⅸ 感覚・直観・空想</text>
+  <text x="435" y="124" font-size="13">Ⅹ 思考の事実への適応と思考相互の適応</text>
+  <!-- C -->
+  <rect x="10" y="165" width="390" height="135" rx="10" fill="var(--c4s)" stroke="var(--c4)"/>
+  <text x="25" y="193" font-size="16" font-weight="600" style="fill:var(--c4)">C　研究の方法（ⅩⅠ〜ⅩⅥ）</text>
+  <text x="25" y="219" font-size="13">ⅩⅠ 思考実験　ⅩⅡ 物理的実験</text>
+  <text x="25" y="239" font-size="13">ⅩⅢ 類似と類比　ⅩⅣ 仮説</text>
+  <text x="25" y="259" font-size="13">ⅩⅤ 問題</text>
+  <text x="25" y="279" font-size="13">ⅩⅥ 研究の前提</text>
+  <!-- D -->
+  <rect x="420" y="165" width="390" height="135" rx="10" fill="var(--c2s)" stroke="var(--c2)"/>
+  <text x="435" y="193" font-size="16" font-weight="600" style="fill:var(--c2)">D　実例と論理（ⅩⅦ〜ⅩⅧ）</text>
+  <text x="435" y="219" font-size="13">ⅩⅦ 研究の道筋の実例</text>
+  <text x="435" y="239" font-size="13">（天文学・電磁気・オゾン・植物・自然発生）</text>
+  <text x="435" y="259" font-size="13">ⅩⅧ 心理学的に照らした演繹と帰納</text>
+  <!-- E -->
+  <rect x="10" y="320" width="800" height="80" rx="10" fill="var(--c5s)" stroke="var(--c5)"/>
+  <text x="25" y="348" font-size="16" font-weight="600" style="fill:var(--c5)">E　数・空間・時間（ⅩⅨ〜ⅩⅩⅣ）</text>
+  <text x="25" y="374" font-size="13">ⅩⅨ 数と量　ⅩⅩ 生理学的空間　ⅩⅪ 幾何学の発展　ⅩⅫ 空間と幾何学（非ユークリッド幾何）　ⅩⅩⅢ 生理学的時間　ⅩⅩⅣ 物理学的な時間と空間</text>
+  <!-- F -->
+  <rect x="210" y="420" width="400" height="44" rx="22" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="410" y="448" text-anchor="middle" font-size="16" font-weight="600" style="fill:var(--accent)">ⅩⅩⅤ 自然法則の意味と価値（まとめ）</text>
+  <path class="ln" d="M400,78 L418,78" marker-end="url(#ar)"/>
+  <path class="ln" d="M615,147 L380,163" marker-end="url(#ar)"/>
+  <path class="ln" d="M402,232 L418,232" marker-end="url(#ar)"/>
+  <path class="ln" d="M615,302 L520,318" marker-end="url(#ar)"/>
+  <path class="ln" d="M410,402 L410,418" marker-end="url(#ar)"/>
+</svg>
+<figcaption>図2　全25章の見取り図（色のブロックは本解説での区分。原書に部の区分はない）</figcaption>
+</figure>
+
+<div class="point"><b>読み方のヒント：</b>初めて読むなら、第Ⅰ章（全体の構え）→ 第Ⅶ章（書名の章）→ 第Ⅹ章（二つの適応）→ 第ⅩⅠ章（思考実験）→ 第ⅩⅦ章（実例）→ 第ⅩⅩⅤ章（まとめ）の順がおすすめです。この6章で本の骨組みがつかめます。</div>
+
+<!-- 4 -->
+<h2 id="s4"><span class="n">4</span>土台：心は「適応する器官」（第Ⅰ〜Ⅵ章）</h2>
+<p>マッハはまず、人間の心を生物学的に見ます。心は、生き物が環境のなかで生き延びるために発達した「適応の道具」です。反射・本能・記憶・連合といった単純な働きの上に、意志や自我、そして科学的思考が積み重なっていきます。</p>
+
+<figure>
+<svg viewBox="0 0 820 300" role="img" aria-label="心の働きの階段">
+  <g>
+    <rect x="20"  y="230" width="150" height="50" rx="6" fill="var(--c1s)" stroke="var(--c1)"/>
+    <rect x="180" y="190" width="150" height="90" rx="6" fill="var(--c1s)" stroke="var(--c1)"/>
+    <rect x="340" y="150" width="150" height="130" rx="6" fill="var(--c3s)" stroke="var(--c3)"/>
+    <rect x="500" y="110" width="150" height="170" rx="6" fill="var(--c4s)" stroke="var(--c4)"/>
+    <rect x="660" y="60"  width="150" height="220" rx="6" fill="var(--c2s)" stroke="var(--c2)"/>
+  </g>
+  <text x="95"  y="260" text-anchor="middle" font-size="15" font-weight="600">反射</text>
+  <text x="255" y="215" text-anchor="middle" font-size="15" font-weight="600">本能</text>
+  <text x="255" y="238" text-anchor="middle" font-size="12" class="mut">種が受け継いだ</text>
+  <text x="255" y="254" text-anchor="middle" font-size="12" class="mut">適応</text>
+  <text x="415" y="175" text-anchor="middle" font-size="15" font-weight="600">記憶・連合</text>
+  <text x="415" y="198" text-anchor="middle" font-size="12" class="mut">個体が経験から</text>
+  <text x="415" y="214" text-anchor="middle" font-size="12" class="mut">学ぶ</text>
+  <text x="575" y="135" text-anchor="middle" font-size="15" font-weight="600">意志・表象</text>
+  <text x="575" y="158" text-anchor="middle" font-size="12" class="mut">行動の前に</text>
+  <text x="575" y="174" text-anchor="middle" font-size="12" class="mut">頭のなかで試す</text>
+  <text x="735" y="85" text-anchor="middle" font-size="15" font-weight="600">科学的思考</text>
+  <text x="735" y="108" text-anchor="middle" font-size="12" class="mut">方法的に・意識的に</text>
+  <text x="735" y="124" text-anchor="middle" font-size="12" class="mut">適応を進める</text>
+  <path class="ln" d="M40,40 L790,40" marker-end="url(#ar2)"/>
+  <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" style="fill:var(--muted)"/></marker></defs>
+  <text x="40" y="30" font-size="12" class="mut">単純・無意識</text>
+  <text x="790" y="30" text-anchor="end" font-size="12" class="mut">複雑・意識的</text>
+</svg>
+<figcaption>図3　心の働きは段階的に積み重なる（第Ⅱ〜Ⅵ章の流れ）</figcaption>
+</figure>
+
+<h3>「要素」と「依存関係」——マッハの世界の見方</h3>
+<p>マッハは、色・音・熱さ・圧力・空間・時間といった、私たちが感覚で出会うものを「要素」と呼びます。物体も自我も、こうした要素が比較的安定して結びついた「複合体」にすぎません。物理学と心理学の違いは材料の違いではなく、要素どうしの<b>どの依存関係</b>に注目するかの違いだ、というのが彼の立場です（『感覚の分析』と共通する考え）。</p>
+
+<figure>
+<svg viewBox="0 0 820 260" role="img" aria-label="同じ要素を物理学と心理学が別の観点で見る図">
+  <rect x="290" y="70" width="240" height="120" rx="12" class="bx"/>
+  <text x="410" y="105" text-anchor="middle" font-size="16" font-weight="600">要素</text>
+  <text x="410" y="132" text-anchor="middle" font-size="13">色・音・熱さ・圧力</text>
+  <text x="410" y="154" text-anchor="middle" font-size="13">空間・時間 …</text>
+  <rect x="20" y="85" width="220" height="90" rx="10" fill="var(--c1s)" stroke="var(--c1)"/>
+  <text x="130" y="118" text-anchor="middle" font-size="15" font-weight="600" style="fill:var(--c1)">物理学的な見方</text>
+  <text x="130" y="143" text-anchor="middle" font-size="12">要素どうしの依存関係</text>
+  <text x="130" y="161" text-anchor="middle" font-size="12">（身体の外の関係）</text>
+  <rect x="580" y="85" width="220" height="90" rx="10" fill="var(--c4s)" stroke="var(--c4)"/>
+  <text x="690" y="118" text-anchor="middle" font-size="15" font-weight="600" style="fill:var(--c4)">心理学的な見方</text>
+  <text x="690" y="143" text-anchor="middle" font-size="12">身体（神経系）への</text>
+  <text x="690" y="161" text-anchor="middle" font-size="12">依存関係</text>
+  <path class="ln" d="M288,130 L244,130" marker-end="url(#ar)"/>
+  <path class="ln" d="M532,130 L576,130" marker-end="url(#ar)"/>
+  <text x="410" y="225" text-anchor="middle" font-size="13" class="mut">材料は同じ。違うのは「どの関係に注目するか」だけ。</text>
+</svg>
+<figcaption>図4　一元論的な見方：物理的なものと心的なものは同じ要素からできている</figcaption>
+</figure>
+
+<!-- 5 -->
+<h2 id="s5"><span class="n">5</span>認識と誤謬は同じ泉から（第Ⅶ章）</h2>
+<p>書名になった第Ⅶ章で、マッハは次のような趣旨のことを述べます。</p>
+<div class="quote">認識と誤謬は同じ心的な源泉から流れ出る。両者を分けることができるのは、ただ結果だけである。はっきり認識された誤りは、訂正の手段として、正しい認識と同じように認識を進める。<span class="src">第Ⅶ章の要旨</span></div>
+
+<figure>
+<svg viewBox="0 0 820 280" role="img" aria-label="同じ心の働きから認識と誤謬が分かれる図">
+  <ellipse cx="160" cy="140" rx="140" ry="80" class="bx"/>
+  <text x="160" y="125" text-anchor="middle" font-size="15" font-weight="600">同じ心の働き</text>
+  <text x="160" y="150" text-anchor="middle" font-size="12">記憶・連合・抽象</text>
+  <text x="160" y="168" text-anchor="middle" font-size="12">類推・想像</text>
+  <path class="ln" d="M300,140 L380,140" marker-end="url(#ar)"/>
+  <rect x="385" y="105" width="140" height="70" rx="8" fill="var(--card)" stroke="var(--accent)"/>
+  <text x="455" y="135" text-anchor="middle" font-size="14" font-weight="600">経験で試す</text>
+  <text x="455" y="157" text-anchor="middle" font-size="12" class="mut">結果はどうか？</text>
+  <path class="ln" d="M525,125 L600,70" marker-end="url(#ar)"/>
+  <path class="ln" d="M525,155 L600,210" marker-end="url(#ar)"/>
+  <rect x="605" y="35" width="200" height="70" rx="8" fill="var(--c3s)" stroke="var(--c3)"/>
+  <text x="705" y="65" text-anchor="middle" font-size="16" font-weight="600" style="fill:var(--c3)">認識</text>
+  <text x="705" y="88" text-anchor="middle" font-size="12">確かめられ、持ちこたえた</text>
+  <rect x="605" y="175" width="200" height="70" rx="8" fill="var(--c5s)" stroke="var(--c5)"/>
+  <text x="705" y="205" text-anchor="middle" font-size="16" font-weight="600" style="fill:var(--c5)">誤謬</text>
+  <text x="705" y="228" text-anchor="middle" font-size="12">確かめると外れた</text>
+  <path d="M705,245 C705,275 300,275 200,222" style="stroke:var(--c5);stroke-dasharray:5 4;stroke-width:1.6;fill:none" marker-end="url(#ar)"/>
+  <text x="440" y="268" text-anchor="middle" font-size="12" style="fill:var(--c5)">誤りが分かれば、それも次の思考を正す材料になる</text>
+</svg>
+<figcaption>図5　認識と誤謬の分かれ道</figcaption>
+</figure>
+
+<p>つまり「誤り」は、だめな心の働きから生まれるのではありません。正しい発見を生むのとまったく同じ心の働き（連想や類推、大胆な想像）が、たまたま事実と合わなかったときに誤りになります。だから誤りを恐れて想像を止めてしまえば、発見も止まってしまいます。</p>
+
+<div class="tw"><table>
+<tr><th>心の働き</th><th>うまくいくと</th><th>外れると</th></tr>
+<tr><td>連合（ある考えが別の考えを呼び出す）</td><td>手がかりから原因を思いつく</td><td>迷信（彗星が来たから不幸が起きた）</td></tr>
+<tr><td>抽象（重要でないものを無視する）</td><td>法則の発見</td><td>大事な条件の見落とし</td></tr>
+<tr><td>類推（似ているものから推す）</td><td>光を波として理解する</td><td>見かけだけの類似にだまされる</td></tr>
+<tr><td>一般化（少数の例から全体へ）</td><td>経験法則の成立</td><td>早すぎる結論</td></tr>
+</table></div>
+
+<!-- 6 -->
+<h2 id="s6"><span class="n">6</span>二つの適応（第Ⅹ章）</h2>
+<p>マッハは、研究者が目指していることを「思考を事実に合わせること」と「思考どうしを合わせること」の二つにまとめます。第ⅩⅦ章の冒頭でも、研究とは「思考を事実と、また思考相互を、できるかぎりよく一致させる努力だ」と言いかえています。</p>
+
+<figure>
+<svg viewBox="0 0 820 300" role="img" aria-label="二つの適応">
+  <rect x="20" y="110" width="200" height="80" rx="10" fill="var(--c3s)" stroke="var(--c3)"/>
+  <text x="120" y="145" text-anchor="middle" font-size="16" font-weight="600" style="fill:var(--c3)">事実</text>
+  <text x="120" y="168" text-anchor="middle" font-size="12">観察・実験で出会うもの</text>
+  <rect x="330" y="40" width="160" height="60" rx="10" fill="var(--c1s)" stroke="var(--c1)"/>
+  <text x="410" y="76" text-anchor="middle" font-size="15">思考 A</text>
+  <rect x="330" y="200" width="160" height="60" rx="10" fill="var(--c1s)" stroke="var(--c1)"/>
+  <text x="410" y="236" text-anchor="middle" font-size="15">思考 B</text>
+  <path d="M222,135 L326,82" style="stroke:var(--c3);stroke-width:2.2;fill:none" marker-end="url(#ar)"/>
+  <path d="M222,165 L326,220" style="stroke:var(--c3);stroke-width:2.2;fill:none" marker-end="url(#ar)"/>
+  <path d="M410,102 L410,196" style="stroke:var(--c1);stroke-width:2.2;fill:none" marker-end="url(#ar)"/>
+  <path d="M420,196 L420,102" style="stroke:var(--c1);stroke-width:2.2;fill:none" marker-end="url(#ar)"/>
+  <text x="240" y="100" font-size="13" style="fill:var(--c3)">①思考を事実へ</text>
+  <text x="430" y="155" font-size="13" style="fill:var(--c1)">②思考どうしを</text>
+  <rect x="560" y="70" width="245" height="160" rx="10" class="bx"/>
+  <text x="575" y="100" font-size="13" font-weight="600">①の例</text>
+  <text x="575" y="122" font-size="12">観察に合わない予想を直す</text>
+  <text x="575" y="140" font-size="12">（ケプラーの円→楕円）</text>
+  <text x="575" y="170" font-size="13" font-weight="600">②の例</text>
+  <text x="575" y="192" font-size="12">矛盾する二つの考えを統一</text>
+  <text x="575" y="210" font-size="12">（電気と磁気の統一）</text>
+</svg>
+<figcaption>図6　研究が目指す二つの一致</figcaption>
+</figure>
+
+<h3>思考の経済</h3>
+<p>マッハの有名な考えに「思考の経済」があります。科学は、たくさんの事実を、できるだけ少ない労力で、できるだけ完全に表そうとします。ばらばらの観察記録を覚えておくかわりに、一つの法則（たとえば屈折の法則）を覚えておけば、無数の場合に答えが出せます。法則は、記憶と思考の手間を省く「節約の道具」なのです。</p>
+
+<div class="tw"><table>
+<tr><th>節約の前</th><th>節約のあと</th></tr>
+<tr><td>入射角と屈折角の対応表（何百行）</td><td>sin α / sin β ＝ n（一行）</td></tr>
+<tr><td>惑星ごとの位置の記録</td><td>ケプラーの三法則 → ニュートンの万有引力</td></tr>
+<tr><td>個々のてこの場合</td><td>てこの原理（力×腕の長さ）</td></tr>
+</table></div>
+
+<!-- 7 -->
+<h2 id="s7"><span class="n">7</span>研究の道具箱（第ⅩⅠ〜ⅩⅥ章）</h2>
+<p>本の中心部では、研究者が実際に使う「道具」が一つずつ取り上げられます。どれも特別な技術ではなく、ふつうの思考を意識的に使えるようにしたものです。</p>
+
+<div class="cards">
+  <div class="card"><h4><span class="tag t4">ⅩⅠ</span> 思考実験</h4>頭のなかで条件を変えて結果を想像する。物理的実験の準備であり、ときにそれだけで結論が出る（ガリレイの落下の議論など）。</div>
+  <div class="card"><h4><span class="tag t4">ⅩⅡ</span> 物理的実験と変化の方法</h4>条件を一つずつ変えて、結果がどう依存するかを見る。マッハは実験の核心を「変化（ヴァリエーション）の方法」と見る。</div>
+  <div class="card"><h4><span class="tag t4">ⅩⅢ</span> 類似と類比</h4>よく知った領域の関係を、未知の領域に移して考える（音の波から光の波へ）。</div>
+  <div class="card"><h4><span class="tag t4">ⅩⅣ</span> 仮説</h4>事実を暫定的に補う想定。試験にかけられ、確かめられたり捨てられたりする。原子論も仮説として扱われる。</div>
+  <div class="card"><h4><span class="tag t4">ⅩⅤ</span> 問題</h4>思考どうしの矛盾や、事実との食い違いが「問題」を生む。問題を感じることが研究の出発点。</div>
+  <div class="card"><h4><span class="tag t4">ⅩⅥ</span> 研究の前提</h4>自然の一様性など、研究を進めるために暗に置いている前提を点検する。</div>
+</div>
+
+<figure>
+<svg viewBox="0 0 820 260" role="img" aria-label="研究のサイクル">
+  <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" style="fill:var(--c4)"/></marker></defs>
+  <g font-size="14">
+    <rect x="20"  y="95" width="130" height="60" rx="30" fill="var(--c5s)" stroke="var(--c5)"/><text x="85" y="130" text-anchor="middle">問題を感じる</text>
+    <rect x="180" y="95" width="130" height="60" rx="30" fill="var(--c4s)" stroke="var(--c4)"/><text x="245" y="120" text-anchor="middle">類比・想像で</text><text x="245" y="140" text-anchor="middle">仮説を立てる</text>
+    <rect x="340" y="95" width="130" height="60" rx="30" fill="var(--c4s)" stroke="var(--c4)"/><text x="405" y="130" text-anchor="middle">思考実験</text>
+    <rect x="500" y="95" width="130" height="60" rx="30" fill="var(--c1s)" stroke="var(--c1)"/><text x="565" y="130" text-anchor="middle">物理的実験</text>
+    <rect x="660" y="95" width="140" height="60" rx="30" fill="var(--c3s)" stroke="var(--c3)"/><text x="730" y="120" text-anchor="middle">事実と一致？</text><text x="730" y="140" text-anchor="middle">→ 認識／誤謬</text>
+  </g>
+  <g style="stroke:var(--c4);stroke-width:1.8;fill:none">
+    <path d="M150,125 L176,125" marker-end="url(#ar3)"/><path d="M310,125 L336,125" marker-end="url(#ar3)"/>
+    <path d="M470,125 L496,125" marker-end="url(#ar3)"/><path d="M630,125 L656,125" marker-end="url(#ar3)"/>
+    <path d="M730,157 C730,235 85,235 85,159" marker-end="url(#ar3)"/>
+  </g>
+  <text x="410" y="248" text-anchor="middle" font-size="12" class="mut">新しい食い違いが見つかれば、また新しい問題が生まれる</text>
+</svg>
+<figcaption>図7　研究のサイクル（第ⅩⅠ〜ⅩⅤ章の道具の関係）</figcaption>
+</figure>
+
+<h3>思考実験と物理的実験の違い</h3>
+<div class="tw"><table>
+<tr><th></th><th>思考実験</th><th>物理的実験</th></tr>
+<tr><td>どこで行う</td><td>頭のなか（表象のなか）</td><td>実験室・自然のなか</td></tr>
+<tr><td>材料</td><td>経験の記憶</td><td>実際の物体・装置</td></tr>
+<tr><td>強み</td><td>速い・安い・条件を極端にできる</td><td>記憶にない新しい事実を教えてくれる</td></tr>
+<tr><td>限界</td><td>記憶に含まれていないことは分からない</td><td>手間がかかる。何を変えるかを決めるには思考実験が必要</td></tr>
+<tr><td>関係</td><td colspan="2">思考実験が物理的実験を準備し、物理的実験が思考実験の材料（経験）を豊かにする。両者は交互に進む。</td></tr>
+</table></div>
+
+<!-- 8 -->
+<h2 id="s8"><span class="n">8</span>実例で見る研究の道筋（第ⅩⅦ章）</h2>
+<p>第ⅩⅦ章は、科学史の実例で「研究は実際にどう進んだか」を見せる章です。どの例でも、発見は一人の天才の一瞬のひらめきではなく、長い時間と多くの人の試行錯誤、そして偶然の観察から生まれています。</p>
+
+<figure>
+<svg viewBox="0 0 820 230" role="img" aria-label="天文学の発展の年表">
+  <path class="ln" d="M30,110 L800,110" marker-end="url(#ar)"/>
+  <g font-size="12">
+    <circle cx="70" cy="110" r="7" style="fill:var(--c1)"/><text x="70" y="90" text-anchor="middle" font-weight="600">ヒッパルコス</text><text x="70" y="140" text-anchor="middle" class="mut">前2世紀</text><text x="70" y="158" text-anchor="middle">周転円</text>
+    <circle cx="195" cy="110" r="7" style="fill:var(--c1)"/><text x="195" y="90" text-anchor="middle" font-weight="600">プトレマイオス</text><text x="195" y="140" text-anchor="middle" class="mut">2世紀</text><text x="195" y="158" text-anchor="middle">地球中心の体系</text>
+    <circle cx="330" cy="110" r="7" style="fill:var(--c2)"/><text x="330" y="90" text-anchor="middle" font-weight="600">コペルニクス</text><text x="330" y="140" text-anchor="middle" class="mut">1543</text><text x="330" y="158" text-anchor="middle">太陽中心</text>
+    <circle cx="470" cy="110" r="7" style="fill:var(--c2)"/><text x="470" y="90" text-anchor="middle" font-weight="600">ケプラー</text><text x="470" y="140" text-anchor="middle" class="mut">1609・1619</text><text x="470" y="158" text-anchor="middle">楕円軌道・三法則</text><text x="470" y="176" text-anchor="middle" class="mut">（22年の苦闘）</text>
+    <circle cx="610" cy="110" r="7" style="fill:var(--c3)"/><text x="610" y="90" text-anchor="middle" font-weight="600">ガリレイ・ホイヘンス</text><text x="610" y="140" text-anchor="middle" class="mut">17世紀</text><text x="610" y="158" text-anchor="middle">動力学</text>
+    <circle cx="740" cy="110" r="7" style="fill:var(--c4)"/><text x="740" y="90" text-anchor="middle" font-weight="600">ニュートン</text><text x="740" y="140" text-anchor="middle" class="mut">1687</text><text x="740" y="158" text-anchor="middle">万有引力で統一</text>
+  </g>
+  <text x="410" y="215" text-anchor="middle" font-size="12" class="mut">記述はどんどん単純で経済的になり、最後には地上の落下と天体の運動が一つの法則で表される</text>
+</svg>
+<figcaption>図8　天文学の発展（第ⅩⅦ章 §2–4）</figcaption>
+</figure>
+
+<div class="tw"><table>
+<tr><th>実例</th><th>何が起きたか</th><th>マッハが読み取る教訓</th></tr>
+<tr><td>天文学</td><td>周転円 → 太陽中心 → 楕円 → 万有引力</td><td>想像力の産物を大量に試し、そのなかから単純化の手段が見つかる。科学は社会的な事業。</td></tr>
+<tr><td>電気と磁気</td><td>エルステッドが電流で磁針が振れるのを偶然見る（1820）→ アンペール、ファラデーの誘導 → マクスウェル</td><td>「静的なものからは静的なものを探す」思いこみが発見を遅らせた。偶然の観察が糸口になる。</td></tr>
+<tr><td>オゾン</td><td>起電機や落雷の匂いから、シェーンバインが新しい気体を推定</td><td>知覚を記憶と結びつける想像力の役割。同じ事柄が人によって違って見える。</td></tr>
+<tr><td>写真術</td><td>ダゲールが戸棚の水銀で像が現れるのを偶然発見</td><td>物理的偶然と心的偶然が発明に関わる。</td></tr>
+<tr><td>植物の屈地性</td><td>ナイトが回転車輪で植物を育て、重力を遠心力に置き換える</td><td>条件を変える実験（変化の方法）が、単なる一致の観察より確かに原因を示す。</td></tr>
+<tr><td>自然発生説</td><td>レディ、スパランツァーニ、パストゥールの実験</td><td>誤差の源を一つずつ明らかにする。ただし大きな問いは単純な実験だけでは決まらない。</td></tr>
+</table></div>
+
+<!-- 9 -->
+<h2 id="s9"><span class="n">9</span>演繹と帰納を見直す（第ⅩⅧ章）</h2>
+<p>論理学の教科書では、推論には「演繹（一般から特殊へ）」と「帰納（特殊から一般へ）」の二つがあると教わります。マッハはどちらも<b>新しい知識をつくり出すものではない</b>と言います。</p>
+
+<figure>
+<svg viewBox="0 0 820 250" role="img" aria-label="演繹と帰納の図">
+  <rect x="20" y="20" width="370" height="210" rx="10" fill="var(--c1s)" stroke="var(--c1)"/>
+  <text x="205" y="50" text-anchor="middle" font-size="16" font-weight="600" style="fill:var(--c1)">演繹（三段論法）</text>
+  <text x="40" y="85" font-size="13">すべての人間は死ぬ（B は A）</text>
+  <text x="40" y="108" font-size="13">カイウスは人間だ（C は B）</text>
+  <text x="40" y="131" font-size="13">ゆえにカイウスは死ぬ（C は A）</text>
+  <text x="40" y="168" font-size="12" class="mut">→ 結論はすでに前提に含まれている。</text>
+  <text x="40" y="188" font-size="12" class="mut">→ 役割は、知識どうしの矛盾をなくし、</text>
+  <text x="40" y="206" font-size="12" class="mut">　 つながりをはっきりさせること。</text>
+  <rect x="430" y="20" width="370" height="210" rx="10" fill="var(--c2s)" stroke="var(--c2)"/>
+  <text x="615" y="50" text-anchor="middle" font-size="16" font-weight="600" style="fill:var(--c2)">帰納</text>
+  <text x="450" y="85" font-size="13">完全帰納：全部を調べた → まとめただけ</text>
+  <text x="450" y="108" font-size="13">不完全帰納：一部から全体を推す</text>
+  <text x="450" y="131" font-size="13">→ 論理的な正当化はない（期待にすぎない）</text>
+  <text x="450" y="168" font-size="12" class="mut">→ 本当に新しい知識を生むのは、</text>
+  <text x="450" y="188" font-size="12" class="mut">　 観察・抽象・想像（直観）。</text>
+  <text x="450" y="206" font-size="12" class="mut">　 「帰納科学」という呼び名は不適切。</text>
+</svg>
+<figcaption>図9　演繹も帰納も、新しい知識の本当の源ではない（第ⅩⅧ章）</figcaption>
+</figure>
+
+<div class="point"><b>森の比喩：</b>新しい洞察を見つけた研究者は、森で道に迷った人が茂みを抜けて急に開けた眺めを得たときのように、自分でも驚く。方法（論理）が働くのは、主要なものが見つかったあと、それを整理し磨くときである——とマッハは言います。だから科学の発見は、うまくいったとき「芸術的な仕事」のように見えるのです。</div>
+
+<!-- 10 -->
+<h2 id="s10"><span class="n">10</span>数・空間・時間（第ⅩⅨ〜ⅩⅩⅣ章）</h2>
+<p>本の後半では、数学や幾何学のように「経験と無関係に正しい」と思われがちな知識も、実は経験から生まれ、経験によって支えられていることが示されます。</p>
+
+<h3>数はどこから来たか（第ⅩⅨ章）</h3>
+<p>数は「人間精神の自由な創造物」と言われますが、マッハはその始まりを生物学的な必要に求めます。同じ果物の群れの大小を見分ける必要、指に一つずつ対応させる習慣（だから十進法）、戦利品を分ける必要……。計算は「間接的に数えること」、つまり数える手間を省く工夫だというのです。</p>
+
+<div class="tw"><table>
+<tr><th>段階</th><th>内容</th><th>例</th></tr>
+<tr><td>見分ける</td><td>小さな群れの増減に気づく</td><td>2〜3歳の子ども、動物</td></tr>
+<tr><td>対応させる</td><td>指などに一つずつ対応させる</td><td>「手全部」＝5、「人間全部」＝20（オリノコ川のタマナコ族）</td></tr>
+<tr><td>数える</td><td>指の名前が数詞になる</td><td>フランス語 quatre-vingts（4×20＝80）</td></tr>
+<tr><td>計算する</td><td>数える手間を省く</td><td>そろばん、アラビア数字と十進記数法</td></tr>
+<tr><td>拡張する</td><td>負の数・分数・無理数・虚数</td><td>アルガンの「方向をもつ比」としての √−1</td></tr>
+</table></div>
+
+<h3>二つの空間（第ⅩⅩ〜ⅩⅪ章）</h3>
+<p>私たちが感覚で直接知っている空間（生理学的空間）と、幾何学の空間（計量的空間）は、まったく性質が違います。</p>
+
+<div class="tw"><table>
+<tr><th></th><th><span class="tag t5">生理学的空間</span>（見る・触る空間）</th><th><span class="tag t1">計量的空間</span>（ユークリッド幾何）</th></tr>
+<tr><td>方向</td><td>上下・前後・左右は感覚として違う（異方的）</td><td>どの方向も同じ（等方的）</td></tr>
+<tr><td>場所</td><td>場所ごとに性質が違う（目の中心は細かく、周辺は粗い）</td><td>どこでも同じ（一様）</td></tr>
+<tr><td>広がり</td><td>有限。天は有限の半径の丸天井に見える</td><td>無限</td></tr>
+<tr><td>大きさ</td><td>質的。量としての大きさはない</td><td>量的。長さ・角度で測れる</td></tr>
+<tr><td>基準</td><td>自分の身体</td><td>物体どうしの比較（物差し）</td></tr>
+</table></div>
+
+<figure>
+<svg viewBox="0 0 820 220" role="img" aria-label="生理学的空間から計量的空間へ">
+  <rect x="20" y="60" width="210" height="100" rx="10" fill="var(--c5s)" stroke="var(--c5)"/>
+  <text x="125" y="100" text-anchor="middle" font-size="15" font-weight="600" style="fill:var(--c5)">生理学的空間</text>
+  <text x="125" y="125" text-anchor="middle" font-size="12">生まれつきの感覚</text>
+  <rect x="305" y="60" width="210" height="100" rx="10" class="bx"/>
+  <text x="410" y="92" text-anchor="middle" font-size="14" font-weight="600">物体を比べる経験</text>
+  <text x="410" y="115" text-anchor="middle" font-size="12">剛体を動かして重ねる</text>
+  <text x="410" y="133" text-anchor="middle" font-size="12">手・足・物差しで測る</text>
+  <rect x="590" y="60" width="210" height="100" rx="10" fill="var(--c1s)" stroke="var(--c1)"/>
+  <text x="695" y="100" text-anchor="middle" font-size="15" font-weight="600" style="fill:var(--c1)">幾何学の空間</text>
+  <text x="695" y="125" text-anchor="middle" font-size="12">理想化された概念</text>
+  <path class="ln" d="M232,110 L301,110" marker-end="url(#ar)"/>
+  <path class="ln" d="M517,110 L586,110" marker-end="url(#ar)"/>
+  <text x="410" y="200" text-anchor="middle" font-size="12" class="mut">例：三角形の内角の和＝2直角は、タイル張りや紙折りの経験から見つかった（第ⅩⅪ章）</text>
+</svg>
+<figcaption>図10　幾何学は経験の理想化から生まれる</figcaption>
+</figure>
+
+<h3>非ユークリッド幾何学（第ⅩⅫ章）</h3>
+<p>ユークリッド幾何学の「平行線の公理（第五公準）」は、二千年にわたって証明が試みられました。19世紀にガウス、ロバチェフスキー、ボーヤイ、リーマンらが、この公理を変えても矛盾のない幾何学がつくれることを示します。マッハはこの歴史を、「幾何学の基礎が経験であることがしだいに明らかになった過程」として読みます。</p>
+
+<div class="tw"><table>
+<tr><th></th><th>球面（リーマン）型</th><th>ユークリッド</th><th>ロバチェフスキー型</th></tr>
+<tr><td>曲率</td><td class="c">正</td><td class="c">0</td><td class="c">負</td></tr>
+<tr><td>三角形の内角の和</td><td class="c">2直角より大きい</td><td class="c">ちょうど2直角</td><td class="c">2直角より小さい</td></tr>
+<tr><td>一点を通る平行線</td><td class="c">0本</td><td class="c">1本</td><td class="c">無数</td></tr>
+<tr><td>空間の広がり</td><td class="c">有限で果てがない</td><td class="c">無限</td><td class="c">無限</td></tr>
+</table></div>
+<p>小さな範囲では三つの幾何学の違いは区別できません（無限小では一致する）。どれが私たちの空間に合うかは、測定という経験で決まる問題です。物理学者は、事実がそれを強いるまでは最も単純なユークリッド幾何学を使い続ける、とマッハは述べます。</p>
+
+<h3>時間（第ⅩⅩⅢ〜ⅩⅩⅣ章）</h3>
+<div class="tw"><table>
+<tr><th><span class="tag t5">生理学的時間</span></th><th><span class="tag t1">物理学的時間</span></th></tr>
+<tr><td>「現在」には数秒の幅がある</td><td>時点は点として細かく区別できる</td></tr>
+<tr><td>速く流れたり遅く流れたりする（退屈・熱・ハシッシュ）</td><td>振り子・地球の回転などとの比較で一様</td></tr>
+<tr><td>注意の周期的な変動と結びつく</td><td>ある過程を別の過程で測ったもの（時計）</td></tr>
+</table></div>
+<p>第ⅩⅩⅣ章でマッハは、時間とは物理的な過程どうしの「依存関係」であり、「t」は結局地球の回転角のような過程で測ったものにすぎないと述べます。ニュートンの絶対空間・絶対時間を批判するこの議論は、のちにアインシュタインが相対性理論を考える刺激の一つになりました。</p>
+
+<!-- 11 -->
+<h2 id="s11"><span class="n">11</span>自然法則とは何か（第ⅩⅩⅤ章）</h2>
+<p>最終章でマッハは、本全体の結論として自然法則の意味を問い直します。</p>
+
+<div class="tw"><table>
+<tr><th></th><th>よくある考え</th><th>マッハの考え</th></tr>
+<tr><td>自然法則とは</td><td>自然が従わなければならない規則（市民の法律のようなもの）</td><td>経験に導かれて、私たちが自分の<b>期待</b>にかける<b>制限</b></td></tr>
+<tr><td>役割</td><td>自然を支配する</td><td>私たちが自然のなかで方向を見失わないための道具</td></tr>
+<tr><td>精密さ</td><td>自然そのものが厳密</td><td>厳密なのは理論（理想化）のほう。現実との一致はつねに近似</td></tr>
+<tr><td>外れたら</td><td>ありえない</td><td>まだ知られていない条件を探すきっかけ。重要な発見になる</td></tr>
+</table></div>
+
+<figure>
+<svg viewBox="0 0 820 230" role="img" aria-label="期待の範囲がしだいに狭まる図">
+  <g text-anchor="middle">
+    <ellipse cx="150" cy="115" rx="125" ry="85" fill="var(--c5s)" stroke="var(--c5)"/>
+    <text x="150" y="105" font-size="14" font-weight="600">本能的な期待</text>
+    <text x="150" y="127" font-size="12">「たぶんこうなる」</text>
+    <ellipse cx="410" cy="115" rx="90" ry="60" fill="var(--c2s)" stroke="var(--c2)"/>
+    <text x="410" y="108" font-size="14" font-weight="600">質的な法則</text>
+    <text x="410" y="128" font-size="12">「光は曲がる」</text>
+    <ellipse cx="650" cy="115" rx="55" ry="35" fill="var(--c1s)" stroke="var(--c1)"/>
+    <text x="650" y="112" font-size="13" font-weight="600">量的な法則</text>
+    <text x="650" y="129" font-size="11">sin α/sin β＝n</text>
+  </g>
+  <path class="ln" d="M278,115 L316,115" marker-end="url(#ar)"/>
+  <path class="ln" d="M503,115 L591,115" marker-end="url(#ar)"/>
+  <text x="410" y="215" text-anchor="middle" font-size="12" class="mut">科学の進歩＝期待の余地をしだいに狭め、より確かな予想ができるようになること</text>
+</svg>
+<figcaption>図11　自然法則は「期待の制限」（第ⅩⅩⅤ章）</figcaption>
+</figure>
+
+<p>本の最後でマッハは、科学は生物学的・文化的な発展から「最も余計な枝」のように生まれたが、今では最も役に立つ要因になった、と言います。手探りの無意識的な適応のかわりに、速く、意識的で、方法的な適応を置くことが科学の仕事です。そして、心理学と社会学の洞察を使って「道徳的な世界秩序」を自分たちの手でつくろう、という呼びかけで本は終わります。</p>
+
+<!-- 12 -->
+<h2 id="s12"><span class="n">12</span>マッハの影響と批判</h2>
+<figure>
+<svg viewBox="0 0 820 260" role="img" aria-label="マッハの影響関係">
+  <circle cx="410" cy="130" r="62" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="410" y="125" text-anchor="middle" font-size="16" font-weight="600" style="fill:var(--accent)">マッハ</text>
+  <text x="410" y="147" text-anchor="middle" font-size="12">1838–1916</text>
+  <g font-size="13" text-anchor="middle">
+    <rect x="20" y="20" width="220" height="56" rx="8" fill="var(--c1s)" stroke="var(--c1)"/><text x="130" y="44">アインシュタイン</text><text x="130" y="64" font-size="11">絶対空間・絶対時間の批判</text>
+    <rect x="20" y="102" width="220" height="56" rx="8" fill="var(--c1s)" stroke="var(--c1)"/><text x="130" y="126">ウィーン学団・論理実証主義</text><text x="130" y="146" font-size="11">「エルンスト・マッハ協会」</text>
+    <rect x="20" y="184" width="220" height="56" rx="8" fill="var(--c1s)" stroke="var(--c1)"/><text x="130" y="208">ジェイムズ・心理学</text><text x="130" y="228" font-size="11">意識の流れ・ゲシュタルトの先駆</text>
+    <rect x="580" y="20" width="220" height="56" rx="8" fill="var(--c5s)" stroke="var(--c5)"/><text x="690" y="44">ボルツマン・プランク</text><text x="690" y="64" font-size="11">原子論への懐疑を批判</text>
+    <rect x="580" y="102" width="220" height="56" rx="8" fill="var(--c5s)" stroke="var(--c5)"/><text x="690" y="126">レーニン</text><text x="690" y="146" font-size="11">『唯物論と経験批判論』(1909)</text>
+    <rect x="580" y="184" width="220" height="56" rx="8" fill="var(--c3s)" stroke="var(--c3)"/><text x="690" y="208">デュエム</text><text x="690" y="228" font-size="11">近い考えの物理学者（第2版序文）</text>
+  </g>
+  <g class="ln"><path d="M348,110 L244,50"/><path d="M348,130 L244,130"/><path d="M348,150 L244,210"/><path d="M472,110 L576,50"/><path d="M472,130 L576,130"/><path d="M472,150 L576,210"/></g>
+  <text x="130" y="12" text-anchor="middle" font-size="11" class="mut">影響を受けた</text>
+  <text x="690" y="12" text-anchor="middle" font-size="11" class="mut">批判・対話</text>
+</svg>
+<figcaption>図12　マッハをめぐる人々（左：影響、右上：批判、右下：共鳴）</figcaption>
+</figure>
+
+<div class="tw"><table>
+<tr><th>評価される点</th><th>批判される点</th></tr>
+<tr><td>科学を固定した真理ではなく、成長し訂正される過程として描いた</td><td>原子のような直接観察できない対象に懐疑的すぎた（原子の実在はまもなく確かめられた）</td></tr>
+<tr><td>思考実験・類比・仮説の役割を具体例で示した</td><td>「感覚の要素」だけで世界を説明しようとする立場は、唯物論者からも観念論者からも批判された</td></tr>
+<tr><td>誤りを研究に不可欠なものとして位置づけた</td><td>心理学的な説明と、知識の正しさ（論理的な正当化）の問題を区別していない、という批判</td></tr>
+<tr><td>絶対空間・絶対時間への批判が相対性理論を準備した</td><td>相対性理論そのものには、晩年のマッハは賛成しなかったとされる</td></tr>
+</table></div>
+
+<!-- 13 -->
+<h2 id="s13"><span class="n">13</span>用語集</h2>
+<div class="tw"><table>
+<tr><th>訳語</th><th>原語</th><th>意味</th></tr>
+<tr><td>要素</td><td>Element</td><td>色・音・熱さ・空間など、感覚で出会う最も単純な構成要素</td></tr>
+<tr><td>感覚</td><td>Empfindung</td><td>要素が身体への依存において考えられたもの</td></tr>
+<tr><td>表象</td><td>Vorstellung</td><td>頭に思い浮かべた像（記憶や想像のなかの像）</td></tr>
+<tr><td>連合</td><td>Association</td><td>ある表象が別の表象を呼び起こすこと</td></tr>
+<tr><td>適応</td><td>Anpassung</td><td>環境に合わせて身体や思考が変わること</td></tr>
+<tr><td>思考の経済</td><td>Denkökonomie</td><td>最小の手間で最大の事実を表そうとする傾向</td></tr>
+<tr><td>依存関係</td><td>Abhängigkeit</td><td>ある要素が変わると別の要素がどう変わるかという関係（数学の関数に近い）</td></tr>
+<tr><td>思考実験</td><td>Gedankenexperiment</td><td>頭のなかで条件を変えて結果を想像する実験</td></tr>
+<tr><td>変化の方法</td><td>Methode der Variation</td><td>条件を一つずつ変えて依存関係を調べる方法</td></tr>
+<tr><td>仮説</td><td>Hypothese</td><td>事実を暫定的に補う想定。試験にかけられる</td></tr>
+<tr><td>所見</td><td>Befund</td><td>観察や想像のなかで見いだされた事実の内容</td></tr>
+<tr><td>期待の制限</td><td>Einschränkung der Erwartung</td><td>自然法則についてのマッハの定義</td></tr>
+</table></div>
+
+<!-- 14 -->
+<h2 id="s14"><span class="n">14</span>章ごとの一覧と読み方</h2>
+<div class="tw"><table>
+<tr><th>章</th><th>題名</th><th>一言で</th><th>おすすめ</th></tr>
+<tr><td class="c"><a href="kapitel_00.html">序文</a></td><td>序文・第二版への序文</td><td>「私は哲学者ではない」。執筆の意図</td><td class="c">★</td></tr>
+<tr><td class="c"><a href="kapitel_01.html">Ⅰ</a></td><td>哲学的思考と自然科学的思考</td><td>哲学と科学の考え方の違いと共通点</td><td class="c">★★★</td></tr>
+<tr><td class="c"><a href="kapitel_02.html">Ⅱ</a></td><td>心理生理学的考察</td><td>要素と依存関係。物理と心理の境界</td><td class="c">★★</td></tr>
+<tr><td class="c"><a href="kapitel_03.html">Ⅲ</a></td><td>記憶・再生・連合</td><td>経験を保存し呼び出す仕組み</td><td class="c">★</td></tr>
+<tr><td class="c"><a href="kapitel_04.html">Ⅳ</a></td><td>反射・本能・意志・自我</td><td>単純な反応から意志と自我へ</td><td class="c">★</td></tr>
+<tr><td class="c"><a href="kapitel_05.html">Ⅴ</a></td><td>個体性の発達</td><td>自然と文化の環境のなかで個人が育つ</td><td class="c">★</td></tr>
+<tr><td class="c"><a href="kapitel_06.html">Ⅵ</a></td><td>表象生活の繁茂</td><td>想像が生い茂る。神話・迷信の起源</td><td class="c">★★</td></tr>
+<tr><td class="c"><a href="kapitel_07.html">Ⅶ</a></td><td>認識と誤謬</td><td>正しい知識と誤りは同じ源から</td><td class="c">★★★</td></tr>
+<tr><td class="c"><a href="kapitel_08.html">Ⅷ</a></td><td>概念</td><td>概念は反応の仕方を指示するもの</td><td class="c">★★</td></tr>
+<tr><td class="c"><a href="kapitel_09.html">Ⅸ</a></td><td>感覚・直観・空想</td><td>直観と想像力の役割</td><td class="c">★</td></tr>
+<tr><td class="c"><a href="kapitel_10.html">Ⅹ</a></td><td>思考の事実への適応と思考相互の適応</td><td>研究の二つの目標</td><td class="c">★★★</td></tr>
+<tr><td class="c"><a href="kapitel_11.html">ⅩⅠ</a></td><td>思考実験について</td><td>頭のなかの実験の力と限界</td><td class="c">★★★</td></tr>
+<tr><td class="c"><a href="kapitel_12.html">ⅩⅡ</a></td><td>物理的実験とその指導動機</td><td>変化の方法</td><td class="c">★★</td></tr>
+<tr><td class="c"><a href="kapitel_13.html">ⅩⅢ</a></td><td>類似と類比</td><td>似ているものから未知を推す</td><td class="c">★★</td></tr>
+<tr><td class="c"><a href="kapitel_14.html">ⅩⅣ</a></td><td>仮説</td><td>仮説の効用と危険</td><td class="c">★★</td></tr>
+<tr><td class="c"><a href="kapitel_15.html">ⅩⅤ</a></td><td>問題</td><td>問題はどこから生まれるか</td><td class="c">★★</td></tr>
+<tr><td class="c"><a href="kapitel_16.html">ⅩⅥ</a></td><td>研究の前提</td><td>研究が暗に置いている前提</td><td class="c">★</td></tr>
+<tr><td class="c"><a href="kapitel_17.html">ⅩⅦ</a></td><td>研究の道筋の実例</td><td>天文学・電磁気などの科学史</td><td class="c">★★★</td></tr>
+<tr><td class="c"><a href="kapitel_18.html">ⅩⅧ</a></td><td>演繹と帰納</td><td>論理は新しい知識を生まない</td><td class="c">★★</td></tr>
+<tr><td class="c"><a href="kapitel_19.html">ⅩⅨ</a></td><td>数と量</td><td>数の生物学的起源</td><td class="c">★★</td></tr>
+<tr><td class="c"><a href="kapitel_20.html">ⅩⅩ</a></td><td>生理学的空間</td><td>感覚の空間と幾何学の空間</td><td class="c">★★</td></tr>
+<tr><td class="c"><a href="kapitel_21.html">ⅩⅪ</a></td><td>幾何学の心理学と自然的発展</td><td>幾何学は職人の経験から</td><td class="c">★★</td></tr>
+<tr><td class="c"><a href="kapitel_22.html">ⅩⅫ</a></td><td>空間と幾何学</td><td>非ユークリッド幾何の歴史（数式多め）</td><td class="c">★</td></tr>
+<tr><td class="c"><a href="kapitel_23.html">ⅩⅩⅢ</a></td><td>生理学的時間</td><td>感じる時間と測る時間</td><td class="c">★</td></tr>
+<tr><td class="c"><a href="kapitel_24.html">ⅩⅩⅣ</a></td><td>物理学的な時間と空間</td><td>絶対空間・絶対時間の批判</td><td class="c">★★</td></tr>
+<tr><td class="c"><a href="kapitel_25.html">ⅩⅩⅤ</a></td><td>自然法則の意味と価値</td><td>法則は期待の制限（まとめ）</td><td class="c">★★★</td></tr>
+</table></div>
+
+<h3>考えてみよう（レポートのヒント）</h3>
+<dl class="qa">
+  <dt>Q1. あなたが最近した「誤り」は、どんな心の働きから生まれましたか。</dt>
+  <dd>第Ⅶ章の考えに従えば、それは正しい判断を生む働きと同じはずです。どの働き（連想・一般化・類推）だったか考えてみましょう。</dd>
+  <dt>Q2. 身近な思考実験の例を挙げてください。</dt>
+  <dd>ガリレイの「重い物と軽い物をひもで結んで落とす」議論が有名です。第ⅩⅠ章と比べてみましょう。</dd>
+  <dt>Q3. 「自然法則は期待の制限である」という考えに賛成ですか。</dt>
+  <dd>天気予報や医学の統計など、確率でしか言えない「法則」と比べると、マッハの考えの強みと弱みが見えてきます。</dd>
+  <dt>Q4. 原子を「見えないから仮説にすぎない」としたマッハは間違っていたのでしょうか。</dt>
+  <dd>第ⅩⅣ章の仮説論と、20世紀初頭の原子の実在の確認（ブラウン運動の研究など）を比べてみましょう。</dd>
+</dl>
+
+<footer>
+  <p><a href="index.html">独日対訳（序文・全25章）の目次へ</a></p>
+  <p>本解説は、マッハ『認識と誤謬』第2版（1906年）の独日対訳にもとづく入門案内です。要約は本解説者によるもので、引用は趣旨を示したものです。</p>
+</footer>
+</div>
+</body>
+</html>
