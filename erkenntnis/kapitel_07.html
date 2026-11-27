@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第Ⅶ章 認識と誤謬</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第Ⅶ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL VII · 第Ⅶ章</div>
+  <h1>認識と誤謬</h1>
+  <div class="de-title" lang="de">Erkenntnis und Irrtum</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 108–125　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;108</span></span></aside>
+  <p class="de" lang="de">1. Die Lebewesen haben sich teils durch angeborene (permanente), teils durch erworbene (temporäre) Anpassung mit den Umständen ihrer Umgebung ins Gleichgewicht gesetzt. Die Organisation und die Gewohnheit des Verhaltens aber, welche unter gewissen Umständen biologisch förderlich ist, wird unter veränderten Verhältnissen nachteilig und kann sogar zur Zerstörung des Lebens führen. Der Vogel ist für das Leben in der Luft, der Fisch für das Leben unter Wasser organisiert, nicht aber umgekehrt. Der Frosch schnappt nach den fliegenden Insekten, von welchen er sich nährt, wird aber ein Opfer dieser Gewohnheit, wenn er ein Stück bewegten Tuches erwischt und an der damit verbundenen Angel hängen bleibt. Die Falter, welche im Interesse ihrer Lebenserhaltung dem Lichten und Farbigen zufliegen, geraten vermöge dieses im allgemeinen zweckmäßigen Verhaltens gelegentlich an die gemalten Blüten einer Tapete, die ihnen keine Nahrung bieten, oder in die Flamme, die ihnen den Tod bringt.</p>
+  <p class="jp" lang="ja">1. 生物は、一部は生得的な（恒常的な）適応によって、一部は獲得された（一時的な）適応によって、その環境の事情と均衡を保ってきた。しかし、ある事情のもとで生物学的に有益な組織やふるまいの習慣は、事情が変わると不利なものとなり、生命の破壊にさえ導きうる。鳥は空中の生活に、魚は水中の生活に組織されているが、その逆ではない。蛙は、自分の食物である飛ぶ昆虫に飛びつくが、動く布切れをくわえてそれに結びつけられた釣り針にかかってしまうと、この習慣の犠牲となる。生命を保つために明るいものや色のついたものへと飛んでいく蛾は、この一般には目的にかなったふるまいのために、ときに何の栄養も与えない壁紙の描かれた花や、死をもたらす炎へと行き着いてしまう。</p>
+</article>
+<article class="row" id="p1.2">
+  <aside class="mg"><a class="pid" href="#p1.2">1.2</a><span class="pg"><span>S.&nbsp;108</span></span></aside>
+  <p class="de" lang="de">Jedes in einer Falle gefangene oder von einem andern erbeutete Tier weist uns die Grenzen der Zweckmäßigkeit seiner psycho-physiologischen Organisation. Bei den am einfachsten organisierten Tieren ist Reiz und Reaktion, etwa Angriff oder Flucht, in so regelmäßiger Weise verbunden, daß die beobachteten Tatsachen uns nicht veranlassen würden, zwischen die beiden verbundenen Glieder: Empfindung, Vorstellung, Gefühlsstimmung und Willen eingeschaltet zu denken, wenn nicht die Analogie zu den an uns selbst wahrgenommenen Vorgängen dies so nahe legen würde. Der Reiz wirkt hier unmittelbar aktiv, wie bei einer Reflexbewegung, etwa dem Sehnenreflex, von dem wir erst erfahren, nachdem derselbe stattgefunden hat.</p>
+  <p class="jp" lang="ja">罠にかかった動物、あるいは他の動物に捕らえられた動物はどれも、その心理生理学的組織の合目的性の限界をわれわれに示している。最も単純に組織された動物においては、刺激と反応、たとえば攻撃や逃走とがきわめて規則的に結びついているので、もしわれわれ自身において知覚される過程との類推がそれをかくも強く示唆するのでなければ、観察された事実は、結びついた二つの項のあいだに感覚、表象、感情の気分、意志が挿入されていると考えるよう、われわれを促しはしないであろう。ここでは刺激は、反射運動、たとえば腱反射——それについてわれわれは、それが起こってからはじめて知る——の場合のように、直接に能動的にはたらくのである。</p>
+</article>
+<article class="row" id="p1.3">
+  <aside class="mg"><a class="pid" href="#p1.3">1.3</a><span class="pg"><span>S.&nbsp;108</span><span>S.&nbsp;109</span></span></aside>
+  <p class="de" lang="de">Erst wenn der einfache Reiz wegen Komplikation der <span class="pb" title="Leipzig 1906, S. 109">109</span>Lebensbedingungen zu vieldeutig wird, um den zweckmäßigen Anpassungsvorgang zu bestimmen, tritt die Empfindung als selbständiges Element auf, welches mit den Erinnerungen, Vorstellungen, den Zustand des Organismus, die Gefühlsstimmung bedingt, welche endlich die Handlung mit bewußtem Ziel auslöst. Den komplizierteren Lebensbedingungen entspricht eben auch ein komplizierterer diesen angepaßter Organismus mit Wechselwirkung mannigfaltiger aneinander angepaßter Teile. Das Bewußtsein besteht eben in einer besonderen wichtigen Wechselbeziehung der Teile (des Gehirns). Wenn ein Element, ein Teilvorgang des Bewußtseins, eine Empfindung, eine Vorstellung uns nicht direkt aktiv erscheint, so liegt dies an den mannigfaltigen, vielseitigen Beziehungen, die dies Element im entwickelten Individuum erlangt hat, wodurch die einzelne Beziehung im allgemeinen in den Hintergrund gedrängt, und erst bei der geeigneten Kombination von Elementen (Empfindungen, Vorstellungen) zum Hervortreten bestimmt wird. Es gibt keinen Gegensatz zwischen Vorstellung und Willen etwa.</p>
+  <p class="jp" lang="ja">生活条件の複雑さのために単純な刺激があまりに多義的になり、目的にかなった適応過程を規定できなくなったときにはじめて、感覚は自立した要素として現れ、それが記憶や表象とともに有機体の状態、すなわち感情の気分を条件づけ、それがついに意識的な目標をもつ行為を引き起こす。より複雑な生活条件には、まさに、互いに適応した多様な部分の相互作用をもつ、それに適応したより複雑な有機体が対応する。意識とはまさに、諸部分（脳の）のある特別な重要な相互関係のうちに成り立つのである。ある要素、意識のある部分過程、ある感覚、ある表象が、われわれに直接に能動的に見えないとすれば、それは、その要素が発達した個体において獲得した多様で多面的な関係のためであり、そのために個々の関係は一般に背後へ押しやられ、要素（感覚、表象）の適当な組み合わせがあったときにはじめて現れ出るよう規定されるのである。たとえば表象と意志とのあいだに対立などはない。</p>
+</article>
+<article class="row" id="p1.4">
+  <aside class="mg"><a class="pid" href="#p1.4">1.4</a><span class="pg"><span>S.&nbsp;109</span></span></aside>
+  <p class="de" lang="de">Beide sind Produkte der Organe, erstere vorwiegend einzelner Organe, letzterer des Zusammenhanges der Organe. Die gesamten Lebensvorgänge des Individuums sind Reaktionen im Interesse der Lebenserhaltung, und die Wandlungen im Vorstellungsleben sind nur ein Teil der ersteren. Das Bestehen einer Art von Lebewesen zeigt, daß die Anpassungen hinreichend überwiegend erhaltungsgemäß gelingen, um das Fortbestehen zu sichern. Daß im physischen wie im psychischen Leben auch Reaktionen vorkommen, welche nicht erhaltungsgemäß ausfallen, welche im Sinn der Anpassung als mißlungen zu betrachten sind, zeigt die tägliche Beobachtung. Physische und psychische Reaktionen regeln sich nach dem Prinzip der Wahrscheinlichkeit. Ob die Reaktion Nutzen oder Schaden bringt, ob insbesondere biologisch fördernde oder irreleitende Vorstellungen sich einfinden, in beiden Fällen liegen dieselben physischen und psychischen Vorgänge zugrunde.</p>
+  <p class="jp" lang="ja">両者とも器官の産物であり、前者は主として個々の器官の、後者は器官の連関の産物である。個体の生命過程の全体は生命の維持のための反応であり、表象生活における変化はその一部にすぎない。ある種の生物が存続していることは、適応が種の存続を保証するのに十分なほど、圧倒的に維持にかなう仕方で成功していることを示している。身体的生活においても心的生活においても、維持にかなわない反応、適応の意味で失敗とみなされるべき反応もまた生じることは、日々の観察が示している。身体的反応も心的反応も、確率の原理に従って規制される。反応が利益をもたらすか損害をもたらすか、とりわけ生物学的に促進的な表象が現れるか誤らせる表象が現れるか、どちらの場合にも同じ身体的・心的過程が根底にある。</p>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;109</span><span>S.&nbsp;110</span></span></aside>
+  <p class="de" lang="de">2. Betrachten wir einige Beispiele. Schon bei unmittelbarer Auslösung einer Reaktion durch den Reiz können sich nachteilige Folgen einstellen. Fliegen werden durch den Aasgeruch mancher Pflanzen verleitet auf denselben ihre Eier abzulegen; die aus<span class="pb" title="Leipzig 1906, S. 110">110</span>schlüpfenden Larven, welche daselbst keine Nahrung finden, gehen natürlich zugrunde. Giften, welche Nahrungsstoffen ähnlich schmecken, fallen Insekten häufig zum Opfer. Auch Rinder und Schafe, besonders auf fremder, exotischer Weide, ereilt zuweilen dasselbe Schicksal. Physikalisch innig zusammenhängende Umstände, welche verschiedene Empfindungen auslösen, kommen häufiger zusammen vor, als andere Umstände, welche nur der Zufall zusammenführt; demnach werden die dem ersten Fall entsprechenden Empfindungen und Vorstellungen stärker associiert sein, als im zweiten Fall.</p>
+  <p class="jp" lang="ja">2. いくつかの例を考察しよう。刺激によって直接に反応が引き起こされる場合にすでに、不利な結果が生じうる。蠅は、ある種の植物の死肉の臭いに惑わされてその上に卵を産みつける。孵った幼虫はそこで何の食物も見つけられず、当然死んでしまう。栄養物質に似た味のする毒に、昆虫はしばしば犠牲となる。牛や羊も、とりわけ見知らぬ外来の牧草地では、ときに同じ運命に見舞われる。物理的に緊密に連関しており、さまざまな感覚を引き起こす事情は、偶然だけが結びつける他の事情よりも頻繁に一緒に生じる。したがって、前者の場合に対応する感覚と表象は、後者の場合よりも強く連合しているであろう。</p>
+</article>
+<article class="row" id="p2.2">
+  <aside class="mg"><a class="pid" href="#p2.2">2.2</a><span class="pg"><span>S.&nbsp;110</span></span></aside>
+  <p class="de" lang="de">Die angeborene und erworbene Aufmerksamkeitsstimmung (Apperzeption) ist überdies auf das biologisch Wichtige gerichtet. Trotzdem ist das Spiel ungünstiger Zufälle und folglich der Fall irreführender Associationen nicht auszuschließen. Wenn Darwins Ansicht richtig ist, werden schlecht schmeckende oder stechende giftige Insekten mit lebhaften auffallenden Farben gemieden, ebenso bleiben aber harmlose Insekten verschont, welche den ersteren ähnlich gefärbt sind (Mimicry). Wenn das optische Bild eines bekannten Körpers auf unsere Netzhaut fällt, so stellt sich associativ auch die Vorstellung des Tasteindrucks und der übrigen Eigenschaften ein. Berühren wir im Dunkeln einen Körper, so steht wieder dessen optisches Bild vor uns.</p>
+  <p class="jp" lang="ja">そのうえ、生得的および獲得された注意の構え（統覚）は、生物学的に重要なものへと向けられている。それにもかかわらず、不利な偶然の戯れ、したがって誤らせる連合の場合を排除することはできない。ダーウィンの見解が正しいとすれば、鮮やかで目立つ色をもつまずい味の、あるいは刺す有毒な昆虫は避けられるが、それと似た色をしている無害な昆虫もまた見逃される（擬態）。既知の物体の視覚像がわれわれの網膜に落ちると、連合によって触覚印象やその他の性質の表象も生じる。暗闇で物体に触れると、今度はその視覚像がわれわれの前に浮かぶ。</p>
+</article>
+<article class="row" id="p2.3">
+  <aside class="mg"><a class="pid" href="#p2.3">2.3</a><span class="pg"><span>S.&nbsp;110</span></span></aside>
+  <p class="de" lang="de">Es ist biologisch wichtig, daß diese Associationen so rasch und lebhaft erfolgen, daß sie fast Illusionen gleich zu achten sind; in selteneren Fällen werden wir aber durch dieselben Prozesse doch auch irregeführt. Die Stimmung oder Gedankenrichtung hat hier wesentlichen mitbestimmenden Einfluß. Ein Jüngling ist damit beschäftigt, die Prärie mit einem Ochsengespann in Ackerland zu verwandeln und wird öfter durch Klapperschlangen gestört, die er tötet. Als er die entfallene Peitschenschnur aufheben will, ergreift er zufällig einen Stock, den er für eine Schlange hält, deren Klappern er zugleich zu hören glaubt.<a class="fr" href="#n1">1</a> Umgekehrt kann man unter Umständen, einen Stock suchend, auch eine Schlange anfassen, die man für einen Stock oder ein anderes harmloses Ding hält.</p>
+  <p class="jp" lang="ja">これらの連合がほとんど錯覚と同等とみなされるほどすばやく生き生きと生じることは、生物学的に重要である。しかしまれな場合には、同じ過程によってわれわれは欺かれもする。気分や思考の方向は、ここで本質的に規定に関与する影響をもつ。ある若者が牛の引く犂で草原を耕地に変える仕事をしていて、しばしばガラガラヘビに邪魔され、それを殺していた。落とした鞭の紐を拾おうとして、彼はたまたま棒をつかみ、それを蛇だと思い、同時にそのガラガラという音を聞いたように思った<a class="fr" href="#n1">1</a>。逆に、事情によっては棒を探していて、棒あるいは何か他の無害な物だと思って蛇をつかむこともありうる。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">Powell, Truth and error, S. 309.</p><p class="jp" lang="ja">パウエル『真理と誤謬』309頁。</p></li></ol>
+</article>
+<article class="row" id="p2.4">
+  <aside class="mg"><a class="pid" href="#p2.4">2.4</a><span class="pg"><span>S.&nbsp;110</span><span>S.&nbsp;111</span></span></aside>
+  <p class="de" lang="de">Wie weit diese Geläufigkeit der associativen psychischen Ergänzung beim Menschen, namentlich beim zivilisierten Menschen reichen kann, sieht <span class="pb" title="Leipzig 1906, S. 111">111</span>man am besten an der leichten räumlichen Auffassung von ebenen perspektivischen Linearzeichnungen. Man erkennt die Treppe, eine Maschine, selbst komplizierte Kristallformen ohne Schwierigkeit in ihrer räumlichen Form, obgleich die Linearzeichnung nur ein Minimum davon andeutet. Interessant ist die Mitteilung von Powell,<a class="fr" href="#n2">2</a> daß die Indianer in der Interpretation von derartigen Linearzeichnungen Schwierigkeiten finden, die sie aber bald überwinden. Farbige Malereien verstehen sie nur dann leicht, wenn die Darstellung ihnen bekannte Objekte betrifft. Übrigens ist die Fähigkeit der Menschen in dieser Richtung höchst verschieden und spezialisiert.</p>
+  <p class="jp" lang="ja">連合による心的な補完のこのなめらかさが、人間において、とくに文明人においてどこまで及びうるかは、平面的な遠近法の線画を容易に空間的に把握することに最もよく見て取れる。線画はそのごくわずかな部分しか示していないのに、人は階段や機械、さらには複雑な結晶の形さえ、難なくその空間的な形において認識する。インディアンはこの種の線画を解釈するのに困難を覚えるが、まもなくそれを克服するという、パウエル<a class="fr" href="#n2">2</a>の報告は興味深い。彩色された絵は、その描写が彼らの知っている対象に関わる場合にだけ、彼らに容易に理解される。ちなみに、この方面での人間の能力はきわめてさまざまで、特殊化している。</p>
+  <ol class="notes"><li id="n2"><span class="nn">2</span><p class="de" lang="de">Powell, a. a. O. S. 340.</p><p class="jp" lang="ja">パウエル前掲書、340頁。</p></li></ol>
+</article>
+<article class="row" id="p2.5">
+  <aside class="mg"><a class="pid" href="#p2.5">2.5</a><span class="pg"><span>S.&nbsp;111</span></span></aside>
+  <p class="de" lang="de">Ich kannte eine phantasiereiche alte Frau, welche wunderbare Märchen trefflich zu erzählen wußte, für die aber ein Gemälde so unverständlich war, wie für einen Idioten oder ein Tier. Sie wußte kaum, ob sie eine Landschaft oder ein Porträt vor sich habe.<a class="fr" href="#n3">3</a> Die Ungenauigkeit der Association, die Störung einer Association durch eine andere, äußert sich in den rudimentären ersten Zeichenversuchen unserer Kinder. Wessen sie sich erinnern, und was sie an einer Person einmal gesehen haben, bringen sie an deren „Bild“ zum Ausdruck, gleichgültig, ob dies auf einmal gesehen werden kann oder nicht. Ebenso verfahren nach K. von den Steinen<a class="fr" href="#n4">4</a> die Indianer und ebenso verfuhren die Begründer der Malerei bei den alten Ägyptern. Ehrwürdiges Altertum und Züge von technisch hoch entwickelter und doch primitiv kindlicher Kunst finden wir zugleich auf den Tempelwänden verkörpert.</p>
+  <p class="jp" lang="ja">私は、すばらしい童話をみごとに語るすべを心得ていた空想力豊かな老女を知っていたが、彼女にとって絵画は、白痴や動物にとってと同じく理解不能であった。彼女は、目の前にあるのが風景画なのか肖像画なのかもほとんど分からなかった<a class="fr" href="#n3">3</a>。連合の不正確さ、ある連合による他の連合の妨害は、われわれの子どもたちの初歩的な最初の素描の試みに現れる。子どもたちは、ある人物について思い出すこと、一度見たことを、それが一度に見えうるかどうかにかかわりなく、その人の「絵」に表現する。K. フォン・デン・シュタイネン<a class="fr" href="#n4">4</a>によればインディアンも同じようにし、古代エジプト人における絵画の創始者たちも同じようにした。神殿の壁には、尊ぶべき古さと、技術的には高度に発達していながら原始的で子どもらしい芸術の特徴とが、同時に具現されているのが見られる。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">Selbst klügere Hunde sollen zuweilen das Porträt ihres Herrn erkennen.</p><p class="jp" lang="ja">賢い犬のなかには、ときに主人の肖像画を認めるものさえあるという。</p></li><li id="n4"><span class="nn">4</span><p class="de" lang="de">K. von den Steinen, Unter den Naturvölkern Zentral-Brasiliens. Berlin 1897. S. 230-241.</p><p class="jp" lang="ja">K. フォン・デン・シュタイネン『中央ブラジルの自然民族のもとで』ベルリン、1897年、230–241頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;111</span></span></aside>
+  <p class="de" lang="de">3. Stärkere physikalische Abhängigkeiten können vom Zufall nicht leicht ganz verdeckt werden, und das biologische Interesse fördert die Beachtung richtiger und wichtiger Associationen. Letztere werden also, auch ohne besondere psychische Entwicklung, eine Tendenz zeigen, permanent<a class="fr" href="#n5">5</a> zu werden und die Lebensfunktionen schon instinktiv überwiegend erhaltungsgemäß zu leiten. Wo aber irreführende Associationen empfindliche Folgen nach sich ziehen, werden gerade letztere als Korrektiv wirken und zur weiteren psychischen Entwicklung beitragen. Die traumhafte Association wird der aufmerksamen, bewußten, absichtlichen Beachtung der wichtigen Übereinstimmungen und Unterschiede verschiedener Fälle, der klaren Abhebung der richtig leitenden und der irreführenden Merkmale der Fälle und deren scharfer Unterscheidung weichen. Hier stehen wir an dem Beginn der absichtlichen Vorstellungsanpassung, an der Schwelle der Forschung. Diese strebt, um es kurz zu sagen, außer der Permanenz des Vorstellungslebens auch eine für die Mannigfaltigkeit der Erlebnisse zureichende Differenzierung<a class="fr" href="#n6">6</a> an. Der Verlauf der Vorstellungen soll sich möglichst genau den Erlebnissen, seien es nun physische oder psychische, anpassen, er soll denselben sich anschließend folgen und vorauseilen, er soll in verschiedenen Fällen sich möglichst wenig ändern und dennoch der Verschiedenheit der Fälle gerecht werden. Der Vorstellungsverlauf soll ein möglichst getreues Abbild des Naturlaufes selbst sein. Es wurde schon erwähnt, daß erhebliche Fortschritte der Forschung nur zu erzielen sind durch Zusammenwirkung der sozialen Vereinigung der Menschen, durch gegenseitige Mitteilung, durch Sprache und Schrift.</p>
+  <p class="jp" lang="ja">3. より強い物理的依存関係は偶然によってたやすくすっかり覆い隠されることはなく、生物学的関心は正しく重要な連合への注目を促す。それゆえ後者は、特別な心的発達がなくとも、恒常的になる傾向<a class="fr" href="#n5">5</a>を示し、生命機能をすでに本能的に圧倒的に維持にかなうよう導くであろう。しかし、誤らせる連合が手痛い結果をもたらす場合には、まさにその結果が修正としてはたらき、さらなる心的発達に寄与するであろう。夢のような連合は、さまざまな場合の重要な一致点と相違点に注意深く、意識的に、意図的に注目すること、場合の正しく導く特徴と誤らせる特徴とを明瞭に取り出し、それらを鋭く区別することに場所を譲るであろう。ここでわれわれは、意図的な表象の適応の始まり、研究の入口に立っている。研究は、簡単に言えば、表象生活の恒常性に加えて、体験の多様性に対して十分な分化<a class="fr" href="#n6">6</a>を目指す。表象の経過は、体験——それが物理的なものであれ心理的なものであれ——にできるかぎり正確に適応すべきであり、それに寄り添って従い、先回りすべきであり、さまざまな場合においてできるかぎり変わらず、しかも場合の相違を正当に扱うべきである。表象の経過は、自然の経過そのもののできるかぎり忠実な写しであるべきなのである。研究の著しい進歩は、人間の社会的結合の協働によって、相互の伝達によって、言語と文字によってのみ達成されうることは、すでに述べた。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">Vgl. Analyse d. Empfindungen. 4. Aufl. 1903. S. 248. Die vorliegende Schrift S. 32 u. f.</p><p class="jp" lang="ja">『感覚の分析』第4版、1903年、248頁参照。本書32頁以下。</p></li><li id="n6"><span class="nn">6</span><p class="de" lang="de">Analyse S. 248.</p><p class="jp" lang="ja">『感覚の分析』248頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;112</span></span></aside>
+  <p class="de" lang="de">4. Wer es unangenehm empfunden hat, einen Giftschwamm mit einem eßbaren Schwamm verwechselt zu haben, wird genau auf die roten und weißen Flecke des Fliegenschwammes achten, wird dieselben als warnendes Zeichen der Giftigkeit auffassen. Dieselben heben sich dann deutlich von dem Gesamtbilde des Schwammes ab. Ähnlich verhalten wir uns gegenüber giftigen Beeren u. s. w. So lernen wir also die wichtigeren Bestimmungsstücke eines Erlebnisses gesondert beachten, dasselbe in Teile auflösen oder aus Teilen zusammensetzen. Indem wir eine Seite eines Erlebnisses durch eine andere uns auffallende oder wichtig scheinende als näher bestimmt ansehen, und dies sprachlich ausdrücken, fällen wir ein Urteil. Gewiß kann man auch innerlich urteilen, ohne sprachlichen Ausdruck, oder vor demselben. Der geniale Wilde, der seine Kürbisschale durch Tonüberzug zuerst vor dem Verbrennen schützte, befand sich wohl in diesem Falle.</p>
+  <p class="jp" lang="ja">4. 毒キノコを食用キノコと取り違えて不快な思いをした者は、ベニテングタケの赤と白の斑点に注意深く目を向け、それを有毒であることの警告のしるしと解するであろう。斑点はそのとき、キノコの全体像からはっきりと際立つ。有毒な木の実などに対しても、われわれは同様にふるまう。こうしてわれわれは、体験のより重要な規定部分を別々に注目し、体験を部分に分解したり部分から組み立てたりすることを学ぶ。体験のある側面を、目につく、あるいは重要に見える別の側面によってより詳しく規定されているとみなし、それを言語で表現するとき、われわれは判断を下すのである。もちろん、言語的表現なしに、あるいはそれより前に、内的に判断することもできる。自分のひょうたんの殻を粘土で覆って焼けないように守った最初の天才的な未開人は、おそらくこの場合にあったのであろう。</p>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;113</span></span></aside>
+  <p class="de" lang="de">Er urteilte: „Die Kürbisschale verbrennt.“ „Ton brennt nicht.“ „Der mit Ton überzogene Kürbis brennt nicht.“ Man kann einfache Beobachtungen, Erfahrungen sammeln, Erfindungen machen, urteilen, ohne zu sprechen. Man kann dies an klugen Hunden und an Kindern, die noch nicht sprechen können, sehr gut beobachten.<a class="fr" href="#n7">7</a> Der sprachliche Ausdruck des Urteils hat aber seine bedeutenden Vorteile. Indem derselbe zwingt, für die Mitteilung jedes Erlebnis in allgemein bekannte und benannte Bestandteile zu zerlegen, gewinnt der Sprechende selbst ungemein an Klarheit.<a class="fr" href="#n8">8</a> Seine Aufmerksamkeit muß einzelnes hervorheben; er muß abstrahieren und nötigt auch andere hierzu.</p>
+  <p class="jp" lang="ja">彼はこう判断した。「ひょうたんの殻は燃える」「粘土は燃えない」「粘土で覆ったひょうたんは燃えない」。人は話すことなしに、単純な観察や経験を集め、発明をし、判断することができる。このことは、賢い犬や、まだ話すことのできない子どもに非常によく観察できる<a class="fr" href="#n7">7</a>。しかし判断の言語的表現には大きな利点がある。それは、伝達のためにあらゆる体験を一般に知られ名づけられた構成部分に分解することを強いるので、話す者自身がきわめて明晰さを得るのである<a class="fr" href="#n8">8</a>。その人の注意は個別的なものを取り出さなければならない。彼は抽象しなければならず、他人にもそれを強いる。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">Preyer, Die Seele des Kindes. Leipzig 1882. S. 222-233.</p><p class="jp" lang="ja">プライアー『子どもの心』ライプツィヒ、1882年、222–233頁。</p></li><li id="n8"><span class="nn">8</span><p class="de" lang="de">Vgl. Prinzipien d. Wärmelehre, S. 406-414. — Populär-wissenschaftliche Vorlesungen, 3. Aufl. 1903, S. 265 u. f.</p><p class="jp" lang="ja">『熱学の原理』406–414頁参照。——『通俗科学講義』第3版、1903年、265頁以下。</p></li></ol>
+</article>
+<article class="row" id="p4.3">
+  <aside class="mg"><a class="pid" href="#p4.3">4.3</a><span class="pg"><span>S.&nbsp;113</span></span></aside>
+  <p class="de" lang="de">Wenn ich sage „der Stein ist rund“, so trenne ich die Form vom Material. Im Urteil „der Stein dient als Hammer“ ist der Gebrauch vom Objekt getrennt. Der Satz „das Blatt ist grün“ stellt der Form die Farbe gegenüber. So sehr nun das Gedankenleben einerseits durch den sprachlichen Ausdruck gewinnt, so wird es doch anderseits hierbei in zufällige konventionelle Formen eingeschränkt. Ob ich sage „der Holzklotz schwimmt auf dem Wasser“ oder „das Wasser trägt den Holzklotz“ macht im Gedanken keinen Unterschied, ist psychologisch dasselbe. Im sprachlichen Ausdruck ist aber die Rolle des Subjekts vom Holz auf das Wasser übergegangen.</p>
+  <p class="jp" lang="ja">私が「石は丸い」と言うとき、私は形を素材から切り離す。「石はハンマーの役をする」という判断では、用途が対象から切り離されている。「葉は緑である」という文は、色を形に対置する。さて、思考生活は一方では言語的表現によって得るところが大きいが、他方ではその際、偶然的な慣習的形式のうちに制限される。「木塊が水に浮かぶ」と言おうと「水が木塊を支える」と言おうと、思考においては何の違いもなく、心理学的には同じことである。しかし言語的表現においては、主語の役割が木から水へと移っている。</p>
+</article>
+<article class="row" id="p4.4">
+  <aside class="mg"><a class="pid" href="#p4.4">4.4</a><span class="pg"><span>S.&nbsp;113</span></span></aside>
+  <p class="de" lang="de">Ob ich sage „das Tuch ist zerrissen“ oder „das Tuch ist nicht ganz“ ist psychologisch dasselbe, sprachlich aber habe ich ein bejahendes Urteil in ein verneinendes verwandelt. Die Urteile „alle A sind B“ und „einige A sind B“ kann ich psychologisch als eine Summe vieler Urteilsakte auffassen. Da die Logik sich der Sprache bedienen muß, hat sie sich mit den historisch hergebrachten grammatischen Formen abzufinden, welche den psychischen Vorgängen durchaus nicht genau parallel gehen.<a class="fr" href="#n9">9</a> Wie weit eine Logik, die sich einer künstlichen selbstgeschaffenen Sprache bedient, sich von diesem Übelstand befreien und genauer an die psychologischen Vorgänge anschließen kann, soll hier nicht erörtert werden.<a class="fr" href="#n10">10</a></p>
+  <p class="jp" lang="ja">「布は破れている」と言おうと「布は無傷ではない」と言おうと心理学的には同じことであるが、言語的には肯定判断を否定判断に変えたことになる。「すべての A は B である」「いくつかの A は B である」という判断を、私は心理学的には多くの判断作用の総和と解することができる。論理学は言語を用いなければならないので、心的過程とけっして正確に並行してはいない、歴史的に伝えられた文法的形式と折り合いをつけなければならない<a class="fr" href="#n9">9</a>。自ら作り出した人工的な言語を用いる論理学が、どこまでこの不都合から解放され、心理学的過程により正確に寄り添うことができるかは、ここでは論じないことにする<a class="fr" href="#n10">10</a>。</p>
+  <ol class="notes"><li id="n9"><span class="nn">9</span><p class="de" lang="de">A. Stöhr, Algebra der Grammatik. Wien 1898.</p><p class="jp" lang="ja">A. シュテール『文法の代数』ウィーン、1898年。</p></li><li id="n10"><span class="nn">10</span><p class="de" lang="de">Boole, An investigation of the laws of thought. London 1854. — E. Schröder, Operationskreis des Logikkalküls. Math. Annal. 1877.</p><p class="jp" lang="ja">ブール『思考の法則の研究』ロンドン、1854年。——E. シュレーダー「論理計算の演算圏」『数学年報』1877年。</p></li></ol>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;114</span></span></aside>
+  <p class="de" lang="de">5. Nicht jedes Urteil läßt sich auf eine so einfache sinnenfällige Beobachtung oder Anschauung gründen, wie die „intuitiven“ Urteile: „Der Stein fällt ohne Unterlage zu Boden“, „Wasser ist flüssig“, „Kochsalz zerfließt im Wasser“, „Holz läßt sich bei Luftzutritt entzünden“. Weitere Erfahrung lehrt z. B., daß im letzteren Falle die Bedingungen der Entzündung des Holzes viel zusammengesetzter sind, als jenes Urteil angibt. Nicht in jeder Luft brennt das Holz; die Luft muß eine genügende Menge Sauerstoff enthalten, und das Holz muß eine gewisse Temperatur erreichen. Der Sauerstoff (und ebenso die Temperatur) lassen sich nicht durch einen einfachen Anblick erkennen; die betreffenden Worte erregen keine einfache anschauliche Vorstellung.</p>
+  <p class="jp" lang="ja">5. すべての判断が、「石は支えがなければ地に落ちる」「水は液体である」「食塩は水に溶ける」「木は空気が入れば燃やすことができる」といった「直観的」判断のように、そのように単純な感性的に明白な観察あるいは直観にもとづけられるわけではない。さらなる経験はたとえば、最後の場合には木が燃える条件が、その判断が示すよりもはるかに複合的であることを教える。どんな空気のなかでも木が燃えるわけではない。空気は十分な量の酸素を含んでいなければならず、木はある温度に達していなければならない。酸素（そして温度も同様に）は単純な一瞥によっては認識できない。それに当たる語は、単純な直観的表象を呼び起こさない。</p>
+</article>
+<article class="row" id="p5.2">
+  <aside class="mg"><a class="pid" href="#p5.2">5.2</a><span class="pg"><span>S.&nbsp;114</span></span></aside>
+  <p class="de" lang="de">Vielmehr müssen wir an das gesamte chemische und physikalische Verhalten des Sauerstoffes denken, an alle die Erfahrungen und Beobachtungen, die wir mit demselben gemacht, an die Urteile, die wir bei dieser Gelegenheit gefällt haben, um die Bedingung: „Gegenwart des Sauerstoffes“ in Gedanken richtig darzustellen. „Sauerstoff“ ist ein Begriff, der nicht durch eine anschauliche Vorstellung, sondern nur durch dessen Definition, die eine Summe von Erfahrungen konzentriert enthält, erschöpft wird.<a class="fr" href="#n11">11</a> Dasselbe gilt von den Begriffen: „Temperatur, mechanische Arbeit, Wärmemenge, elektrischer Strom, Magnetismus“ u. s. w. Durch die eingehende Beschäftigung mit dem Erfahrungs- und Wissensgebiet, dem ein Begriff angehört, erwerben wir uns die Fertigkeit, daß bei Gebrauch des den Begriff bezeichnenden und verkörpernden Wortes alle an denselben geknüpften Erfahrungen leise in uns anklingen, ohne daß wir sie deutlich und explicit vorstellen.</p>
+  <p class="jp" lang="ja">むしろ、「酸素の存在」という条件を思考において正しく表すためには、われわれは酸素の化学的・物理的なふるまいの全体を、それについて行ったあらゆる経験と観察を、その際に下した判断を考えなければならない。「酸素」は、直観的な表象によってではなく、経験の総和を凝縮して含むその定義によってのみ汲み尽くされる概念である<a class="fr" href="#n11">11</a>。同じことが、「温度、力学的仕事、熱量、電流、磁気」などの概念にも当てはまる。ある概念が属する経験と知識の領域に深く取り組むことによって、われわれは、その概念を表示し具現する語を用いるとき、それに結びついたすべての経験が、はっきりと明示的に表象されることなく、われわれのうちでかすかに鳴り響くという技能を身につける。</p>
+  <ol class="notes"><li id="n11"><span class="nn">11</span><p class="de" lang="de">Wir denken hier zunächst an empirische Begriffe.</p><p class="jp" lang="ja">ここではまず経験的概念を念頭に置いている。</p></li></ol>
+</article>
+<article class="row" id="p5.3">
+  <aside class="mg"><a class="pid" href="#p5.3">5.3</a><span class="pg"><span>S.&nbsp;114</span><span>S.&nbsp;115</span></span></aside>
+  <p class="de" lang="de">Es ist ein potentielles Wissen, wie S. Stricker einmal treffend gesagt hat, welches im Begriff liegt. Durch häufigen Gebrauch eines Begriffswortes erhalten wir ein sicheres und feines Gefühl dafür, in welchem Sinne und innerhalb welcher Grenzen wir dasselbe dem Begriff entsprechend verwenden dürfen. Menschen, welchen ein Begriff weniger geläufig ist, steigt bei Gebrauch des Begriffswortes eine anschauliche Vorstellung auf, welche den Begriff repräsentiert und irgend eine hervorstechende wichtige Seite des Begriffes versinnlicht. So stellt man sich im <span class="pb" title="Leipzig 1906, S. 115">115</span>vulgären Denken bei dem Worte Sauerstoff leicht einen glimmenden und hell aufflammenden Span vor, bei dem Worte Temperatur ein Thermometer, bei dem Worte Arbeit ein gehobenes Gewicht u. s. w. Jerusalem hat solche Vorstellungen treffend als typische<a class="fr" href="#n12">12</a> Vorstellungen bezeichnet.</p>
+  <p class="jp" lang="ja">S. シュトリッカーがかつて的確に述べたように、概念のうちにあるのは潜在的な知識である。概念語を頻繁に用いることによって、われわれはそれをどのような意味で、どのような範囲内で概念にふさわしく用いてよいかについて、確かで繊細な感覚を得る。ある概念にあまりなじんでいない人々には、概念語を用いるとき、その概念を代表し、概念の何か際立った重要な側面を感性化する直観的な表象が浮かぶ。こうして通俗的思考では、酸素という語にはくすぶり明るく燃え上がる木片が、温度という語には温度計が、仕事という語には持ち上げられたおもりが、容易に思い浮かべられる、等々。イェルーザレムはこのような表象を、的確にも典型的<a class="fr" href="#n12">12</a>表象と名づけている。</p>
+  <ol class="notes"><li id="n12"><span class="nn">12</span><p class="de" lang="de">Jerusalem, Lehrbuch der Psychologie, 3. Aufl. 1902, S. 97 u. f.</p><p class="jp" lang="ja">イェルーザレム『心理学教本』第3版、1902年、97頁以下。</p></li></ol>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;115</span></span></aside>
+  <p class="de" lang="de">6. Ein selbstgefälltes oder uns mitgeteiltes Urteil, das wir dem physischen oder psychischen Befund,<a class="fr" href="#n13">13</a> auf welchen es sich bezieht, angemessen, entsprechend finden, nennen wir richtig, und sehen, namentlich wenn es uns neu und wichtig ist, in demselben eine Erkenntnis. Eine Erkenntnis ist stets ein uns unmittelbar oder doch mittelbar biologisch förderndes psychisches Erlebnis. Bewährt sich hingegen das Urteil nicht, so bezeichnen wir es als Irrtum, und in dem schlimmeren Fall einer absichtlichen Irreführung als Lüge.<a class="fr" href="#n14">14</a> Dieselbe psychische Organisation, welche so förderlich ist und bewirkt, daß wir z. B. eine Wespe so rasch wiedererkennen, kann bei anderer Gelegenheit bewirken, daß wir einen wespenähnlichen Bockkäfer irrtümlich für eine Wespe halten (Mimicry). Schon die unmittelbare sinnliche Beobachtung kann zu Erkenntnis und auch zu Irrtum führen, indem wichtige Unterschiede übersehen, oder Übereinstimmungen verkannt, z. B. eine mattgefärbte Wespe trotz der charakteristischen Körperform für eine Fliege gehalten wird.</p>
+  <p class="jp" lang="ja">6. 自分で下した、あるいは伝えられた判断で、それが関わる物理的あるいは心理的な所見<a class="fr" href="#n13">13</a>に適合し、対応していると分かるものを、われわれは正しいと呼び、とりわけそれが新しく重要なものである場合には、そのうちに認識を見る。認識はつねに、われわれを直接にあるいは少なくとも間接に生物学的に促進する心的体験である。これに対して判断が確証されなければ、われわれはそれを誤謬と呼び、意図的に誤らせるというもっと悪い場合には虚偽と呼ぶ<a class="fr" href="#n14">14</a>。かくも有益で、たとえばわれわれにスズメバチをかくもすばやく再認させる同じ心的組織が、別の機会には、スズメバチに似たカミキリムシを誤ってスズメバチとみなさせることがある（擬態）。直接的な感性的観察でさえ、認識にも誤謬にも導きうる。重要な相違が見落とされたり、一致が見誤られたりして、たとえばくすんだ色のスズメバチが、特徴的な体の形にもかかわらず蠅とみなされるからである。</p>
+  <ol class="notes"><li id="n13"><span class="nn">13</span><p class="de" lang="de">Der Befund kann sich auf physische oder psychische Tatsachen beziehen, wobei wir unter letzteren auch die logischen begreifen.</p><p class="jp" lang="ja">所見は物理的あるいは心理的事実に関わりうる。後者には論理的事実も含めて考える。</p></li><li id="n14"><span class="nn">14</span><p class="de" lang="de">Ich kann mich nicht mit der Ansicht befreunden, daß das Glauben ein besonderer psychischer Akt sei, welcher dem Urteil zu Grunde liegt und dessen Wesen ausmacht. Urteile sind keine Glaubensangelegenheiten, sondern naive Befunde. Glauben, Zweifel, Unglauben beruhen vielmehr auf Urteilen über die Übereinstimmung oder Nichtübereinstimmung von zuweilen recht komplizierten Urteilskomplexen. Die Zurückweisung von Urteilen, welchen wir nicht zustimmen können, ist oft von einer starken Emotion begleitet, welche zu unwillkürlichen Lautäußerungen Anlaß gibt. Aus einer solchen Lautäußerung entsteht nach Jerusalem (Psychologie S. 121) die Verneinungspartikel. Das Bedürfnis für eine Bejahungspartikel ist viel geringer; dieselbe tritt viel später auf. Einer meiner Knaben bediente sich im Alter von 2-3 Jahren der mit Energie ausgesprochenen Abweisungssilbe „meich“, indem er zugleich das zur Unzeit Dargebotene mit einer kräftigen Handbewegung von sich schob. Es war ein gekürztes „meichni“ (mag nicht).</p><p class="jp" lang="ja">信じることが判断の根底にあってその本質をなす特別な心的作用であるという見解に、私は親しむことができない。判断は信仰の事柄ではなく、素朴な所見である。信仰、疑い、不信はむしろ、ときにかなり複雑な判断の複合体どうしの一致あるいは不一致についての判断にもとづいている。同意できない判断を退けることは、しばしば強い情動をともない、それが思わず発する声のきっかけとなる。イェルーザレム（『心理学』121頁）によれば、そのような発声から否定の小辞が生じる。肯定の小辞の必要ははるかに小さく、それはずっと遅れて現れる。私の息子の一人は、二、三歳のころ、力をこめて発音する拒否の音節「マイヒ（meich）」を用い、同時に間の悪いときに差し出されたものを力強い手の動きで押しのけた。それは「マイヒニ（meichni）」（欲しくない、mag nicht）を縮めたものであった。</p></li></ol>
+</article>
+<article class="row" id="p6.2">
+  <aside class="mg"><a class="pid" href="#p6.2">6.2</a><span class="pg"><span>S.&nbsp;115</span><span>S.&nbsp;116</span></span></aside>
+  <p class="de" lang="de">Noch weit leichter unterliegt der Mensch durch ein solches Versehen im begrifflichen Denken <span class="pb" title="Leipzig 1906, S. 116">116</span>dem Irrtum, namentlich der in diesem Gebiete ungeübte, der sich mit typischen Vorstellungen begnügt, ohne nachträgliche genaue Analyse der verwendeten Begriffe. Erkenntnis und Irrtum fließen aus denselben psychischen Quellen; nur der Erfolg vermag beide zu scheiden. Der klar erkannte Irrtum ist als Korrektiv ebenso erkenntnisfördernd wie die positive Erkenntnis.</p>
+  <p class="jp" lang="ja">概念的思考においては、人間はこのような見落としによってはるかに容易に誤謬に陥る。とりわけこの領域で訓練されておらず、用いた概念をあとから正確に分析することなく典型的表象で満足する者はそうである。認識と誤謬は同じ心的源泉から流れ出る。成功だけが両者を分けることができる。明瞭に認識された誤謬は、修正として、積極的な認識と同じく認識を促進するのである。</p>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;116</span></span></aside>
+  <p class="de" lang="de">7. Wenn wir uns fragen, aus welcher Quelle die irrtümlichen auf Beobachtung gegründeten Urteile entspringen, die wir hier ins Auge fassen, so müssen wir die unzureichende Beachtung der Umstände der Beobachtung als solche bezeichnen. Jede einzelne Tatsache als solche, sei es nun eine physische oder psychische, oder eine aus beiden gemischte, bleibt bestehen. Der Irrtum ergibt sich erst, wenn wir dieselbe auch unter anderen Umständen als bestehend ansehen, indem wir der Änderung der physischen oder psychischen Umstände, oder beider, keine Rechnung tragen. Vor allem dürfen wir die Grenze U nicht unbeachtet lassen, indem die Abhängigkeiten außerhalb U, innerhalb U und über U hinweg wesentliche Verschiedenheiten darbieten.<a class="fr" href="#n15">15</a></p>
+  <p class="jp" lang="ja">7. ここで問題にしている、観察にもとづく誤った判断がどの源泉から生じるのかと問うならば、われわれは観察の事情への不十分な注意をその源泉として挙げなければならない。個々の事実はそれ自体としては、それが物理的なものであれ心理的なものであれ、両者の混じったものであれ、存続している。誤謬は、物理的あるいは心理的事情、あるいは両方の変化を考慮に入れずに、その事実を他の事情のもとでも存続しているとみなすときにはじめて生じる。何よりもわれわれは境界 U を見落としてはならない。U の外、U の内、U を越えての依存関係は本質的な相違を示すからである<a class="fr" href="#n15">15</a>。</p>
+  <ol class="notes"><li id="n15"><span class="nn">15</span><p class="de" lang="de">Vgl. S. 8.</p><p class="jp" lang="ja">8頁参照。</p></li></ol>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;116</span></span></aside>
+  <p class="de" lang="de">Die Verwechslung einer echten Hallucination mit einer Empfindung gehört hierher, kommt aber im Zustande der Gesundheit nicht leicht vor. Dagegen ist die Verwechslung oder ungenaue Sonderung einer Empfindung von der dadurch associativ erregten Vorstellung etwas Alltägliches. Die Auffassung des Spiegelbildes als Körper ist das einfachste Beispiel. Wir können sie täglich auch an Vögeln und anderen Tieren beobachten. Affen greifen hinter den Spiegel und äußern ihrer höheren psychischen Stufe gemäß Verdruß über die Neckerei.<a class="fr" href="#n16">16</a> Wenn eine stärkere Erwartung bereit ist, die Empfindung associativ zu ergänzen, ergeben sich weniger angenehme Täuschungen, wie die erwähnte mit der Schlange und dem Stock.</p>
+  <p class="jp" lang="ja">真の幻覚を感覚と取り違えることもここに属するが、それは健康な状態ではめったに起こらない。これに対して、感覚と、それによって連合的に呼び起こされた表象とを取り違えたり、不正確に区別したりすることは日常的なことである。鏡像を物体と解するのが最も単純な例である。われわれはそれを毎日、鳥やその他の動物にも観察できる。猿は鏡の裏に手を伸ばし、そのより高い心的段階に応じて、からかわれたことに不機嫌を示す<a class="fr" href="#n16">16</a>。より強い期待が感覚を連合的に補おうと待ちかまえているときには、先に挙げた蛇と棒の例のような、あまり快くない錯覚が生じる。</p>
+  <ol class="notes"><li id="n16"><span class="nn">16</span><p class="de" lang="de">Darwin, Kleinere Schriften. Übersetzt von E. Krause. II. S. 141.</p><p class="jp" lang="ja">ダーウィン『小論集』E. クラウゼ訳、第2巻、141頁。</p></li></ol>
+</article>
+<article class="row" id="p7.3">
+  <aside class="mg"><a class="pid" href="#p7.3">7.3</a><span class="pg"><span>S.&nbsp;116</span><span>S.&nbsp;117</span></span></aside>
+  <p class="de" lang="de">Solche stellen sich besonders leicht ein, wenn die Empfindungsintensität herabgesetzt, z. B. das Licht schwach und dafür die Phantasie stark erregt ist. Solche Fälle der Überwindung der Empfindung durch eine Illusion können auch bei der wissenschaftlichen Forschung Schaden anrichten.<a class="fr" href="#n17">17</a> <span class="pb" title="Leipzig 1906, S. 117">117</span>Welche Rolle im volkstümlichen Denken die Übersetzung der Traumphantasmen ins Physische gespielt haben, ist schon betrachtet worden. Mancher wird sich erinnern, daß er als Kind aus dem Traum erwacht ist, weinend um das schöne Spielzeug, das er eben noch in der Hand hatte und das nun dahin war. Jugendliche Völker verhalten sich nicht viel anders, als ein solches Kind. Daher die Wichtigkeit, welche bei ihnen den Träumen, als das wache Leben bestimmend, beigemessen wird, und die eifrige Pflege der Traumdeutung.</p>
+  <p class="jp" lang="ja">このような錯覚は、感覚の強度が低下しているとき、たとえば光が弱く、そのかわり想像力が強く興奮しているときに、とりわけ容易に生じる。このように感覚が錯覚によって打ち負かされる場合は、科学的研究においても害をなしうる<a class="fr" href="#n17">17</a>。夢の幻影を物理的なものへと移し替えることが民衆の思考においてどのような役割を果たしてきたかは、すでに考察した。子どものころ、ついさっきまで手にしていて、いまはなくなってしまったすてきなおもちゃを思って泣きながら夢から覚めたことを思い出す人もいるであろう。若い民族も、そのような子どもとあまり違わないふるまいをする。それゆえ彼らのもとでは、覚醒生活を規定するものとして夢に重要性が認められ、夢判断が熱心に営まれるのである。</p>
+  <ol class="notes"><li id="n17"><span class="nn">17</span><p class="de" lang="de">Vgl. Analyse d. Empfindungen. 4. Aufl. S. 158, 159.</p><p class="jp" lang="ja">『感覚の分析』第4版、158、159頁参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;117</span></span></aside>
+  <p class="de" lang="de">8. Die Grenze zwischen Traum und Wachen gewinnt nur ganz allmählich ihre volle Deutlichkeit, wie ich dies durch kürzlich Erlebtes erläutern will. Ich erwache nachts dadurch, daß ich die Türe öffnen und jemand eintreten höre. Trotz der tiefen Dunkelheit sehe ich eine lange Gestalt der Wand entlang schleichen und vor dem schwach erhellten Fenster stehen bleiben. Mich ruhig verhaltend und beobachtend höre ich nicht mehr das geringste Geräusch, sehe aber die Gestalt allerlei langsame Bewegungen ausführen. Nun wird mir klar, daß vor dem Fenster ein Kleiderständer sich befindet, dessen Umrisse bei der großen Dunkelheit durch mein Wachphantasma, welches von meinem Traumphantasma übriggeblieben war, fortwährend verändert werden.<a class="fr" href="#n18">18</a> Letztere Erscheinung ist mir von dunklen schlaflosen Nächten her geläufig und wohl bekannt. Ich sehe in den dunkelsten Nächten die Fenster meines Schlafzimmers. Da ich aber über den Ort der Fenster, ihre Breite u. s. w. etwas unsicher urteile, so decke ich die Augen mit der Hand, oder schließe sie ganz und sehe die Fenster auch dann noch. Dies ist also ein gutes Mittel, um ein Phantasma bei tiefer Dunkelheit von einer physikalisch bedingten Empfindung zu unterscheiden.</p>
+  <p class="jp" lang="ja">8. 夢と覚醒との境界は、ごく徐々にしかその完全な明瞭さを獲得しない。このことを、最近の体験によって説明しよう。夜中、私は戸が開いて誰かが入ってくる音を聞いて目を覚ます。深い暗闇にもかかわらず、私は細長い姿が壁に沿って忍び寄り、かすかに明るい窓の前で立ち止まるのを見る。じっとして観察していると、もはやほんのわずかな物音も聞こえないが、その姿がいろいろなゆっくりとした動きをするのが見える。そこで私は、窓の前に洋服掛けがあり、その輪郭がひどい暗さのために、夢の幻影から残った私の覚醒時の幻影によってたえず変えられているのだということがはっきりする<a class="fr" href="#n18">18</a>。後者の現象は、暗い眠れぬ夜から私にはなじみのよく知られたものである。私は最も暗い夜でも寝室の窓が見える。しかし窓の位置や幅などについての判断がいくらか不確かなので、手で目を覆うか、すっかり目を閉じると、それでもなお窓が見える。したがってこれは、深い暗闇において幻影を物理的に条件づけられた感覚から区別するよい手段である。</p>
+  <ol class="notes"><li id="n18"><span class="nn">18</span><p class="de" lang="de">Es gibt auf der Netzhaut ruhende Phantasmen, dunkle Flecke, oder auch sich erweiternde und kontrahierende Ringe. Bedenkt man die Unmöglichkeit, im Dunkeln scharf zu fixieren, so können auch die ersteren Phantasmen mit dem objektiv Gesehenen zusammen Bewegungen vortäuschen.</p><p class="jp" lang="ja">網膜に静止している幻影、暗い斑点、あるいは広がったり縮んだりする輪もある。暗闇では鋭く固視することができないことを考えれば、前者の幻影も客観的に見られたものと一緒になって運動を錯覚させうる。</p></li></ol>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;117</span><span>S.&nbsp;118</span></span></aside>
+  <p class="de" lang="de">9. Aus dem schon angezogenen Buch von Powell, welches ich nicht gerade in philosophischer Hinsicht empfehlen möchte, welches aber viele gute Einzelheiten enthält, möchte ich als interessantes Beispiel „physikalischen“ Denkens die Ansicht eines <span class="pb" title="Leipzig 1906, S. 118">118</span>Indianerhäuptlings anführen.<a class="fr" href="#n19">19</a> Eine Gesellschaft von Weißen und Indianern unterhält sich nach des Tages Arbeit mit dem Versuch, Steine über eine tiefe Schlucht (Cañon) zu werfen, in deren Nähe sie Rast gemacht hat. Keinem der Beteiligten will dies gelingen, alle Steine fallen in die Tiefe, nur der Häuptling Chuar streift eben noch die gegenüberliegende Felswand. Das Gespräch beschäftigt sich mit dieser auffallenden Erscheinung und Chuar meint: Wenn die Schlucht ausgefüllt wäre, würde man sie mit Leichtigkeit überwerfen, so aber zieht der leere Raum den Stein mächtig herab. Dem europäisch-amerikanischen Zweifel an der Richtigkeit dieser Auffassung begegnet Chuar mit der Frage: Fühlt ihr denn nicht selbst, wie der Abgrund euch hinabzieht, so daß ihr euch zurücklehnen müßt, um nicht hinabzufallen?</p>
+  <p class="jp" lang="ja">9. すでに引いたパウエルの本——哲学的な点ではとくに推薦したいとは思わないが、多くのよい細部を含んでいる——から、「物理学的」思考の興味深い例として、あるインディアンの酋長の見解を挙げたい<a class="fr" href="#n19">19</a>。白人とインディアンの一行が、一日の仕事を終えたあと、近くで休憩した深い峡谷（キャニオン）の向こうへ石を投げる試みをして楽しんでいる。誰一人成功せず、石はすべて深みに落ちるが、酋長チュアルだけが向こう側の岩壁にかろうじてかすらせる。会話はこの目立った現象に及び、チュアルはこう考える。もし峡谷が埋まっていたなら、たやすく投げ越せるだろう。しかしこうなっていると、空っぽの空間が石を強く下へ引くのだ、と。この見解の正しさに対するヨーロッパ系アメリカ人の疑いに、チュアルは次の問いで応じる。深淵が自分を下へ引くので、落ちないように体を後ろにそらさなければならないのを、お前たちは自分で感じないのか。</p>
+  <ol class="notes"><li id="n19"><span class="nn">19</span><p class="de" lang="de">Powell, a. a. O. S. 1, 2.</p><p class="jp" lang="ja">パウエル前掲書、1、2頁。</p></li></ol>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;118</span></span></aside>
+  <p class="de" lang="de">Fühlt ihr nicht beim Erklettern eines hohen Baumes, daß es desto schwieriger wird, je höher ihr kommt und je mehr leerer Raum unter euch ist? — Uns modernen Menschen scheint diese „wilde Physik“ in mehrfacher Beziehung irrig. Chuar deutet zunächst sein subjektives Schwindelgefühl als eine physikalische Kraft, die alle Körper in den Abgrund zieht. Daß der große Abgrund ober uns nicht ebenso aktiv ist, stört Chuar natürlich nicht, denn das „Unten“ ist für ihn eine absolute Richtung. Wir dürfen ja von ihm nicht verlangen, daß er in dieser Richtung klüger sei als die Kirchenväter Lactantius und Augustinus. Daß Chuar dem leeren Raum Kräfte zuschreibt, würde Descartes und seinen Genossen Entsetzen verursacht haben; seit Fresnel, Faraday, Maxwell und Hertz darf uns das nicht mehr in die Verwunderung setzen, die es bei den gebildeten weißen Genossen Chuars erregt hat. — Der moderne Physiker würde vor allem zweifeln, daß hier eine wirkliche physikalische Tatsache vorliegt, die eine Erklärung fordert.</p>
+  <p class="jp" lang="ja">高い木に登るとき、高く登れば登るほど、そして下に空っぽの空間が多くなればなるほど、それだけ難しくなるのを感じないのか。——われわれ近代人には、この「未開の物理学」はいくつかの点で誤っているように見える。チュアルはまず、自分の主観的なめまいの感覚を、あらゆる物体を深淵へと引く物理的な力と解している。われわれの上にある大きな深淵が同じように能動的でないことは、もちろんチュアルを悩ませない。彼にとって「下」は絶対的な方向だからである。この点で、教父ラクタンティウスやアウグスティヌスより賢くあれと彼に求めることはできない。チュアルが空っぽの空間に力を認めることは、デカルトとその仲間を戦慄させたであろう。しかしフレネル、ファラデー、マクスウェル、ヘルツ以来、それはもはや、チュアルの教養ある白人の仲間たちに引き起こしたような驚きをわれわれに引き起こすべきではない。——近代の物理学者は何よりもまず、ここに説明を要する本当の物理的事実があるのかどうかを疑うであろう。</p>
+</article>
+<article class="row" id="p9.3">
+  <aside class="mg"><a class="pid" href="#p9.3">9.3</a><span class="pg"><span>S.&nbsp;118</span><span>S.&nbsp;119</span></span></aside>
+  <p class="de" lang="de">Er würde nötigenfalls durch Messung den Nachweis führen, daß man ober der Schlucht nicht weniger weit wirft, sondern wieder physiologisch die Breite der Schlucht unterschätzt. Eine gleichbelastete Wage, deren eine Schale an einem langen Wagebalken ober dem Abgrund sich befände, würde im Gleichgewicht bleiben und wenn sie genug empfindlich wäre, so würde die Schale ober dem Abgrund sogar etwas nach oben <span class="pb" title="Leipzig 1906, S. 119">119</span>ausschlagen. — Unsere subjektiven Empfindungen und Gefühle hypostasieren wir nicht mehr als physikalische Kräfte. Darin sind wir über den Indianerhäuptling hinaus. Um aber nicht zu stolz zu werden, dürfen wir nur bedenken, daß wir dafür noch immer unsere subjektiven Begriffe als physikalische Realitäten betrachten, wie Stallo<a class="fr" href="#n20">20</a> gezeigt hat und wie ich selbst nachgewiesen habe.<a class="fr" href="#n21">21</a> Von der Irreführung der Forschung, welche sich dadurch ergibt, soll anderwärts die Rede sein.</p>
+  <p class="jp" lang="ja">彼は必要とあらば、峡谷の上で投げる距離が短くなるのではなく、むしろ生理学的に峡谷の幅が過小評価されているのだということを、測定によって証明するであろう。両側に等しいおもりを載せた天秤で、長い竿の一方の皿が深淵の上にあるものは釣り合ったままであろうし、十分に感度がよければ、深淵の上の皿はむしろいくらか上に振れるであろう。——われわれはもはや主観的な感覚や感情を物理的な力として実体化しはしない。この点でわれわれはインディアンの酋長より進んでいる。しかしあまり誇らしくならないためには、そのかわりにわれわれがいまなお自分たちの主観的な概念を物理的実在とみなしていることを考えてみるだけでよい。シュタロ<a class="fr" href="#n20">20</a>が示し、私自身も証明したように<a class="fr" href="#n21">21</a>。それによって生じる研究の誤導については、別のところで述べることにする。</p>
+  <ol class="notes"><li id="n20"><span class="nn">20</span><p class="de" lang="de">Stallo, Die Begriffe und Theorien der modernen Physik. Leipzig 1901.</p><p class="jp" lang="ja">シュタロ『近代物理学の概念と理論』ライプツィヒ、1901年。</p></li><li id="n21"><span class="nn">21</span><p class="de" lang="de">Vgl. Mechanik, 4. Aufl. 1901.</p><p class="jp" lang="ja">『力学』第4版、1901年参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;119</span></span></aside>
+  <p class="de" lang="de">10. Man schützt sich vor dem Irrtum und zieht sogar Nutzen aus demselben, indem man die Motive, welche verführend gewirkt haben, aufdeckt. Diese treten am reinsten und deutlichsten hervor in Fällen der bewußten absichtlichen Irreführung. Über die kunstvollen Trugschlüsse der Sophisten, welche das begriffliche Denken irreleiten, wollen wir hier zunächst nicht sprechen. Es gibt aber nicht nur Sophisten des Wortes, sondern auch Sophisten der Tat, welche durch eine Scheinhandlung die Beobachtung, auf die wir hier unser Augenmerk richten, irreführen. Recht lohnend ist es, das Verfahren der Escamoteure oder Taschenspieler zu analysieren, durch welches diese mit sehr einfachen Mitteln das Publikum täuschen und überraschen.</p>
+  <p class="jp" lang="ja">10. 人は誤謬の誘因となった動機を暴くことによって誤謬から身を守り、それどころか誤謬から利益を引き出す。その動機は、意識的で意図的な欺瞞の場合に最も純粋かつ明瞭に現れる。概念的思考を誤らせるソフィストたちの巧妙な詭弁については、ここではまず語らないことにしよう。しかし言葉のソフィストばかりでなく、行為のソフィスト、すなわち見せかけの行為によって、われわれがここで注目している観察を誤らせる者もいる。手品師（エスカモトゥール）すなわち奇術師が、ごく単純な手段で観客を欺き驚かせるやり方を分析することは、まことに報われるところが大きい。</p>
+</article>
+<article class="row" id="p10.2">
+  <aside class="mg"><a class="pid" href="#p10.2">10.2</a><span class="pg"><span>S.&nbsp;119</span></span></aside>
+  <p class="de" lang="de">Ein sehr plumpes Mittel besteht darin, den Zuschauer zur Annahme einer Identität zu veranlassen, welche nicht besteht. Eine entlehnte Taschenuhr z. B. wird in einen Mörser gelegt, der verdeckt seitwärts auf einen Tisch gestellt wird, worauf irgend eine gleichgültige Zauberei die Aufmerksamkeit des Publikums ablenkt, damit ein verborgener Gehilfe die eingelegte Uhr unbemerkt herausnehmen und durch eine ähnliche wertlose ersetzen kann. Die falsche Uhr wird nun zertrümmert. Während die Trümmer herumgezeigt werden und wieder eine gleichgültige Scheinhandlung vorgenommen wird, kommt durch den Gehilfen die Originaluhr unversehrt an einem Orte zum Vorschein, wo sie niemand vermutete.<a class="fr" href="#n22">22</a> Ausnahmsweise läßt sich der Escamoteur zur Erhöhung seines Rufes diesen Spaß auch ein schönes Stück Geld kosten.</p>
+  <p class="jp" lang="ja">ひどく粗雑な手段は、存在しない同一性を観客に想定させることにある。たとえば借りた懐中時計が乳鉢に入れられ、覆いをかけて脇のテーブルに置かれる。そのあと何かどうでもよい魔術が観客の注意をそらし、そのあいだに隠れた助手が入れられた時計をこっそり取り出し、似たような価値のない時計とすり替える。偽の時計がいまや粉々に砕かれる。破片が見せて回られ、またどうでもよい見せかけの行為が行われているあいだに、助手によって本物の時計が無傷のまま、誰も予想しなかった場所に現れる<a class="fr" href="#n22">22</a>。例外的に、手品師は名声を高めるために、この遊びにかなりの金をかけることもある。</p>
+  <ol class="notes"><li id="n22"><span class="nn">22</span><p class="de" lang="de">Decremps, La magie blanche dévoilée. Paris 1789, 1. S. 47.</p><p class="jp" lang="ja">ドゥクランプ『暴かれた白魔術』パリ、1789年、第1巻、47頁。</p></li></ol>
+</article>
+<article class="row" id="p10.3">
+  <aside class="mg"><a class="pid" href="#p10.3">10.3</a><span class="pg"><span>S.&nbsp;119</span><span>S.&nbsp;120</span></span></aside>
+  <p class="de" lang="de">So zertrümmerte Houdin<a class="fr" href="#n23">23</a> in einer Vorstellung vor Papst Pius VII. <span class="pb" title="Leipzig 1906, S. 120">120</span>eine teuer erkaufte Uhr, welche derjenigen eines Kardinals genau nachgebildet war und sogar mit dessen Namenszug versehen wurde. Houdin gibt auch Anleitung Scheinbewegungen auszuführen, die z. B. den Eindruck machen, als hätte man einen Körper irgendwo hingelegt, während es nicht geschehen ist; er zeigt, wie man bei offener Hand und ausgestreckten Fingern kleine Körper unbemerkt halten kann und erläutert dies durch eine Tafel.<a class="fr" href="#n24">24</a> Der Escamoteur benützt feine, für Ungeübte unsichtbare Zeichen, die ihn allein leiten. Houdin,<a class="fr" href="#n25">25</a> aufgefordert die einer Falschspielerbande abgenommenen Karten zu untersuchen, konnte an der ganz weißen und glatten Rückseite der Karten, trotz beharrlichen Suchens, keinerlei Zeichen entdecken.</p>
+  <p class="jp" lang="ja">こうしてウーダン<a class="fr" href="#n23">23</a>は、教皇ピウス七世の前での興行において、ある枢機卿の時計にそっくりに作られ、その花押まで付された高価な時計を砕いた。ウーダンはまた、たとえばどこかに物体を置いたかのような印象を与えながら実際にはそうしていない、見せかけの動作を行う手引きも与えている。彼は、手を開いて指を伸ばしたまま小さな物体を気づかれずに保持する方法を示し、それを図版で説明している<a class="fr" href="#n24">24</a>。手品師は、素人には見えない、自分だけを導く微細なしるしを用いる。いかさま師の一味から押収されたトランプを調べるよう求められたウーダン<a class="fr" href="#n25">25</a>は、根気よく探したにもかかわらず、真っ白で滑らかなトランプの裏面に何のしるしも見つけることができなかった。</p>
+  <ol class="notes"><li id="n23"><span class="nn">23</span><p class="de" lang="de">Houdin, Confidences d'un prestidigitateur. Paris 1881, I. S. 129.</p><p class="jp" lang="ja">ウーダン『ある奇術師の告白』パリ、1881年、第1巻、129頁。</p></li><li id="n24"><span class="nn">24</span><p class="de" lang="de">Houdin, Comment on devient sorcier. Paris 1882. S. 22.</p><p class="jp" lang="ja">ウーダン『いかにして魔術師となるか』パリ、1882年、22頁。</p></li><li id="n25"><span class="nn">25</span><p class="de" lang="de">Houdin, Confidences ect., I, S. 288—291.</p><p class="jp" lang="ja">ウーダン『告白』第1巻、288–291頁。</p></li></ol>
+</article>
+<article class="row" id="p10.4">
+  <aside class="mg"><a class="pid" href="#p10.4">10.4</a><span class="pg"><span>S.&nbsp;120</span></span></aside>
+  <p class="de" lang="de">Als er das Spiel endlich geärgert und mutlos hinwarf, bemerkte er auf der glänzenden Rückseite einer Karte ein kleines mattes Fleckchen. Nun zeigte die genauere Untersuchung, daß jede Karte in der Ecke ein solches Fleckchen aufwies, welches sozusagen, in eine Tafel mit doppeltem Eingang, in ein Koordinatensystem eingetragen war. Der Abstand des matten Fleckchens vom oberen horizontalen Rande der Karte bezeichnete die Farbe, der Abstand vom linken vertikalen Rand den Wert der Karte. So erhielt also der Spieler eine vollständige Kenntnis der Karten seines Gegners, ohne daß dieser eine Ahnung davon hatte. — Die Verwendung ungewöhnlicher, wenn auch simpler Mittel, an die niemand denkt, wird fast immer dem Escamoteur zu Erfolg verhelfen.</p>
+  <p class="jp" lang="ja">ついに腹を立てて落胆し、カードを投げ出したとき、彼はあるカードの光沢のある裏面に小さな艶のない斑点があることに気づいた。そこで詳しく調べてみると、どのカードも隅にそのような斑点をもっており、それはいわば二元表に、座標系に記入されていることが分かった。艶のない斑点のカードの上の水平な縁からの距離がスートを、左の垂直な縁からの距離がカードの数を示していた。こうしていかさま師は、相手にまったく気づかれることなく、相手の手札を完全に知ったのである。——誰も思いつかない、珍しいけれども単純な手段を用いることは、ほとんどつねに手品師に成功をもたらすであろう。</p>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;120</span><span>S.&nbsp;121</span></span></aside>
+  <p class="de" lang="de">11. In Europa wird man heute durch Anwendung eines kräftigen Elektromagneten kein Aufsehen erregen, und die Anordnung wird bald durchschaut werden. Als aber Houdin<a class="fr" href="#n26">26</a> bei einer Vorstellung vor den Arabern in Algier ein leichtes Kofferchen (mit eisernem Boden) durch einen Elektromagnet unter dem Teppich „für den stärksten Mann zu schwer“ machte, ergriff die Zuschauer natürlich ein unbeschreiblicher Schrecken. Wie auf sehr einfache Weise auch gebildete und erfahrene Leute aus der Fassung gebracht werden können, lehrt folgender von Decremps<a class="fr" href="#n27">27</a> mitgeteilter <span class="pb" title="Leipzig 1906, S. 121">121</span>Fall. Herr van Estin, ein holländischer Kaufmann auf der Insel Bourbon, bat den auf der Reise verweilenden Herrn Hill, indem er ihm ein Blatt Papier und einen Bleistift darbot, eine beliebige Frage niederzuschreiben, das Blatt aber bei sich zu behalten, und keinem Menschen zu zeigen, oder besser dasselbe sogar zu verbrennen.</p>
+  <p class="jp" lang="ja">11. ヨーロッパでは今日、強力な電磁石を用いても何の評判も呼ばないであろうし、その仕掛けはすぐに見破られるであろう。しかしウーダン<a class="fr" href="#n26">26</a>がアルジェでアラブ人の前で興行した際、絨毯の下の電磁石によって（鉄の底をもつ）軽い小箱を「最も強い男にも重すぎる」ようにしたとき、観客は当然、言いようのない恐怖にとらえられた。教養があり経験もある人々でさえ、いかに単純な仕方で狼狽させられうるかを、ドゥクランプ<a class="fr" href="#n27">27</a>が伝える次の例が教えている。ブルボン島のオランダ人商人ファン・エスティン氏は、旅の途中に滞在していたヒル氏に一枚の紙と鉛筆を差し出し、何でもよいから質問を書いてほしい、ただしその紙は自分で持っていて誰にも見せないように、いやむしろ燃やしてしまってくれと頼んだ。</p>
+  <ol class="notes"><li id="n26"><span class="nn">26</span><p class="de" lang="de">Houdin, Confidences, II, S. 218 u. f.</p><p class="jp" lang="ja">ウーダン『告白』第2巻、218頁以下。</p></li><li id="n27"><span class="nn">27</span><p class="de" lang="de">Decremps, a. a. O., I, S. 76 u. f.</p><p class="jp" lang="ja">ドゥクランプ前掲書、第1巻、76頁以下。</p></li></ol>
+</article>
+<article class="row" id="p11.2">
+  <aside class="mg"><a class="pid" href="#p11.2">11.2</a><span class="pg"><span>S.&nbsp;121</span></span></aside>
+  <p class="de" lang="de">Nachdem dies alles in Abwesenheit des Herrn van Estin geschehen war, kam dieser mit einem zusammengefalteten Blatt und erklärte, daß dieses die Antwort enthalte. Damit Herr Hill aber nicht an ein gewöhnliches Escamotierstückchen glaube, ließ er ihn das gefaltete Papier mit seinem Namenszug versehen und wies ihn an, das so markierte Blatt in der Schreibtischlade eines Pavillons am Ende eines Parkes zu holen, indem er ihm zugleich die Schlüssel des Pavillons und des Schreibtisches übergab. Herr Hill lief eilends nach dem Pavillon und fand an dem bezeichneten Ort in der Tat das von ihm bezeichnete Blatt mit der korrekten Antwort auf seine Frage.</p>
+  <p class="jp" lang="ja">これがすべてファン・エスティン氏のいないところで行われたのち、彼は折りたたんだ一枚の紙を持ってやって来て、これが答えを含んでいると言った。しかしヒル氏がありふれた手品だと思わないように、彼はその折りたたんだ紙にヒル氏自身の署名をさせ、そうして印をつけた紙を、庭園のはずれのあずまやの机の引き出しへ取りに行くよう指示し、同時にあずまやと机の鍵を渡した。ヒル氏はあずまやへと急ぎ、指示された場所に、実際に自分が印をつけた紙を、自分の質問への正しい答えとともに見いだした。</p>
+</article>
+<article class="row" id="p11.3">
+  <aside class="mg"><a class="pid" href="#p11.3">11.3</a><span class="pg"><span>S.&nbsp;121</span></span></aside>
+  <p class="de" lang="de">Ohne uns mit den mechanischen, optischen und akustischen Teufeleien aufzuhalten, welche Herrn Hill im Pavillon begegneten und die ihn in der Tat irritierten, und seine Aufmerksamkeit nach allen Richtungen hin und her zerrten, betrachten wir gleich die Aufklärung dieses überraschend scheinenden Kunststückes. Wozu muß Hill seine Frage niederschreiben? Warum genügt nicht eine gedachte Frage? Natürlich, weil sie eine Spur zurücklassen muß. Das Blatt, auf welches Hill schrieb, lag auf einer schwarzen Mappe, die Kopierpapier enthielt. Das gefaltete Blatt van Estins, auf welches die Antwort sehr bequem nach der Entfernung Hills geschrieben werden konnte, wurde pneumatisch durch ein Rohr in den fernen Schreibtisch befördert. Der komplizierte Aufputz diente nur zur Verhüllung des einfachen Sachverhaltes. Wenn wir uns fragen, wodurch sich eine taschenspielerische, von einer technischen Erfindung unterscheidet, so ist es dies, daß die erstere durchaus keinen positiven Nutzen zu schaffen vermag.<a class="fr" href="#n28">28</a></p>
+  <p class="jp" lang="ja">あずまやでヒル氏を待ち受け、実際に彼を苛立たせ、その注意をあらゆる方向へあちこち引きずり回した機械的・光学的・音響的な悪魔の仕掛けにはかかずらわず、この驚くべきものに見える芸当の種明かしをすぐに考察しよう。ヒルはなぜ質問を書かなければならないのか。なぜ頭のなかで考えた質問ではいけないのか。もちろん、それが痕跡を残さなければならないからである。ヒルが書いた紙は、複写紙の入った黒い紙挟みの上に置かれていた。ヒルが立ち去ったあとで答えをまったく楽に書くことのできたファン・エスティンの折りたたまれた紙は、管を通して空気圧で遠くの机へと送られた。込み入った飾り立ては、単純な事態を覆い隠すのに役立っていただけである。手品の仕掛けと技術的発明とは何によって区別されるのかと問うならば、それは、前者がまったく何の積極的な利益も生み出しえないということである<a class="fr" href="#n28">28</a>。</p>
+  <ol class="notes"><li id="n28"><span class="nn">28</span><p class="de" lang="de">Vgl. „Mechanik“, 4. Aufl., S. 535. - Cardanus, De Subtilitate, 1560, S. 494, sagt, indem er von der Verachtung der Alchymisten und anderer Gaukler spricht: „Causa multiplex est ut opinor: primo, quod circa inutilia versetur.“</p><p class="jp" lang="ja">『力学』第4版、535頁参照。——カルダーノは『精妙さについて』（1560年、494頁）で、錬金術師やその他のいかさま師の軽蔑について語りながら、こう言っている。「思うに、その原因は多様である。第一に、それが役に立たないことに関わっているからである（Causa multiplex est ut opinor: primo, quod circa inutilia versetur）」。</p></li></ol>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;121</span><span>S.&nbsp;122</span></span></aside>
+  <p class="de" lang="de">12. Ein interessantes von Decremps<a class="fr" href="#n29">29</a> referiertes Stück verdient noch Erwähnung. Ein Mann steht vor den Geschworenen <span class="pb" title="Leipzig 1906, S. 122">122</span>unter der Anklage, ein Kind in den Fluß geworfen und ertränkt zu haben. Nicht weniger als 52 Zeugen sagen belastend gegen ihn aus. Einige sahen ihn das Kind in den Fluß werfen, andere hörten das Kind schreien, wieder andere hatten den Mann im höchsten Zorn auf das Kind losschlagen gesehen u. s. w. Der Mann verteidigt sich, indem er sagt, daß niemand den Verlust eines Kindes zur Anzeige gebracht habe und daß keine Leiche gefunden worden sei. Das Gericht ist natürlich in großer Verlegenheit. Da bittet der Angeklagte, man möchte einem seiner Freunde den Eintritt gestatten, was gewährt wird.</p>
+  <p class="jp" lang="ja">12. ドゥクランプ<a class="fr" href="#n29">29</a>が伝える興味深い一件も、なお言及に値する。ある男が陪審員の前に立っている。子どもを川に投げこんで溺れさせたという告発を受けているのである。実に五十二人もの証人が彼に不利な証言をする。ある者は彼が子どもを川に投げこむのを見、別の者は子どもの叫び声を聞き、さらに別の者はその男がひどく怒って子どもに殴りかかるのを見た、等々。男は、誰も子どもの行方不明を届け出ていないし、死体も見つかっていない、と言って弁明する。法廷は当然ひどく困惑する。そこで被告は、友人の一人を入廷させてほしいと願い、それは許される。</p>
+  <ol class="notes"><li id="n29"><span class="nn">29</span><p class="de" lang="de">Decremps, a. a. O., II, S. 158 u. f.</p><p class="jp" lang="ja">ドゥクランプ前掲書、第2巻、158頁以下。</p></li></ol>
+</article>
+<article class="row" id="p12.2">
+  <aside class="mg"><a class="pid" href="#p12.2">12.2</a><span class="pg"><span>S.&nbsp;122</span></span></aside>
+  <p class="de" lang="de">Der Freund erscheint mit einem großen Pack, aus welchem sich eine Wiege mit einem Kind entwickelt. Der Angeklagte liebkost zärtlich das Kind, welches sofort zu weinen beginnt. „Nein du armer Wurm, du sollst nicht allein und schutzlos in der Welt zurückbleiben!“ ruft der Angeklagte und zieht sofort einen Säbel aus dem Pack, und mit dem Rufe: „Jetzt sollst du deinem Bruder folgen!“, schlägt er, ehe es jemand hindern kann, dem Kinde den Kopf ab. Statt des erwarteten Blutes sieht und hört man einen hölzernen Kopf über den Boden kollern. Nun entpuppt sich der Mann als Escamoteur und Bauchredner, welcher zu diesem Mittel gegriffen hat, um von seiner Kunst zu leben, wozu er sich den nötigen Ruf verschaffen mußte. - Mag nun diese Geschichte wahr oder erfunden sein, jedenfalls ist sie lehrreich.</p>
+  <p class="jp" lang="ja">友人は大きな包みを持って現れ、そこから子どもの入った揺りかごが出てくる。被告が子どもを優しく愛撫すると、子どもはすぐに泣きだす。「いや、かわいそうな虫けらよ、お前を独りぼっちで頼るものもなくこの世に残しはしない！」と被告は叫び、すぐさま包みからサーベルを抜き、「さあ、兄さんのあとを追うがいい！」と叫んで、誰も止める間もなく子どもの首をはねる。期待された血のかわりに、木の頭が床を転がるのが見え、聞こえる。こうして男は、自分の芸で生きていくためにこの手段に訴えたのであり、そのためには必要な名声を得なければならなかった手品師にして腹話術師であることが明らかになる。——この話が本当であれ作り話であれ、いずれにせよ教えるところは多い。</p>
+</article>
+<article class="row" id="p12.3">
+  <aside class="mg"><a class="pid" href="#p12.3">12.3</a><span class="pg"><span>S.&nbsp;122</span></span></aside>
+  <p class="de" lang="de">Es kann etwas sehr wahrscheinlich und doch nicht wahr sein. Was sehen nicht alles Zeugen, wenn sie einmal glauben, daß dieser oder jener ein Mörder oder Dieb ist, und was bezeugen nicht befangene Zeugen! Aber was sollen Geschichtchen nützen, wo die jährlich bekannt werdenden tatsächlichen Justizmorde nur lehren, wie leicht man Menschen verurteilt, die man für schuldig hält. Als ob es nicht viel wichtiger wäre, daß kein Unschuldiger verurteilt wird, als daß jeder Schuldige der Strafe verfällt! Die Strafrechtspflege soll dem Schutze der Menschheit dienen; sie verhält sich aber dieser gegenüber zuweilen mehr wie der Bär der Legende, der die Fliege auf der Stirn seines schlafenden Wohltäters mit einem Stein erschlägt.<a class="fr" href="#n30">30</a></p>
+  <p class="jp" lang="ja">何かがきわめてありそうでありながら、それでも本当でないことがありうる。誰かが殺人者や泥棒だとひとたび信じこむと、証人たちは何でも見てしまうものであり、偏見にとらわれた証人は何でも証言するものである。しかし、毎年明らかになる実際の司法殺人が、有罪だと思いこんだ人間をいかにたやすく有罪にするかを教えているばかりだというのに、小話が何の役に立つだろう。罪ある者が皆罰を受けることよりも、無実の者が一人も有罪とされないことのほうがはるかに重要でないとでもいうかのようである。刑事司法は人類の保護に役立つべきものである。ところがそれは人類に対して、ときに、眠っている恩人の額にとまった蠅を石で打ち殺す伝説の熊のようにふるまうのである<a class="fr" href="#n30">30</a>。</p>
+  <ol class="notes"><li id="n30"><span class="nn">30</span><p class="de" lang="de">In der Übersetzung des Licius von Ernst Faber, die 1877 zu Elberfeld erschien, finden sich einige Stellen, welche die Wirkung der Suggestion und eines falschen Verdachtes wunderbar beleuchten: S. 207 wird die Spielgesellschaft eines Reichen geschildert. Ein Bussard fliegt vorüber und läßt eine tote Maus unter die Leute auf der Straße fallen. „Herr Yu hat lange Zeit reiche und fröhliche Tage gehabt und hegt beständig geringschätzige Gedanken gegen andere Menschen. Wir haben ihm nichts zuleide getan, und er beschimpft uns mit einer toten Maus. Wenn dies nicht vergolten wird, so können wir schwerlich in der Welt bestehen. Es wird also gebeten, alle, die zu uns gehören, mit energischem Willen hinaufzuführen; sein Haus muß vernichtet werden!... Am Abend desselbigen Tages versammelte sich die Menge, nahm die Waffen, griff den Herrn Yu an und richtete eine große Verwüstung in seinem Eigentum an.“ S. 217. „Ein Mann vermißte seine Axt und beargwohnte den Sohn des Nachbars. Er beobachtete ihn nun; aus Schritt und Tritt blickte der Axtdieb; aus dem Ausdruck seiner Augen blickte der Axtdieb; aus seinen Worten und Reden blickte der Axtdieb; aus Bewegung, Gestalt und Benehmen, aus jeglichem Tun blickte der Axtdieb heraus. - Zufällig grub er in seiner Schlucht nach und fand da die Axt. - Den andern Tag sah er wieder den Sohn seines Nachbars. Bewegung, Handlung, Gestalt und Benehmen waren nicht mehr denen eines Axtdiebes ähnlich.“ Sehr wertvoll und lehrreich für den Juristen scheinen mir W. Sterns „Beiträge zur Psychologie der Aussage“, von welchen 1903 das erste Heft erschienen ist.</p><p class="jp" lang="ja">エルンスト・ファーバーによる『列子』の翻訳（1877年、エルバーフェルト刊）には、暗示と誤った疑いの作用をみごとに照らし出すいくつかの箇所がある。207頁では、ある金持ちの遊びの集まりが描かれている。ノスリが飛び過ぎて、道を行く人々のなかに死んだネズミを落とす。「虞氏は長いあいだ富み楽しい日々を過ごし、つねに他人を見下す考えを抱いている。われわれは彼に何の害も加えていないのに、彼は死んだネズミでわれわれを辱めた。これに報いなければ、われわれはとうてい世に立つことはできない。それゆえ、われわれに属する者すべてを、強い意志をもって率いて上っていくことを願う。彼の家は滅ぼされねばならない！……その日の夕方、群衆が集まり、武器を取り、虞氏を襲い、その財産に大きな破壊を加えた」。217頁。「ある男が斧をなくし、隣人の息子を疑った。そこで彼を観察すると、歩きぶりからも斧泥棒がのぞき、目の表情からも斧泥棒がのぞき、言葉や話からも斧泥棒がのぞき、動作や姿や態度から、あらゆるふるまいから斧泥棒がのぞいた。——たまたま彼は自分の谷を掘り返し、そこで斧を見つけた。——翌日、彼はまた隣人の息子を見た。動作も、行いも、姿も、態度も、もはや斧泥棒のそれには似ていなかった」。法律家にとってきわめて価値があり教えられるところが多いと私に思われるのは、W. シュテルン『供述の心理学への寄与』で、その第1冊は1903年に出た。</p></li></ol>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;123</span></span></aside>
+  <p class="de" lang="de">13. Wir können aus der Beobachtung der Escamoteure und dem Verhalten des Publikums für unser Verhalten bei wissenschaftlichen Untersuchungen fruchtbringende Lehren ziehen. Die Natur ist zwar keine Gauklerin, die uns hinter das Licht führen will, allein die Naturvorgänge sind doch äußerst zusammengesetzt. Außer den Umständen, deren Zusammenhang wir in einem gegebenen Falle untersuchen wollen, und auf welche unsere Aufmerksamkeit eben gerichtet ist, sind noch eine Menge anderer Umstände für die Vorgänge mitbestimmend, und verdecken den uns interessierenden Zusammenhang, komplizieren und fälschen scheinbar den ins Auge gefaßten Vorgang. Deshalb darf der Forscher keinen ohne seine Absicht mitspielenden Nebenumstand unberücksichtigt lassen, deshalb muß er alle Fehlerquellen in Betracht ziehen.</p>
+  <p class="jp" lang="ja">13. 手品師と観客のふるまいの観察から、われわれは科学的研究におけるわれわれのふるまいのために実りある教訓を引き出すことができる。自然はたしかにわれわれをだまそうとする手品師ではない。しかし自然の出来事はやはりきわめて複合的である。ある与えられた場合にわれわれがその連関を研究しようとし、まさにわれわれの注意が向けられている事情のほかに、なお多くの他の事情が出来事をともに規定しており、われわれの関心のある連関を覆い隠し、注目している出来事を複雑にし、見かけ上歪める。それゆえ研究者は、自分の意図とは無関係に関与しているどんな副次的事情も顧慮せずにおいてはならず、それゆえあらゆる誤差の源泉を考慮に入れなければならない。</p>
+</article>
+<article class="row" id="p13.2">
+  <aside class="mg"><a class="pid" href="#p13.2">13.2</a><span class="pg"><span>S.&nbsp;123</span><span>S.&nbsp;124</span></span></aside>
+  <p class="de" lang="de">Ein Forscher untersucht z. B. eine neue Wirkung des elektrischen Stromes mit Hilfe des Galvanometers, vergißt aber im Eifer, daß der Ausschlag vielleicht auch teilweise oder ganz von einer übersehenen Stromschleife herrühren kann, und möglicherweise mit dem untersuchten Vorgang gar nichts zu tun hat. Besonders müssen wir uns hüten, Identitäten anzunehmen, ohne uns von dem Bestehen derselben zu überzeugen. Ein Chemiker findet eine neue Reaktion eines <span class="pb" title="Leipzig 1906, S. 124">124</span>Stoffes. Der Stoff wurde aber vielleicht durch ein neues Verfahren dargestellt, ist vielleicht nicht rein, also gar nicht derselbe Stoff, den er zu untersuchen vermeint. Endlich haben wir uns gegenwärtig zu halten, daß die größte Wahrscheinlichkeit noch immer keine ausgemachte Wahrheit ist.</p>
+  <p class="jp" lang="ja">たとえばある研究者が検流計を用いて電流の新しい作用を研究していて、熱中するあまり、その振れがもしかすると部分的あるいは全面的に見落とされた電流のループに由来しており、研究している過程とはまったく関係がないかもしれないことを忘れる。とりわけわれわれは、同一性の存在を確かめずにそれを想定することに用心しなければならない。ある化学者がある物質の新しい反応を見いだす。しかしその物質はもしかすると新しい方法で作られたのであり、もしかすると純粋でなく、したがって彼が研究しているつもりの物質とはまったく同じものではないかもしれない。最後に、最大の確からしさもなお確定した真理ではないということを、われわれは心にとめておかなければならない。</p>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;124</span></span></aside>
+  <p class="de" lang="de">14. Ich möchte diese Ausführungen mit der Erzählung eines kleinen Erlebnisses schließen, das für mich äußerst lehrreich war. Eines Sonntags Nachmittags zeigte der Vater uns Kindern den Versuch, welchen Athanasius Kircher<a class="fr" href="#n31">31</a> als „experimentum mirabile de immaginatione gallinae“ beschreibt, nur mit einer ganz geringfügigen Änderung. Ein Huhn wird trotz seines Sträubens auf die Diele niedergedrückt und eine halbe Minute etwa festgehalten. Es hat sich einstweilen beruhigt. Mit Kreide wird nun ein Strich über den Rücken des Huhns und auf dem Boden um das Huhn herum geführt. Läßt man nun das Huhn los, so bleibt es ruhig sitzen.</p>
+  <p class="jp" lang="ja">14. これらの論述を、私にとってきわめて教えられるところの多かった小さな体験の話で締めくくりたい。ある日曜日の午後、父が私たち子どもに、アタナシウス・キルヒャー<a class="fr" href="#n31">31</a>が「雌鶏の想像力についての驚くべき実験（experimentum mirabile de immaginatione gallinae）」として記述している実験を、ほんのささいな変更を加えて見せてくれた。雌鶏を、抵抗するにもかかわらず床に押さえつけ、三十秒ほど押さえておく。そのあいだに雌鶏はおとなしくなる。それからチョークで雌鶏の背中に一本の線を引き、さらに雌鶏のまわりの床に線を引く。そこで雌鶏を放すと、じっと座ったままでいる。</p>
+  <ol class="notes"><li id="n31"><span class="nn">31</span><p class="de" lang="de">A. Kircher, Ars magna lucis et umbrae, Amstelodami, 1671, S. 112 bis 113.</p><p class="jp" lang="ja">A. キルヒャー『光と影の大いなる術』アムステルダム、1671年、112–113頁。</p></li></ol>
+</article>
+<article class="row" id="p14.2">
+  <aside class="mg"><a class="pid" href="#p14.2">14.2</a><span class="pg"><span>S.&nbsp;124</span></span></aside>
+  <p class="de" lang="de">Man bedarf nun recht kräftiger Schreckmittel, um das Huhn zum Aufspringen und Davonlaufen zu bewegen, „denn es bildet sich ein, angebunden zu sein“. Viele Jahre später kam ich mit einem Laboratoriumsgenossen, Prof. J. Kessel, auf die Hypnose zu sprechen, und da erinnerte ich mich wieder einmal des Kircherschen Versuchs. Wir ließen ein Huhn kommen und wiederholten den Versuch mit dem besten Erfolg. Aber auch, als bei nochmaliger Wiederholung das Huhn einfach niedergedrückt, und die Zauberei mit dem Kreidestrich weggelassen wurde, gelang der Versuch ebensogut. Die „imaginatio gallinae“, welche seit der Kinderzeit in meinem Kopfe unangefochten fortbestanden hatte, war hiermit für immer zerstört.</p>
+  <p class="jp" lang="ja">雌鶏を跳び起きて逃げ出させるには、かなり強い脅しの手段が必要になる。「なぜなら雌鶏は、自分が縛られていると思いこむからである」。何年もあとになって、私は実験室の同僚 J. ケッセル教授と催眠術の話になり、そこで再びキルヒャーの実験を思い出した。私たちは雌鶏を一羽持ってこさせ、実験を繰り返して上々の成果を得た。しかしさらにもう一度繰り返したとき、雌鶏をただ押さえつけるだけで、チョークの線の魔術を省いても、実験は同じようにうまくいった。子どものころから私の頭のなかで揺るぎなく存続してきた「雌鶏の想像力」は、こうして永久に打ち砕かれたのである。</p>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;124</span><span>S.&nbsp;125</span></span></aside>
+  <p class="de" lang="de">15. Wir lernen aus diesem Fall, daß es nicht ratsam ist, ein einzelnes Experiment oder eine einzelne Beobachtung als beweisend für die Richtigkeit einer Meinung anzusehen, welche dadurch scheinbar bestätigt wird. Vielmehr muß man, ob das Experiment ein eigenes oder fremdes ist, sowohl die Umstände, welche man für maßgebend hält, als auch die scheinbar gleichgültigen, nach Möglichkeit variieren. Newton hat diese Methode in der Optik in ausgiebiger und musterhafter Weise geübt, und <span class="pb" title="Leipzig 1906, S. 125">125</span>hat dadurch zur modernen Experimentalphysik ebenso den Grund gelegt, wie er durch seine Prinzipien der Naturphilosophie zum Schöpfer der mathematischen Physik geworden ist. Beide Werke sind auch als Erziehungsmittel zur Forschung in gleichem Maße unersetzlich und unübertrefflich.</p>
+  <p class="jp" lang="ja">15. この例からわれわれは、ある一つの実験やある一つの観察を、それによって見かけ上確証される意見の正しさを証明するものとみなすのは得策ではないことを学ぶ。むしろ、実験が自分のものであれ他人のものであれ、決定的と思われる事情も、見かけ上どうでもよい事情も、できるかぎり変化させなければならない。ニュートンは光学においてこの方法を豊かに模範的に実践し、それによって、彼がその『自然哲学の原理』によって数理物理学の創始者となったのと同じく、近代の実験物理学の基礎を据えたのである。両著作は、研究への教育手段としても同じ程度にかけがえがなく、凌駕しがたい。</p>
+</article>
+<article class="row" id="p15.2">
+  <aside class="mg"><a class="pid" href="#p15.2">15.2</a><span class="pg"><span>S.&nbsp;125</span></span></aside>
+  <p class="de" lang="de">Halten wir uns als Ergebnis unserer Betrachtung gegenwärtig, daß es dieselben psychischen Funktionen, nach denselben Regeln ablaufend, sind, welche einmal zur Erkenntnis, das andere Mal zum Irrtum führen, und daß nur die wiederholte, sorgfältige, allseitige Prüfung uns vor letzterem schützen kann.</p>
+  <p class="jp" lang="ja">われわれの考察の成果として、ある時は認識へ、別の時は誤謬へと導くのは、同じ規則に従って経過する同じ心的機能であり、ただ繰り返しの、注意深い、全面的な吟味だけが後者からわれわれを守りうる、ということを心にとめておこう。</p>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§2.4–3.1</td><td lang="de">S. 111 の脚注（Powell, a. a. O. S. 340.）が §3 本文中に混入</td><td lang="de">注2 として分離（Powell,¹) への参照）</td></tr>
+  <tr><td>§3.1</td><td lang="de">permanent) zu werden; den- noch</td><td lang="de">permanent⁴) zu werden（注5）; dennoch</td></tr>
+  <tr><td>§7.3</td><td lang="de">Denken 'die Übersetzung</td><td lang="de">Denken die Übersetzung</td></tr>
+  <tr><td>§12.1</td><td lang="de">Ver-legenheit</td><td lang="de">Verlegenheit</td></tr>
+  <tr><td>注参照</td><td lang="de">habe.²), Steinen³), Lüge.³), habe. 2), vermutete.³), Houdin¹), Decremps²)</td><td lang="de">それぞれ注3・4・14・21・22・23・29 への参照</td></tr>
+  <tr><td>注30</td><td lang="de">Elber-feld</td><td lang="de">Elberfeld</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_06.html">← 第Ⅵ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
