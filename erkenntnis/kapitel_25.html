@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="iast-fonts.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第ⅩⅩⅤ章 自然法則の意味と価値</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;600&display=swap">
+<style>
+:root {
+  --paper:#fbf8f1; --ink:#2b2721; --muted:#7a7266; --rule:#ddd3bd;
+  --de:#8b6f2e; --de-bg:#f6f0e2; --jp:#5a7a99; --jp-bg:#eef3f7;
+  --note-bg:#f4efe4; --bar:#fbf8f1ee; --hl:#f3e2b0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+    --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+    --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1c1a17; --ink:#e3ded4; --muted:#9d958a; --rule:#3a352d;
+  --de:#cfa95c; --de-bg:#26221b; --jp:#8fb0cf; --jp-bg:#1f242a;
+  --note-bg:#23201b; --bar:#1c1a17ee; --hl:#4a3f22;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IAST Serif", "Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--de); outline-offset:2px; }
+[lang="de"] { font-family:"EB Garamond","Garamond","Times New Roman",serif; hyphens:auto; }
+
+.bar { position:sticky; top:0; z-index:5; background:var(--bar); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule); }
+.bar-in { max-width:78rem; margin:0 auto; padding:.5rem 1rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; font-size:.82rem; }
+.bar .ch { text-decoration:none; font-weight:600; letter-spacing:.06em; white-space:nowrap; }
+.seg { display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; }
+.seg button { font:inherit; background:none; color:var(--muted); border:0; padding:.2rem .8rem; cursor:pointer; }
+.seg button[aria-pressed="true"] { background:var(--de); color:var(--paper); }
+.secnav { display:flex; gap:.15rem; overflow-x:auto; margin-left:auto; scrollbar-width:none; }
+.secnav a { text-decoration:none; color:var(--muted); padding:.1rem .45rem; border-radius:4px; white-space:nowrap; }
+.secnav a:hover { color:var(--de); background:var(--de-bg); }
+
+header.title { max-width:78rem; margin:0 auto; padding:3rem 1rem 1.5rem; text-align:center; }
+.kicker { font-size:.8rem; letter-spacing:.3em; color:var(--muted); }
+h1 { margin:.4rem 0 .2rem; font-size:2rem; font-weight:600; letter-spacing:.15em; }
+h1 + .de-title { font-size:1.35rem; font-style:italic; color:var(--de); }
+h1 sup a { font-size:.55em; color:var(--de); text-decoration:none; }
+.source { margin-top:1rem; font-size:.78rem; color:var(--muted); }
+.title .notes { max-width:60rem; margin:1.2rem auto 0; text-align:left; }
+
+main { max-width:78rem; margin:0 auto; padding:0 1rem 4rem; }
+h2.sec { font-size:1rem; font-weight:600; color:var(--de); letter-spacing:.12em;
+  margin:3rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--rule); }
+h2.sec a { text-decoration:none; }
+
+.row { display:grid; grid-template-columns:4.2rem 1fr 1fr; column-gap:1.6rem;
+  padding:1rem 0; border-bottom:1px dotted var(--rule); }
+.row:target { background:linear-gradient(90deg,var(--hl),transparent 70%); }
+.mg { font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:.1rem; padding-top:.3rem;
+  font-variant-numeric:tabular-nums; }
+.pid { font-weight:600; color:var(--de); text-decoration:none; font-size:.8rem; }
+.pg { display:flex; flex-direction:column; }
+.row > p { margin:0; }
+.row > .de { font-size:1.08rem; line-height:1.75; text-align:justify; }
+.row > .jp { font-size:.95rem; text-align:justify; }
+.pb { display:inline-block; font-family:"IAST Serif", "Noto Serif JP",serif; font-size:.62rem; line-height:1;
+  color:var(--de); border:1px solid var(--de); border-radius:3px; padding:.08rem .25rem; margin:0 .15rem;
+  vertical-align:.25em; opacity:.8; }
+.pb::before { content:"S. "; }
+a.fr { font-size:.68em; vertical-align:super; line-height:0; text-decoration:none; color:var(--de);
+  font-weight:600; padding:0 .1em; font-family:"IAST Serif", "Noto Serif JP",serif; }
+.jp a.fr { color:var(--jp); }
+a.zref { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+a.zref:hover { color:var(--accent, inherit); }
+
+.notes { grid-column:2 / 4; list-style:none; margin:.8rem 0 0; padding:.6rem .9rem; background:var(--note-bg);
+  border-radius:4px; display:grid; gap:.5rem; font-size:.8rem; line-height:1.65; }
+.notes li { display:grid; grid-template-columns:1.8rem 1fr 1fr; column-gap:1.2rem; }
+.notes li:target { outline:2px solid var(--hl); outline-offset:3px; }
+.notes .nn { color:var(--de); font-weight:600; }
+.notes p { margin:0; }
+.notes .de { font-size:.92rem; }
+
+.fig { grid-column:1/-1; margin:1rem 0 1rem 5.8rem; padding:.8rem 1rem; border:1px dashed var(--de);
+  border-radius:4px; display:flex; flex-wrap:wrap; gap:.3rem 1.5rem; font-size:.82rem; color:var(--muted); }
+.missing { color:var(--muted); font-style:italic; }
+.fig em { font-style:normal; margin-left:auto; font-size:.72rem; }
+
+body.only-de .row > .jp, body.only-de .notes .jp, body.only-jp .row > .de, body.only-jp .notes .de { display:none; }
+body.only-de .row, body.only-jp .row { grid-template-columns:4.2rem minmax(0,44rem); }
+body.only-de .notes li, body.only-jp .notes li { grid-template-columns:1.8rem 1fr; }
+body.only-de .notes, body.only-jp .notes { grid-column:2; }
+body.no-notes .row .notes { display:none; }
+
+details.corr { max-width:78rem; margin:2rem auto; padding:0 1rem; font-size:.85rem; }
+details.corr summary { cursor:pointer; color:var(--de); font-weight:600; }
+.corr .tw { overflow-x:auto; }
+.corr table { border-collapse:collapse; margin:.8rem 0; min-width:32rem; }
+.corr td, .corr th { border-bottom:1px solid var(--rule); padding:.3rem .8rem; text-align:left; vertical-align:top; }
+.corr th { color:var(--muted); font-weight:400; font-size:.75rem; }
+.corr ul { padding-left:1.2rem; }
+.pager { max-width:78rem; margin:0 auto; padding:1.5rem 1rem 3rem; display:flex; justify-content:space-between;
+  border-top:1px solid var(--rule); font-size:.85rem; }
+.pager a { color:var(--de); text-decoration:none; }
+
+@media (max-width: 760px) {
+  .row, body.only-de .row, body.only-jp .row { grid-template-columns:1fr; row-gap:.6rem; }
+  .mg { flex-direction:row; gap:.8rem; padding:0; }
+  .pg { flex-direction:row; gap:.5rem; }
+  .row > .jp { padding-top:.6rem; border-top:1px solid var(--rule); }
+  .notes, body.only-de .notes, body.only-jp .notes { grid-column:1; }
+  .notes li { grid-template-columns:1.6rem 1fr; }
+  .notes li .jp { grid-column:2; margin-top:.3rem; }
+  .fig { margin-left:0; }
+  .secnav { margin-left:0; width:100%; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="ch" href="index.html" title="目次">第ⅩⅩⅤ章</a>
+  <span class="seg" role="group" aria-label="表示言語">
+    <button type="button" data-v="both" aria-pressed="true">対訳</button>
+    <button type="button" data-v="only-de" aria-pressed="false">独</button>
+    <button type="button" data-v="only-jp" aria-pressed="false">日</button>
+  </span>
+  <span class="seg" role="group" aria-label="注">
+    <button type="button" data-n="show" aria-pressed="true">注あり</button>
+    <button type="button" data-n="no-notes" aria-pressed="false">注なし</button>
+  </span>
+  <nav class="secnav" aria-label="節"><a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a><a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7</a><a href="#s8">§8</a><a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#s12">§12</a><a href="#s13">§13</a><a href="#s14">§14</a><a href="#s15">§15</a><a href="#s16">§16</a><a href="#s17">§17</a><a href="#s18">§18</a></nav>
+</div></div>
+
+<header class="title">
+  <div class="kicker">KAPITEL XXV · 第ⅩⅩⅤ章</div>
+  <h1>自然法則の意味と価値</h1>
+  <div class="de-title" lang="de">Sinn und Wert der Naturgesetze</div>
+  <div class="source">底本：E. Mach, <i lang="de">Erkenntnis und Irrtum. Skizzen zur Psychologie der Forschung</i>, 2. Aufl., Leipzig: J. A. Barth 1906, S. 449–463　｜　本文中の <span class="pb">201</span> は底本の改頁位置</div>
+</header>
+
+<main>
+<h2 class="sec" id="s1"><a href="#s1">§ 1</a></h2>
+<article class="row" id="p1.1">
+  <aside class="mg"><a class="pid" href="#p1.1">1.1</a><span class="pg"><span>S.&nbsp;449</span></span></aside>
+  <p class="de" lang="de">1. Man spricht oft von Naturgesetzen. Was bedeutet dieser Ausdruck? Gewöhnlich wird man der Meinung begegnen, die Naturgesetze seien Regeln, nach welchen die Vorgänge in der Natur sich richten müssen, ähnlich den bürgerlichen Gesetzen, nach welchen die Handlungen der Bürger sich richten sollen. Einen Unterschied pflegt man darin zu sehen, daß die letzteren Gesetze auch übertreten werden können, während man Abweichungen der Naturvorgänge von ersteren für unmöglich hält. Diese Auffassung der Naturgesetze wird aber erschüttert durch die Überlegung, daß wir ja nur aus den Naturvorgängen selbst die Naturgesetze ablesen, abstrahieren, und daß wir hierbei vor Irrtümern durchaus nicht gesichert sind. Selbstverständlich läßt sich dann jede Durchbrechung der Naturgesetze durch unsere irrtümliche Auffassung erklären, und die Vorstellung von der Unverbrüchlichkeit dieser Gesetze verliert jeden Sinn und Wert.</p>
+  <p class="jp" lang="ja">1. 人はしばしば自然法則について語る。この表現は何を意味するのか。ふつう出会うのは、自然法則とは自然のなかの過程が従わなければならない規則であって、市民の行為が従うべき市民の法律に似ている、という意見であろう。違いは、後者の法律は破られることもありうるが、前者からの自然過程の逸脱は不可能とみなされる点にあると考えるのが常である。しかし自然法則のこの把握は、われわれが自然法則を自然の過程そのものからのみ読み取り、抽象するのであり、その際けっして誤りから守られてはいない、という考察によって揺さぶられる。そうなると当然、自然法則のどんな破れもわれわれの誤った把握によって説明でき、これらの法則の破られえなさという表象はあらゆる意味と価値を失う。</p>
+</article>
+<article class="row" id="p1.2">
+  <aside class="mg"><a class="pid" href="#p1.2">1.2</a><span class="pg"><span>S.&nbsp;449</span></span></aside>
+  <p class="de" lang="de">Wird einmal die subjektive Seite unserer Naturauffassung hervorgekehrt, so gelangt man leicht zu der extremen Ansicht, nach welcher unsere Anschauung und unsere Begriffe allein der Natur Gesetze vorschreiben. Betrachten wir aber unbefangen das Werden der Naturwissenschaft, so sehen wir deren Ursprung darin, daß wir an den Vorgängen zunächst die Seiten beachten, welche für uns unmittelbar biologisch wichtig sind, und daß später erst unser Interesse auf die mittelbar biologisch wichtigen Seiten der Vorgänge fortschreitend sich weiter ausdehnt. Angesichts dieser Überlegung wird vielleicht folgende naheliegende Fassung Zustimmung finden: Ihrem Ursprunge nach sind die „Naturgesetze“ Einschränkungen, die wir unter Leitung der Erfahrung unserer Erwartung vorschreiben.</p>
+  <p class="jp" lang="ja">われわれの自然把握の主観的な側面がいったん強調されると、われわれの直観と概念だけが自然に法則を指定するという極端な見解に容易に達する。しかし自然科学の生成を偏見なく考察すると、その起源は、われわれがまず過程のうちでわれわれにとって直接に生物学的に重要な側面に注目し、のちになってはじめて、われわれの関心が過程の間接に生物学的に重要な側面へと進んでさらに広がっていくことにあることが分かる。この考察を前にすれば、おそらく次の手近な定式化が賛同を得るであろう。その起源からすれば、「自然法則」とは、われわれが経験の導きのもとにわれわれの期待に課す制限である。</p>
+</article>
+<h2 class="sec" id="s2"><a href="#s2">§ 2</a></h2>
+<article class="row" id="p2.1">
+  <aside class="mg"><a class="pid" href="#p2.1">2.1</a><span class="pg"><span>S.&nbsp;450</span></span></aside>
+  <p class="de" lang="de">2. K. Pearson<a class="fr" href="#n1">1</a>, dessen Ansichten die meinigen recht nahe stehen, äußert sich über diese Fragen in folgender Weise: „The civil law involves a command and a duty; the scientific law is a description, not a prescription. The civil law is valid only for a special community at a special time; the scientific law is valid for all normal human beings, and is unchangeable so long as their perceptive faculties remain at the same stage of development. For Austin<a class="fr" href="#n2">2</a>, however, and for many other philosophers too, the law of nature was not the mental formula, but the repeated sequence of perceptions. This repeated sequence of perceptions they projected out of themselves, and considered as a part of an external world unconditioned by and independent of man. In this sense of the word, a sense unfortunately far too common to-day, natural law could exist before it was recognised by man.“ Statt des schon in der Diskussion zwischen Mill und Whewell auftretenden und seit Kirchhoff eingebürgerten Wortes „Beschreibung“ möchte ich hier durch den Ausdruck „Einschränkung der Erwartung“ auf die biologische Bedeutung der Naturgesetze hinweisen.</p>
+  <p class="jp" lang="ja">2. その見解が私のものにきわめて近い K. ピアソン<a class="fr" href="#n1">1</a>は、これらの問いについて次のように述べている。「市民法は命令と義務を含む。科学の法則は記述であって、指令ではない。市民法は特定の時の特定の共同体にのみ妥当する。科学の法則はすべての正常な人間に妥当し、彼らの知覚能力が同じ発達段階にとどまるかぎり不変である。しかしオースティン<a class="fr" href="#n2">2</a>にとっても、他の多くの哲学者にとっても、自然法則とは心的な定式ではなく、知覚のくり返される系列であった。この知覚のくり返される系列を、彼らは自分の外に投影し、人間によって条件づけられず人間から独立した外界の一部とみなした。この語の意味において——それは不幸にも今日あまりにありふれた意味である——自然法則は、人間によって認識される前に存在しえたのである」。ミルとヒューウェルの論争においてすでに現れ、キルヒホフ以来定着した「記述」という語のかわりに、私はここで「期待の制限」という表現によって、自然法則の生物学的意義を指し示したいと思う。</p>
+  <ol class="notes"><li id="n1"><span class="nn">1</span><p class="de" lang="de">K. Pearson, The grammar of science. 2 ed. London 1900, p. 87.</p><p class="jp" lang="ja">K. ピアソン『科学の文法』第2版、ロンドン、1900年、87頁。</p></li><li id="n2"><span class="nn">2</span><p class="de" lang="de">Der englische Rechtslehrer.</p><p class="jp" lang="ja">イギリスの法学者。</p></li></ol>
+</article>
+<h2 class="sec" id="s3"><a href="#s3">§ 3</a></h2>
+<article class="row" id="p3.1">
+  <aside class="mg"><a class="pid" href="#p3.1">3.1</a><span class="pg"><span>S.&nbsp;450</span></span></aside>
+  <p class="de" lang="de">3. Ein Gesetz besteht immer in einer Einschränkung der Möglichkeiten, ob dasselbe als Beschränkung des Handelns, als unabänderliche Leitbahn des Naturgeschehens oder als Wegweiser für unser dem Geschehen ergänzend vorauseilendes Vorstellen und Denken in Betracht kommt. Galilei und Kepler stellen sich die verschiedenen Möglichkeiten der Fall- und der Planetenbewegung vor; sie suchen diejenigen zu erraten, welche den Beobachtungen entsprechen, sie schränken ihre Vorstellungen im Anschluß an die Beobachtung ein, gestalten dieselbe bestimmter. Der Trägheitssatz, welcher nach dem Erlöschen der Kräfte dem Körper eine gleichförmige geradlinige Bewegung zuschreibt, hebt aus unendlich vielen Denkmöglichkeiten eine als maßgebend für die Vorstellung hervor.</p>
+  <p class="jp" lang="ja">3. 法則はつねに可能性の制限にある。それが行為の制限として、自然の生起の変えられない誘導路として、あるいは生起を補いつつ先回りするわれわれの表象と思考の道しるべとして考えられるにせよ、そうである。ガリレイとケプラーは、落下運動と惑星運動のさまざまな可能性を表象する。彼らは観察に対応するものを言い当てようと努め、観察に従って表象を制限し、それをより定まった形にする。力が消えたのちに物体に一様な直線運動を帰する慣性の命題は、無限に多くの思考の可能性のなかから一つを表象にとって決定的なものとして際立たせる。</p>
+</article>
+<article class="row" id="p3.2">
+  <aside class="mg"><a class="pid" href="#p3.2">3.2</a><span class="pg"><span>S.&nbsp;450</span><span>S.&nbsp;451</span></span></aside>
+  <p class="de" lang="de">Auch die Langesche<a class="fr" href="#n3">3</a> Auffassung der Trägheitsbewegung eines Systems freier Massen stellt diese als eine Auswahl einer Bewegungsweise aus unzähligen kinematischen Möglichkeiten dar. Schon darin, daß <span class="pb" title="Leipzig 1906, S. 451">451</span>sich ein Tatsachengebiet klassifizieren läßt, daß man den Klassen entsprechende Begriffe aufstellen kann, liegt eine Beschränkung der Möglichkeiten. Ein Gesetz muß sich nicht notwendig in Form eines Lehrsatzes aussprechen. Die Anwendbarkeit des Massenbegriffes schließt folgende Beschränkungen ein. Die Massensumme eines abgeschlossenen Systems, nach irgend einem Körper des Systems als Einheit gemessen, ist unveränderlich. Zwei Körper, die sich zu einem dritten als gleiche Massen verhalten, verhalten sich auch untereinander ebenso.<a class="fr" href="#n4">4</a></p>
+  <p class="jp" lang="ja">自由な質量の系の慣性運動についてのランゲ<a class="fr" href="#n3">3</a>の把握もまた、それを無数の運動学的可能性からの一つの運動の仕方の選択として示している。ある事実領域が分類できるということ、クラスに対応する概念を立てることができるということのうちに、すでに可能性の制限がある。法則は必ずしも定理の形で言い表される必要はない。質量の概念が適用できることは、次の制限を含んでいる。閉じた系の質量の和は、系の何らかの物体を単位として測れば、不変である。第三の物体に対して等しい質量としてふるまう二つの物体は、互いに対しても同様にふるまう<a class="fr" href="#n4">4</a>。</p>
+  <ol class="notes"><li id="n3"><span class="nn">3</span><p class="de" lang="de">Mechanik. 5. Aufl. S. 259.</p><p class="jp" lang="ja">『力学』第5版、259頁。</p></li><li id="n4"><span class="nn">4</span><p class="de" lang="de">Ebendaselbst S. 233 u. f.</p><p class="jp" lang="ja">同書、233頁以下。</p></li></ol>
+</article>
+<h2 class="sec" id="s4"><a href="#s4">§ 4</a></h2>
+<article class="row" id="p4.1">
+  <aside class="mg"><a class="pid" href="#p4.1">4.1</a><span class="pg"><span>S.&nbsp;451</span></span></aside>
+  <p class="de" lang="de">4. Es ist ein Bedürfnis aller mit Gedächtnis ausgestatteten Lebewesen, daß deren Erwartung unter gegebenen Umständen erhaltungsgemäß geregelt sei. Den unmittelbaren und einfachsten biologischen Bedürfnissen entspricht die psychische Organisation schon instinktiv, indem sie durch den Mechanismus der Association in der überwiegenden Mehrzahl der Fälle die zweckmäßige Funktionsbereitschaft herstellt. Wenn verwickelte Daseinsbedingungen eintreten, welche die Bedürfnisbefriedigung oft nur auf langen Umwegen gestatten, so kann nur ein reicher ausgestattetes psychisches Leben diesen Bedürfnissen genügen. Die einzelnen Schritte des Umweges, mit den dieselben begleitenden Umständen als solchen, gewinnen dann ein mittelbares Interesse.</p>
+  <p class="jp" lang="ja">4. 記憶を備えたすべての生物にとって、与えられた事情のもとでのその期待が保存にかなうように規制されていることは一つの欲求である。直接的で最も単純な生物学的欲求には、心的体制がすでに本能的に応えている。すなわち連合の機構によって、圧倒的大多数の場合に目的にかなった機能の準備をつくり出すのである。欲求の充足をしばしば長い回り道によってしか許さない錯綜した生存条件が現れると、より豊かに備えられた心的生活だけがこれらの欲求を満たしうる。そうなると回り道の個々の歩みは、それにともなう事情とともに、そのものとして間接的な関心を得る。</p>
+</article>
+<article class="row" id="p4.2">
+  <aside class="mg"><a class="pid" href="#p4.2">4.2</a><span class="pg"><span>S.&nbsp;451</span></span></aside>
+  <p class="de" lang="de">Wir können jedes wissenschaftliche Interesse als ein mittelbares biologisches Interesse an einem Schritt des bezeichneten Umweges auffassen. Mag nun ein Fall dem unmittelbaren biologischen Interesse beliebig nahe oder fern liegen, immer entspricht unserm Bedürfnis nur die den Umständen angemessene, richtige Erwartung. In Bezug auf die Richtigkeit der Erwartung machen wir in verschiedenen Fällen allerdings sehr ungleiche Ansprüche. Sind wir hungrig und finden wir überhaupt dort Nahrung, wo wir nach den Umständen dieselbe vermuteten, so sind wir von der Richtigkeit unserer Erwartung schon befriedigt.</p>
+  <p class="jp" lang="ja">われわれは、どの科学的関心も、述べた回り道の一歩に対する間接的な生物学的関心として把握することができる。ある場合が直接の生物学的関心にどれほど近くても遠くても、われわれの欲求に応えるのはつねに、事情にふさわしい正しい期待だけである。期待の正しさに関しては、われわれはもちろん場合によってきわめて異なった要求をする。空腹で、事情から推測した場所にそもそも食物が見つかれば、われわれはすでに期待の正しさに満足する。</p>
+</article>
+<article class="row" id="p4.3">
+  <aside class="mg"><a class="pid" href="#p4.3">4.3</a><span class="pg"><span>S.&nbsp;451</span><span>S.&nbsp;452</span></span></aside>
+  <p class="de" lang="de">Erwarten wir aber nach der Elevation des Geschützrohres, nach Projektilgewicht und Pulverladung eine gewisse Wurfweite und weicht die wirkliche von der erwarteten nur unbeträchtlich ab, so kann hierin schon eine empfindliche Täuschung liegen. Wenn auf längerem Wege, durch mehrere oder viele Schritte ein Ziel zu <span class="pb" title="Leipzig 1906, S. 452">452</span>erreichen ist, so wird ein geringer Irrtum in der Bemessung der Größe und Richtung der einzelnen Schritte schon genügen, um das Ziel zu verfehlen. So können schon kleine Fehler mehrerer in eine Rechnung eingehender Zahlen das Endergebnis beträchtlich fälschen.<a class="fr" href="#n5">5</a> Da es sich nun in der Wissenschaft eben um solche Zwischenschritte handelt, welche in der Theorie oder Praxis (Technik) Verwendung finden, so wird es hier auf eine besonders genaue Bestimmung der Erwartung durch die gegebenen Umstände ankommen.</p>
+  <p class="jp" lang="ja">しかし砲身の仰角、砲弾の重さ、装薬からある射程を期待し、実際の射程が期待したものからわずかにしか外れないとしても、そこにはすでに手痛い期待はずれがありうる。長い道を、いくつもの、あるいは多くの歩みによって目標に達しなければならないときには、個々の歩みの大きさと方向の見積もりのわずかな誤りでも、目標を外すのに十分であろう。同様に、計算に入るいくつかの数の小さな誤りでも、最終結果をかなり狂わせうる<a class="fr" href="#n5">5</a>。さて科学においてはまさに、理論あるいは実践（技術）において用いられるそのような中間の歩みが問題なのであるから、ここでは与えられた事情による期待のとりわけ正確な規定が肝要となるであろう。</p>
+  <ol class="notes"><li id="n5"><span class="nn">5</span><p class="de" lang="de">J. R. Mayer fand auf Grund nur mäßig ungenauer Zahlen für das mechanische Äquivalent der Wärmeeinheit 365 statt 425.</p><p class="jp" lang="ja">J. R. マイヤーは、わずかに不正確な数値にもとづいて、熱単位の力学的当量として425のかわりに365を見いだした。</p></li></ol>
+</article>
+<h2 class="sec" id="s5"><a href="#s5">§ 5</a></h2>
+<article class="row" id="p5.1">
+  <aside class="mg"><a class="pid" href="#p5.1">5.1</a><span class="pg"><span>S.&nbsp;452</span></span></aside>
+  <p class="de" lang="de">5. Mit dem Fortschritt der Naturwissenschaft ergibt sich in der Tat eine zunehmende Einschränkung der Erwartung, eine zusehends bestimmtere Gestaltung derselben. Die ersten Einschränkungen sind qualitativer Art. Ob die Momente A, B, C,..., welche eine Erwartung M bestimmen, von der Wissenschaft etwa in einem Satz auf einmal bezeichnet werden können, oder ob diese Anweisung gibt, dieselben nacheinander herbeizuschaffen, wie dies z. B. durch eine botanische oder chemische analytische Tabelle geschieht, ist unwesentlich. Kann man, in qualitativ gleichen Fällen die einzelnen Qualitäten noch der Quantität nach unterscheiden, also jedem quantitativ bestimmten Komplex von Qualitäten A₁, B₁, C₁, … eine ebenfalls quantitativ bestimmte Erwartung M₁ zuordnen, so ist eine weitere Einschränkung erzielt, deren Enge nur durch die erreichbare Genauigkeit der Messung und Beobachtung begrenzt ist. Auch hier kann die Einschränkung auf einmal oder successive stattfinden.</p>
+  <p class="jp" lang="ja">5. 実際、自然科学の進歩とともに、期待のしだいに増していく制限、その目に見えてより定まった形成が生じる。最初の制限は質的な種類のものである。期待 M を規定する契機 A、B、C……を、科学がたとえば一つの命題で一度に示しうるか、あるいはたとえば植物学的あるいは化学的な分析表によって行われるように、それを順々に揃えるよう指示を与えるかは、本質的ではない。質的に等しい場合に、個々の質をさらに量によって区別できるならば、すなわち量的に規定された質の複合体 A₁、B₁、C₁、……のそれぞれに、同じく量的に規定された期待 M₁ を対応させることができるならば、さらなる制限が達せられ、その狭さは測定と観察の達しうる正確さによってのみ限られる。ここでも制限は一度に、あるいは順次に行われうる。</p>
+</article>
+<article class="row" id="p5.2">
+  <aside class="mg"><a class="pid" href="#p5.2">5.2</a><span class="pg"><span>S.&nbsp;452</span><span>S.&nbsp;453</span></span></aside>
+  <p class="de" lang="de">Das letztere geschieht, wenn eine Einschränkung durch eine weitere ergänzende Bestimmung noch auf einen kleineren Spielraum eingeengt wird. Im ebenen, konvexen, geradlinigen n-Eck ist die Summe der Innenwinkel für den Euklidischen Raum (n − 2) · 2R; für das Dreieck (n = 3) wird dieselbe 2R, wodurch sich jeder der 3 Winkel durch die Werte der beiden andern bestimmt. Diese engste Einschränkung beruht also auf einer ganzen Reihe von Bedingungen, die einander ergänzen, oder von welchen einige als grundlegend den andern erst einen bestimmteren Sinn geben. Ebenso verhält es sich in der Physik. Die Gleichung pv/T=konst. gilt für <span class="pb" title="Leipzig 1906, S. 453">453</span>einen gasförmigen Körper von unveränderlicher Masse, für welchen p, v, T für alle Teile dieselben Werte haben, und nur bei hinreichender Entfernung von den Bedingungen der Verflüssigung.</p>
+  <p class="jp" lang="ja">後者は、ある制限がさらなる補足的な規定によってより小さな余地へと狭められるときに起こる。平面の、凸の、直線からなる n 角形においては、内角の和はユークリッド空間について (n−2)·2R である。三角形（n＝3）についてはそれは 2R となり、それによって三つの角のどれもが他の二つの値によって規定される。それゆえこの最も狭い制限は、互いに補い合う、あるいはそのうちのいくつかが基礎として他のものにはじめてより定まった意味を与える、一連の条件全体にもとづいている。物理学においても同様である。等式 pv/T＝一定 は、質量が変わらず、すべての部分について p、v、T が同じ値をもつ気体状の物体について、しかも液化の条件から十分に離れている場合にだけ成り立つ。</p>
+</article>
+<article class="row" id="p5.3">
+  <aside class="mg"><a class="pid" href="#p5.3">5.3</a><span class="pg"><span>S.&nbsp;453</span></span></aside>
+  <p class="de" lang="de">Die Beschränkung, welche im Brechungsgesetz sin α/sin β = n liegt, wird weiter eingeengt durch die Beziehung auf ein bestimmtes Paar von homogenen Stoffen, auf eine bestimmte Temperatur, auf eine bestimmte Dichte oder einen gewissen Druck, auf das Fehlen jeder magnetischen und elektrischen Potentialdifferenz innerhalb dieser Stoffe. Wenn wir ein physikalisches Gesetz auf einen bestimmten Stoff beziehen, so bedeutet dies, daß das Gesetz für einen Raum gelten soll, in welchem noch die bekannten Reaktionen dieses Stoffes nachweisbar sind. Diese ergänzenden Bedingungen werden gewöhnlich durch den bloßen Namen des Stoffes gedeckt und verdeckt. Die physikalischen Gesetze, welche für den leeren Raum (das Vakuum, den Äther) gelten, beziehen sich eben auch nur auf bestimmte Werte der elektrischen und magnetischen Konstanten u. s. w. Durch Anwendung eines Satzes auf einen Stoff führen wir weitere Bestimmungen (Bedingungsgleichungen) ein, gerade so, als wenn wir von einem geometrischen Satz sagen (oder auch stillschweigend verstehen), daß derselbe für ein Dreieck, für ein Parallelogramm oder für einen Rhombus gilt.</p>
+  <p class="jp" lang="ja">屈折の法則 sin α/sin β＝n のうちにある制限は、一定の一対の一様な物質への関係、一定の温度、一定の密度あるいはある圧力への関係、これらの物質の内部における磁気的・電気的ポテンシャル差の欠如によってさらに狭められる。物理法則を一定の物質に関係づけるとき、それは、その法則が、この物質の既知の反応がなお証明できる空間について成り立つべきだということを意味する。これらの補足的な条件は、ふつう物質の名前だけによって覆われ、また覆い隠されている。空虚な空間（真空、エーテル）について成り立つ物理法則も、まさに電気的・磁気的定数などの一定の値にのみ関係している。命題を一つの物質に適用することによって、われわれはさらなる規定（条件方程式）を導入するのであり、それはちょうど、ある幾何学の定理について、それが三角形、平行四辺形、あるいは菱形について成り立つと言う（あるいは暗黙のうちに理解する）のと同じである。</p>
+</article>
+<article class="row" id="p5.4">
+  <aside class="mg"><a class="pid" href="#p5.4">5.4</a><span class="pg"><span>S.&nbsp;453</span></span></aside>
+  <p class="de" lang="de">Findet man einmal, daß ein Gesetz aufhört zu gelten unter Umständen, unter welchen dasselbe bisher immer als gültig befunden wurde, so treibt uns dies, nach einer noch unbekannten komplementären Bedingung des Gesetzes zu suchen. Das Auffinden derselben bedeutet stets eine wichtige Entdeckung. So wurde Elektrizität und Magnetismus durch die Anziehung und Abstoßung entdeckt, welche Körper gegeneinander offenbarten, die man als gegeneinander indifferent zu betrachten gewohnt war. Nicht nur die ausgesprochene Hypothesis allein, sondern auch die stillschweigend mitbegriffenen Bedingungen begründen eine geometrische und auch eine physikalische Thesis. Es wird gut sein, sich stets gegenwärtig zu halten, daß auch noch unbekannte Bedingungen (deren merkliche Änderung uns bisher entgangen wäre) mitbestimmend sein könnten.</p>
+  <p class="jp" lang="ja">ある法則が、これまでつねに妥当すると認められてきた事情のもとで成り立たなくなることがいったん見いだされると、それはわれわれを、法則のまだ知られていない補完的な条件を探すよう駆り立てる。それを見いだすことはつねに重要な発見を意味する。こうして電気と磁気は、互いに無関心なものとみなすことに慣れていた物体が互いに示した引力と斥力によって発見された。言い表された仮定だけでなく、暗黙のうちに含まれた条件もまた、幾何学的な、また物理的な定立を基礎づける。まだ知られていない条件（その目立った変化がこれまでわれわれの目を逃れてきたような条件）もともに規定的でありうることを、つねに念頭に置いておくのがよいであろう。</p>
+</article>
+<h2 class="sec" id="s6"><a href="#s6">§ 6</a></h2>
+<article class="row" id="p6.1">
+  <aside class="mg"><a class="pid" href="#p6.1">6.1</a><span class="pg"><span>S.&nbsp;453</span><span>S.&nbsp;454</span></span></aside>
+  <p class="de" lang="de">6. Die Naturgesetze sind nach unserer Auffassung ein Erzeugnis unseres psychologischen Bedürfnisses, uns in der Natur <span class="pb" title="Leipzig 1906, S. 454">454</span>zurecht zu finden, den Vorgängen nicht fremd und verwirrt gegenüber zu stehen. Dies kommt in den Motiven dieser Gesetze, welche stets diesem Bedürfnis, aber auch dem jeweiligen Kulturzustand entsprechen, deutlich zum Ausdruck. Mythologisch, dämonologisch, poetisch sind die ersten rohen Orientierungsversuche. In der Zeit des Neuaufschwungs der Naturwissenschaften, in der Periode Kopernikus-Galilei, welche nach einer überwiegend qualitativen, vorläufigen Orientierung strebt, ist Leichtigkeit, Einfachheit und Schönheit das leitende Motiv bei Aufsuchung der Regeln zur gedanklichen Rekonstruktion des Tatsächlichen.</p>
+  <p class="jp" lang="ja">6. 自然法則は、われわれの把握によれば、自然のなかで方向を見いだし、過程に対してよそよそしく混乱して向き合うことのないようにしたいという、われわれの心理学的欲求の産物である。このことは、つねにこの欲求に、しかしまたそのときどきの文化状態にも対応しているこれらの法則の動機のうちにはっきりと表れている。最初の粗い方向づけの試みは、神話的、悪魔論的、詩的である。自然科学の新たな飛躍の時代、すなわち主として質的な暫定的方向づけを求めるコペルニクス＝ガリレイの時期には、事実的なものを思考のなかで再構成するための規則を探すにあたって、容易さ、単純さ、美しさが導きの動機である。</p>
+</article>
+<article class="row" id="p6.2">
+  <aside class="mg"><a class="pid" href="#p6.2">6.2</a><span class="pg"><span>S.&nbsp;454</span></span></aside>
+  <p class="de" lang="de">Die genauere quantitative Forschung zielt auf möglichst vollständige Bestimmtheit, auf eindeutige Bestimmtheit, wie sich dies schon in der älteren Entwicklungsgeschichte der Mechanik äußert. Häufen sich dann die Einzelerkenntnisse, so macht sich das Bedürfnis nach Verminderung der psychischen Anstrengung, nach Ökonomie, Kontinuität, Beständigkeit, möglichst allgemeiner Anwendbarkeit und Brauchbarkeit der aufgestellten Regeln mächtig geltend. Es genügt, auf die spätere Entwicklungsgeschichte der Mechanik und eines jeden weiter fortgeschrittenen Teiles der Physik hinzuweisen.</p>
+  <p class="jp" lang="ja">より精密な量的研究は、できるかぎり完全な規定性、一義的な規定性を目指す。それはすでに力学の古い発展史に表れているとおりである。そうして個々の認識が積み重なると、心的努力の軽減、すなわち経済、連続性、恒常性、立てられた規則のできるかぎり一般的な適用可能性と有用性への欲求が力強く現れる。力学の、そしてさらに進んだ物理学のどの部分であれ、そののちの発展史を指摘すれば十分である。</p>
+</article>
+<h2 class="sec" id="s7"><a href="#s7">§ 7</a></h2>
+<article class="row" id="p7.1">
+  <aside class="mg"><a class="pid" href="#p7.1">7.1</a><span class="pg"><span>S.&nbsp;454</span></span></aside>
+  <p class="de" lang="de">7. Es ist sehr natürlich, daß in Zeiten geringer Schärfe der erkenntnistheoretischen Kritik die psychologischen Motive in die Natur projiziert und dieser selbst zugeschrieben worden sind. Gott oder die Natur strebt nach Einfachheit und Schönheit, dann nach strenger Gesetzmäßigkeit und Bestimmtheit, endlich nach Sparsamkeit und Ökonomie in allen Vorgängen, nach Erzielung aller Wirkungen mit dem kleinsten Aufwand. Noch in neuerer Zeit schreibt Fresnel<a class="fr" href="#n6">6</a>, wo er die allgemeine Anwendbarkeit der Wellentheorie der älteren Emissionstheorie gegenüber hervorheben will, der Natur die Tendenz zu, viel durch die einfachsten Mittel zu erreichen.</p>
+  <p class="jp" lang="ja">7. 認識論的批判の鋭さが乏しい時代に、心理学的動機が自然のなかへ投影され、自然そのものに帰せられてきたのは、きわめて自然なことである。神あるいは自然は、単純さと美を、次には厳密な法則性と規定性を、最後にはあらゆる過程における倹約と経済を、すなわち最小の費用であらゆる作用を達成することを目指すのである。比較的最近になってもなおフレネル<a class="fr" href="#n6">6</a>は、古い放射説に対して波動説の一般的な適用可能性を強調しようとする箇所で、自然に、最も単純な手段によって多くを達成しようとする傾向を帰している。</p>
+  <ol class="notes"><li id="n6"><span class="nn">6</span><p class="de" lang="de">Fresnel, Mémoire couronné sur la diffraction. Oeuvres. Paris 1866. T. I, p. 248.</p><p class="jp" lang="ja">フレネル「回折についての受賞論文」『著作集』パリ、1866年、第1巻、248頁。</p></li></ol>
+</article>
+<article class="row" id="p7.2">
+  <aside class="mg"><a class="pid" href="#p7.2">7.2</a><span class="pg"><span>S.&nbsp;454</span><span>S.&nbsp;455</span></span></aside>
+  <p class="de" lang="de">„La première hypothèse a l'avantage de conduire à des conséquences plus évidentes, parce que l'analyse mécanique s'y applique plus aisément: la seconde, au contraire, présente sous ce rapport de grandes difficultés. Mais dans le choix d'un système, on ne doit avoir égard qu'à la <span class="pb" title="Leipzig 1906, S. 455">455</span>simplicité des hypothèses; celle des calculs ne peut-être d'aucun poids dans la balance des probabilités. La nature ne s'est pas embarrassée des difficultés d'analyse; elle n'a évité que la complication des moyens. Elle paraît s'être proposé de faire beaucoup avec peu: c'est un principe que le perfectionnement des sciences physiques appuie sans cesse de preuves nouvelles.“</p>
+  <p class="jp" lang="ja">「第一の仮説は、力学的解析がそれにより容易に適用されるので、より明白な帰結に導くという利点をもつ。第二の仮説は、反対に、この点で大きな困難を示す。しかし体系の選択にあたっては、仮説の単純さだけを顧慮すべきである。計算の単純さは、蓋然性の天秤において何の重みももちえない。自然は解析の困難に煩わされはしなかった。自然が避けたのは手段の複雑さだけである。自然は少ないもので多くをなすことを目指したように見える。それは物理科学の完成がたえず新たな証拠によって支える原理である」。</p>
+</article>
+<h2 class="sec" id="s8"><a href="#s8">§ 8</a></h2>
+<article class="row" id="p8.1">
+  <aside class="mg"><a class="pid" href="#p8.1">8.1</a><span class="pg"><span>S.&nbsp;455</span></span></aside>
+  <p class="de" lang="de">8. Die fortschreitende Verschärfung der Naturgesetze, die zunehmende Einschränkung der Erwartung, entspricht einer genaueren Anpassung der Gedanken an die Tatsachen. Eine vollkommene Anpassung an jede individuelle, künftig auftretende, unberechenbare Tatsache ist natürlich unmöglich. Die vielfache, möglichst allgemeine Anwendbarkeit der Naturgesetze auf konkrete tatsächliche Fälle wird nur möglich, durch Abstraktion, durch Vereinfachung, Schematisierung, Idealisierung der Tatsachen, durch gedankliche Zerlegung derselben in solche einfache Elemente, daß aus diesen die gegebenen Tatsachen mit zureichender Genauigkeit sich wieder gedanklich aufbauen und zusammensetzen lassen.</p>
+  <p class="jp" lang="ja">8. 自然法則のしだいに進む先鋭化、期待のしだいに増す制限は、思考の事実へのより正確な適応に対応している。将来現れる、計算できない個々の事実のどれにも完全に適応することは、もちろん不可能である。自然法則を具体的な事実的場合に多様に、できるだけ一般的に適用することは、抽象によって、事実の単純化、図式化、理想化によって、すなわち与えられた事実が十分な正確さで思考のなかで再び組み立てられ合成されうるような単純な要素へと、それを思考のなかで分解することによってのみ可能となる。</p>
+</article>
+<article class="row" id="p8.2">
+  <aside class="mg"><a class="pid" href="#p8.2">8.2</a><span class="pg"><span>S.&nbsp;455</span></span></aside>
+  <p class="de" lang="de">Solche elementare idealisierte Tatsachenelemente, wie sie in der Wirklichkeit nie in Vollkommenheit angetroffen werden, sind die gleichförmige und die gleichförmig beschleunigte Massenbewegung, die stationäre (unveränderliche) thermische und elektrische Strömung und die Strömung von gleichmäßig wachsender und abnehmender Stärke u. s. w. Aus solchen Elementen läßt sich aber jede beliebig variable Bewegung und Strömung genügend beliebig genau zusammengesetzt denken, und der Anwendung der Naturgesetze zugänglich machen. Dies geschieht in den Differentialgleichungen der Physik. Unsere Naturgesetze bestehen also aus einer Reihe für die Anwendung bereit liegender, für diesen Gebrauch zweckmäßig gewählter Lehrsätze. Die Naturwissenschaft kann aufgefaßt werden als eine Art Instrumentensammlung zur gedanklichen Ergänzung irgend welcher teilweise vorliegender Tatsachen oder zur möglichsten Einschränkung unserer Erwartung in künftig sich darbietenden Fällen.<a class="fr" href="#n7">7</a></p>
+  <p class="jp" lang="ja">現実のなかではけっして完全な形では見いだされない、そのような要素的な理想化された事実要素とは、等速の質量運動と等加速度の質量運動、定常的な（変化しない）熱と電気の流れ、一様に増大し減少する強さの流れなどである。しかしそのような要素から、どんなに任意に変化する運動や流れも十分に任意の正確さで合成されたものと考えることができ、自然法則の適用に近づきうるものにすることができる。それは物理学の微分方程式において行われる。それゆえわれわれの自然法則は、適用のために用意された、この使用のために目的にかなって選ばれた一連の定理からなる。自然科学は、部分的に与えられた何らかの事実を思考のなかで補うための、あるいは将来現れる場合においてわれわれの期待をできるだけ制限するための、一種の道具の収集として把握することができる<a class="fr" href="#n7">7</a>。</p>
+  <ol class="notes"><li id="n7"><span class="nn">7</span><p class="de" lang="de">Wärmelehre. S. 461 u. f. - Kleinpeter, Erkenntnistheorie. Leipzig 1905. S. 11-13.</p><p class="jp" lang="ja">『熱学』461頁以下。——クラインペーター『認識論』ライプツィヒ、1905年、11–13頁。</p></li></ol>
+</article>
+<h2 class="sec" id="s9"><a href="#s9">§ 9</a></h2>
+<article class="row" id="p9.1">
+  <aside class="mg"><a class="pid" href="#p9.1">9.1</a><span class="pg"><span>S.&nbsp;455</span><span>S.&nbsp;456</span></span></aside>
+  <p class="de" lang="de">9. Die Tatsachen sind nicht genötigt, sich nach unsern <span class="pb" title="Leipzig 1906, S. 456">456</span>Gedanken zu richten. Aber unsere Gedanken, unsere Erwartungen, richten sich nach anderen Gedanken, nach den Begriffen nämlich, welche wir uns von den Tatsachen gebildet haben. Die instinktive Erwartung, welche sich an eine Tatsache knüpft, hat immer einen beträchtlichen Spielraum. Nehmen wir aber an, daß eine Tatsache genau unseren einfachen idealen Begriffen entspricht, so wird in Übereinstimmung hiermit unsere Erwartung auch genau bestimmt sein.</p>
+  <p class="jp" lang="ja">9. 事実はわれわれの思考に従うよう強いられてはいない。しかしわれわれの思考、われわれの期待は、他の思考、すなわちわれわれが事実について形成した概念に従う。ある事実に結びつく本能的な期待は、つねにかなりの余地をもっている。しかしある事実がわれわれの単純な理想的概念に正確に対応すると想定するならば、それに一致してわれわれの期待も正確に規定されるであろう。</p>
+</article>
+<article class="row" id="p9.2">
+  <aside class="mg"><a class="pid" href="#p9.2">9.2</a><span class="pg"><span>S.&nbsp;456</span></span></aside>
+  <p class="de" lang="de">Ein naturwissenschaftlicher Satz hat immer nur den hypothetischen Sinn: Wenn die Tatsache A genau den Begriffen M entspricht, so entspricht die Folge B genau den Begriffen N; so genau als A den M, so genau entspricht B den N. Die absolute Exaktheit, die vollkommen genaue eindeutige Bestimmung der Folgen einer Voraussetzung besteht in der Naturwissenschaft (ebenso wie in der Geometrie) nicht in der sinnlichen Wirklichkeit, sondern nur in der Theorie. Aller Fortschritt zielt darauf ab, die Theorie mehr und mehr der Wirklichkeit anzuschmiegen. Wenn wir viele Brechungsfälle an einem Paar von Medien, auch quantitativ, beobachtet haben, so bleibt unserer Erwartung des zu einem bestimmten einfallenden Strahl gehörigen gebrochenen Strahls noch immer der Spielraum der Ungenauigkeit der Beobachtung und Messung. Erst nach Festsetzung des Brechungsgesetzes und Wahl eines Wertes des Brechungsexponenten gehört zu einem einfallenden Strahl nur ein gebrochener Strahl.</p>
+  <p class="jp" lang="ja">自然科学の命題はつねに仮説的な意味しかもたない。すなわち、事実 A が概念 M に正確に対応するならば、帰結 B は概念 N に正確に対応する。A が M に正確に対応するのと同じだけ正確に、B は N に対応する。絶対的な精密さ、すなわち前提の帰結の完全に正確な一義的規定は、自然科学においては（幾何学においてと同様に）感性的現実のうちにではなく、理論のうちにだけある。あらゆる進歩は、理論をますます現実に寄り添わせることを目指している。一対の媒質について多くの屈折の場合を、量的にも観察したとしても、一定の入射光線に属する屈折光線についてのわれわれの期待には、なお観察と測定の不正確さの余地が残る。屈折の法則を確定し、屈折率の値を選んだのちにはじめて、一つの入射光線にはただ一つの屈折光線が属するのである。</p>
+</article>
+<h2 class="sec" id="s10"><a href="#s10">§ 10</a></h2>
+<article class="row" id="p10.1">
+  <aside class="mg"><a class="pid" href="#p10.1">10.1</a><span class="pg"><span>S.&nbsp;456</span></span></aside>
+  <p class="de" lang="de">10. Auf die Wichtigkeit, zwischen Begriff und Gesetz einerseits und Tatsache anderseits scharf zu unterscheiden, wurde schon mehrfach hingewiesen. Der Oerstedtsche Fall (Strom und Nadel in einer Ebene) ist nach den vor Oerstedt geltenden Begriffen absolut symmetrisch, während sich der tatsächliche Fall als unsymmetrisch erweist. Das circular polarisierte Licht zeigt in mehrfacher Beziehung das indifferente Verhalten des unpolarisierten Lichtes. Erst das genauere Studium enthüllt uns die zweifache „helikoidale Dyssymmetrie“ desselben, und nötigt uns, die Tatsachen durch neue, dieselben vollständiger bezeichnende Begriffe darzustellen.</p>
+  <p class="jp" lang="ja">10. 概念と法則とを一方とし、事実を他方として鋭く区別することの重要性は、すでに何度も指摘した。エルステッドの場合（電流と針が一平面内にある）は、エルステッド以前に通用していた概念によれば絶対に対称であるが、事実上の場合は非対称であることが分かる。円偏光した光は、いくつかの関係において非偏光の光の無差別なふるまいを示す。より精密な研究がはじめて、その二重の「らせん的非対称性」を明らかにし、事実をそれをより完全に表す新しい概念によって表すようわれわれを強いるのである。</p>
+</article>
+<article class="row" id="p10.2">
+  <aside class="mg"><a class="pid" href="#p10.2">10.2</a><span class="pg"><span>S.&nbsp;456</span><span>S.&nbsp;457</span></span></aside>
+  <p class="de" lang="de">Werden unsere Vorstellungen über die Natur von Begriffen beherrscht, die wir für zureichend halten, und haben wir uns dementsprechend an Erwartungen von eindeutiger Bestimmtheit gewöhnt, so gelangen wir leicht <span class="pb" title="Leipzig 1906, S. 457">457</span>dazu, den Gedanken der eindeutigen Bestimmtheit auch in negativer Weise anzuwenden. Wo ein gewisser Erfolg, z. B. ein Bewegungserfolg, nicht eindeutig bestimmt ist, wie etwa bei drei gleichen Kräften, welche denselben Punkt, je zwei einen Winkel von 120° bildend, angreifen, werden wir das gänzliche Ausbleiben dieses Erfolges erwarten. Soll der in dieser Form angewandte „Satz des zureichenden Grundes“ nicht irre führen (vgl. die eben angeführten Beispiele), so muß man sicher sein, daß alle mitbestimmenden Umstände bekannt sind.</p>
+  <p class="jp" lang="ja">自然についてのわれわれの表象が、十分だと思う概念に支配され、それに応じて一義的な規定性をもつ期待に慣れていると、われわれは一義的規定性の思想を否定的な仕方でも適用するようになりやすい。ある結果、たとえば運動の結果が一義的に規定されていないところでは、たとえば同じ一点に、二つずつが 120° の角をなして作用する三つの等しい力の場合のように、われわれはこの結果がまったく生じないことを期待するであろう。この形で適用された「充足理由律」が誤りに導かないためには（いま挙げた例を参照）、ともに規定するすべての事情が知られていることを確信していなければならない。</p>
+</article>
+<h2 class="sec" id="s11"><a href="#s11">§ 11</a></h2>
+<article class="row" id="p11.1">
+  <aside class="mg"><a class="pid" href="#p11.1">11.1</a><span class="pg"><span>S.&nbsp;457</span></span></aside>
+  <p class="de" lang="de">11. Nur eine Theorie, welche die immer komplizierten und durch mannigfache Nebenumstände beeinflußten Tatsachen der Beobachtung einfacher und genauer darstellt, als dies durch die Beobachtung eigentlich verbürgt werden kann, entspricht dem Ideal der eindeutigen Bestimmtheit.<a class="fr" href="#n8">8</a> Diese Schärfe der Theorie ermöglicht uns, aus derselben durch viele sich folgende gleichartige, oder auch durch kombinierte ungleichartige deduktive Schritte weitgehende Folgerungen zu ziehen, deren Übereinstimmung mit jener Theorie verbürgt ist. Die Übereinstimmung oder Nichtübereinstimmung dieser Folgerungen mit der Erfahrung ist aber meist (wegen der möglichen Häufung der Abweichungen) eine viel schärfere Probe der Richtigkeit oder Verbesserungsbedürftigkeit der Theorie, als die Vergleichung der Grundsätze mit der Beobachtung. Man denke etwa an die Newtonschen Grundsätze der Mechanik und die aus denselben abgeleiteten astronomischen Folgerungen.</p>
+  <p class="jp" lang="ja">11. つねに複雑で、多様な付随事情に影響された観察の事実を、観察によって本来保証されうるよりも単純かつ正確に表す理論だけが、一義的規定性の理想に対応する<a class="fr" href="#n8">8</a>。理論のこの鋭さによって、われわれはそこから、相次ぐ多くの同種の、あるいは組み合わされた異種の演繹の歩みによって、その理論との一致が保証された広範な帰結を引き出すことができる。しかしこれらの帰結が経験と一致するか一致しないかは、たいてい（ずれが積み重なりうるために）、原則を観察と比べることよりも、理論の正しさあるいは改善の必要性のはるかに鋭い試験である。たとえばニュートンの力学の原則と、そこから導かれた天文学的帰結を考えてみよ。</p>
+  <ol class="notes"><li id="n8"><span class="nn">8</span><p class="de" lang="de">Vgl. die Ausführungen von Duhem (La Théorie physique, S. 220 u. f., 32 u. f.).</p><p class="jp" lang="ja">デュエムの論述（『物理理論』220頁以下、32頁以下）を参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s12"><a href="#s12">§ 12</a></h2>
+<article class="row" id="p12.1">
+  <aside class="mg"><a class="pid" href="#p12.1">12.1</a><span class="pg"><span>S.&nbsp;457</span><span>S.&nbsp;458</span></span></aside>
+  <p class="de" lang="de">12. Die allgemeinen, sich häufig wiederholenden Formen der Sätze der Theorie werden verständlich, wenn man dieselben unter dem Gesichtspunkt unseres Bedürfnisses nach Bestimmtheit und insbesondere nach eindeutiger Bestimmtheit betrachtet. Alles gewinnt hierdurch an Klarheit und Durchsichtigkeit. Wenige Bemerkungen genügen für den Physiker. Physikalische Differenzen bestimmen alles Geschehen, und die Verkleinerung der Differenzen überwiegt in dem Ausschnitt des Geschehens, welchen wir ins Auge fassen. Wo viele gleichartige Differenzen in derselben Weise das Geschehen in einem Punkte bestimmen, ist das <span class="pb" title="Leipzig 1906, S. 458">458</span>Mittel dieser Differenzen bestimmend.</p>
+  <p class="jp" lang="ja">12. 理論の命題の一般的な、しばしばくり返される形は、それを規定性への、とりわけ一義的規定性へのわれわれの欲求という観点のもとで考察すれば理解できるものとなる。それによってすべてが明晰さと見通しのよさを得る。物理学者にはわずかな所見で十分である。物理的な差がすべての生起を規定し、われわれが注目する生起の切片においては差の縮小が優勢である。多くの同種の差が同じ仕方で一点における生起を規定するところでは、これらの差の平均が規定的である。</p>
+</article>
+<article class="row" id="p12.2">
+  <aside class="mg"><a class="pid" href="#p12.2">12.2</a><span class="pg"><span>S.&nbsp;458</span></span></aside>
+  <p class="de" lang="de">Die in so vielen Gebieten der Statik und Dynamik, der Wärme, Elektrizität u. s. w. zur Anwendung gelangenden Gleichungen von Laplace und Poisson besagen,<a class="fr" href="#n9">9</a> und zwar die erstere, daß jenes bestimmende Mittel den Wert Null, die andere, welchen es sonst hat. Symmetrische Differenzen in Bezug auf einen Punkt bestimmen ein symmetrisches Geschehen in demselben, in besonderen Fällen einer mehrfachen Symmetrie aber ein Ausfallen des Geschehens. Die konjugierten Funktionen, welche die zusammengehörigen Scharen der orthogonalen Niveau- und Kraftlinien oder der Niveau- und Stromlinien u. s. w. darstellen, bestimmen in den Fällen ihrer Anwendung eine Symmetrie des Geschehens in den unendlich kleinen Elementen.</p>
+  <p class="jp" lang="ja">静力学と動力学、熱、電気などのきわめて多くの領域で適用されるラプラスとポアソンの方程式は<a class="fr" href="#n9">9</a>、前者は、その規定的な平均が値零をもつことを、後者は、それがほかにどんな値をもつかを述べている。ある点に関して対称な差は、その点において対称な生起を規定し、多重の対称性の特別な場合には生起の欠如を規定する。直交する等位線と力線、あるいは等位線と流線などの組をなす束を表す共役関数は、その適用の場合に、無限小の要素における生起の対称性を規定する。</p>
+  <ol class="notes"><li id="n9"><span class="nn">9</span><p class="de" lang="de">Wärmelehre. S. 117 u. f.</p><p class="jp" lang="ja">『熱学』117頁以下。</p></li></ol>
+</article>
+<article class="row" id="p12.3">
+  <aside class="mg"><a class="pid" href="#p12.3">12.3</a><span class="pg"><span>S.&nbsp;458</span></span></aside>
+  <p class="de" lang="de">Ein Größtes oder Kleinstes unter einer Menge von vielfachen benachbarten Möglichkeiten kann stets als unter einer Art von Symmetriebedingungen stehend aufgefaßt werden. Wenn die Differenzen bei jeder beliebigen kleinen Änderung einer Anordnung allseitig in demselben Sinne wachsen oder abnehmen, so bietet diese Anordnung immer in irgend einer Beziehung ein Maximum oder ein Minimum dar. Gleichgewichtsfälle, nicht allein mechanische und dynamische Gleichgewichtszustände sind in der Regel von dieser Art. An einem andern Orte wurde ausgeführt, daß bei dynamischen Gesetzen, wie dem Prinzip der kleinsten Wirkung u. a., welche in Form von Maximum-Minimumsätzen ausgesprochen werden, nicht das Maximum oder Minimum das Maßgebende ist, sondern vielmehr der Gedanke der eindeutigen Bestimmtheit.<a class="fr" href="#n10">10</a></p>
+  <p class="jp" lang="ja">多くの隣り合う可能性の集まりのなかでの最大あるいは最小は、つねに一種の対称性の条件のもとにあるものとして把握できる。配置の任意の小さな変化ごとに、差があらゆる側で同じ向きに増加あるいは減少するならば、この配置はつねに何らかの関係において最大あるいは最小を示す。平衡の場合、すなわち力学的なものだけでなく動力学的な平衡状態も、通常この種のものである。別の箇所で述べたように、最小作用の原理などのように最大最小の命題の形で言い表される動力学的法則においては、決定的なのは最大あるいは最小ではなく、むしろ一義的規定性の思想なのである<a class="fr" href="#n10">10</a>。</p>
+  <ol class="notes"><li id="n10"><span class="nn">10</span><p class="de" lang="de">Mechanik, 5. Aufl. S. 419-421. - Petzoldt, Das Gesetz der Eindeutigkeit. Vierteljahrschrift f. wissensch. Philosophie. XIX. S. 146 u. f.</p><p class="jp" lang="ja">『力学』第5版、419–421頁。——ペッツォルト「一義性の法則」『科学的哲学季刊誌』第19巻、146頁以下。</p></li></ol>
+</article>
+<h2 class="sec" id="s13"><a href="#s13">§ 13</a></h2>
+<article class="row" id="p13.1">
+  <aside class="mg"><a class="pid" href="#p13.1">13.1</a><span class="pg"><span>S.&nbsp;458</span><span>S.&nbsp;459</span></span></aside>
+  <p class="de" lang="de">13. Sind nun die Naturgesetze als bloße subjektive Vorschriften für die Erwartung des Beobachters, an welche die Wirklichkeit nicht gebunden ist, wertlos? Keineswegs! Denn, wenn auch der Erwartung nur innerhalb gewisser Grenzen von der sinnlichen Wirklichkeit entsprochen wird, so hat sich erstere doch vielfach als richtig bewährt, und bewährt sich täglich mehr. Wir haben also mit dem Postulat der Gleichförmigkeit der Natur keinen Fehlgriff getan, wenn auch bei der Unerschöpflichkeit der Erfahrung die absolute Anwendbarkeit des Postulates nach <span class="pb" title="Leipzig 1906, S. 459">459</span>Schärfe, zeitlicher und räumlicher Unbeschränktheit sich nie wird dartun lassen, und wie jedes wissenschaftliche Hilfsmittel immer ein Ideal bleiben wird. Außerdem bezieht sich das Postulat überhaupt nur auf Gleichförmigkeiten, sagt aber über die Art derselben nichts aus. Im Falle einer Enttäuschung der Erwartung hat man also stets die Freiheit, statt der erwarteten Gleichförmigkeiten neue zu suchen.</p>
+  <p class="jp" lang="ja">13. それでは自然法則は、現実がそれに縛られていない、観察者の期待のための単なる主観的な指示として、価値のないものなのであろうか。けっしてそうではない！ というのも、期待がある限界の内部でしか感性的現実によって応えられないとしても、期待はやはり何度も正しいものとして実証され、日ごとにますます実証されているからである。それゆえわれわれは、自然の一様性の要請によって失策を犯したわけではない。もっとも経験の汲み尽くしえなさのゆえに、鋭さと、時間的・空間的な無制限さとにおける要請の絶対的な適用可能性はけっして示されえず、それはどの科学的補助手段とも同じく、つねに一つの理想にとどまるであろうが。そのうえ、要請はそもそも一様性にかかわるだけで、その種類については何も述べない。それゆえ期待が裏切られた場合には、期待した一様性のかわりに新しい一様性を探す自由がつねにある。</p>
+</article>
+<h2 class="sec" id="s14"><a href="#s14">§ 14</a></h2>
+<article class="row" id="p14.1">
+  <aside class="mg"><a class="pid" href="#p14.1">14.1</a><span class="pg"><span>S.&nbsp;459</span></span></aside>
+  <p class="de" lang="de">14. Wer, wie der Naturforscher, das menschliche psychische Individuum nicht als ein der Natur gegenüberstehendes isoliertes Fremdes, sondern als einen Teil der Natur auffaßt, wer das sinnlich-physische und das Vorstellungsgeschehen als ein untrennbares Ganze ansieht, wird sich nicht wundern, daß das Ganze nicht durch den Teil zu erschöpfen ist. Doch werden ihm Regeln, die sich im Teil offenbaren, die Vermutung von Regeln im Ganzen nahelegen. Er wird hoffen, daß, so wie es ihm gelingt, in einem kleineren Gebiet eine Tatsache durch die andere zu erläutern, auch nach und nach die beiden Gebiete des Physischen und Psychischen sich gegenseitig aufklären werden. Es handelt sich ja nur darum, die Ergebnisse der physikalischen und psychologischen Beobachtung im einzelnen genauer zum Zusammenstimmen zu bringen, als es schon geschehen ist; an der Beziehung beider im allgemeinen zweifelt niemand mehr. An zwei unabhängige oder nur in loser Beziehung stehende Welten kann man nicht mehr denken. Die Verbindung derselben durch ein unbekanntes Drittes (!) hat aber als Erklärung gar keinen Sinn; solche Erklärungen haben hoffentlich für immer allen Kredit verloren.</p>
+  <p class="jp" lang="ja">14. 自然研究者のように、人間の心的個体を自然に対立する孤立したよそ者としてではなく、自然の一部として把握し、感性的・物理的な生起と表象の生起とを分離できない全体とみなす者は、全体が部分によって汲み尽くされないことに驚かないであろう。しかし部分のうちに現れる規則は、全体のうちに規則があることを推測させるであろう。彼は、より小さな領域において一つの事実を他の事実によって解明することに成功するように、物理的なものと心的なものという二つの領域もまた、しだいに互いに照らし合うであろうと希望するであろう。問題は、物理学的観察と心理学的観察の結果を、個々の点において、すでになされているよりも正確に一致させることだけである。両者の関係一般については、もはや誰も疑っていない。二つの独立した、あるいはゆるい関係にしか立たない世界を考えることは、もはやできない。しかし未知の第三者（！）による両者の結合は、説明としてまったく意味をもたない。そのような説明は、願わくは永久にあらゆる信用を失ったことであろう。</p>
+</article>
+<h2 class="sec" id="s15"><a href="#s15">§ 15</a></h2>
+<article class="row" id="p15.1">
+  <aside class="mg"><a class="pid" href="#p15.1">15.1</a><span class="pg"><span>S.&nbsp;459</span><span>S.&nbsp;460</span></span></aside>
+  <p class="de" lang="de">15. Die Entstehung der berührten Ansichten ist ja ganz verständlich. Als der Mensch durch Analogie die Entdeckung machte, daß noch andere ihm ähnliche, sich ähnlich verhaltende Lebewesen, Menschen und Tiere bestehen, und als er genötigt war, sich zum klaren Bewußtsein zu bringen, daß er deren Verhalten mit Rücksicht auf Umstände beurteilen müsse, die er nicht unmittelbar sinnlich wahrnehmen konnte, deren Analoga ihm aber doch in seiner besonderen Erfahrung bekannt waren, da konnte er nicht anders, da mußte er die Vorgänge in zwei Klassen teilen: in solche, die allen, und in andere, die nur einem wahrnehmbar waren (S. 6). Das war für ihn die einfachste und zu<span class="pb" title="Leipzig 1906, S. 460">460</span>gleich die praktisch hilfreichste Lösung. So wurde ihm zugleich der Gedanke des fremden und des eigenen Ich klar.</p>
+  <p class="jp" lang="ja">15. 触れた見解の成立は、まったく理解できるものである。人間が類推によって、自分に似た、似たふるまいをする他の生物、人間や動物が存在することを発見し、それらのふるまいを、直接には感性的に知覚できないが、その類比物は自分の特別な経験のなかで知っている事情を顧慮して判断しなければならないことを明晰に意識せざるをえなくなったとき、彼はそうする以外になく、過程を二つのクラスに分けなければならなかった。すなわちすべての人に知覚できるものと、ただ一人にだけ知覚できるもの（6頁）とにである。それが彼にとって最も単純で、同時に実践的に最も役立つ解決であった。こうして彼には同時に、他人の自我と自分自身の自我の思想が明らかになった。</p>
+</article>
+<article class="row" id="p15.2">
+  <aside class="mg"><a class="pid" href="#p15.2">15.2</a><span class="pg"><span>S.&nbsp;460</span></span></aside>
+  <p class="de" lang="de">Beide Gedanken sind untrennbar. Wer durch irgend einen Zufall ohne lebende Genossen aufwachsen könnte, würde seine dürftigen Vorstellungen schwerlich den Empfindungen gegenüberstellen, würde nicht zum Gedanken des Ich gelangen, dieses nicht der Welt entgegensetzen. Alles Geschehen wäre für ihn nur eines. Haben wir aber einmal den Ich-Gedanken gefaßt, so gelingt es uns leicht, die Abstraktionen des Physischen und Psychischen, der eigenen und fremden Empfindung, der eigenen und fremden Vorstellung zu bilden. (Vgl. S. 9.) Beide Betrachtungsweisen sind für eine umfassende Orientierung förderlich, und beide sollen benutzt werden. Die eine führt zur Beachtung der Einzelheiten, die andere dazu, den Blick aufs Ganze nicht zu verlieren.<a class="fr" href="#n11">11</a></p>
+  <p class="jp" lang="ja">両方の思想は分離できない。何かの偶然で生きた仲間なしに育つことができた者は、その乏しい表象を感覚に対立させることはまずないであろうし、自我の思想に達することも、それを世界に対置することもないであろう。すべての生起は彼にとってただ一つのものであろう。しかしいったん自我の思想をとらえると、物理的なものと心的なもの、自分の感覚と他人の感覚、自分の表象と他人の表象という抽象を形成することは容易である（9頁を参照）。両方の見方は包括的な方向づけにとって役に立ち、両方とも用いられるべきである。一方は細部への注目へ、他方は全体への眼差しを失わないことへと導く<a class="fr" href="#n11">11</a>。</p>
+  <ol class="notes"><li id="n11"><span class="nn">11</span><p class="de" lang="de">Vgl. W. Jerusalem, Einleitung in die Philosophie. 2. Aufl. 1903. S. 118 u. f. („Monismus des Geschehens“.)</p><p class="jp" lang="ja">W. イェルーザレム『哲学入門』第2版、1903年、118頁以下（「生起の一元論」）を参照。</p></li></ol>
+</article>
+<h2 class="sec" id="s16"><a href="#s16">§ 16</a></h2>
+<article class="row" id="p16.1">
+  <aside class="mg"><a class="pid" href="#p16.1">16.1</a><span class="pg"><span>S.&nbsp;460</span></span></aside>
+  <p class="de" lang="de">16. Wenn die Welt durch Abstraktionen zersägt und zerschnitten ist, so erscheinen diese Teilstücke so luftig und so wenig massig, daß Zweifel auftreten, ob sich die Welt aus denselben wieder zusammenleimen lassen wird. Man fragt wohl auch gelegentlich humoristisch-ironisch, ob so eine Empfindung oder Vorstellung, die keinem Ich angehört, allein in der Welt spazieren gehen könnte? So waren ja auch die Mathematiker, nachdem sie die Welt in Differentiale zerteilt hatten, ein wenig in Angst, ob sie die Welt aus solchen Nichtsen wieder ohne Schaden würden zusammenintegrieren können? Ich möchte auf obige Frage antworten: Gewiß wird eine Empfindung nur in einem Komplex auftreten; daß dieser aber immer ein volles, waches, menschliches Ich sei — es gibt ja auch ein Traumbewußtsein, ein hypnotisches, ein ekstatisches, ein tierisches Bewußtsein verschiedener Grade — möchte ich in Zweifel ziehen.</p>
+  <p class="jp" lang="ja">16. 世界が抽象によって鋸で切られ、切り刻まれると、これらの断片はあまりに軽く、あまりに質量に乏しく見えるので、世界がそれから再び貼り合わせられるかどうかという疑いが生じる。ときにはユーモアと皮肉をこめて、どの自我にも属さない感覚や表象が、ひとりで世界を散歩できるのか、と問われもする。数学者たちも、世界を微分に分割したのち、そのような無から世界を損なわずに再び積分して組み立てられるかどうか、少しばかり不安であった。上の問いに対して私はこう答えたい。たしかに感覚はある複合体のなかにしか現れないであろう。しかしこの複合体がつねに完全な、目覚めた、人間の自我であるということ——夢の意識、催眠の意識、恍惚の意識、さまざまな程度の動物の意識もあるのだから——を、私は疑いたいと思う。</p>
+</article>
+<article class="row" id="p16.2">
+  <aside class="mg"><a class="pid" href="#p16.2">16.2</a><span class="pg"><span>S.&nbsp;460</span><span>S.&nbsp;461</span></span></aside>
+  <p class="de" lang="de">Selbst ein Körper, ein Stück Blei, das Gröbste was wir kennen, gehört immer einem Komplex und schließlich der Welt an; es existiert nichts isoliert.<a class="fr" href="#n12">12</a> So wie es dem Physiker freistehen muß, die materielle Welt zum Zwecke der wissenschaftlichen Unter<span class="pb" title="Leipzig 1906, S. 461">461</span>suchung zu analysieren, in Teile zu zerlegen, ohne daß er deshalb den allgemeinen Weltzusammenhang vergessen müßte, so muß auch dem Psychologen dieselbe Freiheit gewährt werden, wenn er überhaupt etwas zu stande bringen soll. (Vgl. S. 142.) Die Empfindung, kann man in des Cynikers Demonax Redeweise sagen, existiert so wenig allein, als irgend etwas anderes. — Introspektiv finde ich mein Ich durch den Komplex der konkreten Bewußtseinsinhalte erschöpft. Wenn man zuweilen meint, neben diesem doch noch etwas wahrzunehmen, so möchte dies an Folgendem liegen. Mit dem abstrakten Gedanken des eigenen Ich ist eng verbunden jener der fremden Ich und des Unterschiedes beider, ferner der, daß sich das Ich nicht indifferent gegen seinen Inhalt verhält.</p>
+  <p class="jp" lang="ja">一つの物体、一片の鉛、われわれの知る最も粗いものでさえ、つねにある複合体に、そして結局は世界に属している。何ものも孤立しては存在しない<a class="fr" href="#n12">12</a>。物理学者が、世界の一般的な連関を忘れることなく、科学的研究の目的のために物質的世界を分析し部分に分解する自由をもたなければならないように、心理学者にも、そもそも何かを成し遂げるべきであるならば、同じ自由が与えられなければならない（142頁を参照）。犬儒派のデモナクスの言い方を借りれば、感覚はほかの何ものとも同じく、単独では存在しない、と言うことができる。——内観によって、私は私の自我が具体的な意識内容の複合体によって汲み尽くされているのを見いだす。ときに、これとは別になお何かを知覚すると考えることがあるとすれば、それは次のことによるのであろう。自分自身の自我という抽象的な思想には、他人の自我と両者の違いの思想が、さらに自我がその内容に対して無関心にはふるまわないという思想が、緊密に結びついている。</p>
+  <ol class="notes"><li id="n12"><span class="nn">12</span><p class="de" lang="de">Vgl. die Kontroverse zwischen Ziehen (Zeitschr. f. Psychologie u. Physiologie der Sinnesorgane. Bd. 33, S. 91) und Schuppe (ebendaselbst. Bd. 35, S. 454). — Analyse. 4. Aufl. S. 281.</p><p class="jp" lang="ja">ツィーエン（『心理学・感覚器官生理学雑誌』第33巻、91頁）とシュッペ（同誌、第35巻、454頁）との論争を参照。——『感覚の分析』第4版、281頁。</p></li></ol>
+</article>
+<article class="row" id="p16.3">
+  <aside class="mg"><a class="pid" href="#p16.3">16.3</a><span class="pg"><span>S.&nbsp;461</span></span></aside>
+  <p class="de" lang="de">Man frage sich aber, ob diese abstrakten Gedanken nicht auch nur konkreten Bewußtseinsinhalt bergen und decken, und ob dieselben durch reine Introspektion überhaupt hätten gewonnen werden können? An der physikalisch-physiologischen Unterlage des Ich ist aber gewiß noch beinahe alles zu erforschen. Diese ist keineswegs Nichts neben dem augenblicklich lebendigen Inhalt des Bewußtseins, der ja immer nur einen winzigen Teil ihres Reichtums vorstellt.</p>
+  <p class="jp" lang="ja">しかし、これらの抽象的な思想もまた具体的な意識内容を宿し覆っているだけではないのか、そもそもそれらは純粋な内観によって得られえたであろうか、と自問してみよ。しかし自我の物理学的・生理学的な基盤については、たしかにまだほとんどすべてが研究されるべきである。それは、そのつど生き生きとした意識内容——それはつねにその豊かさのごく小さな一部をなすにすぎない——と並んで、けっして無ではないのである。</p>
+</article>
+<h2 class="sec" id="s17"><a href="#s17">§ 17</a></h2>
+<article class="row" id="p17.1">
+  <aside class="mg"><a class="pid" href="#p17.1">17.1</a><span class="pg"><span>S.&nbsp;461</span></span></aside>
+  <p class="de" lang="de">17. Auch die herkömmliche Meinung, daß zwischen dem Ich und der Welt, ebenso zwischen den verschiedenen Ich unüberschreitbare Schranken bestehen, ist psychologisch begreiflich. Wenn ich etwas empfinde oder mir vorstelle, so scheint dies die Welt und auch die andern Ich gar nicht zu beeinflussen. Aber es scheint nur so. Schon das leise Mitspielen meiner Muskel gehört der Welt und jedem aufmerksamen Beobachter an. Noch mehr gilt dies, wenn meine Vorstellungen in Rede und Handlung ausbrechen.</p>
+  <p class="jp" lang="ja">17. 自我と世界とのあいだに、また異なる自我のあいだに越えられない障壁があるという伝来の意見もまた、心理学的には理解できる。私が何かを感覚したり表象したりしても、それは世界にも他の自我にもまったく影響しないように見える。しかしそう見えるだけである。私の筋肉のかすかなともの動きでさえ、すでに世界に、そしてどの注意深い観察者にも属している。私の表象が言葉と行為となって現れるときには、なおさらそうである。</p>
+</article>
+<article class="row" id="p17.2">
+  <aside class="mg"><a class="pid" href="#p17.2">17.2</a><span class="pg"><span>S.&nbsp;461</span><span>S.&nbsp;462</span></span></aside>
+  <p class="de" lang="de">Sieht jemand Blau und ein anderer eine Kugel, so kann daraus allerdings kein Urteil resultieren: Die Kugel ist blau. Es fehlt hierzu „die synthetische Einheit der Apperzeption“, mit welchem schönen Wort man diese triviale Tatsache bezeichnet.<a class="fr" href="#n13">13</a> Beide Vorstellungen müssen eben in Reaktionsnähe kommen, ganz ähnlich, wie die Körper im Gebiete der Physik. Solche Ausdrücke lösen aber kein Problem, sondern sind vielmehr <span class="pb" title="Leipzig 1906, S. 462">462</span>geeignet dasselbe zu decken oder zu verdecken. Das Ich ist kein Topf, in welchen das Blau und die Kugel nur hineinzufallen brauchen, damit ein Urteil resultiere. Das Ich ist mehr als eine bloße Einheit, und schon gar nicht eine Herbartsche Einfachheit. Dieselben räumlichen Elemente, welche sich zur Kugel schließen, müssen blau sein, und das Blau muß auch von den Orten als verschieden, als trennbar erkannt werden, damit ein Urteil möglich sei.</p>
+  <p class="jp" lang="ja">ある人が青を見、別の人が球を見るとしても、そこからもちろん「球は青い」という判断は生じえない。そのためには「統覚の総合的統一」が欠けている。人はこの美しい言葉でこの陳腐な事実を呼んでいるのである<a class="fr" href="#n13">13</a>。両方の表象はまさに、物理学の領域における物体とまったく同様に、反応の近さに入らなければならない。しかしそのような表現は何の問題も解かず、むしろそれを覆い、あるいは覆い隠すのに適している。自我は、青と球とがそこへ落ちこみさえすれば判断が生じるような壺ではない。自我は単なる統一以上のものであり、ましてヘルバルト的な単純性ではない。判断が可能であるためには、閉じて球をなす同じ空間的要素が青くなければならず、また青は場所とは異なるもの、分離できるものとしても認識されなければならない。</p>
+  <ol class="notes"><li id="n13"><span class="nn">13</span><p class="de" lang="de">Wie nun gar hieraus die Unveränderlichkeit des Ich folgen soll, ist mir unerfindlich.</p><p class="jp" lang="ja">それがどうしてそこから自我の不変性が帰結することになるのか、私にはまったく理解できない。</p></li></ol>
+</article>
+<article class="row" id="p17.3">
+  <aside class="mg"><a class="pid" href="#p17.3">17.3</a><span class="pg"><span>S.&nbsp;462</span></span></aside>
+  <p class="de" lang="de">Das Ich ist ein psychischer Organismus, dem ein physischer Organismus entspricht. Es ist doch schwer zu glauben, daß dies ewig ein Problem bleiben müßte, daß Psychologie und Physiologie zusammen daran nichts mehr aufklären könnten. Die Introspektion allein, ohne Hilfe der Physik, hätte nicht einmal zur Empfindungsanalyse geführt. Die Philosophen überschätzen einseitig die introspektive, die Psychiater oft ebenso einseitig die physiologische Analyse, während zu einem ausgiebigen Erfolg die Vereinigung beider unentbehrlich ist. Bei beiden Gruppen von Forschern scheint das von der primitiven Kultur herstammende, nicht vollständig erloschene Vorurteil mitzuwirken, wonach Psychisches und Physisches nun einmal durchaus inkommensurabel ist. Wie weit die angedeutete Untersuchung führen wird, ist vorläufig nicht abzusehen.</p>
+  <p class="jp" lang="ja">自我は、一つの物理的有機体が対応する心的有機体である。これが永遠に問題にとどまらなければならず、心理学と生理学がともにそれについてもはや何も解明できないとは、やはり信じがたい。物理学の助けなしの内観だけでは、感覚の分析にさえ導かなかったであろう。哲学者たちは一面的に内観的分析を過大評価し、精神科医たちはしばしば同じく一面的に生理学的分析を過大評価するが、十分な成果のためには両者の統合が不可欠である。両方の研究者の群において、原始的文化に由来し、まだ完全には消えていない偏見、すなわち心的なものと物理的なものとはそもそもまったく通約不可能であるという偏見がともに作用しているように見える。示唆した研究がどこまで導くかは、さしあたり見通せない。</p>
+</article>
+<article class="row" id="p17.4">
+  <aside class="mg"><a class="pid" href="#p17.4">17.4</a><span class="pg"><span>S.&nbsp;462</span></span></aside>
+  <p class="de" lang="de">Ist das Ich keine von der Welt isolierte Monade, sondern ein Teil der Welt und mitten im Fluß derselben darin, aus dem es hervorgegangen und in den zu diffundieren es wieder bereit ist, so werden wir nicht mehr geneigt sein, die Welt als ein unerkennbares Etwas anzusehen. Wir selbst sind uns dann nahe genug und den andern Teilen der Welt verwandt genug, um auf wirkliche Erkenntnis zu hoffen. (Vgl. S. 11.)</p>
+  <p class="jp" lang="ja">自我が世界から孤立したモナドではなく、世界の一部であり、その流れのただなかにあって、そこから生じ、再びそこへ拡散していく用意があるのならば、われわれはもはや世界を認識できない何ものかとみなす気にはならないであろう。そうなればわれわれは自分自身に十分に近く、世界のほかの部分に十分に近縁であって、本当の認識を望むことができる（11頁を参照）。</p>
+</article>
+<h2 class="sec" id="s18"><a href="#s18">§ 18</a></h2>
+<article class="row" id="p18.1">
+  <aside class="mg"><a class="pid" href="#p18.1">18.1</a><span class="pg"><span>S.&nbsp;462</span><span>S.&nbsp;463</span></span></aside>
+  <p class="de" lang="de">18. Die Wissenschaft ist anscheinend als der überflüssigste Seitenzweig aus der biologischen und kulturellen Entwicklung hervorgewachsen. Wir können aber heute nicht mehr zweifeln, daß dieselbe sich zum biologisch und kulturell förderlichsten Faktor entwickelt hat. Sie hat die Aufgabe übernommen, an die Stelle der tastenden, unbewußten Anpassung die raschere, klar bewußte, methodische zu setzen. Der verstorbene Physiker E. Reitlinger pflegte pessimistischen Anwandlungen gegenüber zu sagen: „Der Mensch trat in der Natur auf, als dessen Daseinsbedingungen, aber noch nicht dessen Wohlseinsbedingungen <span class="pb" title="Leipzig 1906, S. 463">463</span>gegeben waren.“ In der Tat soll er sich die letzteren selbst schaffen, und ich glaube, er hat sich dieselben geschaffen. Dies gilt wenigstens heute schon von den materiellen Wohlseinsbedingungen, wenn auch vorläufig leider nur für einen Teil der Menschen. Wir können von der Zukunft noch Besseres erhoffen.<a class="fr" href="#n14">14</a></p>
+  <p class="jp" lang="ja">18. 科学は見たところ、生物学的・文化的発展から最も余計な側枝として生い育ってきた。しかし今日われわれは、それが生物学的にも文化的にも最も促進的な要因へと発展したことをもはや疑うことはできない。科学は、手探りの無意識的な適応のかわりに、より速い、明晰に意識された、方法的な適応を置くという課題を引き受けたのである。亡くなった物理学者 E. ライトリンガーは、悲観的な気分に対してこう言うのを常としていた。「人間が自然のなかに現れたとき、その生存の条件は与えられていたが、その安寧の条件はまだ与えられていなかった」。実際、人間は後者をみずからつくり出すべきなのであり、私の信じるところでは、人間はそれをつくり出してきた。少なくとも物質的な安寧の条件については、残念ながらさしあたり人類の一部についてだけではあるが、今日すでにそう言える。われわれは未来にさらによいものを期待できる<a class="fr" href="#n14">14</a>。</p>
+  <ol class="notes"><li id="n14"><span class="nn">14</span><p class="de" lang="de">E. Metschnikoff, Studien über die Natur des Menschen. Eine optimistische Philosophie. Leipzig 1904.</p><p class="jp" lang="ja">E. メチニコフ『人間の本性についての研究——楽観的な哲学』ライプツィヒ、1904年。</p></li></ol>
+</article>
+<article class="row" id="p18.2">
+  <aside class="mg"><a class="pid" href="#p18.2">18.2</a><span class="pg"><span>S.&nbsp;463</span></span></aside>
+  <p class="de" lang="de">Sir John Lubbock<a class="fr" href="#n15">15</a> spricht die Hoffnung aus, „daß sich die Segnungen der Zivilisation nicht nur auch auf andere Länder und andere Völkerschaften erstrecken werden, sondern daß sie auch in unserem eigenen Vaterlande nach und nach zur allgemeinen, gleichmäßigen Geltung kommen, so daß uns nicht mehr stets Landsleute vor die Augen treten, die in unserer Mitte ein schlimmeres Leben führen, als die Wilden, und welche weder die Vorteile und wahren, wenngleich einfachen Freuden genießen, die das Leben der niederen Rassen schmücken, noch die weit höheren und edleren Annehmlichkeiten sich zu verschaffen wissen, welche im Bereich des zivilisierten Menschen liegen“. Bedenken wir die Qualen, welche unsere Vorfahren unter der Brutalität ihrer sozialen Einrichtungen, ihrer Rechts- und Gerichtsverhältnisse, ihres Aberglaubens, ihres Fanatismus zu erdulden hatten, erwägen wir die reichliche Erbschaft der Gegenwart an diesen Gütern, stellen wir uns vor, was wir davon noch in unseren Nachkommen miterleben werden, so ist uns dies ein genügend mächtiger Antrieb, endlich auch an der Verwirklichung des Ideales einer sittlichen Weltordnung mit Hilfe unserer psychologischen und soziologischen Einsichten eifrig und kräftig mitzuarbeiten. Haben wir aber einmal eine solche sittliche Ordnung geschaffen, so wird niemand sagen können, daß sie nicht in der Welt sei, und niemand wird mehr nötig haben, sie in mystischen Höhen oder Tiefen zu suchen.</p>
+  <p class="jp" lang="ja">ジョン・ラボック卿<a class="fr" href="#n15">15</a>は、「文明の恵みが他の国々や他の民族にも及ぶだけでなく、われわれ自身の祖国においてもしだいに一般的に等しく行き渡り、その結果、われわれのただなかで未開人よりも悪い生活を送り、下等な種族の生活を飾る利点と、素朴ではあるが真の喜びとを享受することもなく、文明人の手の届くところにあるはるかに高く気高い快適さを手に入れるすべも知らない同胞が、もはやたえず目の前に現れることのないように」という希望を述べている。われわれの祖先が、その社会制度、法と裁判の状態、迷信、狂信の残忍さのもとで耐え忍ばなければならなかった苦しみを考え、これらの財貨について現在が受け継いだ豊かな遺産をよく考え、そのうちさらに何をわれわれの子孫のうちにともに体験するであろうかを思い描くならば、それはわれわれにとって、ついに心理学的・社会学的洞察の助けを借りて、道徳的世界秩序の理想の実現にも熱心に力強く協力するための十分に強い動機である。しかしひとたびそのような道徳的秩序をつくり出したならば、誰もそれが世界のうちにないとは言えないであろうし、もはや誰もそれを神秘的な高みや深みに探す必要はないであろう。</p>
+  <ol class="notes"><li id="n15"><span class="nn">15</span><p class="de" lang="de">J. Lubbock, Die Entstehung der Zivilisation. Jena 1875. S. 399.</p><p class="jp" lang="ja">J. ラボック『文明の起源』イェーナ、1875年、399頁。</p></li></ol>
+</article>
+</main>
+
+<details class="corr">
+  <summary>校訂注（底本との照合）</summary>
+  <p>ドイツ語本文は OCR テキストを Leipzig 第2版（1906）の版面に即して校訂した。主な処理：</p>
+  <div class="tw"><table><thead><tr><th>位置</th><th>OCR</th><th>採用</th></tr></thead><tbody>
+  <tr><td>§5.1–5.3</td><td lang="de">A1, B1, C1; (n-2) • 2R; sina/sinẞ=n; Inachweisbar</td><td lang="de">A₁, B₁, C₁; (n − 2) · 2R; sin α/sin β = n; nachweisbar</td></tr>
+  <tr><td>§16.2</td><td lang="de">isoliert.²)</td><td lang="de">注12 への参照</td></tr>
+  <tr><td>§16–18</td><td lang="de">§17・§18 の節番号が前段落末尾に連続</td><td lang="de">§17・§18 を独立させた</td></tr>
+  <tr><td>§18; 注14–15</td><td lang="de">底本OCRに S. 463 が欠落（本文が Wohlseinsbedingungen で途切れる）</td><td lang="de">別途提供された S. 463 のテキストにより補完（gegeben waren.“ 以下、注 Metschnikoff・Lubbock）</td></tr>
+  </tbody></table></div>
+  <p>長い段落は対照の便宜のため文の切れ目で分けた。注番号は章内通し番号。</p>
+
+</details>
+
+<nav class="pager"><a href="kapitel_24.html">← 第ⅩⅩⅣ章</a><a href="index.html">目次</a><span></span></nav>
+
+<script>
+(function(){
+  var b=document.body;
+  function store(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{return localStorage.getItem(k);}catch(e){return null;} }
+  function setV(v){ b.classList.remove('only-de','only-jp'); if(v!=='both') b.classList.add(v);
+    document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.v===v);}); store('mach-ei-view',v); }
+  function setN(n){ b.classList.toggle('no-notes',n==='no-notes');
+    document.querySelectorAll('[data-n]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.n===n);}); store('mach-ei-notes',n); }
+  document.querySelectorAll('[data-v]').forEach(function(x){x.addEventListener('click',function(){setV(x.dataset.v);});});
+  document.querySelectorAll('[data-n]').forEach(function(x){x.addEventListener('click',function(){setN(x.dataset.n);});});
+  setV(load('mach-ei-view')||'both'); setN(load('mach-ei-notes')||'show');
+})();
+</script>
+</body>
+</html>
